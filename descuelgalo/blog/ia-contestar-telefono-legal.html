@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Es legal que una IA conteste el teléfono de mi negocio? · Descuélgalo</title>
+<meta name="description" content="Qué dicen el AI Act europeo, el RGPD y la nueva ley de atención a la clientela sobre usar una recepcionista con IA en una pyme española.">
+<link rel="canonical" href="https://descuelgalo.vercel.app/blog/ia-contestar-telefono-legal.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+article{max-width:720px}
+article p,article li{font-size:18px;line-height:1.7}
+article h2{margin-top:30px}
+.cta-b{background:var(--green);color:#fff;border-radius:18px;padding:22px;margin:30px 0}
+.cta-b p{color:#EEF9F2}.cta-b a{color:#fff}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"¿Es legal que una IA conteste el teléfono de mi negocio?","datePublished":"2026-09-26","author":{"@type":"Person","name":"Joaquín Ferreiros"},"publisher":{"@type":"Organization","name":"Descuélgalo"}}</script>
+</head>
+<body>
+<div class="wrap">
+<header><a class="back" href="../index.html">← Descuélgalo</a><br><br><span class="tag">Blog · 26 sep 2026</span><h1>¿Es legal que una IA conteste el teléfono de mi negocio?</h1></header>
+<article>
+<p>Si tienes un taller, una clínica pequeña o una peluquería, quizá te has preguntado si puedes poner una inteligencia artificial a coger el teléfono. La respuesta corta es sí, con tres condiciones: que diga que es una IA, que trate bien los datos de tus clientes y que ofrezca hablar con una persona. Te lo explico sin jerga.</p>
+<p>Aviso: esto es información general, no asesoramiento legal. Si tienes dudas sobre tu caso, consulta con tu gestoría o con un abogado.</p>
+
+<h2>1. El AI Act: la IA tiene que decir que es una IA</h2>
+<p>El Reglamento europeo de inteligencia artificial (<a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">Reglamento (UE) 2024/1689</a>, conocido como AI Act) regula los sistemas de IA en toda la Unión Europea. Su artículo 50 dice que, cuando una persona habla con un sistema de IA, hay que informarle de que está hablando con una IA, salvo que sea obvio.</p>
+<p>En la práctica, para un negocio pequeño esto se traduce en algo muy simple: la recepcionista tiene que decirlo al empezar. Por ejemplo: "Taller Ruiz, buenas. Soy Lucía, la asistente virtual". Con esa frase el cliente ya sabe con quién habla.</p>
+<p>Lo que no puedes hacer es que la IA finja ser una persona o niegue ser una IA si el cliente pregunta.</p>
+
+<h2>2. El RGPD: los datos de tus clientes</h2>
+<p>Cuando alguien llama y la IA apunta su nombre, su teléfono y lo que necesita, está tratando datos personales. Se aplica el Reglamento General de Protección de Datos (RGPD), igual que cuando tú lo apuntas en una libreta. Hay cuatro cosas que tienes que tener claras:</p>
+<ul>
+<li><b>Para qué usas los datos.</b> Para gestionar la cita o el presupuesto que el cliente pide. No para otra cosa sin su permiso.</li>
+<li><b>Quién los trata por ti.</b> El proveedor de la recepcionista es un encargado del tratamiento. Tiene que firmar contigo un contrato de encargado (lo exige el artículo 28 del RGPD).</li>
+<li><b>Dónde se guardan.</b> Mejor en servidores de la Unión Europea. Si salen fuera, el proveedor tiene que explicarte con qué garantías.</li>
+<li><b>Si se graban las llamadas.</b> Si la llamada se graba, hay que avisar al cliente al principio y explicarle para qué.</li>
+</ul>
+<p>La <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a> tiene guías gratuitas para pymes y la herramienta Facilita RGPD, que te ayuda a preparar los documentos básicos.</p>
+
+<h2>3. La ley de atención a la clientela: hablar con una persona</h2>
+<p>La <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> regula los servicios de atención a la clientela. Una de sus ideas centrales es que el cliente pueda hablar con una persona y no quede atrapado en un sistema automático.</p>
+<p>A quién obliga, según el propio texto de la ley:</p>
+<ul>
+<li><b>Artículo 2.1:</b> a empresas de cualquier tamaño que prestan servicios básicos: agua, gas y electricidad, transporte de pasajeros, correos, telecomunicaciones y servicios financieros.</li>
+<li><b>Artículo 2.2:</b> al resto de empresas que venden a consumidores solo si el año anterior tuvieron 250 trabajadores o más, más de 50 millones de euros de facturación o más de 43 millones de balance, solas o con su grupo de empresas.</li>
+<li><b>Artículo 8.2:</b> esas empresas deben ofrecer, cuando el cliente lo pida, atención por una persona desde el menú principal, y atender el 95 % de esas peticiones en menos de 3 minutos de media.</li>
+<li><b>Disposición transitoria única:</b> tienen 12 meses desde la entrada en vigor (28 de diciembre de 2025) para adaptarse, es decir, hasta el 28 de diciembre de 2026.</li>
+</ul>
+<p>Un taller, una peluquería o una clínica pequeña no está obligada por esta ley. Aun así, es una buena práctica, y tus clientes lo agradecen.</p>
+<p>Para una pyme, cumplir el espíritu de la ley es sencillo: si el cliente pide hablar con alguien, la IA pasa la llamada al dueño o, si no puede, deja el aviso con nombre, teléfono y motivo para que le llames tú.</p>
+
+<h2>4. Lo que no debe hacer la IA</h2>
+<ul>
+<li>Dar precios cerrados o diagnósticos que tú no has aprobado.</li>
+<li>Prometer cosas en tu nombre que no puedes cumplir.</li>
+<li>Pedir datos que no necesita, como el DNI o datos de salud, si no hacen falta para la cita.</li>
+<li>Llamar por su cuenta a gente que no la ha llamado para venderle algo. Las llamadas comerciales no solicitadas tienen sus propias reglas y multas.</li>
+</ul>
+
+<h2>¿Y qué piensan los clientes?</h2>
+<p>Más allá de la ley, la pregunta que más me hacen los dueños es si a sus clientes les molestará hablar con una IA. Lo que molesta es no poder resolver nada: esperar, pulsar números o que nadie coja. Si la IA saluda con el nombre de tu negocio, dice lo que es, entiende lo que el cliente pide y le confirma la cita por WhatsApp, el cliente sale con su problema resuelto. Y si prefiere hablar contigo, puede pedirlo.</p>
+<h2>Lista rápida antes de activarla</h2>
+<ol>
+<li>La IA dice que es una asistente virtual en la primera frase.</li>
+<li>Ofrece pasar con una persona o dejar el aviso.</li>
+<li>Tienes firmado el contrato de encargado del tratamiento con el proveedor.</li>
+<li>Sabes dónde se guardan los datos y cuánto tiempo.</li>
+<li>Si se graban las llamadas, la IA lo avisa.</li>
+<li>Has revisado qué responde a precios y urgencias.</li>
+</ol>
+<p>Descuélgalo está diseñado con estas reglas desde el principio: Lucía dice que es una IA, pasa con una persona cuando el cliente lo pide, y firmamos contigo el contrato de encargado del tratamiento.</p>
+
+<div class="cta-b"><h3>Que nadie se quede sin respuesta</h3><p>Descuélgalo coge las llamadas que no puedes, apunta la cita y te la manda por WhatsApp. Conservas tu número. <a href="../index.html#probar"><b>Pide tu piloto gratis de 30 días</b></a>.</p></div>
+<p style="font-size:14px">Escrito por Joaquín Ferreiros, fundador de Descuélgalo, en Barcelona.</p>
+</article>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="../index.html">Inicio</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></div></footer>
+</body>
+</html>

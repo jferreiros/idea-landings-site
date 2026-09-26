@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo desviar las llamadas que no coges a otro número · Descuélgalo</title>
+<meta name="description" content="Los códigos para desviar solo las llamadas no contestadas en tu móvil, cómo comprobar que funcionan y cómo quitarlos. Guía para talleres y autónomos.">
+<link rel="canonical" href="https://descuelgalo.vercel.app/blog/desviar-llamadas-no-contestadas.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+article{max-width:720px}
+article p,article li{font-size:18px;line-height:1.7}
+article h2{margin-top:30px}
+.cta-b{background:var(--green);color:#fff;border-radius:18px;padding:22px;margin:30px 0}
+.cta-b p{color:#EEF9F2}.cta-b a{color:#fff}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cómo desviar las llamadas que no coges a otro número","datePublished":"2026-09-26","author":{"@type":"Person","name":"Joaquín Ferreiros"},"publisher":{"@type":"Organization","name":"Descuélgalo"}}</script>
+</head>
+<body>
+<div class="wrap">
+<header><a class="back" href="../index.html">← Descuélgalo</a><br><br><span class="tag">Blog · 26 sep 2026</span><h1>Cómo desviar las llamadas que no coges a otro número</h1></header>
+<article>
+<p>Estás debajo de un coche, el móvil suena en el banco y no puedes cogerlo. Si lo dejas sonar, el cliente cuelga y llama a otro taller. Si pudieras mandar esa llamada a otro sitio solo cuando tú no contestas, la perderías menos. Eso es el desvío de llamadas no contestadas, y casi todos los móviles lo tienen.</p>
+<p>En esta guía te explico los tres tipos de desvío, los códigos que se usan en la mayoría de operadores móviles, cómo comprobar que funcionan y cómo quitarlos.</p>
+
+<h2>Los tres desvíos que te interesan</h2>
+<p>Tu móvil puede desviar una llamada en tres situaciones distintas. Puedes activar una, dos o las tres.</p>
+<ul>
+<li><b>Si no contestas.</b> El móvil suena unos segundos y, si no lo coges, la llamada pasa al otro número. Es el más útil para un taller: tú sigues cogiendo las llamadas que puedes.</li>
+<li><b>Si comunicas.</b> Si ya estás hablando con alguien, la segunda llamada no se queda esperando: pasa al otro número.</li>
+<li><b>Si no tienes cobertura o el móvil está apagado.</b> Útil en naves con mala señal o cuando se te acaba la batería.</li>
+</ul>
+<p>Hay un cuarto desvío, el incondicional, que manda todas las llamadas al otro número sin que suene tu móvil. No lo uses para esto: dejarías de recibir las llamadas que sí puedes coger.</p>
+
+<h2>Los códigos</h2>
+<p>Estos códigos son un estándar de la telefonía móvil (GSM) y funcionan en la mayoría de operadores de España. Se marcan en el teclado del teléfono, como si fueras a llamar, y pulsas el botón verde.</p>
+<ul>
+<li><b>Si no contestas:</b> <code>**61*NÚMERO#</code></li>
+<li><b>Si comunicas:</b> <code>**67*NÚMERO#</code></li>
+<li><b>Sin cobertura o apagado:</b> <code>**62*NÚMERO#</code></li>
+</ul>
+<p>Cambia NÚMERO por el número al que quieres desviar, con el prefijo +34 delante. Por ejemplo: <code>**61*+34600000000#</code>.</p>
+<p>Algunos operadores permiten elegir cuántos segundos suena tu móvil antes de desviar. Se añade al final: <code>**61*NÚMERO*11*20#</code> hace que suene 20 segundos. Los valores habituales van de 5 a 30 segundos, en saltos de 5. Si tu operador no lo acepta, usa el código sin tiempo.</p>
+<p>Los operadores virtuales y algunas tarifas de empresa usan códigos propios o lo activan desde su app. Si el código no funciona, busca "desvío de llamadas" en el área de cliente de tu operador o llama a atención al cliente. Tarda cinco minutos.</p>
+
+<h2>Cómo comprobar que funciona</h2>
+<ol>
+<li>Marca el código y espera el mensaje de confirmación en pantalla.</li>
+<li>Pide a alguien que te llame desde otro teléfono.</li>
+<li>No cojas. Cuenta los segundos hasta que la llamada salta.</li>
+<li>Comprueba que la llamada llega al otro número.</li>
+</ol>
+<p>Para ver qué desvíos tienes activos, marca <code>*#61#</code>, <code>*#62#</code> o <code>*#67#</code>. El móvil te dice si están activados y a qué número.</p>
+
+<h2>Cómo quitar el desvío</h2>
+<ul>
+<li>Quitar el desvío si no contestas: <code>##61#</code></li>
+<li>Quitar el desvío si comunicas: <code>##67#</code></li>
+<li>Quitar el desvío sin cobertura: <code>##62#</code></li>
+<li>Quitar todos los desvíos a la vez: <code>##002#</code></li>
+</ul>
+<p>Apunta estos códigos en un papel y déjalo junto a la caja. Si un día quieres volver a como estabas, lo haces en diez segundos.</p>
+
+<h2>¿Cuesta dinero desviar llamadas?</h2>
+<p>Depende de tu tarifa. En muchas tarifas con llamadas ilimitadas el desvío a un móvil o fijo nacional no tiene coste extra, pero no siempre. Revisa tu contrato o pregunta a tu operador antes de activarlo. El cliente que te llama paga lo mismo que siempre.</p>
+
+<h2>¿A qué número desvío?</h2>
+<p>Aquí está la parte importante. Desviar solo sirve si alguien contesta al otro lado.</p>
+<ul>
+<li><b>Al móvil de un compañero.</b> Funciona si esa persona no está también con las manos ocupadas, que en un taller pequeño es raro.</li>
+<li><b>A un buzón de voz.</b> Es lo que ya tienes. El problema es que la mayoría de la gente no deja mensaje: cuelga y llama a otro.</li>
+<li><b>A un servicio de atención telefónica.</b> Una persona o una recepcionista con IA contesta, toma nota y te avisa. Es la opción que realmente evita perder la llamada.</li>
+</ul>
+<p>Con Descuélgalo, el número al que desvías es el de tu recepcionista con IA. Contesta con el nombre de tu taller, dice que es una asistente virtual, apunta la cita o el presupuesto y te lo manda por WhatsApp. Te damos el código exacto de tu operador y lo probamos contigo con una llamada.</p>
+
+<h2>Errores habituales</h2>
+<ul>
+<li><b>Olvidar el prefijo.</b> Sin el +34, algunos operadores rechazan el código.</li>
+<li><b>Activar el incondicional por error.</b> Si tu móvil deja de sonar del todo, marca <code>##21#</code> para quitarlo.</li>
+<li><b>No probarlo.</b> Un desvío que no funciona es peor que no tenerlo, porque crees que estás cubierto.</li>
+</ul>
+<h2>Resumen</h2>
+<ol>
+<li>Usa el desvío si no contestas: <code>**61*NÚMERO#</code>.</li>
+<li>Añade el de comunicando (<code>**67*</code>) y el de sin cobertura (<code>**62*</code>) si te interesan.</li>
+<li>Comprueba con una llamada de prueba.</li>
+<li>Guarda el código para quitarlo: <code>##002#</code>.</li>
+</ol>
+
+<div class="cta-b"><h3>Que nadie se quede sin respuesta</h3><p>Descuélgalo coge las llamadas que no puedes, apunta la cita y te la manda por WhatsApp. Conservas tu número. <a href="../index.html#probar"><b>Pide tu piloto gratis de 30 días</b></a>.</p></div>
+<p style="font-size:14px">Escrito por Joaquín Ferreiros, fundador de Descuélgalo, en Barcelona.</p>
+</article>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="../index.html">Inicio</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></div></footer>
+</body>
+</html>

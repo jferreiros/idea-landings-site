@@ -3,23 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tecnicall | Tu repares. Nosaltres agafem el telèfon.</title>
+<title>Tecnicall | Trucades i WhatsApp per a tallers de reparació</title>
 <meta name="description" content="Tecnicall contesta les trucades i els WhatsApp de la teva empresa de reparacions, apunta l’avaria amb foto i model, i l’agenda amb el tècnic que toca.">
 <meta name="theme-color" content="#0F0F0D">
 <link rel="canonical" href="https://tecnicall.vercel.app/ca.html">
 <link rel="alternate" hreflang="es" href="https://tecnicall.vercel.app/">
 <link rel="alternate" hreflang="ca" href="https://tecnicall.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://tecnicall.vercel.app/en.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ca_ES">
 <meta property="og:site_name" content="Tecnicall">
 <meta property="og:url" content="https://tecnicall.vercel.app/ca.html">
-<meta property="og:title" content="Tecnicall | Tu repares. Nosaltres agafem el telèfon.">
+<meta property="og:title" content="Tecnicall | Trucades i WhatsApp per a tallers de reparació">
 <meta property="og:description" content="Contesta llamadas y WhatsApp con el nombre de tu empresa y deja el aviso agendado con foto, modelo y técnico. Piloto gratis de 30 días en Barcelona.">
 <meta property="og:image" content="https://tecnicall.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tecnicall | Tu repares. Nosaltres agafem el telèfon.">
+<meta name="twitter:title" content="Tecnicall | Trucades i WhatsApp per a tallers de reparació">
 <meta name="twitter:description" content="Recepción con IA para talleres y empresas de reparación. Piloto gratis de 30 días.">
 <meta name="twitter:image" content="https://tecnicall.vercel.app/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFD000'/%3E%3Cpath d='M8 9h16v4h-6v12h-4V13H8z' fill='%23141208'/%3E%3C/svg%3E">
@@ -212,6 +213,7 @@ form .btn:hover{background:#2A271C}
 .thanks p{margin-top:10px;color:#2E2B22}
 footer{padding:28px 0 32px;border-top:1px solid var(--line);font-size:15px;color:var(--tx-3)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .wrap>span:last-child{flex-wrap:wrap}
 footer a{color:var(--tx-2)}
 
 /* sticky mobile CTA */
@@ -252,6 +254,27 @@ footer a{color:var(--tx-2)}
 .typing{align-self:flex-start;font-family:"JetBrains Mono";font-size:13px;color:var(--tx-3)}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.bub{animation:none}}
+
+/* hero v2: route map is the stage, headline is a work order */
+.hero{display:grid;grid-template-columns:1fr;gap:0;padding:20px 0 48px}
+.hero>.hcard{background:var(--tx);color:var(--hz-ink);position:relative;z-index:4}
+.hcard .stamp{display:flex;justify-content:space-between;gap:10px;background:var(--hz);padding:10px 18px;font-family:"JetBrains Mono";font-size:13px;font-weight:700}
+.hcard .stamp b{border:2px solid var(--hz-ink);padding:0 6px;transform:rotate(-3deg);display:inline-block}
+.hcard .in{padding:22px 18px 24px}
+.hero .hcard h1{font-family:"Barlow Condensed";text-transform:none;font-weight:800;font-size:clamp(40px,5vw,58px);line-height:1;letter-spacing:-.005em}
+.hero .hcard .lead{color:#3A372E;margin-top:14px;font-size:18px}
+.hero .hcard .lead b{color:var(--hz-ink)}
+.hcard .cta-row{margin-top:22px}
+.hcard .btn{background:var(--hz-ink);color:var(--hz)}.hcard .btn .ar{background:var(--hz);color:var(--hz-ink)}
+.hcard .link{color:#3A372E;text-decoration-color:#9A9585}
+.map{background-color:var(--bk-2);background-image:linear-gradient(#26241F 10px,transparent 10px),linear-gradient(90deg,#26241F 10px,transparent 10px);background-size:120px 90px}
+@media(min-width:980px){
+ .hero{grid-template-columns:repeat(12,1fr);padding:24px 0 64px}
+ .hero>.hcard{grid-column:1/7;grid-row:1;align-self:center;margin-left:28px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+ .hero>.map{grid-column:1/13;grid-row:1;aspect-ratio:auto;min-height:600px}
+ .hero>.map svg{left:auto;width:47%}
+}
+@media(max-width:979px){.hero>.hcard{margin-bottom:16px}}
 /* reveal */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -272,18 +295,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     </div>
   </nav>
   <div class="hero">
-    <div>
-      <h1 class="cd"><span>Tu repares.</span><span class="hz">Nosaltres agafem el telèfon.</span></h1>
+    <div class="hcard"><div class="stamp"><span>PART 0417 · 21:44 · Trucada</span><b>NOU</b></div><div class="in">
+      <h1>La trucada que no agafes acaba a la ruta del teu tècnic.</h1>
       <p class="lead">Contestem trucades i WhatsApp amb el nom de la teva empresa. <b>L’avís arriba al teu tècnic amb foto, model i hora.</b></p>
       <div class="cta-row">
         <a class="btn" href="#probar">Escoltar la demo <span class="ar" aria-hidden="true">→</span></a>
         <a class="link" href="#como">Com funciona</a>
-      </div>
+      </div></div>
     </div>
 
     <div class="map" role="img" aria-label="Mapa de ruta d’una furgoneta a Barcelona amb un avís nou agendat a les 9:30 a Gràcia">
       <div class="hdr"><span><b>RUTA · MARC</b> · dimarts</span><span>4 avisos · 0 perduts</span></div>
-      <svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <g stroke="#26241F" stroke-width="10" fill="none">
           <path d="M0 80 H500 M0 150 H500 M0 250 H500 M0 330 H500 M0 400 H500"/>
           <path d="M40 0 V460 M110 0 V460 M160 0 V460 M330 0 V460 M440 0 V460"/>
@@ -318,10 +341,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 <div class="tape" aria-hidden="true"></div>
 <div class="cond" aria-label="Condicions del pilot">
   <div class="wrap">
-    <div><b>30 dies gratis</b><span>Sense targeta. El dia 30 decideixes.</span></div>
-    <div><b>El teu mateix número</b><span>Desvies les trucades que no agafes.</span></div>
-    <div><b>Ho muntem nosaltres</b><span>Serveis, zones i preu de sortida.</span></div>
-    <div><b>Català i castellà</b><span>Contesta en l’idioma del client.</span></div>
+    <div><b>El teu número no canvia</b><span>Només salta si no l’agafes en 15 s.</span></div>
+    <div><b>Els teus preus i prou</b><span>Dona el desplaçament. Mai pressuposta.</span></div>
+    <div><b>Urgències al teu mòbil</b><span>Fuita o porta tancada: et truca a tu.</span></div>
+    <div><b>30 dies de prova</b><span>Muntat al taller, sense targeta.</span></div>
   </div>
 </div>
 
@@ -429,12 +452,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
       <div class="pr"><h3>Empresa</h3><p class="who"><b>7 a 15 tècnics.</b> Fins a 1.000 trucades, diverses línies i horaris, informe setmanal.</p><p class="p">199 €<small>/mes</small></p></div>
     </div>
     <p class="note">Sense IVA. Preus de llançament: poden canviar abans d’obrir al públic. Si passes del límit de trucades no tallem la línia; t’avisem.</p>
+    <p style="margin-top:14px"><a class="link" href="precios.html">Calcula quant et costen les trucades que no agafes (en castellà) →</a></p>
   </div>
 </section>
 
 <section id="preguntas">
   <div class="wrap">
-    <h2 class="rv">El que pregunta <span class="hz">un tècnic.</span></h2>
+    <h2 class="rv">Abans de <span class="hz">donar-li el teu número.</span></h2>
     <div class="faq">
       <div>
         <details><summary>Sona a robot?</summary><p>Parla amb frases curtes i sense menús de “premi 1”. Abans d’activar res, et muntem la demo amb el nom de la teva empresa i l’escoltes tu. Si no et convenç, no la posem.</p></details>
@@ -457,8 +481,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     <div class="founder rv">
       <div class="av" aria-hidden="true">J</div>
       <div>
-        <p>Soc el Joaquín i construeixo Tecnicall a Barcelona. Encara no tenim clients. Busco els primers deu tallers per muntar el pilot amb ells.</p>
-        <p>Si t’hi apuntes, et truco jo, configuro l’assistent amb els teus serveis i l’escoltes abans de decidir. Si no t’estalvia feina, no te’l cobro.</p>
+        <p>El muntatge el faig jo al teu taller, en mitja hora: zones, marques que no toques i preu de sortida. Encara no hi ha clients; busco els deu primers tallers de Barcelona.</p>
+        <p>Abans d’activar-lo, truques tu al número de prova des de la furgoneta. Si no sona a la teva empresa, no es posa.</p>
         <cite>Joaquín · fundador</cite>
       </div>
     </div>
@@ -497,7 +521,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 <footer>
   <div class="wrap">
     <span>Tecnicall · Barcelona · 2026</span>
-    <span style="display:flex;gap:18px"><a href="#probar">Escoltar la demo</a><a href="plan.html">Pla</a></span>
+    <span style="display:flex;gap:18px"><a href="#probar">Escoltar la demo</a><a href="plan.html">Pla</a><a href="precios.html">Preus</a><a href="aviso-legal.html">Avís legal</a><a href="privacidad.html">Privacitat</a><a href="cookies.html">Galetes</a><a href="en.html" hreflang="en">English</a></span>
   </div>
 </footer>
 

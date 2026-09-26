@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuánto le cuesta a tu almacén teclear pedidos a mano (y cómo calcularlo) · Pedidal</title>
+<meta name="description" content="Cálculo paso a paso del coste real de pasar pedidos de WhatsApp al ERP a mano en un almacén o distribuidora: horas, euros, errores y portes de vuelta.">
+<link rel="canonical" href="https://pedidal.vercel.app/blog/coste-teclear-pedidos-a-mano.html">
+<meta property="og:type" content="article"><meta property="og:title" content="Cuánto le cuesta a tu almacén teclear pedidos a mano (y cómo calcularlo)"><meta property="og:description" content="Cálculo paso a paso del coste real de pasar pedidos de WhatsApp al ERP a mano en un almacén o distribuidora: horas, euros, errores y portes de vuelta."><meta property="og:image" content="https://pedidal.vercel.app/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cuánto le cuesta a tu almacén teclear pedidos a mano (y cómo calcularlo)","datePublished":"2026-09-26","author":{"@type":"Person","name":"Joaquín"},"publisher":{"@type":"Organization","name":"Pedidal"},"inLanguage":"es"}</script>
+<style>
+:root{--paper:#E6D8BF;--card:#FBF6EC;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--orange:#FF5A1F;--rust:#A8360A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.7 "IBM Plex Sans",sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.logo{display:flex;gap:8px;align-items:center;font:800 20px "Archivo";text-decoration:none;color:var(--ink)}
+.mark{width:26px;height:26px;border-radius:3px;background:var(--orange)}
+nav a{color:var(--ink)}
+h1{font:800 clamp(34px,7vw,52px)/1.02 "Archivo";font-stretch:78%;margin:36px 0 12px}
+h3{font:700 20px/1.2 "Archivo";font-stretch:85%;margin:22px 0 6px}
+h2{font:800 28px/1.1 "Archivo";font-stretch:78%;margin:34px 0 10px}
+p,ul,ol,table{margin:0 0 16px}
+ul,ol{padding-left:22px}
+.meta{font:500 13px "IBM Plex Mono";color:var(--ink-2);margin-bottom:24px}
+a{color:var(--rust)}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card)}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl{overflow-x:auto}
+.cta{background:var(--orange);border-radius:6px;padding:22px;margin:36px 0}
+.cta b{display:block;font:800 26px/1.1 "Archivo";font-stretch:78%;margin-bottom:6px}
+.cta a{display:inline-block;margin-top:10px;background:var(--ink);color:#FFF8F0;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:4px}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="../index.html"><span class="mark"></span>Pedidal</a><a href="index.html">Blog</a></nav>
+<article>
+<h1>Cuánto le cuesta a tu almacén teclear pedidos a mano (y cómo calcularlo)</h1>
+<p class="meta">26 sep 2026 · Joaquín, Pedidal · 4 min de lectura</p>
+<p>Casi ningún gerente de almacén sabe cuánto le cuesta teclear pedidos. Se da por hecho que "lo hace Marta por la mañana". Pero ese trabajo tiene un coste en horas, en errores y en ventas que no se hacen. Aquí tienes un método sencillo para calcularlo con tus números. No hace falta ningún programa: basta una hoja de cálculo o la <a href="../precios.html">calculadora de Pedidal</a>.</p>
+
+<h2>Paso 1: cuenta los pedidos de un día normal</h2>
+<p>Abre el móvil de empresa un martes o un miércoles a las 12:00. Cuenta los chats que contienen un pedido. No cuentes los que solo preguntan precio o disponibilidad. Repite el conteo 3 días y haz la media. Muchos almacenes que venden a reformistas reciben entre 20 y 60 pedidos al día por WhatsApp, pero lo importante es tu cifra.</p>
+
+<h2>Paso 2: cronometra un pedido</h2>
+<p>Pide a la persona que teclea que cronometre 10 pedidos seguidos, desde que abre el chat hasta que el pedido está guardado en el ERP. Incluye:</p>
+<ul>
+<li>Leer el mensaje o escuchar el audio (a veces dos veces).</li>
+<li>Descifrar la foto de la lista.</li>
+<li>Buscar al cliente en el ERP.</li>
+<li>Buscar cada referencia ("¿qué cola gris es esta?").</li>
+<li>Preguntar al cliente lo que no está claro.</li>
+<li>Teclear las líneas y guardar.</li>
+</ul>
+<p>Haz la media. Un pedido de texto claro puede tardar 2 minutos. Un audio de un minuto con 6 productos puede pasar de 6.</p>
+
+<h2>Paso 3: calcula las horas y los euros</h2>
+<p>La fórmula es:</p>
+<p><b>horas al mes = pedidos al día × minutos por pedido × días laborables ÷ 60</b></p>
+<p><b>coste al mes = horas al mes × coste por hora</b></p>
+<p>El coste por hora es el sueldo bruto más la Seguridad Social a cargo de la empresa, dividido entre las horas trabajadas al mes. Ejemplo con números redondos:</p>
+<div class="tbl"><table>
+<tr><th>Dato</th><th>Valor de ejemplo</th></tr>
+<tr><td>Pedidos por WhatsApp al día</td><td>40</td></tr>
+<tr><td>Minutos por pedido</td><td>4</td></tr>
+<tr><td>Días laborables al mes</td><td>22</td></tr>
+<tr><td>Horas al mes tecleando</td><td>40 × 4 × 22 ÷ 60 ≈ 59 h</td></tr>
+<tr><td>Coste por hora (ejemplo)</td><td>18 €</td></tr>
+<tr><td>Coste al mes</td><td>≈ 1.056 €</td></tr>
+</table></div>
+<p>Son cifras de ejemplo. Sustitúyelas por las tuyas.</p>
+
+<h2>Paso 4: suma lo que no se ve</h2>
+<p>Las horas son solo una parte. Hay tres costes más que casi nunca se apuntan:</p>
+<ol>
+<li><b>Errores de referencia.</b> Un ladrillo del 9 en lugar del 7 significa un porte de vuelta, un cliente parado en la obra y a veces material que no se puede devolver. Cuenta cuántas devoluciones por error de pedido tuviste el último trimestre y cuánto costó cada porte.</li>
+<li><b>Pedidos que llegan tarde al almacén.</b> Si los camiones salen a las 10 y a esa hora aún falta la mitad de los pedidos por teclear, algunos se sirven al día siguiente.</li>
+<li><b>Lo que esa persona no hace.</b> Mientras teclea, no atiende el mostrador ni llama a clientes que han dejado de comprar.</li>
+</ol>
+
+<h2>Paso 5: compara con las alternativas</h2>
+<p>Con la cifra del paso 3 y la estimación del paso 4 ya puedes comparar opciones. Una segunda persona para pedidos cuesta un sueldo completo. Una herramienta que automatice la entrada de pedidos cuesta una cuota mensual. Por ejemplo, <a href="../precios.html">Pedidal parte de 190 € al mes</a> según el volumen.</p>
+<p>La pregunta clave es qué parte de los pedidos puede pasar sola sin que nadie la toque. Si una herramienta automatiza el 70 % de tus pedidos, recuperas el 70 % de esas horas, no el 100 %. Desconfía de quien te prometa el 100 % sin haber visto tus pedidos.</p>
+
+<h2>Una forma rápida de medirlo con tus datos</h2>
+<p>La mejor manera de saber qué porcentaje se puede automatizar es probar con pedidos reales. Junta 20 pedidos de una semana, con audios y fotos incluidos, y el catálogo en Excel. Pide que te los devuelvan pasados a tu formato y cuenta las líneas correctas. Con eso tienes el dato que falta en la fórmula.</p>
+
+<h2>Preguntas frecuentes</h2>
+<h3>¿Y si la persona que teclea también hace otras tareas?</h3>
+<p>Es lo normal. Por eso conviene medir solo el tiempo de pedidos, no la jornada entera. Si automatizas los pedidos, esa persona no sobra: recupera horas para el mostrador, para llamar a clientes que han dejado de comprar o para preparar los repartos con más calma.</p>
+<h3>¿Cómo calculo el coste de un porte de vuelta?</h3>
+<p>Suma el tiempo del conductor y del camión en el viaje de ida y vuelta, el combustible y el tiempo de almacén para recolocar el material. Si el cliente pierde medio día de obra, también cuenta, aunque no aparezca en tu factura: es el motivo por el que a veces se va a otro almacén.</p>
+<h3>¿Cada cuánto debería repetir el cálculo?</h3>
+<p>Una vez al trimestre es suficiente, o cuando cambie algo importante: un cliente grande nuevo, una temporada alta de obra o una persona nueva en pedidos. Si usas una herramienta de automatización, pide que te enseñe cada semana cuántos pedidos pasaron sin tocar, para comparar con tu cálculo inicial.</p>
+<div class="cta"><b>¿Te llegan pedidos por WhatsApp cada mañana?</b>Mándanos 20 pedidos reales y el catálogo en Excel. En 48 horas te los devolvemos en el formato de tu ERP. Gratis.<br><a href="../index.html#probar">Probar gratis con 20 pedidos</a></div>
+</article>
+<footer>Pedidal · © 2026 · <a href="../index.html">Inicio</a> · <a href="../precios.html">Precios</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></footer>
+</div>
+</body>
+</html>

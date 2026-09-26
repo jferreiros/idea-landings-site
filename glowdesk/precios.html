@@ -11,6 +11,7 @@
 <style>
 :root{--bg:#F7EDEB;--paper:#FCF8F7;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--rose:#A65468;--rose-soft:#F3DEE1}
 *{box-sizing:border-box;margin:0;padding:0}
+a{color:var(--sage)}
 body{background:var(--bg);color:var(--ink);font:15px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:24px 16px}
 .sheet{max-width:794px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px}
 h1,h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
@@ -100,7 +101,7 @@ section{margin-top:34px}
 (function(){
   var ids=['dms','fh','lost','close','ticket','mins'];
   function v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
-  function eur(n){return Math.round(n).toLocaleString('es-ES')+' €';}
+  function eur(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €';}
   function upd(){
     var wk=4.3, off=v('dms')*Math.min(v('fh'),100)/100*wk, lostv=off*Math.min(v('lost'),100)/100;
     var rev=lostv*Math.min(v('close'),100)/100*v('ticket');

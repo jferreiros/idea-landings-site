@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo desviar las llamadas que no coges en el móvil | Tecnicall</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{line-height:1!important;margin-bottom:18px!important}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+<meta name="description" content="Los códigos para desviar al móvil de otro las llamadas que no coges, cuando comunicas o sin cobertura, y qué hacer con ellas si trabajas solo.">
+<link rel="canonical" href="https://tecnicall.vercel.app/blog/desviar-llamadas-no-contestadas.html">
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="../index.html">Tecni<span>call</span></a>
+  <h1>Cómo desviar las llamadas que no coges</h1>
+  <p>Guía para técnicos y talleres que trabajan con el móvil en el bolsillo. Tiempo de lectura: 5 minutos.</p>
+</header>
+<main class="wrap">
+<section style="border-top:0">
+<p>Si reparas electrodomésticos, calderas o aire acondicionado, conoces la escena. Estás tumbado debajo de un fregadero, con las dos manos ocupadas, y el móvil vibra en el bolsillo. Cuando por fin lo miras, tienes tres llamadas perdidas de números que no conoces. Devuelves la primera desde la furgoneta y la persona ya ha encontrado a otro técnico.</p>
+<p>No hace falta contratar a nadie para empezar a arreglarlo. El primer paso es gratis y lo tienes en el propio móvil: el desvío de llamadas. En esta guía te explicamos qué tipos de desvío hay, los códigos para activarlos y qué opciones tienes para que alguien atienda esas llamadas.</p>
+</section>
+<section>
+<h2>Los tres desvíos que te interesan</h2>
+<p>Casi nadie necesita desviar todas las llamadas. Lo útil es desviar solo las que no puedes atender. La red móvil distingue tres casos, y cada uno tiene su propio código:</p>
+<div class="tbl"><table>
+<tr><th>Cuándo se desvía</th><th>Código para activar</th><th>Código para quitar</th></tr>
+<tr><td>No contestas en unos segundos</td><td><code>**61*NÚMERO#</code></td><td><code>##61#</code></td></tr>
+<tr><td>Estás comunicando</td><td><code>**67*NÚMERO#</code></td><td><code>##67#</code></td></tr>
+<tr><td>Móvil apagado o sin cobertura</td><td><code>**62*NÚMERO#</code></td><td><code>##62#</code></td></tr>
+</table></div>
+<p>Son códigos estándar de la red GSM y funcionan con la mayoría de operadores en España. Aun así, algunos operadores cobran el desvío o lo gestionan desde su app. Antes de activarlo, mira en tu área de cliente si el desvío tiene coste.</p>
+<p>Para el desvío por no contestar puedes fijar cuántos segundos suena antes de saltar. Por ejemplo, <code>**61*NÚMERO**15#</code> desvía a los 15 segundos. Con 15 o 20 segundos te da tiempo a coger si puedes, y el cliente no se cansa de esperar.</p>
+</section>
+<section>
+<h2>Paso a paso</h2>
+<ol>
+<li>Abre el teclado del teléfono, como si fueras a llamar.</li>
+<li>Escribe el código con el número de destino, sin espacios. Por ejemplo, <code>**61*612345678**15#</code>.</li>
+<li>Pulsa el botón de llamar. En unos segundos verás un mensaje de confirmación.</li>
+<li>Pide a alguien que te llame y no contestes, para comprobar que salta el desvío.</li>
+<li>Para quitarlo, marca <code>##61#</code> y pulsa llamar.</li>
+</ol>
+<p>En iPhone y en Android también puedes hacerlo desde los ajustes de llamadas, en el apartado “Desvío de llamadas”. El menú cambia según el modelo, pero los códigos funcionan en todos.</p>
+</section>
+<section>
+<h2>¿A qué número desvío?</h2>
+<p>Aquí está la parte difícil. Desviar es fácil; lo complicado es que alguien conteste al otro lado. Estas son las opciones reales que tiene un taller pequeño:</p>
+<ul>
+<li><b>A un compañero o familiar.</b> Es gratis, pero esa persona acaba haciendo de recepcionista sin serlo. Funciona unas semanas y luego se cansa.</li>
+<li><b>Al buzón de voz.</b> Es lo que pasa por defecto. La mayoría de clientes no deja mensaje: cuelgan y llaman al siguiente de Google Maps.</li>
+<li><b>A un servicio de secretaria telefónica.</b> Una persona coge la llamada y te pasa un recado. Suele cobrarse por llamada o por minuto, y de noche o en fin de semana sale caro.</li>
+<li><b>A un asistente automático.</b> Contesta con el nombre de tu empresa, pregunta lo que necesitas saber y te deja el aviso apuntado. Es lo que hacemos en Tecnicall.</li>
+</ul>
+</section>
+<section>
+<h2>Qué debe apuntar quien coja la llamada</h2>
+<p>Sea quien sea el que conteste, un aviso bien tomado te ahorra un viaje. Estos son los datos que te conviene tener antes de salir:</p>
+<ol>
+<li>Nombre y teléfono del cliente.</li>
+<li>Dirección completa, con piso y puerta.</li>
+<li>Qué aparato es, con marca y modelo.</li>
+<li>Qué le pasa y si sale algún código de error en la pantalla.</li>
+<li>Una foto de la etiqueta y del error, si el cliente puede mandarla por WhatsApp.</li>
+<li>Si es urgente: una fuga activa no es lo mismo que una nevera que hace ruido.</li>
+</ol>
+<p>Con la marca, el modelo y el código de error, muchas veces sabes qué pieza llevar. Eso es lo que convierte dos visitas en una. Tienes la lista completa en <a href="preguntas-antes-de-una-reparacion.html">qué preguntar al cliente antes de salir</a>.</p>
+</section>
+<section>
+<h2>Cuidado con la privacidad</h2>
+<p>Si otra persona o un servicio externo atiende tus llamadas, trata datos de tus clientes en tu nombre. Según el RGPD, necesitas un contrato de encargado del tratamiento con quien lo haga. Y si las llamadas se graban, hay que avisar al cliente al principio de la llamada.</p>
+</section>
+<section>
+<h2>Errores comunes al activar el desvío</h2>
+<ul>
+<li><b>Desviar todo con **21*.</b> Ese código desvía todas las llamadas, también las que sí podrías coger. Usa el 61, 62 y 67 por separado.</li>
+<li><b>Dejar el buzón de voz activo.</b> Algunos operadores ya tienen el buzón configurado en el desvío por no contestar. Tu código lo sustituye, pero comprueba con una llamada de prueba que no salta el buzón.</li>
+<li><b>Poner un tiempo demasiado corto.</b> Con 5 segundos el desvío salta antes de que saques el móvil del bolsillo. Entre 15 y 20 segundos es un buen punto de partida.</li>
+<li><b>Olvidar el WhatsApp.</b> Cada vez más clientes escriben en lugar de llamar. El desvío no cubre WhatsApp: necesitas que alguien, o algo, conteste también ahí.</li>
+</ul>
+</section>
+<section>
+<h2>Preguntas frecuentes</h2>
+<h3>¿El cliente nota que la llamada se ha desviado?</h3>
+<p>No. El cliente oye los tonos de siempre y luego contesta la otra persona o el asistente. Solo nota la diferencia si quien contesta no dice el nombre de tu empresa.</p>
+<h3>¿Puedo desviar solo por la noche?</h3>
+<p>Los códigos de red no tienen horario. Lo activas y lo quitas a mano, o usas un servicio que decida según la hora. Con un asistente, puedes dejar el desvío siempre activo y decidir qué hace de día y qué de noche.</p>
+<h3>¿Funciona con un fijo?</h3>
+<p>Sí, casi todos los operadores de fijo permiten desviar, pero los códigos cambian. Consulta la web de tu operador o llama a atención al cliente.</p>
+</section>
+<section><p>Si dudas entre contratar a alguien o poner un asistente, lee <a href="recepcionista-o-asistente-para-taller.html">recepcionista, secretaria virtual o asistente</a>.</p></section>
+<section>
+<h2>Prueba con tu nombre</h2>
+<div class="summary"><p>Estamos buscando los primeros talleres de Barcelona para un piloto gratis de 30 días. Te preparamos un número de prueba que ya contesta con el nombre de tu empresa, lo escuchas y decides. <a href="../index.html#probar" style="color:#FFD000">Pide tu demo</a>.</p></div>
+</section>
+</main>
+<footer><div class="wrap"><span>Tecnicall · Barcelona</span><span><a href="../index.html">Inicio</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></span></div></footer>
+</body></html>

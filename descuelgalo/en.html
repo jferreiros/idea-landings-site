@@ -259,6 +259,14 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 footer .logo{font-size:18px;color:var(--ink)}
 footer .logo i{width:26px;height:26px;border-radius:8px}
 footer .logo i svg{width:14px;height:14px}
+
+/* hero v4: the phone is the hero */
+.hero .wrap{grid-template-columns:1fr!important;justify-items:start}
+.stage{width:100%;padding:36px 0 8px;background:linear-gradient(180deg,transparent,var(--green-soft) 30%,var(--green-soft) 70%,transparent);border-radius:40px}
+.stage:before{display:none}
+.phone{width:330px}
+.caller{font-size:28px}
+@media(min-width:900px){.hero h1{max-width:22ch}.hero{padding-bottom:40px}}
 </style>
 </head>
 <body>
@@ -283,13 +291,19 @@ footer .logo i svg{width:14px;height:14px}
     <div class="hero-ctas"><a class="btn green" href="#contact">Talk to us</a><a class="ghost" href="#how">See how it works</a></div>
   </div>
   <div class="stage" aria-hidden="true">
-    <div class="phone"><div class="screen"><div class="notch"></div><div class="incoming">Incoming call</div><div class="avatar">L</div><div class="caller">Lucía</div><div class="biz">Receptionist at Taller Ruiz</div>
+    <div class="phone"><div class="screen"><div class="notch"></div><div class="incoming">Incoming call</div><div class="avatar">T</div><div class="caller">Taller Ruiz</div><div class="biz">Lucía, the receptionist, answers</div>
     <div class="bubble"><small>Lucía says (in Spanish)</small>"Taller Ruiz, hi. I'm Lucía, the virtual assistant. Shall I book you in for Monday?"</div>
     <div class="actions"><div class="act no"><span><svg><use href="#i-hang"/></svg></span>Decline</div><div class="act yes"><span><svg><use href="#i-phone"/></svg></span>Answer</div></div></div></div>
   </div>
 </div></header>
+<div class="trust"><div class="wrap"><ul>
+  <li><svg><use href="#i-check"/></svg><span><b>Only takes the calls you miss</b>Your phone still rings first, as always.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>The same number as always</b>One code on your phone to switch on, another to switch off.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>No blind quotes</b>It takes the quote request and passes it to you.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Introduces itself as a virtual assistant</b>And puts the caller through to you if they ask.</span></li>
+</ul></div></div>
 <section class="problem"><div class="wrap"><div class="sec-h"><span class="eyebrow">The problem</span><h2>The phone rings while the owner is under a car.</h2><p>Spanish repair shops rarely lack demand. Nobody picks up in time, and the caller tries the next shop on Google. Voicemail doesn't help: most callers never leave a message.</p></div></div></section>
-<section id="how"><div class="wrap"><div class="sec-h"><h2>From missed call to booked job, in three steps.</h2></div>
+<section id="how"><div class="wrap"><div class="sec-h"><h2>From missed call to booked job.</h2></div>
 <div class="steps">
 <div class="step"><div class="n">1</div><h3>Type the business name</h3><p>We find the Google Business Profile. The receptionist learns hours, services and address. The owner only reviews.</p></div>
 <div class="step"><div class="n">2</div><h3>It calls the owner</h3><p>The owner hears their own receptionist on their phone in under a minute, then gets the WhatsApp summary.</p></div>
@@ -298,12 +312,26 @@ footer .logo i svg{width:14px;height:14px}
 <section class="moment"><div class="wrap"><div class="sec-h"><h2>Built for Spain</h2></div>
 <div class="bens">
 <div class="ben"><div class="big">ES</div><h3>Spanish first</h3><p>Spanish from Spain, with Catalan on the roadmap. WhatsApp is the owner's inbox.</p></div>
-<div class="ben"><div class="big">Law</div><h3>Ley 10/2025 ready</h3><p>From 28 Dec 2026 callers can ask for a human. Lucía transfers or takes a message.</p></div>
+<div class="ben"><div class="big">Law</div><h3>Human on request</h3><p>Spain's <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> requires it from 28 Dec 2026 only for utilities, transport, post, telecoms, banking and firms with 250+ staff or €50M+ turnover (art. 2, 8.2). Small shops are exempt; Lucía offers it anyway.</p></div>
 <div class="ben"><div class="big">AI Act</div><h3>Discloses it is AI</h3><p>Art. 50 compliant from the first sentence. It never pretends to be a person.</p></div>
 <div class="ben"><div class="big">€69</div><h3>Per month, 400 min</h3><p>Pricing hypothesis under validation. No lock-in.</p></div>
 </div></div></section>
+<section id="pricing" class="moment"><div class="wrap"><div class="sec-h"><h2>One price for the minutes Lucía talks.</h2><p>30-day free pilot on every plan. No lock-in. Prices exclude VAT and are still being validated.</p></div>
+<div class="plans">
+<div class="plan"><h3>Basic</h3><div class="price">€39 <small>/month</small></div><div class="mins">150 minutes</div><ul><li>Answers the calls you miss</li><li>WhatsApp summary</li><li>Your name, voice and tone</li><li>Extra minute: €0.20</li></ul><a class="btn" href="#contact">Talk to us</a></div>
+<div class="plan hot"><h3>Pro</h3><div class="price">€69 <small>/month</small></div><div class="mins">400 minutes</div><ul><li>Everything in Basic</li><li>WhatsApp follow-up from your number</li><li>Bookings in Google Calendar</li><li>Extra minute: €0.16</li></ul><a class="btn green" href="#contact">Talk to us</a></div>
+<div class="plan"><h3>Business</h3><div class="price">€149 <small>/month</small></div><div class="mins">1,000 minutes</div><ul><li>Everything in Pro</li><li>Several sites or lines</li><li>Transfers to different people</li><li>Extra minute: €0.14</li></ul><a class="btn" href="#contact">Talk to us</a></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap"><div class="sec-h"><h2>Before you forward your phone.</h2></div><div class="faq">
+<details><summary>Does the owner change number or carrier?</summary><p>No. They keep both. A standard code on their mobile, such as <code>**61*number#</code>, forwards only unanswered calls.</p></details>
+<details><summary>Does the caller know it is an AI?</summary><p>Yes. Lucía says so in her first sentence, as the EU AI Act (art. 50) requires.</p></details>
+<details><summary>What if the caller wants a person?</summary><p>Lucía transfers the call or leaves the owner a WhatsApp with name, number and reason. Ley 10/2025 does not require this of small shops (art. 2), but customers expect it.</p></details>
+<details><summary>Where is the data?</summary><p>On EU servers, under GDPR, with a data processing agreement for each business.</p></details>
+</div></div></section>
+
 <section style="padding-bottom:0"><div class="wrap"><div class="founder"><div class="mono" aria-hidden="true">J</div><div>
-<blockquote><p>I'm Joaquín, a software engineer in Barcelona. Descuélgalo is new: no customers yet, and no invented logos. I'm looking for the first 10 repair shops for a free pilot, and for partners who already visit them every week (accountants, parts distributors).</p></blockquote>
+<blockquote><p>I started Descuélgalo by calling repair shops at lunchtime. Almost none picked up, because the owner was under a car. There are no customers yet. I want the first 10 shops on a free pilot, and partners who already visit them every week: accountants and parts distributors.</p></blockquote>
 <cite><b>Joaquín</b> · Founder · Barcelona</cite></div></div></div></section>
 <section id="contact"><div class="wrap"><div class="cta" id="cta">
 <div><h2>Partner with us.</h2><p>Parts distributors and accountants get 20% recurring revenue on every shop they introduce. Accelerators: see the <a href="pitch.html" style="color:#fff">one-page pitch</a> (Spanish).</p></div>

@@ -39,7 +39,7 @@ main{max-width:1100px;margin:0 auto;padding:0 20px 40px}
 .call:hover,.call[aria-current=true]{background:#EEF6F0}
 .tag{font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap}
 .t-cita{background:var(--soft);color:var(--green)}.t-presupuesto{background:#FFF1C9;color:#7A5A00}.t-persona{background:var(--coral-soft);color:var(--coral)}.t-info{background:#E9ECEF;color:#3C4843}
-.call div{flex:1}.call b{display:block}.call small{color:var(--mute)}
+.call div{flex:1}.call b{display:block;margin-top:6px}.call small{color:var(--mute)}
 .call time{font-size:13px;color:var(--mute)}
 .detail h2{font-size:24px;margin-bottom:4px}
 .meta{color:var(--mute);font-size:14px;margin-bottom:14px}
@@ -93,7 +93,7 @@ function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null
 function renderList(){var l=document.getElementById('list');l.innerHTML='';
 C.filter(function(c){return f=='all'||c.t==f;}).forEach(function(c){
 var b=el('button','call');b.type='button';if(c.id==sel)b.setAttribute('aria-current','true');
-b.appendChild(el('span','tag t-'+c.t,L[c.t]));var d=el('div');d.appendChild(el('b',null,c.n));d.appendChild(el('small',null,c.s));b.appendChild(d);b.appendChild(el('time',null,c.h));
+var d=el('div');d.appendChild(el('span','tag t-'+c.t,L[c.t]));d.appendChild(el('b',null,c.n));d.appendChild(el('small',null,c.s));b.appendChild(d);b.appendChild(el('time',null,c.h));
 b.onclick=function(){sel=c.id;renderList();renderDetail();};l.appendChild(b);});
 if(!l.children.length)l.appendChild(el('p','meta','No hay llamadas de este tipo hoy.'));}
 function renderDetail(){var c=C.filter(function(x){return x.id==sel;})[0];var d=document.getElementById('detail');d.innerHTML='';

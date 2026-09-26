@@ -29,7 +29,7 @@
 {"@context":"https://schema.org","@graph":[
  {"@type":"Organization","@id":"https://conserjia.vercel.app/#org","name":"Conserjia","url":"https://conserjia.vercel.app/","logo":"https://conserjia.vercel.app/og.png","founder":{"@type":"Person","name":"Joaquín"},"areaServed":"Barcelona"},
  {"@type":"Service","name":"Conserjia","serviceType":"Gestión de incidencias de comunidades de propietarios con IA","provider":{"@id":"https://conserjia.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"audience":{"@type":"BusinessAudience","audienceType":"Despachos de administración de fincas"},"availableLanguage":["es","ca"],
-  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por comunidad","price":"12","priceCurrency":"EUR","description":"Por comunidad y mes, sin IVA, precio en validación"}]}
+  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por avería cerrada","price":"4","priceCurrency":"EUR","description":"Por avería cerrada, mínimo 49 € al mes por despacho, sin IVA, precio en validación"}]}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,6 +227,13 @@ h2{font-size:clamp(2rem,4.2vw,3rem);max-width:18em}
 .plan li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--brass);border-bottom:2px solid var(--brass);transform:rotate(-45deg)}
 .note{margin-top:20px;font-size:.9rem;color:var(--txt-3)}
 
+.floor .u.lit::after{background:rgba(230,188,92,.22);border-color:rgba(230,188,92,.55)}
+.floor .u .who{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;background:var(--txt);color:var(--navy);font:600 .62rem "IBM Plex Mono",monospace;padding:2px 6px;border-radius:3px;white-space:nowrap}
+.fnote{border:1.5px dashed var(--txt-3);border-radius:4px;padding:26px 28px;max-width:760px;background:var(--navy-2)}
+.fnote .hd{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--rule);padding-bottom:10px;margin-bottom:16px;font:600 .8rem "IBM Plex Mono",monospace;color:var(--brass);text-transform:uppercase;letter-spacing:.05em}
+.fnote blockquote{font-family:"DM Serif Display",serif;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.25}
+.fnote p{color:var(--txt-2);margin-top:14px}
+.fnote .sig{font:600 .85rem "IBM Plex Mono",monospace;color:var(--txt);margin-top:18px}
 /* founder */
 .founder{display:grid;gap:24px;grid-template-columns:1fr}
 @media(min-width:860px){.founder{grid-template-columns:auto 1fr;gap:40px}}
@@ -301,11 +308,11 @@ footer a{color:var(--txt-2)}
   <figure class="bldg" aria-label="Cross-section of a building at C/ Provença 214 with an open ticket in the basement garage">
     <div class="sign" aria-hidden="true"><small>Eixample</small><b>C/ de Provença, 214</b></div>
     <div class="facade">
-      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">3º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">2º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">1º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">BJ</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u lit"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">3º</span><span class="u lit"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">2º</span><span class="u lit"><span class="who">Flat 2-1 · Marta</span></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">1º</span><span class="u"></span><span class="u"></span><span class="u lit"></span></div>
+      <div class="floor"><span class="lv">BJ</span><span class="u lit"></span><span class="u"></span><span class="u"></span></div>
       <div class="floor gar"><span class="lv">-1</span><span class="u"></span><span class="u"><span class="hit"></span></span><span class="u"></span></div>
     </div>
     <div class="ground"></div>
@@ -377,6 +384,7 @@ footer a{color:var(--txt-2)}
 <section>
   <div class="wrap">
     <h2 class="rv">The office sees one ticket, not forty messages</h2>
+    <p class="sub rv"><a href="app.html">Open the dashboard prototype</a> (Spanish, sample data) and approve a spend yourself.</p>
     <div class="board rv" aria-label="Example ticket in the Conserjia dashboard">
       <div class="bar"><b>Nº 0417 · C/ Provença 214</b><span class="chip">Urgent</span></div>
       <div class="bgrid">
@@ -440,11 +448,11 @@ footer a{color:var(--txt-2)}
 
 <section id="precio">
   <div class="wrap">
-    <h2 class="rv">Priced per building, not per seat</h2>
+    <h2 class="rv">We charge when the repair is closed</h2>
     <p class="sub rv">We are validating the price with the first offices. This is the starting point, excluding VAT.</p>
     <div class="plans">
       <div class="plan hl rv"><h3>Pilot</h3><div class="price">€0 <small>for 30 days</small></div><ul><li>2 buildings chosen by the office</li><li>We onboard their contractors</li><li>QR sign for the entrance hall</li><li>Results report on day 30</li></ul><a class="btn" href="#probar" style="margin-top:auto">Request a pilot <span class="ar" aria-hidden="true">&rarr;</span></a></div>
-      <div class="plan rv"><h3>After the pilot</h3><div class="price">€12 <small>per building per month</small></div><ul><li>Unlimited repairs</li><li>History and monthly report for the owners' meeting</li><li>No setup fee or extra licences</li><li>No lock-in</li><li>Tiered price from 60 buildings</li></ul></div>
+      <div class="plan rv"><h3>After the pilot</h3><div class="price">€4 <small>per closed repair</small></div><ul><li>€49 monthly minimum per office</li><li>All buildings, no per-building fee</li><li>Out-of-hours urgent cases included</li><li>Private or doubtful cases with no contractor sent: free</li><li>No setup fee, no lock-in</li></ul></div>
     </div>
     <p class="note">If the office stops on day 30, we switch off the number and delete the pilot data. <a href="precios.html">ROI calculator (Spanish)</a>.</p>
   </div>
@@ -452,19 +460,18 @@ footer a{color:var(--txt-2)}
 
 <section>
   <div class="wrap">
-    <div class="founder rv">
-      <span class="plate" aria-hidden="true">J</span>
-      <div>
-        <blockquote>"I am looking for five Barcelona offices to build this with me."</blockquote>
-        <p>I am Joaquín, a technical founder in Barcelona building software with AI. Conserjia is in pilot: there are no customers to show yet, and I will not invent them. In the first month I review every agent message before it goes out. If it does not save the office calls in 30 days, we switch it off at no cost.</p>
-      </div>
+    <div class="fnote rv">
+      <div class="hd"><span>Founder note</span><span>No. 0001</span></div>
+      <blockquote>"In the first month I read every message Conserjia sends to residents before it goes out."</blockquote>
+      <p>I am building Conserjia in Barcelona. There are no customers to show yet, and I will not invent them. If it does not save the office calls in 30 days, I switch it off at no cost.</p>
+      <p class="sig">Joaquín Ferreiros</p>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap">
-    <h2 class="rv">Questions partners ask</h2>
+    <h2 class="rv">Before the sign goes up in the hall</h2>
     <div class="faq">
     <details><summary>Does it replace the office team?</summary><p>No. It removes the errands: asking for the address, calling the plumber, chasing the visit, updating the resident. The team decides doubtful cases and approves spend.</p></details>
     <details><summary>What if the contractor does not answer?</summary><p>Conserjia sends a reminder. After the office's deadline, it moves to the next contractor on the list or alerts the office.</p></details>

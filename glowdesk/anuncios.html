@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Kit de anuncios</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#fff;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--sage-soft:#DFE8E1;--rose:#A65468;--rose-soft:#F3DEE1;--gold:#A65468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+a{color:var(--sage)}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);margin:.3rem 0 1rem}
+h2{font-size:clamp(1.8rem,4.5vw,2.4rem);margin-bottom:1rem;padding-top:8px}
+h3{font-size:1.35rem;margin:1.4rem 0 .5rem}
+em{color:var(--rose)}
+p,ul,ol{margin-bottom:.9rem}
+ul,ol{padding-left:1.3rem}
+li{margin-bottom:.35rem}
+header{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.back{font-size:.9rem;text-decoration:none}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.82rem;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;color:var(--muted)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.summary{background:var(--sage);color:#FBF4F2;border-radius:20px;padding:26px;font-size:1.08rem;margin-top:24px}
+.summary b{color:#F3C7B5}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}
+.note{background:var(--rose-soft);border-radius:14px;padding:16px 18px;font-size:.95rem}
+.grid2{display:grid;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:12px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sage-soft);font-weight:700;color:var(--sage)}
+.tw{overflow-x:auto}
+code{font-size:.85em;background:var(--sage-soft);padding:1px 6px;border-radius:6px}
+pre{background:#1F2A26;color:#E9E3DC;border-radius:14px;padding:16px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:18px 0}
+.lane{display:grid;gap:10px}
+.lane-t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.nodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.88rem}
+.node b{display:block;font-size:.95rem}
+.node.core{background:var(--sage);color:#fff;border-color:var(--sage)}
+.node.warn{background:var(--rose-soft);border-color:#E9C7CD}
+.arrow{text-align:center;color:var(--rose);font-size:1.3rem;line-height:1}
+.weeks{display:grid;gap:12px}
+.wk{background:#fff;border:1px solid var(--line);border-left:4px solid var(--rose);border-radius:12px;padding:16px}
+.wk b{font-family:"Bodoni Moda",serif;font-size:1.3rem;font-weight:400}
+footer{padding:32px 0;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.weeks{grid-template-columns:1fr 1fr}}
+.ad{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:.92rem}
+.ad b{color:#1a0dab;font-weight:500;display:block}.ad small{color:#1e6b3a;display:block}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">Volver al plan</a>
+  <h1>Kit de <em>anuncios</em>, para más adelante</h1>
+  <p>No se usa hasta tener 5 clínicas de pago y un formulario que guarde las peticiones. Sirve para probar con 5 € al día si los anuncios traen demos más baratas que las visitas.</p>
+  <nav class="toc"><a href="#google">Google Ads</a><a href="#meta">Meta</a><a href="#test">Test de 2 semanas</a><a href="#metricas">Métricas</a></nav>
+</div></header>
+<main class="wrap">
+<section id="google">
+  <h2>Google Ads: palabras clave</h2>
+  <div class="grid2">
+    <div class="box"><b>Exacta</b><ul><li>[software clínica estética]</li><li>[recepcionista virtual clínica]</li><li>[chatbot instagram clínica estética]</li><li>[reducir ausencias clínica]</li><li>[agenda online medicina estética]</li></ul></div>
+    <div class="box"><b>Frase</b><ul><li>"responder dms instagram clínica"</li><li>"whatsapp clínica estética automático"</li><li>"señal reserva clínica estética"</li><li>"asistente ia clínica"</li><li>"no shows clínica estética"</li></ul></div>
+  </div>
+  <div class="box"><b>Negativas</b><p>gratis, curso, máster, formación, empleo, trabajo, opiniones, precio botox, precio labios, cerca de mí, oferta tratamiento, peluquería. Así se filtran pacientes y estudiantes, que no son el comprador.</p></div>
+  <h3>5 anuncios de búsqueda</h3>
+  <div class="ad"><b>Contesta los DMs de tu clínica a medianoche | Glowdesk</b><small>glowdesk · clínicas estéticas</small>Recepción con IA que reserva la valoración y cobra la señal. Piloto gratis 30 días.</div>
+  <div class="ad"><b>Menos ausencias en valoraciones | Señal reembolsable</b><small>glowdesk · clínicas estéticas</small>Tus pacientes reservan por Instagram y pagan 20 € de señal. Sin cambiar de software.</div>
+  <div class="ad"><b>Recepcionista virtual para clínicas | En español</b><small>glowdesk · clínicas estéticas</small>Usa solo los textos que aprueba tu doctora. Deriva cualquier duda clínica a tu equipo.</div>
+  <div class="ad"><b>¿DMs sin contestar el fin de semana? | Glowdesk</b><small>glowdesk · clínicas estéticas</small>Te preparamos una demo con tu carta en 48 h. Gratis y sin tarjeta.</div>
+  <div class="ad"><b>Instagram + agenda + señal | Para medicina estética</b><small>glowdesk · clínicas estéticas</small>Funciona con Google Calendar y tu agenda actual. Datos en la UE. Sin permanencia.</div>
+</section>
+<section id="meta">
+  <h2>Meta: 3 conceptos</h2>
+  <div class="grid2">
+    <div class="box"><b>1. El DM de las 23:47</b><p>Gancho: «Una paciente te escribe un domingo a medianoche. ¿Quién contesta?». Vídeo vertical del simulador contestando y reservando.</p></div>
+    <div class="box"><b>2. La valoración que no vino</b><p>Gancho: «Tenías la agenda llena. Vinieron la mitad». Carrusel: hueco vacío, señal de 20 €, hueco ocupado.</p></div>
+    <div class="box"><b>3. La doctora decide</b><p>Gancho: «¿Una IA hablando de medicina? Solo con tus textos». Pantalla del aviso de lactancia enviado a la doctora.</p></div>
+    <div class="box"><b>Audiencias</b><p>Administradores de páginas de negocio + intereses «medicina estética», «ácido hialurónico», «clínica estética»; Barcelona y Madrid, 28-60 años. Retargeting de visitas a la landing. Sin segmentar por salud de personas.</p></div>
+  </div>
+  <p class="note">Los anuncios son para dueñas de clínica, no para pacientes. Nada de antes/después, ni resultados, ni nombres de medicamentos.</p>
+</section>
+<section id="test">
+  <h2>Test de 2 semanas con 5 € al día</h2>
+  <div class="tw"><table>
+    <tr><th>Días</th><th>Qué se hace</th><th>Gasto</th></tr>
+    <tr><td>1-7</td><td>Google Ads búsqueda con las 10 palabras clave y 5 anuncios. Enlace a la landing A.</td><td>35 €</td></tr>
+    <tr><td>8-14</td><td>Meta con los 3 conceptos a partes iguales, enlace a la landing A. Se apaga el concepto más caro el día 11.</td><td>35 €</td></tr>
+  </table></div>
+  <p>Total: 70 €. Joaquín revisa los números cada 2 días, 15 minutos.</p>
+</section>
+<section id="metricas">
+  <h2>Métricas que deciden</h2>
+  <ul>
+    <li><b>Coste por petición de demo:</b> seguir si está por debajo de 35 €. Una visita en persona cuesta unas 2 horas de Joaquín.</li>
+    <li><b>Peticiones de clínicas reales:</b> al menos 2 de 70 € gastados que sean clínicas con médico, no centros de estética sin médico.</li>
+    <li><b>CTR de búsqueda:</b> por debajo del 2 %, reescribir los anuncios antes de subir presupuesto.</li>
+    <li><b>No-go:</b> 0 peticiones válidas en 14 días. Los anuncios vuelven al cajón y todo el tiempo va a visitas y partners.</li>
+  </ul>
+</section>
+</main>
+<footer><div class="wrap">Glowdesk · © 2026 · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

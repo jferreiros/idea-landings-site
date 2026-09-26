@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recepcionista, secretaria virtual o asistente: qué le conviene a un taller | Tecnicall</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{line-height:1!important;margin-bottom:18px!important}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+<meta name="description" content="Comparativa honesta para talleres de reparación de 1 a 15 técnicos: recepcionista en plantilla, secretaria telefónica externa o asistente automático. Costes, horarios y límites.">
+<link rel="canonical" href="https://tecnicall.vercel.app/blog/recepcionista-o-asistente-para-taller.html">
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="../index.html">Tecni<span>call</span></a>
+  <h1>Recepcionista, secretaria virtual o asistente automático</h1>
+  <p>Qué le conviene a un taller de reparación de 1 a 15 técnicos. Tiempo de lectura: 5 minutos.</p>
+</header>
+<main class="wrap">
+<section style="border-top:0">
+<p>Llega un momento en que el dueño de un taller ya no puede con el teléfono. Está en un trabajo, suena el móvil, no lo coge, y por la noche devuelve llamadas mientras cena. La pregunta es siempre la misma: ¿contrato a alguien o busco otra solución?</p>
+<p>Hay tres caminos. Ninguno es perfecto para todos. En esta guía los comparamos con lo que importa en un taller: cuánto cuesta, a qué horas contesta, si sabe tomar bien un aviso y qué pasa cuando algo se complica. Los precios de mercado cambian mucho según la ciudad y el proveedor, así que te damos la forma de calcularlo con tus números en lugar de cifras cerradas.</p>
+</section>
+<section>
+<h2>Opción 1: recepcionista en plantilla</h2>
+<p>Una persona en el taller o en casa que coge el teléfono, apunta avisos y organiza las rutas. Es la opción más completa cuando hay volumen.</p>
+<ul>
+<li><b>A favor:</b> conoce a los clientes, a los técnicos y los barrios. Puede resolver casos raros, llamar a proveedores y cobrar facturas atrasadas.</li>
+<li><b>En contra:</b> tiene horario. Las llamadas de noche, de fin de semana y de su hora de comer siguen sin respuesta. Hay que sumar salario, seguridad social, vacaciones y bajas.</li>
+<li><b>Tiene sentido si:</b> entran muchas llamadas en horario de oficina y además hay trabajo administrativo para llenar la jornada.</li>
+</ul>
+<p>Para saber cuánto te cuesta de verdad, pide a tu gestoría el coste total de empresa de un puesto administrativo a jornada completa o media jornada. Ese es el número con el que comparar, no el sueldo neto.</p>
+</section>
+<section>
+<h2>Opción 2: secretaria telefónica externa</h2>
+<p>Un servicio que atiende tus llamadas desviadas con personas de un centro de atención. Cogen el recado y te lo mandan por email o mensaje.</p>
+<ul>
+<li><b>A favor:</b> contesta una persona. No hay que contratar ni formar a nadie. Muchos cubren horarios amplios.</li>
+<li><b>En contra:</b> suelen cobrar por llamada o por minuto, y el horario nocturno o festivo cuesta más. Quien contesta no conoce tu oficio: toma un recado, no un aviso con marca, modelo y código de error. Normalmente no agenda en tu calendario.</li>
+<li><b>Tiene sentido si:</b> recibes pocas llamadas, casi todas de día, y solo quieres que nadie se quede sin respuesta.</li>
+</ul>
+<p>Antes de contratar, pide la tarifa por escrito y calcula un mes normal: llamadas perdidas al mes por minutos medios por el precio por minuto, más la cuota fija.</p>
+</section>
+<section>
+<h2>Opción 3: asistente automático</h2>
+<p>Un sistema con inteligencia artificial que contesta llamadas y WhatsApp con el nombre de tu empresa. Pregunta lo que tú configuras, pide la foto, propone horas libres y deja el aviso en la agenda.</p>
+<ul>
+<li><b>A favor:</b> contesta a cualquier hora, también a la vez a varios clientes. Puede hacer siempre las mismas preguntas técnicas y agendar según zona y técnico. Suele tener cuota mensual fija.</li>
+<li><b>En contra:</b> no es una persona, y debe decirlo al empezar la conversación. Algunos clientes prefieren hablar con alguien. No sirve para negociar un presupuesto ni para casos muy raros: esos te los tiene que pasar.</li>
+<li><b>Tiene sentido si:</b> pierdes llamadas cuando estás en un trabajo o fuera de horario, y la mayoría de avisos siguen un patrón parecido.</li>
+</ul>
+</section>
+<section>
+<h2>Comparativa rápida</h2>
+<div class="tbl"><table>
+<tr><th></th><th>Recepcionista</th><th>Secretaria externa</th><th>Asistente automático</th></tr>
+<tr><td>Horario</td><td>Su jornada</td><td>Según contrato</td><td>24 horas</td></tr>
+<tr><td>Conoce el oficio</td><td>Con el tiempo</td><td>Poco</td><td>Lo que tú configures</td></tr>
+<tr><td>Agenda en tu calendario</td><td>Sí</td><td>Normalmente no</td><td>Sí</td></tr>
+<tr><td>WhatsApp</td><td>Sí</td><td>Depende</td><td>Sí</td></tr>
+<tr><td>Coste</td><td>Fijo alto</td><td>Por llamada o minuto</td><td>Cuota mensual</td></tr>
+<tr><td>Casos complicados</td><td>Los resuelve</td><td>Toma recado</td><td>Te los pasa</td></tr>
+</table></div>
+</section>
+<section>
+<h2>Cómo decidir con tus números</h2>
+<ol>
+<li>Mira el registro de llamadas perdidas de tu móvil durante una semana normal.</li>
+<li>Estima cuántas de esas llamadas eran un trabajo, no comerciales ni dudas.</li>
+<li>Multiplica esos trabajos por lo que facturas de media en cada uno. Esa cifra es lo que se te escapa cada semana.</li>
+<li>Apunta cuántas horas a la semana pasas al teléfono o contestando WhatsApp fuera del trabajo.</li>
+<li>Compara ese coste con lo que cuesta cada opción al mes.</li>
+</ol>
+<p>Tienes una <a href="../precios.html">calculadora con estos mismos pasos</a> en nuestra web. No usa medias del sector: solo tus números.</p>
+</section>
+<section>
+<h2>Se pueden combinar</h2>
+<p>Lo que no funciona es no tener ninguna. Cada llamada sin respuesta es un cliente que prueba con el siguiente de la lista, y ese cliente también deja reseñas. No hace falta elegir solo una. Muchos talleres con una persona en la oficina ponen un asistente para las horas en que no está: la hora de comer, las tardes y los fines de semana. Y un taller pequeño puede empezar con un asistente y contratar a alguien cuando el volumen lo justifique.</p>
+</section>
+<section>
+<h2>Prueba el asistente con tu nombre</h2>
+<div class="summary"><p>Tecnicall busca los primeros talleres de Barcelona para un piloto gratis de 30 días, sin cambiar de número. Escucha cómo contestaría tu empresa: <a href="../index.html#probar" style="color:#FFD000">pide tu demo</a>.</p></div>
+</section>
+</main>
+<footer><div class="wrap"><span>Tecnicall · Barcelona</span><span><a href="../index.html">Inicio</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></span></div></footer>
+</body></html>

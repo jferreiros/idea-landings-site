@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisita | Prototipo del panel</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23137A6E' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23137A6E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#fff;--mint:#EEF8F4;--mint-2:#D6EFE5;--teal:#0A4A44;--teal-2:#137A6E;--ink:#0D1B1A;--ink-2:#4B5B59;--ink-3:#5E6D6B;--line:#DDE7E3}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"Geist",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 28px;border-bottom:1px solid var(--line)}
+.logo{font-weight:700;letter-spacing:-.03em;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.label{font-family:"Geist Mono",monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:12px}
+h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin:22px 0 12px}
+h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+h3{font-size:1.05rem;font-weight:600;margin:22px 0 8px}
+p{margin-bottom:12px;color:var(--ink-2)}
+ol,ul{margin:0 0 14px 22px}
+li{margin-bottom:6px}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink);min-height:36px;display:inline-flex;align-items:center}
+.msg{background:var(--mint);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:10px 0 16px;white-space:pre-wrap;font-size:.95rem;color:var(--ink)}
+.msg b{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:6px;font-weight:500}
+.warn{border-left:2px solid var(--teal-2);padding:10px 16px;background:var(--mint);margin:14px 0;font-size:.94rem}
+.obj{border-top:1px solid var(--ink)}
+.obj div{padding:16px 0;border-bottom:1px solid var(--line)}
+.obj b{display:block;margin-bottom:4px}
+.obj span{color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Geist Mono",monospace;font-weight:500;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-2);background:var(--mint)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;margin:10px 0 16px}
+code{font-family:"Geist Mono",monospace;font-size:.86em;background:var(--mint);padding:1px 5px;border-radius:4px;word-break:break-word}
+footer{padding:28px 0;font-size:.88rem;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.sample{font-family:"Geist Mono",monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:3px 7px;color:var(--ink-2)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:20px 0}
+.kpis div{padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpis small{font-family:"Geist Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--teal-2);display:block}
+.kpis b{font-family:"Geist Mono",monospace;font-weight:500;font-size:1.5rem;color:var(--teal)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{font:inherit;font-size:.92rem;border:1px solid var(--line);background:#fff;border-radius:6px;padding:9px 14px;min-height:44px;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.panel{display:none}.panel.on{display:block}
+.inbox{display:grid;gap:16px}.inbox>*{min-width:0}
+.conv{display:grid;grid-template-columns:1fr auto;gap:8px;width:100%;text-align:left;font:inherit;background:#fff;border:0;border-bottom:1px solid var(--line);padding:12px 4px;cursor:pointer;color:var(--ink);min-height:56px}
+.conv[aria-current=true]{background:var(--mint)}
+.conv small{display:block;color:var(--ink-3);font-size:.82rem}
+.st{font-family:"Geist Mono",monospace;font-size:.7rem;padding:3px 8px;border-radius:4px;border:1px solid var(--line);white-space:nowrap;align-self:center}
+.st.ok{background:var(--mint-2);border-color:transparent;color:var(--teal)}
+.thread{background:var(--mint);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;min-height:260px}
+.m{max-width:88%;padding:8px 11px;border-radius:8px;background:#fff;border:1px solid var(--line);font-size:.92rem}
+.m.out{align-self:flex-end;background:var(--mint-2);border-color:transparent}
+.m.sys{align-self:center;background:transparent;border:0;font-family:"Geist Mono",monospace;font-size:.74rem;color:var(--teal-2);text-align:center}
+.act{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{font:inherit;font-weight:600;background:var(--teal);color:#fff;border:0;border-radius:8px;padding:11px 16px;min-height:44px;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn[disabled]{opacity:.55;cursor:default}
+.batch li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);list-style:none}
+.batch{margin:0 0 14px}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}.inbox{grid-template-columns:1fr 1.2fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="bar"><a class="logo" href="index.html">Revisita</a><span class="sample">Datos de ejemplo</span></div>
+  <h1 style="margin-top:22px">Clínica de ejemplo · octubre</h1>
+  <p>Prototipo para enseñar en las visitas. Todo lo que ves son datos de ejemplo.</p>
+  <div class="kpis">
+    <div><small>Euros dormidos</small><b>31.480 €</b></div>
+    <div><small>Mensajes</small><b id="k-sent">160</b></div>
+    <div><small>Citas</small><b id="k-book">14</b></div>
+    <div><small>Recuperado</small><b id="k-rev">910 €</b></div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" aria-controls="p-inbox" id="t-inbox">Bandeja</button>
+    <button role="tab" aria-selected="false" aria-controls="p-batch" id="t-batch">Lote de hoy</button>
+    <button role="tab" aria-selected="false" aria-controls="p-report" id="t-report">Informe</button>
+  </div>
+  <section class="panel on" id="p-inbox" role="tabpanel" aria-labelledby="t-inbox" style="padding:0;border:0">
+    <div class="inbox">
+      <div id="convs"></div>
+      <div><div class="thread" id="thread" aria-live="polite"></div><div class="act" id="acts"></div></div>
+    </div>
+  </section>
+  <section class="panel" id="p-batch" role="tabpanel" aria-labelledby="t-batch" style="padding:0;border:0">
+    <p>Nada sale sin tu aprobación. Lote de hoy: 40 pacientes con revisión atrasada.</p>
+    <ul class="batch"><li><span>Revisión atrasada, más de 12 meses</span><b class="mono">28</b></li><li><span>Revisión atrasada, 9 a 12 meses</span><b class="mono">12</b></li><li><span>Excluidos por baja o teléfono no válido</span><b class="mono">3</b></li></ul>
+    <div class="thread" style="min-height:0"><div class="m out">Hola {nombre}, soy Anna, de la clínica. Hace {meses} meses de tu última revisión con la Dra. Vidal. ¿Te va bien alguno de estos huecos? {huecos}</div></div>
+    <div class="act"><button class="btn" id="approve" type="button">Aprobar y enviar 40</button><button class="btn ghost" type="button" id="edit">Editar plantilla</button></div>
+    <p id="b-msg" role="status" style="margin-top:10px"></p>
+  </section>
+  <section class="panel" id="p-report" role="tabpanel" aria-labelledby="t-report" style="padding:0;border:0">
+    <div class="scroll"><table><tr><th>Paciente</th><th>Motivo</th><th>Cita</th><th>Estado</th><th>Importe</th></tr>
+    <tr><td>Marta S.</td><td>Limpieza</td><td>jue 10:30</td><td>Atendida</td><td>25 €</td></tr>
+    <tr><td>Pau R.</td><td>Revisión</td><td>lun 9:00</td><td>Atendida</td><td>25 €</td></tr>
+    <tr><td>Lucía M.</td><td>Ortodoncia</td><td>mar 18:00</td><td>No acudió</td><td>0 €</td></tr>
+    <tr><td>Jordi P.</td><td>Implante fase 2</td><td>pendiente</td><td>En recepción</td><td>0 €</td></tr></table></div>
+    <p>Cada línea se puede impugnar antes de la factura.</p>
+  </section>
+</main>
+<footer class="wrap"><span>Revisita · prototipo con datos de ejemplo</span><a href="index.html">Volver a la landing</a></footer>
+<script>
+(function(){
+  var C=[
+    {n:'Marta S.',w:'Limpieza · 14 meses',s:'Cita jue 10:30',ok:1,m:[['out','Hola Marta, soy Anna, de la clínica. Hace 14 meses de tu última limpieza. ¿Martes 17:00 o jueves 10:30?'],['in','El jueves'],['out','Hecho: jueves 10:30.'],['sys','Cita creada en la agenda']]},
+    {n:'Jordi P.',w:'Implante · fase 2',s:'En recepción',ok:0,esc:1,m:[['out','Hola Jordi, tu implante está listo para la segunda fase. ¿Te reservamos hora?'],['in','¿Cuánto me queda por pagar?'],['sys','Pregunta de precio · pasa a recepción']]},
+    {n:'Lucía R.',w:'Ortodoncia · revisión',s:'Esperando',ok:0,m:[['out','Hola Lucía, te toca revisión de ortodoncia. ¿Te va bien el viernes 12:15?']]}
+  ];
+  var cv=document.getElementById('convs'),th=document.getElementById('thread'),ac=document.getElementById('acts'),cur=0;
+  function list(){cv.innerHTML='';C.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.className='conv';if(i===cur)b.setAttribute('aria-current','true');b.innerHTML='<div><b></b><small></small></div><span class="st'+(c.ok?' ok':'')+'"></span>';b.querySelector('b').textContent=c.n;b.querySelector('small').textContent=c.w;b.querySelector('.st').textContent=c.s;b.onclick=function(){cur=i;list();show();};cv.appendChild(b);});}
+  function show(){var c=C[cur];th.innerHTML='';c.m.forEach(function(x){var d=document.createElement('div');d.className='m '+x[0];d.textContent=x[1];th.appendChild(d);});ac.innerHTML='';
+    if(c.esc){var b=document.createElement('button');b.className='btn';b.type='button';b.textContent='Recepción responde y cita';b.onclick=function(){c.m.push(['out','Te queda la segunda fase, 480 €. ¿Te va bien el martes 18:00?']);c.m.push(['in','Perfecto']);c.m.push(['sys','Cita creada por recepción']);c.s='Cita mar 18:00';c.ok=1;c.esc=0;bump(1);list();show();};ac.appendChild(b);}
+    else if(!c.ok){var b2=document.createElement('button');b2.className='btn ghost';b2.type='button';b2.textContent='Simular respuesta del paciente';b2.onclick=function(){c.m.push(['in','Sí, el viernes']);c.m.push(['out','Hecho: viernes 12:15.']);c.m.push(['sys','Cita creada en la agenda']);c.s='Cita vie 12:15';c.ok=1;bump(1);list();show();};ac.appendChild(b2);}
+  }
+  var book=14;function bump(n){book+=n;document.getElementById('k-book').textContent=book;document.getElementById('k-rev').textContent=String(book*65).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €';}
+  list();show();
+  var tabs=document.querySelectorAll('[role=tab]');Array.prototype.forEach.call(tabs,function(t){t.onclick=function(){Array.prototype.forEach.call(tabs,function(x){x.setAttribute('aria-selected','false');document.getElementById(x.getAttribute('aria-controls')).classList.remove('on');});t.setAttribute('aria-selected','true');document.getElementById(t.getAttribute('aria-controls')).classList.add('on');};});
+  document.getElementById('approve').onclick=function(){this.disabled=true;this.textContent='Enviado';document.getElementById('k-sent').textContent='200';document.getElementById('b-msg').textContent='40 mensajes en cola. Salen entre las 10:00 y las 20:00.';};
+  document.getElementById('edit').onclick=function(){document.getElementById('b-msg').textContent='En el producto real, aquí editas el texto y lo apruebas antes de enviarlo a Meta.';};
+})();
+</script>
+</body>
+</html>

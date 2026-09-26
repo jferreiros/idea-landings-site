@@ -110,7 +110,7 @@ footer{padding:30px 0;font-size:.9rem}
   });});
   document.getElementById('a3').addEventListener('click',function(e){
     var a=e.target.dataset.a;if(!a)return;
-    if(a==='ok'){document.getElementById('s3').textContent='Confirmado: jue 24 oct, 13:30';document.getElementById('s3').className='st ok';document.getElementById('cs3').textContent='Confirmado';document.getElementById('cs3').className='st ok';this.innerHTML='';say('Confirmado el jueves a las 13:30.',true);setTimeout(function(){say('Perfecto. Te recuerdo el miércoles por la tarde.');},600);}
+    if(a==='ok'){var slot=document.getElementById('c3').textContent;document.getElementById('s3').textContent='Confirmado: '+slot.toLowerCase();document.getElementById('s3').className='st ok';document.getElementById('cs3').textContent='Confirmado';document.getElementById('cs3').className='st ok';this.innerHTML='';say('Confirmado: '+slot.toLowerCase()+'.',true);setTimeout(function(){say('Perfecto. Te lo recuerdo la tarde anterior.');},600);}
     else{document.getElementById('s3').textContent='Propuesto: vie 25 oct, 13:00';document.getElementById('c3').textContent='Vie 25 oct, 13:00';say('¿Puede otro día?',true);setTimeout(function(){say('Laura puede el viernes 25 a las 13:00. ¿Confirmas?');},600);}
   });
   document.getElementById('sf').addEventListener('submit',function(e){e.preventDefault();var i=document.getElementById('si'),t=i.value.trim()||i.placeholder;say(t,true);i.value='';setTimeout(function(){say('Anotado. Se lo pedimos a los próximos creadores.');},600);});

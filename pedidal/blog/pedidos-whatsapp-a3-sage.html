@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo pasar pedidos de WhatsApp a A3ERP o Sage sin teclearlos · Pedidal</title>
+<meta name="description" content="Qué opciones hay para que los pedidos que llegan por WhatsApp entren en A3ERP, Sage 50 o Sage 200 sin teclearlos: importación de ficheros, conectores y qué pedir a tu integrador.">
+<link rel="canonical" href="https://pedidal.vercel.app/blog/pedidos-whatsapp-a3-sage.html">
+<meta property="og:type" content="article"><meta property="og:title" content="Cómo pasar pedidos de WhatsApp a A3ERP o Sage sin teclearlos"><meta property="og:description" content="Qué opciones hay para que los pedidos que llegan por WhatsApp entren en A3ERP, Sage 50 o Sage 200 sin teclearlos: importación de ficheros, conectores y qué pedir a tu integrador."><meta property="og:image" content="https://pedidal.vercel.app/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cómo pasar pedidos de WhatsApp a A3ERP o Sage sin teclearlos","datePublished":"2026-09-26","author":{"@type":"Person","name":"Joaquín"},"publisher":{"@type":"Organization","name":"Pedidal"},"inLanguage":"es"}</script>
+<style>
+:root{--paper:#E6D8BF;--card:#FBF6EC;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--orange:#FF5A1F;--rust:#A8360A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.7 "IBM Plex Sans",sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.logo{display:flex;gap:8px;align-items:center;font:800 20px "Archivo";text-decoration:none;color:var(--ink)}
+.mark{width:26px;height:26px;border-radius:3px;background:var(--orange)}
+nav a{color:var(--ink)}
+h1{font:800 clamp(34px,7vw,52px)/1.02 "Archivo";font-stretch:78%;margin:36px 0 12px}
+h3{font:700 20px/1.2 "Archivo";font-stretch:85%;margin:22px 0 6px}
+h2{font:800 28px/1.1 "Archivo";font-stretch:78%;margin:34px 0 10px}
+p,ul,ol,table{margin:0 0 16px}
+ul,ol{padding-left:22px}
+.meta{font:500 13px "IBM Plex Mono";color:var(--ink-2);margin-bottom:24px}
+a{color:var(--rust)}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card)}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl{overflow-x:auto}
+.cta{background:var(--orange);border-radius:6px;padding:22px;margin:36px 0}
+.cta b{display:block;font:800 26px/1.1 "Archivo";font-stretch:78%;margin-bottom:6px}
+.cta a{display:inline-block;margin-top:10px;background:var(--ink);color:#FFF8F0;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:4px}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="../index.html"><span class="mark"></span>Pedidal</a><a href="index.html">Blog</a></nav>
+<article>
+<h1>Cómo pasar pedidos de WhatsApp a A3ERP o Sage sin teclearlos</h1>
+<p class="meta">26 sep 2026 · Joaquín, Pedidal · 4 min de lectura</p>
+<p>A3ERP y Sage (50 y 200) son dos de los ERP más habituales en almacenes y distribuidoras de tamaño medio en España. Muchos se instalaron hace años en un servidor de la oficina y los mantiene un integrador local. Cuando quieres que los pedidos de WhatsApp entren solos, la pregunta práctica es: ¿por dónde entra un pedido en mi ERP sin que alguien lo teclee?</p>
+
+<h2>Las tres vías de entrada</h2>
+<ol>
+<li><b>Importación de ficheros.</b> La mayoría de ERP de escritorio pueden importar pedidos o documentos desde un fichero (CSV, Excel o un formato propio). Es la vía más sencilla para empezar. El fichero se genera con el formato exacto que tu ERP espera y alguien, o un proceso programado, lo importa.</li>
+<li><b>Conector o API.</b> Algunas versiones y módulos permiten crear pedidos desde otro programa. En instalaciones locales suele hacer falta un pequeño programa en el servidor de la oficina que hable con el ERP.</li>
+<li><b>Tu integrador.</b> Si tu ERP está muy personalizado, tu integrador sabe qué vía es más segura. Muchos ya han hecho importaciones para tiendas online o apps de comerciales.</li>
+</ol>
+<p>Las opciones concretas dependen de tu versión y de tus módulos. Antes de decidir, pregúntale a tu integrador qué vía usa hoy para importar pedidos de otras fuentes.</p>
+
+<h2>Qué necesita un pedido para entrar bien en el ERP</h2>
+<p>Da igual la vía. El ERP necesita siempre lo mismo:</p>
+<div class="tbl"><table>
+<tr><th>Campo</th><th>De dónde sale si el pedido llega por WhatsApp</th></tr>
+<tr><td>Código de cliente</td><td>Del número de teléfono, cruzado con tu ficha de clientes</td></tr>
+<tr><td>Referencia de artículo</td><td>De lo que escribe o dice el cliente ("cola gris"), cruzado con tu catálogo</td></tr>
+<tr><td>Cantidad y unidad</td><td>Del mensaje, convertida a la unidad del ERP (palé, saco, caja)</td></tr>
+<tr><td>Fecha y dirección de entrega</td><td>Del mensaje ("mañana en la obra de Terrassa") o de la ficha del cliente</td></tr>
+<tr><td>Observaciones</td><td>Lo que no encaja en otro campo</td></tr>
+</table></div>
+<p>La parte difícil no es crear el fichero. Es rellenar bien la columna de referencia a partir de un audio o de una foto. Ahí es donde falla la automatización genérica y donde hace falta usar tu catálogo y el historial de cada cliente.</p>
+
+<h2>Un arranque en tres fases</h2>
+<ol>
+<li><b>Fase 1: fichero de importación.</b> Los pedidos de WhatsApp se convierten en un CSV con el formato de tu ERP. Tu equipo lo revisa y lo importa. Así validas la precisión sin tocar nada del ERP.</li>
+<li><b>Fase 2: importación programada.</b> Cuando confías en el resultado, la importación se programa. Solo los pedidos dudosos pasan por revisión.</li>
+<li><b>Fase 3: conector directo.</b> Si el volumen lo justifica, se crea el pedido directamente en el ERP y se guarda el número de pedido para seguirlo.</li>
+</ol>
+
+<h2>Preguntas para tu integrador de A3 o Sage</h2>
+<ul>
+<li>¿Qué formato de importación de pedidos de venta admite mi versión?</li>
+<li>¿Se puede programar la importación o hay que lanzarla a mano?</li>
+<li>¿Hay un módulo o API para crear pedidos desde otro programa? ¿Qué cuesta?</li>
+<li>¿Cómo se identifican los clientes y artículos en la importación: por código, por CIF, por código de barras?</li>
+<li>¿Qué pasa si una referencia no existe? ¿Se rechaza el pedido entero o solo la línea?</li>
+</ul>
+
+<h2>Lo que no debes aceptar</h2>
+<ul>
+<li>Soluciones que automatizan WhatsApp Web con trucos. Meta puede bloquear tu número. Usa la API oficial de WhatsApp Business.</li>
+<li>Pedidos que entran en el ERP sin que nadie los confirme. El cliente debe recibir un resumen y dar su "ok", o tu equipo debe revisar lo dudoso.</li>
+<li>Cambiar de ERP para poder automatizar pedidos. No hace falta.</li>
+</ul>
+<p>Pedidal empieza por la fase 1 con tu formato de importación y conecta con A3, Sage, Holded u Odoo cuando el piloto funciona. Si tu ERP importa un CSV, podemos empezar esta semana.</p>
+
+<h2>Preguntas frecuentes</h2>
+<h3>¿Funciona si mi A3 o mi Sage están en un servidor de la oficina y no en la nube?</h3>
+<p>Sí. La vía más habitual en instalaciones locales es la importación de ficheros o un pequeño programa instalado en el servidor que crea los pedidos. Tu integrador puede decirte cuál es más segura para tu versión. No hace falta migrar a la nube para automatizar la entrada de pedidos.</p>
+<h3>¿Qué pasa si un artículo del pedido no existe en el ERP?</h3>
+<p>No debería llegar al ERP. Antes de generar el fichero o crear el pedido, cada línea se cruza con tu catálogo. Si un producto no aparece, la línea va a revisión con las referencias más parecidas, y tu comercial decide si la cambia, la quita o pregunta al cliente.</p>
+<h3>¿Necesito cambiar la numeración de pedidos o mis series?</h3>
+<p>No. El pedido se crea con la serie que ya usas para ventas, o con una serie aparte si prefieres distinguir los pedidos que entran por WhatsApp. Esa segunda opción ayuda a medir el volumen del canal durante el piloto.</p>
+<div class="cta"><b>¿Te llegan pedidos por WhatsApp cada mañana?</b>Mándanos 20 pedidos reales y el catálogo en Excel. En 48 horas te los devolvemos en el formato de tu ERP. Gratis.<br><a href="../index.html#probar">Probar gratis con 20 pedidos</a></div>
+</article>
+<footer>Pedidal · © 2026 · <a href="../index.html">Inicio</a> · <a href="../precios.html">Precios</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></footer>
+</div>
+</body>
+</html>

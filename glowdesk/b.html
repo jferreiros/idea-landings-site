@@ -57,12 +57,26 @@ section{padding:84px 0}
 .btn.ghost{background:transparent;color:var(--sage);border:1.5px solid var(--sage)}
 /* nav */
 nav{position:sticky;top:0;z-index:10;background:rgba(247,237,235,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;height:64px}
 .logo{font-family:"Bodoni Moda",serif;font-size:1.7rem;text-decoration:none;display:flex;align-items:center;gap:.45rem}
 .logo i{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F3C7B5,var(--rose));box-shadow:0 0 0 5px var(--rose-soft)}
 nav .btn{padding:10px 18px;font-size:.92rem}
 @media(max-width:420px){.logo{font-size:1.4rem}nav .btn{padding:9px 14px;font-size:.85rem}.lang{margin-right:4px}.lang a{padding:10px 6px}}
 nav .btn{white-space:nowrap}
+/* editorial hero */
+.hero .wrap{position:relative}
+.spread{position:relative;display:grid;justify-items:center;padding:8px 0 0}
+.spread::before{content:"";position:absolute;inset:6% 4% 12% 10%;background:linear-gradient(160deg,#EFD6DA 0%,#F7EDEB 70%);border-radius:220px 220px 24px 24px;z-index:0}
+.hero .phone{position:relative;z-index:1;max-width:340px;background:#16201B;border-radius:44px;padding:10px;box-shadow:0 40px 70px -35px rgba(52,80,63,.55);transform:rotate(-2.5deg)}
+.hero .phone .screen{background:#fff;border-radius:36px;overflow:hidden;padding:10px 12px 12px}
+.ig-bar{display:flex;justify-content:space-between;font-size:.72rem;font-weight:700;padding:2px 10px 8px;color:var(--ink)}
+.hero .ph-top{padding:6px 4px 10px}
+.hero .av{width:38px;height:38px;background:#fff;border:2px solid #fff;box-shadow:0 0 0 2px var(--rose);background-image:linear-gradient(135deg,#F2D2D8,#A65468)}
+.hero .thread{font-size:.82rem;padding:12px 2px 6px}
+.ig-input{margin-top:8px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.78rem;color:var(--muted)}
+.caption{position:relative;z-index:1;margin-top:18px;font-family:"Bodoni Moda",serif;font-style:italic;font-size:1.05rem;color:var(--muted);text-align:center;max-width:30ch}
+@media(prefers-reduced-motion:no-preference){.hero .phone{animation:settle 1s cubic-bezier(.16,1,.3,1) both}@keyframes settle{from{opacity:0;transform:rotate(-2.5deg) translateY(24px)}to{opacity:1;transform:rotate(-2.5deg)}}}
+@media(max-width:600px){.hero .phone{transform:none;max-width:340px;animation:none}.spread::before{inset:4% 0 10% 0}}
 /* hero */
 .hero{padding:64px 0 72px}
 .hero .wrap{display:grid;gap:48px;align-items:center}
@@ -247,10 +261,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <a class="btn" href="#probar">Pedir mi demo</a>
       <a class="link" href="#como">Cómo funciona</a>
     </div>
-    <div class="trustline"><span>Piloto gratis 30 días</span><span>Sin permanencia</span><span>Datos en la UE · RGPD</span></div>
+    <div class="trustline"><span>La doctora aprueba cada respuesta</span><span>Nunca diagnostica</span><span>Piloto de 30 días, gratis</span></div>
   </div>
 
-  <div class="phone" role="img" aria-label="Ejemplo: una paciente pregunta por Instagram a las 23:47, Glowdesk contesta con el precio, anota la lactancia para la doctora y reserva la valoración con señal de 20 euros">
+  <div class="spread">
+  <div class="phone" role="img" aria-label="Ejemplo: una paciente pregunta por Instagram a las 23:47, Glowdesk contesta con el precio, anota la lactancia para la doctora y reserva la valoración con señal de 20 euros"><div class="screen"><div class="ig-bar"><span>23:47</span><span>Instagram</span></div>
     <div class="ph-top"><span class="av"></span><div><b>clinica.aura.bcn</b><small>Responde Glowdesk · 23:47</small></div></div>
     <div class="thread">
       <div class="msg in">Holaa, vi vuestro anuncio del rinomodelado. ¿Cuánto cuesta?</div>
@@ -260,10 +275,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="card">
         <b>Valoración gratuita · Dra. Soler</b>
         <div class="slots"><span class="slot">Mar 17:00</span><span class="slot on">Mié 18:30</span><span class="slot">Jue 12:00</span></div>
-        <div class="pay">Señal reembolsable <span>20 € · Bizum</span></div>
+        <div class="pay">Señal con tarjeta <span>20 €</span></div>
       </div>
       <div class="flag">Aviso a la doctora: lactancia</div>
     </div>
+  <div class="ig-input">Mensaje…</div></div></div>
+  <p class="caption">Domingo, 23:47. La recepción está cerrada; la conversación, no.</p>
   </div>
 </div></header>
 
@@ -285,7 +302,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 </div></section>
 
 <section id="como"><div class="wrap">
-  <h2>Tres pasos. <em>Nada que migrar.</em></h2>
+  <h2>De tu carta a tu agenda. <em>Nada que migrar.</em></h2>
   <ol class="flow">
     <li><span class="num">1</span><div><h3>Nos pasas tu carta</h3><p>Tratamientos, precios «desde», horarios y política de señal. La doctora aprueba cada respuesta sensible antes de activarla.</p></div></li>
     <li><span class="num">2</span><div><h3>Conectamos tus canales</h3><p>Instagram DM primero. WhatsApp Business y teléfono cuando los quieras. Reserva en Google Calendar o en tu agenda actual.</p></div></li>
@@ -341,7 +358,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="kpi"><small>Señales cobradas</small><b>190 €</b></div>
     </div>
   </div>
-  <p class="demo-note">Datos de ejemplo para ilustrar el producto. No son de una clínica real.</p>
+  <p class="demo-note">Datos de ejemplo para ilustrar el producto. No son de una clínica real. <a href="app.html" style="color:#F2C4CD">Abre el prototipo y pruébalo</a>.</p>
   <div class="midcta"><a class="btn" href="#probar">Pedir mi demo</a><small>Esta bandeja, con tu carta, en 48 h. Gratis.</small></div>
 </div></section>
 
@@ -364,7 +381,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <h2>Menos que una recepcionista <em>de fin de semana.</em></h2>
   <div class="plans">
     <div class="plan"><h3>Instagram</h3><div class="price">149 € <small>/mes</small></div>
-      <ul><li>Instagram DM y comentarios</li><li>Reserva de valoración</li><li>Señal con Bizum o tarjeta</li><li>1 sede</li></ul></div>
+      <ul><li>Instagram DM y comentarios</li><li>Reserva de valoración</li><li>Señal con tarjeta (Bizum, más adelante)</li><li>1 sede</li></ul></div>
     <div class="plan hi"><h3>Recepción completa</h3><div class="price">229 € <small>/mes</small></div>
       <ul><li>Todo lo de Instagram</li><li>WhatsApp Business</li><li>Seguimiento de leads de anuncios</li><li>Avisos clínicos para la doctora</li></ul></div>
     <div class="plan"><h3>Con llamadas</h3><div class="price">299 € <small>/mes</small></div>
@@ -385,16 +402,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="founder" style="margin-top:28px">
     <div class="mono" aria-hidden="true">J</div>
     <div>
-      <p class="eyebrow">Una nota del fundador</p>
-      <p>Soy Joaquín y construyo Glowdesk desde Barcelona. La idea es simple: una paciente que pregunta un domingo por la noche merece respuesta en ese momento, no el lunes a media mañana.</p>
-      <p>Glowdesk está en fase piloto. Trabajo con pocas clínicas, en persona, y monto cada agente con vuestra carta. Si algo no funciona, me lo dices a mí y lo arreglo yo.</p>
+      <p class="eyebrow">Quién está detrás</p>
+      <p>Glowdesk lo construye Joaquín, en Barcelona. Antes de activar nada, se sienta con tu doctora y revisa la carta y cada respuesta sensible, una a una.</p>
+      <p>Por eso el piloto es con pocas clínicas: una recepción que habla en nombre de una doctora se prepara en persona, no con un formulario.</p>
       <p class="sig">Joaquín · fundador</p>
     </div>
   </div>
 </div></section>
 
 <section id="faq"><div class="wrap faq">
-  <h2>Lo que nos preguntaría una directora de clínica</h2>
+  <h2>Antes de dejar que conteste <em>por vosotras</em></h2>
   <details><summary>¿Tengo que cambiar mi programa de gestión?</summary><p>No. Glowdesk está pensado para clínicas que no quieren migrar. Reserva en Google Calendar o en tu agenda actual, y si tu software no tiene conexión, crea la cita y avisa a recepción para confirmarla.</p></details>
   <details><summary>¿La IA puede dar consejo médico?</summary><p>No. Explica tratamientos y precios «desde» con los textos que tu clínica aprueba. Si la paciente menciona embarazo, lactancia, alergias, medicación u otra condición, Glowdesk lo anota como aviso para la doctora y no opina.</p></details>
   <details><summary>¿Cumple con la normativa de publicidad sanitaria?</summary><p>El sistema está diseñado para respetarla: sin promesas de resultados, sin promocionar medicamentos de prescripción y con tu número de registro sanitario visible. Aun así, revisa con tu asesor los textos que apruebas: la responsabilidad del mensaje es de la clínica.</p></details>
@@ -436,7 +453,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <footer><div class="wrap">
   <span><b style="font-family:'Bodoni Moda',serif;font-size:1.2rem;font-weight:400;color:var(--ink)">Glowdesk</b> · Barcelona · © 2026</span>
-  <a href="precios.html">Precios y calculadora</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a>
+  <a href="precios.html">Precios y calculadora</a> · <a href="blog/responder-dms-instagram-clinica-estetica.html">Guía DMs</a> · <a href="blog/reducir-ausencias-valoracion-gratuita.html">Guía ausencias</a> · <a href="blog/ia-clinica-estetica-rgpd-publicidad-sanitaria.html">Guía IA y RGPD</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a>
 </div></footer>
 
 <script>

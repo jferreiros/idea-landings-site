@@ -5,5 +5,9 @@ Disallow: /outreach.html
 Disallow: /contenido.html
 Disallow: /ficha.html
 Disallow: /b.html
+Disallow: /pitch.html
+Disallow: /onboarding.html
+Disallow: /anuncios.html
+Disallow: /app.html
 
 Sitemap: https://revisita.vercel.app/sitemap.xml

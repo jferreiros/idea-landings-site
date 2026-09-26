@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Puede una clínica estética usar IA para atender a sus pacientes? RGPD y publicidad sanitaria</title>
+<meta name="description" content="Qué dice la ley española sobre usar un asistente con IA en Instagram o WhatsApp en una clínica de medicina estética: datos de salud, publicidad sanitaria y transparencia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#FCF8F7;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--rose:#A65468;--rose-soft:#F3DEE1}
+*{box-sizing:border-box;margin:0;padding:0}
+a{color:var(--sage)}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:24px 16px}
+.sheet{max-width:794px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px}
+h1,h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);margin:18px 0 10px}
+h2{font-size:1.3rem;margin-bottom:8px}
+em{color:var(--rose)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.logo{font-family:"Bodoni Moda",serif;font-size:1.5rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.logo i{width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F2D2D8,var(--rose))}
+.lead{color:var(--muted);font-size:1.02rem;max-width:58ch}
+.grid{display:grid;gap:18px;margin-top:26px}
+.blk{border-top:1px solid var(--ink);padding-top:12px}
+.blk p,.blk li{color:var(--muted);font-size:.93rem}
+ul,ol{padding-left:1.1rem;display:grid;gap:4px}
+.calc{margin-top:26px;background:var(--rose-soft);border-radius:14px;padding:18px}
+.calc table{width:100%;border-collapse:collapse;font-size:.93rem;margin-top:8px}
+.calc td{padding:9px 0;border-bottom:1px dashed #D9B9C0}
+.calc td:last-child{text-align:right;width:40%;color:var(--muted)}
+.foot{margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem;color:var(--muted)}
+.foot b{color:var(--ink)}
+.print{display:inline-block;margin:0 auto 16px;font:600 .9rem Manrope,sans-serif;background:var(--sage);color:#fff;border:0;border-radius:999px;padding:12px 20px;cursor:pointer;min-height:44px}
+.bar{max-width:794px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bar a{font-size:.9rem;color:var(--sage)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sheet{padding:24px 18px}}
+@media print{body{background:#fff;padding:0;font-size:12.5px}.sheet{border:0;border-radius:0;padding:14mm;max-width:none}.bar{display:none}.grid{grid-template-columns:1fr 1fr}@page{size:A4;margin:0}}
+section{margin-top:26px}section p,section li{color:var(--muted);font-size:.95rem;margin-bottom:6px}.num3{display:grid;gap:12px;margin-top:10px}.num3 div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}.num3 b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:1.9rem;color:var(--ink)}.num3 small{font-size:.78rem;color:var(--muted)}.ask{background:var(--sage);color:#FBF4F2;border-radius:16px;padding:20px;margin-top:26px}.ask h2{color:#fff}.ask li{color:#DDE6DF}@media(min-width:640px){.num3{grid-template-columns:repeat(3,1fr)}}
+article h2{margin-top:26px}article p,article li{color:#3E4A44;font-size:1rem;margin-bottom:10px;line-height:1.7}article ul{margin-bottom:12px}.cta{background:var(--sage);color:#FBF4F2;border-radius:16px;padding:20px;margin-top:26px}.cta a{color:#fff;font-weight:700}
+</style>
+</head>
+<body>
+<div class="bar"><a href="../index.html">Glowdesk</a><span></span></div>
+<main class="sheet"><article>
+  <span class="logo"><i></i>Glowdesk</span>
+  <h1>¿Puede una clínica estética usar <em>IA</em> para atender a sus pacientes?</h1>
+  <p class="lead">RGPD, publicidad sanitaria y transparencia, explicado para dueñas de clínica. 6 minutos de lectura. No es asesoramiento legal.</p>
+  <p>Cada vez más clínicas se plantean poner un asistente con inteligencia artificial en Instagram o WhatsApp. La pregunta que casi todas se hacen primero no es técnica: ¿es legal? La respuesta corta es sí, con condiciones. La medicina estética es actividad sanitaria, y eso añade tres capas de normas que una peluquería o una tienda no tienen.</p>
+  <p>La buena noticia es que las tres se resuelven con decisiones de diseño y unos pocos documentos firmados, no con meses de trámites. Esta guía repasa esas tres capas y termina con una lista de comprobación que puedes llevar a tu asesor.</p>
+
+  <h2>1. Los datos de salud de las pacientes</h2>
+  <p>Cuando una paciente escribe «estoy embarazada» o «tomo anticoagulantes», está compartiendo un dato de salud. El RGPD los considera datos de categoría especial (artículo 9) y exige más cuidado que con un nombre o un teléfono.</p>
+  <ul>
+    <li><b>Quién es responsable:</b> la clínica. El proveedor del asistente es encargado del tratamiento y debe firmar un contrato con la clínica (artículo 28).</li>
+    <li><b>Dónde se guardan:</b> lo prudente es que los servidores estén en la Unión Europea, y que el proveedor del modelo de IA no use las conversaciones para entrenar.</li>
+    <li><b>Cuánto se guarda:</b> lo mínimo. Para la cita basta con un aviso del tipo «revisar lactancia», no la conversación entera para siempre.</li>
+    <li><b>Evaluación de impacto:</b> si el tratamiento de datos de salud es a gran escala, la AEPD espera una evaluación de impacto antes de empezar.</li>
+  </ul>
+
+  <h2>2. La publicidad sanitaria</h2>
+  <p>Contestar a «¿cuánto cuesta el rinomodelado?» por DM es información comercial sobre un acto médico, y le aplican las mismas reglas que a tus anuncios. La Ley 14/1986 General de Sanidad y el Real Decreto 1907/1996 prohíben, entre otras cosas, prometer resultados o presentar un tratamiento como exento de riesgos. Además, los medicamentos de prescripción no se pueden anunciar al público, así que el asistente no debe nombrar marcas comerciales de esos productos.</p>
+  <p>En Cataluña y en el resto de comunidades, el centro debe estar autorizado y registrado, y es buena práctica mostrar el número de registro sanitario.</p>
+  <p>En la práctica, esto significa que el asistente no puede improvisar. Debe responder solo con textos que la clínica ha aprobado por escrito, con precios «desde», y derivar a la valoración médica todo lo demás.</p>
+
+  <h2>3. La transparencia de la IA</h2>
+  <p>El Reglamento europeo de IA (artículo 50) exige que una persona sepa que está hablando con un sistema de IA, salvo que sea evidente. La forma más sencilla de cumplir es que el asistente lo diga en su primer mensaje: «Soy el asistente virtual de la clínica».</p>
+  <p>También es buena práctica, y a menudo lo que la paciente agradece, ofrecer siempre la opción de hablar con una persona.</p>
+
+  <h2>Qué nunca debe hacer un asistente en una clínica</h2>
+  <ul>
+    <li>Diagnosticar o decir si un tratamiento es adecuado para alguien.</li>
+    <li>Opinar sobre embarazo, lactancia, alergias, medicación o enfermedades. Debe anotar el aviso para la doctora.</li>
+    <li>Atender a menores sin pasar la conversación a una persona.</li>
+    <li>Prometer resultados, mostrar antes y después o decir «sin riesgos».</li>
+    <li>Presionar con descuentos por tiempo limitado sobre actos médicos.</li>
+    <li>Inventar precios o tratamientos que no están en la carta aprobada.</li>
+  </ul>
+
+  <h2>Y los canales</h2>
+  <p>Instagram y WhatsApp tienen sus propias reglas. En WhatsApp Business, fuera de la ventana de 24 horas desde el último mensaje de la paciente, solo se pueden enviar plantillas aprobadas por Meta. Para usar la API de mensajes de Instagram, la aplicación del proveedor tiene que pasar la revisión de Meta. Pregunta a tu proveedor si la ha pasado.</p>
+  <p>Si el asistente cobra una señal, el cobro debe pasar por un proveedor de pagos regulado, y la política de devolución tiene que verse antes de pagar.</p>
+
+  <h2>Lista de comprobación para tu asesor</h2>
+  <ol>
+    <li>Contrato de encargado del tratamiento firmado con el proveedor.</li>
+    <li>Servidores y proveedor de IA con tratamiento en la UE y sin entrenamiento con tus datos.</li>
+    <li>Textos del asistente aprobados por la dirección médica, sin promesas ni marcas de medicamentos.</li>
+    <li>Número de registro sanitario visible.</li>
+    <li>Primer mensaje que identifica al asistente como IA.</li>
+    <li>Derivación a persona ante datos de salud, menores o petición de la paciente.</li>
+    <li>Política de retención de conversaciones por escrito.</li>
+    <li>Política de señal y devolución visible antes de pagar.</li>
+  </ol>
+  <p>Con esa lista resuelta, usar IA en la atención de tu clínica no solo es posible: puede ser más ordenado que un móvil de recepción donde cada persona contesta a su manera.</p>
+
+  <div class="cta"><p style="color:#FBF4F2;margin:0">Glowdesk está diseñado con estas reglas desde el principio y está en piloto en Barcelona. <a href="../index.html#probar">Pide una demo con tu carta</a>.</p></div>
+</article>
+<p class="lead" style="margin-top:20px;font-size:.85rem"><a href="responder-dms-instagram-clinica-estetica.html">Guía: responder DMs fuera de horario</a> · <a href="reducir-ausencias-valoracion-gratuita.html">Guía: reducir ausencias</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></p>
+</main>
+</body>
+</html>

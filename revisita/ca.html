@@ -243,6 +243,22 @@ ol.next li span{font-family:"Geist Mono",monospace;color:#9FE3D2;font-size:.85re
 .thanks h3{font-size:1.6rem}
 .thanks p{color:#4B5B59;margin-top:8px}
 
+
+/* hero v4: stacked, full-width recall sheet (distinct from split heroes) */
+.hero-grid{grid-template-columns:1fr !important;gap:36px !important}
+.hero h1{max-width:15em}
+.dash{display:grid}
+.dash .wa{display:none}
+.hero-num .big{font-size:clamp(3rem,11vw,6.5rem)}
+@media(min-width:900px){
+  .hero-top{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:end}
+  .hero-top .lead{margin-top:0}
+  .dash{grid-template-columns:1.25fr 1fr}
+  .dash-top{grid-column:1/-1}
+  .hero-num{border-bottom:0;border-right:1px solid var(--line);padding:32px 28px}
+  .rows{padding:14px 24px;align-self:center}
+}
+
 /* sticky mobile cta */
 .sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:8px 8px 8px 16px;box-shadow:0 14px 30px -12px rgba(10,74,68,.6);transform:translateY(150%);transition:transform .25s}
 .sticky.on{transform:none}
@@ -288,7 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <nav>
   <div class="wrap">
     <a class="logo" href="#"><i aria-hidden="true"></i>Revisita</a>
-    <div class="navr"><div class="navlinks"><a href="#como">Com funciona</a><a href="#demo">Demo</a><a href="#precio">Preu</a><a href="#faq">Preguntes</a><a class="btn" href="#probar">Demanar auditoria gratuïta</a></div>
+    <div class="navr"><div class="navlinks"><a href="#como">Com funciona</a><a href="#demo">Demo</a><a href="#precio">Preu</a><a href="#faq">Preguntes</a><a class="btn" href="#probar">Demana l'auditoria gratuïta</a></div>
     <a class="lang" href="index.html" hreflang="es" lang="es" aria-label="Versión en castellano">ES</a>
     <a class="btn navcta" href="#probar">Auditoria gratuïta</a></div>
   </div>
@@ -298,13 +314,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <header class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <div>
-        <span class="label">Recall per a clíniques dentals</span>
-        <h1>Recupera els <em>euros adormits</em> de la teva fitxa de pacients.</h1>
-        <p class="lead">Escrivim per WhatsApp a qui li toca revisió i li donem cita a la teva agenda. Només pagues per pacient que torna.</p>
+      <div class="hero-top">
+        <div><span class="label">Recall per a clíniques dentals</span>
+        <h1>Recupera els <em>euros adormits</em> de la teva fitxa de pacients.</h1></div>
+        <div><p class="lead">Escrivim per WhatsApp a qui li toca revisió i li donem cita a la teva agenda. Només pagues per pacient que torna.</p>
         <div class="ctas">
-          <a class="btn" href="#probar">Demanar auditoria gratuïta</a>
+          <a class="btn" href="#probar">Demana l'auditoria gratuïta</a>
           <a class="btn ghost" href="#como">Com funciona</a>
+        </div>
         </div>
       </div>
 
@@ -322,7 +339,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="rows">
           <div class="row"><div><div class="who">Marta S.</div><div class="why">Neteja · l'última fa 14 mesos</div></div><span class="st ok">Cita dj 10:30</span></div>
           <div class="row"><div><div class="who">Jordi P.</div><div class="why">Implant · fase 2 pendent</div></div><span class="st">Passa a recepció</span></div>
-          <div class="row"><div><div class="who">Forat dl 9:00</div><div class="why">Cancel·lació · 3 en llista d'espera</div></div><span class="st ok">Cobert</span></div>
+          <div class="row"><div><div class="who">Hora lliure dl 9:00</div><div class="why">Cancel·lació · 3 en llista d'espera</div></div><span class="st ok">Cobert</span></div>
         </div>
         <div class="wa" aria-hidden="true">
           <div class="b out">Hola Marta, soc l'Anna, de la teva clínica. Fa més d'un any de la teva última neteja amb la Dra. Vidal. Et va bé dimarts a les 17:00 o dijous a les 10:30?</div>
@@ -333,10 +350,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
 
     <div class="facts">
-      <div><b>Pilot de 30 dies</b>gratuït, també per resultat</div>
-      <div><b>Sense permanència</b>ho deixes quan vulguis</div>
-      <div><b>RGPD</b>contracte d'encarregat, dades a la UE</div>
-      <div><b>El teu programari</b>Gesden, Clinic Cloud, Dentalink o CSV</div>
+      <div><b>«No puc treure dades de pacients»</b>Signem abans el contracte d'encarregat. L'auditoria va sense telèfons.</div>
+      <div><b>«Recepció no té temps»</b>Un clic al dia per aprovar el lot. No surt res sense el vostre vistiplau.</div>
+      <div><b>«I si no torna ningú?»</b>No pagues. Els 30 primers dies tampoc.</div>
+      <div><b>«Fem servir Gesden»</b>Ens va bé la seva exportació, o la de Clinic Cloud, Dentalink o un Excel.</div>
     </div>
   </div>
 </header>
@@ -348,11 +365,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <blockquote>Dilluns, 9:05. Tres trucades en espera i un pacient al taulell. Avui ningú no trucarà a la llista. Demà tampoc.</blockquote>
     </div>
     <div>
-      <p>El telèfon de recepció és per a qui ja entra per la porta. Mentrestant, centenars de pacients que confien en tu passen mesos sense revisió, i els seus pressupostos acceptats es queden en un calaix. Es perd per tres llocs:</p>
+      <p>El telèfon de recepció és per a qui ja entra per la porta. Mentrestant, centenars de pacients que confien en tu passen mesos sense revisió, i els seus pressupostos acceptats es queden en un calaix. Es perd per tres bandes:</p>
       <div class="leaks">
         <div class="leak"><span class="n">01</span><div><b>Revisions i neteges endarrerides</b><span>Venien cada 6 o 12 mesos i un dia van deixar de venir. No se'n van anar a una altra clínica: se'n van oblidar.</span></div></div>
         <div class="leak"><span class="n">02</span><div><b>Tractaments a mitges</b><span>La corona després de l'endodòncia, la segona fase de l'implant, el «m'ho penso».</span></div></div>
-        <div class="leak"><span class="n">03</span><div><b>Forats per cancel·lació</b><span>Una cadira buida dilluns a les 9:00 no es recupera mai.</span></div></div>
+        <div class="leak"><span class="n">03</span><div><b>Hores perdudes per cancel·lació</b><span>Una cadira buida dilluns a les 9:00 no es recupera mai.</span></div></div>
       </div>
     </div>
   </div>
@@ -360,7 +377,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="como">
   <div class="wrap">
-    <h2>Recepció no fa res de nou. <em>Revisita fa la llista.</em></h2>
+    <h2>Recepció no ha de fer res de nou. <em>Revisita fa la llista.</em></h2>
     <div class="how">
       <div class="how-row">
         <span class="n">01</span>
@@ -371,19 +388,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="how-row">
         <span class="n">02</span>
         <h3>Revisita troba i escriu</h3>
-        <p>Detecta a qui li toca revisió, quin tractament va quedar obert i qui pot cobrir un forat. Escriu per WhatsApp amb el nom de la teva clínica i de la teva doctora.</p>
+        <p>Detecta a qui li toca revisió, quin tractament va quedar obert i qui pot ocupar una hora lliure. Escriu per WhatsApp amb el nom de la teva clínica i de la teva doctora.</p>
       </div>
       <div class="how-row">
         <span class="n">03</span>
         <h3>El pacient reserva al xat</h3>
-        <p>Tria hora i la cita entra a la teva agenda. Un dubte clínic passa a recepció a l'instant. Cada mes veus cites recuperades, euros facturats i el que et costa Revisita.</p>
+        <p>Tria l'hora i la cita entra a la teva agenda. Un dubte clínic passa a recepció a l'instant. Cada mes veus cites recuperades, euros facturats i el que et costa Revisita.</p>
       </div>
     </div>
 
     <div class="vs" role="table" aria-label="Recordatori automàtic davant de Revisita">
       <div class="vs-row head" role="row"><div role="columnheader">Recordatori del teu programari</div><div role="columnheader">Revisita</div></div>
       <div class="vs-row" role="row"><div role="cell">Avisa de cites que ja existeixen</div><div role="cell">Busca qui no té cita</div></div>
-      <div class="vs-row" role="row"><div role="cell">Missatge genèric, sense resposta</div><div role="cell">Conversa amb forats reals</div></div>
+      <div class="vs-row" role="row"><div role="cell">Missatge genèric, sense resposta</div><div role="cell">Conversa amb hores lliures reals</div></div>
       <div class="vs-row" role="row"><div role="cell">Si contesta, feina per a recepció</div><div role="cell">La cita es tanca al xat</div></div>
       <div class="vs-row" role="row"><div role="cell">Quota fixa, funcioni o no</div><div role="cell">Pagues per visita atesa</div></div>
     </div>
@@ -400,7 +417,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="scen" role="group" aria-label="Tria un cas">
           <button type="button" data-s="0" aria-pressed="true"><span>01</span><div>Revisió endarrerida<small>Marta, 14 mesos sense neteja</small></div></button>
           <button type="button" data-s="1" aria-pressed="false"><span>02</span><div>Tractament a mitges<small>Jordi, fase 2 de l'implant pendent</small></div></button>
-          <button type="button" data-s="2" aria-pressed="false"><span>03</span><div>Forat per cancel·lació<small>Dilluns 9:00 lliure, 3 en llista d'espera</small></div></button>
+          <button type="button" data-s="2" aria-pressed="false"><span>03</span><div>Hora lliure per cancel·lació<small>Dilluns 9:00 lliure, 3 en llista d'espera</small></div></button>
         </div>
       </div>
       <div class="chat" aria-live="polite">
@@ -413,7 +430,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section>
   <div class="wrap">
-    <h2>Fes el compte amb <em>els teus números.</em></h2>
+    <h2>Fes els números <em>de la teva clínica.</em></h2>
     <div class="calc" aria-label="Calculadora d'ingressos adormits">
       <div>
         <div class="field">
@@ -464,7 +481,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="price">249 € <small>al mes</small></div>
         <p>Per a la clínica que prefereix un cost fix.</p>
         <ul>
-          <li>Tot el del pla per resultat</li>
+          <li>Tot el que inclou el pla per resultat</li>
           <li>Fins a 2 gabinets</li>
         </ul>
       </div>
@@ -479,7 +496,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="trust">
       <div><b>Contracte d'encarregat abans de res</b><span>Signem el contracte de l'article 28 del <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener">RGPD</a> abans de veure cap dada.</span></div>
       <div><b>Servidors a la UE</b><span>Base de dades i processos a la Unió Europea, xifrats en repòs i en trànsit.</span></div>
-      <div><b>Només el necessari</b><span>Nom, telèfon, dates i tipus de tractament. Sense història clínica.</span></div>
+      <div><b>Només el necessari</b><span>Nom, telèfon, dates i tipus de tractament. Sense historial clínic.</span></div>
       <div><b>Baixa amb una paraula</b><span>El pacient respon «baixa» i no rep res més de cap campanya.</span></div>
     </div>
   </div>
@@ -487,15 +504,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="faq">
   <div class="wrap faq-grid">
-    <h2>El que pregunten les clíniques</h2>
+    <h2>Dubtes de gerència i recepció</h2>
     <div>
-      <details><summary>Els meus pacients pensaran que és correu brossa?</summary><p>El missatge surt amb el nom de la teva clínica i de la teva doctora, parla de la seva última visita i ofereix forats reals. Un sol recordatori si no contesta. Qui respon «baixa» no rep res més.</p></details>
+      <details><summary>Els meus pacients pensaran que és correu brossa?</summary><p>El missatge surt amb el nom de la teva clínica i de la teva doctora, parla de la seva última visita i ofereix hores lliures reals. Un sol recordatori si no contesta. Qui respon «baixa» no rep res més.</p></details>
       <details><summary>Ja envio recordatoris des del meu programari. Què canvia?</summary><p>El teu programari recorda cites que ja existeixen. Revisita busca els pacients sense cita, hi parla i tanca la cita al xat.</p></details>
       <details><summary>Quanta feina dona a recepció?</summary><p>Una trucada de 30 minuts per començar. Després, recepció només atén el que Revisita li passa: dubtes clínics, queixes o casos especials.</p></details>
-      <details><summary>És legal escriure per WhatsApp als meus pacients?</summary><p>Recordar una revisió a un pacient teu forma part de la seva atenció sanitària, no és publicitat. Tot i així, revisem amb tu la base legal i el consentiment que ja recullis, fem servir l'API oficial de WhatsApp Business i excloem qui va demanar no rebre missatges.</p></details>
+      <details><summary>És legal escriure per WhatsApp als meus pacients?</summary><p>Recordar una revisió a un pacient teu forma part de la seva atenció sanitària, no és publicitat. Tot i així, revisem amb tu la base legal i el consentiment que ja reculls, fem servir l'API oficial de WhatsApp Business i excloem qui va demanar no rebre missatges.</p></details>
       <details><summary>He de canviar de programari de gestió?</summary><p>No. Comencem amb una exportació. Si el teu programari té integració, sincronitzem l'agenda. Si no, el teu equip confirma la cita amb un clic des del tauler.</p></details>
       <details><summary>Com sabeu quina visita és «recuperada»?</summary><p>Només comptem les cites que el pacient reserva des d'un missatge de Revisita i que la teva agenda marca com a ateses. Les veus totes a l'informe i en pots impugnar qualsevol.</p></details>
-      <details><summary>Què és l'auditoria gratuïta?</summary><p>Amb la teva exportació comptem quants pacients fa més temps del compte que no vénen i quants pressupostos van quedar oberts, i ho passem a euros. Triga 3 dies laborables i no et compromet a res.</p></details>
+      <details><summary>Què és l'auditoria gratuïta?</summary><p>Amb la teva exportació comptem quants pacients fa més temps del compte que no venen i quants pressupostos van quedar oberts, i ho passem a euros. Triga 3 dies laborables i no et compromet a res.</p></details>
     </div>
   </div>
 </section>
@@ -511,12 +528,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <li><span>02</span>Signem el contracte d'encarregat i em passes l'exportació.</li>
         <li><span>03</span>En 3 dies tens l'auditoria en euros. Tu decideixes si comences.</li>
       </ol>
-      <p class="founder"><b>Joaquín, fundador.</b> Parlaràs amb mi, no amb un comercial. Si la teva clínica no encaixa, t'ho dic a la primera trucada.</p>
+      <p class="founder"><b>Joaquín, fundador.</b> Porto l'auditoria d'exemple en paper. Si la teva fitxa té menys de 1.000 pacients, et diré que Revisita no et compensa.</p>
     </div>
     <div class="form-card">
       <!-- TODO: connect form -->
       <form id="wl" novalidate>
-        <h3>Demanar auditoria gratuïta</h3>
+        <h3>Demana l'auditoria gratuïta</h3>
         <label for="n">El teu nom</label>
         <input id="n" name="name" required autocomplete="name" placeholder="Anna Puig">
         <p class="err" id="e-n">Escriu el teu nom.</p>
@@ -526,7 +543,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <label for="p">Telèfon o correu</label>
         <input id="p" name="contact" required autocomplete="tel" placeholder="600 000 000">
         <p class="err" id="e-p">Deixa'ns un telèfon o un correu.</p>
-        <button class="btn" type="submit">Demanar auditoria gratuïta</button>
+        <button class="btn" type="submit">Demana l'auditoria gratuïta</button>
         <p class="fine">Sense compromís. Aquesta pàgina mesura interès: encara no desem el que escrius.</p>
       </form>
       <div class="thanks" id="thanks" role="status" tabindex="-1">
@@ -541,13 +558,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <span>Auditoria gratuïta.<br>Només pagues per visita recuperada.</span>
-  <a class="btn" href="#probar" tabindex="-1">Demanar auditoria</a>
+  <a class="btn" href="#probar" tabindex="-1">Demana l'auditoria</a>
 </div>
 
 <footer>
   <div class="wrap">
     <span><b>Revisita</b> · Barcelona, 2026</span>
-    <span><a href="index.html" hreflang="es" lang="es">Castellano</a> · <a href="plan.html">Plan</a></span>
+    <span><a href="index.html" hreflang="es" lang="es">Castellano</a> · <a href="plan.html">Pla</a> · <a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Galetes</a></span>
   </div>
 </footer>
 
@@ -605,9 +622,9 @@ document.getElementById('wl').addEventListener('submit', function (e) {
 
 (function () {
   var S = [
-    [['out','Hola Marta, soc l\'Anna, de {c}. Fa 14 mesos de la teva última neteja amb la Dra. Vidal. Et va bé dimarts a les 17:00 o dijous a les 10:30?'],['in','Uf, sí, se me\'n va oblidar. Dijous'],['out','Fet: dijous a les 10:30 amb la Dra. Vidal. T\'ho recordem el dia abans.'],['sys','Cita creada a l\'agenda · 1 visita recuperada']],
+    [['out','Hola Marta, soc l\'Anna, de {c}. Fa 14 mesos de la teva última neteja amb la Dra. Vidal. Et va bé dimarts a les 17:00 o dijous a les 10:30?'],['in','Uf, sí, me\'n vaig oblidar. Dijous'],['out','Fet: dijous a les 10:30 amb la Dra. Vidal. T\'ho recordem el dia abans.'],['sys','Cita creada a l\'agenda · 1 visita recuperada']],
     [['out','Hola Jordi, soc l\'Anna, de {c}. El teu implant està a punt per a la segona fase. Vols que et reservem hora amb el Dr. Serra?'],['in','Quant em queda per pagar?'],['out','Això t\'ho confirma recepció amb el teu pressupost al davant. Et truquen avui abans de les 19:00.'],['sys','Pregunta de preu · passa a recepció amb la conversa']],
-    [['out','Hola Pau, soc l\'Anna, de {c}. S\'ha alliberat dilluns a les 9:00 per a la teva revisió. El vols?'],['in','Sí, perfecte!'],['out','És teu. Dilluns a les 9:00. Si et surt res, respon aquest missatge.'],['sys','Forat cobert · els altres 2 de la llista reben avís que ja no hi és']]
+    [['out','Hola Pau, soc l\'Anna, de {c}. Ha quedat lliure una hora dilluns a les 9:00 per a la teva revisió. La vols?'],['in','Sí, perfecte!'],['out','És teu. Dilluns a les 9:00. Si et sorgeix res, respon aquest missatge.'],['sys','Hora coberta · els altres 2 de la llista reben avís que ja no hi és']]
   ];
   var body = document.getElementById('d-body'), inp = document.getElementById('d-clinic'), nm = document.getElementById('d-name');
   var btns = document.querySelectorAll('.scen button'), cur = 0, timers = [];

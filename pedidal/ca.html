@@ -69,7 +69,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .logo{display:flex;align-items:center;gap:10px;font:800 22px "Archivo";text-decoration:none;letter-spacing:-.02em}
 .logo-mark{width:30px;height:30px;border-radius:3px;background:var(--orange);position:relative}
 .logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:8px;height:2px;background:var(--paper);background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
-nav .links{display:none;gap:28px;font-size:15px;color:var(--ink-2)}
+nav .links{display:none;gap:28px;margin-left:36px;font-size:15px;color:var(--ink-2)}
 nav .links a{text-decoration:none}
 nav .btn{padding:10px 16px;font-size:14px}
 
@@ -276,16 +276,16 @@ footer a{color:var(--ink-2)}
 .hero{padding:40px 0 56px}
 .hero-grid{display:grid;gap:36px;align-items:center}
 .hero h1{font-size:clamp(46px,10vw,76px);font-weight:800;margin:16px 0 18px;line-height:.95}
-.hero h1 em{font-style:normal;color:var(--ink);background:var(--orange);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 em{font-style:normal;color:var(--carbon);display:inline-block;border:.07em solid var(--carbon);border-radius:.08em;padding:0 .12em .04em;transform:rotate(-2.5deg);margin:.06em .04em 0;box-shadow:inset 0 0 0 .025em var(--carbon);background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(168,54,10,.06) 6px 7px)}
 .hero h1 em:after{display:none}
 .hero p.lead{font-size:19px;max-width:30em}
 .btn-ico{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:3px;background:rgba(29,33,37,.12);transition:transform .35s var(--ease)}
 .btn:hover .btn-ico{transform:translateX(3px)}
-.demo{background:var(--ink);border-radius:8px;padding:8px;box-shadow:0 30px 60px -30px rgba(60,40,10,.55)}
+.demo{background:#CDB48C repeating-linear-gradient(97deg,rgba(90,60,20,.07) 0 2px,transparent 2px 6px);border:1.5px solid var(--ink);border-radius:8px;padding:8px;box-shadow:0 30px 60px -30px rgba(60,40,10,.55)}
 .demo-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:4px 4px 10px;scrollbar-width:none}
-.demo-tabs button{flex:none;font:500 13px "IBM Plex Mono";color:#C9C2B5;background:transparent;border:1px solid #3A3F44;border-radius:4px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background .3s var(--ease),color .3s var(--ease)}
+.demo-tabs button{flex:none;font:500 13px "IBM Plex Mono";color:var(--ink);background:rgba(251,246,236,.55);border:1px solid var(--ink);border-radius:4px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background .3s var(--ease),color .3s var(--ease)}
 .demo-tabs button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
-.demo-tabs button[aria-selected="true"]{background:var(--orange);color:var(--ink);border-color:var(--orange)}
+.demo-tabs button[aria-selected="true"]{background:var(--ink);color:var(--orange);border-color:var(--ink)}
 .demo-body{display:grid;gap:8px}
 .demo-msg{background:#EFE6D6;border-radius:5px;padding:14px}
 .demo-from{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:14px}
@@ -337,6 +337,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
 .vert.first p{color:var(--ink-2)}
 .vert.first .mono{color:var(--ink);background:var(--orange);display:inline-block;padding:3px 6px;border-radius:3px}
 @media (min-width:760px){.steps{gap:36px}.verticals{border-top:0}.vert{border-bottom:0;border-top:1.5px solid var(--ink);padding:18px 24px 0 0}}
+@media (max-width:440px){.lang{margin-right:8px}.lang b,.lang a{padding:6px 5px;font-size:11px}nav .btn{padding:8px 10px;font-size:13px;min-height:40px}.logo{font-size:19px;gap:8px}.logo-mark{width:26px;height:26px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 </style>
@@ -354,7 +355,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       <a href="#precio">Preu</a>
       <a href="#faq">Preguntes</a>
     </div>
-    <span class="lang"><a href="/" hreflang="es" lang="es">ES</a><b aria-current="true">CA</b></span>
+    <span class="lang"><a href="/" hreflang="es" lang="es">ES</a><b aria-current="true">CA</b><a href="en.html" hreflang="en" lang="en">EN</a></span>
     <a href="#probar" class="btn">Pilot gratuït</a>
   </div>
 </nav>
@@ -403,10 +404,10 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
 
 <div class="band" aria-label="Garanties">
   <div class="wrap">
-    <div class="band-item"><b>API oficial de WhatsApp</b><span>Sense trucs amb WhatsApp Web. El teu número no corre risc de bloqueig.</span></div>
-    <div class="band-item"><b>El client confirma</b><span>No entra res a l'ERP sense l'"ok" del client o del teu equip.</span></div>
-    <div class="band-item"><b>Servidors a la UE</b><span>Contracte d'encàrrec del tractament (RGPD, art. 28).</span></div>
-    <div class="band-item"><b>Sense permanència</b><span>Pagament mensual. Te'n vas quan vulguis i t'emportes les dades.</span></div>
+    <div class="band-item"><b>El número continua sent teu</b><span>El passem a l'API oficial de WhatsApp. Els clients escriuen al de sempre.</span></div>
+    <div class="band-item"><b>No surt res sense "ok"</b><span>Si el client no confirma l'albarà, la comanda no entra a l'ERP.</span></div>
+    <div class="band-item"><b>El catàleg no surt de la UE</b><span>Tarifes i clients en servidors europeus, amb contracte RGPD signat.</span></div>
+    <div class="band-item"><b>Te'n vas amb les dades</b><span>Mes a mes. Si ho deixes, t'emportes catàleg, àlies i historial en Excel.</span></div>
   </div>
 </div>
 
@@ -425,8 +426,8 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       </div>
       <div class="pains">
         <div class="pain"><b>01</b><p><strong>Doble feina.</strong> Cada comanda es llegeix al mòbil i es torna a escriure a l'ERP. És feina sense valor, just a l'hora punta.</p></div>
-        <div class="pain"><b>02</b><p><strong>Errors cars.</strong> Un "sac de cola" pot ser 5 referències. Un error és un port de tornada i un client enfadat.</p></div>
-        <div class="pain"><b>03</b><p><strong>El client no canvia.</strong> Els portals B2B no els fa servir ningú. Els teus clients volen continuar amb WhatsApp, i tenen raó.</p></div>
+        <div class="pain"><b>02</b><p><strong>Errors cars.</strong> Un "sac de cola" pot ser 5 referències. Un error vol dir un viatge de tornada i un client enfadat.</p></div>
+        <div class="pain"><b>03</b><p><strong>El client no canvia.</strong> Ningú no fa servir els portals B2B. Els teus clients volen continuar amb WhatsApp, i tenen raó.</p></div>
         <div class="pain"><b>04</b><p><strong>El coneixement viu en una persona.</strong> Només la Marta sap què és "el de sempre" de cada client. Si es posa malalta, es nota.</p></div>
       </div>
     </div>
@@ -437,7 +438,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
   <div class="wrap">
     <div class="sec-head">
             <h2>Tres passos. El teu client no instal·la res.</h2>
-      <p>El teu client continua escrivint al mateix número. Pedidal treballa al darrere.</p>
+      <p>El teu client continua escrivint al mateix número. Pedidal fa la feina per darrere.</p>
     </div>
     <div class="steps">
       <div class="step">
@@ -447,11 +448,11 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       </div>
       <div class="step">
         <h3>Ho creua amb el teu catàleg</h3>
-        <p>Converteix "cola gris" en la teva referència exacta. Aprèn els noms que fa servir cada client, les seves unitats (sac, palet, caixa) i el seu "el de sempre".</p>
+        <p>Converteix "cola gris" en la teva referència exacta. Aprèn com anomena cada client els productes, les seves unitats (sac, palet, caixa) i el seu "el de sempre".</p>
         <div class="tags"><span>catàleg</span><span>historial</span><span>tarifes</span></div>
       </div>
       <div class="step">
-        <h3>Confirma i la posa a l'ERP</h3>
+        <h3>Confirma i la registra a l'ERP</h3>
         <p>Respon al client amb el resum perquè digui "ok". Després crea la comanda al teu ERP. El que és dubtós va a una safata per al teu comercial.</p>
         <div class="tags"><span>A3</span><span>Sage</span><span>Holded</span><span>Odoo</span><span>CSV</span></div>
       </div>
@@ -469,30 +470,31 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       <div class="inbox-bar"><b>Avui · dimarts</b><div class="tabs"><span>Totes 41</span><span class="on">Revisar 3</span><span>En ERP 36</span></div></div>
       <div class="row">
         <span class="who">Limpiezas Garraf</span>
-        <span class="what">Pide <q>garrafas de lejía de las azules</q>. Hay 2 referencias con envase azul: LEJ-5A y LEJ-5AP.</span>
-        <span class="pill ask">Producto dudoso</span>
-        <div class="acts"><button class="pri">LEJ-5A (últimos 4 pedidos)</button><button>LEJ-5AP</button><button>Preguntar al cliente</button></div>
+        <span class="what">Demana <q>garrafas de lejía de las azules</q>. Hi ha 2 referències amb envàs blau: LEJ-5A i LEJ-5AP.</span>
+        <span class="pill ask">Producte dubtós</span>
+        <div class="acts"><button class="pri">LEJ-5A (últimes 4 comandes)</button><button>LEJ-5AP</button><button>Preguntar al client</button></div>
       </div>
       <div class="row">
         <span class="who">Bar La Parada</span>
-        <span class="what">Pide <q>10 de agua</q>. Normalmente pide cajas de 24 botellas de 50 cl, no unidades.</span>
-        <span class="pill wait">Unidad</span>
-        <div class="acts"><button class="pri">10 cajas × 24</button><button>10 unidades</button></div>
+        <span class="what">Demana <q>10 de agua</q>. Normalment demana caixes de 24 ampolles de 50 cl, no unitats.</span>
+        <span class="pill wait">Unitat</span>
+        <div class="acts"><button class="pri">10 caixes × 24</button><button>10 unitats</button></div>
       </div>
       <div class="row">
         <span class="who">Construcciones Oller</span>
-        <span class="what">Pide 12 palés de ladrillo H7. Su media es 3. ¿Error o una obra nueva?</span>
-        <span class="pill ask">Cantidad rara</span>
-        <div class="acts"><button class="pri">Confirmar con el cliente</button><button>Aprobar</button></div>
+        <span class="what">Demana 12 palets de totxo H7. La seva mitjana és 3. Error o una obra nova?</span>
+        <span class="pill ask">Quantitat estranya</span>
+        <div class="acts"><button class="pri">Confirmar amb el client</button><button>Aprovar</button></div>
       </div>
     </div>
+    <p style="margin-top:18px"><a href="app.html" class="btn ghost">Mira la safata (prototip)</a></p>
   </div>
 </section>
 
 <section style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head">
-            <h2>Menys teclejar. Menys ports de tornada.</h2>
+            <h2>Menys teclejar. Menys viatges de tornada.</h2>
       <p>Encara no tenim clients, així que no inventem resultats. Aquests són els objectius que mesurem a cada pilot.</p>
     </div>
     <div class="benefits">
@@ -504,9 +506,9 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
     <p class="note">Xifres objectiu del pilot, no resultats mesurats. T'ensenyem les dades reals del teu compte cada setmana.</p>
 
     <div class="verticals">
-      <div class="vert first"><h3>Subministraments de construcció</h3><p>Magatzems de materials que serveixen reformistes i constructores. Comandes per foto i àudio des de l'obra.</p><span class="mono">Comencem aquí</span></div>
-      <div class="vert"><h3>Productes de neteja</h3><p>Distribuïdors que serveixen empreses de neteja, hotels i comunitats. Moltes referències semblants.</p><span class="mono">Pilot obert</span></div>
-      <div class="vert"><h3>Alimentació i begudes horeca</h3><p>Distribuïdors de bars i restaurants. Comandes de nit, repetitives i amb pressa.</p><span class="mono">Pilot obert</span></div>
+      <div class="vert first"><h3>Materials de construcció</h3><p>Magatzems de materials que subministren a paletes, reformistes i constructores. Comandes per foto i àudio des de l'obra.</p><span class="mono">Comencem aquí</span></div>
+      <div class="vert"><h3>Productes de neteja</h3><p>Distribuïdors que subministren a empreses de neteja, hotels i comunitats. Moltes referències semblants.</p><span class="mono">Pilot obert</span></div>
+      <div class="vert"><h3>Alimentació i begudes horeca</h3><p>Distribuïdors per a bars i restaurants. Comandes de nit, repetitives i urgents.</p><span class="mono">Pilot obert</span></div>
     </div>
   </div>
 </section>
@@ -515,7 +517,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">El pilot gratuït</span>
-      <h2>Veus el resultat amb les teves comandes abans de pagar res.</h2>
+      <h2>Veuràs el resultat amb les teves comandes abans de pagar res.</h2>
       <p>No et demanem que confiïs en una demo. T'ensenyem les teves comandes ja passades al teu ERP.</p>
     </div>
     <ol class="pilot">
@@ -525,7 +527,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
     </ol>
     <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
       <a href="#probar" class="btn">Comença el pilot gratuït</a>
-      <span style="font-size:14px;color:var(--ink-2)">Si no l'encerta, no et costa res.</span>
+      <span style="font-size:14px;color:var(--ink-2)">Si falla, no et costa res.</span>
     </div>
   </div>
 </section>
@@ -541,19 +543,19 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
         <span class="tier">Arrencada</span>
         <div class="amt">190 € <small>/ mes</small></div>
         <div class="vol">Fins a 600 comandes al mes</div>
-        <ul><li>1 número de WhatsApp</li><li>Text, àudio i foto</li><li>Sortida a CSV o email</li><li>Safata d'excepcions</li></ul>
+        <ul><li>1 número de WhatsApp</li><li>Text, àudio i foto</li><li>Exportació a CSV o email</li><li>Safata d'excepcions</li></ul>
       </div>
       <div class="price hl">
         <span class="tier">Magatzem</span>
         <div class="amt">320 € <small>/ mes</small></div>
         <div class="vol">Fins a 1.500 comandes al mes</div>
-        <ul><li>Tot el d'Arrencada</li><li>Connector a A3, Sage, Holded o Odoo</li><li>Tarifes i estoc per client</li><li>Diversos comercials</li></ul>
+        <ul><li>Tot el que inclou Arrencada</li><li>Connector a A3, Sage, Holded o Odoo</li><li>Tarifes i estoc per client</li><li>Diversos comercials</li></ul>
       </div>
       <div class="price">
         <span class="tier">Distribuïdor</span>
         <div class="amt">490 € <small>/ mes</small></div>
         <div class="vol">Fins a 4.000 comandes al mes</div>
-        <ul><li>Tot el de Magatzem</li><li>Diversos números i delegacions</li><li>Comandes per email a més de WhatsApp</li><li>Suport directe amb el fundador</li></ul>
+        <ul><li>Tot el que inclou Magatzem</li><li>Diversos números i delegacions</li><li>Comandes per email a més de WhatsApp</li><li>Suport directe del fundador</li></ul>
       </div>
     </div>
     <p class="note">Preus sense IVA, sense permanència. Els 10 primers distribuïdors no paguen l'alta ni el primer mes. És una hipòtesi: l'ajustem amb ells.</p>
@@ -566,8 +568,8 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
     <div class="founder">
       <div class="sig"><span class="ini" aria-hidden="true">J</span><small><b style="color:var(--ink);font-size:16px">Joaquín</b><br>Fundador de Pedidal · Barcelona</small></div>
       <blockquote>
-        <p>"Pedidal és un projecte nou i ho dic clar: encara no tenim clients ni casos d'èxit per ensenyar-te. Per això el pilot és gratuït i amb les teves comandes reals."</p>
-        <p>"Busco pocs distribuïdors per començar. Si el teu magatzem és a prop de Barcelona, et vinc a veure en persona. Miro com t'arriben les comandes i parles amb mi directament, no amb un call center."</p>
+        <p>"He estat en taulells de magatzem a les 7:40, amb el mòbil ple d'àudios i els camions esperant. Pedidal encara no té clients: per això et demano 20 comandes teves, no que em creguis."</p>
+        <p>"Si ets al Vallès o al Baix Llobregat, passo pel magatzem entre les 11:00 i les 13:30, quan ja han sortit els repartiments."</p>
       </blockquote>
     </div>
   </div>
@@ -575,17 +577,17 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
 
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><h2>El que ens pregunten els distribuïdors.</h2></div>
+    <div class="sec-head"><h2>Abans de deixar-nos les comandes.</h2></div>
     <div class="faq">
       <details><summary>Els meus clients han de canviar alguna cosa?</summary><p>No. Continuen escrivint al mateix WhatsApp de sempre. L'única novetat és que reben un resum de la comanda per confirmar amb un "ok".</p></details>
       <details><summary>Què passa si la IA s'equivoca de producte?</summary><p>Cada línia té un nivell de confiança. Si Pedidal no n'està segur, no s'inventa res: envia la línia a la safata del teu comercial o pregunta al client. A més, el client confirma el resum abans que la comanda arribi a l'ERP.</p></details>
       <details><summary>Funciona amb el meu ERP?</summary><p>Comencem amb A3, Sage, Holded i Odoo. Si el teu ERP no hi és, arrenquem amb un CSV o un email amb el format que el teu ERP ja importa. Així el pilot comença en dies, no en mesos.</p></details>
       <details><summary>Necessito l'API oficial de WhatsApp Business?</summary><p>Sí, per a un ús professional i estable fem servir l'API oficial de Meta. T'ajudem a migrar el teu número actual o a donar-ne d'alta un de nou. Els teus clients no noten la diferència.</p></details>
       <details><summary>Quant costa el pilot i a què em compromet?</summary><p>A res. El pilot és gratuït i sense targeta. Si en veure les teves 20 comandes no et convenç, ho deixem aquí. Si continues, pagues mes a mes i te'n vas quan vulguis.</p></details>
-      <details><summary>Quant trigo a tenir-ho funcionant?</summary><p>El pilot amb les teves comandes, 48 hores. Amb sortida a CSV o email, la primera setmana. El connector directe al teu ERP depèn de l'ERP: t'ho diem a la primera trucada, sense sorpreses.</p></details>
-      <details><summary>Ja tinc un portal B2B o una app de comandes. Per què ho vull?</summary><p>Si els teus clients ja demanen pel portal, no ho necessites. Pedidal és per a les comandes que continuen arribant per WhatsApp encara que tinguis portal, que solen ser moltes.</p></details>
+      <details><summary>Quant trigaré a tenir-ho en marxa?</summary><p>El pilot amb les teves comandes, 48 hores. Amb sortida a CSV o email, la primera setmana. El connector directe al teu ERP depèn de l'ERP: t'ho diem a la primera trucada, sense sorpreses.</p></details>
+      <details><summary>Ja tinc un portal B2B o una app de comandes. Per a què em serveix?</summary><p>Si els teus clients ja demanen pel portal, no ho necessites. Pedidal és per a les comandes que continuen arribant per WhatsApp encara que tinguis portal, que solen ser moltes.</p></details>
       <details><summary>Sou una empresa nova. I si desapareixeu?</summary><p>Les teves comandes sempre acaben al teu ERP, que continua sent teu. El teu número de WhatsApp també. Si deixes Pedidal, t'emportes el catàleg, els àlies apresos i l'historial en Excel.</p></details>
-      <details><summary>Què feu amb les dades dels meus clients?</summary><p>Les tractem com a encarregats del tractament segons el RGPD, amb contracte signat i servidors a la UE. No fem servir les teves comandes per entrenar models de tercers.</p></details>
+      <details><summary>Què feu amb les dades dels meus clients?</summary><p>Actuem com a encarregats del tractament segons el RGPD, amb contracte signat i servidors a la UE. No fem servir les teves comandes per entrenar models de tercers.</p></details>
     </div>
   </div>
 </section>
@@ -596,7 +598,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       <div>
         <h2>Envia'ns 20 comandes reals. Te les tornem en format ERP.</h2>
         <p>Busquem pocs distribuïdors per a un pilot guiat. Et truquem, mirem com t'arriben les comandes i provem amb el teu catàleg.</p>
-        <ul class="trust" style="margin-top:20px;color:var(--ink)"><li>Gratuït i sense targeta</li><li>Resposta en 1 dia laborable</li><li>Sense permanència</li></ul>
+        <ul class="trust" style="margin-top:20px;color:var(--ink)"><li>20 comandes, 48 hores</li><li>Amb el format del teu ERP</li><li>Sense tocar el número encara</li></ul>
       </div>
       <div>
         <!-- TODO: connect form -->
@@ -610,7 +612,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
         </form>
         <div class="thanks" id="thanks" role="status">
           <h3>Gràcies, <span id="tname"></span>.</h3>
-          <p>Et contactem aquesta setmana per veure com t'arriben les comandes. Ves guardant 20 comandes reals de WhatsApp: amb això muntem la prova.</p>
+          <p>Et contactarem aquesta setmana per veure com t'arriben les comandes. Ves guardant 20 comandes reals de WhatsApp: amb això muntem la prova.</p>
         </div>
       </div>
     </div>
@@ -625,6 +627,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
   <div class="wrap">
     <span><b style="color:var(--ink)">Pedidal</b> · © 2026</span>
     <span class="legal"><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Galetes</a></span>
+    <a href="blog/index.html">Blog</a>
     <a href="plan.html">Plan</a>
   </div>
 </footer>

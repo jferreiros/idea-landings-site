@@ -63,6 +63,9 @@ ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
 .calc input[type=range]{width:100%;accent-color:var(--sea);height:32px}
 .calc output{font:500 .95rem "Geist Mono",monospace;color:var(--sea)}
 .res{background:var(--ink);color:#fff;border-radius:14px;padding:20px;display:grid;gap:12px}
+.rt{width:100%;border-collapse:collapse;font-size:.9rem}.rt th{text-align:right;color:#EADCC0;font:500 .8rem "Geist Mono",monospace;padding:4px 0 8px}.rt td{padding:8px 0;border-top:1px solid #1E4A63;color:#CFE2EE}.rt td+td{text-align:right;font:600 1.15rem "Bricolage Grotesque",sans-serif;color:#fff;padding-left:12px;white-space:nowrap}.res .rt{background:transparent;margin:0}.res .rt th,.res .rt td{border:0;background:transparent;vertical-align:middle}.res .rt td{border-top:1px solid #1E4A63;padding:10px 0}.res .rt td+td{padding-left:12px;text-align:right}.res .rt th{text-align:right;padding:0 0 8px 12px}
+.res{align-self:start}
+.rnote{font-size:.82rem;color:#A9BFCB;margin:0}
 .res b{display:block;font:600 1.9rem "Bricolage Grotesque",sans-serif;color:#EADCC0}
 .res span{color:#CFE2EE;font-size:.9rem}
 .plans3{display:grid;gap:12px;grid-template-columns:1fr;margin-top:14px}
@@ -86,17 +89,23 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointe
   <p>Mete tus números. Todo se calcula en tu navegador; no guardamos nada.</p>
   <div class="calc">
     <div style="display:grid;gap:16px">
-      <label for="c-pisos">Pisos con salidas este mes <output id="o-pisos">25</output><input id="c-pisos" type="range" min="5" max="60" value="25"></label>
-      <label for="c-sal">Salidas por piso al mes <output id="o-sal">6</output><input id="c-sal" type="range" min="1" max="15" value="6"></label>
+      <label for="c-pisos">Pisos con salidas en un mes de verano <output id="o-pisos">25</output><input id="c-pisos" type="range" min="5" max="60" value="25"></label>
+      <label for="c-sal">Salidas por piso en un mes de verano <output id="o-sal">6</output><input id="c-sal" type="range" min="1" max="15" value="6"></label>
+      <label for="c-wp">Pisos con salidas en un mes de invierno <output id="o-wp">8</output><input id="c-wp" type="range" min="0" max="60" value="8"></label>
+      <label for="c-ws">Salidas por piso en un mes de invierno <output id="o-ws">2</output><input id="c-ws" type="range" min="1" max="15" value="2"></label>
       <label for="c-min">Minutos que dedicas a coordinar y comprobar cada salida <output id="o-min">15</output><input id="c-min" type="range" min="5" max="45" step="5" value="15"></label>
       <label for="c-eur">Lo que vale tu hora (€) <output id="o-eur">20</output><input id="c-eur" type="range" min="10" max="60" step="5" value="20"></label>
       <label for="c-pct">Parte de ese trabajo que crees que haría el agente <output id="o-pct">60%</output><input id="c-pct" type="range" min="20" max="90" step="10" value="60"></label>
     </div>
     <div class="res" aria-live="polite">
-      <div><span>Horas al mes que dedicas hoy</span><b id="r-h">38 h</b></div>
-      <div><span>Horas que recuperas (según tu estimación)</span><b id="r-hs">23 h</b></div>
-      <div><span>Coste de Llaverio (plan Operaciones, 12 €/vivienda)</span><b id="r-c">300 €</b></div>
-      <div><span>Valor de tus horas recuperadas menos el coste</span><b id="r-n">150 €</b></div>
+      <table class="rt">
+        <tr><th></th><th>Verano<br><small>Operaciones</small></th><th>Invierno<br><small>Plan Invierno</small></th></tr>
+        <tr><td>Horas al mes que dedicas hoy</td><td id="r-h">38 h</td><td id="w-h">4 h</td></tr>
+        <tr><td>Horas que recuperas (tu estimación)</td><td id="r-hs">23 h</td><td id="w-hs">2 h</td></tr>
+        <tr><td>Coste de Llaverio al mes</td><td id="r-c">300 €</td><td id="w-c">48 €</td></tr>
+        <tr><td>Valor de tus horas menos el coste</td><td id="r-n">150 €</td><td id="w-n">0 €</td></tr>
+      </table>
+      <p class="rnote">Verano: plan Operaciones, 12 € por piso con salidas en el mes, mínimo 60 €. Invierno (nov-mar): Plan Invierno, 6 € por piso con salidas, mínimo 30 €, solo limpiezas y revisión de fotos. Si con tus números el invierno sigue saliendo negativo, te lo decimos antes de que pagues.</p>
     </div>
   </div>
   <p class="muted">Es una estimación con tus datos, no una promesa. No cuenta reseñas salvadas ni averías detectadas antes, porque no sabemos cuánto valen en tu caso.</p>
@@ -109,12 +118,15 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointe
     <div class="box f"><h3>Operaciones · 12 €</h3><p class="muted">el que proponemos</p><ul><li>Todo lo de Limpiezas</li><li>Partes de mantenimiento y citas</li><li>Incidencias de huéspedes</li><li>Informe mensual a propietarios</li></ul></div>
     <div class="box"><h3>Gestora grande · 15 €</h3><p class="muted">de 40 a 60 viviendas o varias zonas</p><ul><li>Todo lo de Operaciones</li><li>Varios equipos y zonas</li><li>Informes con tu marca</li></ul></div>
   </div>
+  <div class="box" style="margin-top:12px;background:#DDEBF3;border-color:#C4DCEA"><h3 style="margin-top:0">Plan Invierno · 6 €</h3><p>De noviembre a marzo, si tus pisos están en costa peninsular y tienes pocas salidas: asignación por WhatsApp y revisión de fotos (las funciones de Limpiezas) a 6 € por vivienda activa, con un mínimo de 30 € al mes. Vuelves a tu plan en abril sin hacer nada.</p></div>
   <p class="muted">Precios de lanzamiento, en validación. IVA no incluido.</p>
 </div></section>
 <section><div class="wrap">
   <h2>Preguntas sobre el cobro</h2>
   <details><summary>¿Cuándo empiezo a pagar?</summary><p>Al acabar el piloto de 30 días, y solo si al menos 8 de cada 10 salidas quedaron revisadas sin que tuvieras que intervenir.</p></details>
   <details><summary>¿Qué es una vivienda activa?</summary><p>La que tiene al menos una salida en el mes. Si en enero trabajas con 12 pisos, pagas 12.</p></details>
+  <details><summary>¿Hay un mínimo mensual?</summary><p>Sí: 60 € al mes por gestora en los planes de temporada y 30 € en el Plan Invierno. Cubre el número de WhatsApp y el soporte. En los meses sin ninguna salida no pagas nada.</p></details>
+  <details><summary>¿Qué pasa en invierno?</summary><p>De noviembre a marzo puedes pasar al Plan Invierno: 6 € por vivienda activa, mínimo 30 €, con asignación de limpiezas y revisión de fotos. Averías e informes a propietarios quedan fuera ese periodo. En abril vuelves a tu plan.</p></details>
   <details><summary>¿Hay permanencia?</summary><p>No. Pagas mes a mes y puedes darte de baja cuando quieras.</p></details>
   <details><summary>¿Cómo pago?</summary><p>Con tarjeta o domiciliación, factura mensual con IVA a nombre de tu empresa.</p></details>
   <details><summary>¿Los mensajes de WhatsApp van aparte?</summary><p>No. El coste de WhatsApp y de los modelos está incluido en el precio por vivienda.</p></details>
@@ -123,16 +135,19 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointe
 <footer><div class="wrap">Llaverio · © 2026 · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
 <script>
 (function(){
-  var ids=['pisos','sal','min','eur','pct'];
+  var ids=['pisos','sal','wp','ws','min','eur','pct'];
   function v(i){return +document.getElementById('c-'+i).value}
-  function fmt(n){return Math.round(n).toLocaleString('es-ES')}
+  function fmt(n){return (n<0?'\u2212':'')+Math.round(Math.abs(n)).toLocaleString('es-ES')}
+  function season(p,sal,pre){
+    var h=p*sal*v('min')/60, hs=h*v('pct')/100, c=p>0?(pre==='w'?Math.max(p*6,30):Math.max(p*12,60)):0, n=hs*v('eur')-c;
+    document.getElementById(pre+'-h').textContent=fmt(h)+' h';
+    document.getElementById(pre+'-hs').textContent=fmt(hs)+' h';
+    document.getElementById(pre+'-c').textContent=fmt(c)+' €';
+    document.getElementById(pre+'-n').textContent=fmt(n)+' €';
+  }
   function run(){
     ids.forEach(function(i){document.getElementById('o-'+i).textContent=v(i)+(i==='pct'?'%':'')});
-    var h=v('pisos')*v('sal')*v('min')/60, hs=h*v('pct')/100, c=v('pisos')*12, n=hs*v('eur')-c;
-    document.getElementById('r-h').textContent=fmt(h)+' h';
-    document.getElementById('r-hs').textContent=fmt(hs)+' h';
-    document.getElementById('r-c').textContent=fmt(c)+' €';
-    document.getElementById('r-n').textContent=(n<0?'−':'')+fmt(Math.abs(n))+' €';
+    season(v('pisos'),v('sal'),'r'); season(v('wp'),v('ws'),'w');
   }
   ids.forEach(function(i){document.getElementById('c-'+i).addEventListener('input',run)});
   run();

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#121315">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Crect width='40' height='32' rx='9' fill='%23ff5b1f'/%3E%3Ctext x='20' y='22' font-family='monospace' font-weight='800' font-size='16' text-anchor='middle' fill='%231a0d06'%3E07%3C/text%3E%3C/svg%3E">
+<title>Motaller · Precios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1ea;--card:#fffdf8;--ink:#17181a;--muted:#5d5f63;--line:#d9d3c6;--orange:#e2531a;--orange-dk:#b83f0f;--orange-bg:#fbe5da;--green:#1f7a4d;--green-bg:#dcefe3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.6 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--orange-dk)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:3px solid var(--ink)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;font-weight:850;line-height:1.05}
+h1{font-size:clamp(38px,8vw,64px);text-transform:uppercase}
+h2{font-size:clamp(26px,5vw,36px);text-transform:uppercase;margin:0 0 14px}
+h3{font-size:20px;font-stretch:85%;margin:22px 0 8px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--orange-dk)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}li{margin:4px 0}
+.summary{background:var(--ink);color:#f4f1ea;border-radius:16px;padding:24px;margin-top:22px;font-size:18px}
+.summary b{color:#f0a37f}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;text-decoration:none;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:12px 0}
+.grid2{display:grid;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tbl{width:100%;overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6da;font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase}
+code,.code{font-family:"JetBrains Mono",monospace;font-size:13px}
+pre{background:#1f2023;color:#e9e4d8;padding:16px;border-radius:12px;overflow-x:auto;font:500 13px/1.5 "JetBrains Mono",monospace;margin:10px 0}
+.arch{display:grid;gap:10px;margin:14px 0}
+.row{display:grid;gap:10px}
+@media(min-width:760px){.row{grid-template-columns:repeat(3,1fr)}}
+.box{border:2px solid var(--ink);border-radius:10px;padding:12px;background:var(--card);font-size:14px}
+.box b{display:block;font-family:"Archivo";font-stretch:80%;font-size:17px}
+.box.core{background:var(--orange-bg);border-color:var(--orange)}
+.box.dark{background:var(--ink);color:#f4f1ea}
+.arrow{text-align:center;font:700 13px "JetBrains Mono";color:var(--muted)}
+.warn{border-left:4px solid var(--orange);padding:8px 0 8px 14px;margin:10px 0}
+.pill{display:inline-block;font:700 11px "JetBrains Mono";padding:2px 7px;border-radius:5px;background:var(--green-bg);color:var(--green);text-transform:uppercase}
+footer{padding:28px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between}
+
+.calc{display:grid;gap:14px}
+.calc label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.calc input{font:inherit;padding:12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;min-height:48px}
+.out{background:var(--ink);color:#f4f1ea;border-radius:14px;padding:20px;display:grid;gap:10px}
+.out b{font:900 34px/1 "Archivo";font-stretch:72%;color:#f0a37f;display:block}
+.legal footer a, footer a{margin-left:14px}
+:root{--paper:#121315;--card:#1d1e22;--ink:#eeece6;--muted:#a3a098;--line:#2e3036;--orange:#ff5b1f;--orange-dk:#ff8a5c;--orange-bg:rgba(255,91,31,.12);--green:#8fe0b4;--green-bg:#1c4a33}
+body{background:#121315;color:#eeece6}
+header{border-bottom:1px solid var(--line)}
+h1,h2{letter-spacing:-.005em}
+h1{font-stretch:70%}
+.summary{background:#1d1e22;color:#eeece6;border:1px solid var(--line)}
+.summary b{color:#ff8a5c}
+th{background:#17181b;color:#a3a098}
+td{color:#d7d4cc}
+table{background:#1d1e22}
+.calc input{background:#121315;color:#eeece6;border-color:#41444b}
+.calc input:focus{outline:3px solid #ff5b1f;outline-offset:2px}
+.out{background:#1d1e22;border:2px solid #ff5b1f;color:#eeece6}
+.out b{color:#ff8a5c}
+.out small{color:#a3a098!important}
+a{color:#ff8a5c}
+.mono{color:#ff8a5c}
+.pbtn{display:inline-block;background:#ff5b1f;color:#1a0d06;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:10px;margin-top:10px}
+.warn{border-left-color:#ff5b1f}
+</style>
+</head>
+<body>
+<header><div class="wrap"><p class="mono">Precios de lanzamiento</p><h1>Motaller · precios</h1><div class="summary"><b>Dos planes, sin alta ni permanencia.</b> 30 días de piloto gratis para 10 talleres de Barcelona. Los precios son de lanzamiento: los cerramos con los talleres del piloto.</div></div></header>
+<section><div class="wrap">
+  <h2>Calcula lo que te cuesta el teléfono</h2>
+  <p>Pon tus números. La cuenta es simple y la ves entera: no inventamos cuántos clientes vas a ganar.</p>
+  <div class="grid2">
+    <div class="calc">
+      <label for="c1">WhatsApp y llamadas al día<input id="c1" type="number" min="0" value="25" inputmode="numeric"></label>
+      <label for="c2">Minutos que pierdes en cada uno (lavarte las manos, contestar, volver)<input id="c2" type="number" min="0" value="3" inputmode="numeric"></label>
+      <label for="c3">Días de trabajo al mes<input id="c3" type="number" min="0" value="22" inputmode="numeric"></label>
+      <label for="c4">Precio de tu hora de taller (€)<input id="c4" type="number" min="0" value="45" inputmode="numeric"></label>
+      <label for="c5">Llamadas perdidas al mes que eran un trabajo nuevo<input id="c5" type="number" min="0" value="4" inputmode="numeric"></label>
+      <label for="c6">Tíquet medio de ese trabajo (€)<input id="c6" type="number" min="0" value="90" inputmode="numeric"></label>
+    </div>
+    <div class="out" aria-live="polite">
+      <div><span>Horas al mes con el móvil en la mano</span><b id="o1">-</b></div>
+      <div><span>Esas horas, a precio de taller</span><b id="o2">-</b></div>
+      <div><span>Trabajos perdidos por llamadas sin respuesta</span><b id="o3">-</b></div>
+      <div><span>Coste total del teléfono al mes</span><b id="o4">-</b></div>
+      <div><span>El plan Taller (59 €) se paga si Motaller te ahorra esta parte</span><b id="o5">-</b></div>
+      <small style="color:#cfcac0">Cálculo con tus datos. Motaller no contestará el 100 %: en el piloto medimos cuánto contesta sin ti y lo publicamos.</small>
+    </div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <h2>Comparar planes</h2>
+  <div class="tbl"><table>
+    <tr><th></th><th>Taller · 59 €/mes + IVA</th><th>Taller Pro · 129 €/mes + IVA</th></tr>
+    <tr><td>Asistente de WhatsApp 24/7</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Agenda y ficha por matrícula</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Fotos y presupuesto para aprobar</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Aviso «tu moto está lista»</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Contesta llamadas de voz</td><td>No</td><td>Sí</td></tr>
+    <tr><td>Recordatorios de ITV y revisiones</td><td>No</td><td>Sí</td></tr>
+    <tr><td>Cuentas para flotas de reparto</td><td>No</td><td>Sí</td></tr>
+    <tr><td>Montaje en tu taller</td><td>Incluido</td><td>Incluido</td></tr>
+  </table></div>
+  <p><a class="pbtn" href="index.html#probar">Pedir piloto gratis</a></p>
+</div></section>
+<section><div class="wrap">
+  <h2>Preguntas sobre el cobro</h2>
+  <h3>¿Cuándo empiezo a pagar?</h3><p>El día 31 del piloto, solo si decides seguir. Durante el piloto no pedimos tarjeta.</p>
+  <h3>¿Cómo pago?</h3><p>Domiciliación SEPA mensual con factura a nombre del taller.</p>
+  <h3>¿Hay permanencia?</h3><p>No. Te das de baja cuando quieras y no pagas el mes siguiente.</p>
+  <h3>¿Los mensajes de WhatsApp se pagan aparte?</h3><p>No. El coste de Meta por mensajes va incluido en el precio del plan.</p>
+  <h3>¿Puedo cambiar de plan?</h3><p>Sí, en cualquier momento. El cambio se aplica en la factura siguiente.</p>
+</div></section>
+<script>
+(function(){function v(i){var n=parseFloat(document.getElementById(i).value);return isNaN(n)||n<0?0:n}
+function f(n){return Math.round(n).toLocaleString('es-ES')}
+function u(){var h=v('c1')*v('c2')*v('c3')/60,e=h*v('c4'),l=v('c5')*v('c6');
+document.getElementById('o1').textContent=f(h)+' h';document.getElementById('o2').textContent=f(e)+' €';document.getElementById('o3').textContent=f(l)+' €';document.getElementById('o4').textContent=f(e+l)+' €';document.getElementById('o5').textContent=(e+l>0?(Math.min(100,59/(e+l)*100)).toLocaleString('es-ES',{maximumFractionDigits:1}):'100')+' %'}
+document.querySelectorAll('.calc input').forEach(function(i){i.addEventListener('input',u)});u()})();
+</script>
+<footer><div class="wrap" style="flex-wrap:wrap;gap:8px"><span><b>Motaller</b> · 2026</span><span><a href="index.html">Inicio</a><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></span></div></footer>
+</body>
+</html>

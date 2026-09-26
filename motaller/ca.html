@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://motaller-topaz.vercel.app/ca.html">
 <link rel="alternate" hreflang="es" href="https://motaller-topaz.vercel.app/">
 <link rel="alternate" hreflang="ca" href="https://motaller-topaz.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://motaller-topaz.vercel.app/en.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Crect width='40' height='32' rx='9' fill='%23ff5b1f'/%3E%3Ctext x='20' y='22' font-family='monospace' font-weight='800' font-size='16' text-anchor='middle' fill='%231a0d06'%3E07%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ca_ES">
@@ -81,6 +82,10 @@ nav .btn{padding:10px 18px;min-height:44px;font-size:15px}
 .navr{display:flex;gap:10px;align-items:center}
 @media(max-width:560px){nav .btn{font-size:14px;padding:10px 12px}}
 @media(max-width:440px){nav .navr .btn{display:none}}
+.hplate{display:inline-flex;align-items:stretch;background:#f3f2ee;color:#111;border:4px solid #0b0b0c;outline:2px solid #3a3c42;border-radius:14px;overflow:hidden;max-width:100%;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.hplate .eu{background:#1f4fa8;color:#fff;flex:none;width:clamp(34px,4vw,52px);display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;font:800 clamp(14px,1.6vw,20px) "JetBrains Mono"}
+.hplate .t{padding:clamp(14px,2vw,22px) clamp(16px,2.4vw,30px);font:800 clamp(28px,4.6vw,60px)/1.04 "JetBrains Mono";letter-spacing:-.03em;text-transform:uppercase;min-width:0;overflow-wrap:anywhere}
+.hplate .t em{font-style:normal;color:#c2410c}
 /* hero */
 .hero{padding:64px 0 88px}
 .hero-grid{display:grid;gap:56px;align-items:center}
@@ -283,17 +288,16 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 <nav><div class="wrap">
   <a class="logo" href="#" aria-label="Motaller, inici"><span class="race" aria-hidden="true">07</span>Motaller</a>
   <div class="navlinks"><a href="#como">Com funciona</a><a href="#demo">Demo</a><a href="#precio">Preu</a><a href="#faq">Preguntes</a></div>
-  <div class="navr"><a class="lang" href="/" hreflang="es" lang="es" aria-label="Castellano">ES</a><a class="btn" href="#probar">Demanar pilot gratuït<span class="ar" aria-hidden="true"></span></a></div>
+  <div class="navr"><a class="lang" href="en.html" hreflang="en" lang="en" aria-label="English">EN</a><a class="lang" href="/" hreflang="es" lang="es" aria-label="Castellano">ES</a><a class="btn" href="#probar">Demana el pilot gratuït<span class="ar" aria-hidden="true"></span></a></div>
 </div></nav>
-<div class="stripe" aria-hidden="true"></div>
 
 <main>
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <h1>Tu amb la clau. <em>Motaller amb el WhatsApp.</em></h1>
+    <h1 class="hplate"><span class="eu" aria-hidden="true">E</span><span class="t">El WhatsApp del teu taller, <em>contestat.</em></span></h1>
     <p class="lead">Per a tallers de motos: contesta els teus clients, dona cita per matrícula i t'aconsegueix el «sí» al pressupost amb fotos.</p>
     <div class="cta-row">
-      <a class="btn" href="#probar">Demanar pilot gratuït<span class="ar" aria-hidden="true"></span></a>
+      <a class="btn" href="#probar">Demana el pilot gratuït<span class="ar" aria-hidden="true"></span></a>
       <a class="btn ghost" href="#demo">Provar la demo</a>
     </div>
   </div>
@@ -304,9 +308,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
       <div class="screen">
         <div class="wa-head"><div class="avatar">MT</div><div><b>Motos Eixample</b><small>assistent del taller</small></div></div>
         <div class="chat">
-          <div class="msg me">La Burgman frena estrany i té la ITV al novembre. Me la mireu?<time>09:12</time></div>
-          <div class="msg">Hola, Marc. Tinc la teva moto, <span class="plate"><i>E</i><span>4821 KLM</span></span>. Demà a les 8:30 hi ha lloc per a frens i pre-ITV. Et va bé?<time>09:12</time></div>
-          <div class="msg">Pastilles davanteres al 10 %. El pneumàtic aguanta la ITV.
+          <div class="msg me">La Burgman frena estrany i té la ITV al novembre. Me la podeu mirar?<time>09:12</time></div>
+          <div class="msg">Hola, Marc. Tinc la teva moto, <span class="plate"><i>E</i><span>4821 KLM</span></span>. Demà a les 8:30 et puc donar hora per als frens i la pre-ITV. Et va bé?<time>09:12</time></div>
+          <div class="msg">Pastilles davanteres al 10 %. El pneumàtic passarà la ITV.
             <div class="quote"><div><span>Pastilles + 0,5 h</span><span>63 €</span></div><div class="tot"><span>Total IVA incl.</span><span>63 €</span></div></div>
             <span class="approved">Aprovat per Marc · 11:41</span><time>11:40</time></div>
           <div class="msg ready"><span class="rt">La teva moto és a punt</span>Pots passar a recollir-la fins a les 20:00. Total 63 €.<time>17:05</time></div>
@@ -326,8 +330,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
     <ul class="timeline reveal">
       <li><b>09:40</b><span>Una rider de Glovo pregunta si li canvieu la coberta avui. Sense moto no cobra.</span></li>
       <li><b>10:15</b><span>Una trucada perduda. Era un client nou amb una Vespa. Truca al taller del costat.</span></li>
-      <li><b>11:30</b><span>Tres WhatsApp: «ja tinc la moto?». En Jordi para, es renta les mans i contesta un per un.</span></li>
-      <li><b>12:50</b><span>Troba un disc gastat i truca al client. No ho agafa. La moto ocupa l'elevador fins a la tarda.</span></li>
+      <li><b>11:30</b><span>Tres whatsapps: «ja és a punt la meva moto?». En Jordi para, es renta les mans i contesta un per un.</span></li>
+      <li><b>12:50</b><span>Troba un disc gastat i truca al client. No agafa el telèfon. La moto ocupa l'elevador fins a la tarda.</span></li>
     </ul>
   </div>
   <div class="facts reveal">
@@ -338,20 +342,20 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 </div></section>
 
 <section id="como"><div class="wrap">
-  <h2>Els teus clients no instal·len res</h2>
+  <h2>Els teus clients no han d'instal·lar res</h2>
   <p class="lead">Escriuen al WhatsApp de sempre. Motaller contesta en nom del taller i et passa només el que necessita un mecànic.</p>
   <div class="track">
     <div class="leg reveal">
       <div><span class="when">Una tarda, al teu taller</span><h3 style="margin-top:10px">Ho muntem amb tu</h3><p>Carreguem els teus horaris, serveis i preus base. Contesta en català i en castellà.</p></div>
-      <div class="ex"><span class="mono">Tu decideixes</span>Canvi d'oli scooter 125: des de 45 €. Pre-ITV: 25 €. Dilluns a divendres, de 8:30 a 19:30.</div>
+      <div class="ex"><span class="mono">Tu decideixes</span>Canvi d'oli d'escúter 125: des de 45 €. Pre-ITV: 25 €. Dilluns a divendres, de 8:30 a 19:30.</div>
     </div>
     <div class="leg reveal">
       <div><span class="when">Cada dia, a qualsevol hora</span><h3 style="margin-top:10px">Contesta, dona cita i fitxa la moto</h3><p>Cada moto queda guardada per matrícula, amb els quilòmetres i la data d'ITV.</p></div>
-      <div class="ex"><span class="mono">22:10 · client nou</span>«Teniu lloc per a una revisió de la Vespa?» Motaller li dona hora dijous a les 9:00 i te la deixa a l'agenda.</div>
+      <div class="ex"><span class="mono">22:10 · client nou</span>«Teniu hora per a una revisió de la Vespa?» Motaller li dona hora per a dijous a les 9:00 i te l'apunta a l'agenda.</div>
     </div>
     <div class="leg reveal">
       <div><span class="when">Amb la moto a l'elevador</span><h3 style="margin-top:10px">Dues fotos, un «sí» i «la teva moto és a punt»</h3><p>Fas les fotos i dictes la reparació. Tu confirmes l'import. El client ho aprova amb un toc i rep l'avís en acabar.</p></div>
-      <div class="ex"><span class="mono">Tu confirmes abans de l'enviament</span>Disc posterior + pastilles: 186 €. En Marc ho aprova a les 11:41 sense que deixis la clau.</div>
+      <div class="ex"><span class="mono">Tu confirmes abans d'enviar-lo</span>Disc del darrere + pastilles: 186 €. En Marc ho aprova a les 11:41 sense que deixis la clau.</div>
     </div>
   </div>
 </div></section>
@@ -365,7 +369,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
       <div><p style="font-weight:600;font-size:14px;margin-bottom:8px;color:#e2dfd8" id="d-lbl">El client escriu…</p>
       <div class="scen" role="group" aria-labelledby="d-lbl">
         <button type="button" data-s="cita" aria-pressed="true">Demana cita</button>
-        <button type="button" data-s="lista" aria-pressed="false">Tinc la moto?</button>
+        <button type="button" data-s="lista" aria-pressed="false">És a punt la moto?</button>
         <button type="button" data-s="rider" aria-pressed="false">Rider amb pressa</button>
         <button type="button" data-s="precio" aria-pressed="false">Pregunta un preu</button>
       </div></div>
@@ -391,10 +395,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
         <div class="job"><span class="plate"><i>E</i><span>1190 MHD</span></span><b>Vespa GTS 300</b><small>Revisió 10.000 km · 12:00</small></div>
       </div>
       <div class="col"><h4>Esperant OK <span>1</span></h4>
-        <div class="job"><span class="plate"><i>E</i><span>7702 LBC</span></span><b>Yamaha Tmax</b><small>Disc posterior · 186 €</small><br><span class="tag t-am">Enviat 11:40</span></div>
+        <div class="job"><span class="plate"><i>E</i><span>7702 LBC</span></span><b>Yamaha Tmax</b><small>Disc del darrere · 186 €</small><br><span class="tag t-am">Enviat 11:40</span></div>
       </div>
       <div class="col"><h4>A l'elevador <span>2</span></h4>
-        <div class="job"><span class="plate"><i>E</i><span>3345 MFR</span></span><b>Honda PCX 125</b><small>Coberta posterior</small><br><span class="tag t-or">Rider · abans de les 14:00</span></div>
+        <div class="job"><span class="plate"><i>E</i><span>3345 MFR</span></span><b>Honda PCX 125</b><small>Coberta del darrere</small><br><span class="tag t-or">Rider · abans de les 14:00</span></div>
         <div class="job"><span class="plate"><i>E</i><span>5518 LXS</span></span><b>Kymco Agility</b><small>Corretja i corrons</small><br><span class="tag t-or">Rider · abans de les 18:00</span></div>
       </div>
       <div class="col"><h4>A punt <span>2</span></h4>
@@ -404,7 +408,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
     </div>
     <p class="ai-line"><b>Motaller</b>He recordat la ITV de novembre a 14 clients. 5 han demanat cita per a la pre-ITV.</p>
   </div>
-  <p class="caption">Exemple il·lustratiu. Taller i matrícules ficticis.</p>
+  <p class="caption">Exemple il·lustratiu. Taller i matrícules ficticis. <a href="app.html" style="color:var(--orange-soft)">Veure el tauler (prototip)</a></p>
 </div></section>
 
 <section id="diferencia" style="padding-top:0"><div class="wrap">
@@ -423,23 +427,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 </div></section>
 
 <section id="precio" class="problem"><div class="wrap">
-  <h2>Menys que una revisió al mes</h2>
+  <h2>Dos plans, sense permanència</h2>
   <div class="prices">
     <div class="price reveal"><h3>Taller</h3><p class="who">1 o 2 mecànics</p><div class="amt">59 € <small>/mes + IVA</small></div>
       <ul><li>Assistent de WhatsApp 24/7</li><li>Agenda i fitxa per matrícula</li><li>Fotos i pressupost per aprovar</li><li>Avís «la teva moto és a punt»</li></ul></div>
     <div class="price hot reveal"><h3>Taller Pro</h3><p class="who">Molt volum o flotes de riders</p><div class="amt">129 € <small>/mes + IVA</small></div>
       <ul><li>Tot el de Taller</li><li>Contesta també les trucades</li><li>Recordatoris d'ITV i revisions</li><li>Comptes per a flotes de repartiment</li></ul></div>
   </div>
-  <div class="pilot reveal"><div><b>Pilot: 30 dies a 0 €</b>Per a 10 tallers de Barcelona. Sense targeta. Si no et serveix, el desconnectem i t'emportes les teves dades.</div><a class="btn" href="#probar">Demanar pilot gratuït<span class="ar" aria-hidden="true"></span></a></div>
-  <p class="note">Són preus de llançament: els tancarem amb els tallers del pilot. Sense permanència i sense alta.</p>
+  <div class="pilot reveal"><div><b>Pilot: 30 dies a 0 €</b>Per a 10 tallers de Barcelona. Sense targeta. Si no et serveix, el desconnectem i t'emportes les teves dades.</div><a class="btn" href="#probar">Demana el pilot gratuït<span class="ar" aria-hidden="true"></span></a></div>
+  <p class="note">Són preus de llançament: els tancarem amb els tallers del pilot. Sense permanència i sense alta. <a href="precios.html" style="color:var(--orange-soft)">Calcula el que et costa el telèfon</a> (en castellà).</p>
 </div></section>
 
 <section id="faq"><div class="wrap faq-grid">
-  <h2>El que ens pregunten al taller</h2>
+  <h2>El que ens pregunten als tallers</h2>
   <div>
     <details><summary>Els meus clients notaran que parlen amb una IA?</summary><p>Sí, i és millor així. Motaller es presenta com l'assistent del taller. Si el client demana parlar amb tu, et passa la conversa al moment.</p></details>
     <details><summary>He de canviar de número?</summary><p>No. Connectem el teu número de WhatsApp Business. Pots continuar escrivint des del mòbil del taller com fins ara.</p></details>
-    <details><summary>I si dona un preu equivocat?</summary><p>Motaller només dona els preus base que tu marques. Qualsevol pressupost amb diagnòstic surt de tu: fas les fotos i confirmes l'import abans de l'enviament.</p></details>
+    <details><summary>I si dona un preu equivocat?</summary><p>Motaller només dona els preus base que tu marques. Qualsevol pressupost amb diagnòstic surt de tu: fas les fotos i confirmes l'import abans d'enviar-lo.</p></details>
     <details><summary>Funciona amb flotes de riders?</summary><p>Sí. Marques una moto com a «rider» i passa a prioritat, amb hora d'entrega. Una flota pot tenir compte propi amb totes les seves motos.</p></details>
     <details><summary>Què passa amb les dades dels meus clients?</summary><p>Són del taller. Les guardem en servidors de la UE, signem amb tu el contracte d'encarregat del tractament del RGPD i les pots exportar quan vulguis.</p></details>
     <details><summary>No tinc temps per muntar res.</summary><p>Ho muntem nosaltres en una tarda, al teu taller. No has de mirar tutorials ni canviar el teu programa de facturació.</p></details>
@@ -448,11 +452,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 
 <section id="quien" style="padding-top:0"><div class="wrap">
   <div class="founder reveal">
-    <blockquote>«Tinc una Burgman i la porto a un taller del barri. Sempre veig el mateix: el mecànic amb les mans plenes de greix i el mòbil vibrant. Busco 10 tallers de Barcelona per construir Motaller amb ells. Passo a veure't en persona.»</blockquote>
+    <blockquote>«Tinc una Burgman i la porto a un taller del barri. Sempre veig el mateix: el mecànic amb les mans plenes de greix i el mòbil que no para de vibrar. Busco 10 tallers de Barcelona per construir Motaller amb ells. Et vinc a veure en persona.»</blockquote>
     <cite><b style="color:var(--text)">Joaquín</b>, fundador de Motaller, Barcelona</cite>
   </div>
   <div class="guar">
-    <div><b>Tu aproves cada preu</b><p>Cap pressupost amb diagnòstic surt sense el teu OK.</p></div>
+    <div><b>Tu aproves cada preu</b><p>Cap pressupost amb diagnòstic no surt sense el teu OK.</p></div>
     <div><b>Es presenta com a assistent</b><p>Els teus clients saben amb qui parlen i poden demanar parlar amb tu.</p></div>
     <div><b>Dades a la UE</b><p>Contracte RGPD i exportació de les teves dades quan vulguis.</p></div>
   </div>
@@ -472,7 +476,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
       <label for="f-biz">Nom del taller<input id="f-biz" name="business" placeholder="Ex.: Motos Poblenou" required></label>
       <label for="f-contact">Telèfon o email<input id="f-contact" name="contact" autocomplete="tel" placeholder="600 000 000 o tu@email.cat" required></label>
       <p class="err" id="err" aria-live="polite"></p>
-      <button class="btn" type="submit">Demanar pilot gratuït<span class="ar" aria-hidden="true"></span></button>
+      <button class="btn" type="submit">Demana el pilot gratuït<span class="ar" aria-hidden="true"></span></button>
       <small>Només et contactem per al pilot. Sense targeta, sense compromís.</small>
     </div>
     <div class="thanks" id="thanks" aria-live="polite">
@@ -483,9 +487,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 </div></section>
 </main>
 
-<div class="sticky" id="sticky"><span><b>Pilot gratuït</b><br>10 tallers a Barcelona</span><a class="btn" href="#probar">Demanar pilot gratuït</a></div>
+<div class="sticky" id="sticky"><span><b>Pilot gratuït</b><br>10 tallers a Barcelona</span><a class="btn" href="#probar">Demana el pilot gratuït</a></div>
 
-<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><a href="plan.html">Pla intern</a></div></footer>
+<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><span><a href="precios.html">Preus</a> · <a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Cookies</a> · <a href="plan.html">Pla intern</a></span></div></footer>
 
 <script>
 document.getElementById('wl').addEventListener('submit',function(e){
@@ -510,8 +514,8 @@ document.getElementById('wl').addEventListener('submit',function(e){
 (function(){
   var name=document.getElementById('d-name'),chat=document.getElementById('d-chat'),head=document.getElementById('d-head'),av=document.getElementById('d-av'),cur='cita',timers=[];
   var S={
-    cita:[['me','Hola, teniu lloc aquesta setmana per canviar l’oli de la PCX?'],['bot','Hola, soc l’assistent de {T}. Tinc lloc dijous a les 9:00 o divendres a les 16:30. El canvi d’oli d’una 125 surt des de 45 €. Quin et va millor?'],['me','Dijous'],['bot','Fet: dijous a les 9:00 a {T}. Em dius la matrícula per deixar la fitxa preparada?']],
-    lista:[['me','Ja tinc la moto? La Vespa, 1190 MHD'],['bot','Hola, Laura. La teva Vespa és a l’elevador: revisió de 10.000 km. T’aviso aquí quan estigui a punt. {T} tanca avui a les 19:30.'],['bot','La teva moto és a punt. Pots passar per {T} fins a les 19:30. Total 118 €.']],
+    cita:[['me','Hola, teniu hora aquesta setmana per canviar l’oli de la PCX?'],['bot','Hola, soc l’assistent de {T}. Tinc hora dijous a les 9:00 o divendres a les 16:30. El canvi d’oli d’una 125 surt des de 45 €. Quin et va millor?'],['me','Dijous'],['bot','Fet: dijous a les 9:00 a {T}. Em dius la matrícula per deixar la fitxa preparada?']],
+    lista:[['me','Ja és a punt la meva moto? La Vespa, 1190 MHD'],['bot','Hola, Laura. La teva Vespa és a l’elevador: revisió de 10.000 km. T’aviso aquí quan estigui a punt. {T} tanca avui a les 19:30.'],['bot','La teva moto és a punt. Pots passar per {T} fins a les 19:30. Total 118 €.']],
     rider:[['me','Reparteixo amb Glovo i he punxat la roda del darrere. Me la canvieu avui?'],['bot','Sí. A {T} donem prioritat als riders. Si la portes abans de les 12:00, la tens abans de les 14:00. Saps la mida de la coberta?'],['me','No ho sé, és una Honda PCX'],['bot','Cap problema, la mirem quan arribis. Et guardo l’hora de les 11:30.']],
     precio:[['me','Quant costa canviar les pastilles de fre?'],['bot','Depèn de la moto i de com estigui el disc. A {T} t’ho mirem i t’envio fotos i el preu exacte per aquí abans de tocar res. Quina moto tens?'],['me','Un Tmax'],['bot','Perfecte. Et va bé passar demà a les 8:30 per mirar-ho? Són 10 minuts.']]
   };

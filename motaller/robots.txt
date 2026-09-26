@@ -5,4 +5,8 @@ Disallow: /b.html
 Disallow: /ficha.html
 Disallow: /outreach.html
 Disallow: /contenido.html
+Disallow: /anuncios.html
+Disallow: /pitch.html
+Disallow: /onboarding.html
+Disallow: /app.html
 Sitemap: https://motaller-topaz.vercel.app/sitemap.xml

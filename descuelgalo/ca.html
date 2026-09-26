@@ -259,6 +259,14 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 footer .logo{font-size:18px;color:var(--ink)}
 footer .logo i{width:26px;height:26px;border-radius:8px}
 footer .logo i svg{width:14px;height:14px}
+
+/* hero v4: the phone is the hero */
+.hero .wrap{grid-template-columns:1fr!important;justify-items:start}
+.stage{width:100%;padding:36px 0 8px;background:linear-gradient(180deg,transparent,var(--green-soft) 30%,var(--green-soft) 70%,transparent);border-radius:40px}
+.stage:before{display:none}
+.phone{width:330px}
+.caller{font-size:28px;max-width:100%;overflow-wrap:anywhere}
+@media(min-width:900px){.hero h1{max-width:22ch}.hero{padding-bottom:40px}.hero p.lead{max-width:40em}}
 </style>
 </head>
 <body>
@@ -281,40 +289,38 @@ footer .logo i svg{width:14px;height:14px}
   <div>
     <span class="eyebrow">Recepcionista amb IA per a tallers i pimes</span>
     <h1>Cap trucada <em>sense resposta</em>. Ni amb les mans ocupades.</h1>
-    <p class="lead">La teva recepcionista amb IA agafa les trucades que tu no pots, apunta la cita i te la resumeix per WhatsApp. Aprèn el teu negoci de la fitxa de Google. Conserves el teu número.</p>
+    <p class="lead">La teva recepcionista amb IA agafa les trucades que tu no pots agafar, apunta la cita i te la resumeix per WhatsApp. Aprèn el teu negoci de la fitxa de Google. Conserves el teu número.</p>
     <form class="try" id="tryform" onsubmit="event.preventDefault();tryIt()">
       <svg><use href="#i-search"/></svg>
       <input id="bizname" placeholder="Escriu el teu negoci: p. ex. Taller Ruiz" aria-label="Nom del teu negoci" autocomplete="organization" maxlength="40">
       <button class="btn green" type="submit"><svg><use href="#i-phone"/></svg>Vull provar-la</button>
     </form>
     <div class="hero-ctas">
-      <a class="ghost" href="#como">Veure com funciona</a>
+      <a class="ghost" href="#como">Mira com funciona</a>
       <p class="hint" style="margin:0"><b>Pilot gratuït de 30 dies.</b> Sense targeta i sense permanència.</p>
     </div>
   </div>
   <div class="stage" aria-hidden="true">
-    <div class="chip c1"><b><span class="dot"></span>Après de Google</b>Dl-Dv 8:30-19:00 · Canvi d'oli, ITV, frens</div>
     <div class="phone" role="img" aria-label="Mòbil rebent una trucada de la Lucía, la recepcionista amb IA"><div class="screen">
       <div class="notch"></div>
       <div class="incoming">Trucada entrant</div>
-      <div class="avatar">L</div>
-      <div class="caller">Lucía</div>
-      <div class="biz" id="phone-biz">Recepcionista de Taller Ruiz</div>
-      <div class="bubble"><small>La Lucía dirà</small><span id="phone-line">"Taller Ruiz, bon dia. Soc la Lucía, l'assistent virtual. Et busco lloc per dilluns?"</span></div>
+      <div class="avatar" id="phone-av">T</div>
+      <div class="caller" id="phone-caller">Taller Ruiz</div>
+      <div class="biz" id="phone-biz">La Lucía, la teva recepcionista, contesta</div>
+      <div class="bubble"><small>La Lucía dirà</small><span id="phone-line">"Taller Ruiz, bon dia. Soc la Lucía, l'assistent virtual. Et busco hora per a dilluns?"</span></div>
       <div class="actions">
         <div class="act no"><span><svg><use href="#i-hang"/></svg></span>Rebutjar</div>
         <div class="act yes"><span><svg><use href="#i-phone"/></svg></span>Despenjar</div>
       </div>
     </div></div>
-    <div class="chip c2"><b>En penjar</b>Et arriba el resum per WhatsApp</div>
   </div>
 </div></header>
 
 <div class="trust"><div class="wrap"><ul>
-  <li><svg><use href="#i-check"/></svg><span><b>Pilot gratuït de 30 dies</b>Sense targeta. Si no et serveix, la treus.</span></li>
-  <li><svg><use href="#i-check"/></svg><span><b>Conserves el teu número</b>Només desvies les trucades que no agafes.</span></li>
-  <li><svg><use href="#i-check"/></svg><span><b>Dades a la UE, RGPD</b>Contracte d'encarregat del tractament.</span></li>
-  <li><svg><use href="#i-check"/></svg><span><b>Diu que és una IA</b>I passa amb una persona si el client ho demana.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Només agafa el que tu no agafes</b>El teu mòbil sona primer, com sempre.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>El número de sempre</b>Un codi al mòbil i llestos. Un altre codi i es treu.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>No dona preus a cegues</b>Apunta el pressupost i te'l passa a tu.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Es presenta com a assistent virtual</b>I et passa la trucada si el client vol parlar amb tu.</span></li>
 </ul></div></div>
 
 <section class="problem"><div class="wrap">
@@ -347,12 +353,12 @@ footer .logo i svg{width:14px;height:14px}
 <section id="como"><div class="wrap">
   <div class="sec-h">
     
-    <h2>De la trucada perduda a la cita, en tres passos.</h2>
+    <h2>De la trucada perduda a la cita.</h2>
     <p>Sense instal·lar res i sense canviar d'operador. Ho deixem funcionant amb tu en una visita o una videotrucada de 15 minuts.</p>
   </div>
   <div class="steps">
     <div class="step"><div class="n">1</div><h3>Digues-nos el teu negoci</h3><p>Busquem la teva fitxa de Google. La recepcionista aprèn l'horari, els serveis, l'adreça i el que diu la teva web. Tu només ho revises.</p><span class="t">~ 25 segons</span></div>
-    <div class="step"><div class="n">2</div><h3>Et truca a tu</h3><p>Ja ve amb nom, veu i to triats. Posa el teu mòbil i et truca com si fossis un client. Després, t'envia el resum per WhatsApp.</p><span class="t">en menys de 60 segons</span></div>
+    <div class="step"><div class="n">2</div><h3>Et truca a tu</h3><p>Ja ve amb nom, veu i to triats. Escriu el teu mòbil i et truca com si fossis un client. Després, t'envia el resum per WhatsApp.</p><span class="t">en menys de 60 segons</span></div>
     <div class="step"><div class="n">3</div><h3>L'actives</h3><p>Si et convenç, l'actives amb el pilot gratuït de 30 dies. T'ajudem a desviar les trucades que no agafes amb el codi del teu operador. Conserves el teu número.</p><span class="t">~ 1 minut</span></div>
   </div>
 </div></section>
@@ -369,7 +375,7 @@ footer .logo i svg{width:14px;height:14px}
       <div class="row"><span>Horari</span><span>Dl-Dv 8:30-14:00 i 15:30-19:00 <br><span class="src">Google</span></span></div>
       <div class="row"><span>Serveis</span><span>Pre-ITV, frens, canvi d'oli, pneumàtics <br><span class="src">Web</span></span></div>
       <div class="row"><span>Adreça</span><span>C/ de la Indústria 12, Sabadell <br><span class="src">Google</span></span></div>
-      <div class="row"><span>Si demanen pressupost</span><span>Prendre dades i avisar en Paco <br><span class="src">Per defecte</span></span></div>
+      <div class="row"><span>Si demanen pressupost</span><span>Prendre les dades i avisar en Paco <br><span class="src">Per defecte</span></span></div>
       <div class="persona"><span class="on">Lucía</span><span class="on">Veu càlida</span><span class="on">Tu</span><span>Vostè</span><span>Veu greu</span></div>
       <h3 style="margin-top:22px">Prova una trucada</h3>
       <div class="scen" role="group" aria-label="Tria què vol el client">
@@ -384,7 +390,7 @@ footer .logo i svg{width:14px;height:14px}
       <div class="wa">
         <div class="msg">Hola, soc la Lucía de Taller Ruiz. Et confirmo hora el <b>dijous a les 9:00</b> per canviar les pastilles de fre del León. C/ de la Indústria 12.<small>11:43</small></div>
         <div class="msg me">Genial, allà seré<small>11:44</small></div>
-        <div class="msg">Anotat. Si no pots venir, respon aquest missatge i ho canviem.<small>11:44</small></div>
+        <div class="msg">Anotat. Si no pots venir, respon a aquest missatge i ho canviem.<small>11:44</small></div>
       </div>
       <h3 style="margin-top:22px">3 · Resum per a en Paco</h3>
       <div class="wa">
@@ -401,20 +407,20 @@ footer .logo i svg{width:14px;height:14px}
   </div>
   <div class="bens">
     <div class="ben"><div class="big">&lt;60 s</div><h3>Per sentir-la</h3><p>Des que escrius el nom fins que sona el teu mòbil. Sense demo amb un comercial.</p></div>
-    <div class="ben"><div class="big">24/7</div><h3>Contesta sempre</h3><p>A l'hora de dinar, amb les mans ocupades o un diumenge. Tu decideixes quan entra.</p></div>
+    <div class="ben"><div class="big">24/7</div><h3>Contesta sempre</h3><p>A l'hora de dinar, amb les mans ocupades o un diumenge. Tu decideixes quan s'activa.</p></div>
     <div class="ben"><div class="big">€69</div><h3>Al mes, 400 minuts</h3><p>Una recepcionista a mitja jornada costa molt més. Aquí pagues pel que es parla.</p></div>
     <div class="ben"><div class="big">0</div><h3>Números nous</h3><p>Continues amb el número de sempre. Només desvies les trucades que no agafes.</p></div>
   </div>
   <div class="law">
     <svg><use href="#i-scale"/></svg>
-    <p><b>Preparada per a la llei.</b> Des del 28 de desembre de 2026, la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> dona al client el dret a parlar amb una persona per telèfon. Descuélgalo et passa la trucada o et deixa l'avís. A més, compleix l' <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">AI Act (art. 50)</a>: la recepcionista sempre diu que és una IA.</p>
+    <p><b>Què diu la llei, amb precisió.</b> La <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Llei 10/2025</a> obliga a oferir atenció per una persona quan el client la demana (art. 8.2). S'aplica a llum, aigua, gas, transport, correus, telecomunicacions i banca de qualsevol mida, i a la resta d'empreses que venen a consumidors amb 250 o més treballadors o més de 50 M€ de facturació (art. 2). Tenen fins al 28 de desembre de 2026 (disposició transitòria única). A un taller petit no l'obliga, però la Lucía ho fa igualment: et passa la trucada o et deixa l'avís. A més, compleix l' <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">AI Act (art. 50)</a>: la recepcionista sempre diu que és una IA. <a href="blog/ia-contestar-telefono-legal.html">Què diu la llei i si t'afecta</a>.</p>
   </div>
 </div></section>
 
 <section class="moment" id="precios"><div class="wrap">
   <div class="sec-h">
     <span class="eyebrow">Preus</span>
-    <h2>Pagues per minuts, no per comercials.</h2>
+    <h2>Un preu pels minuts que parla la Lucía.</h2>
     <p>Pilot gratuït de 30 dies en tots els plans. Sense permanència. IVA no inclòs.</p>
   </div>
   <div class="plans">
@@ -437,8 +443,8 @@ footer .logo i svg{width:14px;height:14px}
     <div>
       
       <blockquote>
-        <p>Soc en Joaquín, enginyer de programari a Barcelona. Descuélgalo és un projecte nou: encara no tenim clients i no t'ensenyarem logos inventats.</p>
-        <p>Busquem els primers tallers i negocis petits per a un pilot gratuït. L'instal·lo amb tu, escolto cada trucada que es torci i la corregeixo la mateixa setmana. Si al cap d'un mes no t'ha contestat trucades que hauries perdut, la treus i no pagues res.</p>
+        <p>Vaig començar Descuélgalo trucant a tallers a l'hora de dinar. Gairebé cap no l'agafava, i no per deixadesa: eren sota un cotxe.</p>
+        <p>Encara no tinc clients. Busco els primers tallers per provar-ho gratis: t'ho deixo configurat al mòbil, escolto amb tu les trucades que es torcin i les corregeixo aquella setmana.</p>
       </blockquote>
       <cite><b>Joaquín</b> · Fundador · Barcelona</cite>
     </div>
@@ -446,13 +452,13 @@ footer .logo i svg{width:14px;height:14px}
 </div></section>
 
 <section id="faq"><div class="wrap">
-  <div class="sec-h"><h2>El que ens pregunten els propietaris.</h2></div>
+  <div class="sec-h"><h2>Abans de desviar el teu mòbil.</h2></div>
   <div class="faq">
     <details><summary>He de canviar de número o d'operador?</summary><p>No. Mantens el teu número i el teu operador. Actives el desviament de trucades no contestades amb un codi al mòbil, per exemple <code>**61*número#</code>. T'ensenyem el codi exacte de Movistar, Vodafone, Orange i la resta, i ho comprovem amb una trucada.</p></details>
     <details><summary>Es nota que és una IA?</summary><p>Sí, perquè ho diu en començar. Ho exigeix l'AI Act europeu i creiem que és el més honest. La veu és natural i entén accents, però no fa veure que és una persona.</p></details>
-    <details><summary>I si el client vol parlar amb mi?</summary><p>La Lucía et passa la trucada o et deixa l'avís amb el nom, el telèfon i el motiu. Així compleixes el dret a parlar amb una persona que exigeix la Llei 10/2025.</p></details>
+    <details><summary>I si el client vol parlar amb mi?</summary><p>La Lucía et passa la trucada o et deixa l'avís amb el nom, el telèfon i el motiu. Un taller petit no està obligat per la Llei 10/2025, que només exigeix atenció humana a empreses de 250 o més treballadors i a sectors com llum, aigua o telecomunicacions (art. 2 i 8.2). Però els teus clients ho agraeixen.</p></details>
     <details><summary>Com sap el meu horari i els meus preus?</summary><p>Llegeix la teva fitxa de Google i la teva web. Tu revises el que ha après i corregeixes el que calgui, també més endavant.</p></details>
-    <details><summary>I si s'equivoca o no sap contestar?</summary><p>No s'inventa preus ni diagnòstics. Si no sap alguna cosa, pren nom, telèfon i motiu, i t'avisa per WhatsApp perquè truquis tu. Durant el pilot revisem les trucades amb tu i corregim el que falli.</p></details>
+    <details><summary>I si s'equivoca o no sap contestar?</summary><p>No s'inventa preus ni diagnòstics. Si no sap alguna cosa, pren el nom, el telèfon i el motiu, i t'avisa per WhatsApp perquè truquis tu. Durant el pilot revisem les trucades amb tu i corregim el que falli.</p></details>
     <details><summary>Quant trigo a posar-la en marxa?</summary><p>Uns 15 minuts. Revises el que ha après de la fitxa de Google, tries nom i veu, i marques un codi de desviament al mòbil. Ho comprovem junts amb una trucada de prova.</p></details>
     <details><summary>Hi ha permanència o lletra petita?</summary><p>No. El pilot és gratuït 30 dies i sense targeta. Després pagues mes a mes i ho cancel·les quan vulguis. Per treure-la, desactives el desviament amb un altre codi.</p></details>
     <details><summary>Què passa amb les dades dels meus clients?</summary><p>Guardem les dades en servidors de la Unió Europea i complim el RGPD. Signem amb tu un contracte d'encarregat del tractament. No fem servir les teves trucades per vendre res a ningú.</p></details>
@@ -487,7 +493,7 @@ footer .logo i svg{width:14px;height:14px}
 
 <footer><div class="wrap">
   <a class="logo" href="#"><i><svg><use href="#i-phone"/></svg></i>Descuélgalo</a>
-  <span>© 2026 Descuélgalo · <a href="plan.html">Pla</a> · <a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Galetes</a></span>
+  <span>© 2026 Descuélgalo · <a href="plan.html">Pla</a> · <a href="blog/desviar-llamadas-no-contestadas.html">Blog</a> · <a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Galetes</a></span>
 </div></footer>
 
 <script>
@@ -495,13 +501,13 @@ var DEF='Taller Ruiz';
 function biz(){var v=(document.getElementById('bizname').value||'').trim();return v||DEF;}
 document.getElementById('bizname').addEventListener('input',function(){
   var b=biz();
-  document.getElementById('phone-biz').textContent='Recepcionista de '+b;
+  document.getElementById('phone-caller').textContent=b;document.getElementById('phone-av').textContent=b.charAt(0).toUpperCase();
   document.getElementById('phone-line').textContent='"'+b+', bon dia. Soc la Lucía, l\'assistent virtual. En què et puc ajudar?"';
 });
 var SC={
- cita:[['c','Hola, teniu lloc per canviar les pastilles de fre aquesta setmana?'],['l','Hola, soc la Lucía, l\'assistent virtual de {b}. Dijous a les 9:00 hi ha lloc. T\'ho reservo?'],['c','Perfecte. És un León del 2017.'],['l','Apuntat. T\'envio la confirmació per WhatsApp.']],
+ cita:[['c','Hola, teniu hora per canviar les pastilles de fre aquesta setmana?'],['l','Hola, soc la Lucía, l\'assistent virtual de {b}. Dijous a les 9:00 hi ha un forat. T\'ho reservo?'],['c','Perfecte. És un León del 2017.'],['l','Apuntat. T\'envio la confirmació per WhatsApp.']],
  precio:[['c','Quant em cobreu per canviar l\'embragatge d\'un Golf?'],['l','Depèn del model i de les peces, així que no et dono un preu a cegues. Prenc les teves dades i en Paco et truca avui amb el pressupost.'],['c','D\'acord. Soc la Marta, apunta el meu mòbil.'],['l','Gràcies, Marta. En Paco ja té el teu avís per WhatsApp.']],
- humano:[['c','Prefereixo parlar amb algú d\'allà, si us plau.'],['l','És clar. Et passo amb en Paco ara mateix.'],['l','Si no ho agafa, li deixo el teu nom i el teu número i et truca tan aviat com pugui.'],['c','Perfecte, gràcies.']]
+ humano:[['c','Prefereixo parlar amb algú del taller, si us plau.'],['l','És clar. Et passo amb en Paco ara mateix.'],['l','Si no l\'agafa, li deixo el teu nom i el teu número i et truca tan aviat com pugui.'],['c','Perfecte, gràcies.']]
 };
 var tmr=[];
 function play(k){
@@ -522,7 +528,7 @@ if('IntersectionObserver' in window){var seen=false;new IntersectionObserver(fun
 function tryIt(){
   var v=(document.getElementById('bizname').value||'').trim();
   if(v){
-    document.getElementById('phone-biz').textContent='Recepcionista de '+v;
+    document.getElementById('phone-caller').textContent=v;document.getElementById('phone-av').textContent=v.charAt(0).toUpperCase();
     document.getElementById('phone-line').textContent='"'+v+', bon dia. Soc la Lucía, l\'assistent virtual. En què et puc ajudar?"';
     document.getElementById('bizfield').value=v;
   }

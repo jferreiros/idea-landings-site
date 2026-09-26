@@ -5,5 +5,10 @@ Disallow: /outreach.html
 Disallow: /contenido.html
 Disallow: /ficha.html
 Disallow: /b.html
+Disallow: /onboarding.html
+Disallow: /pitch.html
+Disallow: /anuncios.html
+Disallow: /app.html
+Disallow: /en.html
 
 Sitemap: https://glowdesk-liard-eta.vercel.app/sitemap.xml

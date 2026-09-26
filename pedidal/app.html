@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Bandeja (prototipo)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--card:#FBF6EC;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--orange:#FF5A1F;--rust:#A8360A;--rs:#FFE1CF;--ok:#23703F;--oks:#D8EDDD}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 15px/1.5 "IBM Plex Sans",sans-serif}
+.bar{background:var(--ink);color:#F6F0E4;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;flex-wrap:wrap}
+.logo{display:flex;gap:8px;align-items:center;font:800 18px "Archivo";color:#F6F0E4;text-decoration:none}
+.mark{width:24px;height:24px;border-radius:3px;background:var(--orange)}
+.sample{font:600 11px "IBM Plex Mono";background:var(--orange);color:var(--ink);padding:5px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.06em}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 40px}
+h1{font:800 32px/1 "Archivo";font-stretch:78%;margin-bottom:4px}
+.sub{color:var(--ink-2);font-size:14px;margin-bottom:16px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:4px;padding:12px;border-top:3px solid var(--ink)}
+.kpi b{display:block;font:800 28px/1 "Archivo";font-stretch:78%}
+.kpi span{font:500 12px "IBM Plex Mono";color:var(--ink-2)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{font:600 13px "IBM Plex Mono";border:1.5px solid var(--ink);background:transparent;border-radius:4px;padding:9px 12px;min-height:44px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--orange)}
+.list{display:grid;gap:10px}
+.item{background:var(--card);border-radius:5px;padding:14px;border-left:5px solid var(--orange)}
+.item.done{border-left-color:var(--ok);opacity:.85}
+.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
+.who{font-weight:600}
+.meta{font:500 12px "IBM Plex Mono";color:var(--ink-2)}
+.pill{font:600 11px "IBM Plex Mono";text-transform:uppercase;padding:3px 7px;border-radius:3px;background:var(--rs);color:var(--rust)}
+.item.done .pill{background:var(--oks);color:var(--ok)}
+.said{margin:8px 0;font-style:italic}
+.why{font-size:14px;color:var(--ink-2)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.acts button{font:500 14px "IBM Plex Sans";border:1.5px solid var(--ink);background:#fff;border-radius:4px;padding:8px 12px;min-height:44px;cursor:pointer}
+.acts button.pri{background:var(--orange);border-color:var(--orange);font-weight:600}
+.acts button:focus-visible,.tabs button:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.ask{display:none;margin-top:10px;background:#fff;border:1.5px dashed var(--ink);border-radius:4px;padding:10px;font-size:14px}
+.ask textarea{width:100%;font:400 14px "IBM Plex Sans";border:1px solid var(--line);border-radius:4px;padding:8px;min-height:70px;margin:6px 0}
+.log{margin-top:18px;background:var(--card);border-radius:5px;padding:14px}
+.log h2{font:800 20px "Archivo";font-stretch:78%;margin-bottom:6px}
+.log ol{padding-left:20px;font:400 13px "IBM Plex Mono";color:var(--ink-2);display:grid;gap:4px}
+.empty{background:var(--card);border-radius:5px;padding:24px;text-align:center;color:var(--ink-2)}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
+@media(prefers-reduced-motion:no-preference){.item{transition:opacity .3s cubic-bezier(.16,1,.3,1)}}
+</style>
+</head>
+<body>
+<div class="bar"><a class="logo" href="index.html"><span class="mark"></span>Pedidal</a><span class="sample">Datos de ejemplo · prototipo</span></div>
+<div class="wrap">
+  <h1>Bandeja de hoy · martes</h1>
+  <p class="sub">Materiales de ejemplo SL · lo que ves es inventado para enseñar el producto. Nada se guarda ni se envía.</p>
+  <div class="kpis">
+    <div class="kpi"><b id="kIn">41</b><span>pedidos recibidos</span></div>
+    <div class="kpi"><b id="kErp">36</b><span>ya en el ERP</span></div>
+    <div class="kpi"><b id="kRev">5</b><span>por revisar</span></div>
+    <div class="kpi"><b id="kAuto">88 %</b><span>pasaron solos</span></div>
+  </div>
+  <div class="tabs" role="group" aria-label="Filtro">
+    <button aria-pressed="true" data-f="open">Por revisar</button>
+    <button aria-pressed="false" data-f="done">Resueltos</button>
+    <button aria-pressed="false" data-f="all">Todos</button>
+  </div>
+  <div class="list" id="list" aria-live="polite"></div>
+  <div class="log"><h2>Lo que Pedidal aprende</h2><ol id="log"><li>Cada vez que resuelves una duda, Pedidal lo recuerda para ese cliente.</li></ol></div>
+  <p class="sub" style="margin-top:16px"><a href="index.html">Volver a la web</a> · <a href="index.html#probar">Probar con tus pedidos</a></p>
+</div>
+<script>
+(function(){
+  var items=[
+    {id:1,who:'Limpiezas Garraf',t:'8:03',kind:'Producto dudoso',said:'"6 garrafas de lejía de las azules"',why:'Hay 2 referencias con envase azul. En sus últimos 4 pedidos eligió LEJ-5A.',opts:['LEJ-5A · Lejía 5 L','LEJ-5AP · Lejía perfumada 5 L'],learn:'"lejía de las azules" = LEJ-5A para Limpiezas Garraf'},
+    {id:2,who:'Bar La Parada',t:'23:41',kind:'Unidad',said:'"10 de agua"',why:'Siempre pide cajas de 24 botellas de 50 cl, no unidades.',opts:['10 cajas × 24','10 unidades'],learn:'"de agua" = cajas de 24 para Bar La Parada'},
+    {id:3,who:'Construcciones Oller',t:'7:22',kind:'Cantidad rara',said:'"12 palés de ladrillo del 7"',why:'Su media es 3 palés. ¿Error o una obra nueva?',opts:['Aprobar 12 palés','Cambiar a 3 palés'],learn:'Oller: aviso si pide más de 3× su media'},
+    {id:4,who:'Número nuevo +34 6•• ••• 218',t:'9:10',kind:'Cliente desconocido',said:'"Soy Toni de Reformas Rubí, lo de siempre para mañana"',why:'El número no está en tu ERP. Reformas Rubí (C-0233) tiene otro teléfono.',opts:['Asociar a Reformas Rubí','Crear cliente nuevo'],learn:'+34 6•• ••• 218 = Reformas Rubí (C-0233)'},
+    {id:5,who:'Reformas Vallès',t:'7:13',kind:'Talla',said:'"una caja de guantes"',why:'Talla deducida del historial: 9. Nunca ha pedido otra.',opts:['Guante nitrilo T9','Guante nitrilo T8'],learn:'Guantes de Reformas Vallès = talla 9'}
+  ];
+  var filter='open',done={};
+  var $=function(id){return document.getElementById(id)};
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  function kpis(){var n=Object.keys(done).length;$('kErp').textContent=36+n;$('kRev').textContent=5-n;$('kAuto').textContent=Math.round((36+n)/41*100)+' %'}
+  function render(){
+    var l=$('list');l.innerHTML='';
+    var show=items.filter(function(i){return filter==='all'||(filter==='done')===!!done[i.id]});
+    if(!show.length){l.innerHTML='<div class="empty">'+(filter==='open'?'No queda nada por revisar. Todos los pedidos de hoy están en el ERP.':'Aún no has resuelto nada hoy.')+'</div>';return}
+    show.forEach(function(i){
+      var d=document.createElement('div');d.className='item'+(done[i.id]?' done':'');
+      d.innerHTML='<div class="top"><span class="who">'+esc(i.who)+'</span><span class="meta">'+i.t+'</span><span class="pill">'+(done[i.id]?'En ERP':esc(i.kind))+'</span></div><p class="said">'+esc(i.said)+'</p><p class="why">'+(done[i.id]?'Resuelto: '+esc(done[i.id]):esc(i.why))+'</p>';
+      if(!done[i.id]){
+        var a=document.createElement('div');a.className='acts';
+        i.opts.forEach(function(o,k){var b=document.createElement('button');b.type='button';b.textContent=o;if(k===0)b.className='pri';b.onclick=function(){resolve(i,o)};a.appendChild(b)});
+        var q=document.createElement('button');q.type='button';q.textContent='Preguntar al cliente';a.appendChild(q);
+        var box=document.createElement('div');box.className='ask';
+        box.innerHTML='<label>Mensaje por WhatsApp a '+esc(i.who)+'<textarea>Hola, sobre tu pedido: '+esc(i.said)+'. ¿Te refieres a '+esc(i.opts[0])+' o a '+esc(i.opts[1])+'?</textarea></label>';
+        var send=document.createElement('button');send.type='button';send.textContent='Enviar (simulado)';send.className='pri';
+        send.onclick=function(){resolve(i,'preguntado al cliente, esperando respuesta')};
+        var sa=document.createElement('div');sa.className='acts';sa.appendChild(send);box.appendChild(sa);
+        q.onclick=function(){box.style.display=box.style.display==='block'?'none':'block'};
+        d.appendChild(a);d.appendChild(box);
+      }
+      l.appendChild(d);
+    });
+  }
+  function resolve(i,o){done[i.id]=o;var li=document.createElement('li');li.textContent=i.learn;$('log').appendChild(li);kpis();render()}
+  document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){filter=b.dataset.f;document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});render()}});
+  render();
+})();
+</script>
+</body>
+</html>

@@ -291,6 +291,27 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lang b{background:var(--ink);color:#fff;font-weight:500}
 @media(max-width:420px){.navr{gap:8px}nav .btn{padding:9px 12px;font-size:13px}.logo{font-size:1.15rem;gap:6px}.logo svg{width:24px;height:24px}.lang b,.lang a{padding:5px 7px;min-width:28px}.hero .ctas .btn{white-space:nowrap;font-size:14px}}
 @media(max-width:759px){.plans .plan.feat{order:-1;margin-top:10px}}
+
+/* portfolio review: full-width check-out strip with hanging key tags */
+@media(min-width:760px){.hero .wrap{grid-template-columns:1fr;gap:36px}.hero .wrap>div:first-child{display:grid;grid-template-columns:1.15fr 1fr;column-gap:56px;align-items:end}.hero .wrap>div:first-child .eyebrow,.hero .wrap>div:first-child h1{grid-column:1}.hero .wrap>div:first-child .lead,.hero .wrap>div:first-child .ctas,.hero .wrap>div:first-child .trust{grid-column:2}.hero .wrap>div:first-child h1{grid-row:2 / span 3;margin-bottom:0}.board{max-width:none}}
+.strip{position:relative;overflow-x:auto;padding:6px 0 4px;scrollbar-width:thin}
+.strip-in{position:relative;min-width:680px;height:262px;margin:0 72px}
+.strip-axis{position:absolute;left:0;right:0;top:34px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--sea) 0 80%,#C9D7DF 80%)}
+.strip-tick{position:absolute;top:0;transform:translateX(-50%);font:500 .74rem "Geist Mono",monospace;color:var(--muted)}
+.strip-tick:after{content:"";position:absolute;left:50%;top:22px;width:1px;height:10px;background:#B9CCD7}
+.hang{position:absolute;top:36px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+.hang:before{content:"";width:1.5px;height:var(--h,26px);background:#9A7432}
+.hang .tag{z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:1px;background:var(--sand-c,#EADCC0);color:#3E3219;border-radius:8px 8px 22px 22px;padding:14px 12px 10px;min-width:112px;position:relative;box-shadow:0 10px 20px -14px rgba(11,42,60,.5);transform-origin:top center;animation:swing 3.2s cubic-bezier(.45,0,.55,1) infinite alternate}
+.hang .tag:before{content:"";position:absolute;top:5px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px #9A7432}
+.hang .tag b{font:600 .88rem "Geist",sans-serif}
+.hang .tag small{font:400 .74rem "Geist",sans-serif;opacity:.8;white-space:nowrap}
+.hang .tag i{font:500 .72rem "Geist Mono",monospace;font-style:normal;opacity:.75}
+.hang.w .tag{--sand-c:#F6D9A0}
+.hang.ok .tag{background:var(--sea);color:#fff}
+.hang.ok .tag:before{background:#DDEBF3;box-shadow:none}
+.hang:nth-child(even) .tag{animation-delay:-1.6s}
+@keyframes swing{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+@media(prefers-reduced-motion:reduce){.hang .tag{animation:none}}
 </style>
 </head>
 <body>
@@ -312,13 +333,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
       <a class="btn ghost" href="#como">How it works</a>
     </div>
     <ul class="trust" aria-label="Terms">
-      <li>Free 30-day pilot</li>
-      <li>Your team installs nothing</li>
-      <li>Data stays in the EU (GDPR)</li>
-      <li>No lock-in</li>
+      <li>Cleaners stay on WhatsApp</li>
+      <li>Reads Smoobu, Hostaway, Avantio or iCal</li>
+      <li>Pay only if 8 in 10 check-outs pass</li>
+      <li>Photos of the flat only, stored in the EU</li>
     </ul>
   </div>
 
+
+  <div class="strip" role="img" aria-label="Timeline of one check-out from 11:00 to 16:00"><div class="strip-in"><div class="strip-axis"></div><span class="strip-tick" style="left:0.00%">11:00</span><span class="strip-tick" style="left:20.00%">12:00</span><span class="strip-tick" style="left:40.00%">13:00</span><span class="strip-tick" style="left:60.00%">14:00</span><span class="strip-tick" style="left:80.00%">15:00</span><span class="strip-tick" style="left:100.00%">16:00</span><div class="hang " style="left:0.00%;--h:26px;z-index:3"><div class="tag"><i>11:00</i><b>Check-out</b><small>Mas Llevant 2B</small></div></div><div class="hang " style="left:1.00%;--h:146px;z-index:1"><div class="tag"><i>11:03</i><b>Rosa notified</b><small>WhatsApp</small></div></div><div class="hang " style="left:50.00%;--h:86px;z-index:2"><div class="tag"><i>13:30</i><b>Rosa arrives</b><small>with the flat’s list</small></div></div><div class="hang w" style="left:73.67%;--h:26px;z-index:3"><div class="tag"><i>14:41</i><b>Towels missing</b><small>bathroom 2</small></div></div><div class="hang ok" style="left:79.33%;--h:146px;z-index:1"><div class="tag"><i>14:58</i><b>Flat ready</b><small>6 of 6 photos</small></div></div><div class="hang " style="left:100.00%;--h:26px;z-index:3"><div class="tag"><i>16:00</i><b>Check-in</b><small>Pujol family</small></div></div></div></div>
   <!-- Product moment -->
   <div class="board" aria-label="Example of a day in Llaverio">
     <div class="board-head">
@@ -427,14 +450,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 </div></section>
 
 <section class="faq" id="faq"><div class="wrap">
-  <h2>Questions managers ask.</h2>
+  <h2>Before you hand us the keys.</h2>
   <div class="faqwrap">
     <details><summary>How much work is setup?</summary><p>One hour on a call. You give read access to your PMS and the list of flats, cleaners and technicians. We build each flat’s checklist from your photos and have it running within a week.</p></details>
     <details><summary>Does my cleaning team install anything?</summary><p>No. Llaverio writes through WhatsApp Business from your company number. Cleaners reply and send photos as they do today.</p></details>
     <details><summary>Does it replace Chekin, Avantio or my PMS?</summary><p>No. Your PMS stays the source of bookings and Chekin (or similar) keeps handling guest registration for SES.Hospedajes. Llaverio covers what happens between one check-out and the next check-in.</p></details>
     <details><summary>What if the agent gets it wrong?</summary><p>You set what it decides alone and what needs your OK. Costs, serious complaints and schedule changes always go through you. Every action is logged.</p></details>
     <details><summary>What about guest and staff data?</summary><p>We act as data processor under GDPR, with servers in the EU, and use only what we need to coordinate the work.</p></details>
-    <details><summary>What about winter, when half my flats are empty?</summary><p>You pay per active flat: one with at least one check-out that month. 12 active flats in January means you pay for 12.</p></details>
+    <details><summary>What about winter, when half my flats are empty?</summary><p>You pay per active flat: one with at least one check-out that month. 12 active flats in January means you pay for 12. There is a 60 € monthly minimum per manager. From November to March you can switch to the Winter plan: 6 € per active flat, 30 € minimum.</p></details>
     <details><summary>Will my cleaners accept it?</summary><p>They get the same WhatsApp as today, minus the midnight voice notes and unannounced changes. Before we start, we ask for their consent and explain the photos: the flat only, never people.</p></details>
     <details><summary>Who is behind it?</summary><p>Joaquín Ferreiros, a developer in Barcelona. Llaverio is in pilot: no paying customers yet. That is why the pilot is free and set up by hand with you.</p></details>
   </div>
@@ -443,8 +466,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 <section class="founderwrap" style="padding-bottom:0"><div class="wrap founder">
   <div class="mark" aria-hidden="true">J</div>
   <div>
-    <blockquote style="margin-top:12px">“I started Llaverio after watching coastal managers spend August Saturdays juggling three WhatsApp groups. I want one thing: that next summer you eat lunch in peace while nine flats turn over.”</blockquote>
-    <cite>Joaquín Ferreiros · founder, Barcelona. I set up every pilot myself, in person in Catalonia.</cite>
+    <blockquote style="margin-top:12px">“On the first Saturday of every pilot I check each flagged photo myself. If the agent gets it wrong, I see it before the guest does.”</blockquote>
+    <cite>Joaquín Ferreiros, developer in Barcelona. I set up every pilot in person on the Costa Brava and Costa Daurada.</cite>
   </div>
 </div></section>
 
@@ -509,7 +532,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 
 <footer><div class="wrap">
   <span><b style="color:var(--ink)">Llaverio</b> · © 2026</span>
-  <span><a href="aviso-legal.html">Legal notice (ES)</a> · <a href="privacidad.html">Privacy (ES)</a> · <a href="cookies.html">Cookies (ES)</a> · <a href="plan.html">Plan</a></span>
+  <span><a href="blog/">Blog</a> · <a href="aviso-legal.html">Legal notice (ES)</a> · <a href="privacidad.html">Privacy (ES)</a> · <a href="cookies.html">Cookies (ES)</a> · <a href="plan.html">Plan</a></span>
 </div></footer>
 
 <script>

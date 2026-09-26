@@ -290,6 +290,27 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lang b{background:var(--ink);color:#fff;font-weight:500}
 @media(max-width:420px){.navr{gap:8px}nav .btn{padding:9px 12px;font-size:13px}.logo{font-size:1.15rem;gap:6px}.logo svg{width:24px;height:24px}.lang b,.lang a{padding:5px 7px;min-width:28px}.hero .ctas .btn{white-space:nowrap;font-size:14px}}
 @media(max-width:759px){.plans .plan.feat{order:-1;margin-top:10px}}
+
+/* portfolio review: full-width check-out strip with hanging key tags */
+@media(min-width:760px){.hero .wrap{grid-template-columns:1fr;gap:36px}.hero .wrap>div:first-child{display:grid;grid-template-columns:1.15fr 1fr;column-gap:56px;align-items:end}.hero .wrap>div:first-child .eyebrow,.hero .wrap>div:first-child h1{grid-column:1}.hero .wrap>div:first-child .lead,.hero .wrap>div:first-child .ctas,.hero .wrap>div:first-child .trust{grid-column:2}.hero .wrap>div:first-child h1{grid-row:2 / span 3;margin-bottom:0}.board{max-width:none}}
+.strip{position:relative;overflow-x:auto;padding:6px 0 4px;scrollbar-width:thin}
+.strip-in{position:relative;min-width:680px;height:262px;margin:0 72px}
+.strip-axis{position:absolute;left:0;right:0;top:34px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--sea) 0 80%,#C9D7DF 80%)}
+.strip-tick{position:absolute;top:0;transform:translateX(-50%);font:500 .74rem "Geist Mono",monospace;color:var(--muted)}
+.strip-tick:after{content:"";position:absolute;left:50%;top:22px;width:1px;height:10px;background:#B9CCD7}
+.hang{position:absolute;top:36px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+.hang:before{content:"";width:1.5px;height:var(--h,26px);background:#9A7432}
+.hang .tag{z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:1px;background:var(--sand-c,#EADCC0);color:#3E3219;border-radius:8px 8px 22px 22px;padding:14px 12px 10px;min-width:112px;position:relative;box-shadow:0 10px 20px -14px rgba(11,42,60,.5);transform-origin:top center;animation:swing 3.2s cubic-bezier(.45,0,.55,1) infinite alternate}
+.hang .tag:before{content:"";position:absolute;top:5px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px #9A7432}
+.hang .tag b{font:600 .88rem "Geist",sans-serif}
+.hang .tag small{font:400 .74rem "Geist",sans-serif;opacity:.8;white-space:nowrap}
+.hang .tag i{font:500 .72rem "Geist Mono",monospace;font-style:normal;opacity:.75}
+.hang.w .tag{--sand-c:#F6D9A0}
+.hang.ok .tag{background:var(--sea);color:#fff}
+.hang.ok .tag:before{background:#DDEBF3;box-shadow:none}
+.hang:nth-child(even) .tag{animation-delay:-1.6s}
+@keyframes swing{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+@media(prefers-reduced-motion:reduce){.hang .tag{animation:none}}
 </style>
 </head>
 <body>
@@ -311,13 +332,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
       <a class="btn ghost" href="#como">Com funciona</a>
     </div>
     <ul class="trust" aria-label="Condicions">
-      <li>Pilot gratuït de 30 dies</li>
-      <li>El teu equip no instal·la res</li>
-      <li>Dades a la UE (RGPD)</li>
-      <li>Sense permanència</li>
+      <li>Les netejadores continuen fent servir WhatsApp</li>
+      <li>Llegeix Smoobu, Hostaway, Avantio o iCal</li>
+      <li>Pagues si 8 de 10 sortides queden revisades</li>
+      <li>Fotos només del pis, desades a la UE</li>
     </ul>
   </div>
 
+
+  <div class="strip" role="img" aria-label="Cronologia d’un check-out de 11:00 a 16:00"><div class="strip-in"><div class="strip-axis"></div><span class="strip-tick" style="left:0.00%">11:00</span><span class="strip-tick" style="left:20.00%">12:00</span><span class="strip-tick" style="left:40.00%">13:00</span><span class="strip-tick" style="left:60.00%">14:00</span><span class="strip-tick" style="left:80.00%">15:00</span><span class="strip-tick" style="left:100.00%">16:00</span><div class="hang " style="left:0.00%;--h:26px;z-index:3"><div class="tag"><i>11:00</i><b>Sortida</b><small>Mas Llevant 2B</small></div></div><div class="hang " style="left:1.00%;--h:146px;z-index:1"><div class="tag"><i>11:03</i><b>Avís a la Rosa</b><small>WhatsApp</small></div></div><div class="hang " style="left:50.00%;--h:86px;z-index:2"><div class="tag"><i>13:30</i><b>Arriba la Rosa</b><small>amb la llista del pis</small></div></div><div class="hang w" style="left:73.67%;--h:26px;z-index:3"><div class="tag"><i>14:41</i><b>Falten tovalloles</b><small>bany 2</small></div></div><div class="hang ok" style="left:79.33%;--h:146px;z-index:1"><div class="tag"><i>14:58</i><b>Pis a punt</b><small>6 de 6 fotos</small></div></div><div class="hang " style="left:100.00%;--h:26px;z-index:3"><div class="tag"><i>16:00</i><b>Entrada</b><small>Família Pujol</small></div></div></div></div>
   <!-- Product moment -->
   <div class="board" aria-label="Exemple d’un dia a Llaverio">
     <div class="board-head">
@@ -332,15 +355,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
     <div class="window">
       <div class="row"><span>Sortida <b>11:00</b></span><span class="ktag" id="kt">Mas Llevant 2B</span><span>Entrada <b>16:00</b></span></div>
       <div class="bar" aria-hidden="true"><span id="bar"></span></div>
-      <div class="row"><span id="ready">Pis llest a les 14:58</span><span id="margin">61 min de marge</span></div>
+      <div class="row"><span id="ready">Pis a punt a les 14:58</span><span id="margin">61 min de marge</span></div>
     </div>
     <div class="board-body">
       <div class="timeline" id="tl" aria-live="polite">
         <div class="step done"><span class="t mono">11:02</span><span class="dot"></span><p>Check-out a Mas Llevant 2B<small>Detectat a Smoobu. Propera entrada avui a les 16:00.</small></p></div>
-        <div class="step done"><span class="t mono">11:03</span><span class="dot"></span><p>Neteja assignada a <b>Rosa</b><small>Ruta: 2B → Far 4 → Canadell 1</small></p></div>
-        <div class="step warn"><span class="t mono">14:41</span><span class="dot"></span><p>Revisió de fotos: 5 de 6 bé<small>Falta el joc de tovalloles al bany 2.</small></p></div>
+        <div class="step done"><span class="t mono">11:03</span><span class="dot"></span><p>Neteja assignada a la <b>Rosa</b><small>Ruta: 2B → Far 4 → Canadell 1</small></p></div>
+        <div class="step warn"><span class="t mono">14:41</span><span class="dot"></span><p>Revisió de fotos: 5 de 6 correctes<small>Falta el joc de tovalloles al bany 2.</small></p></div>
         <div class="step done"><span class="t mono">14:58</span><span class="dot"></span><p>Corregit i validat<small>Tovalloles reposades. Fotos: 6 de 6.</small></p></div>
-        <div class="step"><span class="t mono">15:10</span><span class="dot"></span><p>Avís a <b>Jordi (lampista)</b><small>L’aixeta de la cuina degota. Cita proposada: dilluns 9:30.</small></p></div>
+        <div class="step"><span class="t mono">15:10</span><span class="dot"></span><p>Avís al <b>Jordi (lampista)</b><small>L’aixeta de la cuina degota. Cita proposada: dilluns 9:30.</small></p></div>
       </div>
       <div class="chat" id="chat">
         <div class="who"><span class="av" id="av">R</span><span><b id="who">Rosa, neteja</b><br><span class="mono" style="color:var(--muted)">WhatsApp</span></span></div>
@@ -350,7 +373,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
         <div class="bubble me">Gràcies, Rosa. A la foto del bany 2 no veig tovalloles. Pots deixar-ne un joc abans de marxar?
           <span class="meta">14:41</span></div>
         <div class="bubble">Ai sí, hi vaig ara mateix.<span class="meta">14:52</span></div>
-        <div class="check">L’agent també apunta: «aixeta cuina degota» i obre l’avís.</div>
+        <div class="check">L’agent també apunta: «l’aixeta de la cuina degota» i obre l’avís.</div>
       </div>
     </div>
   </div>
@@ -360,24 +383,24 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
   <h2>Els dissabtes d’agost no es gestionen. Se sobreviuen.</h2>
   <div class="grid">
     <div class="scene">
-      Són les 11:15 a Salou. Surten nou pisos alhora i n’entren nou famílies a les 16:00. Una netejadora està malalta, un hoste escriu que l’aire no funciona i un propietari pregunta per què el seu pis ha facturat menys que el del veí. Tu tens tres grups de WhatsApp, un Excel de torns i el mòbil al 12%.
+      Són les 11:15 a Salou. Nou pisos fan el check-out alhora i a les 16:00 hi arriben nou famílies. Una netejadora està malalta, un hoste escriu que l’aire no funciona i un propietari pregunta per què el seu pis ha facturat menys que el del veí. Tu tens tres grups de WhatsApp, un Excel de torns i el mòbil al 12%.
       <span class="clock">I dilluns toca preparar 30 informes per a propietaris.</span>
     </div>
     <ul class="pains">
       <li><b>Coordinar neteges a mà</b><span>Cada canvi de reserva t’obliga a reorganitzar torns i avisar un per un.</span></li>
       <li><b>No veus el pis abans que l’hoste</b><span>Si falta alguna cosa, te n’assabentes per una ressenya de 3 estrelles.</span></li>
-      <li><b>Les avaries es perden al xat</b><span>Tothom parla de l’aixeta que degota, però ningú truca al lampista.</span></li>
-      <li><b>Informes a propietaris a final de mes</b><span>Hores copiant dades del PMS a un PDF que ningú vol fer.</span></li>
+      <li><b>Les avaries es perden al xat</b><span>Tothom parla de l’aixeta que degota, però ningú no truca al lampista.</span></li>
+      <li><b>Informes a propietaris a final de mes</b><span>Hores de copiar dades del PMS a un PDF que ningú no vol fer.</span></li>
     </ul>
   </div>
 </div></section>
 
 <section class="how" id="como"><div class="wrap">
-  <h2>Tres passos. El teu equip no canvia d’app.</h2>
+  <h2>Tres passos. El teu equip no canvia d’aplicació.</h2>
   <div class="flow">
     <div class="it"><div class="key">01</div><h3>Connectes el teu PMS</h3><p>Llaverio llegeix entrades i sortides d’Avantio, Hostaway, Smoobu o un calendari iCal. Tu li passes la llista de pisos, netejadores i tècnics.</p></div>
     <div class="it"><div class="key">02</div><h3>L’agent coordina</h3><p>Després de cada sortida, avisa la netejadora per WhatsApp, demana fotos i les compara amb la llista del pis. Si veu una avaria, obre l’avís i proposa cita al tècnic.</p></div>
-    <div class="it"><div class="key">03</div><h3>Tu decideixes el que és important</h3><p>Només t’escriu quan cal el teu vistiplau: una despesa, una queixa seriosa o un canvi d’horari. A final de mes, prepara l’informe de cada propietari.</p></div>
+    <div class="it"><div class="key">03</div><h3>Les decisions importants, les prens tu</h3><p>Només t’escriu quan cal el teu vistiplau: una despesa, una queixa seriosa o un canvi d’horari. A final de mes, prepara l’informe de cada propietari.</p></div>
   </div>
   <p style="margin-top:22px"><a href="app.html" style="font-weight:600">Prova el tauler de la gestora amb dades d’exemple (en castellà) →</a></p>
   <div class="promise">
@@ -397,7 +420,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
     </ul></div>
     <div class="card no"><h3>Encara no encaixa si…</h3><ul>
       <li>Tens 1 o 2 pisos i els neteges tu: no et compensa.</li>
-      <li>Busques un PMS o un channel manager: no ho som.</li>
+      <li>Busques un PMS o un channel manager: no en som cap.</li>
       <li>Busques registre de viatgers o check-in en línia: per a això ja hi ha Chekin.</li>
     </ul></div>
   </div>
@@ -406,7 +429,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 <section class="benefits"><div class="wrap">
   <h2>Menys trucades, pisos revisats i propietaris informats.</h2>
   <div class="ledger">
-    <div class="sea"><h3>Veus cada pis abans que l’hoste.</h3><p>Cada habitatge té la seva llista de revisió: llits, tovalloles, cuina, terrassa. L’agent no marca un pis com a llest fins que les fotos quadren. Si falta alguna cosa, la demana a la netejadora mentre encara és a dins.</p></div>
+    <div class="sea"><h3>Veus cada pis abans que l’hoste.</h3><p>Cada habitatge té la seva llista de revisió: llits, tovalloles, cuina, terrassa. L’agent no dona el pis per enllestit fins que les fotos quadren. Si falta alguna cosa, la demana a la netejadora mentre encara és a dins.</p></div>
     <div class="sand"><h3>El teu equip continua a WhatsApp</h3><p>Netejadores i tècnics no instal·len res. Reben un missatge amb el pis i l’hora, com ara.</p></div>
     <div><h3>L’informe del propietari surt sol</h3><p>Ocupació, neteges i reparacions del mes en un PDF que revises abans d’enviar-lo.</p></div>
   </div>
@@ -419,21 +442,21 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
   <p class="note" style="margin-top:14px;font-size:1rem;color:var(--ink)">El pilot de 30 dies és gratuït i sense targeta. Només comences a pagar si, durant el pilot, com a mínim 8 de cada 10 sortides queden revisades sense que hagis d’intervenir.</p>
   <div class="plans">
     <div class="card plan"><h3>Neteges</h3><div class="price">8 € <small>/ habitatge / mes</small></div><p style="color:var(--muted)">Per començar pel que més fa mal.</p><ul><li>Assignació després de cada sortida</li><li>Revisió de fotos per pis</li><li>Tauler d’estat diari</li></ul></div>
-    <div class="card plan feat"><span class="flag">El que proposem</span><h3>Operacions</h3><div class="price">12 € <small>/ habitatge / mes</small></div><p style="color:var(--muted)">Neteges, avaries i hostes.</p><ul><li>Tot el de Neteges</li><li>Avisos de manteniment i cites</li><li>Incidències d’hostes 24/7</li><li>Informe mensual a propietaris</li></ul></div>
-    <div class="card plan"><h3>Gestora gran</h3><div class="price">15 € <small>/ habitatge / mes</small></div><p style="color:var(--muted)">De 40 a 60 habitatges o diverses zones.</p><ul><li>Tot el d’Operacions</li><li>Diversos equips i zones</li><li>Informes amb la teva marca</li></ul></div>
+    <div class="card plan feat"><span class="flag">El que proposem</span><h3>Operacions</h3><div class="price">12 € <small>/ habitatge / mes</small></div><p style="color:var(--muted)">Neteges, avaries i hostes.</p><ul><li>Tot el que inclou Neteges</li><li>Avisos de manteniment i cites</li><li>Incidències d’hostes 24/7</li><li>Informe mensual a propietaris</li></ul></div>
+    <div class="card plan"><h3>Gestora gran</h3><div class="price">15 € <small>/ habitatge / mes</small></div><p style="color:var(--muted)">De 40 a 60 habitatges o diverses zones.</p><ul><li>Tot el que inclou Operacions</li><li>Diversos equips i zones</li><li>Informes amb la teva marca</li></ul></div>
   </div>
   <p class="note">Els preus són una hipòtesi de validació. Les primeres gestores que provin Llaverio tindran condicions de pilot. <a href="precios.html">Calcula quant t’estalvia amb els teus números</a> (en castellà).</p>
 </div></section>
 
 <section class="faq" id="faq"><div class="wrap">
-  <h2>El que ens preguntaria una gestora.</h2>
+  <h2>Abans de donar-nos les claus.</h2>
   <div class="faqwrap">
     <details><summary>Quanta feina em dona posar-ho en marxa?</summary><p>Una trucada d’una hora. Ens dones accés de lectura al teu PMS i la llista de pisos, netejadores i tècnics. Nosaltres preparem la llista de revisió de cada pis a partir de les teves fotos i ho deixem funcionant en una setmana.</p></details>
     <details><summary>El meu equip de neteja ha d’instal·lar alguna cosa?</summary><p>No. Llaverio escriu per WhatsApp Business des d’un número de la teva empresa. Les netejadores responen i envien fotos com fan ara.</p></details>
     <details><summary>Substitueix Chekin, Avantio o el meu PMS?</summary><p>No. El teu PMS continua sent la font de reserves i Chekin (o similar) continua amb el registre de viatgers per a SES.Hospedajes. Llaverio s’ocupa del que passa entre una sortida i la següent entrada.</p></details>
     <details><summary>Què passa si l’agent s’equivoca?</summary><p>Tu defineixes què decideix sol i què necessita el teu vistiplau. Despeses, queixes serioses i canvis d’horari sempre passen per tu. Tot queda registrat al tauler.</p></details>
-    <details><summary>I les dades d’hostes i treballadors?</summary><p>Tractem les dades com a encarregat del tractament segons el RGPD, amb servidors a la UE. Només fem servir el necessari per coordinar la feina.</p></details>
-    <details><summary>I a l’hivern, quan tinc la meitat de pisos aturats?</summary><p>Només pagues per habitatge actiu: el que té com a mínim una sortida aquell mes. Si al gener treballes amb 12 pisos, en pagues 12.</p></details>
+    <details><summary>I les dades d’hostes i treballadors?</summary><p>Tractem les dades com a encarregat del tractament segons el RGPD, amb servidors a la UE. Només fem servir el que cal per coordinar la feina.</p></details>
+    <details><summary>I a l’hivern, quan tinc la meitat de pisos aturats?</summary><p>Només pagues per habitatge actiu: el que té com a mínim una sortida aquell mes. Si al gener treballes amb 12 pisos, en pagues 12. Hi ha un mínim de 60 € al mes per gestora. De novembre a març pots passar al Pla d’Hivern: 6 € per habitatge actiu, mínim 30 €.</p></details>
     <details><summary>Les meves netejadores ho acceptaran?</summary><p>Reben el mateix que ara (un WhatsApp amb el pis i l’hora), però sense àudios a mitjanit ni canvis d’última hora sense avisar. Abans de començar, els demanem el consentiment i els expliquem per a què serveixen les fotos: només del pis, mai de persones.</p></details>
     <details><summary>Qui hi ha al darrere?</summary><p>Joaquín Ferreiros, desenvolupador a Barcelona. Llaverio és en fase de pilot: encara no tenim clients de pagament. Per això el pilot és gratuït i el muntem a mà amb tu.</p></details>
   </div>
@@ -442,8 +465,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 <section class="founderwrap" style="padding-bottom:0"><div class="wrap founder">
   <div class="mark" aria-hidden="true">J</div>
   <div>
-    <blockquote style="margin-top:12px">«Llaverio neix de veure gestores de la costa passar el dissabte d’agost amb tres grups de WhatsApp i el mòbil a la mà. Vull una cosa: que el proper estiu dinis tranquil mentre surten nou pisos alhora.»</blockquote>
-    <cite>Joaquín Ferreiros · fundador, Barcelona. Munto amb tu cada pilot, en persona si ets a Catalunya.</cite>
+    <blockquote style="margin-top:12px">«El primer dissabte del teu pilot reviso jo, a mà, cada foto que marqui l’agent. Si s’equivoca, ho veig abans que el teu hoste.»</blockquote>
+    <cite>Joaquín Ferreiros, desenvolupador a Barcelona. Munto cada pilot amb tu, en persona a la Costa Brava i la Costa Daurada.</cite>
   </div>
 </div></section>
 
@@ -454,7 +477,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
     <p>Busquem 10 gestores de la Costa Brava, la Costa Daurada, Màlaga i Canàries per a un pilot aquesta tardor.</p>
     <ol style="margin:22px 0 0 20px;color:#fff;display:grid;gap:8px">
       <li>Ens deixes el teu contacte (20 segons).</li>
-      <li>Et truquem i mirem la teva operativa en 20 minuts.</li>
+      <li>Et truquem i en 20 minuts veiem com treballeu.</li>
       <li>Ho muntem amb 5 dels teus pisos i ho proves 30 dies gratis.</li>
     </ol>
   </div>
@@ -463,22 +486,22 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
     <div id="fields" style="display:grid;gap:14px">
       <label>Nom<input name="nombre" required autocomplete="name" placeholder="El teu nom"></label>
       <label>Gestora<input name="empresa" required autocomplete="organization" placeholder="Nom de la teva empresa"></label>
-      <label>Telèfon o email<input name="contacto" required placeholder="600 000 000 o tu@gestora.es"></label>
+      <label>Telèfon o correu electrònic<input name="contacto" required placeholder="600 000 000 o tu@gestora.es"></label>
       <button class="btn" type="submit">Demanar pilot</button>
       <p class="fine">Sense targeta i sense compromís. Aquesta pàgina de validació no desa les teves dades.</p>
     </div>
-    <div class="thanks" id="thanks" role="status" aria-live="polite"><h3>Gràcies.</h3><p>El Joaquín t’escriurà aquesta setmana per parlar de la teva operativa.</p></div>
+    <div class="thanks" id="thanks" role="status" aria-live="polite"><h3>Gràcies.</h3><p>El Joaquín t’escriurà aquesta setmana per parlar de com treballeu.</p></div>
   </form>
 </div></section>
 
 <script>
 (function(){
   var S=[
-   {k:'Mas Llevant 2B',ready:'Pis llest a les 14:58',margin:'61 min de marge',w:82,who:'Rosa, neteja',av:'R',
-    tl:[['11:02','done','Check-out a Mas Llevant 2B','Detectat a Smoobu. Propera entrada avui a les 16:00.'],['11:03','done','Neteja assignada a <b>Rosa</b>','Ruta: 2B → Far 4 → Canadell 1'],['14:41','warn','Revisió de fotos: 5 de 6 bé','Falta el joc de tovalloles al bany 2.'],['14:58','done','Corregit i validat','Tovalloles reposades. Fotos: 6 de 6.'],['15:10','','Avís a <b>Jordi (lampista)</b>','L’aixeta de la cuina degota. Cita proposada: dilluns 9:30.']],
-    chat:[['','Acabat el 2B. T’envio fotos.','14:40',1],['me','Gràcies, Rosa. A la foto del bany 2 no veig tovalloles. Pots deixar-ne un joc abans de marxar?','14:41'],['','Ai sí, hi vaig ara mateix.','14:52']],note:'L’agent també apunta: «aixeta cuina degota» i obre l’avís.'},
-   {k:'Far 4',ready:'Pis llest a les 15:22',margin:'38 min de marge',w:90,who:'Marta, neteja',av:'M',
-    tl:[['08:12','warn','La Rosa avisa: està malalta','Tenia 3 sortides: 2B, Far 4 i Canadell 1.'],['08:14','done','Repartiment proposat','2B i Far 4 a <b>Marta</b>, Canadell 1 a <b>Nuria</b>.'],['08:20','done','Tu ho aproves amb un toc','Canvi de torn: demana el teu vistiplau.'],['15:22','done','Far 4 validat','Fotos: 7 de 7.']],
+   {k:'Mas Llevant 2B',ready:'Pis a punt a les 14:58',margin:'61 min de marge',w:82,who:'Rosa, neteja',av:'R',
+    tl:[['11:02','done','Check-out a Mas Llevant 2B','Detectat a Smoobu. Propera entrada avui a les 16:00.'],['11:03','done','Neteja assignada a la <b>Rosa</b>','Ruta: 2B → Far 4 → Canadell 1'],['14:41','warn','Revisió de fotos: 5 de 6 correctes','Falta el joc de tovalloles al bany 2.'],['14:58','done','Corregit i validat','Tovalloles reposades. Fotos: 6 de 6.'],['15:10','','Avís al <b>Jordi (lampista)</b>','L’aixeta de la cuina degota. Cita proposada: dilluns 9:30.']],
+    chat:[['','Acabat el 2B. T’envio fotos.','14:40',1],['me','Gràcies, Rosa. A la foto del bany 2 no veig tovalloles. Pots deixar-ne un joc abans de marxar?','14:41'],['','Ai sí, hi vaig ara mateix.','14:52']],note:'L’agent també apunta: «l’aixeta de la cuina degota» i obre l’avís.'},
+   {k:'Far 4',ready:'Pis a punt a les 15:22',margin:'38 min de marge',w:90,who:'Marta, neteja',av:'M',
+    tl:[['08:12','warn','La Rosa avisa: està malalta','Tenia 3 sortides: 2B, Far 4 i Canadell 1.'],['08:14','done','Repartiment proposat','2B i Far 4 a la <b>Marta</b>, Canadell 1 a la <b>Núria</b>.'],['08:20','done','Tu ho aproves amb un toc','Canvi de torn: demana el teu vistiplau.'],['15:22','done','Far 4 validat','Fotos: 7 de 7.']],
     chat:[['me','Hola, Marta. La Rosa està de baixa avui. Pots fer també el Far 4 després del 2B? Sortida 11:00, entrada 16:00.','08:21'],['','Sí, hi arribo a les 13:30.','08:40'],['me','Perfecte. Et deixo la llista del Far 4 aquí mateix.','08:40']],note:'La Núria confirma Canadell 1 a les 08:52. Tu no has fet cap trucada.'},
    {k:'Canadell 1',ready:'Resolt a les 16:31',margin:'Sense trucar a la gestora',w:100,who:'Família Weber, hostes',av:'W',
     tl:[['16:12','done','Entrada a Canadell 1','Família Weber, 4 persones.'],['16:25','warn','Missatge de l’hoste','«The wifi does not work.»'],['16:26','done','Resposta en el seu idioma','Passos del router d’aquest pis.'],['16:31','done','Resolt','Si no, t’ho hauria passat a tu i al tècnic.']],
@@ -508,7 +531,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 
 <footer><div class="wrap">
   <span><b style="color:var(--ink)">Llaverio</b> · © 2026</span>
-  <span><a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Galetes</a> · <a href="plan.html">Pla</a></span>
+  <span><a href="blog/">Blog</a> · <a href="aviso-legal.html">Avís legal</a> · <a href="privacidad.html">Privacitat</a> · <a href="cookies.html">Galetes</a> · <a href="plan.html">Pla</a></span>
 </div></footer>
 
 <script>

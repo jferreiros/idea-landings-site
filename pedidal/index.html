@@ -7,6 +7,7 @@
 <link rel="canonical" href="https://pedidal.vercel.app/">
 <link rel="alternate" hreflang="es" href="https://pedidal.vercel.app/">
 <link rel="alternate" hreflang="ca" href="https://pedidal.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://pedidal.vercel.app/en.html">
 <meta name="theme-color" content="#E6D8BF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23FF5A1F'/%3E%3Crect x='8' y='9' width='16' height='3' fill='%231D2125'/%3E%3Crect x='8' y='15' width='16' height='3' fill='%231D2125'/%3E%3Crect x='8' y='21' width='10' height='3' fill='%231D2125'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -69,7 +70,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .logo{display:flex;align-items:center;gap:10px;font:800 22px "Archivo";text-decoration:none;letter-spacing:-.02em}
 .logo-mark{width:30px;height:30px;border-radius:3px;background:var(--orange);position:relative}
 .logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:8px;height:2px;background:var(--paper);background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
-nav .links{display:none;gap:28px;font-size:15px;color:var(--ink-2)}
+nav .links{display:none;gap:28px;margin-left:36px;font-size:15px;color:var(--ink-2)}
 nav .links a{text-decoration:none}
 nav .btn{padding:10px 16px;font-size:14px}
 
@@ -276,16 +277,16 @@ footer a{color:var(--ink-2)}
 .hero{padding:40px 0 56px}
 .hero-grid{display:grid;gap:36px;align-items:center}
 .hero h1{font-size:clamp(46px,10vw,76px);font-weight:800;margin:16px 0 18px;line-height:.95}
-.hero h1 em{font-style:normal;color:var(--ink);background:var(--orange);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 em{font-style:normal;color:var(--carbon);display:inline-block;border:.07em solid var(--carbon);border-radius:.08em;padding:0 .12em .04em;transform:rotate(-2.5deg);margin:.06em .04em 0;box-shadow:inset 0 0 0 .025em var(--carbon);background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(168,54,10,.06) 6px 7px)}
 .hero h1 em:after{display:none}
 .hero p.lead{font-size:19px;max-width:30em}
 .btn-ico{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:3px;background:rgba(29,33,37,.12);transition:transform .35s var(--ease)}
 .btn:hover .btn-ico{transform:translateX(3px)}
-.demo{background:var(--ink);border-radius:8px;padding:8px;box-shadow:0 30px 60px -30px rgba(60,40,10,.55)}
+.demo{background:#CDB48C repeating-linear-gradient(97deg,rgba(90,60,20,.07) 0 2px,transparent 2px 6px);border:1.5px solid var(--ink);border-radius:8px;padding:8px;box-shadow:0 30px 60px -30px rgba(60,40,10,.55)}
 .demo-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:4px 4px 10px;scrollbar-width:none}
-.demo-tabs button{flex:none;font:500 13px "IBM Plex Mono";color:#C9C2B5;background:transparent;border:1px solid #3A3F44;border-radius:4px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background .3s var(--ease),color .3s var(--ease)}
+.demo-tabs button{flex:none;font:500 13px "IBM Plex Mono";color:var(--ink);background:rgba(251,246,236,.55);border:1px solid var(--ink);border-radius:4px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background .3s var(--ease),color .3s var(--ease)}
 .demo-tabs button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
-.demo-tabs button[aria-selected="true"]{background:var(--orange);color:var(--ink);border-color:var(--orange)}
+.demo-tabs button[aria-selected="true"]{background:var(--ink);color:var(--orange);border-color:var(--ink)}
 .demo-body{display:grid;gap:8px}
 .demo-msg{background:#EFE6D6;border-radius:5px;padding:14px}
 .demo-from{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:14px}
@@ -337,6 +338,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
 .vert.first p{color:var(--ink-2)}
 .vert.first .mono{color:var(--ink);background:var(--orange);display:inline-block;padding:3px 6px;border-radius:3px}
 @media (min-width:760px){.steps{gap:36px}.verticals{border-top:0}.vert{border-bottom:0;border-top:1.5px solid var(--ink);padding:18px 24px 0 0}}
+@media (max-width:440px){.lang{margin-right:8px}.lang b,.lang a{padding:6px 5px;font-size:11px}nav .btn{padding:8px 10px;font-size:13px;min-height:40px}.logo{font-size:19px;gap:8px}.logo-mark{width:26px;height:26px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 </style>
@@ -354,7 +356,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       <a href="#precio">Precio</a>
       <a href="#faq">Preguntas</a>
     </div>
-    <span class="lang"><b aria-current="true">ES</b><a href="ca.html" hreflang="ca" lang="ca">CA</a></span>
+    <span class="lang"><b aria-current="true">ES</b><a href="ca.html" hreflang="ca" lang="ca">CA</a><a href="en.html" hreflang="en" lang="en">EN</a></span>
     <a href="#probar" class="btn">Piloto gratis</a>
   </div>
 </nav>
@@ -403,10 +405,10 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
 
 <div class="band" aria-label="Garantías">
   <div class="wrap">
-    <div class="band-item"><b>API oficial de WhatsApp</b><span>Sin trucos con WhatsApp Web. Tu número no corre riesgo de bloqueo.</span></div>
-    <div class="band-item"><b>El cliente confirma</b><span>Nada entra en el ERP sin el "ok" del cliente o de tu equipo.</span></div>
-    <div class="band-item"><b>Servidores en la UE</b><span>Contrato de encargo del tratamiento (RGPD, art. 28).</span></div>
-    <div class="band-item"><b>Sin permanencia</b><span>Pago mensual. Te vas cuando quieras y te llevas tus datos.</span></div>
+    <div class="band-item"><b>Tu número sigue siendo tuyo</b><span>Lo pasamos a la API oficial de WhatsApp. Tus clientes escriben al mismo de siempre.</span></div>
+    <div class="band-item"><b>Nada sale sin "ok"</b><span>Si el cliente no confirma el albarán, el pedido no entra en el ERP.</span></div>
+    <div class="band-item"><b>Tu catálogo no sale de la UE</b><span>Tarifas y clientes en servidores europeos, con contrato RGPD firmado.</span></div>
+    <div class="band-item"><b>Te vas con tus datos</b><span>Mes a mes. Si lo dejas, te llevas catálogo, alias e historial en Excel.</span></div>
   </div>
 </div>
 
@@ -486,6 +488,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
         <div class="acts"><button class="pri">Confirmar con el cliente</button><button>Aprobar</button></div>
       </div>
     </div>
+    <p style="margin-top:18px"><a href="app.html" class="btn ghost">Ver la bandeja (prototipo)</a></p>
   </div>
 </section>
 
@@ -566,8 +569,8 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
     <div class="founder">
       <div class="sig"><span class="ini" aria-hidden="true">J</span><small><b style="color:var(--ink);font-size:16px">Joaquín</b><br>Fundador de Pedidal · Barcelona</small></div>
       <blockquote>
-        <p>"Pedidal es un proyecto nuevo y lo digo claro: aún no tenemos clientes ni casos de éxito que enseñarte. Por eso el piloto es gratis y con tus pedidos reales."</p>
-        <p>"Busco pocos distribuidores para empezar. Si tu almacén está cerca de Barcelona, voy a verte en persona. Miro cómo te llegan los pedidos y hablas conmigo directamente, no con un call center."</p>
+        <p>"He estado en mostradores de almacén a las 7:40, con el móvil lleno de audios y los camiones esperando. Pedidal todavía no tiene clientes: por eso te pido 20 pedidos tuyos, no que me creas."</p>
+        <p>"Si estás en el Vallès o el Baix Llobregat, me paso por el almacén entre 11:00 y 13:30, cuando ya han salido los repartos."</p>
       </blockquote>
     </div>
   </div>
@@ -575,7 +578,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
 
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><h2>Lo que nos preguntan los distribuidores.</h2></div>
+    <div class="sec-head"><h2>Antes de dejarnos tus pedidos.</h2></div>
     <div class="faq">
       <details><summary>¿Mis clientes tienen que cambiar algo?</summary><p>No. Siguen escribiendo al mismo WhatsApp de siempre. Lo único nuevo es que reciben un resumen del pedido para confirmar con un "ok".</p></details>
       <details><summary>¿Qué pasa si la IA se equivoca de producto?</summary><p>Cada línea tiene un nivel de confianza. Si Pedidal no está seguro, no inventa: manda la línea a la bandeja de tu comercial o pregunta al cliente. Además, el cliente confirma el resumen antes de que el pedido llegue al ERP.</p></details>
@@ -596,7 +599,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
       <div>
         <h2>Mándanos 20 pedidos reales. Te los devolvemos en formato ERP.</h2>
         <p>Buscamos pocos distribuidores en España para un piloto guiado. Te llamamos, vemos cómo te llegan los pedidos y probamos con tu catálogo.</p>
-        <ul class="trust" style="margin-top:20px;color:var(--ink)"><li>Gratis y sin tarjeta</li><li>Respuesta en 1 día laborable</li><li>Sin permanencia</li></ul>
+        <ul class="trust" style="margin-top:20px;color:var(--ink)"><li>20 pedidos, 48 horas</li><li>Con tu formato de ERP</li><li>Sin tocar tu número todavía</li></ul>
       </div>
       <div>
         <!-- TODO: connect form -->
@@ -625,6 +628,7 @@ table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
   <div class="wrap">
     <span><b style="color:var(--ink)">Pedidal</b> · © 2026</span>
     <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+    <a href="blog/index.html">Blog</a>
     <a href="plan.html">Plan</a>
   </div>
 </footer>

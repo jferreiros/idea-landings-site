@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://revisita.vercel.app/">
 <link rel="alternate" hreflang="es" href="https://revisita.vercel.app/">
 <link rel="alternate" hreflang="ca" href="https://revisita.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://revisita.vercel.app/en.html">
 <meta name="theme-color" content="#0A4A44">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23137A6E' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23137A6E'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
@@ -243,12 +244,29 @@ ol.next li span{font-family:"Geist Mono",monospace;color:#9FE3D2;font-size:.85re
 .thanks h3{font-size:1.6rem}
 .thanks p{color:#4B5B59;margin-top:8px}
 
+
+/* hero v4: stacked, full-width recall sheet (distinct from split heroes) */
+.hero-grid{grid-template-columns:1fr !important;gap:36px !important}
+.hero h1{max-width:15em}
+.dash{display:grid}
+.dash .wa{display:none}
+.hero-num .big{font-size:clamp(3rem,11vw,6.5rem)}
+@media(min-width:900px){
+  .hero-top{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:end}
+  .hero-top .lead{margin-top:0}
+  .dash{grid-template-columns:1.25fr 1fr}
+  .dash-top{grid-column:1/-1}
+  .hero-num{border-bottom:0;border-right:1px solid var(--line);padding:32px 28px}
+  .rows{padding:14px 24px;align-self:center}
+}
+
 /* sticky mobile cta */
 .sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:8px 8px 8px 16px;box-shadow:0 14px 30px -12px rgba(10,74,68,.6);transform:translateY(150%);transition:transform .25s}
 .sticky.on{transform:none}
 .sticky span{font-size:.84rem;line-height:1.25;color:#D5ECE6}
 .sticky .btn{background:#fff;color:#0A4A44;padding:10px 14px;min-height:44px;font-size:.9rem}
 
+@media(max-width:979px){.navlinks{gap:16px}.navlinks a[href="app.html"]{display:none}}
 footer{padding:28px 0 104px;font-size:.88rem;color:var(--ink-3);border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
@@ -288,7 +306,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <nav>
   <div class="wrap">
     <a class="logo" href="#"><i aria-hidden="true"></i>Revisita</a>
-    <div class="navr"><div class="navlinks"><a href="#como">Cómo funciona</a><a href="#demo">Demo</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a><a class="btn" href="#probar">Pedir auditoría gratis</a></div>
+    <div class="navr"><div class="navlinks"><a href="#como">Cómo funciona</a><a href="#demo">Demo</a><a href="app.html">Panel</a><a href="precios.html">Precio</a><a href="#faq">Preguntas</a><a class="btn" href="#probar">Pedir auditoría gratis</a></div>
     <a class="lang" href="ca.html" hreflang="ca" lang="ca" aria-label="Versió en català">CA</a>
     <a class="btn navcta" href="#probar">Auditoría gratis</a></div>
   </div>
@@ -298,13 +316,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <header class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <div>
-        <span class="label">Recall para clínicas dentales</span>
-        <h1>Recupera los <em>euros dormidos</em> en tu ficha de pacientes.</h1>
-        <p class="lead">Escribimos por WhatsApp a quien le toca revisión y le damos cita en tu agenda. Solo pagas por paciente que vuelve.</p>
+      <div class="hero-top">
+        <div><span class="label">Recall para clínicas dentales</span>
+        <h1>Recupera los <em>euros dormidos</em> en tu ficha de pacientes.</h1></div>
+        <div><p class="lead">Escribimos por WhatsApp a quien le toca revisión y le damos cita en tu agenda. Solo pagas por paciente que vuelve.</p>
         <div class="ctas">
           <a class="btn" href="#probar">Pedir auditoría gratis</a>
           <a class="btn ghost" href="#como">Cómo funciona</a>
+        </div>
         </div>
       </div>
 
@@ -333,10 +352,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
 
     <div class="facts">
-      <div><b>Piloto de 30 días</b>gratis, también por resultado</div>
-      <div><b>Sin permanencia</b>lo dejas cuando quieras</div>
-      <div><b>RGPD</b>contrato de encargado, datos en la UE</div>
-      <div><b>Tu software</b>Gesden, Clinic Cloud, Dentalink o CSV</div>
+      <div><b>«No puedo sacar datos de pacientes»</b>Firmamos el contrato de encargado antes. La auditoría va sin teléfonos.</div>
+      <div><b>«Recepción no tiene tiempo»</b>Un clic al día para aprobar el lote. Nada sale sin vuestro OK.</div>
+      <div><b>«¿Y si no vuelve nadie?»</b>No pagas. Los 30 primeros días tampoco.</div>
+      <div><b>«Usamos Gesden»</b>Nos vale su exportación, o la de Clinic Cloud, Dentalink o un Excel.</div>
     </div>
   </div>
 </header>
@@ -469,7 +488,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         </ul>
       </div>
     </div>
-    <p class="note">Los primeros 30 días no cobramos nada. Si no te convence, lo dejas y borramos tus datos. Una visita recuperada es una cita que el paciente reserva desde un mensaje de Revisita y a la que acude, según tu agenda.</p>
+    <p class="note"><a href="precios.html">Calcula tu retorno y ve cómo se factura</a>. Los primeros 30 días no cobramos nada. Si no te convence, lo dejas y borramos tus datos. Una visita recuperada es una cita que el paciente reserva desde un mensaje de Revisita y a la que acude, según tu agenda.</p>
   </div>
 </section>
 
@@ -487,7 +506,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="faq">
   <div class="wrap faq-grid">
-    <h2>Lo que preguntan las clínicas</h2>
+    <h2>Dudas de gerencia y recepción</h2>
     <div>
       <details><summary>¿Mis pacientes van a pensar que es spam?</summary><p>El mensaje sale con el nombre de tu clínica y de tu doctora, habla de su última visita y ofrece huecos reales. Un solo recordatorio si no contesta. Quien responde «baja» no recibe nada más.</p></details>
       <details><summary>Ya envío recordatorios desde mi software. ¿Qué cambia?</summary><p>Tu software recuerda citas que ya existen. Revisita busca a los pacientes sin cita, habla con ellos y cierra la cita en el chat.</p></details>
@@ -511,7 +530,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <li><span>02</span>Firmamos el contrato de encargado y me pasas la exportación.</li>
         <li><span>03</span>En 3 días tienes la auditoría en euros. Tú decides si empiezas.</li>
       </ol>
-      <p class="founder"><b>Joaquín, fundador.</b> Hablarás conmigo, no con un comercial. Si tu clínica no encaja, te lo digo en la primera llamada.</p>
+      <p class="founder"><b>Joaquín, fundador.</b> Llevo la auditoría de ejemplo en papel. Si tu ficha tiene menos de 1.000 pacientes, te diré que Revisita no te compensa.</p>
     </div>
     <div class="form-card">
       <!-- TODO: connect form -->
@@ -547,7 +566,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <footer>
   <div class="wrap">
     <span><b>Revisita</b> · Barcelona, 2026</span>
-    <span><a href="ca.html" hreflang="ca" lang="ca">Català</a> · <a href="plan.html">Plan</a></span>
+    <span><a href="ca.html" hreflang="ca" lang="ca">Català</a> · <a href="en.html" hreflang="en" lang="en">English</a> · <a href="blog/index.html">Blog</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
   </div>
 </footer>
 

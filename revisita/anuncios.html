@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisita | Kit de anuncios</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23137A6E' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23137A6E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#fff;--mint:#EEF8F4;--mint-2:#D6EFE5;--teal:#0A4A44;--teal-2:#137A6E;--ink:#0D1B1A;--ink-2:#4B5B59;--ink-3:#5E6D6B;--line:#DDE7E3}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"Geist",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 28px;border-bottom:1px solid var(--line)}
+.logo{font-weight:700;letter-spacing:-.03em;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.label{font-family:"Geist Mono",monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:12px}
+h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin:22px 0 12px}
+h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+h3{font-size:1.05rem;font-weight:600;margin:22px 0 8px}
+p{margin-bottom:12px;color:var(--ink-2)}
+ol,ul{margin:0 0 14px 22px}
+li{margin-bottom:6px}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink);min-height:36px;display:inline-flex;align-items:center}
+.msg{background:var(--mint);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:10px 0 16px;white-space:pre-wrap;font-size:.95rem;color:var(--ink)}
+.msg b{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:6px;font-weight:500}
+.warn{border-left:2px solid var(--teal-2);padding:10px 16px;background:var(--mint);margin:14px 0;font-size:.94rem}
+.obj{border-top:1px solid var(--ink)}
+.obj div{padding:16px 0;border-bottom:1px solid var(--line)}
+.obj b{display:block;margin-bottom:4px}
+.obj span{color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Geist Mono",monospace;font-weight:500;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-2);background:var(--mint)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;margin:10px 0 16px}
+code{font-family:"Geist Mono",monospace;font-size:.86em;background:var(--mint);padding:1px 5px;border-radius:4px;word-break:break-word}
+.ad{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ad .n{font-family:"Geist Mono",monospace;color:var(--teal-2);font-size:.85rem;padding-top:3px}
+.ad .h{color:var(--ink);font-weight:600;margin-bottom:6px}
+.ad .d{font-size:.93rem;margin-bottom:4px}
+.cc{font-family:"Geist Mono",monospace;font-size:.7rem;color:var(--teal-2);border:1px solid var(--line);border-radius:4px;padding:0 5px;margin-left:4px;font-weight:400}
+footer{padding:28px 0;font-size:.88rem;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+td code{word-break:normal;overflow-wrap:normal;hyphens:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Revisita</a>
+    <h1>Kit de anuncios</h1>
+    <p>Para más adelante, cuando haya 70 € para una prueba. El canal principal sigue siendo la visita en persona. Este kit mide si Google o Meta traen peticiones de auditoría a un coste razonable. Todas las cifras son umbrales o hipótesis, no resultados.</p>
+    <nav class="toc" aria-label="Secciones"><a href="#keywords">Palabras clave</a><a href="#google">Anuncios de búsqueda</a><a href="#meta">Meta</a><a href="#audiencias">Audiencias</a><a href="#prueba">Prueba de 2 semanas</a><a href="#decision">Decisión</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<section id="keywords">
+  <span class="label">Google Ads</span>
+  <h2>Palabras clave</h2>
+  <p>Ubicación: Barcelona y 20 km alrededor. Idioma: español y catalán. Solo concordancia exacta y de frase: el volumen es bajo y la concordancia amplia gasta el presupuesto en pacientes que buscan dentista.</p>
+  <div class="scroll"><table>
+    <tr><th>Palabra clave</th><th>Concordancia</th><th>Intención</th></tr>
+    <tr><td><code>[software recall dental]</code></td><td>Exacta</td><td>Busca herramienta</td></tr>
+    <tr><td><code>[recall pacientes clínica dental]</code></td><td>Exacta</td><td>Busca herramienta</td></tr>
+    <tr><td><code>"recordatorios whatsapp clínica dental"</code></td><td>Frase</td><td>Busca herramienta</td></tr>
+    <tr><td><code>"whatsapp para clínicas dentales"</code></td><td>Frase</td><td>Busca herramienta</td></tr>
+    <tr><td><code>"reactivar pacientes dentales"</code></td><td>Frase</td><td>Problema</td></tr>
+    <tr><td><code>"pacientes que no vuelven" dentista</code></td><td>Frase</td><td>Problema</td></tr>
+    <tr><td><code>"llenar agenda clínica dental"</code></td><td>Frase</td><td>Problema</td></tr>
+    <tr><td><code>"cancelaciones clínica dental"</code></td><td>Frase</td><td>Problema</td></tr>
+    <tr><td><code>[marketing clínica dental barcelona]</code></td><td>Exacta</td><td>Compara proveedores</td></tr>
+    <tr><td><code>"alternativa gesden recordatorios"</code></td><td>Frase</td><td>Compara proveedores</td></tr>
+  </table></div>
+  <h3>Negativas (lista de campaña)</h3>
+  <p><code>empleo</code> · <code>trabajo</code> · <code>oferta de empleo</code> · <code>curso</code> · <code>gratis curso</code> · <code>máster</code> · <code>formación</code> · <code>auxiliar</code> · <code>higienista empleo</code> · <code>dentista cerca</code> · <code>dentista barato</code> · <code>urgencias</code> · <code>urgencia dental</code> · <code>dolor de muelas</code> · <code>precio implante</code> · <code>precio limpieza</code> · <code>opiniones</code> · <code>seguridad social</code> · <code>descargar</code> · <code>pdf</code> · <code>plantilla gratis</code></p>
+</section>
+<section id="google">
+  <span class="label">Anuncios de búsqueda</span>
+  <h2>5 anuncios</h2>
+  <p>Límites de Google: título hasta 30 caracteres, descripción hasta 90. La cifra al lado de cada línea es su número de caracteres. Destino: la landing, con <code>?utm_source=google&amp;utm_campaign=recall</code>.</p>
+  <div style="border-top:1px solid var(--ink)"><div class="ad"><span class="n">01</span><div><p class="h">Recall dental por WhatsApp <span class="cc">26</span><br>Paga solo si el paciente viene <span class="cc">30</span><br>Auditoría gratis de tu ficha <span class="cc">28</span></p><p class="d">Revisita escribe a tus pacientes con revisión atrasada y les da cita. 25 € por visita. <span class="cc">86</span></p><p class="d">Piloto de 30 días gratis en Barcelona. Sin permanencia. Contrato RGPD antes de ver datos. <span class="cc">89</span></p></div></div><div class="ad"><span class="n">02</span><div><p class="h">Pacientes sin revisión <span class="cc">22</span><br>Tus euros dormidos, en 3 días <span class="cc">29</span><br>Te lo calculamos gratis <span class="cc">23</span></p><p class="d">Con tu exportación de Gesden o Clinic Cloud contamos pacientes sin revisión, en euros. <span class="cc">86</span></p><p class="d">Auditoría gratuita y sin compromiso para clínicas dentales independientes de Barcelona. <span class="cc">87</span></p></div></div><div class="ad"><span class="n">03</span><div><p class="h">Recordatorios que dan cita <span class="cc">26</span><br>WhatsApp con huecos reales <span class="cc">26</span><br>Para clínicas dentales <span class="cc">22</span></p><p class="d">Tu software avisa de citas que existen. Revisita busca a quien no tiene cita y la cierra. <span class="cc">89</span></p><p class="d">Pagas por visita atendida, no por mensaje. Datos en la UE y baja con una palabra. <span class="cc">81</span></p></div></div><div class="ad"><span class="n">04</span><div><p class="h">Recepción no llama a nadie <span class="cc">26</span><br>Revisita les escribe por ti <span class="cc">27</span><br>Recall para tu clínica <span class="cc">22</span></p><p class="d">La lista de pacientes para llamar, hecha por WhatsApp y con la cita ya en tu agenda. <span class="cc">84</span></p><p class="d">30 días gratis. Después, 25 € solo por paciente que vuelve. Sin cuota de alta. <span class="cc">78</span></p></div></div><div class="ad"><span class="n">05</span><div><p class="h">Rellena cancelaciones <span class="cc">21</span><br>Lista de espera automática <span class="cc">26</span><br>Hueco cubierto en minutos <span class="cc">25</span></p><p class="d">Cuando alguien cancela, Revisita ofrece el hueco a tu lista de espera por WhatsApp. <span class="cc">83</span></p><p class="d">Para clínicas dentales de Barcelona. Piloto gratis y sin permanencia. Pide tu auditoría. <span class="cc">88</span></p></div></div></div>
+</section>
+<section id="meta">
+  <span class="label">Meta</span>
+  <h2>3 conceptos para Instagram y Facebook</h2>
+  <div class="obj">
+    <div><b>A. La lista del cajón</b><span>Gancho (2 s): «¿Desde cuándo está esta lista en recepción?» Visual: una mano saca de un cajón una hoja arrugada de «pacientes para llamar». Cierre en pantalla: «Revisita les escribe por WhatsApp. Pagas solo si el paciente viene.» Botón: Más información.</span></div>
+    <div><b>B. La cifra</b><span>Gancho (2 s): «31.480 €. Ejemplo.» Visual: el panel de euros dormidos a pantalla completa, con la etiqueta «datos ficticios» visible. Texto: «Con tu exportación, calculamos la cifra real en 3 días. Gratis.» Botón: Solicitar.</span></div>
+    <div><b>C. El chat</b><span>Gancho (2 s): «Así contesta tu paciente.» Visual: grabación de la demo de la landing: el mensaje con el nombre de la clínica, la respuesta y la cita creada. Texto: «Recall que cierra la cita en el chat.» Botón: Más información.</span></div>
+  </div>
+</section>
+<section id="audiencias">
+  <span class="label">Audiencias</span>
+  <h2>A quién apuntar</h2>
+  <ul>
+    <li><b>Meta, ubicación:</b> Barcelona ciudad y área metropolitana, 25 a 60 años.</li>
+    <li><b>Meta, intereses:</b> odontología, clínica dental, Colegio de Dentistas (COEC), Expodental, gestión de clínicas. Meta ha retirado muchos intereses detallados: comprueba cuáles siguen activos antes de lanzar.</li>
+    <li><b>Meta, cargos:</b> el filtro por cargo casi no funciona en Meta en España. Usa intereses y deja que el anuncio filtre con un gancho que solo entiende un dueño o una gerente de clínica.</li>
+    <li><b>Revisión de Meta:</b> los anuncios no tratan de la salud de quien los ve, pero Meta puede revisar términos médicos. Evita frases como «tu dolor» o «tu tratamiento».</li>
+    <li><b>LinkedIn</b> (fuera de esta prueba): permite cargo y sector, pero el clic es mucho más caro. Se evalúa solo si Meta y Google fallan.</li>
+  </ul>
+</section>
+<section id="prueba">
+  <span class="label">Plan</span>
+  <h2>Prueba de 2 semanas a 5 € al día</h2>
+  <div class="scroll"><table>
+    <tr><th>Días</th><th>Canal</th><th>Qué corre</th><th>Gasto</th></tr>
+    <tr><td>1-7</td><td>Google Search</td><td>Anuncios 01, 02 y 03, palabras clave de problema y de herramienta</td><td>35 €</td></tr>
+    <tr><td>8-14</td><td>Meta</td><td>Conceptos A y B a partes iguales; C entra si A o B no llegan a 1% de CTR el día 10</td><td>35 €</td></tr>
+    <tr><td colspan="3"><b>Total</b></td><td><b>70 €</b></td></tr>
+  </table></div>
+  <p>Una semana por canal, no los dos a la vez: con 5 € al día, repartir impide leer nada. Todo el tráfico va a la landing con UTM, y la conversión es el formulario de auditoría.</p>
+</section>
+<section id="decision">
+  <span class="label">Decisión</span>
+  <h2>Métricas que deciden</h2>
+  <div class="scroll"><table>
+    <tr><th>Métrica (umbral, hipótesis)</th><th>Sigue si</th><th>Para si</th></tr>
+    <tr><td>CPC Google</td><td>menos de 2 €</td><td>más de 4 €</td></tr>
+    <tr><td>CTR búsqueda</td><td>3% o más</td><td>menos de 1,5%</td></tr>
+    <tr><td>CTR Meta</td><td>1% o más</td><td>menos de 0,5%</td></tr>
+    <tr><td>Coste por petición de auditoría</td><td>35 € o menos</td><td>ninguna petición en los 70 €</td></tr>
+    <tr><td>Calidad de la petición</td><td>clínica independiente del ICP</td><td>ninguna petición encaja en el ICP</td></tr>
+  </table></div>
+  <div class="warn">Por qué 35 €: si una clínica en pago deja unos 800 € al mes (hipótesis del plan), pagar hasta 150 € por cliente es razonable. Con 1 piloto de cada 3 auditorías y 2 pagos de cada 3 pilotos, sale un máximo de unos 35 € por petición. Si la prueba no llega, el dinero vuelve a las visitas.</div>
+</section>
+</main>
+<footer class="wrap"><span>Revisita · uso interno</span><a href="plan.html">Volver al plan</a></footer>
+</body>
+</html>

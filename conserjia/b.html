@@ -29,7 +29,7 @@
 {"@context":"https://schema.org","@graph":[
  {"@type":"Organization","@id":"https://conserjia.vercel.app/#org","name":"Conserjia","url":"https://conserjia.vercel.app/","logo":"https://conserjia.vercel.app/og.png","founder":{"@type":"Person","name":"Joaquín"},"areaServed":"Barcelona"},
  {"@type":"Service","name":"Conserjia","serviceType":"Gestión de incidencias de comunidades de propietarios con IA","provider":{"@id":"https://conserjia.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"audience":{"@type":"BusinessAudience","audienceType":"Despachos de administración de fincas"},"availableLanguage":["es","ca"],
-  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por comunidad","price":"12","priceCurrency":"EUR","description":"Por comunidad y mes, sin IVA, precio en validación"}]}
+  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por avería cerrada","price":"4","priceCurrency":"EUR","description":"Por avería cerrada, mínimo 49 € al mes por despacho, sin IVA, precio en validación"}]}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,6 +227,13 @@ h2{font-size:clamp(2rem,4.2vw,3rem);max-width:18em}
 .plan li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--brass);border-bottom:2px solid var(--brass);transform:rotate(-45deg)}
 .note{margin-top:20px;font-size:.9rem;color:var(--txt-3)}
 
+.floor .u.lit::after{background:rgba(230,188,92,.22);border-color:rgba(230,188,92,.55)}
+.floor .u .who{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;background:var(--txt);color:var(--navy);font:600 .62rem "IBM Plex Mono",monospace;padding:2px 6px;border-radius:3px;white-space:nowrap}
+.fnote{border:1.5px dashed var(--txt-3);border-radius:4px;padding:26px 28px;max-width:760px;background:var(--navy-2)}
+.fnote .hd{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--rule);padding-bottom:10px;margin-bottom:16px;font:600 .8rem "IBM Plex Mono",monospace;color:var(--brass);text-transform:uppercase;letter-spacing:.05em}
+.fnote blockquote{font-family:"DM Serif Display",serif;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.25}
+.fnote p{color:var(--txt-2);margin-top:14px}
+.fnote .sig{font:600 .85rem "IBM Plex Mono",monospace;color:var(--txt);margin-top:18px}
 /* founder */
 .founder{display:grid;gap:24px;grid-template-columns:1fr}
 @media(min-width:860px){.founder{grid-template-columns:auto 1fr;gap:40px}}
@@ -302,11 +309,11 @@ footer a{color:var(--txt-2)}
   <figure class="bldg" aria-label="Corte de un edificio de C/ Provença 214 con una incidencia abierta en el garaje, planta -1">
     <div class="sign" aria-hidden="true"><small>Eixample</small><b>C/ de Provença, 214</b></div>
     <div class="facade">
-      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">3º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">2º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">1º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">BJ</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u lit"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">3º</span><span class="u lit"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">2º</span><span class="u lit"><span class="who">2º 1ª · Marta</span></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">1º</span><span class="u"></span><span class="u"></span><span class="u lit"></span></div>
+      <div class="floor"><span class="lv">BJ</span><span class="u lit"></span><span class="u"></span><span class="u"></span></div>
       <div class="floor gar"><span class="lv">-1</span><span class="u"></span><span class="u"><span class="hit"></span></span><span class="u"></span></div>
     </div>
     <div class="ground"></div>
@@ -442,11 +449,11 @@ footer a{color:var(--txt-2)}
 
 <section id="precio">
   <div class="wrap">
-    <h2 class="rv">Pagas por comunidad, no por usuario</h2>
+    <h2 class="rv">Cobramos cuando la avería queda cerrada</h2>
     <p class="sub rv">Estamos validando el precio con los primeros despachos. Este es el punto de partida, sin IVA.</p>
     <div class="plans">
       <div class="plan hl rv"><h3>Piloto</h3><div class="price">0 € <small>durante 30 días</small></div><ul><li>2 comunidades que eliges tú</li><li>Damos de alta a tus industriales</li><li>Cartel con QR para el portal</li><li>Informe de resultados el día 30</li></ul><a class="btn" href="#probar" style="margin-top:auto">Pedir piloto <span class="ar" aria-hidden="true">&rarr;</span></a></div>
-      <div class="plan rv"><h3>Después del piloto</h3><div class="price">12 € <small>por comunidad y mes</small></div><ul><li>Incidencias ilimitadas</li><li>Historial e informe mensual para la junta</li><li>Sin alta ni licencias aparte</li><li>Sin permanencia</li><li>Desde 60 comunidades, precio por tramo</li></ul></div>
+      <div class="plan rv"><h3>Después del piloto</h3><div class="price">4 € <small>por avería cerrada</small></div><ul><li>Mínimo 49 € al mes por despacho</li><li>Todas tus comunidades, sin coste por comunidad</li><li>Urgencias fuera de horario incluidas</li><li>Privativos y dudosos sin mover industrial: gratis</li><li>Sin alta y sin permanencia</li></ul></div>
     </div>
     <p class="note">Si el día 30 no quieres seguir, desactivamos el número y borramos los datos del piloto.</p>
   </div>
@@ -454,19 +461,18 @@ footer a{color:var(--txt-2)}
 
 <section>
   <div class="wrap">
-    <div class="founder rv">
-      <span class="plate" aria-hidden="true">J</span>
-      <div>
-        <blockquote>"Busco cinco despachos de Barcelona que quieran construir esto conmigo."</blockquote>
-        <p>Soy Joaquín, vivo en Barcelona y construyo software con IA. Conserjia está en piloto: aún no hay clientes que enseñarte y no me los voy a inventar. El primer mes reviso yo cada mensaje del agente antes de que salga, y me tienes al teléfono. Si en 30 días no te ahorra llamadas, lo apagamos y no pagas nada.</p>
-      </div>
+    <div class="fnote rv">
+      <div class="hd"><span>Nota del fundador</span><span>Nº 0001</span></div>
+      <blockquote>"El primer mes leo yo cada mensaje que Conserjia manda a tus vecinos antes de que salga."</blockquote>
+      <p>Construyo Conserjia en Barcelona. Todavía no hay clientes que enseñarte y no me los invento. Si en 30 días no te quita llamadas, lo apago y no pagas.</p>
+      <p class="sig">Joaquín Ferreiros</p>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap">
-    <h2 class="rv">Lo que preguntan los administradores</h2>
+    <h2 class="rv">Antes de colgar el cartel en el portal</h2>
     <div class="faq">
     <details><summary>¿Esto sustituye a mi equipo?</summary><p>No. Quita los recados: preguntar la dirección, llamar al fontanero, perseguir la cita, avisar al vecino. Tu equipo decide los casos dudosos y aprueba los gastos.</p></details>
     <details><summary>¿Y si el industrial no contesta?</summary><p>Conserjia le recuerda el aviso. Si sigue sin contestar en el plazo que fijes, pasa al siguiente de tu lista o te avisa a ti.</p></details>
@@ -513,7 +519,7 @@ footer a{color:var(--txt-2)}
 <div class="wrap">
 <footer>
   <span>Conserjia · Barcelona · © 2026</span>
-  <a href="plan.html">Plan</a>
+  <a href="blog/">Blog</a> <a href="plan.html">Plan</a>
  <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
 </div>
 

@@ -58,13 +58,27 @@ section{padding:84px 0}
 .btn.ghost{background:transparent;color:var(--sage);border:1.5px solid var(--sage)}
 /* nav */
 nav{position:sticky;top:0;z-index:10;background:rgba(247,237,235,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;height:64px}
 .logo{font-family:"Bodoni Moda",serif;font-size:1.7rem;text-decoration:none;display:flex;align-items:center;gap:.45rem}
 .logo i{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F3C7B5,var(--rose));box-shadow:0 0 0 5px var(--rose-soft)}
 nav .btn{padding:10px 18px;font-size:.92rem}
 .lang{display:flex;gap:2px;margin-left:auto;margin-right:12px;font-size:.8rem;font-weight:700}.lang a{text-decoration:none;color:var(--muted);padding:10px 8px;min-height:44px;display:inline-flex;align-items:center}.lang a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--rose)}
 @media(max-width:420px){.logo{font-size:1.4rem}nav .btn{padding:9px 14px;font-size:.85rem}.lang{margin-right:4px}.lang a{padding:10px 6px}}
 nav .btn{white-space:nowrap}
+/* editorial hero */
+.hero .wrap{position:relative}
+.spread{position:relative;display:grid;justify-items:center;padding:8px 0 0}
+.spread::before{content:"";position:absolute;inset:6% 4% 12% 10%;background:linear-gradient(160deg,#EFD6DA 0%,#F7EDEB 70%);border-radius:220px 220px 24px 24px;z-index:0}
+.hero .phone{position:relative;z-index:1;max-width:340px;background:#16201B;border-radius:44px;padding:10px;box-shadow:0 40px 70px -35px rgba(52,80,63,.55);transform:rotate(-2.5deg)}
+.hero .phone .screen{background:#fff;border-radius:36px;overflow:hidden;padding:10px 12px 12px}
+.ig-bar{display:flex;justify-content:space-between;font-size:.72rem;font-weight:700;padding:2px 10px 8px;color:var(--ink)}
+.hero .ph-top{padding:6px 4px 10px}
+.hero .av{width:38px;height:38px;background:#fff;border:2px solid #fff;box-shadow:0 0 0 2px var(--rose);background-image:linear-gradient(135deg,#F2D2D8,#A65468)}
+.hero .thread{font-size:.82rem;padding:12px 2px 6px}
+.ig-input{margin-top:8px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.78rem;color:var(--muted)}
+.caption{position:relative;z-index:1;margin-top:18px;font-family:"Bodoni Moda",serif;font-style:italic;font-size:1.05rem;color:var(--muted);text-align:center;max-width:30ch}
+@media(prefers-reduced-motion:no-preference){.hero .phone{animation:settle 1s cubic-bezier(.16,1,.3,1) both}@keyframes settle{from{opacity:0;transform:rotate(-2.5deg) translateY(24px)}to{opacity:1;transform:rotate(-2.5deg)}}}
+@media(max-width:600px){.hero .phone{transform:none;max-width:340px;animation:none}.spread::before{inset:4% 0 10% 0}}
 /* hero */
 .hero{padding:64px 0 72px}
 .hero .wrap{display:grid;gap:48px;align-items:center}
@@ -235,7 +249,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <nav><div class="wrap">
   <a class="logo" href="#"><i></i>Glowdesk</a>
   <div class="navlinks"><a href="#como">Com funciona</a><a href="#prueba">Prova-ho</a><a href="#precio">Preu</a><a href="#faq">Preguntes</a></div>
-  <div class="lang"><a href="index.html" hreflang="es" lang="es">ES</a><a href="ca.html" aria-current="true">CA</a></div><a class="btn" href="#probar">Demanar demo</a>
+  <div class="lang"><a href="index.html" hreflang="es" lang="es">ES</a><a href="ca.html" aria-current="true">CA</a><a href="en.html" hreflang="en" lang="en">EN</a></div><a class="btn" href="#probar">Demanar demo</a>
 </div></nav>
 
 <main>
@@ -243,15 +257,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div>
     <p class="eyebrow">Per a clíniques de medicina estètica</p>
     <h1>Cada DM d'Instagram, <em>convertit en una valoració</em> amb paga i senyal.</h1>
-    <p class="lead">Glowdesk contesta les teves pacients en segons, també a mitjanit. Reserva la valoració a la teva agenda i cobra una paga i senyal perquè vinguin.</p>
+    <p class="lead">Glowdesk respon a les teves pacients en segons, també a mitjanit. Reserva la valoració a la teva agenda i cobra una paga i senyal perquè vinguin.</p>
     <div class="ctas">
       <a class="btn" href="#probar">Demanar demo</a>
       <a class="link" href="#como">Com funciona</a>
     </div>
-    <div class="trustline"><span>Pilot gratuït 30 dies</span><span>Sense permanència</span><span>Dades a la UE · RGPD</span></div>
+    <div class="trustline"><span>La doctora aprova cada resposta</span><span>No diagnostica mai</span><span>Pilot de 30 dies, gratuït</span></div>
   </div>
 
-  <div class="phone" role="img" aria-label="Exemple: una pacient pregunta per Instagram a les 23:47, Glowdesk contesta amb el preu, anota la lactància per a la doctora i reserva la valoració amb paga i senyal de 20 euros">
+  <div class="spread">
+  <div class="phone" role="img" aria-label="Exemple: una pacient pregunta per Instagram a les 23:47, Glowdesk contesta amb el preu, anota la lactància per a la doctora i reserva la valoració amb paga i senyal de 20 euros"><div class="screen"><div class="ig-bar"><span>23:47</span><span>Instagram</span></div>
     <div class="ph-top"><span class="av"></span><div><b>clinica.aura.bcn</b><small>Respon Glowdesk · 23:47</small></div></div>
     <div class="thread">
       <div class="msg in">Holaa, he vist el vostre anunci de rinomodelació. Quant costa?</div>
@@ -261,17 +276,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="card">
         <b>Valoració gratuïta · Dra. Soler</b>
         <div class="slots"><span class="slot">Dt 17:00</span><span class="slot on">Dc 18:30</span><span class="slot">Dj 12:00</span></div>
-        <div class="pay">Senyal reemborsable <span>20 € · Bizum</span></div>
+        <div class="pay">Senyal amb targeta <span>20 €</span></div>
       </div>
       <div class="flag">Avís a la doctora: lactància</div>
     </div>
+  <div class="ig-input">Missatge…</div></div></div>
+  <p class="caption">Diumenge, 23:47. La recepció està tancada; la conversa, no.</p>
   </div>
 </div></header>
 
 <section class="problem"><div class="wrap">
   <div>
-    <h2>Pagues l'anunci. <em>El lead es refreda</em> a la safata d'entrada.</h2>
-    <p class="lead">Les pacients pregunten per Instagram, gairebé sempre fora d'horari. Si ningú respon en minuts, escriuen a la clínica següent del feed.</p>
+    <h2>Pagues l'anunci. <em>La pacient es refreda</em> a la safata d'entrada.</h2>
+    <p class="lead">Les pacients pregunten per Instagram, gairebé sempre fora d'horari. Si ningú no respon en pocs minuts, escriuen a la clínica següent del feed.</p>
   </div>
   <div class="scene">
     <p class="time">Diumenge, 23:47</p>
@@ -286,7 +303,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 </div></section>
 
 <section id="como"><div class="wrap">
-  <h2>Tres passos. <em>Res a migrar.</em></h2>
+  <h2>De la teva carta a la teva agenda. <em>Res a migrar.</em></h2>
   <ol class="flow">
     <li><span class="num">1</span><div><h3>Ens passes la teva carta</h3><p>Tractaments, preus «des de», horaris i política de paga i senyal. La doctora aprova cada resposta sensible abans d'activar-la.</p></div></li>
     <li><span class="num">2</span><div><h3>Connectem els teus canals</h3><p>Primer Instagram DM. WhatsApp Business i telèfon quan els vulguis. Reserva a Google Calendar o a la teva agenda actual.</p></div></li>
@@ -316,7 +333,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <section class="moment"><div class="wrap">
   <p class="eyebrow">Dilluns a les 9:00</p>
   <h2>El que veu la teva recepció quan obre Glowdesk</h2>
-  <p class="lead">Leads del cap de setmana, ja ordenats. Els avisos clínics van a la doctora; mai no els decideix la IA.</p>
+  <p class="lead">Sol·licituds del cap de setmana, ja ordenades. Els avisos clínics van a la doctora; mai no els decideix la IA.</p>
   <div class="dash">
     <div class="dash-h"><b>Safata · cap de setmana</b><div class="tabs"><span class="on">Tots</span><span>Amb senyal</span><span>Per a la doctora</span></div></div>
     <div class="leads">
@@ -349,10 +366,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <section><div class="wrap">
   <h2>Velocitat i compromís. <em>Això és el que converteix.</em></h2>
   <div class="bens">
-    <div class="ben"><div class="big">24/7</div><p>Resposta en segons, també a mitjanit i en diumenge, a Instagram, WhatsApp i telèfon.</p></div>
-    <div class="ben"><div class="big">×7</div><p>Les empreses que contesten un lead en la primera hora tenen gairebé 7 vegades més opcions de qualificar-lo que les que triguen més.<br><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Font: Harvard Business Review, 2011</a></p></div>
+    <div class="ben"><div class="big">24/7</div><p>Resposta en segons, també a mitjanit i els diumenges, a Instagram, WhatsApp i telèfon.</p></div>
+    <div class="ben"><div class="big">×7</div><p>Les empreses que responen un contacte durant la primera hora tenen gairebé 7 vegades més opcions de qualificar-lo que les que triguen més.<br><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Font: Harvard Business Review, 2011</a></p></div>
     <div class="ben"><div class="big">Senyal</div><p>Una reserva amb senyal reemborsable és un compromís. El nostre objectiu al pilot: mesurar quant baixen les absències a la teva clínica.</p></div>
-    <div class="ben"><div class="big">0</div><p>Diagnòstics fets per la IA. Informa amb la teva carta i deriva qualsevol dubte clínic al teu equip mèdic.</p></div>
+    <div class="ben"><div class="big">0</div><p>Diagnòstics fets per la IA. Informa a partir de la teva carta i deriva qualsevol dubte clínic al teu equip mèdic.</p></div>
   </div>
   <div class="legal">
     <b>Pensat per a la publicitat sanitària a Espanya.</b>
@@ -365,9 +382,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <h2>Menys que una recepcionista <em>de cap de setmana.</em></h2>
   <div class="plans">
     <div class="plan"><h3>Instagram</h3><div class="price">149 € <small>/mes</small></div>
-      <ul><li>Instagram DM i comentaris</li><li>Reserva de valoració</li><li>Senyal amb Bizum o targeta</li><li>1 seu</li></ul></div>
+      <ul><li>Instagram DM i comentaris</li><li>Reserva de valoració</li><li>Senyal amb targeta (Bizum, més endavant)</li><li>1 seu</li></ul></div>
     <div class="plan hi"><h3>Recepció completa</h3><div class="price">229 € <small>/mes</small></div>
-      <ul><li>Tot el d'Instagram</li><li>WhatsApp Business</li><li>Seguiment de leads d'anuncis</li><li>Avisos clínics per a la doctora</li></ul></div>
+      <ul><li>Tot el que inclou el pla Instagram</li><li>WhatsApp Business</li><li>Seguiment dels contactes que arriben dels anuncis</li><li>Avisos clínics per a la doctora</li></ul></div>
     <div class="plan"><h3>Amb trucades</h3><div class="price">299 € <small>/mes</small></div>
       <ul><li>Tot l'anterior</li><li>Agent de veu al teu número</li><li>Recordatoris de cita</li><li>Fins a 3 seus</li></ul></div>
   </div>
@@ -376,44 +393,44 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 </div></section>
 
 <section><div class="wrap">
-  <h2>Seriosos amb les dades. <em>Seriosos amb la medicina.</em></h2>
+  <h2>Rigor amb les dades. <em>Rigor amb la medicina.</em></h2>
   <div class="trust">
     <div class="tr"><b>Dades a la UE</b><p>Servidors a la Unió Europea i contracte d'encarregat del tractament (art. 28 RGPD) signat amb la teva clínica.</p></div>
     <div class="tr"><b>La doctora aprova</b><p>Només fem servir respostes que revisa el teu equip mèdic. Qualsevol dubte clínic va a una persona.</p></div>
-    <div class="tr"><b>Sense migrar</b><p>Funciona al costat del teu programa de gestió i la teva agenda actual. No canvies res del que ja fas servir.</p></div>
+    <div class="tr"><b>Res a migrar</b><p>Funciona amb el programa de gestió i l'agenda que ja tens. No canvies res del que ja utilitzes.</p></div>
     <div class="tr"><b>Sense permanència</b><p>30 dies de pilot gratuït. Després, mes a mes. Si no et porta valoracions, l'apagues.</p></div>
   </div>
   <div class="founder" style="margin-top:28px">
     <div class="mono" aria-hidden="true">J</div>
     <div>
-      <p class="eyebrow">Una nota del fundador</p>
-      <p>Soc en Joaquín i construeixo Glowdesk des de Barcelona. La idea és simple: una pacient que pregunta un diumenge a la nit mereix resposta en aquell moment, no el dilluns a mig matí.</p>
-      <p>Glowdesk és en fase pilot. Treballo amb poques clíniques, en persona, i munto cada agent amb la vostra carta. Si alguna cosa no funciona, m'ho dius a mi i ho arreglo jo.</p>
+      <p class="eyebrow">Qui hi ha darrere</p>
+      <p>Glowdesk el construeix en Joaquín, a Barcelona. Abans d'activar res, s'asseu amb la teva doctora i revisa la carta i cada resposta sensible, una a una.</p>
+      <p>Per això el pilot és amb poques clíniques: una recepció que parla en nom d'una doctora es prepara en persona, no amb un formulari.</p>
       <p class="sig">Joaquín · fundador</p>
     </div>
   </div>
 </div></section>
 
 <section id="faq"><div class="wrap faq">
-  <h2>El que ens preguntaria una directora de clínica</h2>
-  <details><summary>He de canviar el meu programa de gestió?</summary><p>No. Glowdesk està pensat per a clíniques que no volen migrar. Reserva a Google Calendar o a la teva agenda actual, i si el teu programari no té connexió, crea la cita i avisa recepció perquè la confirmi.</p></details>
-  <details><summary>La IA pot donar consell mèdic?</summary><p>No. Explica tractaments i preus «des de» amb els textos que aprova la teva clínica. Si la pacient esmenta embaràs, lactància, al·lèrgies, medicació o una altra condició, Glowdesk ho anota com a avís per a la doctora i no opina.</p></details>
+  <h2>Abans que contesti <em>per vosaltres</em></h2>
+  <details><summary>He de canviar el meu programa de gestió?</summary><p>No. Glowdesk està pensat per a clíniques que no volen migrar. Reserva a Google Calendar o a la teva agenda actual, i si el teu programari no té connexió, crea la cita i avisa la recepció perquè la confirmi.</p></details>
+  <details><summary>La IA pot donar consell mèdic?</summary><p>No. Explica tractaments i preus «des de» amb els textos que aprova la teva clínica. Si la pacient esmenta embaràs, lactància, al·lèrgies, medicació o qualsevol altre problema de salut, Glowdesk ho anota com a avís per a la doctora i no opina.</p></details>
   <details><summary>Compleix la normativa de publicitat sanitària?</summary><p>El sistema està dissenyat per respectar-la: sense promeses de resultats, sense promocionar medicaments de prescripció i amb el teu número de registre sanitari visible. Tot i així, revisa amb el teu assessor els textos que aproves: la responsabilitat del missatge és de la clínica.</p></details>
   <details><summary>Què passa amb les dades de salut de les pacients?</summary><p>Són dades de categoria especial segons el RGPD. Glowdesk només guarda el necessari per a la cita, en servidors de la UE, amb contracte d'encarregat del tractament signat amb la clínica.</p></details>
-  <details><summary>Quant trigo a tenir-lo funcionant?</summary><p>Uns 30 minuts del teu temps. Nosaltres preparem l'agent amb la teva carta pública i els teus horaris. Tu revises les respostes, connectes Instagram i queda actiu en 48 hores.</p></details>
+  <details><summary>Quant trigo a tenir-lo en marxa?</summary><p>Uns 30 minuts del teu temps. Nosaltres preparem l'agent amb la teva carta pública i els teus horaris. Tu revises les respostes, connectes Instagram i queda actiu en 48 hores.</p></details>
   <details><summary>I si la IA s'equivoca amb un preu o una cita?</summary><p>Només respon amb els preus «des de» que aproves i no s'inventa tractaments. Si no sap alguna cosa, ho diu i passa la conversa al teu equip. Veus cada conversa a la safata i la pots corregir.</p></details>
-  <details><summary>Quant costa i hi ha permanència?</summary><p>El pilot és gratuït durant 30 dies. Després, la hipòtesi és de 149 a 299 € al mes segons els canals, sense permanència. Fes el compte amb el teu tiquet mitjà: quantes valoracions extra al mes necessites per cobrir-ho?</p></details>
+  <details><summary>Quant costa i hi ha permanència?</summary><p>El pilot és gratuït durant 30 dies. Després, la hipòtesi és de 149 a 299 € al mes segons els canals, sense permanència. Fes números amb el teu tiquet mitjà: quantes valoracions extra al mes necessites per cobrir-ho?</p></details>
   <details><summary>I si la pacient vol parlar amb una persona?</summary><p>Glowdesk ho detecta, li ho diu a la pacient i passa la conversa al teu equip amb tot el context. Tu decideixes en quins casos entra sempre una persona.</p></details>
 </div></section>
 
 <section class="final" id="probar"><div class="wrap">
   <div>
-    <h2>T'ensenyem <em>el teu propi agent</em> contestant els teus DMs.</h2>
+    <h2>Et mostrem com <em>el teu agent</em> respon els teus DMs.</h2>
     <p class="lead">Busquem poques clíniques estètiques per al pilot. Amb el teu Instagram preparem una demo amb la teva carta real, i la veus abans de decidir res.</p>
     <ol class="next">
       <li><b>Ens deixes 3 dades</b>Menys de 30 segons.</li>
-      <li><b>T'enviem la teva demo en 48 h</b>Un vídeo curt: el teu agent contestant un DM del teu anunci.</li>
-      <li><b>Pilot gratuït 30 dies</b>Només si et convenç. Sense targeta i sense permanència.</li>
+      <li><b>T'enviem la teva demo en 48 h</b>Un vídeo curt en què el teu agent respon un DM del teu anunci.</li>
+      <li><b>Pilot gratuït 30 dies</b>Només si et convenç del tot. Sense targeta i sense permanència.</li>
     </ol>
   </div>
   <div>
@@ -423,7 +440,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <label>Clínica o centre<input name="negocio" required placeholder="Clínica Aura · @clinica.aura.bcn"></label>
       <label>Telèfon o email<input name="contacto" required placeholder="600 000 000 o ana@clinica.cat"></label>
       <button class="btn" type="submit">Demanar demo</button>
-      <p class="priv">Només fem servir aquestes dades per contactar-te sobre el pilot. Ara mateix aquesta pàgina no guarda res: és una prova d'interès.</p>
+      <p class="priv">Només fem servir aquestes dades per contactar-te sobre el pilot. De moment aquesta pàgina no desa res: és una prova d'interès.</p>
     </form>
     <div class="thanks" id="thanks" role="status" tabindex="-1">
       <h3>Gràcies, t'escrivim aviat.</h3>
@@ -473,7 +490,7 @@ document.getElementById('wl').addEventListener('submit',function(e){
   };
   function el(t){
     var d=document.createElement('div');
-    if(t[0]==='card'){d.className='card';d.innerHTML='<b>Valoració gratuïta</b><div class="slots"><span class="slot">Dt 17:00</span><span class="slot on">Dc 18:30</span><span class="slot">Dj 12:00</span></div><div class="pay">Senyal reemborsable <span>20 €</span></div>';}
+    if(t[0]==='card'){d.className='card';d.innerHTML='<b>Valoració gratuïta</b><div class="slots"><span class="slot">Dt 17:00</span><span class="slot on">Dc 18:30</span><span class="slot">Dj 12:00</span></div><div class="pay">Senyal amb targeta <span>20 €</span></div>';}
     else if(t[0]==='flag'){d.className='flag';d.textContent=t[1];}
     else{d.className='msg '+t[0];d.textContent=t[1];}
     return d;

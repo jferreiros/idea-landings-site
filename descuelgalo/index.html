@@ -259,6 +259,14 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 footer .logo{font-size:18px;color:var(--ink)}
 footer .logo i{width:26px;height:26px;border-radius:8px}
 footer .logo i svg{width:14px;height:14px}
+
+/* hero v4: the phone is the hero */
+.hero .wrap{grid-template-columns:1fr!important;justify-items:start}
+.stage{width:100%;padding:36px 0 8px;background:linear-gradient(180deg,transparent,var(--green-soft) 30%,var(--green-soft) 70%,transparent);border-radius:40px}
+.stage:before{display:none}
+.phone{width:330px}
+.caller{font-size:28px;max-width:100%;overflow-wrap:anywhere}
+@media(min-width:900px){.hero h1{max-width:22ch}.hero{padding-bottom:40px}.hero p.lead{max-width:40em}}
 </style>
 </head>
 <body>
@@ -293,28 +301,26 @@ footer .logo i svg{width:14px;height:14px}
     </div>
   </div>
   <div class="stage" aria-hidden="true">
-    <div class="chip c1"><b><span class="dot"></span>Aprendido de Google</b>L-V 8:30-19:00 · Cambio de aceite, ITV, frenos</div>
     <div class="phone" role="img" aria-label="Móvil recibiendo una llamada de Lucía, la recepcionista con IA"><div class="screen">
       <div class="notch"></div>
       <div class="incoming">Llamada entrante</div>
-      <div class="avatar">L</div>
-      <div class="caller">Lucía</div>
-      <div class="biz" id="phone-biz">Recepcionista de Taller Ruiz</div>
+      <div class="avatar" id="phone-av">T</div>
+      <div class="caller" id="phone-caller">Taller Ruiz</div>
+      <div class="biz" id="phone-biz">Lucía, tu recepcionista, contesta</div>
       <div class="bubble"><small>Lucía dirá</small><span id="phone-line">"Taller Ruiz, buenas. Soy Lucía, la asistente virtual. ¿Te busco hueco para el lunes?"</span></div>
       <div class="actions">
         <div class="act no"><span><svg><use href="#i-hang"/></svg></span>Rechazar</div>
         <div class="act yes"><span><svg><use href="#i-phone"/></svg></span>Descolgar</div>
       </div>
     </div></div>
-    <div class="chip c2"><b>Tras colgar</b>Te llega el resumen por WhatsApp</div>
   </div>
 </div></header>
 
 <div class="trust"><div class="wrap"><ul>
-  <li><svg><use href="#i-check"/></svg><span><b>Piloto gratis de 30 días</b>Sin tarjeta. Si no te sirve, lo quitas.</span></li>
-  <li><svg><use href="#i-check"/></svg><span><b>Conservas tu número</b>Solo desvías las llamadas que no coges.</span></li>
-  <li><svg><use href="#i-check"/></svg><span><b>Datos en la UE, RGPD</b>Contrato de encargado del tratamiento.</span></li>
-  <li><svg><use href="#i-check"/></svg><span><b>Dice que es una IA</b>Y pasa con una persona si el cliente lo pide.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Solo coge lo que tú no coges</b>Tu móvil suena primero, como siempre.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>El mismo número de siempre</b>Un código en tu móvil y listo. Otro código y se quita.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>No da precios a ciegas</b>Apunta el presupuesto y te lo pasa a ti.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Se presenta como asistente virtual</b>Y te pasa la llamada si el cliente quiere hablar contigo.</span></li>
 </ul></div></div>
 
 <section class="problem"><div class="wrap">
@@ -347,7 +353,7 @@ footer .logo i svg{width:14px;height:14px}
 <section id="como"><div class="wrap">
   <div class="sec-h">
     
-    <h2>De la llamada perdida a la cita, en tres pasos.</h2>
+    <h2>De la llamada perdida a la cita.</h2>
     <p>Sin instalar nada y sin cambiar de operador. Lo dejamos funcionando contigo en una visita o una videollamada de 15 minutos.</p>
   </div>
   <div class="steps">
@@ -407,14 +413,14 @@ footer .logo i svg{width:14px;height:14px}
   </div>
   <div class="law">
     <svg><use href="#i-scale"/></svg>
-    <p><b>Preparada para la ley.</b> Desde el 28 de diciembre de 2026, la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> da al cliente derecho a hablar con una persona por teléfono. Descuélgalo te pasa la llamada o te deja el aviso. Además, cumple el <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">AI Act (art. 50)</a>: la recepcionista siempre dice que es una IA.</p>
+    <p><b>Qué dice la ley, con precisión.</b> La <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> obliga a ofrecer atención por una persona cuando el cliente la pide (art. 8.2). Aplica a luz, agua, gas, transporte, correos, telecomunicaciones y banca de cualquier tamaño, y al resto de empresas que venden a consumidores con 250 o más trabajadores o más de 50 M€ de facturación (art. 2). Tienen hasta el 28 de diciembre de 2026 (disposición transitoria única). A un taller pequeño no le obliga, pero Lucía lo hace igual: te pasa la llamada o te deja el aviso. Además, cumple el <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">AI Act (art. 50)</a>: la recepcionista siempre dice que es una IA. <a href="blog/ia-contestar-telefono-legal.html">Qué dice la ley y si te aplica</a>.</p>
   </div>
 </div></section>
 
 <section class="moment" id="precios"><div class="wrap">
   <div class="sec-h">
     <span class="eyebrow">Precios</span>
-    <h2>Pagas por minutos, no por comerciales.</h2>
+    <h2>Un precio por los minutos que habla Lucía.</h2>
     <p>Piloto gratis de 30 días en todos los planes. Sin permanencia. IVA no incluido.</p>
   </div>
   <div class="plans">
@@ -437,8 +443,8 @@ footer .logo i svg{width:14px;height:14px}
     <div>
       
       <blockquote>
-        <p>Soy Joaquín, ingeniero de software en Barcelona. Descuélgalo es un proyecto nuevo: aún no tenemos clientes y no te vamos a enseñar logos inventados.</p>
-        <p>Buscamos los primeros talleres y negocios pequeños para un piloto gratis. Lo instalo contigo, escucho cada llamada que se tuerza y la corrijo esa misma semana. Si al mes no te ha contestado llamadas que habrías perdido, lo quitas y no pagas nada.</p>
+        <p>Empecé Descuélgalo llamando a talleres a la hora de comer. Casi ninguno lo cogía, y no por dejadez: estaban debajo de un coche.</p>
+        <p>Aún no tengo clientes. Busco los primeros talleres para probarlo gratis: lo dejo puesto en tu móvil, escucho contigo las llamadas que se tuerzan y las corrijo esa semana.</p>
       </blockquote>
       <cite><b>Joaquín</b> · Fundador · Barcelona</cite>
     </div>
@@ -446,11 +452,11 @@ footer .logo i svg{width:14px;height:14px}
 </div></section>
 
 <section id="faq"><div class="wrap">
-  <div class="sec-h"><h2>Lo que nos preguntan los dueños.</h2></div>
+  <div class="sec-h"><h2>Antes de desviar tu móvil.</h2></div>
   <div class="faq">
     <details><summary>¿Tengo que cambiar de número o de operador?</summary><p>No. Mantienes tu número y tu operador. Activas el desvío de llamadas no contestadas con un código en tu móvil, por ejemplo <code>**61*número#</code>. Te enseñamos el código exacto de Movistar, Vodafone, Orange y los demás, y lo comprobamos con una llamada.</p></details>
     <details><summary>¿Se nota que es una IA?</summary><p>Sí, porque lo dice al empezar. Lo exige el AI Act europeo y creemos que es lo honesto. La voz es natural y entiende acentos, pero no finge ser una persona.</p></details>
-    <details><summary>¿Y si el cliente quiere hablar conmigo?</summary><p>Lucía te pasa la llamada o te deja el aviso con el nombre, el teléfono y el motivo. Así cumples el derecho a hablar con una persona que exige la Ley 10/2025.</p></details>
+    <details><summary>¿Y si el cliente quiere hablar conmigo?</summary><p>Lucía te pasa la llamada o te deja el aviso con el nombre, el teléfono y el motivo. Un taller pequeño no está obligado por la Ley 10/2025, que solo exige atención humana a empresas de 250 o más trabajadores y a sectores como luz, agua o telecomunicaciones (art. 2 y 8.2). Pero tus clientes lo agradecen.</p></details>
     <details><summary>¿Cómo sabe mi horario y mis precios?</summary><p>Lee tu ficha de Google y tu web. Tú revisas lo que ha aprendido y corriges lo que haga falta, también en cualquier momento después.</p></details>
     <details><summary>¿Y si se equivoca o no sabe contestar?</summary><p>No se inventa precios ni diagnósticos. Si no sabe algo, toma nombre, teléfono y motivo, y te avisa por WhatsApp para que llames tú. Durante el piloto revisamos las llamadas contigo y corregimos lo que falle.</p></details>
     <details><summary>¿Cuánto tardo en ponerla en marcha?</summary><p>Unos 15 minutos. Revisas lo que ha aprendido de tu ficha de Google, eliges nombre y voz, y marcas un código de desvío en tu móvil. Lo comprobamos juntos con una llamada de prueba.</p></details>
@@ -487,7 +493,7 @@ footer .logo i svg{width:14px;height:14px}
 
 <footer><div class="wrap">
   <a class="logo" href="#"><i><svg><use href="#i-phone"/></svg></i>Descuélgalo</a>
-  <span>© 2026 Descuélgalo · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+  <span>© 2026 Descuélgalo · <a href="plan.html">Plan</a> · <a href="blog/desviar-llamadas-no-contestadas.html">Blog</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
 </div></footer>
 
 <script>
@@ -495,7 +501,7 @@ var DEF='Taller Ruiz';
 function biz(){var v=(document.getElementById('bizname').value||'').trim();return v||DEF;}
 document.getElementById('bizname').addEventListener('input',function(){
   var b=biz();
-  document.getElementById('phone-biz').textContent='Recepcionista de '+b;
+  document.getElementById('phone-caller').textContent=b;document.getElementById('phone-av').textContent=b.charAt(0).toUpperCase();
   document.getElementById('phone-line').textContent='"'+b+', buenas. Soy Lucía, la asistente virtual. ¿En qué te ayudo?"';
 });
 var SC={
@@ -522,7 +528,7 @@ if('IntersectionObserver' in window){var seen=false;new IntersectionObserver(fun
 function tryIt(){
   var v=(document.getElementById('bizname').value||'').trim();
   if(v){
-    document.getElementById('phone-biz').textContent='Recepcionista de '+v;
+    document.getElementById('phone-caller').textContent=v;document.getElementById('phone-av').textContent=v.charAt(0).toUpperCase();
     document.getElementById('phone-line').textContent='"'+v+', buenas. Soy Lucía, la asistente virtual. ¿En qué te ayudo?"';
     document.getElementById('bizfield').value=v;
   }

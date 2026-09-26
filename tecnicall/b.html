@@ -3,24 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tecnicall | Tú reparas. Nosotros cogemos el teléfono.</title>
+<title>Tecnicall | Llamadas y WhatsApp para talleres de reparación</title>
 <meta name="description" content="Tecnicall contesta las llamadas y WhatsApp de tu empresa de reparaciones, apunta la avería con foto y modelo, y la agenda con el técnico que toca.">
 <meta name="theme-color" content="#0F0F0D">
 <link rel="canonical" href="https://tecnicall.vercel.app/">
 <meta name="robots" content="noindex">
 <link rel="alternate" hreflang="es" href="https://tecnicall.vercel.app/">
 <link rel="alternate" hreflang="ca" href="https://tecnicall.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://tecnicall.vercel.app/en.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Tecnicall">
 <meta property="og:url" content="https://tecnicall.vercel.app/">
-<meta property="og:title" content="Tecnicall | Tú reparas. Nosotros cogemos el teléfono.">
+<meta property="og:title" content="Tecnicall | Llamadas y WhatsApp para talleres de reparación">
 <meta property="og:description" content="Contesta llamadas y WhatsApp con el nombre de tu empresa y deja el aviso agendado con foto, modelo y técnico. Piloto gratis de 30 días en Barcelona.">
 <meta property="og:image" content="https://tecnicall.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tecnicall | Tú reparas. Nosotros cogemos el teléfono.">
+<meta name="twitter:title" content="Tecnicall | Llamadas y WhatsApp para talleres de reparación">
 <meta name="twitter:description" content="Recepción con IA para talleres y empresas de reparación. Piloto gratis de 30 días.">
 <meta name="twitter:image" content="https://tecnicall.vercel.app/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFD000'/%3E%3Cpath d='M8 9h16v4h-6v12h-4V13H8z' fill='%23141208'/%3E%3C/svg%3E">
@@ -213,6 +214,7 @@ form .btn:hover{background:#2A271C}
 .thanks p{margin-top:10px;color:#2E2B22}
 footer{padding:28px 0 32px;border-top:1px solid var(--line);font-size:15px;color:var(--tx-3)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .wrap>span:last-child{flex-wrap:wrap}
 footer a{color:var(--tx-2)}
 
 /* sticky mobile CTA */
@@ -253,6 +255,27 @@ footer a{color:var(--tx-2)}
 .typing{align-self:flex-start;font-family:"JetBrains Mono";font-size:13px;color:var(--tx-3)}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.bub{animation:none}}
+
+/* hero v2: route map is the stage, headline is a work order */
+.hero{display:grid;grid-template-columns:1fr;gap:0;padding:20px 0 48px}
+.hero>.hcard{background:var(--tx);color:var(--hz-ink);position:relative;z-index:4}
+.hcard .stamp{display:flex;justify-content:space-between;gap:10px;background:var(--hz);padding:10px 18px;font-family:"JetBrains Mono";font-size:13px;font-weight:700}
+.hcard .stamp b{border:2px solid var(--hz-ink);padding:0 6px;transform:rotate(-3deg);display:inline-block}
+.hcard .in{padding:22px 18px 24px}
+.hero .hcard h1{font-family:"Barlow Condensed";text-transform:none;font-weight:800;font-size:clamp(40px,5vw,58px);line-height:1;letter-spacing:-.005em}
+.hero .hcard .lead{color:#3A372E;margin-top:14px;font-size:18px}
+.hero .hcard .lead b{color:var(--hz-ink)}
+.hcard .cta-row{margin-top:22px}
+.hcard .btn{background:var(--hz-ink);color:var(--hz)}.hcard .btn .ar{background:var(--hz);color:var(--hz-ink)}
+.hcard .link{color:#3A372E;text-decoration-color:#9A9585}
+.map{background-color:var(--bk-2);background-image:linear-gradient(#26241F 10px,transparent 10px),linear-gradient(90deg,#26241F 10px,transparent 10px);background-size:120px 90px}
+@media(min-width:980px){
+ .hero{grid-template-columns:repeat(12,1fr);padding:24px 0 64px}
+ .hero>.hcard{grid-column:1/7;grid-row:1;align-self:center;margin-left:28px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+ .hero>.map{grid-column:1/13;grid-row:1;aspect-ratio:auto;min-height:600px}
+ .hero>.map svg{left:auto;width:47%}
+}
+@media(max-width:979px){.hero>.hcard{margin-bottom:16px}}
 /* reveal */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -273,18 +296,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     </div>
   </nav>
   <div class="hero">
-    <div>
-      <h1 class="cd"><span>Cada llamada que no coges</span><span class="hz">la coge otro taller.</span></h1>
+    <div class="hcard"><div class="stamp"><span>PARTE 0417 · 21:44 · Llamada</span><b>NUEVO</b></div><div class="in">
+      <h1>La llamada que no coges la coge otro taller. Esta, no.</h1>
       <p class="lead">Mientras estás en un trabajo, Tecnicall contesta con el nombre de tu empresa <b>y te guarda el cliente con hora y técnico.</b></p>
       <div class="cta-row">
         <a class="btn" href="#probar">Oír mi demo <span class="ar" aria-hidden="true">→</span></a>
         <a class="link" href="#como">Cómo funciona</a>
-      </div>
+      </div></div>
     </div>
 
     <div class="map" role="img" aria-label="Mapa de ruta de una furgoneta en Barcelona con un aviso nuevo agendado a las 9:30 en Gràcia">
       <div class="hdr"><span><b>RUTA · MARC</b> · martes</span><span>4 avisos · 0 perdidos</span></div>
-      <svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <g stroke="#26241F" stroke-width="10" fill="none">
           <path d="M0 80 H500 M0 150 H500 M0 250 H500 M0 330 H500 M0 400 H500"/>
           <path d="M40 0 V460 M110 0 V460 M160 0 V460 M330 0 V460 M440 0 V460"/>
@@ -319,10 +342,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 <div class="tape" aria-hidden="true"></div>
 <div class="cond" aria-label="Condiciones del piloto">
   <div class="wrap">
-    <div><b>30 días gratis</b><span>Sin tarjeta. Al día 30 decides.</span></div>
-    <div><b>Tu mismo número</b><span>Desvías las llamadas que no coges.</span></div>
-    <div><b>Lo montamos nosotros</b><span>Servicios, zonas y precio de salida.</span></div>
-    <div><b>Castellano y catalán</b><span>Contesta en el idioma del cliente.</span></div>
+    <div><b>Tu número no cambia</b><span>Solo salta cuando no lo coges en 15 s.</span></div>
+    <div><b>Tus precios, nada más</b><span>Da el desplazamiento. Nunca presupuesta.</span></div>
+    <div><b>Urgencias a tu móvil</b><span>Fuga o puerta cerrada: te llama a ti.</span></div>
+    <div><b>30 días de prueba</b><span>Montado en el taller, sin tarjeta.</span></div>
   </div>
 </div>
 
@@ -416,7 +439,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
         </div>
       </div>
     </div>
-    <p class="caption">Ejemplo de agenda con datos de muestra.</p>
+    <p class="caption">Ejemplo de agenda con datos de muestra. <a class="link" href="app.html">Prueba el panel del dueño →</a></p>
   </div>
 </section>
 
@@ -430,12 +453,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
       <div class="pr"><h3>Empresa</h3><p class="who"><b>7 a 15 técnicos.</b> Hasta 1.000 llamadas, varias líneas y horarios, informe semanal.</p><p class="p">199 €<small>/mes</small></p></div>
     </div>
     <p class="note">Sin IVA. Precios de lanzamiento: pueden cambiar antes de abrir al público. Si pasas del límite de llamadas no cortamos la línea; te avisamos.</p>
+    <p style="margin-top:14px"><a class="link" href="precios.html">Calcula cuánto te cuestan las llamadas que no coges →</a></p>
   </div>
 </section>
 
 <section id="preguntas">
   <div class="wrap">
-    <h2 class="rv">Lo que pregunta <span class="hz">un técnico.</span></h2>
+    <h2 class="rv">Antes de <span class="hz">darle tu número.</span></h2>
     <div class="faq">
       <div>
         <details><summary>¿Suena a robot?</summary><p>Habla con frases cortas y sin menús de “pulse 1”. Antes de activar nada, te montamos la demo con el nombre de tu empresa y la escuchas tú. Si no te convence, no la ponemos.</p></details>
@@ -458,8 +482,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     <div class="founder rv">
       <div class="av" aria-hidden="true">J</div>
       <div>
-        <p>Soy Joaquín y construyo Tecnicall en Barcelona. Todavía no tenemos clientes. Busco los primeros diez talleres para montar el piloto con ellos.</p>
-        <p>Si te apuntas, te llamo yo, configuro el asistente con tus servicios y lo escuchas antes de decidir. Si no te ahorra trabajo, no te lo cobro.</p>
+        <p>El montaje lo hago yo en tu taller, en media hora: zonas, marcas que no tocas y precio de salida. Todavía no hay clientes; busco los diez primeros talleres de Barcelona.</p>
+        <p>Antes de activarlo, llamas tú al número de prueba desde la furgoneta. Si no te suena a tu empresa, no se pone.</p>
         <cite>Joaquín · fundador</cite>
       </div>
     </div>
@@ -498,7 +522,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 <footer>
   <div class="wrap">
     <span>Tecnicall · Barcelona · 2026</span>
-    <span style="display:flex;gap:18px"><a href="#probar">Oír mi demo</a><a href="plan.html">Plan</a></span>
+    <span style="display:flex;gap:18px"><a href="#probar">Oír mi demo</a><a href="plan.html">Plan</a><a href="precios.html">Precios</a><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="blog/desviar-llamadas-no-contestadas.html">Guía: desviar llamadas</a><a href="en.html" hreflang="en">English</a></span>
   </div>
 </footer>
 

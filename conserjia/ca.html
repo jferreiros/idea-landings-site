@@ -29,7 +29,7 @@
 {"@context":"https://schema.org","@graph":[
  {"@type":"Organization","@id":"https://conserjia.vercel.app/#org","name":"Conserjia","url":"https://conserjia.vercel.app/","logo":"https://conserjia.vercel.app/og.png","founder":{"@type":"Person","name":"Joaquín"},"areaServed":"Barcelona"},
  {"@type":"Service","name":"Conserjia","serviceType":"Gestión de incidencias de comunidades de propietarios con IA","provider":{"@id":"https://conserjia.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"audience":{"@type":"BusinessAudience","audienceType":"Despachos de administración de fincas"},"availableLanguage":["es","ca"],
-  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por comunidad","price":"12","priceCurrency":"EUR","description":"Por comunidad y mes, sin IVA, precio en validación"}]}
+  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por avería cerrada","price":"4","priceCurrency":"EUR","description":"Por avería cerrada, mínimo 49 € al mes por despacho, sin IVA, precio en validación"}]}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,6 +227,13 @@ h2{font-size:clamp(2rem,4.2vw,3rem);max-width:18em}
 .plan li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--brass);border-bottom:2px solid var(--brass);transform:rotate(-45deg)}
 .note{margin-top:20px;font-size:.9rem;color:var(--txt-3)}
 
+.floor .u.lit::after{background:rgba(230,188,92,.22);border-color:rgba(230,188,92,.55)}
+.floor .u .who{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;background:var(--txt);color:var(--navy);font:600 .62rem "IBM Plex Mono",monospace;padding:2px 6px;border-radius:3px;white-space:nowrap}
+.fnote{border:1.5px dashed var(--txt-3);border-radius:4px;padding:26px 28px;max-width:760px;background:var(--navy-2)}
+.fnote .hd{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--rule);padding-bottom:10px;margin-bottom:16px;font:600 .8rem "IBM Plex Mono",monospace;color:var(--brass);text-transform:uppercase;letter-spacing:.05em}
+.fnote blockquote{font-family:"DM Serif Display",serif;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.25}
+.fnote p{color:var(--txt-2);margin-top:14px}
+.fnote .sig{font:600 .85rem "IBM Plex Mono",monospace;color:var(--txt);margin-top:18px}
 /* founder */
 .founder{display:grid;gap:24px;grid-template-columns:1fr}
 @media(min-width:860px){.founder{grid-template-columns:auto 1fr;gap:40px}}
@@ -301,11 +308,11 @@ footer a{color:var(--txt-2)}
   <figure class="bldg" aria-label="Secció d'un edifici del C/ Provença 214 amb una incidència oberta al garatge, planta -1">
     <div class="sign" aria-hidden="true"><small>Eixample</small><b>C/ de Provença, 214</b></div>
     <div class="facade">
-      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">3r</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">2n</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">1r</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
-      <div class="floor"><span class="lv">BJ</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u lit"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">3r</span><span class="u lit"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">2n</span><span class="u lit"><span class="who">2n 1a · Marta</span></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">1r</span><span class="u"></span><span class="u"></span><span class="u lit"></span></div>
+      <div class="floor"><span class="lv">BJ</span><span class="u lit"></span><span class="u"></span><span class="u"></span></div>
       <div class="floor gar"><span class="lv">-1</span><span class="u"></span><span class="u"><span class="hit"></span></span><span class="u"></span></div>
     </div>
     <div class="ground"></div>
@@ -377,6 +384,7 @@ footer a{color:var(--txt-2)}
 <section>
   <div class="wrap">
     <h2 class="rv">El teu despatx veu una fitxa, no quaranta missatges</h2>
+    <p class="sub rv"><a href="app.html">Obre el prototip del tauler</a> amb dades d'exemple (en castellà) i aprova una despesa tu mateix.</p>
     <div class="board rv" aria-label="Exemple de fitxa d'incidència al tauler de Conserjia">
       <div class="bar"><b>Nº 0417 · C/ Provença 214</b><span class="chip">Urgent</span></div>
       <div class="bgrid">
@@ -440,11 +448,11 @@ footer a{color:var(--txt-2)}
 
 <section id="precio">
   <div class="wrap">
-    <h2 class="rv">Pagues per comunitat, no per usuari</h2>
+    <h2 class="rv">Cobrem quan l'avaria queda tancada</h2>
     <p class="sub rv">Estem validant el preu amb els primers despatxos. Aquest és el punt de partida, sense IVA.</p>
     <div class="plans">
       <div class="plan hl rv"><h3>Pilot</h3><div class="price">0 € <small>durant 30 dies</small></div><ul><li>2 comunitats que tries tu</li><li>Donem d'alta els teus industrials</li><li>Cartell amb QR per al portal</li><li>Informe de resultats el dia 30</li></ul><a class="btn" href="#probar" style="margin-top:auto">Demanar pilot <span class="ar" aria-hidden="true">&rarr;</span></a></div>
-      <div class="plan rv"><h3>Després del pilot</h3><div class="price">12 € <small>per comunitat i mes</small></div><ul><li>Incidències il·limitades</li><li>Historial i informe mensual per a la junta</li><li>Sense alta ni llicències a part</li><li>Sense permanència</li><li>A partir de 60 comunitats, preu per tram</li></ul></div>
+      <div class="plan rv"><h3>Després del pilot</h3><div class="price">4 € <small>per avaria tancada</small></div><ul><li>Mínim 49 € al mes per despatx</li><li>Totes les teves comunitats, sense cost per comunitat</li><li>Urgències fora d'horari incloses</li><li>Privatius i dubtosos sense moure industrial: gratis</li><li>Sense alta i sense permanència</li></ul></div>
     </div>
     <p class="note">Si el dia 30 no vols continuar, desactivem el número i esborrem les dades del pilot.</p>
   </div>
@@ -452,19 +460,18 @@ footer a{color:var(--txt-2)}
 
 <section>
   <div class="wrap">
-    <div class="founder rv">
-      <span class="plate" aria-hidden="true">J</span>
-      <div>
-        <blockquote>"Busco cinc despatxos de Barcelona que vulguin construir això amb mi."</blockquote>
-        <p>Sóc en Joaquín, visc a Barcelona i construeixo programari amb IA. Conserjia és en pilot: encara no hi ha clients per ensenyar-te i no me'ls inventaré. El primer mes reviso jo cada missatge de l'agent abans que surti, i em tens al telèfon. Si en 30 dies no t'estalvia trucades, l'apaguem i no pagues res.</p>
-      </div>
+    <div class="fnote rv">
+      <div class="hd"><span>Nota del fundador</span><span>Núm. 0001</span></div>
+      <blockquote>"El primer mes llegeixo jo cada missatge que Conserjia envia als teus veïns abans que surti."</blockquote>
+      <p>Construeixo Conserjia a Barcelona. Encara no hi ha clients per ensenyar-te i no me'ls invento. Si en 30 dies no et treu trucades, l'apago i no pagues.</p>
+      <p class="sig">Joaquín Ferreiros</p>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap">
-    <h2 class="rv">El que pregunten els administradors</h2>
+    <h2 class="rv">Abans de penjar el cartell al portal</h2>
     <div class="faq">
     <details><summary>Això substitueix el meu equip?</summary><p>No. Treu els encàrrecs: preguntar l'adreça, trucar al lampista, perseguir la cita, avisar el veí. El teu equip decideix els casos dubtosos i aprova les despeses.</p></details>
     <details><summary>I si l'industrial no contesta?</summary><p>Conserjia li recorda l'avís. Si continua sense contestar en el termini que fixis, passa al següent de la teva llista o t'avisa a tu.</p></details>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Qué dicen el RGPD y la LSSI sobre escribir por WhatsApp a pacientes de una clínica dental: recordatorios asistenciales, mensajes comerciales y contrato de encargado.">
+<link rel="canonical" href="https://revisita.vercel.app/blog/whatsapp-pacientes-rgpd.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="¿Puedo escribir por WhatsApp a mis pacientes? RGPD y LSSI">
+<meta property="og:description" content="Qué dicen el RGPD y la LSSI sobre escribir por WhatsApp a pacientes de una clínica dental: recordatorios asistenciales, mensajes comerciales y contrato de encargado.">
+<meta property="og:image" content="https://revisita.vercel.app/og.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "¿Puedo escribir por WhatsApp a mis pacientes? RGPD y LSSI", "description": "Qué dicen el RGPD y la LSSI sobre escribir por WhatsApp a pacientes de una clínica dental: recordatorios asistenciales, mensajes comerciales y contrato de encargado.", "author": {"@type": "Person", "name": "Joaquín Ferreiros"}, "publisher": {"@type": "Organization", "name": "Revisita", "url": "https://revisita.vercel.app/"}, "datePublished": "2026-09-26", "inLanguage": "es-ES", "mainEntityOfPage": "https://revisita.vercel.app/blog/whatsapp-pacientes-rgpd.html"}</script>
+<title>¿Puedo escribir por WhatsApp a mis pacientes? RGPD y LSSI | Revisita</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23137A6E' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23137A6E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#fff;--mint:#EEF8F4;--mint-2:#D6EFE5;--teal:#0A4A44;--teal-2:#137A6E;--ink:#0D1B1A;--ink-2:#4B5B59;--ink-3:#5E6D6B;--line:#DDE7E3}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"Geist",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 28px;border-bottom:1px solid var(--line)}
+.logo{font-weight:700;letter-spacing:-.03em;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.label{font-family:"Geist Mono",monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:12px}
+h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin:22px 0 12px}
+h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+h3{font-size:1.05rem;font-weight:600;margin:22px 0 8px}
+p{margin-bottom:12px;color:var(--ink-2)}
+ol,ul{margin:0 0 14px 22px}
+li{margin-bottom:6px}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink);min-height:36px;display:inline-flex;align-items:center}
+.msg{background:var(--mint);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:10px 0 16px;white-space:pre-wrap;font-size:.95rem;color:var(--ink)}
+.msg b{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:6px;font-weight:500}
+.warn{border-left:2px solid var(--teal-2);padding:10px 16px;background:var(--mint);margin:14px 0;font-size:.94rem}
+.obj{border-top:1px solid var(--ink)}
+.obj div{padding:16px 0;border-bottom:1px solid var(--line)}
+.obj b{display:block;margin-bottom:4px}
+.obj span{color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Geist Mono",monospace;font-weight:500;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-2);background:var(--mint)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;margin:10px 0 16px}
+code{font-family:"Geist Mono",monospace;font-size:.86em;background:var(--mint);padding:1px 5px;border-radius:4px;word-break:break-word}
+footer{padding:28px 0;font-size:.88rem;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+article p{color:var(--ink);font-size:1.05rem;line-height:1.7;margin-bottom:16px;max-width:40em}
+article h2{margin-top:36px}
+article ul,article ol{max-width:40em}
+article li{color:var(--ink)}
+.meta{font-family:"Geist Mono",monospace;font-size:.78rem;color:var(--ink-3)}
+.ctabox{margin:40px 0 20px;background:var(--teal);color:#E6F4F0;border-radius:12px;padding:24px}
+.ctabox b{display:block;color:#fff;font-size:1.25rem;margin-bottom:6px}
+.ctabox p{color:#D5ECE6 !important;margin-bottom:14px}
+.ctabox a{display:inline-flex;align-items:center;min-height:48px;background:#fff;color:#0A4A44;font-weight:600;text-decoration:none;padding:12px 18px;border-radius:8px}
+.post{padding:20px 0;border-bottom:1px solid var(--line)}
+.post a{font-size:1.2rem;font-weight:600;text-decoration:none;color:var(--ink)}
+.post a:hover{color:var(--teal-2)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="../index.html">Revisita</a>
+    <h1>¿Puedo escribir por WhatsApp a mis pacientes? RGPD y LSSI</h1>
+    <p class="meta">Joaquín Ferreiros · 26 de septiembre de 2026</p>
+  </div>
+</header>
+<main class="wrap">
+<article>
+
+<p>Es la pregunta que hace casi cualquier gerente antes de mandar un recordatorio: ¿puedo escribir por WhatsApp a mis pacientes sin meterme en un problema? La respuesta corta es que depende de qué envías y de cómo lo tratas. Este artículo resume las reglas generales. No sustituye el consejo de un abogado especialista en protección de datos, y te recomendamos pedirlo antes de lanzar cualquier envío a escala.</p>
+
+<h2>Dos leyes distintas</h2>
+<p>Cuando una clínica escribe a sus pacientes entran en juego dos normas:</p>
+<ul>
+<li><b>El RGPD</b> (Reglamento UE 2016/679) y la LOPDGDD (Ley Orgánica 3/2018) regulan cómo tratas los datos personales. Los datos de salud son una categoría especial (artículo 9 del RGPD).</li>
+<li><b>La LSSI</b> (Ley 34/2002) regula las comunicaciones comerciales por medios electrónicos. Su artículo 21 prohíbe enviar publicidad por email u otro medio equivalente sin que el destinatario lo haya pedido o autorizado antes, con una excepción para clientes con relación previa y productos similares.</li>
+</ul>
+<p>La clave está en separar dos tipos de mensaje.</p>
+
+<h2>Mensaje asistencial: el recordatorio de revisión</h2>
+<p>Recordar a un paciente que le toca la revisión, que tiene pendiente la segunda fase de un tratamiento o confirmarle una cita forma parte de su atención sanitaria. El RGPD permite tratar datos de salud cuando es necesario para la asistencia sanitaria (artículo 9.2.h), bajo la responsabilidad de profesionales sujetos a secreto.</p>
+<p>Este tipo de mensaje no es publicidad: no ofrece un producto nuevo, sigue un tratamiento que el paciente ya tiene. Aun así, conviene que:</p>
+<ul>
+<li>El paciente sepa, por la información que le diste al darle de alta, que la clínica puede contactarle para su seguimiento.</li>
+<li>El mensaje incluya lo mínimo: nombre, motivo general y huecos. Nada de diagnósticos detallados en el chat.</li>
+<li>El paciente pueda pedir que no le escribáis más, y que lo respetéis en todos los envíos.</li>
+</ul>
+
+<h2>Mensaje comercial: la oferta</h2>
+<p>Una promoción de blanqueamiento, un descuento en ortodoncia o una campaña de un tratamiento que el paciente no tiene es una comunicación comercial. Ahí se aplica la LSSI: necesitas su consentimiento previo y expreso, salvo que encaje en la excepción de cliente con relación previa y producto similar, y en cada mensaje debes ofrecer una forma sencilla de darse de baja. Si tienes dudas sobre si un mensaje es asistencial o comercial, trátalo como comercial.</p>
+
+<h2>WhatsApp: el canal también cuenta</h2>
+<p>Usar el móvil personal de recepción para escribir a pacientes plantea problemas: los datos quedan en un teléfono sin control y no hay registro de lo que se envió. Para enviar mensajes a varios pacientes, la opción adecuada es la API oficial de WhatsApp Business, con plantillas que Meta revisa antes de aprobarlas.</p>
+<p>Meta clasifica las plantillas en categorías (por ejemplo, de utilidad o de marketing) con precios distintos. Un recordatorio de revisión puede acabar clasificado como marketing según cómo esté redactado. Revisa la clasificación antes de enviar.</p>
+
+<h2>Si usas un proveedor externo</h2>
+<p>Cuando una empresa externa envía los mensajes por ti, trata los datos de tus pacientes por encargo de la clínica. El artículo 28 del RGPD exige firmar un contrato de encargado del tratamiento antes de darle acceso a ningún dato. Ese contrato debe decir, como mínimo:</p>
+<ul>
+<li>Qué datos trata y para qué, siguiendo tus instrucciones.</li>
+<li>Qué medidas de seguridad aplica.</li>
+<li>Qué subencargados usa (alojamiento, proveedor de WhatsApp, modelo de lenguaje) y dónde están.</li>
+<li>Qué pasa con los datos al terminar: devolución o borrado.</li>
+</ul>
+<p>Pregunta también dónde se alojan los datos. Si salen de la Unión Europea, hacen falta garantías adicionales.</p>
+
+<h2>Buenas prácticas</h2>
+<ol>
+<li>Separa por escrito qué mensajes son asistenciales y cuáles comerciales.</li>
+<li>Envía solo los datos necesarios: nombre, teléfono, fechas y tipo de tratamiento. Nunca la historia clínica.</li>
+<li>Incluye en cada mensaje quién escribe y cómo dejar de recibir mensajes.</li>
+<li>Aplica las bajas al momento y en todas las listas.</li>
+<li>Registra qué se envió, a quién y cuándo.</li>
+<li>Haz revisar las plantillas y la base legal por un abogado antes del primer envío a escala.</li>
+</ol>
+
+<h2>Preguntas frecuentes</h2>
+<p><b>¿Necesito pedir un consentimiento nuevo a todos mis pacientes para recordarles la revisión?</b> Para mensajes asistenciales, en general la base es la propia asistencia sanitaria, no el consentimiento. Pero la información que diste al paciente debe cubrir ese contacto. Revisa tus cláusulas con tu asesor.</p>
+<p><b>¿Puedo usar el WhatsApp personal de la doctora?</b> No es buena idea. Los datos quedan fuera del control de la clínica y no hay registro. Usa un número de la clínica con la API oficial.</p>
+<p><b>¿Qué pasa si un paciente responde con un síntoma?</b> La conversación debe pasar a una persona de la clínica en ese momento. Un sistema automático no debe dar consejo clínico.</p>
+<p><b>¿Tengo que hacer una evaluación de impacto?</b> Si tratas datos de salud a gran escala, el RGPD puede exigirla (artículo 35). Tu proveedor debería ayudarte con la documentación.</p>
+<h2>Cómo lo hace Revisita</h2>
+<p>Revisita solo envía mensajes asistenciales: revisiones atrasadas, tratamientos pendientes y huecos por cancelación. No envía promociones. Firmamos el contrato de encargado antes de ver un solo dato, alojamos los datos en la UE, no guardamos historias clínicas y cada mensaje permite darse de baja respondiendo «baja». Las plantillas las aprueba la clínica antes de cada envío.</p>
+<p>Si quieres ver cómo sería con tus pacientes, la auditoría gratuita empieza con una exportación sin teléfonos.</p>
+
+<div class="ctabox"><b>¿Cuántos euros tienes dormidos en tu ficha?</b><p>Con la exportación de tu programa de gestión contamos pacientes con revisión atrasada y presupuestos abiertos, y lo pasamos a euros. Gratis y sin compromiso.</p><a href="../index.html#probar">Pedir auditoría gratis</a></div>
+</article>
+</main>
+<footer class="wrap"><span>Revisita · Barcelona, 2026</span><span><a href="../index.html">Inicio</a> · <a href="index.html">Blog</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></span></footer>
+</body>
+</html>

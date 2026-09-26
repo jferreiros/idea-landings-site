@@ -82,7 +82,7 @@ nav .btn{min-height:44px;padding:0 16px;font-size:.92rem;box-shadow:3px 3px 0 va
 .hero .grid{display:grid;gap:44px;align-items:center}
 @media(min-width:960px){.hero .grid{grid-template-columns:1.15fr .85fr}}
 .hero h1{font-size:clamp(3.4rem,9.5vw,7.4rem);line-height:1}
-.hero h1 span{background:linear-gradient(transparent 14%,var(--pop) 14%,var(--pop) 90%,transparent 90%);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 span{display:inline-block;background:var(--pop);color:var(--ink);padding:.02em .14em .1em;margin:.04em 0;transform:rotate(-2.5deg);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);clip-path:polygon(0 4%,6% 0,14% 5%,22% 0,31% 4%,40% 0,49% 5%,58% 0,67% 4%,76% 0,85% 5%,93% 0,100% 4%,100% 96%,94% 100%,86% 95%,77% 100%,68% 96%,59% 100%,50% 95%,41% 100%,32% 96%,23% 100%,14% 95%,6% 100%,0 96%)}
 .hero .lead{font-size:1.2rem;max-width:30em;margin:24px 0 30px;font-weight:500}
 .ctas{display:flex;flex-wrap:wrap;gap:14px}
 .strip{position:relative;display:flex;gap:14px;justify-content:center;padding:26px 14px;background:var(--ink);transform:rotate(2deg);max-width:520px;margin:0 auto;width:100%}
@@ -387,14 +387,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap grid">
     <div class="letter rv">
       <span class="sticker k">Quién está detrás</span>
-      <p style="margin-top:20px">Soy Joaquín y vivo en Barcelona. Cada semana veo bares buenísimos medio vacíos un martes, con cuentas de Instagram abandonadas.</p>
-      <p>Empiezo con pocos barrios y pocos locales, y paso yo mismo por el tuyo. Aún no tengo clientes que enseñarte. Por eso el primer mes es gratis: juzga los reels, no mis promesas.</p>
+      <p style="margin-top:20px">Soy Joaquín, de Barcelona. Cada semana me cruzo con una barra buenísima que nadie graba: tortilla de concurso, sala medio vacía un martes, Instagram parado en 2023.</p>
+      <p>Barrio Reel empieza a pie de calle: pocos barrios, pocos locales, y me paso yo por el tuyo. Aún no tengo clientes que enseñarte, así que el primer mes va gratis. Que hablen los reels.</p>
       <div class="sig"><i aria-hidden="true">J</i><div>Joaquín<small>Fundador, Barcelona</small></div></div>
     </div>
     <div class="facts rv">
-      <div><b>Publicidad marcada</b><span>Cada reel lleva la etiqueta de colaboración o #publi, como exige la normativa española.</span></div>
-      <div><b>Sin reseñas falsas</b><span>No pedimos valoraciones en Google ni opiniones pactadas. El creador cuenta su visita real.</span></div>
-      <div><b>RGPD y servidores en la UE</b><span>Guardamos lo mínimo para organizar visitas. Pides que lo borremos y lo borramos.</span></div>
+      <div><b>#publi, sin disimular</b><span>Cada reel lleva la etiqueta de colaboración o #publi, como exige la normativa española.</span></div>
+      <div><b>Cero reseñas compradas</b><span>No pedimos valoraciones en Google ni opiniones pactadas. El creador cuenta su visita real.</span></div>
+      <div><b>Tus datos no salen de la UE</b><span>Guardamos lo mínimo para organizar visitas. Pides que lo borremos y lo borramos.</span></div>
     </div>
   </div>
 </section>
@@ -405,13 +405,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <h2>¿Creas contenido de comida?</h2>
       <p>Buscamos microcreadores en Barcelona desde unos 2.000 seguidores y con público local. Te proponemos sitios cerca de ti, eliges el día, comes y cobras una tarifa por reel publicado.</p>
     </div>
-    <div class="rv"><a class="btn inv" href="#probar" data-role="creador">Apuntarme como creador</a></div>
+    <div class="rv"><a class="btn inv" href="creadores.html">Apuntarme como creador</a></div>
   </div>
 </section>
 
 <section>
   <div class="wrap faq">
-    <h2 class="rv">Antes de decir que sí.</h2>
+    <h2 class="rv">Dudas de barra.</h2>
     <details><summary>Hay apps gratis. ¿Por qué pagar?</summary><p>Esas apps te dan acceso a creadores, pero el trabajo sigue siendo tuyo: filtrar, chatear, agendar y comprobar. Aquí pagas para no gestionar nada, y respondemos si alguien falla.</p></details>
     <details><summary>¿Y si los reels no me traen clientes?</summary><p>No te prometemos mesas llenas. Te garantizamos 4 reels publicados de creadores con público en Barcelona y un informe con el alcance real. Por eso el piloto es gratis.</p></details>
     <details><summary>¿Tengo que invitar a comer?</summary><p>Sí, a una persona por visita. Tú decides el menú o el límite de gasto. Nosotros pagamos la tarifa del creador.</p></details>
@@ -447,7 +447,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <div class="sticky off" id="sticky"><a class="btn" href="#probar">Pedir piloto gratis</a></div>
 
 <footer>
-  <div class="wrap"><span><strong>Barrio Reel</strong>, Barcelona. © 2026</span><span><a href="en.html" hreflang="en">English</a> &nbsp; <a href="aviso-legal.html">Aviso legal</a> &nbsp; <a href="privacidad.html">Privacidad</a> &nbsp; <a href="cookies.html">Cookies</a> &nbsp; <a href="plan.html">Plan</a></span></div>
+  <div class="wrap"><span><strong>Barrio Reel</strong>, Barcelona. © 2026</span><span><a href="blog/index.html">Blog</a> &nbsp; <a href="en.html" hreflang="en">English</a> &nbsp; <a href="aviso-legal.html">Aviso legal</a> &nbsp; <a href="privacidad.html">Privacidad</a> &nbsp; <a href="cookies.html">Cookies</a> &nbsp; <a href="plan.html">Plan</a></span></div>
 </footer>
 
 <script>

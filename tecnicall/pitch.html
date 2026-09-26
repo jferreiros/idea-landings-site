@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnicall | Pitch</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{line-height:1!important;margin-bottom:18px!important}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="index.html">Tecni<span>call</span></a>
+  <h1>Tecnicall en una página</h1>
+  <p>Para socios, aceleradoras o un inversor ángel. Las cifras de mercado llevan su fuente; las que faltan están marcadas para verificar.</p>
+  <nav class="toc"><a href="plan.html">Plan</a><a href="pitch.html">Pitch</a><a href="onboarding.html">Onboarding</a><a href="outreach.html">Kit de contacto</a><a href="precios.html">Precios</a></nav>
+</header>
+<main class="wrap">
+
+<section style="border-top:0"><h2>Problema</h2><p>Los talleres de reparación de 1 a 15 técnicos no tienen quien coja el teléfono. El dueño está en un trabajo, el cliente llama al siguiente de Google Maps, y los avisos se apuntan en una libreta de noche. Se pierden trabajos, rutas y reseñas.</p></section>
+<section><h2>Solución</h2><p>Un asistente de voz y WhatsApp que contesta con el nombre del taller, recoge marca, modelo y foto, agenda con el técnico de la zona y, al acabar, envía el enlace de pago y la petición de reseña. Encima de lo que el taller ya usa: su número, su WhatsApp y su Google Calendar.</p></section>
+<section><h2>Por qué ahora</h2><ul>
+<li>La voz con IA en castellano y catalán ya suena natural y cuesta céntimos por minuto.</li>
+<li>La ley europea de IA fija desde agosto de 2026 cómo debe presentarse un asistente, y da un marco claro para venderlo.</li>
+<li>Los competidores españoles venden software de gestión con IA de texto; la voz aún no está disponible en el líder local (FIXARR anuncia “Sara” sin fecha).</li>
+</ul></section>
+<section><h2>Mercado en España</h2>
+<div class="tbl"><table>
+<tr><th>Dato</th><th>Valor</th><th>Fuente</th></tr>
+<tr><td>Empresas de reparación de aparatos domésticos (CNAE 95.22)</td><td>[a verificar]</td><td>INE, Directorio Central de Empresas (DIRCE)</td></tr>
+<tr><td>Empresas de fontanería, calefacción y aire acondicionado (CNAE 43.22)</td><td>[a verificar]</td><td>INE, DIRCE</td></tr>
+<tr><td>Parte de esas empresas con 1 a 19 asalariados</td><td>[a verificar]</td><td>INE, DIRCE por estrato de asalariados</td></tr>
+</table></div>
+<p>Cálculo de tamaño: empresas objetivo × 129 € × 12. Se rellena con los datos del INE antes de enseñar esta página a nadie. No usamos cifras de informes de pago sin leerlos.</p></section>
+<section><h2>Modelo de negocio</h2><p>Suscripción mensual: 79, 129 o 199 € según técnicos y llamadas. Coste variable estimado del plan Taller ≈ 84 €/mes con voz de terceros (margen ≈ 35 %), objetivo 65 a 70 % con stack de voz propio a partir de 20 clientes. Venta sin anuncios: demo con el nombre del taller, piloto de 30 días, cobro desde el mes 2.</p></section>
+<section><h2>Plan de 90 días</h2><ul><li>Día 30: 6 pilotos en Barcelona.</li><li>Día 60: 10 clientes de pago (≈ 1.100 € MRR).</li><li>Día 90: 20 clientes (≈ 2.300 € MRR), churn mensual bajo el 10 %.</li></ul><p>Criterios para parar: ver el <a href="plan.html#riesgo">plan</a>.</p></section>
+<section><h2>Lo que pedimos</h2><div class="summary"><p><b>No buscamos dinero antes del día 60.</b> Buscamos presentaciones: distribuidores de recambios de electrodomésticos, gremios de instaladores de Barcelona y dueños de talleres dispuestos a probar 30 días. Si el día 90 hay 20 clientes que pagan, hablamos de una ronda pequeña para contratar ventas de campo.</p></div></section>
+
+</main>
+<footer><div class="wrap"><span>Tecnicall · Barcelona</span><span><a href="index.html">Inicio</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></div></footer>
+</body></html>

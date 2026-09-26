@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qué preguntar al cliente antes de ir a reparar un electrodoméstico | Tecnicall</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{line-height:1!important;margin-bottom:18px!important}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+<meta name="description" content="Las preguntas que debe hacer un técnico o su oficina antes de salir a una reparación, para llevar la pieza correcta y cerrar en una visita.">
+<link rel="canonical" href="https://tecnicall.vercel.app/blog/preguntas-antes-de-una-reparacion.html">
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="../index.html">Tecni<span>call</span></a>
+  <h1>Qué preguntar al cliente antes de salir a reparar</h1>
+  <p>Una lista para técnicos de electrodomésticos, calefacción y aire acondicionado. Tiempo de lectura: 4 minutos.</p>
+</header>
+<main class="wrap">
+<section style="border-top:0">
+<p>La visita más cara es la que no sirve para nada. Llegas, abres el aparato, ves que es la bomba de desagüe y no la llevas en la furgoneta. Toca volver otro día, el cliente se impacienta y tú pierdes una hora de ruta.</p>
+<p>Casi siempre se evita con cinco minutos de preguntas en la primera llamada. El problema es que esa llamada la coge quien puede: tú entre trabajo y trabajo, tu pareja o un compañero. Esta lista sirve para que cualquiera tome el aviso igual de bien.</p>
+</section>
+<section>
+<h2>1. El aparato exacto</h2>
+<p>No basta con “una lavadora”. Pide la marca y, si puede, el modelo. El modelo suele estar en una etiqueta: en la puerta de la lavadora, dentro de la nevera o en el lateral de la caldera. Si el cliente no la encuentra, pídele una foto por WhatsApp de la zona donde suele estar.</p>
+</section>
+<section>
+<h2>2. El síntoma, con sus palabras</h2>
+<p>Apunta lo que dice el cliente tal cual: “no centrifuga y pita”, “hace un ruido fuerte al arrancar”, “sale agua por abajo”. Luego pregunta desde cuándo pasa y si ha pasado antes. Un fallo que va y viene apunta a otra cosa que uno que empezó ayer de golpe.</p>
+</section>
+<section>
+<h2>3. El código de error</h2>
+<p>Muchos aparatos modernos muestran un código en la pantalla. Pide que lo lea o que mande una foto. Un código te da una pista de la pieza antes de salir. Si hay foto, mejor: el cliente puede leer una E18 como una F18.</p>
+</section>
+<section>
+<h2>4. Dónde y cómo se entra</h2>
+<ol>
+<li>Dirección completa, con piso y puerta.</li>
+<li>Si hay ascensor y si se puede aparcar cerca.</li>
+<li>Si el aparato está empotrado o se puede mover.</li>
+<li>Quién estará en casa y a qué hora.</li>
+</ol>
+</section>
+<section>
+<h2>5. La urgencia real</h2>
+<p>Pregunta también si hay niños, personas mayores o alguien enfermo en casa: eso sube la prioridad aunque la avería parezca pequeña. Separa lo urgente de lo que puede esperar. Una fuga activa, una nevera llena de comida que no enfría o una persona sin calefacción en enero van primero. Si hay agua saliendo, explica cómo cerrar la llave de paso mientras llegas.</p>
+</section>
+<section>
+<h2>6. El precio de salida</h2>
+<p>Di siempre lo que cuesta el desplazamiento y que la reparación se presupuesta en casa. No des un precio de reparación por teléfono: sin ver el aparato, te equivocarás y el cliente se sentirá engañado. Confirma también cómo prefiere pagar.</p>
+</section>
+<section>
+<h2>Ejemplos por aparato</h2>
+<div class="tbl"><table>
+<tr><th>Aparato</th><th>Pregunta clave</th><th>Por qué</th></tr>
+<tr><td>Lavadora</td><td>¿Sale algún código? ¿Desagua o se queda con agua?</td><td>Separa bomba de desagüe, filtro atascado y placa electrónica.</td></tr>
+<tr><td>Lavavajillas</td><td>¿Queda agua en el fondo al terminar?</td><td>Apunta a desagüe o a la bomba, y cambia la pieza que llevas.</td></tr>
+<tr><td>Nevera</td><td>¿Enfría la parte de abajo y no la de arriba, o al revés?</td><td>Distingue ventilador, sonda o falta de gas.</td></tr>
+<tr><td>Horno y vitro</td><td>¿No enciende nada o solo un fuego o resistencia?</td><td>Separa alimentación general de una pieza concreta.</td></tr>
+<tr><td>Caldera y termo</td><td>¿Qué dice la pantalla? ¿Tiene presión el manómetro?</td><td>Muchos avisos se resuelven al rellenar presión, sin salir.</td></tr>
+<tr><td>Aire acondicionado</td><td>¿Gotea por dentro o no enfría? ¿Qué marca es la máquina de fuera?</td><td>Desagüe atascado frente a carga de gas, que necesita otro material.</td></tr>
+</table></div>
+</section>
+<section>
+<h2>Lo que no conviene preguntar por teléfono</h2>
+<p>Hay preguntas que alargan la llamada y no te ayudan. No pidas al cliente que desmonte nada ni que mire piezas por dentro: puede hacerse daño o empeorar la avería. Tampoco le hagas diagnosticar: “¿cree que es el motor?” solo te da una opinión sin datos. Pide hechos que pueda ver, como la pantalla, la etiqueta o si sale agua.</p>
+</section>
+<section>
+<h2>Cómo guardar el aviso</h2>
+<p>Da igual si usas una libreta, una hoja de cálculo o un programa de gestión. Lo importante es que cada aviso tenga siempre los mismos campos y en el mismo orden: cliente, dirección, aparato, síntoma, código, foto, urgencia y hora acordada. Así el técnico que sale lo lee en diez segundos desde la furgoneta, y nadie tiene que volver a llamar al cliente para preguntar lo mismo.</p>
+<p>Si varias personas cogen el teléfono, acordad una plantilla de mensaje para el grupo de WhatsApp del taller. Un aviso bien escrito se reconoce de un vistazo, y uno a medias se nota enseguida.</p>
+</section>
+<section><p>Si dudas entre contratar a alguien o poner un asistente, lee <a href="recepcionista-o-asistente-para-taller.html">recepcionista, secretaria virtual o asistente</a>.</p></section>
+<section>
+<h2>Cómo usar la lista</h2>
+<p>Imprime la lista y pégala junto al teléfono del taller, o pásala al grupo de WhatsApp de quien coge las llamadas. Si nadie puede coger a ciertas horas, un asistente automático puede hacer estas mismas preguntas, pedir la foto y dejar el aviso en la agenda del técnico de la zona.</p>
+<div class="summary"><p>En Tecnicall buscamos los primeros talleres de Barcelona para un piloto gratis de 30 días. Escucha cómo contestaría tu empresa: <a href="../index.html#probar" style="color:#FFD000">pide tu demo</a>.</p></div>
+</section>
+</main>
+<footer><div class="wrap"><span>Tecnicall · Barcelona</span><span><a href="../index.html">Inicio</a> · <a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></span></div></footer>
+</body></html>

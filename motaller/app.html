@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · Prototipo del panel</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Crect width='40' height='32' rx='9' fill='%23ff5b1f'/%3E%3Ctext x='20' y='22' font-family='monospace' font-weight='800' font-size='16' text-anchor='middle' fill='%231a0d06'%3E07%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,800..900&family=Public+Sans:wght@400;600;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#121315;--surface:#1d1e22;--surface2:#26282d;--line:#2e3036;--text:#eeece6;--muted:#a3a098;--orange:#ff5b1f;--ink:#1a0d06;--green:#8fe0b4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:400 15px/1.45 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font:900 22px "Archivo";font-stretch:70%;text-transform:uppercase}
+.race{display:inline-grid;place-items:center;width:34px;height:28px;border-radius:8px 8px 12px 12px;background:var(--orange);color:var(--ink);font:800 14px "JetBrains Mono"}
+.sample{font:700 11px "JetBrains Mono";text-transform:uppercase;background:#4a3a14;color:#ffd27a;padding:4px 8px;border-radius:6px}
+.toggle{display:flex;align-items:center;gap:10px;font-weight:600;background:none;border:1.5px solid #41444b;color:var(--text);border-radius:10px;padding:8px 12px;min-height:44px;cursor:pointer;font-size:14px}
+.toggle i{width:10px;height:10px;border-radius:50%;background:var(--green)}
+.toggle[aria-pressed="true"] i{background:#ffd27a}
+.app{display:grid;min-height:calc(100dvh - 70px)}
+.inbox{border-right:1px solid var(--line);overflow:auto}
+.inbox button{display:grid;grid-template-columns:1fr auto;gap:2px 10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);color:var(--text);padding:14px 16px;cursor:pointer;font:inherit;min-height:64px}
+.inbox button[aria-current="true"]{background:var(--surface)}
+.inbox small{color:var(--muted);grid-column:1/-1}
+.st{font:700 10.5px "JetBrains Mono";text-transform:uppercase;padding:2px 6px;border-radius:5px;align-self:start}
+.s-h{background:var(--orange);color:var(--ink)}.s-a{background:#1c4a33;color:var(--green)}.s-q{background:#4a3a14;color:#ffd27a}
+.thread{display:flex;flex-direction:column}
+.th-head{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.plate{display:inline-flex;border:2px solid #111;border-radius:5px;overflow:hidden;font:800 13px "JetBrains Mono";background:#f3f2ee;color:#111}
+.plate i{background:#1f4fa8;color:#fff;font-style:normal;font-size:9px;padding:2px 4px;display:flex;align-items:flex-end}.plate span{padding:2px 7px}
+.msgs{flex:1;padding:16px;display:flex;flex-direction:column;gap:8px;overflow:auto;background:#0b141a}
+.m{max-width:80%;padding:8px 11px;border-radius:10px;background:#202c33}
+.m.c{align-self:flex-start}.m.b{align-self:flex-end;background:#005c4b}
+.m small{display:block;font:700 10px "JetBrains Mono";color:#8696a0;text-transform:uppercase;margin-bottom:2px}
+.action{padding:14px 16px;border-top:1px solid var(--line);display:grid;gap:10px;background:var(--surface)}
+.action p{color:var(--muted);font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--orange);color:var(--ink);font:800 15px "Public Sans";border:0;border-radius:10px;padding:12px 16px;min-height:46px;cursor:pointer}
+.btn.g{background:none;color:var(--text);border:1.5px solid #41444b}
+input{font:inherit;color:var(--text);background:var(--bg);border:1.5px solid #41444b;border-radius:10px;padding:10px 12px;min-height:46px;width:120px}
+button:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+@media(min-width:820px){.app{grid-template-columns:340px 1fr}}
+@media(max-width:819px){.inbox{border-right:0;border-bottom:1px solid var(--line);max-height:40dvh}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="logo"><span class="race" aria-hidden="true">07</span>Motaller</span>
+  <span class="sample">Datos de ejemplo · prototipo</span>
+  <button class="toggle" id="pause" aria-pressed="false"><i aria-hidden="true"></i><span>Asistente activo</span></button>
+</div>
+<div class="app">
+  <nav class="inbox" id="inbox" aria-label="Conversaciones"></nav>
+  <main class="thread" id="thread" aria-live="polite"></main>
+</div>
+<script>
+var C=[
+ {id:1,n:'Marc',moto:'Burgman 400',pl:'4821 KLM',st:['q','Presupuesto'],last:'Pastillas delanteras al 10 %',msgs:[['c','La Burgman frena raro. ¿Me la miráis?'],['b','Hola, Marc. Mañana a las 8:30 hay hueco. ¿Te va bien?'],['c','Perfecto']],quote:{t:'Pastillas delanteras + 0,5 h',p:63}},
+ {id:2,n:'Laura',moto:'Vespa GTS 300',pl:'1190 MHD',st:['a','Resuelto'],last:'Te aviso cuando esté lista',msgs:[['c','¿Está ya mi moto?'],['b','Está en el elevador. Te aviso aquí en cuanto esté lista.']]},
+ {id:3,n:'Rider (flota)',moto:'Honda PCX 125',pl:'3345 MFR',st:['h','Te necesita'],last:'Pregunta por garantía de la cubierta',msgs:[['c','Me cambiasteis la cubierta hace 2 semanas y pierde aire. ¿Entra en garantía?'],['b','Eso lo decide el mecánico. Le paso tu mensaje ahora mismo.']],handoff:true}
+];
+var cur=1,paused=false,inbox=document.getElementById('inbox'),th=document.getElementById('thread');
+function esc(t){return String(t).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function renderInbox(){inbox.innerHTML=C.map(function(c){return '<button data-id="'+c.id+'" aria-current="'+(c.id===cur)+'"><b>'+esc(c.n)+'</b><span class="st s-'+c.st[0]+'">'+c.st[1]+'</span><small>'+esc(c.moto)+' · '+esc(c.last)+'</small></button>'}).join('');
+ inbox.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=+b.dataset.id;render()}})}
+function renderThread(){var c=C.filter(function(x){return x.id===cur})[0];
+ var h='<div class="th-head"><b>'+esc(c.n)+'</b><span class="plate"><i>E</i><span>'+c.pl+'</span></span><span style="color:var(--muted)">'+esc(c.moto)+'</span></div><div class="msgs">'+c.msgs.map(function(m){return '<div class="m '+m[0]+'"><small>'+(m[0]==='c'?'Cliente':(paused?'Tú':'Motaller'))+'</small>'+esc(m[1])+'</div>'}).join('')+'</div>';
+ if(c.quote&&!c.sent){h+='<div class="action"><p>Motaller ha preparado el presupuesto con tus fotos. Revisa el importe antes de enviarlo.</p><div class="row"><span style="align-self:center">'+esc(c.quote.t)+'</span><label style="display:flex;gap:8px;align-items:center">Importe (€)<input id="amt" type="number" min="0" value="'+c.quote.p+'" inputmode="numeric"></label><button class="btn" id="send">Aprobar y enviar</button></div></div>'}
+ else if(c.handoff&&!c.taken){h+='<div class="action"><p>Motaller te ha pasado esta conversación: habla de garantía.</p><div class="row"><button class="btn" id="take">Contestar yo</button><button class="btn g" id="back">Devolver al asistente</button></div></div>'}
+ th.innerHTML=h;
+ var s=document.getElementById('send');if(s)s.onclick=function(){var v=Math.max(0,parseFloat(document.getElementById('amt').value)||0);c.sent=true;c.msgs.push(['b','Presupuesto: '+c.quote.t+'. Total '+v+' € IVA incl. ¿Lo apruebas?']);c.st=['q','Enviado'];c.last='Presupuesto enviado: '+v+' €';render();setTimeout(function(){c.msgs.push(['c','Sí, adelante']);c.st=['a','Aprobado'];c.last='Aprobado por '+c.n;render()},1200)};
+ var t=document.getElementById('take');if(t)t.onclick=function(){c.taken=true;c.st=['a','Contigo'];c.msgs.push(['b','Hola, soy el mecánico. Pásate hoy y la miro sin coste.']);c.last='Contestado por ti';render()};
+ var b=document.getElementById('back');if(b)b.onclick=function(){c.taken=true;c.st=['a','Asistente'];c.msgs.push(['b','El mecánico lo mirará. ¿Puedes pasar hoy antes de las 19:00?']);render()};
+ var m=th.querySelector('.msgs');m.scrollTop=m.scrollHeight}
+function render(){renderInbox();renderThread()}
+document.getElementById('pause').onclick=function(){paused=!paused;this.setAttribute('aria-pressed',paused);this.querySelector('span').textContent=paused?'Asistente en pausa: contestas tú':'Asistente activo';render()};
+render();
+</script>
+</body>
+</html>

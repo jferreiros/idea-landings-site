@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnicall | Aviso legal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{line-height:1!important;margin-bottom:18px!important}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="index.html">Tecni<span>call</span></a>
+  <h1>Aviso legal</h1>
+  <p>Información exigida por el artículo 10 de la Ley 34/2002 (LSSI).</p>
+</header>
+<main class="wrap">
+
+<section style="border-top:0"><h2>Titular</h2>
+<ul><li><b>Titular:</b> Joaquín Ferreiros</li><li><b>NIF:</b> [NIF pendiente]</li><li><b>Domicilio:</b> Barcelona, España</li><li><b>Email de contacto:</b> [email de contacto pendiente]</li><li><b>Sitio web:</b> tecnicall.vercel.app</li></ul></section>
+<section><h2>Objeto</h2><p>Esta web presenta Tecnicall, un servicio en fase de validación que atenderá llamadas y WhatsApp de empresas de reparación. Todavía no se vende ni se presta el servicio: la web sirve para medir interés y organizar pilotos.</p></section>
+<section><h2>Precios</h2><p>Los precios que aparecen son de lanzamiento, orientativos y sin IVA. No constituyen una oferta vinculante hasta que se firme un contrato.</p></section>
+<section><h2>Propiedad intelectual</h2><p>Los textos y el diseño de esta web son del titular. Las marcas citadas (Bosch, LG, Google, WhatsApp y otras) pertenecen a sus dueños y se mencionan solo como ejemplo.</p></section>
+<section><h2>Responsabilidad</h2><p>El titular no responde de los daños derivados del uso de la información de esta web. Las conversaciones y agendas que aparecen son ejemplos con datos ficticios.</p></section>
+<section><h2>Ley aplicable</h2><p>Se aplica la ley española. Para cualquier conflicto, los juzgados de Barcelona, salvo que la ley de consumidores disponga otra cosa.</p></section>
+
+</main>
+<footer><div class="wrap"><span>Tecnicall · Barcelona</span><span><a href="index.html">Inicio</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></div></footer>
+</body></html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · Pitch</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1ea;--card:#fffdf8;--ink:#17181a;--muted:#5d5f63;--line:#d9d3c6;--orange:#e2531a;--orange-dk:#b83f0f;--orange-bg:#fbe5da;--green:#1f7a4d;--green-bg:#dcefe3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.6 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--orange-dk)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:3px solid var(--ink)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;font-weight:850;line-height:1.05}
+h1{font-size:clamp(38px,8vw,64px);text-transform:uppercase}
+h2{font-size:clamp(26px,5vw,36px);text-transform:uppercase;margin:0 0 14px}
+h3{font-size:20px;font-stretch:85%;margin:22px 0 8px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--orange-dk)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}li{margin:4px 0}
+.summary{background:var(--ink);color:#f4f1ea;border-radius:16px;padding:24px;margin-top:22px;font-size:18px}
+.summary b{color:#f0a37f}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;text-decoration:none;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:12px 0}
+.grid2{display:grid;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tbl{width:100%;overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6da;font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase}
+code,.code{font-family:"JetBrains Mono",monospace;font-size:13px}
+pre{background:#1f2023;color:#e9e4d8;padding:16px;border-radius:12px;overflow-x:auto;font:500 13px/1.5 "JetBrains Mono",monospace;margin:10px 0}
+.arch{display:grid;gap:10px;margin:14px 0}
+.row{display:grid;gap:10px}
+@media(min-width:760px){.row{grid-template-columns:repeat(3,1fr)}}
+.box{border:2px solid var(--ink);border-radius:10px;padding:12px;background:var(--card);font-size:14px}
+.box b{display:block;font-family:"Archivo";font-stretch:80%;font-size:17px}
+.box.core{background:var(--orange-bg);border-color:var(--orange)}
+.box.dark{background:var(--ink);color:#f4f1ea}
+.arrow{text-align:center;font:700 13px "JetBrains Mono";color:var(--muted)}
+.warn{border-left:4px solid var(--orange);padding:8px 0 8px 14px;margin:10px 0}
+.pill{display:inline-block;font:700 11px "JetBrains Mono";padding:2px 7px;border-radius:5px;background:var(--green-bg);color:var(--green);text-transform:uppercase}
+footer{padding:28px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between}
+
+.calc{display:grid;gap:14px}
+.calc label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.calc input{font:inherit;padding:12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;min-height:48px}
+.out{background:var(--ink);color:#f4f1ea;border-radius:14px;padding:20px;display:grid;gap:10px}
+.out b{font:900 34px/1 "Archivo";font-stretch:72%;color:#f0a37f;display:block}
+.legal footer a, footer a{margin-left:14px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><p class="mono">Pitch de una página · sep 2026</p><h1>Motaller</h1><div class="summary"><b>El mostrador con IA para talleres de motos.</b> Contesta el WhatsApp del taller, da cita por matrícula, consigue el «sí» al presupuesto con fotos y avisa cuando la moto está lista. Empezamos en Barcelona.</div></div></header>
+<section><div class="wrap"><h2>Problema</h2>
+<p>En un taller de motos pequeño, el mecánico también es la recepción. Cada WhatsApp le obliga a parar, lavarse las manos y contestar. Las llamadas que no coge se van al taller de al lado. Los presupuestos sin respuesta dejan una moto ocupando el elevador.</p></div></section>
+<section><div class="wrap"><h2>Solución</h2>
+<p>Un agente sobre el WhatsApp Business del propio taller. Contesta con los huecos y precios base del taller, ficha cada moto por matrícula, manda fotos y precio para aprobar con un toque y avisa de «moto lista». El mecánico aprueba cada presupuesto con diagnóstico.</p></div></section>
+<section><div class="wrap"><h2>Por qué ahora</h2><ul>
+<li>Meta permite usar la API de WhatsApp Business junto a la app en el mismo número (coexistence), así el taller no cambia de número.</li>
+<li>Los modelos de lenguaje ya entienden audios y mensajes mal escritos en castellano y catalán a un coste de céntimos por conversación.</li>
+<li>Los programas de gestión de taller venden agenda y facturación. Ninguno coge el teléfono por el mecánico.</li></ul></div></section>
+<section><div class="wrap"><h2>Mercado</h2>
+<div class="tbl"><table><tr><th>Dato</th><th>Valor</th><th>Fuente</th></tr>
+<tr><td>Motos y ciclomotores en Barcelona</td><td>271.090 (2020), 1 de cada 3 vehículos</td><td><a href="https://movilidad.racc.es/informes-y-estudios/seguridad-vial/vehiculos/estudio-racc-del-uso-de-la-motocicleta-en-barcelona/">Estudio RACC</a></td></tr>
+<tr><td>Motos por habitante en Barcelona</td><td>0,17, por delante de Roma y Milán</td><td>Misma fuente</td></tr>
+<tr><td>Talleres de motos en España</td><td>[pendiente de fuente]</td><td>INE DIRCE, CNAE 45.40 (venta y reparación de motocicletas)</td></tr>
+</table></div>
+<p>No damos un TAM inventado. El primer número que queremos medir: cuántos talleres de motos hay en Barcelona con más de 80 reseñas en Google Maps.</p></div></section>
+<section><div class="wrap"><h2>Modelo de negocio</h2>
+<p>Suscripción mensual: Taller 59 € y Pro 129 € + IVA. Coste variable estimado de 12 € y 51 €: margen bruto de ~80 % y ~60 %. Venta en persona, con piloto de 30 días gratis. Break-even con ~13 talleres en el plan Taller.</p></div></section>
+<section><div class="wrap"><h2>Plan de 90 días</h2><ul>
+<li>Día 30: 3 pilotos activos en su número, 10 presupuestos aprobados por WhatsApp.</li>
+<li>Día 60: 8 pilotos, 3 pagando.</li>
+<li>Día 90: 10 talleres de pago, 590 a 900 € de MRR, churn 0.</li></ul>
+<p>Detalle semana a semana en el <a href="plan.html#plan90">plan</a>.</p></div></section>
+<section><div class="wrap"><h2>Qué pedimos</h2><ul>
+<li>Presentaciones a talleres de motos y a distribuidores de recambios de Barcelona.</li>
+<li>Un taller o una flota de reparto dispuesta a ser el primer piloto.</li>
+<li>Aún no buscamos inversión. Hablamos de ella con 10 talleres pagando.</li></ul>
+<p>Joaquín Ferreiros, fundador, Barcelona. Contacto: [email de contacto pendiente].</p></div></section>
+<footer><div class="wrap" style="flex-wrap:wrap;gap:8px"><span><b>Motaller</b> · 2026</span><span><a href="index.html">Inicio</a><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></span></div></footer>
+</body>
+</html>

@@ -66,7 +66,7 @@ footer{padding:30px 0;color:var(--muted);font-size:.9rem}
 <body>
 <header>
   <div class="wrap">
-    <div class="top"><a href="index.html">Barrio Reel</a><span><a href="outreach.html">Outreach</a> &nbsp; <a href="contenido.html">Contenido</a> &nbsp; <a href="ficha.html">Ficha</a> &nbsp; <a href="pitch.html">Pitch</a> &nbsp; <a href="precios.html">Precios</a> &nbsp; <a href="onboarding.html">Onboarding</a> &nbsp; <a href="anuncios.html">Anuncios</a> &nbsp; <a href="b.html">Variante B</a> &nbsp; <a href="index.html">Landing</a></span></div>
+    <div class="top"><a href="index.html">Barrio Reel</a><span><a href="outreach.html">Outreach</a> &nbsp; <a href="contenido.html">Contenido</a> &nbsp; <a href="ficha.html">Ficha</a> &nbsp; <a href="pitch.html">Pitch</a> &nbsp; <a href="precios.html">Precios</a> &nbsp; <a href="onboarding.html">Onboarding</a> &nbsp; <a href="anuncios.html">Anuncios</a> &nbsp; <a href="creadores.html">Creadores</a> &nbsp; <a href="app.html">Prototipo</a> &nbsp; <a href="blog/index.html">Blog</a> &nbsp; <a href="b.html">Variante B</a> &nbsp; <a href="index.html">Landing</a></span></div>
     <span class="eyebrow">Plan interno · 26 sep 2026</span>
     <h1>Barrio Reel: creadores locales en piloto automático para restaurantes de Barcelona</h1>
     <div class="summary">
@@ -306,6 +306,38 @@ reglas: no repetir creador en el mismo local en 6 meses;
     </table></div>
     <p style="margin-top:12px">La comida la pone el restaurante y no entra en nuestro coste. Costes fijos al inicio: ~150 €/mes (hosting, dominio, herramientas). <b>Break-even de herramientas: 2 clientes.</b> Para un sueldo de 3.000 €/mes: ~34 clientes. Con 30 creadores a 3 visitas/mes caben ~22 restaurantes, así que la oferta de creadores es el cuello de botella: hay que llegar a ~50 creadores activos.</p>
     <p>Comparativa: TryNearby cobra 399 $/mes. A 199 € dejamos margen para subir precio o añadir un plan de 8 visitas a ~349 €.</p>
+  </div>
+</section>
+
+<section id="estres">
+  <div class="wrap">
+    <span class="eyebrow">5a · Prueba de estrés</span>
+    <h2>Unit economics contra el cuello de botella de creadores</h2>
+    <p>Supuestos (hipótesis, sin datos reales todavía): 4 visitas por restaurante al mes, 10 % de sustituciones, tarifa media de 17 € por reel, máximo 3 visitas al mes por creador y un 60 % de creadores apuntados activos cada mes, con 2 visitas de media.</p>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Concepto</th><th>10 restaurantes</th><th>50 restaurantes</th></tr>
+      <tr><td>Visitas al mes (4,4 por local)</td><td>44</td><td>220</td></tr>
+      <tr><td>Creadores activos necesarios (2 visitas cada uno)</td><td>22</td><td>110</td></tr>
+      <tr><td>Creadores apuntados necesarios (60 % activos)</td><td>37</td><td>≈ 185</td></tr>
+      <tr><td>Coste por visita (tarifa 17 € + 5 € de coordinación)</td><td>22 €</td><td>22 €</td></tr>
+      <tr><td>Horas de operación al mes (45 min por local)</td><td>7,5 h</td><td>37,5 h</td></tr>
+      <tr><td>Margen de contribución por local</td><td>≈ 94 €</td><td>≈ 94 €</td></tr>
+    </table></div>
+    <h3>Qué se rompe a 50 restaurantes</h3>
+    <ol>
+      <li><b>La regla de no repetir creador en 6 meses.</b> Con unos 8 locales por barrio, cada local necesita 24 creadores distintos en 6 meses, y un barrio tendrá unos 18 activos. La regla falla hacia el mes 5. Solución: repetir a los 3 meses y ampliar el radio a barrios vecinos.</li>
+      <li><b>La oferta de creadores.</b> Hacen falta unos 185 apuntados. A 30 altas por cada 100 DMs, son unos 600 DMs: 4 semanas de trabajo para una persona, o la marketing factory preparando mensajes.</li>
+      <li><b>La densidad por barrio.</b> Por encima de 8 locales por barrio, los mismos creadores publican demasiados locales y su público se cansa. Limitamos a 8 locales por barrio.</li>
+      <li><b>Los pagos a creadores.</b> Unos 110 pagos al mes, muchos a personas que no son autónomas. Hace falta resolver la facturación con una gestoría antes de los 20 locales.</li>
+      <li><b>La operación manual.</b> 37,5 h al mes caben en una persona, pero solo si la verificación de reels y los recordatorios están automatizados.</li>
+    </ol>
+    <h3>Sensibilidad</h3>
+    <ul>
+      <li>Tarifa de creador a 25 € en lugar de 17 €: el margen baja a unos 59 € por local (30 %). Todavía es viable.</li>
+      <li>Sustituciones del 25 % en lugar del 10 %: el margen baja a unos 84 €.</li>
+      <li>Las dos cosas a la vez: unos 44 € (22 %). Por debajo de 70 € aplica el criterio para parar del día 90: subir precio a 249 € o bajar a 3 visitas.</li>
+    </ul>
+    <p><b>Decisión:</b> mantenemos 199 € y 4 visitas, con un máximo de 8 locales por barrio. Revisamos la tarifa de creador con los primeros 20 pagos reales.</p>
   </div>
 </section>
 

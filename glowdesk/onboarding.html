@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Onboarding</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#fff;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--sage-soft:#DFE8E1;--rose:#A65468;--rose-soft:#F3DEE1;--gold:#A65468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+a{color:var(--sage)}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);margin:.3rem 0 1rem}
+h2{font-size:clamp(1.8rem,4.5vw,2.4rem);margin-bottom:1rem;padding-top:8px}
+h3{font-size:1.35rem;margin:1.4rem 0 .5rem}
+em{color:var(--rose)}
+p,ul,ol{margin-bottom:.9rem}
+ul,ol{padding-left:1.3rem}
+li{margin-bottom:.35rem}
+header{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.back{font-size:.9rem;text-decoration:none}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.82rem;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;color:var(--muted)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.summary{background:var(--sage);color:#FBF4F2;border-radius:20px;padding:26px;font-size:1.08rem;margin-top:24px}
+.summary b{color:#F3C7B5}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}
+.note{background:var(--rose-soft);border-radius:14px;padding:16px 18px;font-size:.95rem}
+.grid2{display:grid;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:12px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sage-soft);font-weight:700;color:var(--sage)}
+.tw{overflow-x:auto}
+code{font-size:.85em;background:var(--sage-soft);padding:1px 6px;border-radius:6px}
+pre{background:#1F2A26;color:#E9E3DC;border-radius:14px;padding:16px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:18px 0}
+.lane{display:grid;gap:10px}
+.lane-t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.nodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.88rem}
+.node b{display:block;font-size:.95rem}
+.node.core{background:var(--sage);color:#fff;border-color:var(--sage)}
+.node.warn{background:var(--rose-soft);border-color:#E9C7CD}
+.arrow{text-align:center;color:var(--rose);font-size:1.3rem;line-height:1}
+.weeks{display:grid;gap:12px}
+.wk{background:#fff;border:1px solid var(--line);border-left:4px solid var(--rose);border-radius:12px;padding:16px}
+.wk b{font-family:"Bodoni Moda",serif;font-size:1.3rem;font-weight:400}
+footer{padding:32px 0;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.weeks{grid-template-columns:1fr 1fr}}
+.msg{background:#fff;border:1px solid var(--line);border-left:4px solid var(--sage);border-radius:12px;padding:16px 18px;margin:12px 0;white-space:pre-line;font-size:.95rem}
+.msg small{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px;white-space:normal}
+.chk{list-style:none;padding:0}.chk li{padding-left:30px;position:relative}.chk li::before{content:"";position:absolute;left:0;top:.3em;width:16px;height:16px;border:1.5px solid var(--sage);border-radius:4px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">Volver al plan</a>
+  <h1>Los primeros <em>14 días</em> de una clínica</h1>
+  <p>Desde que la clínica dice «sí» al piloto hasta que ve su primera valoración con señal. Joaquín envía cada mensaje por WhatsApp a la persona que firmó el piloto.</p>
+  <nav class="toc"><a href="#valor">Primer valor</a><a href="#checklist">Checklist</a><a href="#mensajes">Mensajes</a></nav>
+</div></header>
+<main class="wrap">
+<section id="valor">
+  <h2>El momento de «primer valor»</h2>
+  <p><b>La primera valoración reservada con señal pagada fuera de horario.</b> Es el momento en que la dueña ve que Glowdesk trabaja mientras ella duerme. Todo el onboarding empuja hacia ese momento, idealmente antes del día 7.</p>
+  <p class="note">Cuando pasa, Joaquín manda una captura de esa conversación a la clínica el mismo día. Es el mejor argumento para la renovación.</p>
+</section>
+<section id="checklist">
+  <h2>Checklist de puesta en marcha</h2>
+  <ul class="chk">
+    <li><b>Día 0.</b> Carta de tratamientos y precios «desde» recibida (web, PDF o foto).</li>
+    <li><b>Día 0.</b> Política de señal elegida: importe, reembolsable sí o no, plazo.</li>
+    <li><b>Día 1.</b> La doctora aprueba los textos sensibles en el panel.</li>
+    <li><b>Día 1.</b> Instagram conectado (la clínica como tester de la app de Meta).</li>
+    <li><b>Día 1.</b> Google Calendar conectado con los huecos de valoración.</li>
+    <li><b>Día 1.</b> Enlace de pago de la señal probado con 1 €.</li>
+    <li><b>Día 2.</b> 10 conversaciones de prueba revisadas con recepción.</li>
+    <li><b>Día 2.</b> Contrato de encargado del tratamiento firmado.</li>
+    <li><b>Día 3.</b> Agente activo fuera de horario (20:00 a 9:00 y fines de semana).</li>
+    <li><b>Día 7.</b> Agente activo también en horario, si la clínica quiere.</li>
+  </ul>
+</section>
+<section id="mensajes">
+  <h2>Los 5 mensajes</h2>
+  <div class="msg"><small>Día 0 · al cerrar el piloto</small>¡Bienvenidas al piloto! Para montar vuestro agente necesito tres cosas: la carta con precios «desde», la política de señal (importe y si es reembolsable) y 30 minutos mañana para conectar Instagram. ¿Os va bien a las [hora]?</div>
+  <div class="msg"><small>Día 1 · tras conectar</small>Ya está conectado. Os he dejado en el panel los textos que necesitan el visto bueno de la doctora (embarazo, lactancia, alergias, medicación). En cuanto los apruebe, empezamos las pruebas.</div>
+  <div class="msg"><small>Día 3 · agente activo</small>Desde esta noche Glowdesk contesta de 20:00 a 9:00 y el fin de semana. Mañana a las 9:00 os llega el resumen. Si una respuesta no os gusta, marcadla en la bandeja y la corrijo ese mismo día.</div>
+  <div class="msg"><small>Día 7 · primera semana</small>Primera semana: [N] conversaciones, [N] valoraciones reservadas, [N] señales pagadas. Os mando la conversación que mejor salió. ¿Queréis que conteste también en horario de recepción?</div>
+  <div class="msg"><small>Día 14 · revisión</small>Llevamos dos semanas. Os propongo 15 minutos para ver los números juntos: tiempo de respuesta, valoraciones y ausencias frente a antes. Si algo no os convence, lo cambiamos o lo paramos, sin compromiso.</div>
+  <p>Si el día 7 no hay ninguna valoración reservada, Joaquín llama a la clínica ese día. Normalmente el problema es el volumen de DMs o una política de señal demasiado alta.</p>
+</section>
+</main>
+<footer><div class="wrap">Glowdesk · © 2026 · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

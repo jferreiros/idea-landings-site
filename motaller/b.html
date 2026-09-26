@@ -82,6 +82,10 @@ nav .btn{padding:10px 18px;min-height:44px;font-size:15px}
 .navr{display:flex;gap:10px;align-items:center}
 @media(max-width:560px){nav .btn{font-size:14px;padding:10px 12px}}
 @media(max-width:440px){nav .navr .btn{display:none}}
+.hplate{display:inline-flex;align-items:stretch;background:#f3f2ee;color:#111;border:4px solid #0b0b0c;outline:2px solid #3a3c42;border-radius:14px;overflow:hidden;max-width:100%;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.hplate .eu{background:#1f4fa8;color:#fff;flex:none;width:clamp(34px,4vw,52px);display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;font:800 clamp(14px,1.6vw,20px) "JetBrains Mono"}
+.hplate .t{padding:clamp(14px,2vw,22px) clamp(16px,2.4vw,30px);font:800 clamp(28px,4.6vw,60px)/1.04 "JetBrains Mono";letter-spacing:-.03em;text-transform:uppercase;min-width:0;overflow-wrap:anywhere}
+.hplate .t em{font-style:normal;color:#c2410c}
 /* hero */
 .hero{padding:64px 0 88px}
 .hero-grid{display:grid;gap:56px;align-items:center}
@@ -286,12 +290,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
   <div class="navlinks"><a href="#como">Cómo funciona</a><a href="#demo">Demo</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a></div>
   <div class="navr"><a class="lang" href="ca.html" hreflang="ca" lang="ca" aria-label="Català">CA</a><a class="btn" href="#probar">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></a></div>
 </div></nav>
-<div class="stripe" aria-hidden="true"></div>
 
 <main>
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <h1>Presupuesto enviado. <em>Aprobado en un toque.</em></h1>
+    <h1 class="hplate"><span class="eu" aria-hidden="true">E</span><span class="t">Presupuesto enviado. <em>Aprobado en un toque.</em></span></h1>
     <p class="lead">Para talleres de motos: Motaller manda fotos y precio por WhatsApp, el cliente aprueba y tu elevador no se para.</p>
     <div class="cta-row">
       <a class="btn" href="#probar">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></a>
@@ -405,7 +408,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
     </div>
     <p class="ai-line"><b>Motaller</b>He recordado la ITV de noviembre a 14 clientes. 5 han pedido cita para la pre-ITV.</p>
   </div>
-  <p class="caption">Ejemplo ilustrativo. Taller y matrículas ficticios.</p>
+  <p class="caption">Ejemplo ilustrativo. Taller y matrículas ficticios. <a href="app.html" style="color:var(--orange-soft)">Ver el panel (prototipo)</a></p>
 </div></section>
 
 <section id="diferencia" style="padding-top:0"><div class="wrap">
@@ -424,7 +427,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 </div></section>
 
 <section id="precio" class="problem"><div class="wrap">
-  <h2>Menos que una revisión al mes</h2>
+  <h2>Dos planes, sin permanencia</h2>
   <div class="prices">
     <div class="price reveal"><h3>Taller</h3><p class="who">1 o 2 mecánicos</p><div class="amt">59 € <small>/mes + IVA</small></div>
       <ul><li>Asistente de WhatsApp 24/7</li><li>Agenda y ficha por matrícula</li><li>Fotos y presupuesto para aprobar</li><li>Aviso «tu moto está lista»</li></ul></div>
@@ -432,7 +435,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
       <ul><li>Todo lo de Taller</li><li>Contesta también las llamadas</li><li>Recordatorios de ITV y revisiones</li><li>Cuentas para flotas de reparto</li></ul></div>
   </div>
   <div class="pilot reveal"><div><b>Piloto: 30 días a 0 €</b>Para 10 talleres de Barcelona. Sin tarjeta. Si no te sirve, lo desconectamos y te llevas tus datos.</div><a class="btn" href="#probar">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></a></div>
-  <p class="note">Son precios de lanzamiento: los cerraremos con los talleres del piloto. Sin permanencia y sin alta.</p>
+  <p class="note">Son precios de lanzamiento: los cerraremos con los talleres del piloto. Sin permanencia y sin alta. <a href="precios.html" style="color:var(--orange-soft)">Calcula lo que te cuesta el teléfono</a>.</p>
 </div></section>
 
 <section id="faq"><div class="wrap faq-grid">
@@ -486,7 +489,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{o
 
 <div class="sticky" id="sticky"><span><b>Piloto gratis</b><br>10 talleres en Barcelona</span><a class="btn" href="#probar">Pedir piloto gratis</a></div>
 
-<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><a href="plan.html">Plan interno</a></div></footer>
+<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><span><a href="precios.html">Precios</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="plan.html">Plan interno</a></span></div></footer>
 
 <script>
 document.getElementById('wl').addEventListener('submit',function(e){
