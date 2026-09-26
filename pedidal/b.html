@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="es" data-variant="b">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Deja de teclear pedidos de WhatsApp</title>
+<link rel="canonical" href="https://pedidal.vercel.app/">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#E6D8BF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23FF5A1F'/%3E%3Crect x='8' y='9' width='16' height='3' fill='%231D2125'/%3E%3Crect x='8' y='15' width='16' height='3' fill='%231D2125'/%3E%3Crect x='8' y='21' width='10' height='3' fill='%231D2125'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Pedidal">
+<meta property="og:url" content="https://pedidal.vercel.app/">
+<meta property="og:title" content="Pedidal · Del WhatsApp a tu ERP, sin teclear">
+<meta property="og:description" content="Para almacenes y distribuidores B2B: audios, fotos y mensajes de tus clientes convertidos en pedidos con tus referencias. Piloto gratis con 20 pedidos reales.">
+<meta property="og:image" content="https://pedidal.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pedidal · Del WhatsApp a tu ERP, sin teclear">
+<meta name="twitter:description" content="Audios, fotos y mensajes de tus clientes convertidos en pedidos con tus referencias. Piloto gratis.">
+<meta name="twitter:image" content="https://pedidal.vercel.app/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://pedidal.vercel.app/#org","name":"Pedidal","url":"https://pedidal.vercel.app/","logo":"https://pedidal.vercel.app/og.png","address":{"@type":"PostalAddress","addressLocality":"Barcelona","addressCountry":"ES"},"founder":{"@type":"Person","name":"Joaquín"}},
+ {"@type":"Service","name":"Pedidal","serviceType":"Automatización de pedidos de WhatsApp a ERP","provider":{"@id":"https://pedidal.vercel.app/#org"},"areaServed":"ES","audience":{"@type":"BusinessAudience","name":"Almacenes y distribuidores B2B"},
+  "offers":[{"@type":"Offer","name":"Arranque","price":"190","priceCurrency":"EUR","description":"Hasta 600 pedidos al mes. Precio sin IVA, hipótesis de lanzamiento."},{"@type":"Offer","name":"Almacén","price":"320","priceCurrency":"EUR","description":"Hasta 1.500 pedidos al mes."},{"@type":"Offer","name":"Distribuidor","price":"490","priceCurrency":"EUR","description":"Hasta 4.000 pedidos al mes."}]}
+]}
+</script>
+<meta name="description" content="Pedidal convierte los pedidos que tus clientes mandan por WhatsApp (audio, foto de una lista o texto) en pedidos con tus referencias, dentro de tu ERP. Para almacenes y distribuidores B2B en España. Piloto gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E6D8BF; --paper-2:#D9C7A7; --card:#F6F0E4;
+  --ink:#1D2125; --ink-2:#4B4F53; --line:#BFA982;
+  --carbon:#A8360A; --carbon-soft:#FFE1CF;
+  --orange:#FF5A1F;
+  --stamp:#A8360A; --stamp-soft:#FFE1CF;
+  --ok:#23703F; --ok-soft:#D8EDDD;
+  --wa:#E4F3D8;
+  --r:6px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:repeating-linear-gradient(97deg,rgba(120,90,40,.035) 0 2px,transparent 2px 7px),repeating-linear-gradient(-8deg,rgba(255,255,255,.05) 0 1px,transparent 1px 5px)}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;line-height:1;letter-spacing:-.01em;text-transform:none}
+.mono{font-family:"IBM Plex Mono",monospace}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--ink);text-decoration:none;font-weight:600;padding:14px 20px;border-radius:4px;border:0;cursor:pointer;font-size:16px;font-family:inherit;transition:transform .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18);min-height:48px}
+.btn:active{transform:translateY(1px)}
+.btn:hover{background:#FF6E3A;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);box-shadow:none}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+.hero-grid>*,.moment-grid>*,.scene>*,.cta-box>*{min-width:0}
+.albaran{width:100%}
+table.lines td.ref{font-size:10.5px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(230,216,191,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font:800 22px "Archivo";text-decoration:none;letter-spacing:-.02em}
+.logo-mark{width:30px;height:30px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:8px;height:2px;background:var(--paper);background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+nav .links{display:none;gap:28px;font-size:15px;color:var(--ink-2)}
+nav .links a{text-decoration:none}
+nav .btn{padding:10px 16px;font-size:14px}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hero-grid{display:grid;gap:48px}
+.hero h1{font-size:clamp(40px,8vw,76px);font-weight:800;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--carbon);position:relative}
+.hero h1 em:after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--stamp);opacity:.85}
+.hero p.lead{font-size:19px;color:var(--ink-2);max-width:34em}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 12.5px "IBM Plex Mono";padding:7px 11px;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink-2)}
+
+/* product moment */
+.moment{position:relative}
+.phone{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 30px 60px -30px rgba(24,33,43,.35);overflow:hidden;max-width:340px}
+.phone-top{background:var(--ink);color:var(--paper);padding:12px 16px;display:flex;gap:10px;align-items:center;font-size:14px}
+.avatar{width:32px;height:32px;border-radius:50%;background:#C9B99A;display:grid;place-items:center;font:700 13px "Archivo";color:var(--ink)}
+.phone-top small{display:block;opacity:.6;font-size:12px}
+.chat{background:#EFE9DD;padding:14px;display:flex;flex-direction:column;gap:8px;min-height:260px}
+.bub{max-width:88%;background:#fff;border-radius:10px 10px 10px 2px;padding:8px 11px;font-size:14px;line-height:1.4;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.bub.me{align-self:flex-end;background:var(--wa);border-radius:10px 10px 2px 10px}
+.bub time{display:block;text-align:right;font-size:10.5px;color:#8a8a8a;margin-top:2px}
+.voice{display:flex;align-items:center;gap:8px}
+.play{width:26px;height:26px;border-radius:50%;background:var(--ink);position:relative;flex:none}
+.play:after{content:"";position:absolute;left:10px;top:8px;border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent}
+.wave{display:flex;gap:2px;align-items:center;height:22px}
+.wave i{display:block;width:3px;background:#8a96a3;border-radius:2px}
+.photo{width:100%;background:#FFF8D8;border-radius:6px;padding:8px 10px;font:500 18px/1.3 "Caveat","Comic Sans MS",cursive;color:#2b3a67;transform:rotate(-1deg);border:1px solid #efe3a8}
+.photo span{display:block;border-bottom:1px dashed #e4d68f}
+
+.albaran{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:0 24px 50px -30px rgba(24,33,43,.4);font-size:14px}
+.alb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;border-bottom:1.5px dashed var(--line);padding-bottom:12px;margin-bottom:10px}
+.alb-head b{font:700 17px "Archivo"}
+.alb-head .mono{font-size:11.5px;color:var(--ink-2)}
+.status{font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;padding:5px 8px;border-radius:6px;background:var(--ok-soft);color:var(--ok);white-space:nowrap}
+table.lines{width:100%;border-collapse:collapse;font-size:13px}
+table.lines td{padding:7px 4px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+table.lines td.q{font-family:"IBM Plex Mono";font-weight:600;width:48px;white-space:nowrap}
+table.lines td.ref{font-family:"IBM Plex Mono";color:var(--ink-2);font-size:11.5px;white-space:nowrap;text-align:right}
+table.lines .said{display:block;font-size:11.5px;color:var(--ink-2);font-style:italic}
+tr.warn td{background:var(--stamp-soft)}
+tr.warn .said{color:var(--stamp)}
+.alb-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:10px;flex-wrap:wrap}
+.erp{font:500 12px "IBM Plex Mono";color:var(--carbon);background:var(--carbon-soft);padding:6px 9px;border-radius:6px}
+.moment-grid{display:grid;gap:18px;justify-items:center}
+.arrow{font:600 12px "IBM Plex Mono";color:var(--ink-2);display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.1em}
+.arrow:before,.arrow:after{content:"";width:28px;height:1.5px;background:var(--ink-2)}
+
+/* sections */
+section{padding:84px 0}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(32px,5.4vw,52px);font-weight:800;margin-top:14px}
+.sec-head p{color:var(--ink-2);margin-top:16px;font-size:18px}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .eyebrow{color:var(--orange)}
+.dark .sec-head p{color:#B9C1CC}
+
+.scene{display:grid;gap:28px}
+.scene-card{background:#222D39;border:1px solid #33404F;border-radius:var(--r);padding:26px}
+.scene-card .clock{font:600 13px "IBM Plex Mono";color:var(--orange);margin-bottom:10px}
+.scene-card p{color:#D6DCE3}
+.scene-card p+p{margin-top:12px}
+.pains{display:grid;gap:14px}
+.pain{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-top:1px solid #33404F}
+.pain b{font:700 28px "Archivo";color:var(--orange);min-width:46px}
+.pain p{color:#D6DCE3}
+.pain strong{color:var(--paper)}
+
+.steps{display:grid;gap:18px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;position:relative}
+.step:before{counter-increment:s;content:"0" counter(s);font:600 13px "IBM Plex Mono";color:var(--carbon);display:block;margin-bottom:34px}
+.step h3{font-size:24px;margin-bottom:10px}
+.step p{color:var(--ink-2)}
+.step .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.step .tags span{font:500 11.5px "IBM Plex Mono";background:var(--paper-2);padding:4px 8px;border-radius:5px}
+
+.inbox{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(24,33,43,.45)}
+.inbox-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;gap:10px;flex-wrap:wrap}
+.inbox-bar b{font-family:"Archivo";font-size:18px}
+.tabs{display:flex;gap:6px;font:500 12px "IBM Plex Mono"}
+.tabs span{padding:5px 9px;border-radius:6px;background:var(--paper-2)}
+.tabs span.on{background:var(--ink);color:var(--paper)}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:14px 18px;border-bottom:1px solid var(--paper-2);font-size:14px;align-items:center}
+.row:last-child{border-bottom:0}
+.row .who{font-weight:600}
+.row .what{grid-column:1/-1;color:var(--ink-2);font-size:13.5px}
+.row .what q{font-style:italic;color:var(--ink)}
+.pill{justify-self:start;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:4px 8px;border-radius:6px;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.ask{background:var(--stamp-soft);color:var(--stamp)}
+.pill.wait{background:var(--carbon-soft);color:var(--carbon)}
+.row .acts{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
+.row .acts button{font:500 12.5px "IBM Plex Sans";border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:7px;cursor:pointer}
+.row .acts button.pri{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.benefits{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.benefit{background:var(--card);padding:28px}
+.benefit .big{font:800 44px/1 "Archivo";color:var(--carbon);letter-spacing:-.03em}
+.benefit h3{font-size:20px;margin:14px 0 8px}
+.benefit p{color:var(--ink-2);font-size:15.5px}
+.note{font-size:13.5px;color:var(--ink-2);margin-top:18px}
+
+.verticals{display:grid;gap:14px;margin-top:40px}
+.vert{border:1.5px solid var(--ink);border-radius:var(--r);padding:22px;background:var(--card)}
+.vert h3{font-size:21px;margin-bottom:8px}
+.vert p{color:var(--ink-2);font-size:15px}
+.vert .mono{font-size:12.5px;color:var(--carbon);display:block;margin-top:12px}
+.vert.first{background:var(--ink);color:var(--paper)}
+.vert.first p{color:#C7CED6}
+.vert.first .mono{color:var(--orange)}
+
+.prices{display:grid;gap:18px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px;display:flex;flex-direction:column}
+.price.hl{border:2px solid var(--ink);box-shadow:8px 8px 0 var(--orange)}
+.price .tier{font:600 13px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.1em;color:var(--carbon)}
+.price .amt{font:800 50px/1 "Archivo";margin:14px 0 4px;letter-spacing:-.03em}
+.price .amt small{font:500 16px "IBM Plex Sans";color:var(--ink-2);letter-spacing:0}
+.price .vol{font-size:14.5px;color:var(--ink-2);margin-bottom:18px}
+.price ul{list-style:none;display:grid;gap:9px;font-size:15px;margin-bottom:6px}
+.price li{padding-left:22px;position:relative}
+.price li:before{content:"";position:absolute;left:2px;top:9px;width:10px;height:6px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+
+.faq{max-width:780px}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font:700 19px/1.3 "Archivo";display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:500 24px/1 "IBM Plex Mono";color:var(--carbon);transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--ink-2);margin-top:12px;max-width:42em}
+
+.cta-box{background:var(--orange);color:var(--ink);border-radius:6px;padding:40px 24px;display:grid;gap:34px}
+.cta-box h2{font-size:clamp(32px,5.4vw,50px);font-weight:800}
+.cta-box p{color:var(--ink);margin-top:14px}
+form{display:grid;gap:12px}
+label{font:600 12.5px "IBM Plex Mono";letter-spacing:.05em;text-transform:uppercase;color:var(--ink);display:grid;gap:6px}
+input,select{font:400 16px "IBM Plex Sans";padding:13px 14px;border-radius:4px;border:1.5px solid var(--ink);background:#FFF8F0;color:var(--ink);width:100%;min-height:48px}
+select option{color:var(--ink)}
+input::placeholder{color:#6B6158}
+input:focus,select:focus{outline:3px solid var(--ink);outline-offset:1px}
+form .btn{background:var(--ink);color:#FFF8F0;justify-content:center;margin-top:6px}
+form .btn:hover{background:#000}
+.fine{font-size:12.5px;color:var(--ink)}
+.thanks{display:none;background:#FFF8F0;border:1.5px solid var(--ink);border-radius:14px;padding:26px}
+.thanks h3{font-size:26px;margin-bottom:8px}
+.thanks p{color:var(--ink-2)}
+.err{color:#5A0F00;font-weight:600;font-size:14px;min-height:1em}
+
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 22px;padding:0;list-style:none;font-size:14px;color:var(--ink-2)}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust li:before{content:"";width:10px;height:6px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg) translateY(-2px);flex:none}
+.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+.band .wrap{display:grid;gap:18px}
+.band-item b{display:block;font:700 16px "Archivo";margin-bottom:2px}
+.band-item span{font-size:14px;color:var(--ink-2)}
+.pilot{display:grid;gap:14px;counter-reset:p}
+.pilot li{list-style:none;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 22px 70px;position:relative}
+.pilot li:before{counter-increment:p;content:counter(p);position:absolute;left:20px;top:20px;width:34px;height:34px;border-radius:3px;background:var(--orange);color:var(--ink);display:grid;place-items:center;font:700 16px "Archivo"}
+.pilot b{font:700 19px "Archivo";display:block;margin-bottom:4px}
+.pilot span{color:var(--ink-2);font-size:15.5px}
+.pilot .when{font:500 12px "IBM Plex Mono";color:var(--carbon);display:block;margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+.founder{display:grid;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px}
+.founder .sig{display:flex;align-items:center;gap:14px}
+.founder .ini{width:52px;height:52px;border-radius:4px;background:var(--ink);color:var(--orange);display:grid;place-items:center;font:800 19px "Archivo";flex:none}
+.founder blockquote{font-size:18px;line-height:1.6}
+.founder blockquote p+p{margin-top:12px}
+.founder small{display:block;color:var(--ink-2);font-size:14px}
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:flex;justify-content:center;transform:translateY(140%);transition:transform .25s}
+.sticky-cta.show{transform:none}
+.sticky-cta .btn{width:100%;justify-content:center;box-shadow:0 12px 30px -10px rgba(24,33,43,.6)}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:12px;top:12px;z-index:50;background:#fff;padding:8px 12px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+footer{padding:36px 0 96px;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink-2)}
+
+@media (min-width:760px){
+  nav .links{display:flex}
+  .hero{padding:84px 0 96px}
+  .moment-grid{grid-template-columns:1fr auto 1.1fr;align-items:center;justify-items:stretch}
+  .arrow{flex-direction:column}
+  .arrow:before,.arrow:after{width:1.5px;height:28px}
+  .scene{grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .verticals{grid-template-columns:repeat(3,1fr)}
+  .prices{grid-template-columns:repeat(3,1fr)}
+  .cta-box{grid-template-columns:1fr 1fr;padding:56px}
+  .row{grid-template-columns:180px 1fr auto}
+  .row .what{grid-column:auto}
+  .row .acts{grid-column:2/-1}
+  .band .wrap{grid-template-columns:repeat(4,1fr)}
+  .pilot{grid-template-columns:repeat(3,1fr)}
+  .founder{grid-template-columns:auto 1fr;padding:40px;gap:32px}
+  .sticky-cta{display:none}
+  footer{padding-bottom:48px}
+}
+
+/* hero v3 */
+.hero{padding:40px 0 56px}
+.hero-grid{display:grid;gap:36px;align-items:center}
+.hero h1{font-size:clamp(46px,10vw,76px);font-weight:800;margin:16px 0 18px;line-height:.95}
+.hero h1 em{font-style:normal;color:var(--ink);background:var(--orange);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 em:after{display:none}
+.hero p.lead{font-size:19px;max-width:30em}
+.btn-ico{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:3px;background:rgba(29,33,37,.12);transition:transform .35s var(--ease)}
+.btn:hover .btn-ico{transform:translateX(3px)}
+.demo{background:var(--ink);border-radius:8px;padding:8px;box-shadow:0 30px 60px -30px rgba(60,40,10,.55)}
+.demo-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:4px 4px 10px;scrollbar-width:none}
+.demo-tabs button{flex:none;font:500 13px "IBM Plex Mono";color:#C9C2B5;background:transparent;border:1px solid #3A3F44;border-radius:4px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background .3s var(--ease),color .3s var(--ease)}
+.demo-tabs button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.demo-tabs button[aria-selected="true"]{background:var(--orange);color:var(--ink);border-color:var(--orange)}
+.demo-body{display:grid;gap:8px}
+.demo-msg{background:#EFE6D6;border-radius:5px;padding:14px}
+.demo-from{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:14px}
+.demo-from small{display:block;font:400 12px "IBM Plex Mono";color:var(--ink-2)}
+.demo-in .bub{max-width:100%}
+.vn{display:flex;align-items:center;gap:10px}
+.vn .bars{display:flex;gap:2px;align-items:center;height:26px;flex:1}
+.vn .bars i{display:block;flex:1;max-width:4px;background:#A59C8E;border-radius:1px;transition:background .2s}
+.vn .bars i.on{background:var(--orange)}
+.demo-tr{font:400 13.5px/1.5 "IBM Plex Mono";color:var(--ink);margin-top:10px;min-height:7.5em}
+.demo-tr:before{content:"Transcripción: ";color:var(--ink-2)}
+.demo-tr:empty:before{content:""}
+.label{background:#FBF6EC;border-radius:5px;padding:14px;font-size:14px}
+.label-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--ink);padding-bottom:8px}
+.label-head .mono{font-size:11px;color:var(--ink-2);display:block;letter-spacing:.1em}
+.label-head b{font:800 26px/1 "Archivo";font-stretch:75%}
+.label-head .label-erp{background:var(--ink);color:var(--orange);letter-spacing:.04em;padding:5px 8px;border-radius:3px;font-size:12px}
+.barcode{height:26px;margin:8px 0 4px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 8px,var(--ink) 8px 9px,transparent 9px 12px);opacity:.85}
+table.dl{width:100%;border-collapse:collapse;font-size:13px}
+table.dl th{font:600 10.5px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}
+table.dl td{padding:7px 4px;border-bottom:1px dashed #D8CBB3;vertical-align:top}
+table.dl td.q{font:600 13px "IBM Plex Mono";white-space:nowrap}
+table.dl td.r{font:500 11px "IBM Plex Mono";color:var(--ink-2);white-space:nowrap;text-align:right}
+table.dl .said{display:block;font-size:11.5px;color:var(--ink-2);font-style:italic}
+table.dl tr{animation:rowin .5s var(--ease) both}
+table.dl tr.warn td{background:var(--carbon-soft)}
+table.dl tr.warn .said{color:var(--carbon);font-style:normal;font-weight:600}
+@keyframes rowin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.dl-box{min-height:268px}
+@media (min-width:1000px){.dl-box{min-height:300px}}
+.label-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.label-foot .mono{font-size:12px;color:var(--ink-2)}
+.label-foot .mono.done{color:var(--ok);font-weight:600}
+.replay{font:600 13px "IBM Plex Mono";background:transparent;border:1.5px solid var(--ink);border-radius:4px;padding:8px 12px;min-height:40px;cursor:pointer}
+.replay:hover{background:var(--ink);color:var(--orange)}
+@media (min-width:1000px){
+  .hero{padding:56px 0 72px}
+  .hero-grid{grid-template-columns:1fr 1.05fr;gap:56px}
+  .demo-body{grid-template-columns:1fr 1.25fr}
+}
+@media (prefers-reduced-motion:reduce){table.dl tr{animation:none}}
+
+/* consistency pass: steps and verticals as ruled columns, not cards */
+.step{background:transparent;border:0;border-top:4px solid var(--ink);border-radius:0;padding:18px 0 0}
+.step:before{font:800 64px/1 "Archivo";font-stretch:75%;color:var(--orange);margin-bottom:14px;-webkit-text-stroke:0}
+.verticals{gap:0;border-top:1.5px solid var(--ink)}
+.vert{border:0;border-bottom:1.5px solid var(--ink);border-radius:0;background:transparent;padding:18px 0}
+.vert.first{background:transparent;color:var(--ink)}
+.vert.first p{color:var(--ink-2)}
+.vert.first .mono{color:var(--ink);background:var(--orange);display:inline-block;padding:3px 6px;border-radius:3px}
+@media (min-width:760px){.steps{gap:36px}.verticals{border-top:0}.vert{border-bottom:0;border-top:1.5px solid var(--ink);padding:18px 24px 0 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#probar">Saltar al formulario</a>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><span class="logo-mark" aria-hidden="true"></span>Pedidal</a>
+    <div class="links">
+      <a href="#problema">Problema</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#piloto">Piloto</a>
+      <a href="#precio">Precio</a>
+      <a href="#faq">Preguntas</a>
+    </div>
+    <a href="#probar" class="btn">Piloto gratis</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Para gerentes de almacén y distribución</span>
+      <h1>Tu equipo pierde la mañana <em>tecleando audios</em>.</h1>
+      <p class="lead">Pedidal escucha, lee y pasa cada pedido de WhatsApp a tu ERP. Tu equipo solo revisa lo dudoso y vuelve a vender.</p>
+      <div class="ctas">
+        <a href="#probar" class="btn">Probar gratis con 20 pedidos <span class="btn-ico" aria-hidden="true">&rarr;</span></a>
+        <a href="#como" class="btn ghost">Ver cómo funciona</a>
+      </div>
+    </div>
+
+    <!-- Interactive product moment: pick a scenario, watch the message become ERP lines -->
+    <div class="demo" aria-label="Demo interactiva: un pedido de WhatsApp convertido en líneas de ERP">
+      <div class="demo-tabs" role="tablist" aria-label="Elige un pedido de ejemplo">
+        <button role="tab" aria-selected="true" data-s="obra">Audio de obra</button>
+        <button role="tab" aria-selected="false" data-s="limpieza">Foto de lista</button>
+        <button role="tab" aria-selected="false" data-s="bar">Texto de bar</button>
+      </div>
+      <div class="demo-body">
+        <div class="demo-msg">
+          <div class="demo-from"><span class="avatar" id="dAv">RV</span><div><b id="dWho">Reformas Vallès</b><small id="dMeta">cliente C-0412 · 7:12</small></div></div>
+          <div id="dIn" class="demo-in"></div>
+          <p class="demo-tr" id="dTr" aria-live="polite"></p>
+        </div>
+        <div class="label">
+          <div class="label-head">
+            <div><span class="mono">PEDIDO</span><b id="dNum">PV-24817</b></div>
+            <div class="label-erp mono" id="dErp">A3ERP</div>
+          </div>
+          <div class="barcode" aria-hidden="true"></div>
+          <div class="dl-box"><table class="dl" aria-label="Líneas del pedido">
+            <thead><tr><th>Cant.</th><th>Producto</th><th>Ref.</th></tr></thead>
+            <tbody id="dRows"></tbody>
+          </table></div>
+          <div class="label-foot"><span id="dStatus" class="mono">Esperando pedido</span><button class="replay" id="dPlay" type="button">Reproducir</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="band" aria-label="Garantías">
+  <div class="wrap">
+    <div class="band-item"><b>API oficial de WhatsApp</b><span>Sin trucos con WhatsApp Web. Tu número no corre riesgo de bloqueo.</span></div>
+    <div class="band-item"><b>El cliente confirma</b><span>Nada entra en el ERP sin el "ok" del cliente o de tu equipo.</span></div>
+    <div class="band-item"><b>Servidores en la UE</b><span>Contrato de encargo del tratamiento (RGPD, art. 28).</span></div>
+    <div class="band-item"><b>Sin permanencia</b><span>Pago mensual. Te vas cuando quieras y te llevas tus datos.</span></div>
+  </div>
+</div>
+
+<main id="main">
+<section id="problema" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">El problema</span>
+      <h2>El pedido entra por WhatsApp. Y luego alguien lo teclea otra vez.</h2>
+    </div>
+    <div class="scene">
+      <div class="scene-card">
+        <div class="clock">Martes · 7:40 · almacén en Sabadell</div>
+        <p>Marta abre el móvil de empresa y tiene 38 chats sin leer. Un encargado de obra ha mandado un audio de un minuto con ruido de hormigonera. Otro manda la foto de una lista escrita en un cartón. Un tercero escribe "lo de siempre pero más cola".</p>
+        <p>Marta traduce cada mensaje a referencias, busca al cliente en el ERP y teclea línea a línea. A las 10 los camiones ya salen, y aún falta la mitad. Si se equivoca de ladrillo, el cliente lo descubre en la obra.</p>
+      </div>
+      <div class="pains">
+        <div class="pain"><b>01</b><p><strong>Doble trabajo.</strong> Cada pedido se lee en el móvil y se vuelve a escribir en el ERP. Es trabajo sin valor, justo en la hora punta.</p></div>
+        <div class="pain"><b>02</b><p><strong>Errores caros.</strong> Un "saco de cola" puede ser 5 referencias. Un error es un porte de vuelta y un cliente enfadado.</p></div>
+        <div class="pain"><b>03</b><p><strong>El cliente no cambia.</strong> Los portales B2B no los usa nadie. Tus clientes quieren seguir con WhatsApp, y tienen razón.</p></div>
+        <div class="pain"><b>04</b><p><strong>El conocimiento vive en una persona.</strong> Solo Marta sabe qué es "lo de siempre" de cada cliente. Si se pone mala, se nota.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="sec-head">
+            <h2>Tres pasos. Tu cliente no instala nada.</h2>
+      <p>Tu cliente sigue escribiendo al mismo número. Pedidal trabaja detrás.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Lee cualquier pedido</h3>
+        <p>Texto, audio con ruido de obra o foto de una lista a mano. Pedidal lo transcribe y separa cada línea: producto, cantidad y unidad.</p>
+        <div class="tags"><span>texto</span><span>audio</span><span>foto</span><span>castellano / catalán</span></div>
+      </div>
+      <div class="step">
+        <h3>Lo cruza con tu catálogo</h3>
+        <p>Convierte "cola gris" en tu referencia exacta. Aprende los apodos de cada cliente, sus unidades (saco, palé, caja) y su "lo de siempre".</p>
+        <div class="tags"><span>catálogo</span><span>histórico</span><span>tarifas</span></div>
+      </div>
+      <div class="step">
+        <h3>Confirma y lo mete en el ERP</h3>
+        <p>Responde al cliente con el resumen para que diga "ok". Después crea el pedido en tu ERP. Lo dudoso va a una bandeja para tu comercial.</p>
+        <div class="tags"><span>A3</span><span>Sage</span><span>Holded</span><span>Odoo</span><span>CSV</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+            <h2>Tu equipo solo ve lo que necesita una persona.</h2>
+      <p>Los pedidos claros pasan solos. Los dudosos llegan con la duda marcada y la respuesta propuesta.</p>
+    </div>
+    <div class="inbox" aria-label="Ejemplo de la bandeja de excepciones">
+      <div class="inbox-bar"><b>Hoy · martes</b><div class="tabs"><span>Todos 41</span><span class="on">Revisar 3</span><span>En ERP 36</span></div></div>
+      <div class="row">
+        <span class="who">Limpiezas Garraf</span>
+        <span class="what">Pide <q>garrafas de lejía de las azules</q>. Hay 2 referencias con envase azul: LEJ-5A y LEJ-5AP.</span>
+        <span class="pill ask">Producto dudoso</span>
+        <div class="acts"><button class="pri">LEJ-5A (últimos 4 pedidos)</button><button>LEJ-5AP</button><button>Preguntar al cliente</button></div>
+      </div>
+      <div class="row">
+        <span class="who">Bar La Parada</span>
+        <span class="what">Pide <q>10 de agua</q>. Normalmente pide cajas de 24 botellas de 50 cl, no unidades.</span>
+        <span class="pill wait">Unidad</span>
+        <div class="acts"><button class="pri">10 cajas × 24</button><button>10 unidades</button></div>
+      </div>
+      <div class="row">
+        <span class="who">Construcciones Oller</span>
+        <span class="what">Pide 12 palés de ladrillo H7. Su media es 3. ¿Error o una obra nueva?</span>
+        <span class="pill ask">Cantidad rara</span>
+        <div class="acts"><button class="pri">Confirmar con el cliente</button><button>Aprobar</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head">
+            <h2>Menos teclear. Menos portes de vuelta.</h2>
+      <p>Aún no tenemos clientes, así que no inventamos resultados. Estos son los objetivos que medimos en cada piloto.</p>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><div class="big">&lt; 2 min</div><h3>De WhatsApp a ERP</h3><p>Desde que el cliente dice "ok" hasta que el pedido está en tu ERP, sin que nadie teclee.</p></div>
+      <div class="benefit"><div class="big">80 %</div><h3>Pedidos sin tocar</h3><p>Objetivo: 8 de cada 10 pedidos pasan directos. El resto llega a la bandeja con la duda marcada.</p></div>
+      <div class="benefit"><div class="big">0</div><h3>Apps para tu cliente</h3><p>Tu cliente sigue con WhatsApp. No hay portal, ni contraseñas, ni formación.</p></div>
+      <div class="benefit"><div class="big">24 h</div><h3>Pedidos fuera de horario</h3><p>El encargado que pide a las 22:00 recibe la confirmación a las 22:00, no a las 8:00.</p></div>
+    </div>
+    <p class="note">Cifras objetivo del piloto, no resultados medidos. Te enseñamos los datos reales de tu cuenta cada semana.</p>
+
+    <div class="verticals">
+      <div class="vert first"><h3>Suministros de construcción</h3><p>Almacenes de materiales que sirven a reformistas y constructoras. Pedidos por foto y audio desde la obra.</p><span class="mono">Empezamos aquí</span></div>
+      <div class="vert"><h3>Productos de limpieza</h3><p>Distribuidores que sirven a empresas de limpieza, hoteles y comunidades. Muchas referencias parecidas.</p><span class="mono">Piloto abierto</span></div>
+      <div class="vert"><h3>Alimentación y bebida horeca</h3><p>Distribuidores de bares y restaurantes. Pedidos de noche, repetitivos y con prisa.</p><span class="mono">Piloto abierto</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="piloto">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">El piloto gratis</span>
+      <h2>Ves el resultado con tus pedidos antes de pagar nada.</h2>
+      <p>No te pedimos que confíes en una demo. Te enseñamos tus propios pedidos ya pasados a tu ERP.</p>
+    </div>
+    <ol class="pilot">
+      <li><b>Nos dejas un contacto</b><span>Nombre, empresa y teléfono o email. Nada más.</span><span class="when">1 minuto</span></li>
+      <li><b>Nos pasas 20 pedidos y el catálogo</b><span>Capturas del WhatsApp de esta semana y tu catálogo en Excel. Lo vemos juntos en una llamada de 20 minutos.</span><span class="when">20 minutos</span></li>
+      <li><b>Te devolvemos los pedidos en formato ERP</b><span>Línea a línea, con tu referencia y lo que no está claro marcado. Tú decides si seguimos.</span><span class="when">En 48 horas</span></li>
+    </ol>
+    <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <a href="#probar" class="btn">Empezar el piloto gratis</a>
+      <span style="font-size:14px;color:var(--ink-2)">Si no acierta, no te cuesta nada.</span>
+    </div>
+  </div>
+</section>
+
+<section id="precio">
+  <div class="wrap">
+    <div class="sec-head">
+            <h2>Una cuota al mes según tus pedidos.</h2>
+      <p>Precio público, sin "pídenos presupuesto". Sin coste por usuario. Tu cliente no paga nada. La integración con tu ERP la hacemos nosotros.</p>
+    </div>
+    <div class="prices">
+      <div class="price">
+        <span class="tier">Arranque</span>
+        <div class="amt">190 € <small>/ mes</small></div>
+        <div class="vol">Hasta 600 pedidos al mes</div>
+        <ul><li>1 número de WhatsApp</li><li>Texto, audio y foto</li><li>Salida a CSV o email</li><li>Bandeja de excepciones</li></ul>
+      </div>
+      <div class="price hl">
+        <span class="tier">Almacén</span>
+        <div class="amt">320 € <small>/ mes</small></div>
+        <div class="vol">Hasta 1.500 pedidos al mes</div>
+        <ul><li>Todo lo de Arranque</li><li>Conector a A3, Sage, Holded u Odoo</li><li>Tarifas y stock por cliente</li><li>Varios comerciales</li></ul>
+      </div>
+      <div class="price">
+        <span class="tier">Distribuidor</span>
+        <div class="amt">490 € <small>/ mes</small></div>
+        <div class="vol">Hasta 4.000 pedidos al mes</div>
+        <ul><li>Todo lo de Almacén</li><li>Varios números y delegaciones</li><li>Pedidos por email además de WhatsApp</li><li>Soporte directo con el fundador</li></ul>
+      </div>
+    </div>
+    <p class="note">Precios sin IVA, sin permanencia. Los 10 primeros distribuidores no pagan el alta ni el primer mes. Es una hipótesis: la ajustamos con ellos.</p>
+    <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:12px"><a href="precios.html" class="btn ghost">Calculadora de precios</a><a href="#probar" class="btn">Probar gratis con 20 pedidos</a></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="founder">
+      <div class="sig"><span class="ini" aria-hidden="true">J</span><small><b style="color:var(--ink);font-size:16px">Joaquín</b><br>Fundador de Pedidal · Barcelona</small></div>
+      <blockquote>
+        <p>"Pedidal es un proyecto nuevo y lo digo claro: aún no tenemos clientes ni casos de éxito que enseñarte. Por eso el piloto es gratis y con tus pedidos reales."</p>
+        <p>"Busco pocos distribuidores para empezar. Si tu almacén está cerca de Barcelona, voy a verte en persona. Miro cómo te llegan los pedidos y hablas conmigo directamente, no con un call center."</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>Lo que nos preguntan los distribuidores.</h2></div>
+    <div class="faq">
+      <details><summary>¿Mis clientes tienen que cambiar algo?</summary><p>No. Siguen escribiendo al mismo WhatsApp de siempre. Lo único nuevo es que reciben un resumen del pedido para confirmar con un "ok".</p></details>
+      <details><summary>¿Qué pasa si la IA se equivoca de producto?</summary><p>Cada línea tiene un nivel de confianza. Si Pedidal no está seguro, no inventa: manda la línea a la bandeja de tu comercial o pregunta al cliente. Además, el cliente confirma el resumen antes de que el pedido llegue al ERP.</p></details>
+      <details><summary>¿Funciona con mi ERP?</summary><p>Empezamos con A3, Sage, Holded y Odoo. Si tu ERP no está en la lista, arrancamos con un CSV o un email con el formato que tu ERP ya importa. Así el piloto empieza en días, no en meses.</p></details>
+      <details><summary>¿Necesito la API oficial de WhatsApp Business?</summary><p>Sí, para un uso profesional y estable usamos la API oficial de Meta. Te ayudamos a migrar tu número actual o a darte de alta uno nuevo. Tus clientes no notan la diferencia.</p></details>
+      <details><summary>¿Cuánto cuesta el piloto y qué me compromete?</summary><p>Nada. El piloto es gratis y sin tarjeta. Si al ver tus 20 pedidos no te convence, lo dejamos ahí. Si sigues, pagas mes a mes y te vas cuando quieras.</p></details>
+      <details><summary>¿Cuánto tardo en tenerlo funcionando?</summary><p>El piloto con tus pedidos, 48 horas. Con salida a CSV o email, la primera semana. El conector directo a tu ERP depende del ERP: te lo decimos en la primera llamada, sin sorpresas.</p></details>
+      <details><summary>Ya tengo un portal B2B o una app de pedidos. ¿Para qué quiero esto?</summary><p>Si tus clientes ya piden por el portal, no lo necesitas. Pedidal es para los pedidos que siguen llegando por WhatsApp aunque tengas portal, que suelen ser muchos.</p></details>
+      <details><summary>Sois una empresa nueva. ¿Y si desaparecéis?</summary><p>Tus pedidos siempre acaban en tu ERP, que sigue siendo tuyo. Tu número de WhatsApp también. Si dejas Pedidal, te llevas el catálogo, los alias aprendidos y el histórico en Excel.</p></details>
+      <details><summary>¿Qué hacéis con los datos de mis clientes?</summary><p>Los tratamos como encargado del tratamiento según el RGPD, con contrato firmado y servidores en la UE. No usamos tus pedidos para entrenar modelos de terceros.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="probar" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h2>Mándanos 20 pedidos reales. Te los devolvemos en formato ERP.</h2>
+        <p>Buscamos pocos distribuidores en España para un piloto guiado. Te llamamos, vemos cómo te llegan los pedidos y probamos con tu catálogo.</p>
+        <ul class="trust" style="margin-top:20px;color:var(--ink)"><li>Gratis y sin tarjeta</li><li>Respuesta en 1 día laborable</li><li>Sin permanencia</li></ul>
+      </div>
+      <div>
+        <!-- TODO: connect form (variant b: tag submissions with variant=b) -->
+        <form id="waitlist" novalidate aria-label="Solicitar piloto gratis">
+          <label>Nombre<input name="nombre" autocomplete="name" placeholder="Jordi Puig" required></label>
+          <label>Empresa distribuidora<input name="empresa" autocomplete="organization" placeholder="Materiales Puig SL" required></label>
+          <label>Teléfono o email<input name="contacto" placeholder="600 000 000 o jordi@empresa.es" required></label>
+          <p class="err" id="err" role="alert"></p>
+          <button class="btn" type="submit">Quiero el piloto gratis</button>
+          <p class="fine">Solo usamos estos datos para llamarte sobre el piloto. No los cedemos a nadie. Respuesta en 1 día laborable. <a href="privacidad.html">Privacidad</a>.</p>
+        </form>
+        <div class="thanks" id="thanks" role="status">
+          <h3>Gracias, <span id="tname"></span>.</h3>
+          <p>Te contactamos esta semana para ver cómo te llegan los pedidos. Ve guardando 20 pedidos reales de WhatsApp: con eso montamos la prueba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="sticky-cta" id="sticky"><a href="#probar" class="btn">Probar gratis con 20 pedidos</a></div>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--ink)">Pedidal</b> · © 2026</span>
+    <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+    <a href="plan.html">Plan</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('waitlist').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, err = document.getElementById('err');
+  var n = f.nombre.value.trim(), b = f.empresa.value.trim(), c = f.contacto.value.trim();
+  if (!n || !b || !c) { err.textContent = 'Rellena nombre, empresa y un teléfono o email.'; return; }
+  var okMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c), okPhone = /^[+\d][\d\s-]{7,}$/.test(c);
+  if (!okMail && !okPhone) { err.textContent = 'Escribe un teléfono o un email válido.'; return; }
+  // Store nothing. TODO: connect form
+  document.getElementById('tname').textContent = n.split(' ')[0];
+  f.style.display = 'none';
+  document.getElementById('thanks').style.display = 'block';
+});
+
+// Interactive demo. Plain JS, no backend, nothing stored.
+(function(){
+  var S={
+    obra:{av:'RV',who:'Reformas Vallès',meta:'cliente C-0412 · 7:12',num:'PV-24817',erp:'A3ERP',kind:'audio',
+      tr:'Jordi, para mañana en la obra de Terrassa: veinte sacos de cola gris, tres palés de ladrillo del siete, lo de siempre de yeso y una caja de guantes.',
+      rows:[['20 ud','Cemento cola C1 gris 25 kg','"sacos de cola gris"','CC1-G25'],['3 pal','Ladrillo hueco doble H7','"ladrillo del siete"','LHD-07'],['40 ud','Yeso grueso YG 20 kg','"lo de siempre": media de sus 6 últimos pedidos','YG-20'],['1 cj','Guante nitrilo talla 9','Talla deducida del historial. Revisar.','GN-09',1]]},
+    limpieza:{av:'LG',who:'Limpiezas Garraf',meta:'cliente C-0187 · 8:03',num:'PV-24822',erp:'Sage 200',kind:'foto',
+      list:['6 garrafas lejía azul','4 friegasuelos limón 5L','bolsas basura grandes x10','2 cajas papel secamanos'],
+      tr:'Foto leída: 4 líneas escritas a mano.',
+      rows:[['6 ud','Lejía 5 L envase azul','Hay 2 refs. azules. Elegida la de sus últimos 4 pedidos.','LEJ-5A'],['4 ud','Friegasuelos limón 5 L','"friegasuelos limón 5L"','FRG-L5'],['10 rl','Bolsa basura 85x90 rollo','"bolsas grandes"','BB-8590'],['2 cj','Papel secamanos zigzag','"papel secamanos"','PSM-ZZ']]},
+    bar:{av:'LP',who:'Bar La Parada',meta:'cliente C-0931 · 23:41',num:'PV-24830',erp:'Holded',kind:'texto',
+      text:'Buenas! 10 de agua, 3 barriles de 30 y 2 de tónica. Mañana antes de las 11 porfa',
+      tr:'Entrega pedida: mañana antes de las 11:00.',
+      rows:[['10 cj','Agua mineral 50 cl, caja de 24','"10 de agua": siempre pide cajas, no unidades. Revisar.','AGU-50C',1],['3 ud','Barril de cerveza 30 L','"barriles de 30"','BAR-30'],['2 cj','Tónica 20 cl, caja de 24','"2 de tónica"','TON-20C']]}
+  };
+  var $=function(id){return document.getElementById(id)};
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timers=[],cur='obra';
+  function clear(){timers.forEach(clearTimeout);timers=[]}
+  function later(fn,ms){timers.push(setTimeout(fn,reduce?0:ms))}
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+  function input(sc){
+    if(sc.kind==='audio'){var b='';for(var i=0;i<34;i++){b+='<i style="height:'+(6+Math.round(Math.abs(Math.sin(i*1.7))*18))+'px"></i>'}
+      return '<div class="bub"><div class="vn"><span class="play" aria-hidden="true"></span><span class="bars">'+b+'</span><span class="mono" style="font-size:11px">0:14</span></div></div>'}
+    if(sc.kind==='foto'){return '<div class="bub"><div class="photo">'+sc.list.map(function(l){return '<span>- '+esc(l)+'</span>'}).join('')+'</div></div>'}
+    return '<div class="bub">'+esc(sc.text)+'</div>'
+  }
+  function run(k){
+    clear();cur=k;var sc=S[k];
+    $('dAv').textContent=sc.av;$('dWho').textContent=sc.who;$('dMeta').textContent=sc.meta;$('dNum').textContent=sc.num;$('dErp').textContent=sc.erp;
+    $('dIn').innerHTML=input(sc);$('dTr').textContent='';$('dRows').innerHTML='';
+    var st=$('dStatus');st.className='mono';st.textContent=sc.kind==='audio'?'Escuchando audio':'Leyendo '+sc.kind;
+    var t=0;
+    if(sc.kind==='audio'){var bars=$('dIn').querySelectorAll('.bars i');bars.forEach(function(b,i){later(function(){b.classList.add('on')},40*i)});t=40*bars.length}
+    var words=sc.tr.split(' ');
+    words.forEach(function(w,i){later(function(){$('dTr').textContent=words.slice(0,i+1).join(' ')},t+45*i)});
+    t+=45*words.length+200;
+    later(function(){st.textContent='Cruzando con tu catálogo'},t);
+    sc.rows.forEach(function(r,i){later(function(){
+      var tr=document.createElement('tr');if(r[4])tr.className='warn';
+      tr.innerHTML='<td class="q">'+r[0]+'</td><td>'+esc(r[1])+'<span class="said">'+esc(r[2])+'</span></td><td class="r">'+r[3]+'</td>';
+      $('dRows').appendChild(tr)},t+450*(i+1))});
+    t+=450*(sc.rows.length+1);
+    later(function(){var w=sc.rows.filter(function(r){return r[4]}).length;st.className='mono done';
+      st.textContent=(w?'Cliente confirma · '+(sc.rows.length-w)+' seguras, '+w+' a revisar':'Cliente confirma · enviado a '+sc.erp)},t);
+  }
+  document.querySelectorAll('.demo-tabs button').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.demo-tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});run(b.dataset.s)})});
+  $('dPlay').addEventListener('click',function(){run(cur)});
+  run('obra');
+})();
+
+// Sticky CTA on mobile: show after the hero, hide near the form.
+(function(){
+  var st=document.getElementById('sticky'), hero=document.querySelector('.hero'), form=document.getElementById('probar');
+  if(!('IntersectionObserver' in window)) return;
+  var heroVis=true, formVis=false;
+  function upd(){ st.classList.toggle('show', !heroVis && !formVis); }
+  new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd();}).observe(hero);
+  new IntersectionObserver(function(e){formVis=e[0].isIntersecting;upd();}).observe(form);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Aviso legal</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="index.html">&larr; Inicio</a></div>
+  <h1>Aviso legal</h1>
+  <p style="color:var(--ink-2)">Última actualización: 26 de septiembre de 2026.</p>
+</header>
+<section>
+  <h2>Titular del sitio</h2>
+  <p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), estos son los datos del titular de este sitio web:</p>
+  <ul>
+    <li><b>Titular:</b> Joaquín Ferreiros</li>
+    <li><b>NIF:</b> [NIF pendiente]</li>
+    <li><b>Domicilio:</b> Barcelona, España [dirección completa pendiente]</li>
+    <li><b>Email de contacto:</b> [email de contacto pendiente]</li>
+    <li><b>Sitio web:</b> https://pedidal.vercel.app</li>
+  </ul>
+  <p>Pedidal es un proyecto en fase de validación. Todavía no presta servicios de pago ni tiene clientes.</p>
+</section>
+<section>
+  <h2>Objeto</h2>
+  <p>Este sitio presenta Pedidal, un servicio en desarrollo para convertir pedidos recibidos por WhatsApp en pedidos dentro del ERP de distribuidores B2B, y permite pedir información sobre un piloto gratuito.</p>
+</section>
+<section>
+  <h2>Condiciones de uso</h2>
+  <p>Al usar este sitio aceptas usarlo de forma lícita. Los precios mostrados son una hipótesis de lanzamiento, sin IVA, y no constituyen una oferta vinculante. Las cifras de la sección de objetivos son metas de piloto, no resultados medidos.</p>
+</section>
+<section>
+  <h2>Propiedad intelectual</h2>
+  <p>Los textos, el diseño y el código de este sitio son de su titular, salvo las fuentes tipográficas (Google Fonts, licencia SIL Open Font License). Las marcas de terceros citadas (WhatsApp, A3, Sage, Holded, Odoo) pertenecen a sus dueños y se mencionan solo para describir compatibilidades previstas.</p>
+</section>
+<section>
+  <h2>Responsabilidad y ley aplicable</h2>
+  <p>El titular no responde de los daños derivados de un uso indebido del sitio ni del contenido de sitios enlazados. Se aplica la legislación española. Para cualquier controversia, los juzgados de Barcelona, salvo que la ley disponga otro fuero.</p>
+</section>
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Kit de outreach</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#fff;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--sage-soft:#DFE8E1;--rose:#A65468;--rose-soft:#F3DEE1;--gold:#A65468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+a{color:var(--sage)}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);margin:.3rem 0 1rem}
+h2{font-size:clamp(1.8rem,4.5vw,2.4rem);margin-bottom:1rem;padding-top:8px}
+h3{font-size:1.35rem;margin:1.4rem 0 .5rem}
+em{color:var(--rose)}
+p,ul,ol{margin-bottom:.9rem}
+ul,ol{padding-left:1.3rem}
+li{margin-bottom:.35rem}
+header{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.back{font-size:.9rem;text-decoration:none}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.82rem;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;color:var(--muted)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.summary{background:var(--sage);color:#FBF4F2;border-radius:20px;padding:26px;font-size:1.08rem;margin-top:24px}
+.summary b{color:#F3C7B5}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}
+.note{background:var(--rose-soft);border-radius:14px;padding:16px 18px;font-size:.95rem}
+.grid2{display:grid;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:12px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sage-soft);font-weight:700;color:var(--sage)}
+.tw{overflow-x:auto}
+code{font-size:.85em;background:var(--sage-soft);padding:1px 6px;border-radius:6px}
+pre{background:#1F2A26;color:#E9E3DC;border-radius:14px;padding:16px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:18px 0}
+.lane{display:grid;gap:10px}
+.lane-t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.nodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.88rem}
+.node b{display:block;font-size:.95rem}
+.node.core{background:var(--sage);color:#fff;border-color:var(--sage)}
+.node.warn{background:var(--rose-soft);border-color:#E9C7CD}
+.arrow{text-align:center;color:var(--rose);font-size:1.3rem;line-height:1}
+.weeks{display:grid;gap:12px}
+.wk{background:#fff;border:1px solid var(--line);border-left:4px solid var(--rose);border-radius:12px;padding:16px}
+.wk b{font-family:"Bodoni Moda",serif;font-size:1.3rem;font-weight:400}
+footer{padding:32px 0;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.weeks{grid-template-columns:1fr 1fr}}
+.msg{background:#fff;border:1px solid var(--line);border-left:4px solid var(--sage);border-radius:12px;padding:16px 18px;margin:12px 0;white-space:pre-line;font-size:.95rem}
+.msg small{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px;white-space:normal}
+.obj{display:grid;gap:12px}
+.obj div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.obj b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:1.2rem;margin-bottom:4px}
+.q{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));list-style:none;padding:0}
+.q li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;margin:0}
+.q code{background:none;padding:0;font-size:.88rem;color:var(--ink)}
+@media(min-width:760px){.obj{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">Volver al plan</a>
+  <h1>Kit de <em>outreach</em></h1>
+  <p>Todo lo que Joaquín necesita para conseguir las 10 primeras clínicas en Barcelona: mensajes, visita, objeciones, seguimiento y dónde encontrar las clínicas.</p>
+  <nav class="toc"><a href="#reglas">Reglas</a><a href="#mensajes">Primer mensaje</a><a href="#visita">Visita</a><a href="#objeciones">Objeciones</a><a href="#seguimiento">Seguimiento</a><a href="#lista">Lista</a></nav>
+</div></header>
+<main class="wrap">
+
+<section id="reglas">
+  <h2>Reglas antes de escribir</h2>
+  <ul>
+    <li><b>Nada comercial sin permiso por email.</b> La LSSI (art. 21) prohíbe el email comercial no solicitado. El primer contacto pide permiso y no adjunta oferta. La demo se manda solo si responden que sí.</li>
+    <li><b>Solo canales públicos del negocio:</b> el Instagram de la clínica, su WhatsApp Business publicado y el formulario o email de contacto de su web. Nunca el móvil personal de la doctora.</li>
+    <li><b>Si hicimos un DM de prueba, lo decimos.</b> No fingimos ser pacientes en la conversación de venta.</li>
+    <li><b>Si dicen que no, no hay segundo mensaje.</b> Se marca en la hoja y no se vuelve a escribir.</li>
+    <li>No guardamos datos de personas: solo nombre comercial, barrio, canal y estado.</li>
+  </ul>
+</section>
+
+<section id="mensajes">
+  <h2>El primer mensaje</h2>
+  <div class="msg"><small>DM de Instagram a la cuenta de la clínica</small>Hola, soy Joaquín, de Barcelona. El domingo por la noche os escribí por el anuncio de [tratamiento] para medir cuánto tarda en llegar la respuesta. Llegó el lunes a las [hora].
+
+Estoy montando una recepción con IA para clínicas estéticas que contesta al momento con vuestra carta y reserva la valoración.
+
+¿Os puedo mandar un vídeo de 60 segundos con vuestro propio caso?</div>
+  <div class="msg"><small>WhatsApp Business publicado en su web</small>Hola, soy Joaquín, de Barcelona. Trabajo en una herramienta para clínicas estéticas que contesta los DMs de Instagram fuera de horario y reserva la valoración con señal.
+
+¿Hay alguien del equipo con quien pueda hablarlo 5 minutos? Si no os interesa, decídmelo y no vuelvo a escribir.</div>
+  <div class="msg"><small>Formulario de contacto de su web (pide permiso, sin oferta)</small>Hola, soy Joaquín, fundador de Glowdesk en Barcelona. Me gustaría enseñaros cómo contestaría vuestra recepción con IA a un DM de vuestro anuncio de [tratamiento], con vuestra carta real.
+
+¿Os puedo enviar un vídeo de 60 segundos? Si preferís que no, no os escribo más.</div>
+  <div class="msg"><small>Cuando dicen que sí</small>¡Gracias! Aquí está: [vídeo 60 s]. Es vuestra carta pública y un DM como los de vuestro anuncio. ¿Os lo enseño en persona 15 minutos esta semana? Puedo pasar el [día] a las [hora] por la clínica.</div>
+</section>
+
+<section id="visita">
+  <h2>Visita en persona, 15 minutos</h2>
+  <ol>
+    <li><b>Minuto 0-2.</b> «Gracias por el rato. Os enseño una cosa y me decís si os sirve o no.»</li>
+    <li><b>Minuto 2-6.</b> Demo en el móvil: su agente contesta un DM de su anuncio, ofrece 3 huecos y manda el enlace de señal.</li>
+    <li><b>Minuto 6-9.</b> Tres preguntas: ¿cuántos DMs os llegan al día? ¿Cuántas valoraciones hacéis a la semana? ¿Cuántas no vienen?</li>
+    <li><b>Minuto 9-11.</b> Cuenta en voz alta con sus números: valoraciones perdidas × ticket medio × tasa de cierre.</li>
+    <li><b>Minuto 11-13.</b> Límites: la IA no diagnostica, dice que es un asistente virtual y solo usa textos que aprueba la doctora.</li>
+    <li><b>Minuto 13-15.</b> Cierre: «¿Probamos 30 días gratis? Necesito vuestra carta y 30 minutos para conectar Instagram. ¿Qué día os va bien?»</li>
+  </ol>
+  <p>Al salir, dejar la <a href="ficha.html">ficha para la clínica</a> impresa o en PDF, con sus números rellenados.</p>
+  <p class="note">Salir siempre con una fecha concreta o con un no claro. «Ya te diremos» se apunta como no.</p>
+</section>
+
+<section id="objeciones">
+  <h2>Cinco objeciones y qué contestar</h2>
+  <div class="obj">
+    <div><b>«Ya contestamos nosotras.»</b>Perfecto de día. La prueba del domingo tardó [X] horas. Glowdesk cubre las noches y los fines de semana, y os pasa la conversación por la mañana.</div>
+    <div><b>«No quiero que una IA hable de medicina.»</b>Yo tampoco. Solo usa textos que aprueba la doctora. Ante embarazo, lactancia, alergias o medicación, no opina: deja un aviso y pasa el caso a vuestro equipo.</div>
+    <div><b>«Cobrar señal va a espantar a las pacientes.»</b>Es reembolsable y la configuráis vosotras. En el piloto la podéis dejar apagada dos semanas y comparar ausencias con y sin señal.</div>
+    <div><b>«Ya tenemos programa de gestión.»</b>No lo tocamos. Reserva en vuestro Google Calendar o crea la cita y avisa a recepción para que la pase a vuestro programa.</div>
+    <div><b>«¿Y los datos de salud?»</b>Servidores en la UE, contrato de encargado de tratamiento firmado con la clínica y solo guardamos el aviso, no la conversación clínica completa.</div>
+  </div>
+</section>
+
+<section id="seguimiento">
+  <h2>Seguimiento: día 0, 2 y 7</h2>
+  <div class="tw"><table>
+    <tr><th>Día</th><th>Canal</th><th>Mensaje</th></tr>
+    <tr><td>0</td><td>DM o WhatsApp</td><td>Primer mensaje (arriba). Pide permiso.</td></tr>
+    <tr><td>2</td><td>Mismo canal</td><td>«Hola de nuevo. Solo por si se perdió: tengo el vídeo con vuestra carta, son 60 segundos. ¿Os lo paso?»</td></tr>
+    <tr><td>7</td><td>En persona</td><td>Pasar por la clínica en horario de recepción, sin cita, con la demo en el móvil. Preguntar por la coordinadora de pacientes. Si no hay nadie, dejar una tarjeta y no volver a escribir.</td></tr>
+  </table></div>
+  <p>Después del día 7 la clínica pasa a «frío» en la hoja. Se vuelve a intentar en 3 meses solo si abren una campaña nueva en la Biblioteca de anuncios de Meta.</p>
+</section>
+
+<section id="lista">
+  <h2>Cómo construir la lista de 150 clínicas</h2>
+  <p>No publicamos nombres de clínicas aquí: la lista vive en una hoja privada. Estas son las búsquedas exactas.</p>
+  <h3>Google Maps</h3>
+  <ul class="q">
+    <li><code>medicina estética Eixample Barcelona</code></li>
+    <li><code>medicina estética Sant Gervasi Barcelona</code></li>
+    <li><code>medicina estética Sarrià Barcelona</code></li>
+    <li><code>medicina estética Les Corts Barcelona</code></li>
+    <li><code>medicina estética Gràcia Barcelona</code></li>
+    <li><code>clínica estética Poblenou Barcelona</code></li>
+    <li><code>clínica estética Sant Cugat del Vallès</code></li>
+    <li><code>ácido hialurónico labios Barcelona</code></li>
+    <li><code>rinomodelado Barcelona</code></li>
+    <li><code>depilación láser médica Barcelona</code></li>
+    <li><code>tratamiento arrugas de expresión Barcelona clínica</code></li>
+    <li><code>peeling químico clínica Barcelona</code></li>
+    <li><code>mesoterapia facial Barcelona</code></li>
+    <li><code>clínica estética Badalona</code></li>
+    <li><code>clínica estética L'Hospitalet de Llobregat</code></li>
+  </ul>
+  <h3>Biblioteca de anuncios de Meta (país: España)</h3>
+  <ul class="q">
+    <li><code>medicina estética Barcelona</code></li>
+    <li><code>ácido hialurónico</code></li>
+    <li><code>rinomodelado</code></li>
+    <li><code>láser diodo piernas</code></li>
+    <li><code>valoración gratuita clínica</code></li>
+  </ul>
+  <h3>Filtro para priorizar</h3>
+  <ol>
+    <li>Tiene anuncios activos en Meta ahora mismo.</li>
+    <li>Más de 5.000 seguidores y reels en la última semana.</li>
+    <li>Médico o médica visible en la web (actividad sanitaria, no solo estética).</li>
+    <li>No usa Koibox (lo dice su web o su enlace de reservas).</li>
+    <li>Tardó más de 1 hora en contestar el DM de prueba.</li>
+  </ol>
+  <p>Columnas de la hoja: nombre comercial, barrio, Instagram, anuncios activos (sí/no), tiempo de respuesta, estado (día 0 / 2 / 7 / visita / piloto / no), próxima acción.</p>
+</section>
+</main>
+<footer><div class="wrap">Glowdesk · © 2026 · <a href="plan.html">Plan</a> · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

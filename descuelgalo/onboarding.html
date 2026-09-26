@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Onboarding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+.calc{display:grid;gap:16px}@media(min-width:760px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{display:block;font-weight:600;margin:12px 0 4px;color:var(--ink)}
+.calc input[type=range]{width:100%;accent-color:var(--green);min-height:32px}
+.calc output{font-weight:700;color:var(--green)}
+.res{background:var(--ink);color:var(--paper);border-radius:18px;padding:22px}
+.res b{display:block;font:700 40px Fredoka;color:#7FE0A4}
+.res p{color:#D7E0DA}
+.btnp{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:13px 22px;text-decoration:none;font-weight:700;margin-top:10px}
+:focus-visible{outline:3px solid #E4572E;outline-offset:3px}
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="wrap">
+<header>
+<a class="back" href="plan.html">← Plan</a><br><br>
+<span class="tag">Interno · primeros 14 días</span>
+<h1>Onboarding: de apuntarse a la primera llamada cogida</h1>
+<p>Canal principal: WhatsApp (el dueño no lee el email). El email lleva lo mismo, para tener rastro. Todos los mensajes los firma Joaquín.</p>
+</header>
+<section><h2>El momento de primer valor</h2>
+<div class="warn"><b>El primer resumen de WhatsApp con una llamada real que el dueño no cogió.</b> Objetivo: que llegue antes del día 3. Si el día 3 no ha llegado ninguno, Joaquín llama al taller desde otro número a la hora de comer para provocarlo y revisa el desvío.</div></section>
+<section><h2>Checklist de puesta en marcha (15 minutos)</h2><ol>
+<li>Buscar la ficha de Google del negocio y revisar horario, servicios y dirección.</li>
+<li>Elegir nombre, voz y tuteo o usted.</li>
+<li>Decidir qué hace con presupuestos y urgencias (por defecto: tomar datos y avisar).</li>
+<li>Poner el número de WhatsApp del dueño para los resúmenes.</li>
+<li>Marcar el código de desvío de su operador (<code>**61*número#</code> o el que toque).</li>
+<li>Llamada de prueba desde el móvil de Joaquín sin que el dueño coja. Comprobar que llega el resumen.</li>
+</ol></section>
+<section><h2>Los 5 mensajes de los primeros 14 días</h2>
+<div class="tbl"><table><tr><th>Día</th><th>Mensaje (WhatsApp)</th><th>Objetivo</th></tr>
+<tr><td>0</td><td>"Hola [nombre], soy Joaquín. Lucía ya está contestando las llamadas que no coges en [negocio]. Cuando coja una, te llega aquí el resumen. Si algo no te cuadra, contesta a este mensaje."</td><td>Confirmar que está activa y abrir el canal</td></tr>
+<tr><td>1</td><td>"Ayer Lucía cogió [n] llamadas. ¿Has visto el resumen? Si quieres cambiar cómo saluda o qué dice de los presupuestos, dímelo y lo cambio hoy."</td><td>Primer uso y primer ajuste</td></tr>
+<tr><td>3</td><td>"Te paso una llamada de ayer para que la escuches (40 s). ¿Contestó como lo harías tú? Si no, dime qué dirías y lo corrijo."</td><td>Confianza en la calidad</td></tr>
+<tr><td>7</td><td>"Primera semana: [n] llamadas cogidas, [c] citas y [p] presupuestos que te llegaron por WhatsApp. ¿Te va bien que siga igual o probamos también con el sábado?"</td><td>Mostrar el valor en números reales</td></tr>
+<tr><td>14</td><td>"Mitad del piloto. ¿Hay algo que te haría quitarla? Te lo pregunto ahora para arreglarlo antes del día 30. Si sigues, el plan Pro son €69 al mes y mantienes el precio un año."</td><td>Detectar abandono y preparar el paso a pago</td></tr>
+</table></div>
+<p>Si en cualquier día hay 0 llamadas cogidas, el mensaje de ese día se sustituye por una revisión del desvío con el dueño.</p></section>
+<section><h2>Señales que miramos cada día</h2><ul><li>Llamadas cogidas por Lucía y minutos.</li><li>Llamadas en las que el cliente pidió una persona.</li><li>Resúmenes leídos (doble check azul).</li><li>Desvío activo (llamada de prueba automática cada lunes).</li></ul></section>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="index.html">Landing</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Precios y calculadora</title>
+<meta name="description" content="Precios de Pedidal y calculadora de horas y euros que pierdes tecleando pedidos de WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+<style>
+.calc{display:grid;gap:18px;background:var(--card);border:1.5px solid var(--ink);border-radius:6px;padding:22px;margin-top:10px}
+.calc label{display:grid;gap:6px;font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.05em}
+.calc input{font:500 18px "IBM Plex Mono";padding:10px 12px;border:1.5px solid var(--ink);border-radius:4px;background:#FFF8F0;min-height:48px;width:100%}
+.calc input:focus{outline:3px solid var(--orange);outline-offset:1px}
+.calc small{font:400 12.5px "IBM Plex Sans";text-transform:none;letter-spacing:0;color:var(--ink-2)}
+.out{display:grid;gap:10px}
+.out div{background:var(--paper);border-radius:4px;padding:14px}
+.out b{display:block;font:800 34px/1 "Archivo";font-stretch:78%}
+.out span{font-size:14px;color:var(--ink-2)}
+.out .hl{background:var(--orange)}.out .hl span{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;background:var(--orange);color:var(--ink);font-weight:600;text-decoration:none;padding:14px 20px;border-radius:4px;min-height:48px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+details{border-top:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font:700 18px "Archivo";font-stretch:85%}details p{margin-top:8px;color:var(--ink-2)}
+@media(min-width:760px){.calc{grid-template-columns:1fr 1fr}.out{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="index.html#probar">Piloto gratis</a></div>
+  <h1>Precios y cuánto te cuesta teclear</h1>
+  <p>Mete tus números. La calculadora no guarda nada y no inventa ahorros: usa lo que tú escribes.</p>
+</header>
+
+<section id="calculadora">
+  <h2>Calculadora</h2>
+  <form class="calc" id="calc" onsubmit="return false">
+    <div style="display:grid;gap:14px">
+      <label>Pedidos por WhatsApp al día<input type="number" id="c_ped" value="40" min="0" inputmode="numeric"><small>Cuenta los chats de pedido de un día normal.</small></label>
+      <label>Minutos para teclear un pedido<input type="number" id="c_min" value="4" min="0" step="0.5" inputmode="decimal"><small>Leer, escuchar el audio, buscar referencias y meterlo en el ERP.</small></label>
+      <label>Coste por hora de esa persona (€)<input type="number" id="c_eur" value="18" min="0" inputmode="decimal"><small>Sueldo más Seguridad Social, dividido entre horas trabajadas.</small></label>
+      <label>Días laborables al mes<input type="number" id="c_dias" value="22" min="0" inputmode="numeric"></label>
+      <label>% de pedidos que Pedidal pasa solo<input type="number" id="c_auto" value="70" min="0" max="100" inputmode="numeric"><small>70 % es nuestro objetivo de piloto, no un resultado medido. Pon el que quieras.</small></label>
+    </div>
+    <div class="out" aria-live="polite">
+      <div><b id="o_h">0 h</b><span>al mes tecleando pedidos hoy</span></div>
+      <div><b id="o_e">0 €</b><span>al mes que cuesta ese tiempo</span></div>
+      <div><b id="o_hs">0 h</b><span>al mes que recuperas con el % que has puesto</span></div>
+      <div><b id="o_plan">Almacén</b><span id="o_plan_d">plan recomendado</span></div>
+      <div class="hl" style="grid-column:1/-1"><b id="o_net">0 €</b><span id="o_net_d">al mes de diferencia entre el tiempo recuperado y la cuota</span></div>
+    </div>
+  </form>
+  <p style="margin-top:14px;font-size:14px;color:var(--ink-2)">No cuenta los portes de vuelta por errores ni los pedidos fuera de horario. Si los tienes, súmalos tú.</p>
+  <p style="margin-top:18px"><a class="btn" href="index.html#probar">Probar gratis con 20 pedidos</a></p>
+</section>
+
+<section id="planes">
+  <h2>Planes</h2>
+  <div class="tbl"><table>
+    <tr><th></th><th>Arranque</th><th>Almacén</th><th>Distribuidor</th></tr>
+    <tr><td>Precio al mes (sin IVA)</td><td><b>190 €</b></td><td><b>320 €</b></td><td><b>490 €</b></td></tr>
+    <tr><td>Pedidos al mes</td><td>600</td><td>1.500</td><td>4.000</td></tr>
+    <tr><td>Texto, audio y foto</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Bandeja de excepciones</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Salida al ERP</td><td>CSV o email</td><td>Conector A3, Sage, Holded u Odoo</td><td>Conector + varias delegaciones</td></tr>
+    <tr><td>Tarifas y stock por cliente</td><td>No</td><td>Sí</td><td>Sí</td></tr>
+    <tr><td>Números de WhatsApp</td><td>1</td><td>1</td><td>Varios</td></tr>
+    <tr><td>Pedidos por email</td><td>No</td><td>No</td><td>Sí</td></tr>
+  </table></div>
+  <p style="font-size:14px;color:var(--ink-2)">Precios de lanzamiento. Son una hipótesis y los ajustamos con los primeros distribuidores. Los 10 primeros no pagan el alta ni el primer mes.</p>
+</section>
+
+<section id="faq">
+  <h2>Facturación</h2>
+  <details><summary>¿Hay permanencia?</summary><p>No. Pagas mes a mes y cancelas cuando quieras, con aviso antes del siguiente mes.</p></details>
+  <details><summary>¿Qué pasa si me paso de pedidos?</summary><p>Ese mes no cortamos nada. Si te pasas dos meses seguidos, te proponemos el plan siguiente. Tú decides.</p></details>
+  <details><summary>¿Hay coste de alta?</summary><p>300 € de alta por la integración y la carga del catálogo. Los 10 primeros distribuidores no lo pagan.</p></details>
+  <details><summary>¿Cómo se paga?</summary><p>Factura mensual con IVA. Transferencia o domiciliación SEPA.</p></details>
+  <details><summary>¿Y el coste de la API de WhatsApp?</summary><p>Va incluido para las respuestas a pedidos de tus clientes. Si quieres enviar campañas o avisos masivos, eso se factura aparte al coste de Meta.</p></details>
+</section>
+
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="index.html">Inicio</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+<script>
+(function(){
+  var f=function(id){return parseFloat(document.getElementById(id).value.replace(',','.'))||0};
+  var fmt=function(n){return Math.round(n).toLocaleString('es-ES')};
+  function calc(){
+    var ped=f('c_ped'),min=f('c_min'),eur=f('c_eur'),dias=f('c_dias'),auto=Math.min(100,Math.max(0,f('c_auto')));
+    var mes=ped*dias, h=mes*min/60, e=h*eur, hs=h*auto/100, es=hs*eur;
+    var plan=mes<=600?['Arranque',190]:mes<=1500?['Almacén',320]:['Distribuidor',490];
+    if(mes>4000){plan=['Distribuidor+',490]}
+    document.getElementById('o_h').textContent=fmt(h)+' h';
+    document.getElementById('o_e').textContent=fmt(e)+' €';
+    document.getElementById('o_hs').textContent=fmt(hs)+' h';
+    document.getElementById('o_plan').textContent=plan[0];
+    document.getElementById('o_plan_d').textContent=fmt(mes)+' pedidos al mes · '+plan[1]+' €/mes'+(mes>4000?' (hablamos de volumen)':'');
+    var net=es-plan[1];
+    document.getElementById('o_net').textContent=(net>=0?'+':'')+fmt(net)+' €';
+    document.getElementById('o_net_d').textContent=net>=0?'al mes: el tiempo recuperado vale más que la cuota':'al mes: con estos números Pedidal no te compensa, y te lo decimos';
+  }
+  document.querySelectorAll('#calc input').forEach(function(i){i.addEventListener('input',calc)});
+  calc();
+})();
+</script>
+</body>
+</html>

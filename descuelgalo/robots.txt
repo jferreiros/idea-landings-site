@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://descuelgalo.vercel.app/sitemap.xml

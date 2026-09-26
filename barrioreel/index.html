@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barrio Reel | Creadores de tu barrio para tu restaurante en Barcelona</title>
+<meta name="description" content="Cada mes, 4 creadores de comida con público en Barcelona graban y publican un reel de tu local. Nosotros elegimos, agendamos y verificamos. Primer mes sin cuota.">
+<link rel="canonical" href="https://barrioreel.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://barrioreel.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://barrioreel.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://barrioreel.vercel.app/en.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Barrio Reel">
+<meta property="og:title" content="Barrio Reel: tu barrio te ve en reels">
+<meta property="og:description" content="4 creadores de comida de Barcelona graban tu local cada mes. Nosotros lo organizamos todo. Primer mes sin cuota.">
+<meta property="og:url" content="https://barrioreel.vercel.app/">
+<meta property="og:image" content="https://barrioreel.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Barrio Reel: tu barrio te ve en reels">
+<meta name="twitter:description" content="4 creadores de comida de Barcelona graban tu local cada mes. Primer mes sin cuota.">
+<meta name="twitter:image" content="https://barrioreel.vercel.app/og.png">
+<meta name="theme-color" content="#141414">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Crect x='9' y='5' width='14' height='22' fill='%23FF2E7E'/%3E%3Cpath d='M14 12l6 4-6 4z' fill='%23141414'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://barrioreel.vercel.app/#org","name":"Barrio Reel","url":"https://barrioreel.vercel.app/","founder":{"@type":"Person","name":"Joaquín"},"areaServed":{"@type":"City","name":"Barcelona"}},
+{"@type":"Service","name":"Barrio Reel","serviceType":"Marketing con microcreadores locales para restaurantes","provider":{"@id":"https://barrioreel.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"description":"Cada mes, 4 creadores de comida con público en Barcelona visitan tu local y publican un reel. Selección, agenda y verificación incluidas.","offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"Primer mes sin cuota"},{"@type":"Offer","name":"Barrio","price":"199","priceCurrency":"EUR","description":"Mensual, IVA no incluido, sin permanencia"}]}
+]}
+</script>
+<style>
+:root{
+  --paper:#F3F1EC; --white:#FCFBF8; --ink:#141414; --grey:#5B5955; --line:#141414;
+  --pop:#FF2E7E; --pop-ink:#141414;
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --body:"Archivo",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.005em}
+h2{font-size:clamp(2.6rem,7.5vw,5.4rem)}
+h3{font-size:1.6rem;line-height:1}
+.mono{font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+section{padding:96px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;background:var(--pop);color:var(--pop-ink);font-family:var(--body);font-weight:800;font-size:1rem;text-decoration:none;border:2px solid var(--ink);padding:0 22px;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .25s var(--ease),box-shadow .25s var(--ease);white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:var(--white)}
+.btn.inv{border-color:var(--white);box-shadow:4px 4px 0 var(--white)}
+.arrow{width:22px;height:22px;display:grid;place-items:center;background:var(--ink);color:var(--pop);font-size:.9rem;transition:transform .25s var(--ease)}
+.btn:hover .arrow{transform:translate(2px,-2px)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--pop)}
+.sticker{display:inline-block;font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:var(--pop);color:var(--ink);border:2px solid var(--ink);padding:5px 9px;transform:rotate(-3deg)}
+.sticker.w{background:var(--white)}
+.sticker.k{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:2px solid var(--ink)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;gap:14px}
+.logo{font-family:var(--display);font-size:1.55rem;text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.logo b{font-weight:400;background:var(--ink);color:var(--pop);padding:0 6px}
+nav .links{display:flex;gap:22px;align-items:center;font-weight:700;font-size:.95rem}
+nav .links a.t{text-decoration:none;display:none}
+nav .links a.t:hover{text-decoration:underline;text-decoration-thickness:2px}
+@media(min-width:820px){nav .links a.t{display:inline}}
+@media(max-width:480px){nav .links .btn{display:none}}
+nav .btn{min-height:44px;padding:0 16px;font-size:.92rem;box-shadow:3px 3px 0 var(--ink)}
+
+/* hero */
+.hero{padding:44px 0 64px;overflow:hidden}
+.hero .grid{display:grid;gap:44px;align-items:center}
+@media(min-width:960px){.hero .grid{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-size:clamp(3.4rem,9.5vw,7.4rem);line-height:1}
+.hero h1 span{background:linear-gradient(transparent 14%,var(--pop) 14%,var(--pop) 90%,transparent 90%);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .lead{font-size:1.2rem;max-width:30em;margin:24px 0 30px;font-weight:500}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.strip{position:relative;display:flex;gap:14px;justify-content:center;padding:26px 14px;background:var(--ink);transform:rotate(2deg);max-width:520px;margin:0 auto;width:100%}
+.strip:before,.strip:after{content:"";position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,var(--paper) 0 10px,transparent 10px 22px)}
+.strip:before{top:8px}.strip:after{bottom:8px}
+.frame{flex:1;aspect-ratio:9/16;position:relative;overflow:hidden;border:2px solid var(--white);max-width:160px}
+.frame .ph{position:absolute;inset:0}
+.f1 .ph{background:radial-gradient(circle at 50% 56%,#F6C544 0 16%,transparent 17%),radial-gradient(circle at 50% 56%,#FCFBF8 0 30%,transparent 31%),linear-gradient(170deg,#3A3A3A,#141414)}
+.f2 .ph{background:radial-gradient(ellipse 30% 22% at 50% 52%,#FF8A3D 0 100%,transparent 101%),radial-gradient(circle at 50% 52%,#262626 0 36%,transparent 37%),linear-gradient(200deg,#FF2E7E,#9E1049)}
+.f3 .ph{background:repeating-linear-gradient(45deg,#FCFBF8 0 8px,#E7E4DD 8px 16px)}
+.f3 .ph:after{content:"";position:absolute;left:30%;top:36%;width:40%;height:28%;background:#141414;border-radius:50% 50% 12% 12%}
+.frame .who{position:absolute;top:8px;left:8px;right:8px;font-family:var(--mono);font-size:.58rem;font-weight:700;color:var(--white);text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.f3 .who{color:var(--ink);text-shadow:none}
+.frame .cap{position:absolute;left:8px;right:8px;bottom:10px;font-family:var(--display);font-size:1rem;line-height:1;color:var(--white);text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.f3 .cap{color:var(--ink);text-shadow:none}
+.f2{transform:translateY(-10px)}
+.hero .stk1{position:absolute;top:-14px;left:-6px;z-index:2}
+.hero .stk2{position:absolute;bottom:-16px;right:10px;z-index:2;transform:rotate(4deg)}
+.stripbox{position:relative;padding:18px 0}
+
+/* marquee */
+.mq{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.mq div{display:flex;gap:36px;white-space:nowrap;padding:14px 0;font-family:var(--display);font-size:1.7rem;text-transform:uppercase;animation:mq 38s linear infinite;width:max-content}
+.mq span:nth-child(3n){color:var(--pop)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* problem */
+.problem .grid{display:grid;gap:40px}
+@media(min-width:960px){.problem .grid{grid-template-columns:1fr 1fr;align-items:start}}
+.scene{background:var(--white);border:2px solid var(--ink);padding:30px;position:relative;box-shadow:8px 8px 0 var(--ink);transform:rotate(-1deg)}
+.scene .sticker{position:absolute;top:-14px;left:22px}
+.scene p{font-size:1.12rem}
+.scene p+p{margin-top:12px}
+.pains{list-style:none;margin-top:28px;border-top:2px solid var(--ink)}
+.pains li{padding:16px 0;border-bottom:2px solid var(--ink);display:grid;grid-template-columns:44px 1fr;gap:10px;font-weight:500}
+.pains li b{font-family:var(--display);font-size:1.5rem;font-weight:400;line-height:1}
+
+/* demo */
+.demo{background:var(--pop);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.demo .intro{max-width:36em;font-size:1.12rem;margin-top:16px;font-weight:500}
+.dgrid{display:grid;gap:28px;margin-top:40px}
+@media(min-width:960px){.dgrid{grid-template-columns:.8fr 1.2fr;align-items:start}}
+.panel{background:var(--white);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:24px;display:grid;gap:16px}
+.panel label{font-weight:700;font-size:.9rem;display:grid;gap:6px}
+input,select{font:inherit;font-size:1rem;min-height:50px;padding:0 14px;border:2px solid var(--ink);background:var(--white);color:var(--ink);width:100%;border-radius:0;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+input::placeholder{color:#76736E}
+input:focus,select:focus{outline:none;box-shadow:4px 4px 0 var(--pop);border-color:var(--ink)}
+.out{display:grid;gap:18px}
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:560px){.reels{grid-template-columns:repeat(2,1fr)}}
+.reel{aspect-ratio:9/16;background:var(--ink);color:var(--white);border:2px solid var(--ink);position:relative;overflow:hidden;opacity:0;transform:translateY(16px) rotate(0);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.reel.on{opacity:1;transform:translateY(0) rotate(var(--r,0deg))}
+.reel .bg{position:absolute;inset:0}
+.reel .h{position:absolute;top:8px;left:8px;right:8px;font-family:var(--mono);font-size:.6rem;font-weight:700}
+.reel .c{position:absolute;left:8px;right:8px;bottom:26px;font-family:var(--display);font-size:1.02rem;line-height:1;text-transform:uppercase}
+.reel .s{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:.56rem;background:var(--pop);color:var(--ink);padding:2px 5px}
+.wa{background:var(--white);border:2px solid var(--ink);padding:14px;display:grid;gap:8px;font-size:.92rem;min-height:170px}
+.wa .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:8px;font-weight:800}
+.msg{max-width:88%;padding:8px 11px;background:#ECEAE4;border:1.5px solid var(--ink);opacity:0;transform:translateY(8px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.msg.me{justify-self:end;background:var(--pop)}
+.msg.on{opacity:1;transform:none}
+.note{font-size:.82rem;color:var(--ink);font-weight:500}
+
+/* steps: film strip */
+.steps{display:grid;gap:0;margin-top:44px;border:2px solid var(--ink);background:var(--white)}
+@media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding:28px;border-bottom:2px solid var(--ink);position:relative}
+@media(min-width:860px){.step{border-bottom:0;border-right:2px solid var(--ink)}.step:last-child{border-right:0}}
+.step:last-child{border-bottom:0}
+.step .n{font-family:var(--display);font-size:5rem;line-height:.8;-webkit-text-stroke:2px var(--ink);color:transparent}
+.step h3{margin:16px 0 10px}
+.step p{color:var(--grey)}
+.step .sticker{position:absolute;top:22px;right:20px}
+
+/* compare */
+.cmp{margin-top:40px;display:grid;gap:14px}
+.row{display:grid;gap:8px;border:2px solid var(--ink);padding:20px;background:var(--white)}
+@media(min-width:860px){.row{grid-template-columns:240px 1fr;gap:28px;align-items:center}}
+.row h3{font-size:1.5rem}
+.row p{color:var(--grey)}
+.row.us{background:var(--ink);color:var(--white);box-shadow:8px 8px 0 var(--pop)}
+.row.us p{color:#D9D6CF}
+.row.us h3{color:var(--pop)}
+
+/* pricing */
+.pgrid{display:grid;gap:26px;margin-top:44px}
+@media(min-width:900px){.pgrid{grid-template-columns:1fr 1fr;align-items:stretch}}
+.ticket{border:2px solid var(--ink);background:var(--white);padding:30px;position:relative;display:flex;flex-direction:column}
+.ticket.main{background:var(--ink);color:var(--white);box-shadow:8px 8px 0 var(--pop)}
+.ticket .price{font-family:var(--display);font-size:5rem;line-height:1;margin:14px 0 4px}
+.ticket .price small{font-family:var(--body);font-size:1rem;font-weight:600}
+.ticket ul{list-style:none;margin:20px 0 26px;display:grid;gap:10px}
+.ticket li{padding-left:26px;position:relative}
+.ticket li:before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;background:var(--pop);border:2px solid var(--ink)}
+.ticket.main li:before{border-color:var(--white)}
+.ticket .btn{margin-top:auto}
+.ticket .sticker{position:absolute;top:-14px;right:22px}
+.pnote{margin-top:24px;max-width:52em;color:var(--grey);font-size:.95rem}
+
+/* founder */
+.founder .grid{display:grid;gap:34px}
+@media(min-width:960px){.founder .grid{grid-template-columns:1.1fr .9fr}}
+.letter{font-size:1.2rem;font-weight:500;max-width:34em}
+.letter p+p{margin-top:14px}
+.sig{margin-top:22px;display:flex;align-items:center;gap:12px;font-weight:800}
+.sig i{width:48px;height:48px;background:var(--pop);border:2px solid var(--ink);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-size:1.5rem}
+.sig small{display:block;font-weight:500;color:var(--grey)}
+.facts{display:grid;gap:12px}
+.facts div{border:2px solid var(--ink);padding:16px 18px;background:var(--white)}
+.facts div:nth-child(2){transform:rotate(1deg)}
+.facts b{display:block;font-weight:800}
+.facts span{color:var(--grey);font-size:.95rem}
+
+/* creators */
+.creators{background:var(--ink);color:var(--white)}
+.creators .grid{display:grid;gap:26px;align-items:center}
+@media(min-width:900px){.creators .grid{grid-template-columns:1.3fr .7fr}}
+.creators p{color:#D9D6CF;margin-top:16px;max-width:36em}
+
+/* faq */
+.faq{max-width:860px}
+details{border-bottom:2px solid var(--ink);padding:20px 0}
+details:first-of-type{border-top:2px solid var(--ink);margin-top:34px}
+summary{cursor:pointer;font-weight:800;font-size:1.12rem;list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-family:var(--display);font-size:1.8rem;line-height:.8;flex:0 0 auto}
+details[open] summary:after{content:"-"}
+details p{margin-top:10px;color:var(--grey);max-width:44em}
+
+/* cta */
+.cta{background:var(--pop);border-top:2px solid var(--ink)}
+.cta .grid{display:grid;gap:36px}
+@media(min-width:960px){.cta .grid{grid-template-columns:1fr 1fr;align-items:center}}
+.cta p.big{font-size:1.15rem;margin-top:16px;font-weight:500;max-width:30em}
+form{background:var(--white);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:26px;display:grid;gap:14px}
+form label{font-weight:700;font-size:.9rem;display:grid;gap:6px}
+form .btn{width:100%}
+form small{color:var(--grey);font-size:.84rem}
+.roles{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink)}
+.roles button{font:inherit;font-weight:800;font-size:.92rem;min-height:46px;border:0;background:var(--white);color:var(--ink);cursor:pointer}
+.roles button+button{border-left:2px solid var(--ink)}
+.roles button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+.err{color:#B0003A;font-size:.84rem;font-weight:700;display:none}
+.bad .err{display:block}
+.bad input{border-color:#B0003A}
+.thanks{display:none;padding:12px 4px}
+.thanks h3{font-size:2.4rem;margin-bottom:10px}
+form.done>*:not(.thanks){display:none}
+form.done .thanks{display:block}
+
+footer{padding:34px 0;font-size:.92rem;border-top:2px solid var(--ink)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:35;transition:transform .35s var(--ease),opacity .35s var(--ease)}
+.sticky .btn{width:100%}
+.sticky.off{transform:translateY(150%);opacity:0;pointer-events:none}
+@media(min-width:760px){.sticky{display:none}}
+@media(max-width:759px){footer{padding-bottom:100px}section{padding:72px 0}}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mq div{animation:none}.rv,.reel,.msg{opacity:1!important;transform:none!important;transition:none!important}.btn{transition:none}}
+@media(max-width:480px){.hero h1{font-size:3.3rem}.strip{transform:rotate(1deg);gap:8px;padding:24px 8px}.frame .cap{font-size:.82rem}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Barrio Reel, inicio">BARRIO<b>REEL</b></a>
+    <div class="links">
+      <a href="ca.html" lang="ca" hreflang="ca" aria-label="Català" style="font-family:var(--mono);font-size:.8rem;text-decoration:none">ES/<u>CA</u></a>
+      <a class="t" href="#demo">Pruébalo</a>
+      <a class="t" href="#como">Cómo funciona</a>
+      <a class="t" href="precios.html">Precio</a>
+      <a class="btn" href="#probar">Pedir piloto gratis</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="sticker k">Restaurantes de Barcelona</span>
+      <h1 style="margin-top:18px">Tu barrio te ve <span>en reels</span>.</h1>
+      <p class="lead">Cada mes, 4 creadores de comida con público en Barcelona graban tu local. Nosotros lo organizamos todo.</p>
+      <div class="ctas">
+        <a class="btn" href="#probar">Pedir piloto gratis <span class="arrow" aria-hidden="true">&#8599;</span></a>
+        <a class="btn alt" href="#como">Ver cómo funciona</a>
+      </div>
+    </div>
+    <div class="stripbox" aria-hidden="true">
+      <span class="sticker stk1">4 reels al mes</span>
+      <div class="strip">
+        <div class="frame f1"><div class="ph"></div><div class="who">@comeporgracia</div><div class="cap">El huevo roto de Gràcia</div></div>
+        <div class="frame f2"><div class="ph"></div><div class="who">@santsbrunch</div><div class="cap">Brunch escondido en Sants</div></div>
+        <div class="frame f3"><div class="ph"></div><div class="who">@tapeoconlaura</div><div class="cap">Bravas del Poble-sec</div></div>
+      </div>
+      <span class="sticker w stk2">Publicados y verificados</span>
+    </div>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true"><div>
+  <span>Gràcia</span><span>Sant Antoni</span><span>Poble-sec</span><span>Sants</span><span>Poblenou</span><span>Eixample</span><span>Gràcia</span><span>Sant Antoni</span><span>Poble-sec</span><span>Sants</span><span>Poblenou</span><span>Eixample</span>
+  <span>Gràcia</span><span>Sant Antoni</span><span>Poble-sec</span><span>Sants</span><span>Poblenou</span><span>Eixample</span><span>Gràcia</span><span>Sant Antoni</span><span>Poble-sec</span><span>Sants</span><span>Poblenou</span><span>Eixample</span>
+</div></div>
+
+<section class="problem">
+  <div class="wrap grid">
+    <div class="rv">
+      <h2>Buena cocina. Cero reels.</h2>
+      <ul class="pains">
+        <li><b>1</b>Tus vecinos eligen dónde cenar en Instagram y TikTok. Tu cuenta tiene tres fotos de 2023.</li>
+        <li><b>2</b>Buscar creadores te come la tarde: mensajes, fechas, plantones y reels que nunca salen.</li>
+        <li><b>3</b>Muchos "influencers" tienen el público en Madrid o en México. Esa gente no se sienta en tu mesa.</li>
+      </ul>
+    </div>
+    <div class="scene rv">
+      <span class="sticker">Martes, 16:40. Poble-sec</span>
+      <p>Marta acaba de cerrar la cocina del mediodía. Tiene 20 minutos antes de ir al mercado.</p>
+      <p>En el móvil, 11 mensajes de cuentas que piden cenar gratis para cuatro. No sabe si alguna tiene seguidores en Barcelona. La última que vino no publicó nada.</p>
+      <p>Cierra Instagram. Otra semana sin contenido.</p>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <h2 class="rv">Mira tu mes en 10 segundos.</h2>
+    <p class="intro rv">Escribe tu local y tu barrio. Te enseñamos cómo quedarían tus 4 reels y los mensajes que recibirías. Es una simulación: no guardamos nada.</p>
+    <div class="dgrid">
+      <div class="panel rv">
+        <label>Nombre de tu local<input id="dLocal" maxlength="28" placeholder="Bar Rovira" autocomplete="organization"></label>
+        <label>Barrio
+          <select id="dBarrio">
+            <option>Gràcia</option><option>Sant Antoni</option><option selected>Poble-sec</option><option>Sants</option><option>Poblenou</option><option>Eixample</option><option>Sant Andreu</option>
+          </select>
+        </label>
+        <label>Tu plato estrella<input id="dPlato" maxlength="24" placeholder="las bravas"></label>
+        <button class="btn" id="dGo" type="button">Ver mi mes</button>
+        <p class="note">Cuentas y cifras de ejemplo. No son creadores ni resultados reales.</p>
+        <p class="note"><a href="app.html">Abrir el prototipo del panel</a></p>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="reels" id="dReels"></div>
+        <div class="wa" id="dWa"><div class="hd"><span>Barrio Reel en WhatsApp</span><span class="mono">ejemplo</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <h2 class="rv">Tú cocinas. Nosotros, el resto.</h2>
+    <div class="steps rv">
+      <div class="step"><div class="n">1</div><span class="sticker w">2 minutos</span><h3>Pides el piloto</h3><p>Nombre, local y un teléfono. Paso por tu local para conocer tus platos, tus días flojos y tu tono.</p></div>
+      <div class="step"><div class="n">2</div><span class="sticker w">Por WhatsApp</span><h3>Elegimos y agendamos</h3><p>Seleccionamos creadores con público cerca de ti. Tú confirmas el día con un mensaje.</p></div>
+      <div class="step"><div class="n">3</div><span class="sticker w">Fin de mes</span><h3>Publican y te informamos</h3><p>Comprobamos que cada reel sale con tu ubicación, tu etiqueta y #publi. Recibes el alcance y los vídeos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="rv">Tres formas de tener reels.</h2>
+    <div class="cmp">
+      <div class="row rv"><h3>Hacerlo tú</h3><p>Gratis en euros, caro en horas. Contestas DMs sin saber dónde vive su público ni si van a publicar.</p></div>
+      <div class="row rv"><h3>Apps de colaboraciones</h3><p>Suelen ser gratis para el local. Tú filtras perfiles, chateas, agendas y persigues cada publicación.</p></div>
+      <div class="row us rv"><h3>Barrio Reel</h3><p>Cuota fija. Elegimos por público local, agendamos en tus horas flojas, verificamos cada reel y mandamos otro creador si alguien no publica.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="precio" style="background:var(--white);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)">
+  <div class="wrap">
+    <h2 class="rv">Un precio. Sin permanencia.</h2>
+    <div class="pgrid">
+      <div class="ticket rv">
+        <span class="sticker">Plazas por barrio</span>
+        <span class="mono">Piloto</span>
+        <div class="price">0 € <small>el primer mes</small></div>
+        <p>Tú pones la comida de los creadores. Nosotros pagamos su tarifa.</p>
+        <ul><li>4 visitas de creadores</li><li>Informe de alcance</li><li>Si no te convence, no sigues</li></ul>
+        <a class="btn alt" href="#probar">Pedir piloto gratis</a>
+      </div>
+      <div class="ticket main rv">
+        <span class="mono" style="color:var(--pop)">Barrio</span>
+        <div class="price">199 € <small>/ mes + IVA</small></div>
+        <p>Desde el segundo mes. Todo hecho por nosotros.</p>
+        <ul><li>4 creadores con público en Barcelona</li><li>Agenda en tus horas flojas</li><li>Asistente por WhatsApp</li><li>Verificación de cada reel y sustituto si falla</li><li>Derecho a reutilizar los reels en tu cuenta</li></ul>
+        <a class="btn inv" href="#probar">Pedir piloto gratis</a>
+      </div>
+    </div>
+    <p class="pnote">¿Grupo con 2 o más locales? Lo hablamos en la visita. Es una hipótesis de precio y la ajustaremos con los primeros restaurantes. Paras cuando quieras avisando antes de fin de mes. <a href="precios.html">Ver precios y calculadora</a>.</p>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="wrap grid">
+    <div class="letter rv">
+      <span class="sticker k">Quién está detrás</span>
+      <p style="margin-top:20px">Soy Joaquín y vivo en Barcelona. Cada semana veo bares buenísimos medio vacíos un martes, con cuentas de Instagram abandonadas.</p>
+      <p>Empiezo con pocos barrios y pocos locales, y paso yo mismo por el tuyo. Aún no tengo clientes que enseñarte. Por eso el primer mes es gratis: juzga los reels, no mis promesas.</p>
+      <div class="sig"><i aria-hidden="true">J</i><div>Joaquín<small>Fundador, Barcelona</small></div></div>
+    </div>
+    <div class="facts rv">
+      <div><b>Publicidad marcada</b><span>Cada reel lleva la etiqueta de colaboración o #publi, como exige la normativa española.</span></div>
+      <div><b>Sin reseñas falsas</b><span>No pedimos valoraciones en Google ni opiniones pactadas. El creador cuenta su visita real.</span></div>
+      <div><b>RGPD y servidores en la UE</b><span>Guardamos lo mínimo para organizar visitas. Pides que lo borremos y lo borramos.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="creators" id="creadores">
+  <div class="wrap grid">
+    <div class="rv">
+      <h2>¿Creas contenido de comida?</h2>
+      <p>Buscamos microcreadores en Barcelona desde unos 2.000 seguidores y con público local. Te proponemos sitios cerca de ti, eliges el día, comes y cobras una tarifa por reel publicado.</p>
+    </div>
+    <div class="rv"><a class="btn inv" href="#probar" data-role="creador">Apuntarme como creador</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq">
+    <h2 class="rv">Antes de decir que sí.</h2>
+    <details><summary>Hay apps gratis. ¿Por qué pagar?</summary><p>Esas apps te dan acceso a creadores, pero el trabajo sigue siendo tuyo: filtrar, chatear, agendar y comprobar. Aquí pagas para no gestionar nada, y respondemos si alguien falla.</p></details>
+    <details><summary>¿Y si los reels no me traen clientes?</summary><p>No te prometemos mesas llenas. Te garantizamos 4 reels publicados de creadores con público en Barcelona y un informe con el alcance real. Por eso el piloto es gratis.</p></details>
+    <details><summary>¿Tengo que invitar a comer?</summary><p>Sí, a una persona por visita. Tú decides el menú o el límite de gasto. Nosotros pagamos la tarifa del creador.</p></details>
+    <details><summary>¿Es legal? ¿Es publicidad?</summary><p>Es publicidad y así se marca en cada reel, como pide la normativa española sobre influencers. El creador cuenta su experiencia real.</p></details>
+    <details><summary>¿Cuánto tiempo me quita?</summary><p>Unos 15 minutos de conversación al principio. Después, confirmar días por WhatsApp y recibir a los creadores como a cualquier cliente.</p></details>
+    <details><summary>¿Puedo usar los reels en mi cuenta?</summary><p>Sí. El acuerdo con cada creador incluye que los compartas y los reutilices en tus redes.</p></details>
+  </div>
+</section>
+
+<section class="cta" id="probar">
+  <div class="wrap grid">
+    <div class="rv">
+      <h2>Pide tu piloto gratis.</h2>
+      <p class="big">Tres datos. Te escribo en 48 horas, paso por tu local y, si encaja, el primer mes no tiene cuota. Sin tarjeta.</p>
+    </div>
+    <!-- TODO: connect form -->
+    <form id="wl" novalidate>
+      <div class="roles" role="group" aria-label="Soy">
+        <button type="button" data-v="restaurante" aria-pressed="true">Tengo un local</button>
+        <button type="button" data-v="creador" aria-pressed="false">Soy creador</button>
+      </div>
+      <div class="f"><label>Tu nombre<input name="nombre" required autocomplete="name" placeholder="Marta García"></label><span class="err">Escribe tu nombre.</span></div>
+      <div class="f"><label><span id="biz-label">Local y barrio</span><input name="negocio" required placeholder="Bar Rovira, Poble-sec"></label><span class="err">Falta este dato.</span></div>
+      <div class="f"><label>WhatsApp o email<input name="contacto" required placeholder="600 000 000 o tu@email.com"></label><span class="err">Déjanos un teléfono o un email.</span></div>
+      <button class="btn" type="submit" id="sub">Pedir piloto gratis</button>
+      <small>Solo te escribiremos para esto. Nada de listas de correo.</small>
+      <div class="thanks" role="status"><h3>Gracias, <span id="tn"></span>.</h3><p id="tp">Te escribo en 48 horas para quedar en tu local.</p></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<div class="sticky off" id="sticky"><a class="btn" href="#probar">Pedir piloto gratis</a></div>
+
+<footer>
+  <div class="wrap"><span><strong>Barrio Reel</strong>, Barcelona. © 2026</span><span><a href="en.html" hreflang="en">English</a> &nbsp; <a href="aviso-legal.html">Aviso legal</a> &nbsp; <a href="privacidad.html">Privacidad</a> &nbsp; <a href="cookies.html">Cookies</a> &nbsp; <a href="plan.html">Plan</a></span></div>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* reveal */
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    rv.forEach(function(el){io.observe(el);});
+  } else rv.forEach(function(el){el.classList.add('in');});
+
+  /* demo */
+  var creators=[['@comeporgracia','Gràcia'],['@santsbrunch','Sants'],['@tapeoconlaura','Poble-sec'],['@lamesadelpoble','Poblenou']];
+  var bgs=['linear-gradient(170deg,#3A3A3A,#141414)','linear-gradient(200deg,#FF2E7E,#9E1049)','repeating-linear-gradient(45deg,#2A2A2A 0 8px,#1C1C1C 8px 16px)','linear-gradient(160deg,#5B5955,#141414)'];
+  var hooks=['No sabías que {p} se comían así','Guarda este sitio de {b}','{p} en {b}. Voy a volver','El sitio de {b} que nadie te cuenta'];
+  var timers=[];
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  function run(){
+    timers.forEach(clearTimeout);timers=[];
+    var L=document.getElementById('dLocal').value.trim()||'Bar Rovira';
+    var B=document.getElementById('dBarrio').value;
+    var P=document.getElementById('dPlato').value.trim()||'las bravas';
+    var R=document.getElementById('dReels');R.innerHTML='';
+    creators.forEach(function(c,i){
+      var d=document.createElement('div');d.className='reel';d.style.setProperty('--r',(i%2?2:-2)+'deg');
+      var cap=hooks[i].replace('{p}',P).replace('{b}',B);
+      d.innerHTML='<div class="bg" style="background:'+bgs[i]+'"></div><div class="h">'+c[0]+'<br>'+esc(L)+'</div><div class="c">'+esc(cap)+'</div><div class="s">#publi</div>';
+      R.appendChild(d);
+      timers.push(setTimeout(function(){d.classList.add('on');},reduce?0:120+i*160));
+    });
+    var W=document.getElementById('dWa');
+    W.querySelectorAll('.msg').forEach(function(m){m.remove();});
+    var msgs=[
+      ['','Hola, '+L+'. Este mes vienen 4 creadores con público en '+(B==='Eixample'?'el Eixample':B)+' y alrededores. Laura puede el jueves a las 13:30. ¿Te va bien?'],
+      ['me','Sí. Que pruebe '+P+'.'],
+      ['','Anotado. Pediremos a los 4 que destaquen '+P+'. Te aviso cuando salga cada reel.']
+    ];
+    msgs.forEach(function(m,i){
+      var e=document.createElement('div');e.className='msg '+m[0];e.textContent=m[1];W.appendChild(e);
+      timers.push(setTimeout(function(){e.classList.add('on');},reduce?0:800+i*700));
+    });
+  }
+  document.getElementById('dGo').addEventListener('click',run);
+  ['dLocal','dPlato'].forEach(function(id){document.getElementById(id).addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();run();}});});
+  run();
+
+  /* form */
+  var f=document.getElementById('wl'),lab=document.getElementById('biz-label'),neg=f.elements.negocio,sub=document.getElementById('sub'),role='restaurante';
+  var btns=f.querySelectorAll('.roles button');
+  function set(v){
+    role=v;
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v?'true':'false');});
+    if(v==='creador'){lab.textContent='Tu cuenta de Instagram o TikTok';neg.placeholder='@tucuenta';sub.textContent='Apuntarme como creador';}
+    else{lab.textContent='Local y barrio';neg.placeholder='Bar Rovira, Poble-sec';sub.textContent='Pedir piloto gratis';}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.v);});});
+  document.querySelectorAll('[data-role="creador"]').forEach(function(a){a.addEventListener('click',function(){set('creador');});});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var first=null;
+    ['nombre','negocio','contacto'].forEach(function(n){var el=f.elements[n],w=el.closest('.f');if(!el.value.trim()){w.classList.add('bad');el.setAttribute('aria-invalid','true');first=first||el;}else{w.classList.remove('bad');el.removeAttribute('aria-invalid');}});
+    if(first){first.focus();return;}
+    document.getElementById('tn').textContent=f.elements.nombre.value.trim().split(' ')[0];
+    if(role==='creador')document.getElementById('tp').textContent='Reviso tu cuenta y te escribo con los primeros locales cerca de ti.';
+    f.reset();f.classList.add('done');
+  });
+
+  /* sticky cta */
+  var st=document.getElementById('sticky'),cta=document.getElementById('probar'),hero=document.querySelector('.hero');
+  if('IntersectionObserver' in window){
+    var vis={h:true,c:false};
+    var o=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target===cta?'c':'h']=e.isIntersecting;});st.classList.toggle('off',vis.h||vis.c);});
+    o.observe(hero);o.observe(cta);
+  }
+})();
+</script>
+</body>
+</html>

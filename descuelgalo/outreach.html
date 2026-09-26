@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Kit de contacto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">← Volver al plan</a><br><br>
+  <span class="tag">Interno · kit de contacto</span>
+  <h1>Kit de contacto: los primeros 10 talleres</h1>
+  <p>Todo lo que Joaquín usa en la calle y en el móvil. Regla legal: nada de email comercial no solicitado a personas (LSSI art. 21) ni llamadas comerciales en frío a móviles (Orden TDF/149/2025). Se escribe a negocios con canal público de contacto y se visita en persona.</p>
+  <nav class="toc"><a href="#mensajes">Primer mensaje</a><a href="#visita">Visita</a><a href="#objeciones">Objeciones</a><a href="#seguimiento">Seguimiento</a><a href="#lista">Lista de objetivos</a></nav>
+</header>
+
+<section id="mensajes">
+  <h2>Primer mensaje</h2>
+  <h3>WhatsApp (al WhatsApp Business público del taller)</h3>
+  <pre>Hola, soy Joaquín, de Barcelona. Hoy he llamado al taller a las 13:30 y no lo ha cogido nadie. Normal, estabais trabajando.
+Estoy montando una recepcionista con IA que coge esas llamadas, apunta la cita y os lo manda por WhatsApp.
+Busco 10 talleres para un piloto gratis de 30 días. ¿Os paso un audio de 40 segundos para que la oigáis?</pre>
+  <h3>DM de Instagram o Google Maps</h3>
+  <pre>Hola, soy Joaquín. Monto una recepcionista con IA para talleres que coge las llamadas que no podéis atender. Piloto gratis de 30 días, sin tarjeta. ¿Os puedo enseñar cómo suena con el nombre de vuestro taller? Son 2 minutos.</pre>
+  <h3>Email (solo a direcciones genéricas de empresa: info@, taller@)</h3>
+  <pre>Asunto: La llamada de las 13:30
+
+Hola:
+Hoy he llamado a [Taller] a las 13:30 y no contestó nadie. Estoy probando una recepcionista con IA que coge esas llamadas, apunta la cita y os la manda por WhatsApp. Conserváis vuestro número.
+Busco 10 talleres de [zona] para un piloto gratis de 30 días. Si os interesa, respondéis a este correo y paso a enseñárosla.
+Si no queréis más correos míos, respondéis "no" y no vuelvo a escribir.
+Joaquín · Descuélgalo · Barcelona</pre>
+</section>
+
+<section id="visita">
+  <h2>Guion de visita (3 minutos)</h2>
+  <ol>
+    <li>Entra entre 15:30 y 17:00. Pregunta por el dueño y di: "Os he llamado hoy a la hora de comer y no lo cogió nadie".</li>
+    <li>Pregunta: "¿Cuántas llamadas se os escapan en un día normal?". Apunta la cifra que diga.</li>
+    <li>Enseña el móvil: escribe el nombre del taller y deja que oiga a Lucía con su nombre.</li>
+    <li>Ofrece el piloto: "30 días gratis, sin tarjeta. Solo marcas un código en tu móvil y lo quitas cuando quieras".</li>
+    <li>Si dice sí, configura el desvío allí mismo y haz una llamada de prueba desde tu móvil.</li>
+    <li>Si dice "ya lo pensaré", deja una tarjeta con el enlace y apunta la fecha de seguimiento.</li>
+  </ol>
+</section>
+
+<section id="objeciones">
+  <h2>5 objeciones y respuestas</h2>
+  <div class="tbl"><table>
+    <tr><th>Objeción</th><th>Respuesta</th></tr>
+    <tr><td>"Mis clientes quieren hablar conmigo, no con una máquina."</td><td>"Solo contesta cuando tú no puedes. Y si el cliente pide hablar contigo, te pasa la llamada o te deja el aviso con su número."</td></tr>
+    <tr><td>"No tengo tiempo para configurar nada."</td><td>"Lo hago yo ahora, en 15 minutos. Aprende tu horario de Google. Tú solo marcas un código."</td></tr>
+    <tr><td>"¿Y si dice una tontería o da un precio mal?"</td><td>"No da precios ni diagnósticos. Toma los datos y te avisa. Las primeras semanas escucho cada llamada contigo."</td></tr>
+    <tr><td>"Ya tengo buzón de voz."</td><td>"¿Cuántos mensajes te dejaron la semana pasada? Casi nadie deja mensaje; llaman al siguiente taller."</td></tr>
+    <tr><td>"¿Cuánto cuesta después?"</td><td>"€69 al mes con 400 minutos, sin permanencia. Si en 30 días no te ha cogido llamadas que habrías perdido, lo quitas."</td></tr>
+  </table></div>
+</section>
+
+<section id="seguimiento">
+  <h2>Secuencia de seguimiento</h2>
+  <div class="grid three">
+    <div class="card"><h3>Día 0</h3><p>Visita o primer mensaje. Si hay interés, envía por WhatsApp un audio de Lucía con el nombre del taller.</p></div>
+    <div class="card"><h3>Día 2</h3><p>"¿Pudisteis oír el audio? Esta semana tengo hueco para instalarlo el jueves por la tarde."</p></div>
+    <div class="card"><h3>Día 7</h3><p>Último mensaje: "Cierro los 10 pilotos de [zona] este viernes. Si no es el momento, sin problema; no vuelvo a escribir."</p></div>
+  </div>
+</section>
+
+<section id="lista">
+  <h2>Lista de objetivos: búsquedas exactas en Google Maps</h2>
+  <p>No guardamos datos de personas. Solo el nombre del negocio, la zona, las reseñas y el teléfono público del negocio. Filtro: 30+ reseñas, horario partido, sin web de reservas.</p>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>Búsqueda en Google Maps</th><th>Por qué</th></tr>
+    <tr><td>1</td><td><code>taller mecánico Sabadell</code></td><td>Polígonos con mucho taller independiente</td></tr>
+    <tr><td>2</td><td><code>taller mecánico Terrassa</code></td><td>Igual que Sabadell, a 30 min</td></tr>
+    <tr><td>3</td><td><code>taller mecánico L'Hospitalet de Llobregat</code></td><td>Densidad alta, cerca de Barcelona</td></tr>
+    <tr><td>4</td><td><code>taller mecánico Badalona</code></td><td>Mucho taller familiar</td></tr>
+    <tr><td>5</td><td><code>taller mecánico Sant Martí Barcelona</code></td><td>Poblenou y Sant Martí, a pie</td></tr>
+    <tr><td>6</td><td><code>taller mecánico Sants Barcelona</code></td><td>Barrio con talleres en bajos</td></tr>
+    <tr><td>7</td><td><code>taller neumáticos Cornellà</code></td><td>Neumáticos: muchas llamadas de "¿tenéis la medida?"</td></tr>
+    <tr><td>8</td><td><code>taller chapa y pintura Granollers</code></td><td>Presupuestos por teléfono</td></tr>
+    <tr><td>9</td><td><code>taller motos Gràcia Barcelona</code></td><td>Motos: cliente urbano que llama mucho</td></tr>
+    <tr><td>10</td><td><code>electromecánica automóvil Mataró</code></td><td>Diagnosis, el dueño está siempre ocupado</td></tr>
+    <tr><td>11</td><td><code>taller mecánico Rubí</code></td><td>Polígono industrial</td></tr>
+    <tr><td>12</td><td><code>taller mecánico Sant Cugat del Vallès</code></td><td>Cliente con más renta</td></tr>
+    <tr><td>13</td><td><code>taller mecánico Castelldefels</code></td><td>Temporada alta en verano</td></tr>
+    <tr><td>14</td><td><code>taller mecánico Santa Coloma de Gramenet</code></td><td>Talleres pequeños, 1 a 3 personas</td></tr>
+    <tr><td>15</td><td><code>pre ITV taller Barcelona</code></td><td>Llamadas de "¿me pasa la ITV?"</td></tr>
+    <tr><td>16</td><td><code>taller furgonetas Zona Franca Barcelona</code></td><td>Flotas: citas urgentes</td></tr>
+    <tr><td>17</td><td><code>taller aire acondicionado coche Barcelona</code></td><td>Picos de llamadas en verano</td></tr>
+    <tr><td>18</td><td><code>cambio de aceite rápido Viladecans</code></td><td>Mucha llamada corta de cita</td></tr>
+    <tr><td>19</td><td><code>taller mecánico Esplugues de Llobregat</code></td><td>Cerca de Sants, ruta fácil</td></tr>
+    <tr><td>20</td><td><code>taller mecánico Sant Boi de Llobregat</code></td><td>Cierra la ruta del Baix Llobregat</td></tr>
+  </table></div>
+  <p>De cada búsqueda, apunta los 10 primeros con 30+ reseñas. Llama a las 13:30 y marca los que no contestan: esos son los primeros a visitar.</p>
+</section>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="plan.html">Plan</a> · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

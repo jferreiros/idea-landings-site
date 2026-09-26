@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Motor de contenido</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+<style>.reels{display:grid;gap:12px}.reel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}.reel h3{margin:0 0 8px;font-size:18px}.reel dl{display:grid;grid-template-columns:70px 1fr;gap:4px 10px;font-size:14.5px}.reel dt{font:600 11px "IBM Plex Mono";text-transform:uppercase;color:var(--stamp);padding-top:3px}@media(min-width:760px){.reels{grid-template-columns:1fr 1fr}}</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="plan.html">&larr; Plan</a></div>
+  <span class="eyebrow">Uso interno · 26 sep 2026</span>
+  <h1>Motor de contenido</h1>
+  <div class="summary"><b>Para quién.</b> Gerentes y encargados de pedidos de almacenes de materiales y distribuidores de limpieza. Canales: Instagram Reels, TikTok, LinkedIn (vídeo nativo) y el estado de WhatsApp de Joaquín. Todo pedido real sale con permiso y sin datos del cliente final.</div>
+  <nav class="toc"><a href="#reels">10 reels</a><a href="#calendario">Calendario</a><a href="#carruseles">Carruseles</a></nav>
+</header>
+<section id="reels"><h2>10 guiones de reel (15 a 30 s)</h2><div class="reels"><div class="reel"><h3>1. El audio con hormigonera</h3><dl><dt>Gancho 2 s</dt><dd>¿Tu almacén entiende esto? (audio de 14 s con ruido de obra)</dd><dt>Escena</dt><dd>Pantalla partida: a la izquierda el audio en WhatsApp, a la derecha las líneas apareciendo en el ERP.</dd><dt>Frase</dt><dd>"20 sacos de cola, 3 palés del 7 y lo de siempre de yeso. En 40 segundos, en A3."</dd><dt>CTA</dt><dd>Piloto gratis con 20 pedidos: enlace en la bio.</dd></dl></div><div class="reel"><h3>2. La lista del cartón</h3><dl><dt>Gancho 2 s</dt><dd>Esto es un pedido real. Escrito en un cartón.</dd><dt>Escena</dt><dd>Mano sujetando una lista a mano junto al mostrador. Corte a la tabla de pedido con referencias.</dd><dt>Frase</dt><dd>"Tu cliente no va a usar un portal. Pedidal lee su letra."</dd><dt>CTA</dt><dd>¿Te llegan fotos así? Escríbeme "cartón".</dd></dl></div><div class="reel"><h3>3. ¿Qué es 'lo de siempre'?</h3><dl><dt>Gancho 2 s</dt><dd>"Lo de siempre". ¿Sabes qué es para cada cliente?</dd><dt>Escena</dt><dd>Joaquín delante de un palé. Muestra el historial de 6 pedidos y la media que calcula Pedidal.</dd><dt>Frase</dt><dd>"Hoy solo lo sabe Marta. Si Marta se pone mala, nadie lo sabe."</dd><dt>CTA</dt><dd>Guarda este vídeo para tu encargado de pedidos.</dd></dl></div><div class="reel"><h3>4. Las 7:40 en el almacén</h3><dl><dt>Gancho 2 s</dt><dd>38 chats sin leer. Los camiones salen a las 10.</dd><dt>Escena</dt><dd>Plano cenital de un móvil con notificaciones. Reloj en pantalla avanzando.</dd><dt>Frase</dt><dd>"Cada pedido se lee en el móvil y se vuelve a teclear. Dos veces el mismo trabajo."</dd><dt>CTA</dt><dd>¿Cuántos tienes tú ahora? Cuéntamelo en comentarios.</dd></dl></div><div class="reel"><h3>5. El porte de vuelta</h3><dl><dt>Gancho 2 s</dt><dd>Este ladrillo volvió al almacén. Coste: un porte.</dd><dt>Escena</dt><dd>Camión descargando. Texto: "ladrillo del 7" vs "ladrillo del 9".</dd><dt>Frase</dt><dd>"Un error de referencia cuesta más que un mes de Pedidal."</dd><dt>CTA</dt><dd>Piloto gratis: te marco los pedidos dudosos.</dd></dl></div><div class="reel"><h3>6. El pedido de las 23:41</h3><dl><dt>Gancho 2 s</dt><dd>Un bar pide a las 23:41. ¿Quién contesta?</dd><dt>Escena</dt><dd>Mensaje de WhatsApp nocturno. Respuesta automática con el resumen y botón "Confirmar".</dd><dt>Frase</dt><dd>"El cliente recibe la confirmación al momento. Tú lo ves a las 8:00 ya en el ERP."</dd><dt>CTA</dt><dd>Enlace en la bio.</dd></dl></div><div class="reel"><h3>7. Tres pedidos, tres formatos</h3><dl><dt>Gancho 2 s</dt><dd>Audio. Foto. Texto. Mismo resultado.</dd><dt>Escena</dt><dd>Los 3 escenarios de la demo de la web, uno tras otro, 4 s cada uno.</dd><dt>Frase</dt><dd>"Tu cliente pide como quiere. Tu ERP recibe siempre lo mismo."</dd><dt>CTA</dt><dd>Prueba la demo: pedidal.vercel.app</dd></dl></div><div class="reel"><h3>8. Lo que no hace</h3><dl><dt>Gancho 2 s</dt><dd>Pedidal NO se inventa productos.</dd><dt>Escena</dt><dd>Bandeja de excepciones: línea marcada "producto dudoso" con 2 opciones.</dd><dt>Frase</dt><dd>"Si no está seguro, te pregunta. O le pregunta al cliente."</dd><dt>CTA</dt><dd>¿Qué te da más miedo de automatizar pedidos?</dd></dl></div><div class="reel"><h3>9. El fundador en el mostrador</h3><dl><dt>Gancho 2 s</dt><dd>Voy a 5 almacenes cada mañana. Esto me dicen.</dd><dt>Escena</dt><dd>Joaquín en el coche entre visitas (sin mostrar clientes). Cuenta la frase más repetida de la semana.</dd><dt>Frase</dt><dd>"'Mis clientes no van a cambiar.' Exacto. Por eso no les pido que cambien."</dd><dt>CTA</dt><dd>Si estás en el Vallès, me paso.</dd></dl></div><div class="reel"><h3>10. Precio en 10 segundos</h3><dl><dt>Gancho 2 s</dt><dd>¿Cuánto cuesta no teclear pedidos?</dd><dt>Escena</dt><dd>Texto grande sobre kraft: 190 € / 320 € / 490 € al mes. Al lado: coste mensual de una persona tecleando.</dd><dt>Frase</dt><dd>"El precio está en la web. Sin 'pídenos presupuesto'."</dd><dt>CTA</dt><dd>Piloto gratis antes de pagar nada.</dd></dl></div></div></section>
+<section id="calendario">
+  <h2>Calendario de 4 semanas</h2>
+  <p>Ritmo realista para una persona: 2 reels y 1 carrusel por semana. Grabar los 4 reels del mes en una tarde.</p>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Martes</th><th>Jueves</th><th>Sábado</th><th>Meta</th></tr>
+    <tr><td>1</td><td>Reel 4: Las 7:40</td><td>Reel 1: Hormigonera</td><td>Carrusel A</td><td>500 visualizaciones · 1 DM</td></tr>
+    <tr><td>2</td><td>Reel 2: Cartón</td><td>Reel 3: Lo de siempre</td><td>Carrusel B</td><td>800 visualizaciones · 2 DM</td></tr>
+    <tr><td>3</td><td>Reel 5: Porte de vuelta</td><td>Reel 8: Lo que no hace</td><td>Reel 9: Fundador</td><td>1.000 visualizaciones · 3 DM</td></tr>
+    <tr><td>4</td><td>Reel 7: Tres formatos</td><td>Reel 10: Precio</td><td>Carrusel C</td><td>1 piloto que viene de contenido</td></tr>
+  </table></div>
+  <p>Reel 6 queda de reserva para horeca cuando se abra ese vertical.</p>
+</section>
+<section id="carruseles">
+  <h2>3 carruseles</h2>
+  <div class="grid2">
+    <div class="card"><h3>A. 5 formas en que tus clientes piden (y cómo leerlas)</h3><p>Audio · foto de lista · "lo de siempre" · captura de un pedido anterior · mensaje a las 23:00. Una diapositiva por formato con el pedido real a la izquierda y la línea de ERP a la derecha. Última: "Piloto gratis con 20 pedidos".</p></div>
+    <div class="card"><h3>B. Cuánto te cuesta teclear pedidos</h3><p>Cálculo en 6 diapositivas: pedidos al día × minutos por pedido × coste por hora. Ejemplo con números del propio lector (plantilla en blanco para rellenar). Sin cifras de clientes inventadas.</p></div>
+    <div class="card"><h3>C. Checklist: ¿estás listo para automatizar pedidos?</h3><p>7 preguntas: ¿tienes catálogo en Excel? ¿tu ERP importa CSV? ¿más de 20 pedidos al día por WhatsApp? Si respondes sí a 4, el piloto te encaja.</p></div>
+  </div>
+</section>
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

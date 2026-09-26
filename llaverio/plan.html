@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="index.html">← Volver a la landing</a> · <a class="back" href="outreach.html">Kit de captación</a> · <a class="back" href="contenido.html">Contenido</a> · <a class="back" href="ficha.html">Ficha</a> · <a class="back" href="b.html">Variante B</a> · <a class="back" href="pitch.html">Pitch</a> · <a class="back" href="precios.html">Precios</a> · <a class="back" href="onboarding.html">Onboarding</a> · <a class="back" href="anuncios.html">Anuncios</a>
+  <div style="margin-top:18px" class="eyebrow">Plan interno · 26 sep 2026</div>
+  <h1>Llaverio: agente de operaciones para gestoras de alquiler turístico</h1>
+  <p class="muted">Documento de trabajo. No es público ni promete nada a clientes.</p>
+  <div class="summary">
+    <b>Cómo lo encararía:</b> empezaría solo por la limpieza tras el check-out (asignación por WhatsApp + revisión de fotos), que es el dolor diario y medible, vendido puerta a puerta a 10 gestoras de costa con 10-60 pisos antes de la temporada 2027. Cuando eso funcione sin mí, añadiría averías, incidencias de huéspedes e informes a propietarios, con cobro por vivienda activa.
+  </div>
+</div></header>
+
+
+
+
+<main class="wrap">
+<section>
+  <span class="eyebrow">En 30 segundos</span>
+  <h2>Dónde está cada cosa</h2>
+  <div class="grid2">
+    <div class="box"><h3 style="margin-top:0">Vender</h3><p><a href="outreach.html">Kit de captación</a> (mensajes, visita, objeciones, lista) · <a href="ficha.html">Ficha del piloto</a> · <a href="precios.html">Precios y calculadora</a></p></div>
+    <div class="box"><h3 style="margin-top:0">Crecer</h3><p><a href="contenido.html">Contenido</a> (10 reels, calendario) · <a href="onboarding.html">Onboarding</a> (días 0 a 14) · <a href="pitch.html">Pitch para socios</a></p></div>
+  </div>
+  <p class="muted">Landings: <a href="index.html">principal</a>, <a href="b.html">variante B</a> (ángulo: tu tiempo), <a href="ca.html">català</a>. Criterios para parar en la sección 2b.</p>
+</section>
+
+
+
+<section>
+  <span class="eyebrow">1 · Oferta y cliente</span>
+  <h2>Propuesta de valor e ICP</h2>
+  <p><b>Promesa:</b> «Ningún huésped entra en un piso que no has visto limpio, y tú no coordinas limpiezas a mano».</p>
+  <h3>Cliente ideal (España)</h3>
+  <ul>
+    <li>Gestora profesional con <b>10 a 60 viviendas</b> (el rango 5-10 es un segundo anillo: paga poco y decide rápido).</li>
+    <li>Zona de costa con temporada fuerte: <b>Costa Brava, Costa Daurada, Málaga/Costa del Sol y Canarias</b>. Canarias aporta temporada de invierno y suaviza la estacionalidad.</li>
+    <li>Usa ya un PMS (Avantio, Hostaway, Smoobu) y coordina limpiezas en grupos de WhatsApp o Excel.</li>
+    <li>Tiene 2-10 limpiadoras propias o subcontratadas y 2-4 técnicos de confianza.</li>
+    <li>Decisor: el fundador-gerente, que hoy hace de jefe de operaciones.</li>
+  </ul>
+  <div class="box warn">
+    <b>Aviso honesto sobre el mercado.</b> La oferta de viviendas turísticas cayó un <b>10,7% interanual</b> en mayo de 2026, la segunda mayor caída de la serie del INE (<a href="https://forbes.es/forbestravel/964774/la-vivienda-turistica-cae-un-107-y-marca-uno-de-los-mayores-retrocesos-historicos/" target="_blank" rel="noopener">Forbes España</a>, <a href="https://www.hosteltur.com/177127_la-segunda-mayor-caida-de-viviendas-turisticas-en-espana-107-menos-en-mayo.html" target="_blank" rel="noopener">Hosteltur</a>). La regulación se endurece: registro único estatal de arrendamientos, límites autonómicos y el plan de Barcelona de no renovar licencias en 2028. Por eso <b>no apuntamos a Barcelona ciudad</b>. Apuntamos a gestoras profesionales de costa, que absorben los pisos de particulares que abandonan. Riesgo real: el mercado total se encoge y el ticket por gestora es pequeño.
+  </div>
+  <h3>Competencia en España</h3>
+  <div class="tw"><table>
+    <tr><th>Actor</th><th>Qué hace</th><th>Hueco que deja</th></tr>
+    <tr><td><a href="https://chekin.com" target="_blank" rel="noopener">Chekin</a></td><td>Registro de viajeros (SES.Hospedajes), check-in online, bandeja de mensajes con IA. +200.000 propiedades; desde 3,95 €/propiedad/mes (<a href="https://chekin.com/pricing/" target="_blank" rel="noopener">precios</a>).</td><td>No coordina limpiadoras ni técnicos.</td></tr>
+    <tr><td><a href="https://www.avantio.com" target="_blank" rel="noopener">Avantio</a></td><td>PMS y channel manager, con módulo de tareas.</td><td>Tareas manuales; no hay agente que persiga, revise fotos y escale.</td></tr>
+    <tr><td>AgenteVacacional</td><td>Agente de IA para mensajes de huéspedes.</td><td>Centrado en el huésped, no en el equipo de operaciones.</td></tr>
+    <tr><td>Breezeway, Turno, Properly (internacionales)</td><td>Apps de tareas de limpieza y checklists.</td><td>Obligan al equipo a instalar una app; poca adopción en España.</td></tr>
+  </table></div>
+  <p><b>Diferencia:</b> nadie en España ejecuta como agente limpiezas + mantenimiento + informes a propietarios, y todo por WhatsApp, que es lo que el equipo ya usa.</p>
+  <h3>Referencia YC</h3>
+  <p><a href="https://www.ycombinator.com/companies/trellistech" target="_blank" rel="noopener">Trellis (YC)</a>: agente de operaciones para gestores de alquiler vacacional (<a href="https://trellistech.com" target="_blank" rel="noopener">web</a>). Según su propia web (24 ago 2026): 50+ gestoras, 6.500+ listings, YC Spring 2026, plan desde 749,99 $/mes. Nos dice que el dolor existe y que los gestores pagan. Llaverio es la versión local: español, WhatsApp, PMS europeos y normativa española.</p>
+</section>
+
+<section>
+  <span class="eyebrow">2 · Go-to-market</span>
+  <h2>Primeros 10 clientes sin anuncios</h2>
+  <ol>
+    <li><b>Lista de 150 gestoras.</b> Saco de Airbnb/Booking los anfitriones con más de 10 anuncios en Calella, Palafrugell, Salou, Cambrils, Marbella, Nerja y el sur de Tenerife. Cruzo con Google Maps y webs propias.</li>
+    <li><b>Visita en persona en la Costa Brava y Costa Daurada</b> (a 1-2 h de Barcelona). Octubre y noviembre: temporada baja, tienen tiempo.</li>
+    <li><b>Asociaciones:</b> presentarme en APARTUR (Barcelona), ATAC/asociaciones de Costa Brava y AVVAPRO (Málaga). Ofrecer una charla corta sobre «operar con menos pisos y más control».</li>
+    <li><b>Piloto gratis de 30 días</b> con 3 gestoras. Lo configuro yo. Pago a partir del mes 2.</li>
+    <li><b>Referidos:</b> al cerrar cada piloto, pido dos nombres de gestoras vecinas. Un mes gratis por referido que pague.</li>
+  </ol>
+  <p><b>Málaga y Canarias van solo por WhatsApp y videollamada.</b> Joaquín está solo y en Barcelona: las visitas en persona se limitan a Costa Brava y Costa Daurada (ida y vuelta en el día).</p>
+  <h3>Ritmo semanal (octubre a diciembre 2026)</h3>
+  <div class="tw"><table>
+    <tr><th>Semana</th><th>Mensajes nuevos</th><th>Visitas o llamadas</th><th>Pilotos activos</th><th>Horas de Joaquín</th></tr>
+    <tr><td>1-2</td><td>40 por semana (WhatsApp a la gestora, no a particulares)</td><td>3 por semana</td><td>0</td><td>8 h venta, resto producto</td></tr>
+    <tr><td>3-4</td><td>40 por semana</td><td>5 por semana (un día en Palafrugell/Calella, otro en Salou/Cambrils)</td><td>2</td><td>10 h venta</td></tr>
+    <tr><td>5-8</td><td>30 por semana + 2 referidos</td><td>5 por semana</td><td>5</td><td>6 h soporte de pilotos</td></tr>
+    <tr><td>9-12</td><td>30 por semana</td><td>4 por semana</td><td>8 (3 ya pagando)</td><td>8 h soporte</td></tr>
+  </table></div>
+  <p>Cuenta atrás: 40 mensajes × 15% de respuesta = 6 conversaciones; la mitad acepta una demo; 1 de cada 3 demos pasa a piloto. Con 10 semanas de ese ritmo salen unos 10 pilotos y, si el 60% paga, 6 clientes antes de enero. <b>Los 10 de pago llegan en marzo, antes de Semana Santa.</b> Si en la semana 6 no hay 2 pilotos activos, cambio el mensaje o la zona antes de seguir.</p>
+  <h3>Canales (orden de prioridad)</h3>
+  <ol>
+    <li>Visita en persona y WhatsApp directo a la lista de gestoras (canal principal, 70% del esfuerzo).</li>
+    <li>Asociaciones de gestores y sus grupos de WhatsApp.</li>
+    <li>Reels y LinkedIn de Joaquín (autoridad, no conversión directa).</li>
+    <li>Referidos de los pilotos: un mes gratis por gestora que pague.</li>
+  </ol>
+  <h3>Funnel de la landing (ronda 2)</h3>
+  <p>Visita → «Pedir piloto gratis» (hero o CTA fijo en móvil) → formulario de 3 campos → llamada de 20 min en 48 h → piloto de 30 días con 5 pisos → pago si ≥ 8 de cada 10 salidas quedan revisadas sin intervención. Objetivo: 5% visita → formulario; 50% formulario → llamada; 40% llamada → piloto.</p>
+  <h3>Guion del primer mensaje (WhatsApp o LinkedIn)</h3>
+  <pre>Hola, [Nombre]. Soy Joaquín, de Barcelona.
+He visto que gestionáis unos [N] pisos en [zona].
+Estoy montando un agente que, tras cada check-out,
+avisa a la limpiadora por WhatsApp, revisa sus fotos
+y te avisa solo si falta algo.
+¿Te puedo enseñar un ejemplo real en 15 minutos
+esta semana? Si no te sirve, te lo digo yo mismo.</pre>
+  <h3>Guion de la visita (20 min)</h3>
+  <ol>
+    <li>Pregunto: «¿Qué pasó el último sábado de agosto?». Dejo que cuente.</li>
+    <li>Pregunto cuántos mensajes manda al día a limpiadoras y técnicos.</li>
+    <li>Enseño la demo con un piso suyo (fotos de su anuncio) y un WhatsApp real a mi móvil.</li>
+    <li>Propongo el piloto: 30 días, 5 pisos, lo monto yo.</li>
+  </ol>
+  <h3>Contenido (reels, 1-2 por semana)</h3>
+  <ul>
+    <li>«Sábado de agosto en 60 segundos»: pantalla dividida con WhatsApp y el panel.</li>
+    <li>«La foto que te ahorra una reseña»: el agente detecta que faltan toallas.</li>
+    <li>«Cuánto tardas en hacer 30 informes a propietarios» vs. un clic.</li>
+    <li>Datos públicos del INE sobre vivienda turística por comunidad, con lectura para gestoras.</li>
+  </ul>
+  <h3>Métricas</h3>
+  <ul>
+    <li>Embudo: mensajes enviados → respuestas (objetivo 15%) → demos (8%) → pilotos (4%) → pago (60% de pilotos).</li>
+    <li>Producto: % de salidas con fotos revisadas, minutos de adelanto sobre la entrada, incidencias escaladas por semana.</li>
+    <li>Negocio: viviendas activas de pago, MRR, churn mensual, viviendas por gestora.</li>
+  </ul>
+  <h3>Con presupuesto alto</h3>
+  <ul>
+    <li>Un comercial por costa (comisión sobre MRR) y stand en FITUR y en ferias de gestores.</li>
+    <li>Integración oficial en los marketplaces de Hostaway y Smoobu: canal de captación directo.</li>
+    <li>Ads en Meta/Google para «software limpieza apartamentos turísticos» y retargeting de la demo.</li>
+    <li>Acuerdos con empresas de limpieza que trabajan para varias gestoras.</li>
+    <li>Partnership con Chekin: somos complementarios (ellos, entrada legal del huésped; nosotros, el piso entre salida y entrada). Su programa de referidos paga un 15% a quien trae clientes: proponer referido cruzado.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="eyebrow">2b · Ejecución</span>
+  <h2>30/60/90 días, riesgo principal y cuándo parar</h2>
+  <h3>Plan 30/60/90 con objetivos semanales</h3>
+  <div class="tw"><table>
+    <tr><th>Tramo</th><th>Semana</th><th>Objetivo numérico</th><th>Entrega</th></tr>
+    <tr><td rowspan="4">Días 1-30<br><small>Validar el dolor</small></td><td>1</td><td>Lista de 25 gestoras; 20 llamadas; 3 visitas agendadas</td><td>Demo con Smoobu de prueba y WhatsApp de pruebas</td></tr>
+    <tr><td>2</td><td>20 llamadas; 3 visitas hechas; 1 «sí» al piloto</td><td>Revisión de fotos con lista por piso</td></tr>
+    <tr><td>3</td><td>20 llamadas; 4 visitas; 2 pilotos firmados</td><td>Asignación tras check-out en modo propuesta</td></tr>
+    <tr><td>4</td><td>Primer piloto en marcha con 5 pisos</td><td>Panel mínimo de estado diario</td></tr>
+    <tr><td rowspan="4">Días 31-60<br><small>Hacer que funcione</small></td><td>5</td><td>3 pilotos activos; 15 salidas reales revisadas</td><td>Arreglos del primer piloto</td></tr>
+    <tr><td>6</td><td>Checkpoint: ≥ 2 pilotos activos o cambio de zona/mensaje</td><td>Integración Hostaway</td></tr>
+    <tr><td>7</td><td>4 pilotos; 70% de salidas revisadas sin intervención</td><td>Partes de mantenimiento</td></tr>
+    <tr><td>8</td><td>5 pilotos; 2 referidos pedidos</td><td>Informe mensual al propietario (v1)</td></tr>
+    <tr><td rowspan="4">Días 61-90<br><small>Cobrar</small></td><td>9</td><td>Primer cobro (piloto que cumple 8 de 10)</td><td>Facturación con Stripe</td></tr>
+    <tr><td>10</td><td>3 gestoras pagando; unas 45 viviendas activas</td><td>Modo automático piso a piso</td></tr>
+    <tr><td>11</td><td>4 gestoras pagando; 7 pilotos en curso</td><td>Incidencias de huéspedes (v1)</td></tr>
+    <tr><td>12</td><td>5 gestoras pagando; unos 500 €/mes de MRR</td><td>Caso con nombre, con permiso escrito</td></tr>
+  </table></div>
+  <p class="muted">500 €/mes = 5 gestoras × unas 9 viviendas activas en temporada baja × 12 €/mes (más o menos). En verano el mismo grupo sube a 1.500-2.500 €/mes.</p>
+  <div class="grid2">
+    <div class="box"><h3 style="margin-top:0">Supuesto más arriesgado</h3><p>Que una gestora de 10 a 60 pisos pague por la revisión de fotos tras el check-out. Hoy lo resuelve con una encargada y el móvil, y puede que ese coste no le duela lo bastante.</p></div>
+    <div class="box"><h3 style="margin-top:0">Test más barato, esta semana</h3><p>Sin escribir código: 20 llamadas a gestoras de Palafrugell y Salou con una pregunta, «¿quién revisa el piso antes de la entrada y cuánto os cuesta?». Luego, a las 3 más interesadas, un piloto «mago de Oz»: Joaquín revisa las fotos a mano por WhatsApp durante un sábado. Éxito: 2 de 3 piden seguir y aceptan el precio.</p></div>
+  </div>
+  <div class="box warn"><h3 style="margin-top:0">Criterios para parar</h3><ul>
+    <li>Semana 4: menos de 2 gestoras aceptan un piloto gratis después de 60 llamadas y 8 visitas.</li>
+    <li>Semana 8: menos del 60% de salidas revisadas sin intervención en los pilotos (la revisión de fotos no funciona).</li>
+    <li>Día 90: menos de 3 gestoras pagando, o el soporte de los pilotos se come más de 15 horas por semana de Joaquín.</li>
+    <li>En cualquier momento: Avantio o Smoobu lanzan la revisión de fotos por WhatsApp incluida en su precio.</li>
+  </ul><p>Si salta uno: parar, escribir qué se aprendió en <code>_projects/factory</code> y pasar a la siguiente idea del portfolio.</p></div>
+</section>
+
+<section>
+  <span class="eyebrow">3 · Técnico alto nivel</span>
+  <h2>Arquitectura</h2>
+  <div class="arch">
+    <div class="lane"><h4>Entradas</h4><div class="nodes"><span class="node">Webhooks PMS (Hostaway, Smoobu)</span><span class="node">Sondeo API Avantio</span><span class="node">iCal / Google Calendar</span><span class="node">WhatsApp Cloud API (entrante)</span></div></div>
+    <div class="arrow">↓ eventos: check-out, reserva cambiada, mensaje, foto</div>
+    <div class="lane"><h4>Núcleo</h4><div class="nodes"><span class="node core">Cola de eventos + jobs</span><span class="node core">Agente orquestador (LLM + herramientas)</span><span class="node core">Revisor de fotos (modelo de visión)</span><span class="node">Reglas de aprobación por gestora</span></div></div>
+    <div class="arrow">↓ acciones</div>
+    <div class="lane"><h4>Salidas</h4><div class="nodes"><span class="node">WhatsApp a limpiadoras y técnicos</span><span class="node">Respuesta al huésped (vía PMS)</span><span class="node">Panel web del gestor</span><span class="node">PDF mensual al propietario</span></div></div>
+    <div class="arrow">↕</div>
+    <div class="lane"><h4>Datos</h4><div class="nodes"><span class="node">Postgres (Supabase, UE)</span><span class="node">Almacenamiento de fotos (UE, 90 días)</span><span class="node">Log de auditoría de cada acción del agente</span></div></div>
+  </div>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li><b>Backend:</b> TypeScript + Hono en un VPS de Hetzner (Coolify), jobs con pg-boss sobre Postgres.</li>
+    <li><b>Datos:</b> Supabase en región UE (Postgres, Auth, Storage).</li>
+    <li><b>Panel:</b> React + Vite, desplegado en Vercel.</li>
+    <li><b>LLM:</b> modelo con uso de herramientas para el orquestador; modelo de visión barato para fotos; salida estructurada (JSON) siempre.</li>
+    <li><b>Mensajería:</b> WhatsApp Cloud API de Meta, un número por gestora.</li>
+    <li><b>PDF:</b> HTML a PDF con Playwright en un job.</li>
+  </ul>
+  <h3>Integraciones (orden)</h3>
+  <ol><li>Smoobu (API abierta, gestoras pequeñas). </li><li>Hostaway (webhooks, marketplace). </li><li>Avantio (muy presente en España; acceso por partner). </li><li>iCal como plan B para cualquier PMS.</li></ol>
+  <h3>Riesgos legales</h3>
+  <ul>
+    <li><b>RGPD:</b> Llaverio es encargado del tratamiento. Contrato de encargo (art. 28) con cada gestora, datos en la UE, retención corta de fotos, registro de actividades.</li>
+    <li><b>Empleados y fotos:</b> las fotos son del piso, nunca de personas. Instrucción explícita y descarte automático si aparece una cara. Informar a las limpiadoras del uso (derecho laboral y RGPD).</li>
+    <li><b>WhatsApp Business:</b> consentimiento (opt-in) de cada limpiadora y técnico; plantillas aprobadas para mensajes fuera de la ventana de 24 h.</li>
+    <li><b>AI Act:</b> transparencia; el huésped debe saber que habla con un asistente automático.</li>
+    <li><b>Normativa turística:</b> el registro de viajeros (SES.Hospedajes, RD 933/2021) y el registro único de arrendamientos no son nuestros. Los dejamos al PMS o a Chekin y lo decimos claro.</li>
+    <li><b>Responsabilidad:</b> el agente no aprueba gastos ni compensaciones sin regla explícita del gestor.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="eyebrow">4 · Técnico bajo nivel</span>
+  <h2>Modelo de datos</h2>
+  <div class="tw"><table>
+    <tr><th>Tabla</th><th>Campos clave</th></tr>
+    <tr><td><code>managers</code></td><td>id, nombre, plan, pms_tipo, pms_credenciales (cifradas), wa_numero_id, zona_horaria, reglas_aprobacion (jsonb)</td></tr>
+    <tr><td><code>properties</code></td><td>id, manager_id, pms_property_id, nombre, direccion, zona, owner_id, checklist_id, activa</td></tr>
+    <tr><td><code>owners</code></td><td>id, manager_id, nombre, email, idioma, reparto_pct</td></tr>
+    <tr><td><code>staff</code></td><td>id, manager_id, nombre, rol (limpieza|tecnico), oficio, telefono, opt_in_at, zonas[], disponibilidad (jsonb)</td></tr>
+    <tr><td><code>reservations</code></td><td>id, property_id, pms_reservation_id, checkin_at, checkout_at, huespedes, idioma, estado</td></tr>
+    <tr><td><code>checklists</code></td><td>id, property_id, items (jsonb: estancia, qué foto, criterio)</td></tr>
+    <tr><td><code>tasks</code></td><td>id, property_id, reservation_id, tipo (limpieza|reparacion|revision), staff_id, estado, vence_at, completada_at, coste</td></tr>
+    <tr><td><code>photos</code></td><td>id, task_id, storage_path, item_checklist, veredicto (ok|falta|duda), motivo, expira_at</td></tr>
+    <tr><td><code>incidents</code></td><td>id, property_id, reservation_id, origen (huesped|staff|foto), descripcion, gravedad, estado, task_id</td></tr>
+    <tr><td><code>messages</code></td><td>id, manager_id, canal, direccion, contraparte_tipo, contraparte_id, texto, media, wa_message_id, created_at</td></tr>
+    <tr><td><code>agent_actions</code></td><td>id, manager_id, evento, herramienta, input, output, requirio_aprobacion, aprobado_por, created_at</td></tr>
+    <tr><td><code>owner_reports</code></td><td>id, owner_id, mes, metricas (jsonb), pdf_path, enviado_at</td></tr>
+  </table></div>
+  <h3>Endpoints y jobs</h3>
+  <div class="grid2">
+    <div class="box"><b>HTTP</b><ul>
+      <li><code>POST /webhooks/pms/:provider</code></li>
+      <li><code>POST /webhooks/whatsapp</code></li>
+      <li><code>GET /api/today</code> (panel del día)</li>
+      <li><code>POST /api/approvals/:id</code></li>
+      <li><code>CRUD /api/properties|staff|checklists</code></li>
+    </ul></div>
+    <div class="box"><b>Jobs</b><ul>
+      <li><code>sync_reservations</code> cada 10 min (Avantio, iCal)</li>
+      <li><code>on_checkout</code> → crea tarea y asigna</li>
+      <li><code>chase_task</code> si no hay respuesta en 30 min</li>
+      <li><code>review_photos</code> al recibir fotos</li>
+      <li><code>ready_deadline</code> 2 h antes de la entrada</li>
+      <li><code>monthly_owner_report</code> día 1 a las 8:00</li>
+    </ul></div>
+  </div>
+  <h3>Agentes y prompts</h3>
+  <ul>
+    <li><b>Orquestador:</b> recibe un evento y el estado del piso. Herramientas: <code>assign_cleaner</code>, <code>send_whatsapp</code>, <code>create_incident</code>, <code>propose_repair_slot</code>, <code>request_approval</code>, <code>reply_guest</code>. Regla fija: «Si una acción implica dinero, cambio de horario o queja grave, usa request_approval».</li>
+    <li><b>Revisor de fotos:</b> entrada = foto + ítem del checklist. Salida JSON <code>{veredicto, motivo, confianza}</code>. Si confianza &lt; 0,7, marca «duda» y la ve un humano.</li>
+    <li><b>Clasificador de mensajes:</b> huésped o staff, intención (avería, pregunta, queja), gravedad, idioma.</li>
+    <li><b>Redactor de informes:</b> resume datos del mes en un párrafo claro para el propietario. Los números salen de SQL, nunca del modelo.</li>
+  </ul>
+  <h3>Flujo paso a paso (check-out)</h3>
+  <ol>
+    <li>El PMS marca la salida o llega la hora de check-out.</li>
+    <li><code>on_checkout</code> crea la tarea de limpieza con la hora límite = entrada − 1 h.</li>
+    <li>El orquestador elige limpiadora por zona y carga, y la avisa por WhatsApp.</li>
+    <li>Si no confirma en 30 min, escribe a la siguiente y avisa al gestor.</li>
+    <li>La limpiadora manda fotos. El revisor compara cada foto con el checklist.</li>
+    <li>Si falta algo, el agente lo pide en el mismo chat. Si todo cuadra, marca «listo».</li>
+    <li>Si detecta una avería en el chat o en la foto, crea la incidencia y propone cita al técnico.</li>
+    <li>El panel del gestor muestra el estado. Solo recibe WhatsApp si hay que decidir.</li>
+  </ol>
+  <h3>MVP por semanas</h3>
+  <div class="tw"><table>
+    <tr><th>Semana</th><th>Entrega</th><th>Validación</th></tr>
+    <tr><td>1</td><td>Integración Smoobu + iCal, modelo de datos, WhatsApp Cloud API con número de prueba, alta manual de pisos y staff.</td><td>Un check-out real dispara un WhatsApp real.</td></tr>
+    <tr><td>2</td><td>Asignación, persecución, revisión de fotos con checklist, panel «hoy».</td><td>Demo completa con un piso de prueba; se enseña en las visitas.</td></tr>
+    <tr><td>3</td><td>Incidencias y partes de reparación, reglas de aprobación, log de auditoría.</td><td>Primer piloto firmado; cargar sus 5 pisos.</td></tr>
+    <tr><td>4</td><td>Informe mensual a propietarios (PDF), Hostaway, cobro con Stripe.</td><td>Primer piloto en marcha. El primer cobro llega en la semana 9 (ver 30/60/90).</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <span class="eyebrow">5 · Unit economics</span>
+  <h2>Números simples</h2>
+  <div class="tw"><table>
+    <tr><th>Concepto</th><th>Gestora tipo (25 viviendas, plan Operaciones)</th></tr>
+    <tr><td>Precio</td><td>12 €/vivienda/mes → <b>300 €/mes</b> en temporada</td></tr>
+    <tr><td>WhatsApp (plantillas de utilidad, ~0,02-0,04 €)</td><td>~8 salidas/vivienda/mes × ~6 plantillas → ~35 €/mes (muchos mensajes caen en la ventana gratuita de 24 h)</td></tr>
+    <tr><td>LLM + visión</td><td>~200 salidas × ~8 fotos + mensajes → ~15-25 €/mes</td></tr>
+    <tr><td>Infra y almacenamiento (prorrateado)</td><td>~5 €/mes</td></tr>
+    <tr><td><b>Coste variable</b></td><td><b>~55-65 €/mes → margen bruto ~80%</b></td></tr>
+  </table></div>
+  <ul>
+    <li><b>Estacionalidad:</b> en costa peninsular, noviembre-marzo baja la actividad. Cobrando por vivienda activa, el MRR de invierno puede caer un 30-50%. Mitigación: mínimo mensual por gestora (p. ej. 60 €) y peso de Canarias en la cartera.</li>
+    <li><b>Break-even:</b> con ~150 € de costes fijos (VPS, dominio, herramientas), bastan 1-2 gestoras. Para cubrir un sueldo de 3.000 €/mes hacen falta ~12-15 gestoras de 25 viviendas (≈ 300-375 viviendas).</li>
+    <li><b>CAC:</b> venta en persona; ~6-8 h por cliente ganado. Payback en 2-3 meses si la gestora se queda una temporada.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="eyebrow">6 · Factorías</span>
+  <h2>Qué automatizan los agentes</h2>
+  <div class="grid2">
+    <div class="box"><h3 style="margin-top:0">Software factory</h3><ul>
+      <li>Conectores de PMS a partir de la documentación de cada API, con tests contra sandbox.</li>
+      <li>Checklists por piso generadas desde las fotos del anuncio.</li>
+      <li>Evals del revisor de fotos con un set etiquetado (toallas, camas, cocina, basura).</li>
+      <li>Validación de comportamiento con browser-harness en el panel y simulador de WhatsApp.</li>
+      <li>Alta de nuevas gestoras: importar pisos y staff desde el PMS.</li>
+    </ul></div>
+    <div class="box"><h3 style="margin-top:0">Marketing factory</h3><ul>
+      <li>Scraping y enriquecimiento de la lista de gestoras por zona.</li>
+      <li>Borradores de primer mensaje personalizados por gestora (los envía Joaquín).</li>
+      <li>Guiones y montajes de reels con capturas reales del panel.</li>
+      <li>Artículos SEO: «cómo organizar limpiezas de apartamentos turísticos», por zona.</li>
+      <li>Resumen semanal de métricas del embudo y del producto.</li>
+    </ul></div>
+  </div>
+  <p class="muted">Lo que no se automatiza: la visita, la configuración del primer piloto y la decisión de precio.</p>
+</section>
+
+<section id="comparativa">
+  <span class="eyebrow">Anexo · Comparativa (ronda 2, actualizada en ronda 3)</span>
+  <h2>Comparativa con la referencia</h2>
+  <p class="muted">Páginas leídas: <a href="https://trellistech.com" target="_blank" rel="noopener">trellistech.com</a>, <a href="https://trellistech.com/pricing" target="_blank" rel="noopener">trellistech.com/pricing</a> (referencia YC), <a href="https://chekin.com/" target="_blank" rel="noopener">chekin.com</a> y <a href="https://chekin.com/pricing/" target="_blank" rel="noopener">chekin.com/pricing</a> (competidor español más fuerte en el mismo cliente). Cifras citadas tal como las publican ellos.</p>
+  <div class="tw"><table class="cmp">
+    <tr><th style="width:17%"></th><th>Llaverio (nuestra landing, ronda 1 → 2)</th><th>Trellis (YC S26)</th><th>Chekin</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td>
+      <td>Gestoras de costa en España con 10-60 pisos. Promesa ronda 1: «jefe de operaciones por WhatsApp» (amplia, 4 promesas). Ronda 2: una sola promesa, «ningún huésped entra en un piso sin revisar». Ángulo: el equipo sigue en WhatsApp.</td>
+      <td>Gestoras de 20 a 2.000+ unidades con PMS. «Vacation rentals ran on chaos. Now they run on agents.» Plataforma completa: inbox, operaciones, workforce, workflows, CRM. Dice explícitamente para quién <i>no</i> es.</td>
+      <td>Todo tipo de alojamiento (pisos, hoteles, campings). «Automatiza el check-in de tus huéspedes»: cumplimiento legal (partes a la policía, SES.Hospedajes), acceso remoto, tasas turísticas. Ángulo: obligación legal.</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td>
+      <td>Ronda 3: azul mar y arena, Bricolage Grotesque + Geist, motivo de llavero y franja salida→entrada. Mockup interactivo con tres sábados (toallas, limpiadora de baja, wifi). Parece un producto serio, pero ronda 1 no tenía señales de empresa: ni quién está detrás, ni condiciones claras.</td>
+      <td>Muy alta. Mockups reales del inbox y del agente, «Backed by Y Combinator», partner certificado de Guesty y Hostaway, páginas de investigación y «editorial standards». Mucha densidad; se siente como empresa de 50 personas.</td>
+      <td>Corporativa y madura. Menú enorme de funcionalidades, 8 idiomas, casos de éxito con nombre, webinars, programa de referidos. Menos personalidad, mucha confianza.</td></tr>
+    <tr><td><b>Estructura de la landing y funnel</b></td>
+      <td>Ronda 1: hero con 2 CTA, problema, 3 pasos, beneficios, precio, FAQ, formulario de 4 campos al final. Sin prueba social ni CTA persistente. Ronda 2: formulario de 3 campos, CTA fijo en móvil, 3 pasos hasta el piloto, bloque «para quién sí/no», nota del fundador, FAQ de objeciones.</td>
+      <td>Un solo CTA repetido: «Book a demo». Popup de oferta con formulario de 5-6 campos (email de trabajo, nº de listings, PMS). Prueba: cita de cliente, métricas propias, logos de partners. Sin alta self-serve.</td>
+      <td>Doble CTA: «Pruébalo gratis» (self-serve) y «Contacta ventas». Prueba masiva: «+200.000 propiedades», «+25M check-ins», casos de éxito. Vídeo «¿Qué es Chekin?».</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td>
+      <td>Hipótesis por vivienda activa: 8 / 12 / 15 €/mes. Ronda 2 añade: piloto gratis 30 días sin tarjeta, y solo pagas si 8 de cada 10 salidas quedan revisadas sin intervención.</td>
+      <td>Un único plan «desde 749,99 $/mes», escala por nº de propiedades, onboarding de pago aparte. Clave: «el cobro empieza cuando el autopiloto llega al 70% de acierto».</td>
+      <td>Por propiedad: Básico desde 3,95 €, Premium 5,95 €, Enterprise 7,95 €/propiedad/mes (anual, IVA aparte), mínimo 3 unidades. Comisiones sobre pagos y depósitos.</td></tr>
+    <tr><td><b>Textos</b></td>
+      <td>Claros y concretos (escena de Salou, Rosa y las toallas). Ronda 1 prometía demasiado en el hero. Tono cercano y honesto.</td>
+      <td>Muy afilados en FAQ («When do I start paying? When the agents work»). Hero algo genérico. Inglés de EE. UU., sin WhatsApp como canal principal del equipo.</td>
+      <td>Funcionales, orientados a la norma («envío automático a la policía»). Poco emocionales; muchos bloques de funcionalidad.</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td>
+      <td colspan="3">
+        <b>Copiado de Trellis:</b> (1) «solo pagas cuando funciona», adaptado a salidas revisadas; (2) modo propuesta por defecto y automático piso a piso; (3) bloque «para quién es / para quién no es»; (4) FAQ que responde objeciones reales de compra.<br>
+        <b>Copiado de Chekin:</b> CTA de prueba gratis sin tarjeta; programa de referidos para gestoras (en el GTM).<br>
+        <b>Mejoramos frente a ambos:</b> (1) una sola promesa medible en el hero; (2) formulario de 3 campos frente a 5-6 de Trellis; (3) CTA fijo en móvil; (4) nota honesta del fundador en lugar de logos o cifras que no tenemos; (5) posicionamiento complementario a Chekin («no hacemos registro de viajeros»), que lo convierte en canal de partner y no en rival.<br>
+        <b>Pendiente (no copiable hoy):</b> prueba social real. Tras los 3 primeros pilotos, añadir un caso con nombre y métricas del panel, con permiso escrito.
+      </td></tr>
+  </table></div>
+</section>
+</main>
+
+
+<footer><div class="wrap">Llaverio · © 2026 · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

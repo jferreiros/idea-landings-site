@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Crect x='9' y='5' width='14' height='22' fill='%23FF2E7E'/%3E%3Cpath d='M14 12l6 4-6 4z' fill='%23141414'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3F1EC;--white:#FCFBF8;--ink:#141414;--grey:#5B5955;--pop:#FF2E7E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;font-size:16.5px;line-height:1.6}
+a{color:var(--ink);text-decoration-thickness:2px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:2px solid var(--ink);padding:18px 0}
+header .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-weight:700}
+.logo{font-family:"Anton",Impact,sans-serif;font-size:1.4rem;text-decoration:none}.logo b{font-weight:400;background:var(--ink);color:var(--pop);padding:0 5px}
+h1,h2,h3{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:1}
+h1{font-size:clamp(2.6rem,8vw,4.6rem);margin:40px 0 14px}
+h2{font-size:2.1rem;margin-bottom:14px}
+h3{font-size:1.3rem;margin:22px 0 8px}
+section{padding:40px 0;border-bottom:2px solid var(--ink)}
+.lead{font-size:1.15rem;max-width:40em;margin-bottom:30px}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;background:var(--pop);border:2px solid var(--ink);padding:3px 8px;transform:rotate(-2deg);margin-bottom:12px}
+.msg{background:var(--white);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:18px;margin:12px 0 20px}
+.msg p+p{margin-top:8px}
+ul,ol{padding-left:22px;display:grid;gap:8px;margin:10px 0}
+.grid{display:grid;gap:14px}@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.card{border:2px solid var(--ink);background:var(--white);padding:18px}
+.card b{display:block;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;border:2px solid var(--ink);background:var(--white);font-size:.93rem}
+th,td{padding:10px 12px;border-bottom:2px solid var(--ink);text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--white)}
+.scroll{overflow-x:auto}
+code{font-family:"JetBrains Mono",monospace;font-size:.85em;background:var(--white);border:1.5px solid var(--ink);padding:1px 5px}
+footer{padding:30px 0;font-size:.9rem}
+:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+</style>
+<title>Barrio Reel | Prototipo del panel</title>
+<style>
+.bar{background:var(--pop);border:2px solid var(--ink);padding:8px 12px;font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;margin:20px 0}
+.app{display:grid;gap:18px}@media(min-width:900px){.app{grid-template-columns:1.3fr .9fr}}
+.box{background:var(--white);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:18px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);margin-bottom:14px}
+.tabs button{font:inherit;font-weight:800;min-height:44px;border:0;background:var(--white);cursor:pointer}
+.tabs button+button{border-left:2px solid var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--white)}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border-bottom:2px solid var(--ink);padding:12px 0}
+.row:last-child{border-bottom:0}
+.row small{display:block;color:var(--grey)}
+.st{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;padding:3px 7px;border:1.5px solid var(--ink);display:inline-block;margin-top:4px}
+.st.ok{background:var(--pop)}.st.wait{background:var(--white)}
+.mini{font:inherit;font-weight:800;font-size:.85rem;min-height:40px;padding:0 12px;border:2px solid var(--ink);background:var(--pop);cursor:pointer}
+.mini.alt{background:var(--white)}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kp div{border:2px solid var(--ink);padding:12px}.kp b{font-family:"Anton",Impact,sans-serif;font-size:2rem;font-weight:400;display:block;line-height:1}
+.chat{display:grid;gap:8px;max-height:360px;overflow:auto;margin-bottom:10px}
+.m{max-width:88%;padding:8px 11px;border:1.5px solid var(--ink);background:#ECEAE4}.m.me{justify-self:end;background:var(--pop)}
+.send{display:grid;grid-template-columns:1fr auto;gap:8px}
+.send input{font:inherit;min-height:44px;padding:0 12px;border:2px solid var(--ink);background:var(--white)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="index.html">BARRIO<b>REEL</b></a><span><a href="index.html#probar">Pedir piloto gratis</a></span></div></header>
+<main class="wrap">
+<div class="bar" role="note">Prototipo con datos de ejemplo. Bar Rovira, las cuentas y las cifras son inventados.</div>
+<h1 style="margin-top:10px">Bar Rovira: octubre</h1>
+<div class="app">
+<div class="box">
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="cre">Creadores</button>
+<button role="tab" aria-selected="false" data-t="cal">Agenda</button>
+<button role="tab" aria-selected="false" data-t="inf">Informe</button>
+</div>
+<div id="cre" role="tabpanel">
+<div class="row"><div><b>@comeporgracia</b><small>8.400 seguidores, 61 % en Barcelona</small><span class="st ok">Publicado 2 oct</span></div><a class="mini alt" href="#" onclick="return false">Ver reel</a></div>
+<div class="row"><div><b>@santsbrunch</b><small>5.100 seguidores, 72 % en Barcelona</small><span class="st ok">Publicado 9 oct</span></div><a class="mini alt" href="#" onclick="return false">Ver reel</a></div>
+<div class="row" id="r3"><div><b>@tapeoconlaura</b><small>3.900 seguidores, 80 % en Barcelona</small><span class="st wait" id="s3">Propuesto: jue 24 oct, 13:30</span></div><div class="acts" id="a3"><button class="mini" data-a="ok">Confirmar</button><button class="mini alt" data-a="move">Otra hora</button></div></div>
+<div class="row"><div><b>@lamesadelpoble</b><small>12.000 seguidores, 55 % en Barcelona</small><span class="st wait">Buscando hueco</span></div></div>
+</div>
+<div id="cal" role="tabpanel" hidden>
+<div class="row"><div><b>Jue 2 oct, 14:00</b><small>@comeporgracia, 1 persona</small></div><span class="st ok">Hecho</span></div>
+<div class="row"><div><b>Mié 9 oct, 13:30</b><small>@santsbrunch, 1 persona</small></div><span class="st ok">Hecho</span></div>
+<div class="row"><div><b id="c3">Jue 24 oct, 13:30</b><small>@tapeoconlaura, 1 persona</small></div><span class="st wait" id="cs3">Pendiente</span></div>
+<div class="row"><div><b>Por confirmar</b><small>@lamesadelpoble</small></div><span class="st wait">Pendiente</span></div>
+</div>
+<div id="inf" role="tabpanel" hidden>
+<div class="kp"><div><b>27.300</b>reproducciones</div><div><b>61 %</b>público en Barcelona</div><div><b>412</b>guardados</div><div><b>2 de 4</b>reels publicados</div></div>
+<p style="margin-top:12px;color:var(--grey)">Resumen: los dos reels con el huevo roto tienen más guardados. Recomendamos pedir a los próximos creadores que lo destaquen.</p>
+</div>
+</div>
+<div class="box">
+<b>WhatsApp con Barrio Reel</b>
+<div class="chat" id="chat" aria-live="polite" style="margin-top:10px">
+<div class="m">Laura (@tapeoconlaura) puede el jueves 24 a las 13:30. ¿Confirmas?</div>
+</div>
+<form class="send" id="sf"><label for="si" class="sr" style="position:absolute;left:-9999px">Mensaje</label><input id="si" placeholder="Que destaquen las bravas nuevas"><button class="mini" type="submit">Enviar</button></form>
+</div>
+</div>
+</main>
+<footer><div class="wrap">Barrio Reel. © 2026. <a href="index.html">Inicio</a> &nbsp; <a href="aviso-legal.html">Aviso legal</a> &nbsp; <a href="privacidad.html">Privacidad</a> &nbsp; <a href="cookies.html">Cookies</a></div></footer>
+<script>
+(function(){
+  var chat=document.getElementById('chat');
+  function say(t,me){var d=document.createElement('div');d.className='m'+(me?' me':'');d.textContent=t;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
+  document.querySelectorAll('[role=tab]').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('[role=tab]').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');document.getElementById(x.dataset.t).hidden=x!==b;});
+  });});
+  document.getElementById('a3').addEventListener('click',function(e){
+    var a=e.target.dataset.a;if(!a)return;
+    if(a==='ok'){document.getElementById('s3').textContent='Confirmado: jue 24 oct, 13:30';document.getElementById('s3').className='st ok';document.getElementById('cs3').textContent='Confirmado';document.getElementById('cs3').className='st ok';this.innerHTML='';say('Confirmado el jueves a las 13:30.',true);setTimeout(function(){say('Perfecto. Te recuerdo el miércoles por la tarde.');},600);}
+    else{document.getElementById('s3').textContent='Propuesto: vie 25 oct, 13:00';document.getElementById('c3').textContent='Vie 25 oct, 13:00';say('¿Puede otro día?',true);setTimeout(function(){say('Laura puede el viernes 25 a las 13:00. ¿Confirmas?');},600);}
+  });
+  document.getElementById('sf').addEventListener('submit',function(e){e.preventDefault();var i=document.getElementById('si'),t=i.value.trim()||i.placeholder;say(t,true);i.value='';setTimeout(function(){say('Anotado. Se lo pedimos a los próximos creadores.');},600);});
+})();
+</script>
+</body>
+</html>

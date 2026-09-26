@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Kit de captación</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">&larr; Volver al plan</a>
+  <p class="mono" style="margin-top:22px">Kit de captación · uso interno · 26 sep 2026</p>
+  <h1>Cómo consigo los primeros 10 despachos</h1>
+  <div class="summary">
+    <p class="mono">La regla</p>
+    <p style="margin:6px 0 0">Primero la visita en persona o el mensaje a la cuenta del despacho. Nada de emails comerciales a personas que no lo han pedido (art. 21 LSSI). Escribo solo a direcciones y números genéricos de empresa publicados por el propio despacho, me presento, y ofrezco una cosa: probarlo gratis en dos comunidades.</p>
+  </div>
+  <nav class="toc"><a href="#mensajes">Primer mensaje</a><a href="#visita">Visita</a><a href="#objeciones">Objeciones</a><a href="#secuencia">Seguimiento</a><a href="#lista">Lista de objetivos</a></nav>
+</header>
+
+<section id="mensajes">
+  <h2>Primer mensaje</h2>
+  <h3>WhatsApp Business del despacho (el número que publican en su web o ficha de Google)</h3>
+  <div class="quote">Hola, soy Joaquín, de Barcelona. Estoy montando Conserjia: un WhatsApp para vuestras comunidades que recibe la avería con foto, avisa a vuestro fontanero, sigue el arreglo y os deja la ficha cerrada. Busco 5 despachos para probarlo gratis 30 días en 2 comunidades. ¿Os puedo enseñar en 15 minutos cómo habría llevado tres incidencias vuestras del último mes? Si no os interesa, decídmelo y no vuelvo a escribir.</div>
+  <h3>LinkedIn (titular del despacho, mensaje con nota de conexión, 280 caracteres)</h3>
+  <div class="quote">Hola, [nombre]. Hago software en Barcelona y estoy probando un asistente de WhatsApp que lleva las averías de las comunidades hasta el cierre. Busco 5 despachos para un piloto gratis. ¿Te encaja una llamada de 15 min?</div>
+  <h3>Email a la dirección genérica del despacho (info@, administracion@)</h3>
+  <div class="quote"><b>Asunto:</b> Piloto gratis: averías de 2 comunidades, cerradas por WhatsApp<br><br>Hola:<br><br>Soy Joaquín y construyo software en Barcelona. Estoy probando Conserjia con despachos de administración de fincas: el vecino escribe por WhatsApp, el asistente avisa a vuestro industrial, sigue la cita y os deja una ficha por incidencia. No cambiáis de programa de gestión.<br><br>Busco 5 despachos para un piloto gratis de 30 días en 2 comunidades. Os propongo una llamada de 15 minutos con tres incidencias vuestras del último mes.<br><br>Si no queréis recibir más mensajes, respondedme "no" y no vuelvo a escribir.<br><br>Joaquín · conserjia.vercel.app</div>
+  <p>Nota LSSI: el email va a una cuenta genérica de empresa publicada por el despacho, identifica al remitente, dice que es comercial en el asunto y ofrece la baja en una palabra. A personas físicas solo escribo si antes me han dado su contacto.</p>
+</section>
+
+<section id="visita">
+  <h2>Guion de visita en persona (90 segundos)</h2>
+  <ol>
+    <li>Entro entre las 10:00 y las 13:00. Pregunto por el titular. Si no está, pido su nombre y la mejor hora.</li>
+    <li>"Hola, soy Joaquín, vivo en Barcelona y hago software. Una pregunta rápida: ¿cuántas veces al día os llama o escribe un vecino por una avería?"</li>
+    <li>Escucho. Apunto el número y el caso que cuenten.</li>
+    <li>"Estoy montando un WhatsApp para vuestras comunidades. Recibe la foto, avisa a vuestro fontanero, persigue la cita y os deja la ficha cerrada. No cambiáis de programa."</li>
+    <li>Enseño en el móvil la demo de la landing (botón "Humedad": el caso privativo).</li>
+    <li>"Os lo pongo gratis un mes en dos comunidades. ¿Cuáles son las dos que más guerra dan?"</li>
+    <li>Cierre: fecha de la llamada de 15 minutos en su agenda, delante de mí.</li>
+  </ol>
+</section>
+
+<section id="objeciones">
+  <h2>5 objeciones y qué contesto</h2>
+  <div class="grid2">
+    <div class="card"><b>"Mis vecinos son mayores, no usan WhatsApp."</b><p>El que llama por teléfono sigue llamando al despacho. Empezamos con los que ya os escriben al móvil personal, que son los que más interrumpen.</p></div>
+    <div class="card"><b>"Ya tenemos portal del vecino."</b><p>¿Qué porcentaje lo usa para avisar de una avería? Conserjia no sustituye el portal: cierra la avería por el canal que el vecino ya usa.</p></div>
+    <div class="card"><b>"¿Y si la IA le dice algo mal a un vecino?"</b><p>El primer mes reviso yo cada mensaje antes de que salga. Las urgencias y los gastos siguen tus reglas y los casos dudosos te llegan a ti.</p></div>
+    <div class="card"><b>"Mis industriales no van a usar otra app."</b><p>No instalan nada. Reciben un WhatsApp con un enlace: aceptar, hora, foto del arreglo. Si no contestan, pasa al siguiente de tu lista.</p></div>
+    <div class="card"><b>"12 € por comunidad es caro."</b><p>Con 60 comunidades son 720 € al mes. Lo comparamos el día 30 con las horas de teléfono que tu oficial no ha hecho. Si no sale a cuenta, no sigues.</p></div>
+  </div>
+</section>
+
+<section id="secuencia">
+  <h2>Seguimiento: día 0, 2 y 7</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Día</th><th>Canal</th><th>Mensaje</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>Visita o primer mensaje</td><td>El de arriba. Si hay interés, fecha de llamada en el momento.</td></tr>
+      <tr><td>2</td><td>WhatsApp del despacho</td><td>"Os dejo el vídeo de 40 s con una fuga real de principio a fin: [enlace]. ¿Os va bien el jueves a las 10:00 para verlo con vuestras incidencias?"</td></tr>
+      <tr><td>7</td><td>WhatsApp o email genérico</td><td>"Último mensaje por mi parte. Me quedan [n] plazas del piloto gratis. Si ahora no es buen momento, lo entiendo y no vuelvo a escribir."</td></tr>
+    </tbody>
+  </table></div>
+  <p>Después del día 7 no hay más mensajes. El despacho pasa a "no ahora" y lo vuelvo a visitar solo si llega por una presentación.</p>
+</section>
+
+<section id="lista">
+  <h2>Lista de objetivos: cómo construirla en una tarde</h2>
+  <p>No guardo datos de personas. Solo despachos: nombre comercial, barrio, web, teléfono publicado y número aproximado de comunidades si lo anuncian.</p>
+  <h3>Fuentes</h3>
+  <ul>
+    <li>Buscador de colegiados del <a href="https://www.cafbl.cat" target="_blank" rel="noopener">Col·legi d'Administradors de Finques de Barcelona-Lleida</a> (despachos, no personas).</li>
+    <li>Google Maps con las búsquedas de abajo. Filtrar por web propia y entre 10 y 150 reseñas: despachos pequeños con volumen.</li>
+  </ul>
+  <h3>20 búsquedas exactas en Google Maps</h3>
+  <div class="grid2">
+    <div class="card"><ol>
+      <li>administrador de fincas Eixample Barcelona</li>
+      <li>administración de fincas Dreta de l'Eixample</li>
+      <li>administración de fincas Sant Antoni Barcelona</li>
+      <li>administrador de fincas Gràcia Barcelona</li>
+      <li>administrador de fincas Sants Barcelona</li>
+      <li>administrador de fincas Sant Martí Barcelona</li>
+      <li>administrador de fincas Poblenou</li>
+      <li>administrador de fincas Horta Guinardó</li>
+      <li>administrador de fincas Sant Andreu Barcelona</li>
+      <li>administrador de fincas Les Corts Barcelona</li>
+    </ol></div>
+    <div class="card"><ol start="11">
+      <li>administrador de fincas Sarrià Sant Gervasi</li>
+      <li>administrador de fincas Nou Barris</li>
+      <li>administrador de fincas L'Hospitalet de Llobregat</li>
+      <li>administrador de fincas Badalona</li>
+      <li>administrador de fincas Cornellà de Llobregat</li>
+      <li>administrador de fincas Sant Cugat del Vallès</li>
+      <li>administrador de fincas Sabadell</li>
+      <li>administrador de fincas Terrassa</li>
+      <li>administració de finques Barcelona</li>
+      <li>gestión de comunidades de propietarios Barcelona</li>
+    </ol></div>
+  </div>
+  <p>Orden de visita: las búsquedas 1 a 6 primero. Son fincas antiguas con bajantes y ascensores viejos, y los despachos están a pie de calle a pocos minutos entre sí.</p>
+</section>
+
+<footer><span>Conserjia · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

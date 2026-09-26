@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisita | Recall dental que cobra por paciente que vuelve</title>
+<meta name="description" content="Revisita encuentra en tu ficha a quien le toca revisión o dejó un tratamiento a medias, le escribe por WhatsApp y le da cita. Solo pagas por visita recuperada.">
+<link rel="canonical" href="https://revisita.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://revisita.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://revisita.vercel.app/ca.html">
+<meta name="theme-color" content="#0A4A44">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23137A6E' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23137A6E'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Revisita">
+<meta property="og:url" content="https://revisita.vercel.app/">
+<meta property="og:title" content="Revisita | Recupera los euros dormidos en tu ficha de pacientes">
+<meta property="og:description" content="Recall por WhatsApp para clínicas dentales independientes. Auditoría gratis y solo pagas por visita recuperada.">
+<meta property="og:image" content="https://revisita.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Revisita | Recupera los euros dormidos en tu ficha de pacientes">
+<meta name="twitter:description" content="Recall por WhatsApp para clínicas dentales independientes. Solo pagas por visita recuperada.">
+<meta name="twitter:image" content="https://revisita.vercel.app/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://revisita.vercel.app/#org","name":"Revisita","url":"https://revisita.vercel.app/","founder":{"@type":"Person","name":"Joaquín"},"areaServed":{"@type":"City","name":"Barcelona"}},
+{"@type":"Service","name":"Revisita, recall de pacientes para clínicas dentales","serviceType":"Recall de pacientes por WhatsApp","provider":{"@id":"https://revisita.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"audience":{"@type":"BusinessAudience","audienceType":"Clínicas dentales independientes"},
+"offers":[{"@type":"Offer","name":"Por resultado","price":"25","priceCurrency":"EUR","description":"Por visita recuperada. Precio de lanzamiento, piloto de 30 días gratis."},{"@type":"Offer","name":"Cuota plana","price":"249","priceCurrency":"EUR","description":"Al mes, hasta 2 gabinetes."}]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF;
+  --mint:#EEF8F4;
+  --mint-2:#D6EFE5;
+  --teal:#0A4A44;
+  --teal-2:#137A6E;
+  --ink:#0D1B1A;
+  --ink-2:#4B5B59;
+  --ink-3:#5E6D6B;
+  --line:#DDE7E3;
+  --r:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:"Geist",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--teal-2)}
+.mono{font-family:"Geist Mono",ui-monospace,monospace;font-feature-settings:"tnum"}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.04}
+h1{font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:13em}
+h2{font-size:clamp(1.9rem,4.6vw,3rem);margin-bottom:.5em;max-width:18em}
+h3{font-size:1.2rem;letter-spacing:-.02em;margin-bottom:.35em}
+h1 em,h2 em{font-style:normal;color:var(--teal-2)}
+.label{font-family:"Geist Mono",monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:16px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--teal);color:#fff;text-decoration:none;font:inherit;font-weight:600;font-size:1rem;padding:14px 22px;border-radius:8px;border:0;cursor:pointer;transition:transform .15s,background .15s;white-space:nowrap;min-height:48px}
+.btn:hover{background:var(--teal-2)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px}
+
+.skip{position:absolute;left:12px;top:-60px;z-index:30;background:var(--teal);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px}
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;font-size:1.2rem;letter-spacing:-.03em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:18px;height:18px;border:2px solid var(--teal-2);border-radius:50%;position:relative}
+.logo i::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--teal-2)}
+.lang{font-family:"Geist Mono",monospace;font-size:.8rem;color:var(--ink-2);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-height:36px;display:inline-flex;align-items:center}
+.navr{display:flex;align-items:center;gap:10px}
+.navlinks{display:none;gap:26px;align-items:center}
+.navlinks a:not(.btn){color:var(--ink-2);text-decoration:none;font-size:.93rem}
+.navlinks a:not(.btn):hover{color:var(--ink)}
+nav .btn{padding:9px 16px;min-height:40px;font-size:.92rem}
+
+/* hero */
+.hero{padding:56px 0 0;border:0}
+.hero-grid{display:grid;gap:40px}
+.hero-grid>*{min-width:0}
+.lead{font-size:1.2rem;color:var(--ink-2);margin:22px 0 30px;max-width:30em}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+
+/* dashboard (hero product moment, sample data) */
+.dash{border:1px solid var(--line);border-radius:14px;background:var(--bg);box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(10,74,68,.45);overflow:hidden}
+.dash-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);font-size:.8rem;color:var(--ink-3)}
+.dash-top b{color:var(--ink);font-weight:600}
+.sample{font-family:"Geist Mono",monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:nowrap}
+.hero-num{padding:22px 18px 18px;background:var(--mint);border-bottom:1px solid var(--line)}
+.hero-num small{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2)}
+.hero-num .big{font-family:"Geist Mono",monospace;font-weight:500;font-size:clamp(2.6rem,8vw,4rem);letter-spacing:-.05em;line-height:1;margin:10px 0 14px;color:var(--teal)}
+.split{display:flex;height:8px;gap:3px;margin-bottom:10px}
+.split span{display:block;border-radius:2px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:.8rem;color:var(--ink-2)}
+.legend b{font-family:"Geist Mono",monospace;font-weight:500;color:var(--ink);display:block;font-size:.9rem}
+.rows{padding:6px 18px 4px}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:.86rem}
+.row:last-child{border-bottom:0}
+.row>div{min-width:0}
+.row .who{font-weight:600}
+.row .why{color:var(--ink-3);font-size:.78rem}
+.st{font-family:"Geist Mono",monospace;font-size:.7rem;padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--line);color:var(--ink-2)}
+.st.ok{background:var(--mint-2);border-color:transparent;color:var(--teal)}
+.wa{margin:4px 18px 18px;padding:12px;border-radius:var(--r);background:var(--mint);font-size:.84rem;display:grid;gap:7px}
+.wa .b{max-width:92%;padding:8px 11px;border-radius:8px;background:var(--bg);border:1px solid var(--line);line-height:1.4}
+.wa .b.out{justify-self:end;background:var(--mint-2);border-color:transparent}
+.wa .meta{font-family:"Geist Mono",monospace;font-size:.68rem;color:var(--ink-3);text-align:right}
+
+/* facts strip under hero */
+.facts{display:grid;grid-template-columns:1fr 1fr;margin-top:56px;border-top:1px solid var(--line)}
+.facts div{padding:18px 16px 18px 0;font-size:.9rem;color:var(--ink-2);border-bottom:1px solid var(--line)}
+.facts b{display:block;color:var(--ink);font-weight:600}
+
+/* problem */
+.problem{background:var(--mint)}
+.scene{display:grid;gap:32px}
+.scene>*{min-width:0}
+.scene blockquote{font-size:1.35rem;line-height:1.4;letter-spacing:-.015em;font-weight:500;padding-left:18px;border-left:2px solid var(--teal-2);margin-top:8px}
+.scene p{color:var(--ink-2);margin-bottom:18px}
+.leaks{border-top:1px solid var(--line)}
+.leak{display:grid;grid-template-columns:42px 1fr;gap:8px;padding:16px 0;border-bottom:1px solid var(--line)}
+.leak .n{font-family:"Geist Mono",monospace;color:var(--teal-2);font-size:.85rem;padding-top:2px}
+.leak b{display:block;font-weight:600}
+.leak span{color:var(--ink-2);font-size:.95rem}
+
+/* how: ruled rows */
+.how{border-top:1px solid var(--ink);margin-top:28px}
+.how-row{display:grid;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--line)}
+.how-row .n{font-family:"Geist Mono",monospace;font-size:.85rem;color:var(--teal-2)}
+.how-row p{color:var(--ink-2);max-width:40em}
+.srcs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.srcs span{font-family:"Geist Mono",monospace;font-size:.74rem;border:1px solid var(--line);border-radius:4px;padding:3px 8px;color:var(--ink-2)}
+
+/* versus table */
+.vs{margin-top:44px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.vs-row{display:grid;grid-template-columns:1fr 1fr;font-size:.93rem}
+.vs-row>div{padding:13px 16px;border-top:1px solid var(--line)}
+.vs-row>div+div{border-left:1px solid var(--line);background:var(--mint);color:var(--ink)}
+.vs-row>div:first-child{color:var(--ink-2)}
+.vs-row.head>div{border-top:0;font-weight:600;color:var(--ink)}
+
+
+/* demo */
+.demo{display:grid;gap:28px;margin-top:10px}
+.demo>*{min-width:0}
+.demo .ctrl label{display:block;font-weight:500;font-size:.95rem;margin:0 0 8px}
+.demo input[type=text]{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;min-height:48px;color:var(--ink);background:var(--bg)}
+.demo input[type=text]:focus{outline:none;border-color:var(--teal-2);box-shadow:0 0 0 3px var(--mint-2)}
+.scen{display:grid;gap:8px;margin-top:22px}
+.scen button{font:inherit;text-align:left;display:grid;grid-template-columns:32px 1fr;gap:4px;align-items:start;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);cursor:pointer;color:var(--ink);min-height:48px}
+.scen button span{font-family:"Geist Mono",monospace;font-size:.8rem;color:var(--teal-2);padding-top:2px}
+.scen button small{display:block;color:var(--ink-3);font-size:.84rem}
+.scen button[aria-pressed=true]{border-color:var(--teal-2);background:var(--mint)}
+.chat{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--mint);display:flex;flex-direction:column;min-height:420px}
+.chat-top{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--line);font-size:.84rem}
+.chat-top b{font-weight:600}
+.chat-body{flex:1;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:.92rem}
+.msg{max-width:86%;padding:9px 12px;border-radius:8px;line-height:1.45;background:var(--bg);border:1px solid var(--line)}
+.msg.out{align-self:flex-end;background:var(--mint-2);border-color:transparent}
+.msg.sys{align-self:center;max-width:100%;background:transparent;border:0;font-family:"Geist Mono",monospace;font-size:.74rem;color:var(--teal-2);text-align:center}
+.msg.typing{color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:.8rem}
+@media (prefers-reduced-motion:no-preference){.msg{animation:pop .25s ease-out both}@keyframes pop{from{transform:translateY(6px);opacity:.4}to{transform:none;opacity:1}}}
+@media(min-width:760px){.demo{grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}}
+
+/* calculator */
+.calc{display:grid;gap:28px;margin-top:10px}
+.calc>*{min-width:0}
+.calc label,.calc .clbl{display:flex;justify-content:space-between;gap:10px;font-weight:500;font-size:.95rem;margin-bottom:10px}
+.calc label output{font-family:"Geist Mono",monospace;color:var(--teal-2);white-space:nowrap}
+.calc input[type=range]{width:100%;accent-color:var(--teal-2);height:28px}
+.field{padding:18px 0;border-bottom:1px solid var(--line)}
+.field:first-child{border-top:1px solid var(--line)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{font:inherit;font-family:"Geist Mono",monospace;font-size:.88rem;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:9px 14px;min-height:44px;cursor:pointer;color:var(--ink)}
+.seg button[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.result{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--mint)}
+.result small{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-2)}
+.result .big{font-family:"Geist Mono",monospace;font-weight:500;font-size:clamp(2.6rem,9vw,3.6rem);letter-spacing:-.05em;line-height:1;margin:12px 0;color:var(--teal)}
+.result p{font-size:.93rem;color:var(--ink-2)}
+.note{font-size:.84rem;color:var(--ink-3);margin-top:22px;max-width:52em}
+
+/* pricing */
+.plans{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:10px}
+.plan{padding:28px}
+.plan+.plan{border-top:1px solid var(--line)}
+.plan.main{background:var(--mint)}
+.plan .tag{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-2)}
+.plan .price{font-family:"Geist Mono",monospace;font-weight:500;font-size:2.6rem;letter-spacing:-.04em;line-height:1;margin:14px 0 8px}
+.plan .price small{font-family:"Geist",sans-serif;font-size:.95rem;letter-spacing:0;color:var(--ink-2);font-weight:400}
+.plan p{color:var(--ink-2)}
+.plan ul{list-style:none;margin-top:16px;border-top:1px solid var(--line)}
+.plan li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+
+/* trust */
+.trust{display:grid;gap:0;margin-top:10px;border-top:1px solid var(--ink)}
+.trust div{padding:18px 0;border-bottom:1px solid var(--line)}
+.trust b{display:block;font-weight:600;margin-bottom:2px}
+.trust span{font-size:.94rem;color:var(--ink-2)}
+
+/* faq */
+.faq-grid{display:grid;gap:24px}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:500;font-size:1.04rem;list-style:none;display:flex;justify-content:space-between;gap:14px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:"Geist Mono",monospace;color:var(--teal-2)}
+details[open] summary::after{content:"-"}
+details p{color:var(--ink-2);margin-top:10px;max-width:44em}
+
+/* final */
+.final{background:var(--teal);color:#E6F4F0;border:0}
+.final h2{color:#fff}
+.final h2 em{color:#9FE3D2}
+.final p{color:#BFDCD5}
+.final .label{color:#9FE3D2}
+.final-grid{display:grid;gap:28px;align-items:start}
+.final-grid>*{min-width:0}
+ol.next{list-style:none;margin-top:22px;border-top:1px solid rgba(255,255,255,.18)}
+ol.next li{display:grid;grid-template-columns:36px 1fr;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.18);color:#D5ECE6}
+ol.next li span{font-family:"Geist Mono",monospace;color:#9FE3D2;font-size:.85rem;padding-top:2px}
+.founder{margin-top:24px;font-size:.95rem;color:#BFDCD5}
+.founder b{color:#fff}
+.form-card{background:#fff;color:#0D1B1A;border-radius:14px;padding:26px}
+.form-card h3{font-size:1.35rem}
+.form-card label{display:block;font-size:.88rem;font-weight:600;margin:16px 0 6px}
+.form-card input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid #C9D6D2;border-radius:8px;background:#fff;color:#0D1B1A;min-height:48px}
+.form-card input::placeholder{color:#5E6D6B}
+.form-card input:focus{outline:none;border-color:#137A6E;box-shadow:0 0 0 3px #D6EFE5}
+.form-card input[aria-invalid=true]{border-color:#B42318}
+.form-card .err{display:none;color:#B42318;font-size:.82rem;margin-top:6px}
+.form-card .btn{width:100%;margin-top:22px;background:#0A4A44;color:#fff}
+.form-card .fine{font-size:.8rem;color:#4B5B59;margin-top:12px}
+.thanks{display:none;padding:12px 0}
+.thanks h3{font-size:1.6rem}
+.thanks p{color:#4B5B59;margin-top:8px}
+
+/* sticky mobile cta */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--teal);color:#fff;border-radius:12px;padding:8px 8px 8px 16px;box-shadow:0 14px 30px -12px rgba(10,74,68,.6);transform:translateY(150%);transition:transform .25s}
+.sticky.on{transform:none}
+.sticky span{font-size:.84rem;line-height:1.25;color:#D5ECE6}
+.sticky .btn{background:#fff;color:#0A4A44;padding:10px 14px;min-height:44px;font-size:.9rem}
+
+footer{padding:28px 0 104px;font-size:.88rem;color:var(--ink-3);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* entry motion */
+@media (prefers-reduced-motion:no-preference){
+  .dash{animation:rise .7s cubic-bezier(.16,1,.3,1) both .1s}
+  @keyframes rise{from{transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.btn{transition:none}}
+
+@media(min-width:760px){
+  section{padding:104px 0}
+  .navlinks{display:flex}
+  .navcta{display:none}
+  .facts{grid-template-columns:repeat(4,1fr)}
+  .facts div{padding-right:24px}
+  .scene{grid-template-columns:1fr 1fr;gap:64px}
+  .how-row{grid-template-columns:80px 1fr 1.4fr;align-items:start}
+  .calc{grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .plans{grid-template-columns:1.3fr 1fr}
+  .plan+.plan{border-top:0;border-left:1px solid var(--line)}
+  .trust{grid-template-columns:repeat(2,1fr);column-gap:48px}
+  .faq-grid{grid-template-columns:1fr 1.6fr;gap:64px}
+  .final-grid{grid-template-columns:1fr 1fr;gap:64px}
+}
+@media(min-width:980px){
+  .hero{padding-top:72px}
+  .hero-grid{grid-template-columns:1fr 1fr;align-items:center;gap:56px}
+  .sticky{display:none}
+  footer{padding-bottom:28px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#probar">Saltar al formulario</a>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><i aria-hidden="true"></i>Revisita</a>
+    <div class="navr"><div class="navlinks"><a href="#como">Cómo funciona</a><a href="#demo">Demo</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a><a class="btn" href="#probar">Pedir auditoría gratis</a></div>
+    <a class="lang" href="ca.html" hreflang="ca" lang="ca" aria-label="Versió en català">CA</a>
+    <a class="btn navcta" href="#probar">Auditoría gratis</a></div>
+  </div>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="label">Recall para clínicas dentales</span>
+        <h1>Recupera los <em>euros dormidos</em> en tu ficha de pacientes.</h1>
+        <p class="lead">Escribimos por WhatsApp a quien le toca revisión y le damos cita en tu agenda. Solo pagas por paciente que vuelve.</p>
+        <div class="ctas">
+          <a class="btn" href="#probar">Pedir auditoría gratis</a>
+          <a class="btn ghost" href="#como">Cómo funciona</a>
+        </div>
+      </div>
+
+      <div class="dash" role="img" aria-label="Ejemplo del panel de Revisita con datos ficticios: 31.480 euros dormidos en la ficha de una clínica.">
+        <div class="dash-top"><span><b>Clínica de ejemplo</b> · Auditoría de ficha</span><span class="sample">Datos ficticios</span></div>
+        <div class="hero-num">
+          <small>Euros dormidos en la ficha</small>
+          <div class="big">31.480 €</div>
+          <div class="split" aria-hidden="true"><span style="flex:26780;background:var(--teal-2)"></span><span style="flex:4700;background:var(--teal)"></span></div>
+          <div class="legend">
+            <div><b>412 pacientes</b>revisión atrasada</div>
+            <div><b>23 presupuestos</b>tratamiento a medias</div>
+          </div>
+        </div>
+        <div class="rows">
+          <div class="row"><div><div class="who">Marta S.</div><div class="why">Limpieza · última hace 14 meses</div></div><span class="st ok">Cita jue 10:30</span></div>
+          <div class="row"><div><div class="who">Jordi P.</div><div class="why">Implante · fase 2 pendiente</div></div><span class="st">Pasa a recepción</span></div>
+          <div class="row"><div><div class="who">Hueco lun 9:00</div><div class="why">Cancelación · 3 en lista de espera</div></div><span class="st ok">Cubierto</span></div>
+        </div>
+        <div class="wa" aria-hidden="true">
+          <div class="b out">Hola Marta, soy Anna, de tu clínica. Hace más de un año de tu última limpieza con la Dra. Vidal. ¿Te va bien el martes 17:00 o el jueves 10:30?</div>
+          <div class="b">El jueves me va perfecto</div>
+          <div class="meta">Cita creada en la agenda · 65 €</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div><b>Piloto de 30 días</b>gratis, también por resultado</div>
+      <div><b>Sin permanencia</b>lo dejas cuando quieras</div>
+      <div><b>RGPD</b>contrato de encargado, datos en la UE</div>
+      <div><b>Tu software</b>Gesden, Clinic Cloud, Dentalink o CSV</div>
+    </div>
+  </div>
+</header>
+
+<section class="problem">
+  <div class="wrap scene">
+    <div>
+      <h2>La lista de «pacientes para llamar» lleva en recepción <em>desde junio.</em></h2>
+      <blockquote>Lunes, 9:05. Tres llamadas en espera y un paciente en el mostrador. Nadie va a llamar a la lista hoy. Tampoco mañana.</blockquote>
+    </div>
+    <div>
+      <p>El teléfono de recepción es para quien ya entra por la puerta. Mientras, cientos de pacientes que confían en ti pasan meses sin revisión, y sus presupuestos aceptados se quedan en un cajón. Se pierde por tres sitios:</p>
+      <div class="leaks">
+        <div class="leak"><span class="n">01</span><div><b>Revisiones y limpiezas atrasadas</b><span>Venían cada 6 o 12 meses y un día dejaron de venir. No se fueron a otra clínica: se olvidaron.</span></div></div>
+        <div class="leak"><span class="n">02</span><div><b>Tratamientos a medias</b><span>La corona tras la endodoncia, la segunda fase del implante, el «me lo pienso».</span></div></div>
+        <div class="leak"><span class="n">03</span><div><b>Huecos por cancelación</b><span>Una silla vacía el lunes a las 9:00 no se recupera nunca.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <h2>Recepción no hace nada nuevo. <em>Revisita hace la lista.</em></h2>
+    <div class="how">
+      <div class="how-row">
+        <span class="n">01</span>
+        <h3>Nos pasas la exportación</h3>
+        <div><p>La de tu software de gestión o un Excel. Antes firmamos el contrato de encargado del tratamiento. Los datos se quedan en la UE.</p>
+        <div class="srcs"><span>Gesden</span><span>Clinic Cloud</span><span>Dentalink</span><span>CSV / Excel</span></div></div>
+      </div>
+      <div class="how-row">
+        <span class="n">02</span>
+        <h3>Revisita encuentra y escribe</h3>
+        <p>Detecta a quién le toca revisión, qué tratamiento quedó abierto y quién puede cubrir un hueco. Escribe por WhatsApp con el nombre de tu clínica y de tu doctora.</p>
+      </div>
+      <div class="how-row">
+        <span class="n">03</span>
+        <h3>El paciente reserva en el chat</h3>
+        <p>Elige hora y la cita entra en tu agenda. Una duda clínica pasa a recepción al momento. Cada mes ves citas recuperadas, euros facturados y lo que te cuesta Revisita.</p>
+      </div>
+    </div>
+
+    <div class="vs" role="table" aria-label="Recordatorio automático frente a Revisita">
+      <div class="vs-row head" role="row"><div role="columnheader">Recordatorio de tu software</div><div role="columnheader">Revisita</div></div>
+      <div class="vs-row" role="row"><div role="cell">Avisa de citas que ya existen</div><div role="cell">Busca a quien no tiene cita</div></div>
+      <div class="vs-row" role="row"><div role="cell">Mensaje genérico, sin respuesta</div><div role="cell">Conversación con huecos reales</div></div>
+      <div class="vs-row" role="row"><div role="cell">Si contesta, tarea para recepción</div><div role="cell">La cita se cierra en el chat</div></div>
+      <div class="vs-row" role="row"><div role="cell">Cuota fija, funcione o no</div><div role="cell">Pagas por visita atendida</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <h2>Mira qué recibe <em>tu paciente.</em></h2>
+    <div class="demo">
+      <div class="ctrl">
+        <label for="d-clinic">Nombre de tu clínica</label>
+        <input type="text" id="d-clinic" maxlength="40" placeholder="Clínica Dental Sant Antoni" autocomplete="organization">
+        <div class="scen" role="group" aria-label="Elige un caso">
+          <button type="button" data-s="0" aria-pressed="true"><span>01</span><div>Revisión atrasada<small>Marta, 14 meses sin limpieza</small></div></button>
+          <button type="button" data-s="1" aria-pressed="false"><span>02</span><div>Tratamiento a medias<small>Jordi, fase 2 del implante pendiente</small></div></button>
+          <button type="button" data-s="2" aria-pressed="false"><span>03</span><div>Hueco por cancelación<small>Lunes 9:00 libre, 3 en lista de espera</small></div></button>
+        </div>
+      </div>
+      <div class="chat" aria-live="polite">
+        <div class="chat-top"><b id="d-name">Clínica Dental Sant Antoni</b><span class="sample">Simulación</span></div>
+        <div class="chat-body" id="d-body"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Haz la cuenta con <em>tus números.</em></h2>
+    <div class="calc" aria-label="Calculadora de ingresos dormidos">
+      <div>
+        <div class="field">
+          <label for="r-pat">Pacientes con revisión atrasada <output id="o-pat" for="r-pat">400</output></label>
+          <input type="range" id="r-pat" min="100" max="2000" step="50" value="400">
+        </div>
+        <div class="field">
+          <label for="r-tick">Ingreso medio por visita <output id="o-tick" for="r-tick">65 €</output></label>
+          <input type="range" id="r-tick" min="40" max="200" step="5" value="65">
+        </div>
+        <div class="field">
+          <span class="clbl" id="l-rate">Cuántos vuelven (tu hipótesis)</span>
+          <div class="seg" role="group" aria-labelledby="l-rate">
+            <button type="button" data-rate="0.05" aria-pressed="false">5%</button>
+            <button type="button" data-rate="0.10" aria-pressed="true">10%</button>
+            <button type="button" data-rate="0.15" aria-pressed="false">15%</button>
+          </div>
+        </div>
+      </div>
+      <div class="result" aria-live="polite">
+        <small>Ingreso que vuelve a tu agenda</small>
+        <div class="big" id="c-rev">2.600 €</div>
+        <p><b id="c-vis">40 visitas</b>. A Revisita le pagarías <b id="c-fee">1.000 €</b>, solo por esas visitas. No cuenta el tratamiento que sale de cada revisión.</p>
+      </div>
+    </div>
+    <p class="note">Aún no tenemos clientes, así que no inventamos una tasa: la eliges tú. Como referencia, <a href="https://www.10xdental.com" target="_blank" rel="noopener">10x Dental</a> (EE. UU.) publica un 16% de citas sobre su lista atrasada. La auditoría gratis te da la cifra de tu propia ficha.</p>
+  </div>
+</section>
+
+<section id="precio">
+  <div class="wrap">
+    <span class="label">Precio de lanzamiento</span>
+    <h2>Si el paciente no vuelve, <em>no pagas.</em></h2>
+    <div class="plans">
+      <div class="plan main">
+        <span class="tag">Por resultado · recomendado</span>
+        <div class="price">25 € <small>por visita recuperada</small></div>
+        <p>O el 10% del tratamiento cuando reactivamos un presupuesto pendiente, con tope de 150 € por paciente.</p>
+        <ul>
+          <li>Sin cuota fija ni permanencia</li>
+          <li>Revisiones, limpiezas y tratamientos abiertos</li>
+          <li>Relleno de cancelaciones desde lista de espera</li>
+          <li>Informe mensual con cada visita, impugnable</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <span class="tag">Cuota plana</span>
+        <div class="price">249 € <small>al mes</small></div>
+        <p>Para la clínica que prefiere un coste fijo.</p>
+        <ul>
+          <li>Todo lo del plan por resultado</li>
+          <li>Hasta 2 gabinetes</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Los primeros 30 días no cobramos nada. Si no te convence, lo dejas y borramos tus datos. Una visita recuperada es una cita que el paciente reserva desde un mensaje de Revisita y a la que acude, según tu agenda.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Tus pacientes son tuyos. <em>Los datos de salud, también.</em></h2>
+    <div class="trust">
+      <div><b>Contrato de encargado antes de nada</b><span>Firmamos el contrato del artículo 28 del <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener">RGPD</a> antes de ver un solo dato.</span></div>
+      <div><b>Servidores en la UE</b><span>Base de datos y procesos en la Unión Europea, cifrados en reposo y en tránsito.</span></div>
+      <div><b>Solo lo necesario</b><span>Nombre, teléfono, fechas y tipo de tratamiento. Sin historia clínica.</span></div>
+      <div><b>Baja con una palabra</b><span>El paciente responde «baja» y no recibe nada más, de ninguna campaña.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-grid">
+    <h2>Lo que preguntan las clínicas</h2>
+    <div>
+      <details><summary>¿Mis pacientes van a pensar que es spam?</summary><p>El mensaje sale con el nombre de tu clínica y de tu doctora, habla de su última visita y ofrece huecos reales. Un solo recordatorio si no contesta. Quien responde «baja» no recibe nada más.</p></details>
+      <details><summary>Ya envío recordatorios desde mi software. ¿Qué cambia?</summary><p>Tu software recuerda citas que ya existen. Revisita busca a los pacientes sin cita, habla con ellos y cierra la cita en el chat.</p></details>
+      <details><summary>¿Cuánto trabajo le da a recepción?</summary><p>Una llamada de 30 minutos para arrancar. Después, recepción solo atiende lo que Revisita le pasa: dudas clínicas, quejas o casos especiales.</p></details>
+      <details><summary>¿Es legal escribir por WhatsApp a mis pacientes?</summary><p>Recordar una revisión a un paciente tuyo forma parte de su atención sanitaria, no es publicidad. Aun así, revisamos contigo la base legal y el consentimiento que ya recoges, usamos la API oficial de WhatsApp Business y excluimos a quien pidió no recibir mensajes.</p></details>
+      <details><summary>¿Tengo que cambiar de software de gestión?</summary><p>No. Empezamos con una exportación. Si tu software tiene integración, sincronizamos la agenda. Si no, tu equipo confirma la cita con un clic desde el panel.</p></details>
+      <details><summary>¿Cómo sabéis qué visita es «recuperada»?</summary><p>Contamos solo las citas que el paciente reserva desde un mensaje de Revisita y que tu agenda marca como atendidas. Ves cada una en el informe y puedes impugnar cualquiera.</p></details>
+      <details><summary>¿Qué es la auditoría gratis?</summary><p>Con tu exportación contamos cuántos pacientes llevan más tiempo del debido sin venir y cuántos presupuestos quedaron abiertos, y lo pasamos a euros. Tarda 3 días laborables y no te compromete a nada.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="probar">
+  <div class="wrap final-grid">
+    <div>
+      <span class="label">Pilotos en Barcelona</span>
+      <h2>¿Cuántos euros tienes <em>dormidos</em> en tu ficha?</h2>
+      <p>Buscamos las primeras clínicas dentales independientes de Barcelona para el piloto.</p>
+      <ol class="next">
+        <li><span>01</span>Te llamo en 24 horas laborables.</li>
+        <li><span>02</span>Firmamos el contrato de encargado y me pasas la exportación.</li>
+        <li><span>03</span>En 3 días tienes la auditoría en euros. Tú decides si empiezas.</li>
+      </ol>
+      <p class="founder"><b>Joaquín, fundador.</b> Hablarás conmigo, no con un comercial. Si tu clínica no encaja, te lo digo en la primera llamada.</p>
+    </div>
+    <div class="form-card">
+      <!-- TODO: connect form -->
+      <form id="wl" novalidate>
+        <h3>Pedir auditoría gratis</h3>
+        <label for="n">Tu nombre</label>
+        <input id="n" name="name" required autocomplete="name" placeholder="Anna Puig">
+        <p class="err" id="e-n">Escribe tu nombre.</p>
+        <label for="c">Clínica</label>
+        <input id="c" name="clinic" required autocomplete="organization" placeholder="Clínica Dental Sant Antoni">
+        <p class="err" id="e-c">Escribe el nombre de la clínica.</p>
+        <label for="p">Teléfono o email</label>
+        <input id="p" name="contact" required autocomplete="tel" placeholder="600 000 000">
+        <p class="err" id="e-p">Déjanos un teléfono o un email.</p>
+        <button class="btn" type="submit">Pedir auditoría gratis</button>
+        <p class="fine">Sin compromiso. Esta página mide interés: todavía no guardamos lo que escribes.</p>
+      </form>
+      <div class="thanks" id="thanks" role="status" tabindex="-1">
+        <h3>Gracias, <span id="tn"></span>.</h3>
+        <p>Te llamo en 24 horas laborables para preparar la auditoría de tu clínica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <span>Auditoría gratis.<br>Pagas solo por visita recuperada.</span>
+  <a class="btn" href="#probar" tabindex="-1">Pedir auditoría</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span><b>Revisita</b> · Barcelona, 2026</span>
+    <span><a href="ca.html" hreflang="ca" lang="ca">Català</a> · <a href="plan.html">Plan</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('wl').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, ok = true;
+  ['n', 'c', 'p'].forEach(function (id) {
+    var i = document.getElementById(id), bad = !i.value.trim();
+    i.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    document.getElementById('e-' + id).style.display = bad ? 'block' : 'none';
+    if (bad) ok = false;
+  });
+  if (!ok) return;
+  document.getElementById('tn').textContent = document.getElementById('n').value.trim().split(' ')[0];
+  f.style.display = 'none';
+  var t = document.getElementById('thanks');
+  t.style.display = 'block';
+  t.focus();
+});
+
+(function () {
+  var pat = document.getElementById('r-pat'), tick = document.getElementById('r-tick'), rate = 0.10;
+  var num = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); };
+  var fmt = function (n) { return num(n) + ' €'; };
+  function calc() {
+    var v = Math.round(pat.value * rate);
+    document.getElementById('o-pat').textContent = num(pat.value);
+    document.getElementById('o-tick').textContent = tick.value + ' €';
+    document.getElementById('c-rev').textContent = fmt(v * tick.value);
+    document.getElementById('c-vis').textContent = v + ' visitas';
+    document.getElementById('c-fee').textContent = fmt(v * 25);
+  }
+  pat.addEventListener('input', calc);
+  tick.addEventListener('input', calc);
+  var btns = document.querySelectorAll('.seg button');
+  Array.prototype.forEach.call(btns, function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(btns, function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      rate = parseFloat(b.dataset.rate);
+      calc();
+    });
+  });
+  calc();
+
+  var sticky = document.getElementById('sticky'), hero = document.querySelector('.hero'), fin = document.getElementById('probar');
+  if ('IntersectionObserver' in window) {
+    var heroOut = false, finIn = false;
+    var upd = function () { sticky.classList.toggle('on', heroOut && !finIn); };
+    new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; upd(); }).observe(hero);
+    new IntersectionObserver(function (e) { finIn = e[0].isIntersecting; upd(); }).observe(fin);
+  }
+})();
+
+(function () {
+  var S = [
+    [['out','Hola Marta, soy Anna, de {c}. Hace 14 meses de tu última limpieza con la Dra. Vidal. ¿Te va bien el martes 17:00 o el jueves 10:30?'],['in','Uf, sí, se me pasó. El jueves'],['out','Hecho: jueves 10:30 con la Dra. Vidal. Te lo recordamos el día antes.'],['sys','Cita creada en la agenda · 1 visita recuperada']],
+    [['out','Hola Jordi, soy Anna, de {c}. Tu implante está listo para la segunda fase. ¿Quieres que te reservemos hora con el Dr. Serra?'],['in','¿Cuánto me queda por pagar?'],['out','Eso te lo confirma recepción con tu presupuesto delante. Te llaman hoy antes de las 19:00.'],['sys','Pregunta de precio · pasa a recepción con la conversación']],
+    [['out','Hola Pau, soy Anna, de {c}. Se ha liberado el lunes a las 9:00 para tu revisión. ¿Lo quieres?'],['in','¡Sí, perfecto!'],['out','Tuyo. Lunes 9:00. Si te surge algo, responde a este mensaje.'],['sys','Hueco cubierto · los otros 2 de la lista reciben aviso de que ya no está']]
+  ];
+  var body = document.getElementById('d-body'), inp = document.getElementById('d-clinic'), nm = document.getElementById('d-name');
+  var btns = document.querySelectorAll('.scen button'), cur = 0, timers = [];
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function clinic() { return inp.value.trim() || 'Clínica Dental Sant Antoni'; }
+  function add(k, txt) { var d = document.createElement('div'); d.className = 'msg ' + k; d.textContent = txt; body.appendChild(d); return d; }
+  function play() {
+    timers.forEach(clearTimeout); timers = []; body.textContent = ''; nm.textContent = clinic();
+    var t = 0;
+    S[cur].forEach(function (m) {
+      var txt = m[1].replace('{c}', clinic());
+      if (reduce) { add(m[0], txt); return; }
+      if (m[0] === 'in') { timers.push(setTimeout(function () { var ty = add('typing', 'escribiendo...'); timers.push(setTimeout(function () { ty.remove(); }, 700)); }, t)); t += 700; }
+      timers.push(setTimeout(function () { add(m[0], txt); }, t)); t += 1100;
+    });
+  }
+  Array.prototype.forEach.call(btns, function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(btns, function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true'); cur = +b.dataset.s; play();
+    });
+  });
+  var deb; inp.addEventListener('input', function () { clearTimeout(deb); deb = setTimeout(play, 400); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { play(); io.disconnect(); } }, { threshold: .3 });
+    io.observe(body);
+  } else { play(); }
+})();
+</script>
+</body>
+</html>

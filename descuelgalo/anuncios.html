@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Plan interno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="wrap">
+<header><a class="back" href="plan.html">← Plan</a><br><br><span class="tag">Interno · para más adelante</span>
+<h1>Kit de anuncios: prueba de dos semanas a €5 al día</h1>
+<p>Solo se activa cuando haya 5 clientes de pago y la landing convierta en autoservicio. Antes, el canal es la visita en persona.</p></header>
+<section><h2>Google Ads: palabras clave</h2>
+<div class="grid two">
+<div class="card"><h3>Concordancia exacta</h3><ul><li><code>[recepcionista virtual taller]</code></li><li><code>[contestador automático para negocio]</code></li><li><code>[recepcionista ia]</code></li><li><code>[atender llamadas perdidas negocio]</code></li><li><code>[desviar llamadas no contestadas]</code></li></ul></div>
+<div class="card"><h3>Concordancia de frase</h3><ul><li><code>"recepcionista con inteligencia artificial"</code></li><li><code>"no puedo coger el teléfono" negocio</code></li><li><code>"centralita virtual" autónomo</code></li><li><code>"asistente telefónico" pyme</code></li></ul></div>
+</div>
+<div class="card" style="margin-top:14px"><h3>Negativas</h3><p><code>empleo</code>, <code>trabajo</code>, <code>oferta de empleo</code>, <code>curso</code>, <code>gratis descargar</code>, <code>sueldo</code>, <code>formación</code>, <code>hotel</code>, <code>call center</code>, <code>teleoperador</code>.</p></div>
+</section>
+<section><h2>5 anuncios de búsqueda</h2><div class="tbl"><table><tr><th>Título (máx. 30 caracteres cada uno)</th><th>Descripción (máx. 90)</th></tr>
+<tr><td>Recepcionista IA para talleres · Piloto gratis 30 días</td><td>Coge las llamadas que no puedes y te manda la cita por WhatsApp. Conservas tu número.</td></tr>
+<tr><td>Ninguna llamada sin contestar · Desde 69 €/mes</td><td>Lucía contesta mientras trabajas. Dice que es una IA y te pasa la llamada si hace falta.</td></tr>
+<tr><td>Deja de perder clientes · Sin permanencia</td><td>Aprende tu horario de Google en 25 s. Activas el desvío con un código y listo.</td></tr>
+<tr><td>Cumple la Ley 10/2025 · Paso a persona incluido</td><td>Tu cliente puede pedir hablar contigo. Lucía te pasa la llamada o te deja el aviso.</td></tr>
+<tr><td>Oye tu recepcionista hoy · Sin tarjeta</td><td>Escribe el nombre de tu negocio y escucha cómo contestaría a tus clientes.</td></tr>
+</table></div></section>
+<section><h2>3 conceptos para Meta (Instagram y Facebook)</h2><div class="grid three">
+<div class="card"><h3>Manos ocupadas</h3><p><b>Gancho:</b> "Paco está debajo de un coche. Su móvil suena por tercera vez." Vídeo vertical de 12 s, reel 2 del plan de contenido.</p></div>
+<div class="card"><h3>La cuenta</h3><p><b>Gancho:</b> "3 llamadas perdidas al día son 20 trabajos al mes." Carrusel con la calculadora de <a href="precios.html">precios</a>.</p></div>
+<div class="card"><h3>Demo real</h3><p><b>Gancho:</b> "Escribí 'Taller Ruiz' y 25 segundos después me llamó su recepcionista." Grabación de pantalla.</p></div>
+</div>
+<h3>Públicos</h3><ul><li>Radio de 25 km alrededor de Barcelona, 30-60 años, intereses: talleres mecánicos, recambios, autónomos, administración de pymes.</li><li>Dueños de página de negocio en Facebook con categoría "taller de automóviles".</li><li>Retargeting: visitantes de la landing en 30 días (requiere píxel y banner de cookies antes de activarlo).</li></ul></section>
+<section><h2>Plan de prueba: 14 días, €5 al día, €140 en total</h2><ol>
+<li>Días 1-7: €5/día en Google Ads, solo exacta, los 5 anuncios en rotación.</li>
+<li>Días 8-14: €2,50/día en el mejor anuncio de Google y €2,50/día en el mejor concepto de Meta.</li>
+<li>Cada lunes: pausa las palabras con 0 clics y añade negativas nuevas del informe de búsquedas.</li>
+</ol>
+<div class="warn"><b>Decisión go/no-go al día 14.</b> Seguir si: CTR de búsqueda por encima del 4 %, coste por solicitud de piloto por debajo de €30, y al menos 1 piloto que pase a pago en 30 días (CAC por debajo de €300). Si no, apagar y volver a visitas y socios.</div>
+</section>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

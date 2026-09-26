@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Onboarding</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+<style>.msg{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:16px 18px;margin:12px 0;white-space:pre-line;font-size:15.5px}.msg small{display:block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;color:var(--stamp);margin-bottom:6px;white-space:normal}.chk{list-style:none;padding:0}.chk li{padding-left:30px;position:relative}.chk li:before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border:2px solid var(--ink);border-radius:2px}</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="plan.html">&larr; Plan</a></div>
+  <span class="eyebrow">Uso interno · primeros 14 días</span>
+  <h1>Onboarding</h1>
+  <div class="summary"><b>Momento de primer valor.</b> El primer pedido real de un cliente del distribuidor que entra en su ERP sin que nadie lo teclee, y que Marta ve en la bandeja como "En ERP". Objetivo: antes del día 3. Todo el onboarding empuja hacia ese momento.</div>
+  <nav class="toc"><a href="#checklist">Checklist</a><a href="#mensajes">Mensajes día 0-14</a><a href="#metricas">Métricas</a></nav>
+</header>
+
+<section id="checklist">
+  <h2>Checklist de puesta en marcha</h2>
+  <p>Joaquín hace el 80 %. El distribuidor solo aporta datos y un "sí".</p>
+  <ul class="chk">
+    <li>Contrato de encargo del tratamiento (RGPD art. 28) firmado.</li>
+    <li>Catálogo en Excel importado: referencia, descripción, unidad, formato (saco, palé, caja).</li>
+    <li>Clientes importados con su código de ERP y teléfonos.</li>
+    <li>Historial de pedidos de 6 meses importado (para "lo de siempre").</li>
+    <li>Formato de salida acordado: CSV/email de importación o conector directo.</li>
+    <li>Número de WhatsApp dado de alta en la Cloud API (migración o número nuevo).</li>
+    <li>Mensaje de confirmación al cliente revisado por el gerente.</li>
+    <li>Marta tiene acceso a la bandeja en el móvil y ha resuelto una excepción de prueba.</li>
+    <li>Prueba de extremo a extremo: Joaquín manda un audio de pedido y aparece en el ERP.</li>
+  </ul>
+</section>
+
+<section id="mensajes">
+  <h2>Los 5 mensajes de los primeros 14 días</h2>
+  <p>Por WhatsApp al gerente y a la persona de pedidos (ya son clientes: hay consentimiento y relación contractual).</p>
+  <div class="msg"><small>Día 0 · al firmar</small>Bienvenidos a Pedidal. Hoy necesito 3 cosas: el catálogo en Excel, el listado de clientes con sus códigos y una exportación de pedidos de los últimos 6 meses. Con eso, mañana tenéis el sistema listo para probar. Cualquier duda, este es mi número.</div>
+  <div class="msg"><small>Día 1 · sistema listo</small>Ya está cargado vuestro catálogo (X referencias) y vuestros clientes. Marta, te paso el enlace de la bandeja. Hoy haz una prueba: reenvía al número de Pedidal 3 pedidos de ayer y mira cómo salen. Esta tarde repasamos juntos lo que no cuadre.</div>
+  <div class="msg"><small>Día 3 · primer valor</small>Primer pedido real en el ERP sin teclear: Reformas X, 5 líneas, a las 7:14. Desde el lunes van N pedidos, N% pasaron solos. Las dudas más comunes han sido [ejemplo]. Ya lo hemos corregido: el sistema lo recuerda para ese cliente.</div>
+  <div class="msg"><small>Día 7 · resumen de la semana</small>Semana 1: N pedidos, N% automáticos, N excepciones resueltas en una media de X minutos. Estimación de horas que no ha tecleado Marta: X h. ¿Pasamos a los clientes que aún no están dados de alta?</div>
+  <div class="msg"><small>Día 14 · decisión</small>Dos semanas: N pedidos, N% automáticos, 0 pedidos perdidos. ¿Seguimos? Si sí, a partir del día 1 del mes pasa al plan Almacén (320 €/mes, sin permanencia). Si algo no os convence, decídmelo y lo miramos o lo dejamos aquí, sin compromiso.</div>
+</section>
+
+<section id="metricas">
+  <h2>Métricas del onboarding</h2>
+  <div class="tbl"><table>
+    <tr><th>Métrica</th><th>Objetivo</th><th>Si no se cumple</th></tr>
+    <tr><td>Días hasta el primer pedido en ERP sin teclear</td><td>≤ 3</td><td>Joaquín va al almacén y lo activa en persona.</td></tr>
+    <tr><td>% pedidos automáticos semana 1</td><td>≥ 50 %</td><td>Revisar alias y unidades de los 10 clientes con más pedidos.</td></tr>
+    <tr><td>% pedidos automáticos semana 2</td><td>≥ 70 %</td><td>Revisar catálogo: descripciones y formatos.</td></tr>
+    <tr><td>Tiempo medio de resolución en bandeja</td><td>≤ 5 min</td><td>Mejorar la sugerencia por defecto.</td></tr>
+    <tr><td>Conversión a pago en el día 14</td><td>≥ 60 %</td><td>Llamada de salida: por qué no, y apuntarlo en el plan.</td></tr>
+  </table></div>
+</section>
+
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

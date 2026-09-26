@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnicall | Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="index.html">Tecnicall<span>.</span></a>
+  <h1>Plan interno</h1>
+  <p class="mono" style="color:var(--ink-2)">26 sep 2026 · validación de idea · Barcelona</p>
+  <nav class="toc">
+    <a href="#resumen">Resumen</a><a href="#comparativa">Comparativa</a><a href="#oferta">Oferta e ICP</a><a href="#competencia">Competencia</a><a href="#gtm">Go-to-market</a><a href="#90">30/60/90</a><a href="#riesgo">Riesgo y kill</a><a href="outreach.html">Kit de contacto</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha de venta</a><a href="b.html">Variante B</a><a href="ca.html">Landing CA</a><a href="#alto">Técnico alto nivel</a><a href="#bajo">Técnico bajo nivel</a><a href="#mvp">MVP</a><a href="#ue">Unit economics</a><a href="#factory">Factories</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<section id="resumen" style="border-top:0">
+  <h2>Resumen: cómo lo encararía</h2>
+  <div class="summary">
+    <p><b>No competir con FIXARR en “software SAT”, sino vender el resultado: cero llamadas perdidas y cada trabajo cerrado con cobro y reseña de Google</b>, puesto encima de lo que el taller ya usa (su móvil, WhatsApp y Google Calendar).</p>
+    <p style="margin-top:10px"><b>Empezaría a pie por Barcelona con un agente de demo que ya contesta con el nombre del taller</b>, eligiendo negocios con reseñas de “no cogen el teléfono”, con un piloto gratis de 30 días que montamos nosotros, y cobraría desde el segundo mes.</p>
+  </div>
+</section>
+
+<section id="comparativa">
+  <h2>Comparativa con la referencia</h2>
+  <p>Leído el 26 sep 2026: <a href="https://bernardhq.com">bernardhq.com</a> (YC, EE. UU., reparación de electrodomésticos), <a href="https://oncactus.com">oncactus.com</a> (YC, EE. UU., oficios del hogar) y <a href="https://fixarr.es/">fixarr.es</a> (competidor español directo, con <a href="https://fixarr.es/sofia">SOFIA</a>). Columna “Tecnicall” = la landing antes de la ronda 2.</p>
+  <div class="tbl"><table>
+    <tr><th></th><th>Tecnicall (v1)</th><th>Bernard (YC)</th><th>Cactus (YC)</th><th>FIXARR (ES)</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td>
+      <td>Talleres de 1-15 técnicos. “Tus técnicos reparan, Tecnicall coge el teléfono”. Ciclo completo: atender → agendar → cobrar + reseña.</td>
+      <td>Solo reparación de electrodomésticos. “Capture every call. Plan every repair.” Ángulo: arreglarlo a la primera, con diagnóstico y pieza antes de salir. Se integra en el FSM del cliente.</td>
+      <td>Oficios del hogar (HVAC, fontanería, tejados). “AI revenue engine”. Ángulo: dinero que se escapa (llamadas perdidas, respuesta lenta, clientes dormidos).</td>
+      <td>“Software de gestión SAT con IA”. Panel gratis hasta 3 técnicos; SOFIA atiende WhatsApp 24/7. La voz (“Sara”) está <b>en preparación, no disponible</b>.</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td>
+      <td>Cuidado y con carácter (papel, naranja de obra, mockups propios). Pero sin nota de fundador ni señales de empresa real.</td>
+      <td>Muy sobrio, tipografía grande, animación de flujo. Parece empresa seria con poco texto.</td>
+      <td>Pulido y comercial. Teléfono de demo visible, casos por vertical, calculadora de ROI.</td>
+      <td>Funcional pero cargado: banner de beta, emojis como iconos, mucho texto SEO. Se nota producto joven.</td></tr>
+    <tr><td><b>Estructura y funnel</b></td>
+      <td>Hero con 2 CTA; problema; 3 pasos; tablero; beneficios; precios; FAQ; formulario de 4 campos al final. Sin CTA fijo.</td>
+      <td>Un único CTA repetido: “Get a demo”. Secciones por capacidad (atender, agendar, proteger la visita).</td>
+      <td>“Book a demo” + <b>número para llamar al agente ya</b> + formulario corto de 3 campos (“See my revenue leaks”). Prueba social con testimonios.</td>
+      <td>Self-serve: “Empieza gratis”, sin tarjeta. Conversación de ejemplo, flujo de 7 pasos, comparativa, descargas.</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td>
+      <td>79 / 129 / 199 € al mes por tamaño y llamadas incluidas.</td>
+      <td>No publica precios (venta por demo).</td>
+      <td>No publica precios; promete pagarse el primer mes.</td>
+      <td>Panel gratis hasta 3 técnicos; 39,99 €/mes hasta 15; SOFIA 49,99 €/mes + IVA, 7 días gratis.</td></tr>
+    <tr><td><b>Textos</b></td>
+      <td>Concretos y locales (Gràcia, E18, libreta). Hero algo largo: lista 5 oficios y 4 acciones.</td>
+      <td>Muy específicos del oficio: garantía, COD, redo, pieza, ventana de llegada.</td>
+      <td>Orientados a dinero, con cifras de mercado. Tono vendedor.</td>
+      <td>Claros, honestos (“SOFIA no diagnostica ni inventa precios”), pero con jerga SAT y mucho relleno SEO.</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td>
+      <td colspan="4"><ol>
+        <li><b>Copiar de Cactus:</b> formulario de 3 campos y CTA repetido; “escucha cómo contestaría tu empresa” como oferta (demo con su nombre en 24 h).</li>
+        <li><b>Copiar de Bernard:</b> una sola promesa en el hero y el ángulo “el técnico llega con la pieza”; hablar de reglas del negocio (zonas, precios de salida, garantías).</li>
+        <li><b>Ganar a FIXARR:</b> decir claro que <b>cogemos llamadas de voz hoy</b> (su Sara no existe aún) y que no hay que migrar de programa. Sin emojis ni banner de beta.</li>
+        <li><b>Mejorar:</b> piloto gratis de 30 días con montaje hecho por nosotros; nota del fundador (Joaquín, Barcelona); franja de confianza honesta (UE/RGPD, sin permanencia, sin cambiar de número); CTA fijo en móvil; FAQ que responde objeciones (precio, “suena a robot”, errores, ya uso un programa SAT).</li>
+        <li><b>No copiar:</b> testimonios y cifras de ROI de Cactus; no tenemos clientes, así que no los inventamos.</li>
+      </ol></td></tr>
+  </table></div>
+</section>
+
+<section id="oferta">
+  <h2>Oferta de valor y cliente ideal (ICP)</h2>
+  <p><b>Oferta:</b> “Tu oficina con IA: contesta llamadas y WhatsApp 24/7, apunta la avería con foto y modelo, la mete en la agenda del técnico correcto y, al acabar, cobra y pide la reseña. Desde 79 €/mes, sin cambiar de número ni de programa.”</p>
+  <div class="grid g2">
+    <div class="card"><h3 style="margin-top:0">ICP primario</h3>
+      <ul>
+        <li>Reparación de electrodomésticos y climatización en área metropolitana de Barcelona.</li>
+        <li>2 a 8 técnicos, dueño que aún trabaja en campo, sin recepcionista o con una a media jornada.</li>
+        <li>Ficha de Google Maps con 30+ reseñas y alguna queja de “no contestan”.</li>
+        <li>Recibe 15-60 avisos a la semana, la mitad por WhatsApp.</li>
+      </ul></div>
+    <div class="card"><h3 style="margin-top:0">ICP secundario</h3>
+      <ul>
+        <li>Cerrajeros y fontaneros de urgencias: el valor está en contestar a las 3 de la mañana.</li>
+        <li>SAT oficiales de marca pequeños (servicio técnico autorizado) con volumen alto de llamadas.</li>
+        <li>Fuera: franquicias grandes con call center propio, empresas de reformas (ciclo de venta largo).</li>
+      </ul></div>
+  </div>
+  <p style="margin-top:14px"><b>Dolor que se compra:</b> clientes perdidos por no contestar (dinero directo), tiempo del dueño al teléfono de noche, visitas de diagnóstico sin la pieza, cobros atrasados, pocas reseñas buenas frente a las malas.</p>
+</section>
+
+<section id="competencia">
+  <h2>Competencia y referencias</h2>
+  <div class="tbl"><table>
+    <tr><th>Quién</th><th>Qué hace</th><th>Lectura</th></tr>
+    <tr><td><a href="https://fixarr.es/sofia">FIXARR · SOFIA y Sara</a> (España)</td><td>Software SAT gratis + módulos IA: SOFIA para WhatsApp y email (49,99 €/mes + IVA, 7 días de prueba). Sara, para llamadas, está anunciada pero aún no se puede contratar. Crea ticket, valida dirección, propone 2 huecos, recoge consentimiento RGPD.</td><td>Competidor directo y serio. Hace casi todo lo del paso 1 y 2. Obliga a usar su panel SAT. Menos foco en cobro y reseña post-trabajo.</td></tr>
+    <tr><td>StaffDigital (España)</td><td>Empleados digitales / agentes IA genéricos para pymes.</td><td>Horizontal, no vertical. Poco conocimiento del oficio (marcas, códigos de error, rutas).</td></tr>
+    <tr><td>Programas SAT clásicos y agencias de call center</td><td>Gestión de partes; o recepción humana externa por minuto.</td><td>No contestan por la noche o cuestan mucho más. Tecnicall puede integrarse con los SAT en vez de sustituirlos.</td></tr>
+    <tr><td><a href="https://www.ycombinator.com/companies/bernard">Bernard (YC)</a></td><td>Back office con IA para empresas de servicios en EE. UU.</td><td>Referencia de tesis: IA que hace la oficina entera, no un chatbot.</td></tr>
+    <tr><td><a href="https://www.ycombinator.com/companies/stormy">Stormy (YC)</a></td><td>Agentes IA para empresas de oficios.</td><td>Referencia de producto vertical para trades.</td></tr>
+    <tr><td><a href="https://www.ycombinator.com/companies/oncactus">Cactus (YC)</a></td><td>Recepcionista IA para negocios de servicios del hogar.</td><td>Referencia de voz + reserva; confirma que la cuña de entrada es la llamada.</td></tr>
+  </table></div>
+  <div class="warn"><b>Hueco real: bajo a medio.</b> FIXARR ya vende WhatsApp con agenda a precio bajo y anuncia voz. Diferenciación posible: (1) encima de lo que ya usan, sin migrar a otro SAT; (2) ciclo completo hasta cobro + reseña; (3) catalán nativo y conocimiento de códigos de error por marca; (4) montaje hecho por nosotros en 24 h con demo previa. Si en 10 visitas los talleres ya usan FIXARR o no ven la diferencia, matar o pivotar a “reseñas + cobro” solo.</div>
+</section>
+
+<section id="gtm">
+  <h2>Go-to-market sin presupuesto</h2>
+  <h3>Primeros 10 clientes, sin anuncios</h3>
+  <ol>
+    <li>Scraping de Google Maps en Barcelona y área metropolitana: reparación electrodomésticos, fontanero, electricista, cerrajero, aire acondicionado. Guardar nota, número de reseñas y texto.</li>
+    <li>Filtrar reseñas con “no cogen”, “no contestan”, “nadie responde”, “no me llamaron”. Lista objetivo de 150 negocios.</li>
+    <li>Para cada uno de los 30 mejores, generar un agente demo con su nombre, sus servicios (de su web o ficha) y un número de prueba.</li>
+    <li>Llamar a mediodía (13:30-15:00, cuando comen) o pasar por el taller. Ofrecer: “llama ahora a este número y escucha cómo contestaría tu empresa”.</li>
+    <li>Piloto gratis de 30 días, montaje hecho por nosotros. Condición: al día 30 decide si paga el plan o lo apagamos. Medir llamadas atendidas y avisos agendados.</li>
+    <li>Pedir a cada piloto contento dos contactos del gremio (proveedores de recambios, grupos de WhatsApp de técnicos).</li>
+  </ol>
+  <h3>Semana a semana hasta los 10 primeros (solo Joaquín, sin anuncios)</h3>
+  <p>Horas reales: unas 12 h de venta por semana (mediodías y una tarde de visitas). El resto, producto.</p>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Qué hace</th><th>Números objetivo</th></tr>
+    <tr><td>1</td><td>Scraping de 150 fichas (Google Maps: “reparación electrodomésticos Barcelona”, “servicio técnico lavadoras Hospitalet”, “cerrajero urgente Badalona”). 20 demos con nombre propio.</td><td>150 leads · 20 demos · 20 llamadas</td></tr>
+    <tr><td>2</td><td>Llamadas de 13:30 a 15:00 y 2 mañanas en mostradores de recambios (Poblenou, Hospitalet).</td><td>40 contactos · 12 demos escuchadas · 2 pilotos</td></tr>
+    <tr><td>3</td><td>Montaje de pilotos en persona. Seguir llamando.</td><td>40 contactos · 12 demos · 2 pilotos (4 en total)</td></tr>
+    <tr><td>4</td><td>Revisión semanal con cada piloto (15 min). Pedir 2 referidos a cada uno.</td><td>30 contactos · 10 demos · 2 pilotos (6)</td></tr>
+    <tr><td>5-6</td><td>Primeros cobros (fin de piloto). Referidos y grupos de WhatsApp de técnicos.</td><td>6 pilotos → 4 pagan · 4 pilotos nuevos</td></tr>
+    <tr><td>7-8</td><td>Segundo lote de cobros.</td><td>10 clientes de pago ≈ 1.100 €/mes</td></tr>
+  </table></div>
+  <h3>Canales</h3>
+  <ul>
+    <li>Visitas en persona y llamadas a mediodía (principal).</li>
+    <li>Distribuidores de recambios de electrodomésticos en Barcelona: mostrador por donde pasan todos los técnicos. Cartel con QR a la demo.</li>
+    <li>Gremios y asociaciones de instaladores (charlas cortas, demo en vivo).</li>
+    <li>Grupos de Facebook y WhatsApp de técnicos SAT.</li>
+  </ul>
+  <h3>Guion de primer contacto (llamada o visita)</h3>
+  <pre>"Hola, ¿eres Jordi, de Reparaciones Bonet? Soy Joaquín, de Barcelona.
+Vi en vuestra ficha de Google que algún cliente se queja de que no le cogen el teléfono.
+Seguro que es porque estáis trabajando, no porque no queráis.
+He montado un asistente que contesta con el nombre de vuestra empresa.
+¿Me das 1 minuto? Llama a este número y escucha cómo te atendería.
+Si te convence, lo ponemos 30 días gratis en tu número. Si no, no pasa nada."</pre>
+  <h3>Contenido (reels)</h3>
+  <ul>
+    <li>“Llamo a 10 fontaneros de Barcelona a las 21:00: cuántos contestan.” Resultado real y en pantalla.</li>
+    <li>Antes/después: libreta y móvil con 11 WhatsApps frente al tablero de la mañana.</li>
+    <li>Demo en directo: un cliente manda la foto de un código de error E18 y el agente lo interpreta.</li>
+    <li>Técnico piloto contando su semana (solo con permiso y datos reales).</li>
+  </ul>
+  <h3>Métricas</h3>
+  <div class="tbl"><table>
+    <tr><th>Métrica</th><th>Objetivo en 6 semanas</th></tr>
+    <tr><td>Contactos → demo escuchada</td><td>≥ 30 %</td></tr>
+    <tr><td>Demo → piloto pagado</td><td>≥ 25 %</td></tr>
+    <tr><td>% llamadas atendidas en piloto</td><td>≥ 95 %</td></tr>
+    <tr><td>Avisos agendados sin intervención humana</td><td>≥ 70 %</td></tr>
+    <tr><td>Piloto → cliente de pago al mes 2</td><td>≥ 60 %</td></tr>
+    <tr><td>Reseñas nuevas por cliente y mes</td><td>medir línea base y mejora</td></tr>
+  </table></div>
+  <h3>Con presupuesto alto (≈ 25.000 €/mes, tras 20 clientes que renuevan)</h3>
+  <p>Solo tiene sentido cuando el piloto demuestre retención ≥ 60 % al mes 2. Objetivo: CAC ≤ 400 € con recuperación en menos de 5 meses.</p>
+  <ul>
+    <li><b>Landing con demo en vivo:</b> número público de prueba (como Cactus) y generador de demo con la ficha de Google del visitante. Es el activo que convierte el tráfico pagado.</li>
+    <li><b>Google Ads (≈ 8.000 €):</b> búsquedas como “programa para SAT”, “contestador para autónomos”, “recepcionista virtual fontanero”. Pujar también por la marca “FIXARR” con el mensaje “voz hoy, sin cambiar de programa”.</li>
+    <li><b>Meta Ads (≈ 5.000 €):</b> reels del contenido orgánico que mejor funcione, a técnicos y autónomos de oficios por intereses.</li>
+    <li>Equipo de 2-3 SDR de campo por ciudad (Madrid, Valencia, Sevilla) con la misma demo personalizada.</li>
+    <li>Acuerdos con distribuidores de recambios y con marcas (redes SAT autorizadas) como canal.</li>
+    <li>Presencia en ferias (C&amp;R Madrid) y patrocinio de formaciones técnicas.</li>
+    <li><b>Programa de referidos:</b> un mes gratis por cada taller que se apunte, a los dos.</li>
+  </ul>
+  <p><b>Métricas con presupuesto:</b> CAC por canal, coste por demo escuchada, demo → piloto, piloto → pago, churn mensual (≤ 4 %) y payback (≤ 5 meses).</p>
+</section>
+
+<section id="90">
+  <h2>Plan 30/60/90 días</h2>
+  <div class="tbl"><table>
+    <tr><th>Tramo</th><th>Objetivo</th><th>Números semanales</th></tr>
+    <tr><td>Días 1-30</td><td>Demo que vende y 6 pilotos montados. Voz sobre Vapi/Retell, WhatsApp y aviso al dueño.</td><td>40 contactos · 12 demos escuchadas · 2 pilotos nuevos por semana</td></tr>
+    <tr><td>Días 31-60</td><td>Primeros cobros. Agenda por zona, enlace de pago. Referidos de pilotos.</td><td>30 contactos · 10 demos · 2 pilotos · 2 conversiones a pago por semana. Meta día 60: 10 clientes, ≈ 1.100 € MRR</td></tr>
+    <tr><td>Días 61-90</td><td>Retención y segundo canal (mostradores de recambios, gremios). Stack de voz más barato si hay 15+ clientes.</td><td>20 contactos · 3 pilotos · churn 0 por semana. Meta día 90: 20 clientes, ≈ 2.300 € MRR, margen bruto ≥ 50 %</td></tr>
+  </table></div>
+</section>
+
+<section id="riesgo">
+  <h2>Supuesto más arriesgado</h2>
+  <p><b>Que el dueño de un taller deje que una IA hable con sus clientes.</b> Si eso falla, nada más importa: ni la agenda ni el cobro.</p>
+  <h3>Prueba más barata, esta semana</h3>
+  <ol>
+    <li>Montar 10 demos de voz en Vapi con el nombre real de 10 talleres de la lista (2 h cada tarde, sin código propio).</li>
+    <li>Llamar de 13:30 a 15:00 y pedir que marquen el número de prueba mientras sigues en línea.</li>
+    <li>Contar cuántos dicen “ponlo en mi número”. Umbral: 3 de 10. Menos de 2 de 10: el problema es el mensaje o la confianza, no el código.</li>
+  </ol>
+  <div class="warn"><b>Criterios para matar la idea</b>
+    <ul>
+      <li>Semana 3: menos de 2 pilotos con 30 demos escuchadas.</li>
+      <li>Día 60: menos de 5 clientes pagando, o menos del 50 % de pilotos pasa a pago.</li>
+      <li>Día 90: churn mensual por encima del 10 % o margen bruto por debajo del 35 % sin camino a mejorarlo.</li>
+      <li>En cualquier momento: 5 de 10 talleres visitados ya usan FIXARR u otro y no ven la diferencia.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="alto">
+  <h2>Plan técnico de alto nivel</h2>
+  <h3>Arquitectura</h3>
+  <div class="arch">
+    <div class="layer l3">
+      <div class="box in"><b>Llamadas</b>Desvío del número del taller a Twilio / Telnyx (número ES)</div>
+      <div class="box in"><b>WhatsApp</b>WhatsApp Business Cloud API (Meta) vía BSP</div>
+      <div class="box in"><b>Panel web + app técnico</b>PWA: agenda, “trabajo hecho”, fotos</div>
+    </div>
+    <div class="arrow">↓ eventos (webhook) ↓</div>
+    <div class="layer l3">
+      <div class="box core"><b>Agente de voz</b>STT streaming + LLM + TTS (ES/CA), baja latencia</div>
+      <div class="box core"><b>Orquestador de conversación</b>LLM con herramientas: cualificar, proponer hueco, crear aviso</div>
+      <div class="box core"><b>Motor de agenda y rutas</b>Huecos por técnico, zona, especialidad, duración</div>
+    </div>
+    <div class="arrow">↓ ↓</div>
+    <div class="layer l4">
+      <div class="box"><b>Postgres</b>Supabase (UE): tenants, avisos, clientes</div>
+      <div class="box"><b>Cola de jobs</b>recordatorios, cobro, reseña</div>
+      <div class="box"><b>Storage</b>fotos de averías (UE)</div>
+      <div class="box"><b>Observabilidad</b>trazas LLM, grabaciones, métricas</div>
+    </div>
+    <div class="arrow">↓ integraciones ↓</div>
+    <div class="layer l4">
+      <div class="box out"><b>Google Calendar</b>agenda por técnico</div>
+      <div class="box out"><b>Stripe / Bizum vía pasarela</b>enlace de pago</div>
+      <div class="box out"><b>Google Business Profile</b>enlace de reseña</div>
+      <div class="box out"><b>SAT existente</b>export CSV / API (fase 2)</div>
+    </div>
+  </div>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li><b>Backend:</b> TypeScript, Hono o Next.js route handlers, en Vercel para panel y Fly.io / VPS para el socket de voz (conexión larga).</li>
+    <li><b>Voz:</b> Twilio Media Streams o LiveKit SIP + STT streaming (Deepgram / Soniox, con catalán) + TTS (ElevenLabs / Cartesia). Alternativa rápida para MVP: Vapi o Retell con webhooks propios.</li>
+    <li><b>LLM:</b> modelo rápido con tool calling para conversación; modelo con visión para leer la foto de la etiqueta y el código de error.</li>
+    <li><b>Datos:</b> Supabase Postgres en región UE, Row Level Security por tenant.</li>
+    <li><b>Mapas:</b> Google Geocoding + Distance Matrix (o OSRM propio) para rutas.</li>
+    <li><b>Jobs:</b> Vercel Cron + cola (Inngest / QStash) para recordatorios y seguimiento.</li>
+  </ul>
+  <h3>Riesgos legales</h3>
+  <ul>
+    <li><b>RGPD:</b> somos encargado del tratamiento. Contrato DPA con cada taller, datos en UE, retención limitada (grabaciones 30 días), derecho de supresión. Aviso de privacidad al inicio de la conversación.</li>
+    <li><b>Grabación de llamadas:</b> informar al inicio (“esta llamada puede grabarse para gestionar tu aviso”). Opción de no grabar y guardar solo el resumen.</li>
+    <li><b>Ley de IA de la UE (art. 50):</b> las obligaciones de transparencia aplican desde agosto de 2026. El agente dice que es un asistente automático.</li>
+    <li><b>WhatsApp:</b> política de Meta sobre plantillas y opt-in. Mensajes fuera de ventana de 24 h solo con plantillas aprobadas (cobro, reseña).</li>
+    <li><b>Reseñas:</b> Google prohíbe pedir reseñas solo a clientes contentos (“review gating”). Se pide a todos; el filtro solo decide el tono y el momento.</li>
+    <li><b>Presupuestos:</b> el agente da precios de salida configurados por el taller, nunca precio final de reparación. Evita reclamaciones de consumo.</li>
+  </ul>
+</section>
+
+<section id="bajo">
+  <h2>Plan técnico de bajo nivel</h2>
+  <h3>Modelo de datos</h3>
+  <div class="tbl"><table>
+    <tr><th>Tabla</th><th>Campos principales</th></tr>
+    <tr><td><code>tenants</code></td><td>id, nombre_comercial, oficio[], telefono_desvio, wa_phone_id, idioma_default, horario, zonas (geojson/CP[]), precio_desplazamiento, reglas_json, google_place_id, plan, created_at</td></tr>
+    <tr><td><code>technicians</code></td><td>id, tenant_id, nombre, telefono, especialidades[], marcas[], zona_base, calendar_id, activo</td></tr>
+    <tr><td><code>customers</code></td><td>id, tenant_id, nombre, telefono, email, direccion, lat, lng, idioma, consentimiento_at</td></tr>
+    <tr><td><code>conversations</code></td><td>id, tenant_id, customer_id, canal (voice|whatsapp), estado, transcript, resumen, grabacion_url, started_at, ended_at, coste_eur</td></tr>
+    <tr><td><code>jobs</code> (avisos)</td><td>id, tenant_id, customer_id, conversation_id, equipo, marca, modelo, codigo_error, sintoma, fotos[], urgencia (normal|hoy|urgente), duracion_min, estado (nuevo|agendado|en_curso|hecho|cobrado|cancelado), technician_id, slot_start, slot_end, precio_salida, importe_final</td></tr>
+    <tr><td><code>payments</code></td><td>id, job_id, importe, proveedor, link_url, estado, paid_at</td></tr>
+    <tr><td><code>review_requests</code></td><td>id, job_id, enviado_at, canal, clicked_at, satisfaccion (1-5)</td></tr>
+    <tr><td><code>events</code></td><td>id, tenant_id, tipo, payload_json, created_at (auditoría y feed del panel)</td></tr>
+  </table></div>
+  <h3>Endpoints y jobs</h3>
+  <div class="tbl"><table>
+    <tr><th>Ruta / job</th><th>Qué hace</th></tr>
+    <tr><td><code>POST /webhooks/voice</code></td><td>Entrada de llamada (TwiML / SIP). Abre stream al agente de voz.</td></tr>
+    <tr><td><code>WS /voice/stream</code></td><td>Audio bidireccional; STT → orquestador → TTS.</td></tr>
+    <tr><td><code>POST /webhooks/whatsapp</code></td><td>Mensajes y medios entrantes; pasa al orquestador.</td></tr>
+    <tr><td><code>POST /tools/slots</code></td><td>Devuelve 2-3 huecos por técnico según zona, especialidad y duración.</td></tr>
+    <tr><td><code>POST /tools/jobs</code></td><td>Crea aviso y evento en Google Calendar del técnico.</td></tr>
+    <tr><td><code>PATCH /jobs/:id</code></td><td>App técnico: en curso / hecho / importe final / fotos.</td></tr>
+    <tr><td><code>POST /webhooks/payments</code></td><td>Confirma pago; dispara petición de reseña.</td></tr>
+    <tr><td>job <code>reminder_24h</code>, <code>reminder_2h</code></td><td>Recordatorio al cliente con ventana de llegada.</td></tr>
+    <tr><td>job <code>payment_followup</code></td><td>Reenvía enlace de pago a las 24 h y 72 h si no hay pago.</td></tr>
+    <tr><td>job <code>review_request</code></td><td>2 h después del pago, pide valoración y envía enlace de Google.</td></tr>
+    <tr><td>job <code>daily_digest</code></td><td>07:00 al dueño: agenda del día, avisos nocturnos, pagos pendientes.</td></tr>
+  </table></div>
+  <h3>Agentes y prompts</h3>
+  <ul>
+    <li><b>Recepcionista (voz y WhatsApp):</b> prompt de sistema con la ficha del tenant (servicios, zonas, precio de salida, horario, tono). Herramientas: <code>lookup_customer</code>, <code>get_slots</code>, <code>create_job</code>, <code>transfer_to_owner</code>, <code>take_message</code>. Regla: nunca da precio final; siempre confirma dirección leyendo calle y número.</li>
+    <li><b>Lector de fotos:</b> modelo con visión que extrae marca, modelo y código de error de la etiqueta y de la pantalla. Devuelve JSON con confianza; si es baja, el agente pide otra foto.</li>
+    <li><b>Planificador:</b> determinista, no LLM. Puntúa huecos por distancia al trabajo anterior, especialidad y urgencia.</li>
+    <li><b>Cierre:</b> plantillas de WhatsApp para cobro y reseña; LLM solo para responder dudas del cliente sobre la factura.</li>
+  </ul>
+  <pre>SYSTEM (recepcionista, extracto)
+Eres el asistente de {nombre_comercial}, empresa de {oficios} en {zonas}.
+Te presentas como asistente automático. Hablas {idioma} y cambias si el cliente cambia.
+Objetivo: dejar un aviso completo y agendado en menos de 3 minutos.
+Datos obligatorios: nombre, teléfono, dirección completa, equipo, marca, síntoma, urgencia.
+Pide foto de la etiqueta y del error por WhatsApp si el canal lo permite.
+Precio: solo el desplazamiento ({precio_salida} €). El resto se presupuesta en casa.
+Si urgencia = fuga activa o persona encerrada: llama a transfer_to_owner.</pre>
+  <h3>Flujo paso a paso</h3>
+  <ol class="flow grid">
+    <li>El cliente llama; el taller no contesta en 15 s y el operador desvía a Tecnicall (o el cliente escribe por WhatsApp).</li>
+    <li>El agente saluda con el nombre del taller, avisa de que es un asistente y de la grabación.</li>
+    <li>Busca al cliente por teléfono; si existe, confirma dirección.</li>
+    <li>Pregunta equipo, marca, síntoma y urgencia. En voz, manda un WhatsApp para la foto.</li>
+    <li>El lector de fotos rellena modelo y código de error.</li>
+    <li><code>get_slots</code> devuelve dos huecos; el cliente elige.</li>
+    <li><code>create_job</code> crea el aviso, el evento en el calendario del técnico y la confirmación por WhatsApp.</li>
+    <li>Recordatorios a 24 h y 2 h. El técnico ve su día en la PWA.</li>
+    <li>El técnico marca “hecho” con importe final; sale el enlace de pago.</li>
+    <li>Pago confirmado → petición de valoración y enlace de reseña de Google.</li>
+    <li>07:00 del día siguiente, resumen al dueño.</li>
+  </ol>
+</section>
+
+<section id="mvp">
+  <h2>MVP por semanas</h2>
+  <div class="grid g2">
+    <div class="card"><h3 style="margin-top:0">Semana 1 · Demo que vende</h3><ul><li>Agente de voz sobre Vapi/Retell con número ES y ficha de tenant configurable.</li><li>Generador de demo a partir de URL de Google Maps.</li><li>Scraping de la lista objetivo y primeras 20 llamadas.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Semana 2 · WhatsApp y avisos</h3><ul><li>WhatsApp Cloud API, lector de fotos.</li><li>Tablas <code>jobs</code>, <code>customers</code>; panel mínimo con lista de avisos.</li><li>Primer piloto conectado (solo captura + aviso al dueño).</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Semana 3 · Agenda</h3><ul><li>Google Calendar por técnico, <code>get_slots</code> por zona.</li><li>Confirmaciones y recordatorios.</li><li>PWA del técnico: su día + “hecho”.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Semana 4 · Cierre</h3><ul><li>Enlace de pago y seguimientos.</li><li>Petición de reseña.</li><li>Resumen diario; 3-5 pilotos pagando.</li></ul></div>
+  </div>
+</section>
+
+<section id="ue">
+  <h2>Unit economics (plan Taller, 129 €/mes)</h2>
+  <div class="tbl"><table>
+    <tr><th>Concepto</th><th>Supuesto</th><th>€/mes</th></tr>
+    <tr><td>Precio</td><td>plan Taller, sin IVA</td><td><b>129</b></td></tr>
+    <tr><td>Voz</td><td>250 llamadas × 2,5 min × ~0,10 €/min (telefonía + STT + LLM + TTS)</td><td>63</td></tr>
+    <tr><td>WhatsApp</td><td>300 conversaciones, mayoría iniciadas por cliente + plantillas de cierre</td><td>8</td></tr>
+    <tr><td>LLM texto y visión</td><td>WhatsApp, fotos, resúmenes</td><td>6</td></tr>
+    <tr><td>Infra, número, mapas</td><td>prorrateo</td><td>7</td></tr>
+    <tr><td><b>Coste variable</b></td><td></td><td><b>≈ 84</b></td></tr>
+    <tr><td><b>Margen bruto</b></td><td>≈ 35 % con voz de terceros; objetivo 65-70 % con stack de voz propio (~0,04 €/min)</td><td><b>≈ 45 → 85</b></td></tr>
+  </table></div>
+  <ul style="margin-top:14px">
+    <li><b>Coste de adquisición:</b> sin anuncios, ~3 h de visita y montaje por cliente. Con 1 de cada 4 demos cerrando, ~12 h por cliente.</li>
+    <li><b>Break-even personal:</b> con costes fijos de ~600 €/mes (herramientas, número, dominio, cuota de autónomo parcial), hacen falta ~8-14 clientes según margen. Para un sueldo de 3.000 €/mes, ~45-70 clientes.</li>
+    <li><b>Palanca clave:</b> la voz es el 75 % del coste. Limitar minutos por plan, cobrar exceso a 0,20 €/min, y migrar a stack propio en cuanto haya 20 clientes.</li>
+  </ul>
+</section>
+
+<section id="factory">
+  <h2>Qué automatizan las factories</h2>
+  <div class="grid g2">
+    <div class="card"><h3 style="margin-top:0">Software factory</h3><ul>
+      <li>Alta de cliente: de URL de Google Maps + web a ficha de tenant y agente demo en minutos.</li>
+      <li>Evals nocturnas: 50 llamadas sintéticas por oficio (acento, catalán, ruido, cliente enfadado) contra cada cambio de prompt.</li>
+      <li>Revisión diaria de transcripciones fallidas y PR con mejoras de prompt o de herramientas.</li>
+      <li>Integraciones nuevas (otros SAT, pasarelas) a partir de su documentación.</li>
+      <li>Monitor de coste por llamada y alertas de latencia.</li>
+    </ul></div>
+    <div class="card"><h3 style="margin-top:0">Marketing factory</h3><ul>
+      <li>Scraping semanal de Google Maps por ciudad y oficio; puntuación de leads por reseñas de “no contestan”.</li>
+      <li>Demo personalizada y guion de llamada por lead, listos para el mediodía.</li>
+      <li>Mystery calls automáticas a las 21:00 para el reel “cuántos contestan”.</li>
+      <li>Guiones y montaje de reels con transcripciones reales anonimizadas.</li>
+      <li>Páginas SEO por oficio y ciudad (“software para cerrajeros en Valencia”).</li>
+    </ul></div>
+  </div>
+  <p style="margin-top:14px">Lo que no se automatiza al principio: la visita en persona y el cierre del piloto. Es donde se aprende qué compra de verdad el taller.</p>
+</section>
+
+</main>
+<footer><div class="wrap"><span>Tecnicall · © 2026</span><a href="index.html">Landing</a></div></footer>
+</body>
+</html>

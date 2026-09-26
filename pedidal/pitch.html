@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Pitch</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+<style>.slide{padding:40px 0;border-bottom:1px solid var(--line)}.slide h2{font-size:clamp(28px,5vw,44px)}.big{font:800 clamp(40px,8vw,72px)/1 "Archivo";font-stretch:75%;margin:10px 0}.big em{font-style:normal;background:var(--orange);padding:0 .1em}.kpi{display:grid;gap:10px;margin-top:14px}.kpi div{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px}.kpi b{display:block;font:800 30px "Archivo";font-stretch:78%}@media(min-width:760px){.kpi{grid-template-columns:repeat(3,1fr)}}</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="plan.html">&larr; Plan</a></div>
+  <span class="eyebrow">Pitch para partners e inversores · sep 2026</span>
+  <p class="big">Del WhatsApp al ERP, <em>sin teclear</em>.</p>
+  <p>Pedidal convierte los pedidos que los distribuidores B2B españoles reciben por WhatsApp (audios, fotos de listas, texto) en pedidos dentro de su ERP.</p>
+</header>
+
+<section class="slide"><h2>Problema</h2>
+  <p>En un almacén de materiales, el pedido llega por WhatsApp entre las 7 y las 10. Una persona lo lee o lo escucha, lo traduce a referencias y lo teclea en el ERP. Es doble trabajo en la hora punta, genera errores de referencia (cada error es un porte de vuelta) y el conocimiento de "lo de siempre" de cada cliente vive en una sola persona.</p>
+  <p>Los portales B2B no lo resuelven: el cliente (reformista, encargado de obra, bar) no los usa. Sigue con WhatsApp.</p>
+</section>
+
+<section class="slide"><h2>Solución</h2>
+  <ol>
+    <li>Lee el pedido en cualquier formato: texto, audio con ruido, foto de una lista a mano.</li>
+    <li>Lo cruza con el catálogo y el historial de ese cliente.</li>
+    <li>Pide al cliente un "ok" por WhatsApp y crea el pedido en el ERP (A3, Sage, Holded, Odoo o CSV).</li>
+    <li>Lo dudoso va a una bandeja con la duda marcada. Cada corrección enseña al sistema.</li>
+  </ol>
+  <p><a href="index.html">Demo interactiva en la landing</a>.</p>
+</section>
+
+<section class="slide"><h2>Por qué ahora</h2>
+  <ul>
+    <li>Los modelos multimodales ya leen audios con ruido y listas a mano a un coste de céntimos por pedido.</li>
+    <li>La API oficial de WhatsApp Business (Cloud API) permite automatizar sin arriesgar el número del distribuidor.</li>
+    <li>El problema está validado fuera: <a href="https://stockline.ai" target="_blank" rel="noopener">Stockline</a> (YC) lo ataca en EE. UU. para mayoristas de alimentación. En España, <a href="https://pidefacil.es/" target="_blank" rel="noopener">PideFácil</a> lo hace para horeca. Construcción y limpieza siguen abiertos.</li>
+  </ul>
+</section>
+
+<section class="slide"><h2>Mercado en España</h2>
+  <p><b>De arriba abajo:</b> el comercio al por mayor (CNAE 46) agrupa a decenas de miles de empresas en España. Fuente a citar: <a href="https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&amp;cid=1254736160707&amp;menu=ultiDatos&amp;idp=1254735576550" target="_blank" rel="noopener">INE, Directorio Central de Empresas (DIRCE)</a>. <span class="tag r">Por verificar</span> la cifra exacta de los subsectores 46.73 (materiales de construcción) y 46.44 (productos de limpieza) antes de usarla en público.</p>
+  <p><b>De abajo arriba (nuestra estimación, no un dato):</b> si hay del orden de 5.000 almacenes y distribuidores B2B con ≥ 20 pedidos al día por WhatsApp, a 320 € al mes son ≈ 19 M€ de ingreso anual posible solo en España. El número de almacenes es la hipótesis que valida el plan de 90 días.</p>
+</section>
+
+<section class="slide"><h2>Modelo de negocio</h2>
+  <div class="kpi">
+    <div><b>190 / 320 / 490 €</b>al mes por volumen de pedidos, sin coste por usuario</div>
+    <div><b>≈ 75-83 %</b>margen bruto estimado (IA + WhatsApp + infra ≈ 55-80 € por cliente)</div>
+    <div><b>≈ 10 clientes</b>para cubrir 2.500 € de costes fijos</div>
+  </div>
+  <p style="margin-top:12px">Detalle en <a href="plan.html#unit">unit economics</a> y <a href="precios.html">precios</a>.</p>
+</section>
+
+<section class="slide"><h2>Plan de 90 días</h2>
+  <ul>
+    <li><b>Día 30:</b> 60 visitas en persona en el Vallès y Baix Llobregat, 8 pilotos gratis, 1 cliente usándolo cada día.</li>
+    <li><b>Día 60:</b> 3 clientes de pago (≈ 900 € MRR), 5 partners de A3/Sage contactados.</li>
+    <li><b>Día 90:</b> 6 clientes de pago (≈ 1.800 € MRR), precisión de línea ≥ 90 %, segundo vertical (limpieza).</li>
+  </ul>
+  <p>Kill criteria y detalle semanal en el <a href="plan.html#306090">plan</a>.</p>
+</section>
+
+<section class="slide"><h2>Equipo</h2>
+  <p>Joaquín, fundador técnico en Barcelona. Construye con agentes de código (software factory) y vende en persona. Hoy: sin clientes, sin ingresos, landing y plan publicados.</p>
+</section>
+
+<section class="slide"><h2>Lo que pedimos</h2>
+  <ul>
+    <li><b>Partners (integradores de A3, Sage, Odoo en Cataluña):</b> 3 presentaciones a distribuidores que ya os piden automatizar pedidos. 20 % recurrente de por vida del cliente.</li>
+    <li><b>Distribuidores:</b> 20 pedidos reales y el catálogo en Excel para un piloto gratis.</li>
+    <li><b>Inversores:</b> todavía nada. Volvemos con 5 clientes de pago y datos de precisión.</li>
+  </ul>
+</section>
+
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#F8F7F2"/>
+<rect x="72" y="72" width="64" height="64" rx="18" fill="#0E7A3E"/>
+<path transform="translate(88 88) scale(1.35)" fill="#fff" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>
+<text x="156" y="118" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="40" font-weight="700" fill="#15201B">Descuélgalo</text>
+<text x="72" y="290" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="76" font-weight="700" fill="#15201B">Ninguna llamada</text>
+<text x="72" y="380" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="76" font-weight="700" fill="#0E7A3E">sin contestar.</text>
+<text x="72" y="470" font-family="Arial, sans-serif" font-size="32" fill="#3C4843">Recepcionista con IA para talleres y pymes. Conservas tu número.</text>
+<text x="72" y="540" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0E7A3E">Piloto gratis de 30 días</text>
+<rect x="880" y="120" width="250" height="420" rx="44" fill="#12231B"/>
+<circle cx="1005" cy="260" r="58" fill="#1FB95A"/>
+<circle cx="1005" cy="260" r="76" fill="none" stroke="#1FB95A" stroke-opacity=".5" stroke-width="4"/>
+<text x="1005" y="282" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial" font-size="60" font-weight="700" fill="#fff">L</text>
+<text x="1005" y="380" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial" font-size="30" font-weight="700" fill="#fff">Lucía</text>
+<circle cx="1005" cy="470" r="34" fill="#1FB95A"/>
+</svg>

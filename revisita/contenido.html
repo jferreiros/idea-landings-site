@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisita | Motor de contenido</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23137A6E' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23137A6E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#fff;--mint:#EEF8F4;--mint-2:#D6EFE5;--teal:#0A4A44;--teal-2:#137A6E;--ink:#0D1B1A;--ink-2:#4B5B59;--ink-3:#5E6D6B;--line:#DDE7E3}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"Geist",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--teal-2)}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 28px;border-bottom:1px solid var(--line)}
+.logo{font-weight:700;letter-spacing:-.03em;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.label{font-family:"Geist Mono",monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:12px}
+h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin:22px 0 12px}
+h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+h3{font-size:1.05rem;font-weight:600;margin:22px 0 8px}
+p{margin-bottom:12px;color:var(--ink-2)}
+ol,ul{margin:0 0 14px 22px}
+li{margin-bottom:6px}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink);min-height:36px;display:inline-flex;align-items:center}
+.msg{background:var(--mint);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:10px 0 16px;white-space:pre-wrap;font-size:.95rem;color:var(--ink)}
+.msg b{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-2);display:block;margin-bottom:6px;font-weight:500}
+.warn{border-left:2px solid var(--teal-2);padding:10px 16px;background:var(--mint);margin:14px 0;font-size:.94rem}
+.obj{border-top:1px solid var(--ink)}
+.obj div{padding:16px 0;border-bottom:1px solid var(--line)}
+.obj b{display:block;margin-bottom:4px}
+.obj span{color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Geist Mono",monospace;font-weight:500;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-2);background:var(--mint)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;margin:10px 0 16px}
+code{font-family:"Geist Mono",monospace;font-size:.86em;background:var(--mint);padding:1px 5px;border-radius:4px;word-break:break-word}
+.reel{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;padding:18px 0;border-bottom:1px solid var(--line)}
+.reel .n{font-family:"Geist Mono",monospace;color:var(--teal-2);font-size:.85rem;padding-top:3px}
+.reel b{display:block;font-size:1.05rem;margin-bottom:6px}
+.reel dl{display:grid;grid-template-columns:64px 1fr;gap:4px 10px;font-size:.93rem}
+.reel dt{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);padding-top:3px}
+.reel dd{color:var(--ink-2)}
+footer{padding:28px 0;font-size:.88rem;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Revisita</a>
+    <h1>Motor de contenido</h1>
+    <p>Para gerentes y dueñas de clínicas dentales independientes en Barcelona. Formato vertical, 20 a 35 segundos, grabado con el móvil. Instagram y LinkedIn. Cada pieza lleva a la auditoría gratis.</p>
+    <nav class="toc" aria-label="Secciones"><a href="#reels">10 reels</a><a href="#calendario">Calendario</a><a href="#carruseles">Carruseles</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<section id="reels">
+  <span class="label">Guiones</span>
+  <h2>10 reels</h2>
+  <p>Gancho en los 2 primeros segundos, escena, una frase y una llamada a la acción. Sin testimonios inventados: todo número de ejemplo se marca en pantalla como «ejemplo».</p>
+  <div style="border-top:1px solid var(--ink)"><div class="reel"><span class="n">01</span><div><b>«Tu clínica tiene una lista de pacientes para llamar. ¿Desde cuándo?»</b><dl><dt>Escena</dt><dd>Mano que saca de un cajón de recepción una hoja impresa y arrugada.</dd><dt>Frase</dt><dd>Esa lista es dinero. Cada nombre es una revisión que nadie ha pedido.</dd><dt>CTA</dt><dd>Auditoría gratis: link en la bio.</dd></dl></div></div><div class="reel"><span class="n">02</span><div><b>«412 pacientes. 31.480 euros. Ejemplo.»</b><dl><dt>Escena</dt><dd>Pizarra blanca, Joaquín escribe la cuenta: pacientes × visita media × % que vuelve.</dd><dt>Frase</dt><dd>Con datos ficticios sale esto. Con los tuyos, lo calculo en 3 días.</dd><dt>CTA</dt><dd>Comenta AUDITORÍA y te escribo.</dd></dl></div></div><div class="reel"><span class="n">03</span><div><b>«Recordatorio o conversación: mira la diferencia.»</b><dl><dt>Escena</dt><dd>Pantalla partida: SMS genérico frente al WhatsApp de Revisita con huecos reales.</dd><dt>Frase</dt><dd>Uno avisa. El otro da la cita.</dd><dt>CTA</dt><dd>Guárdalo para enseñárselo a recepción.</dd></dl></div></div><div class="reel"><span class="n">04</span><div><b>«Lunes, 9:00. Silla vacía.»</b><dl><dt>Escena</dt><dd>Plano fijo de un sillón dental vacío y un reloj que avanza.</dd><dt>Frase</dt><dd>Una cancelación a las 8:40 no se recupera llamando. Se recupera con una lista de espera que contesta sola.</dd><dt>CTA</dt><dd>Mira cómo funciona en la web.</dd></dl></div></div><div class="reel"><span class="n">05</span><div><b>«¿Puedo escribir por WhatsApp a mis pacientes? Sí, pero…»</b><dl><dt>Escena</dt><dd>Joaquín a cámara, texto en pantalla con las 3 reglas.</dd><dt>Frase</dt><dd>Recordar una revisión es atención sanitaria. Una oferta de blanqueamiento es publicidad. No es lo mismo.</dd><dt>CTA</dt><dd>Sígueme para la parte 2: el contrato de encargado.</dd></dl></div></div><div class="reel"><span class="n">06</span><div><b>«El paciente que dijo “me lo pienso” hace 8 meses.»</b><dl><dt>Escena</dt><dd>Presupuesto de implante impreso encima de una mesa, con fecha.</dd><dt>Frase</dt><dd>No se fue a otra clínica. Nadie le volvió a preguntar.</dd><dt>CTA</dt><dd>¿Cuántos tienes así? Te ayudo a contarlos.</dd></dl></div></div><div class="reel"><span class="n">07</span><div><b>«Cómo saco la exportación de Gesden en 60 segundos.»</b><dl><dt>Escena</dt><dd>Grabación de pantalla con datos de prueba.</dd><dt>Frase</dt><dd>Esto es todo lo que necesito para la auditoría. Sin teléfonos.</dd><dt>CTA</dt><dd>Link en la bio para pedirla.</dd></dl></div></div><div class="reel"><span class="n">08</span><div><b>«Pago 25 euros solo si el paciente viene.»</b><dl><dt>Escena</dt><dd>Joaquín a cámara, calcula en el móvil.</dd><dt>Frase</dt><dd>Si no viene nadie, pagas cero. Así de simple es el modelo.</dd><dt>CTA</dt><dd>Pregúntame lo que quieras en comentarios.</dd></dl></div></div><div class="reel"><span class="n">09</span><div><b>«Tu recepcionista no es call center.»</b><dl><dt>Escena</dt><dd>Recepción con teléfono sonando, paciente en el mostrador (actores o maqueta).</dd><dt>Frase</dt><dd>El teléfono es para quien entra por la puerta. La lista de recall, déjamela a mí.</dd><dt>CTA</dt><dd>Etiqueta a tu recepcionista.</dd></dl></div></div><div class="reel"><span class="n">10</span><div><b>«Qué NO hace Revisita.»</b><dl><dt>Escena</dt><dd>Lista en pantalla: no da consejo médico, no manda ofertas, no guarda historias clínicas.</dd><dt>Frase</dt><dd>Si un paciente pregunta algo clínico, pasa a tu recepción con la conversación.</dd><dt>CTA</dt><dd>Link en la bio para ver la demo.</dd></dl></div></div></div>
+</section>
+<section id="calendario">
+  <span class="label">4 semanas</span>
+  <h2>Calendario de publicación</h2>
+  <p>3 piezas por semana, grabadas en bloque el lunes por la tarde (unas 2 horas). Publicación a las 13:30, cuando la clínica para a comer.</p>
+  <div class="scroll"><table>
+    <tr><th>Semana</th><th>Lunes</th><th>Miércoles</th><th>Viernes</th></tr>
+    <tr><td>1</td><td>Reel 01 · la lista</td><td>Carrusel A · euros dormidos</td><td>Reel 03 · recordatorio vs conversación</td></tr>
+    <tr><td>2</td><td>Reel 02 · la cuenta</td><td>Reel 05 · WhatsApp y RGPD</td><td>Reel 07 · exportación de Gesden</td></tr>
+    <tr><td>3</td><td>Reel 04 · silla vacía</td><td>Carrusel B · recall legal</td><td>Reel 06 · «me lo pienso»</td></tr>
+    <tr><td>4</td><td>Reel 08 · 25 € por resultado</td><td>Reel 09 · recepción</td><td>Carrusel C · primer piloto (solo con permiso) o Reel 10</td></tr>
+  </table></div>
+  <p>Métrica semanal: comentarios «AUDITORÍA» y mensajes directos de clínicas. Objetivo: 2 conversaciones por semana a partir de la semana 3. Si en la semana 4 hay cero, el canal se reduce a una pieza por semana y el tiempo pasa a visitas.</p>
+</section>
+<section id="carruseles">
+  <span class="label">Carruseles</span>
+  <h2>3 ideas</h2>
+  <div class="obj">
+    <div><b>A. Dónde duerme el dinero de tu clínica</b><span>6 láminas: revisiones atrasadas, tratamientos a medias, cancelaciones. Cada una con la fórmula para calcularlo con tus datos y un ejemplo marcado como ficticio. Cierre: la auditoría gratis lo hace por ti.</span></div>
+    <div><b>B. WhatsApp a pacientes: qué puedes enviar</b><span>5 láminas: recordatorio de revisión (sí), tratamiento pendiente (sí), oferta de blanqueamiento (solo con consentimiento), la palabra «baja», el contrato de encargado. Revisado por un abogado antes de publicar.</span></div>
+    <div><b>C. Así escribimos a un paciente</b><span>4 láminas: el mensaje genérico, por qué no funciona, el mensaje de Revisita con nombre de doctora y huecos, y qué pasa si pregunta el precio (pasa a recepción).</span></div>
+  </div>
+</section>
+</main>
+<footer class="wrap"><span>Revisita · uso interno</span><a href="plan.html">Volver al plan</a></footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · Ficha para el taller</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Resumen de Motaller para talleres de motos: qué hace, cómo se monta, precio y piloto gratis en Barcelona.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Crect width='40' height='32' rx='9' fill='%23ff5b1f'/%3E%3Ctext x='20' y='22' font-family='monospace' font-weight='800' font-size='16' text-anchor='middle' fill='%231a0d06'%3E07%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,700..900&family=Public+Sans:wght@400;600;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#121315;--surface:#1d1e22;--line:#2e3036;--text:#eeece6;--muted:#a3a098;--orange:#ff5b1f;--ink:#1a0d06}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:400 16px/1.5 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:0 auto;padding:40px 20px 56px}
+.stripe{height:10px;background:repeating-linear-gradient(-45deg,var(--orange) 0 14px,var(--bg) 14px 28px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:900 26px "Archivo";font-stretch:70%;text-transform:uppercase}
+.race{display:inline-grid;place-items:center;width:40px;height:32px;border-radius:9px 9px 14px 14px;background:var(--orange);color:var(--ink);font:800 16px "JetBrains Mono"}
+.top small{color:var(--muted);font-size:14px}
+h1{font:900 clamp(40px,7vw,64px)/.98 "Archivo";font-stretch:70%;text-transform:uppercase;margin:36px 0 14px}
+h1 em{font-style:normal;color:var(--orange)}
+h2{font:900 24px/1 "Archivo";font-stretch:72%;text-transform:uppercase;margin-bottom:12px}
+.lead{font-size:19px;color:#cfccc4;max-width:620px}
+.grid{display:grid;gap:14px;margin-top:32px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+ul{list-style:none;display:grid;gap:8px}
+li{padding-left:22px;position:relative;color:#d7d4cc}
+li:before{content:"";position:absolute;left:2px;top:8px;width:11px;height:6px;border-left:2.5px solid var(--orange);border-bottom:2.5px solid var(--orange);transform:rotate(-45deg)}
+ol{list-style:none;display:grid;gap:10px;counter-reset:n}
+ol li:before{content:counter(n);counter-increment:n;border:0;transform:none;top:1px;left:0;width:auto;height:auto;font:800 13px "JetBrains Mono";color:var(--orange)}
+.price{display:flex;gap:28px;flex-wrap:wrap;align-items:baseline}
+.price b{font:900 44px/1 "Archivo";font-stretch:70%}
+.price span{color:var(--muted);font-size:14px}
+.cta{margin-top:28px;background:var(--orange);color:var(--ink);border-radius:14px;padding:22px 24px;display:grid;gap:6px}
+.cta b{font:900 26px/1 "Archivo";font-stretch:70%;text-transform:uppercase}
+.cta a{color:var(--ink);font-weight:700}
+.note{color:var(--muted);font-size:13px;margin-top:18px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}.wide{grid-column:1/-1}}
+@media print{
+  :root{--bg:#fff;--surface:#fff;--line:#bbb;--text:#111;--muted:#444}
+  body{font-size:12.5px}.lead,li{color:#222}.stripe{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet{padding:18px 0}.cta,.race{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h1{margin-top:18px;font-size:44px}.grid{grid-template-columns:1fr 1fr;margin-top:18px}.wide{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+<div class="stripe" aria-hidden="true"></div>
+<main class="sheet">
+  <div class="top"><span class="logo"><span class="race" aria-hidden="true">07</span>Motaller</span><small>Ficha para el taller · Barcelona</small></div>
+  <h1>Tú con la llave. <em>Motaller con el WhatsApp.</em></h1>
+  <p class="lead">Un asistente que contesta el WhatsApp de tu taller de motos mientras trabajas: da cita, manda el presupuesto con fotos para aprobar y avisa cuando la moto está lista.</p>
+  <div class="grid">
+    <div class="box"><h2>Qué hace</h2><ul>
+      <li>Contesta a cualquier hora, en castellano y en catalán.</li>
+      <li>Da cita con tus huecos reales y ficha la moto por matrícula.</li>
+      <li>Manda fotos y precio. El cliente aprueba con un toque.</li>
+      <li>Avisa «tu moto está lista» y recuerda la ITV.</li>
+    </ul></div>
+    <div class="box"><h2>Lo que no cambia</h2><ul>
+      <li>Tu número de WhatsApp Business.</li>
+      <li>Tu programa de facturación.</li>
+      <li>Tú apruebas cada presupuesto con diagnóstico.</li>
+      <li>Si el cliente pide hablar contigo, te pasa la conversación.</li>
+    </ul></div>
+    <div class="box"><h2>Cómo empezamos</h2><ol>
+      <li>Hablamos 5 minutos por teléfono.</li>
+      <li>Paso por el taller y lo montamos contigo en una tarde.</li>
+      <li>30 días gratis. Luego decides, sin permanencia.</li>
+    </ol></div>
+    <div class="box"><h2>Precio de lanzamiento</h2>
+      <div class="price"><div><b>59 €</b><br><span>/mes + IVA · Taller</span></div><div><b>129 €</b><br><span>/mes + IVA · Pro, con llamadas</span></div></div>
+      <p class="note" style="margin-top:12px">Sin alta y sin permanencia. Los datos son del taller, en servidores de la UE, con contrato RGPD.</p></div>
+  </div>
+  <div class="cta"><b>Piloto gratis para 10 talleres</b><span>Pruébalo con el nombre de tu taller: <a href="https://motaller-topaz.vercel.app/#demo">motaller-topaz.vercel.app/#demo</a></span><span>O contesta al WhatsApp desde el que te llegó esta ficha.</span></div>
+  <p class="note">Joaquín, fundador de Motaller. Esta ficha se envía solo a talleres que la han pedido.</p>
+</main>
+</body>
+</html>

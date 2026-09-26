@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+.calc{display:grid;gap:16px}@media(min-width:760px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{display:block;font-weight:600;margin:12px 0 4px;color:var(--ink)}
+.calc input[type=range]{width:100%;accent-color:var(--green);min-height:32px}
+.calc output{font-weight:700;color:var(--green)}
+.res{background:var(--ink);color:var(--paper);border-radius:18px;padding:22px}
+.res b{display:block;font:700 40px Fredoka;color:#7FE0A4}
+.res p{color:#D7E0DA}
+.btnp{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:13px 22px;text-decoration:none;font-weight:700;margin-top:10px}
+:focus-visible{outline:3px solid #E4572E;outline-offset:3px}
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="wrap">
+<header>
+<a class="back" href="plan.html">← Plan</a><br><br>
+<span class="tag">Pitch para socios</span>
+<h1>Descuélgalo: la recepcionista con IA para el taller que no puede coger el teléfono</h1>
+<p>Una página para socios de canal (gestorías, proveedores de recambios) e inversores. Todo lo marcado "supuesto" está sin verificar.</p>
+</header>
+<section><h2>Problema</h2><p>El dueño de un taller trabaja con las manos. El teléfono suena debajo de un coche o a la hora de comer. Quien llama y no recibe respuesta prueba con el siguiente taller de Google. El buzón de voz no lo arregla: casi nadie deja mensaje.</p></section>
+<section><h2>Solución</h2><p>Una recepcionista de voz con IA que solo coge las llamadas que el dueño no atiende (desvío condicional, conserva su número). Aprende el negocio de la ficha de Google, apunta citas y presupuestos y se lo manda al dueño por WhatsApp. Dice que es una IA y pasa con una persona cuando el cliente lo pide.</p></section>
+<section><h2>Por qué ahora</h2><ul>
+<li>La <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> da al cliente derecho a hablar con una persona por teléfono desde el 28 de diciembre de 2026. Las pymes necesitan una respuesta simple.</li>
+<li>El <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">AI Act (art. 50)</a> fija la regla del aviso de IA: ya se sabe cómo cumplir.</li>
+<li>La voz con IA ya cuesta céntimos por minuto: coste estimado €0,053/min con el stack elegido (ver <a href="plan.html#economics">unit economics</a>).</li>
+<li>En EE. UU. la categoría ya funciona: <a href="https://heyrosie.com" target="_blank" rel="noopener">Rosie</a> vende desde $49/mes a negocios locales y <a href="https://sacra.com/research/retell-ai-60m-yr-up-650-yoy/" target="_blank" rel="noopener">Retell AI llegó a unos $60M de ARR</a> como infraestructura.</li>
+</ul></section>
+<section><h2>Mercado en España</h2>
+<p>Las pymes son más del 99 % de las empresas en España (<a href="https://ipyme.org/es-es/ApoyoPYME/Paginas/CifrasPYME.aspx" target="_blank" rel="noopener">Cifras PYME, Ministerio de Industria</a>). Empezamos por talleres mecánicos independientes y luego fisioterapia, estética y reformas.</p>
+<p>Tamaño de la primera cuña (supuesto, a validar con el censo de talleres de <a href="https://www.cetraa.com/" target="_blank" rel="noopener">CETRAA</a>): si hay unos 30.000-40.000 talleres independientes y el 5 % paga €69/mes, son entre €1,2M y €1,7M de ingresos anuales solo en talleres.</p></section>
+<section><h2>Modelo de negocio</h2><div class="tbl"><table><tr><th>Plan</th><th>Precio</th><th>Minutos</th><th>Margen bruto peor caso</th></tr><tr><td>Básico</td><td>€39/mes</td><td>150</td><td>74 %</td></tr><tr><td>Pro</td><td>€69/mes</td><td>400</td><td>65 %</td></tr><tr><td>Negocio</td><td>€149/mes</td><td>1.000</td><td>61 %</td></tr></table></div>
+<p>Break-even con unos 11 clientes Pro sin coste de adquisición. Canal: venta en persona, gestorías y proveedores de recambios con un 20 % recurrente.</p></section>
+<section><h2>Plan de 90 días</h2><ul><li>Día 30: 8 pilotos gratis activos, 1 cliente de pago.</li><li>Día 60: 10 pilotos, 5 clientes de pago.</li><li>Día 90: 12 clientes de pago, autoservicio desde la landing, segunda ciudad por videollamada.</li></ul><p>Detalle semana a semana y criterios de corte en el <a href="plan.html#90dias">plan</a>.</p></section>
+<section><h2>Qué pedimos</h2><ul>
+<li><b>A gestorías y proveedores de recambios:</b> presentarnos a 10 talleres clientes. Pagamos un 20 % recurrente de cada cuota mientras el taller siga.</li>
+<li><b>A talleres:</b> 30 días de piloto gratis y 15 minutos de feedback por semana.</li>
+<li><b>A inversores:</b> hoy nada. Volvemos a hablar con 20 clientes de pago y datos de retención.</li></ul>
+<p>Joaquín · fundador · Barcelona · <a href="index.html#probar">descuelgalo.vercel.app</a></p></section>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="index.html">Landing</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

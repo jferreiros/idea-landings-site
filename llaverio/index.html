@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: pisos revisados antes de cada entrada</title>
+<meta name="description" content="Tras cada check-out, Llaverio avisa a tu limpiadora por WhatsApp, revisa sus fotos y solo te escribe si falta algo. Para gestoras de 10 a 60 pisos turísticos. Piloto gratis de 30 días.">
+<link rel="canonical" href="https://llaverio.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://llaverio.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://llaverio.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://llaverio.vercel.app/en.html">
+<meta name="theme-color" content="#0B2A3C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B2A3C'/%3E%3Ccircle cx='11' cy='16' r='6' fill='none' stroke='%23EADCC0' stroke-width='2.6'/%3E%3Cpath d='M17 16h10M23 16v5M27 16v3.5' stroke='%23EADCC0' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Llaverio">
+<meta property="og:title" content="Llaverio: ningún huésped entra en un piso sin revisar">
+<meta property="og:description" content="Limpiezas por WhatsApp y fotos revisadas tras cada check-out. Para gestoras de 10 a 60 pisos turísticos.">
+<meta property="og:url" content="https://llaverio.vercel.app/">
+<meta property="og:image" content="https://llaverio.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Llaverio: franja de salida a entrada y cronología de un sábado de check-outs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Llaverio: ningún huésped entra en un piso sin revisar">
+<meta name="twitter:description" content="Limpiezas por WhatsApp y fotos revisadas tras cada check-out. Para gestoras de 10 a 60 pisos turísticos.">
+<meta name="twitter:image" content="https://llaverio.vercel.app/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://llaverio.vercel.app/#org","name":"Llaverio","url":"https://llaverio.vercel.app/","founder":{"@type":"Person","name":"Joaquín Ferreiros"},"areaServed":"ES"},
+ {"@type":"Service","name":"Llaverio","serviceType":"Coordinación de limpiezas y operaciones para alquiler turístico","provider":{"@id":"https://llaverio.vercel.app/#org"},"areaServed":"ES","audience":{"@type":"BusinessAudience","audienceType":"Gestoras de alquiler turístico de 10 a 60 viviendas"},
+  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días gratis, sin tarjeta"},
+   {"@type":"Offer","name":"Operaciones","price":"12","priceCurrency":"EUR","description":"Precio de lanzamiento por vivienda activa y mes (hipótesis de validación)"}]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F1EA; --paper:#FFFFFF; --ink:#0B2A3C; --muted:#4E6472; --line:#DCE3E6;
+  --sea:#0A5C8A; --sea-soft:#DDEBF3; --brass:#9A7432; --brass-soft:#EADCC0; --clay:#D08A12;
+  --ok:#0A7A8C; --wa:#DDEBF3;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:600;letter-spacing:-.015em;line-height:1.08}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font-family:"Geist Mono",monospace;font-size:.78rem;letter-spacing:.02em}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:84px 0}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--sea);color:#fff;text-decoration:none;font-weight:600;padding:15px 22px;border-radius:999px;border:0;cursor:pointer;font:600 16px "Geist",sans-serif;transition:transform .15s,background .15s}
+.btn:hover{background:#084A70;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+/* nav */
+nav{padding:18px 0;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.35rem;text-decoration:none;color:var(--ink)}
+.logo svg{width:30px;height:30px}
+nav .btn{padding:10px 16px;font-size:14px}
+
+/* hero */
+.hero{padding:64px 0 72px}
+.hero .wrap{display:grid;gap:48px;grid-template-columns:1fr}
+.hero h1{font-size:clamp(2.3rem,7vw,4.1rem);margin:16px 0 20px}
+.hero h1 em{font-style:italic;color:var(--sea)}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:34em}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .fine{margin-top:18px;color:var(--muted);font-size:.9rem}
+
+/* product moment */
+.board{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:0 30px 60px -30px rgba(11,42,60,.35);overflow:hidden}
+.board-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);background:#F7F9FA}
+.board-head strong{font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--ok)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.board-body{display:grid;grid-template-columns:1fr;gap:0}
+.timeline{padding:18px;border-bottom:1px solid var(--line)}
+.step{display:grid;grid-template-columns:54px 18px 1fr;gap:10px;align-items:start;padding:7px 0}
+.step .t{color:var(--muted)}
+.step .dot{width:12px;height:12px;border-radius:50%;margin-top:5px;border:2px solid var(--sea);background:var(--paper)}
+.step.done .dot{background:var(--sea)}
+.step.warn .dot{border-color:var(--clay);background:var(--clay)}
+.step p{font-size:.93rem;line-height:1.4}
+.step small{display:block;color:var(--muted);font-size:.8rem}
+.chat{padding:18px;background:#EFE7D6}
+.chat .who{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.chat .av{width:32px;height:32px;border-radius:50%;background:var(--brass-soft);display:grid;place-items:center;font-weight:600;color:var(--brass)}
+.bubble{max-width:88%;padding:9px 12px;border-radius:12px;font-size:.9rem;line-height:1.4;margin:6px 0;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.bubble.me{margin-left:auto;background:var(--wa)}
+.bubble .meta{display:block;text-align:right;font-size:.7rem;color:var(--muted);margin-top:3px}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:6px}
+.ph{aspect-ratio:1;border-radius:6px;position:relative;background:linear-gradient(160deg,#D8CDB8,#BFB199)}
+.ph:nth-child(2){background:linear-gradient(160deg,#CFDCD6,#A9BFB6)}
+.ph:nth-child(3){background:linear-gradient(160deg,#E6D6C2,#CDB597)}
+.ph b{position:absolute;right:4px;bottom:4px;width:16px;height:16px;border-radius:50%;background:var(--ok);color:#fff;font-size:10px;display:grid;place-items:center}
+.ph.x b{background:var(--clay)}
+.check{margin-top:8px;padding:8px 10px;border-left:3px solid var(--clay);background:#FBF1DC;font-size:.84rem;border-radius:4px}
+
+/* problem */
+.problem{background:var(--ink);color:#E6EEF2}
+.problem h2{font-size:clamp(1.9rem,5vw,3rem);max-width:18em}
+.problem .grid{display:grid;gap:40px;grid-template-columns:1fr;margin-top:40px}
+.scene{font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.55;color:#F4F1EA}
+.scene .clock{font-family:"Geist Mono",monospace;font-size:.8rem;color:var(--brass);display:block;margin-top:18px}
+.pains{list-style:none;display:grid;gap:14px}
+.pains li{border-top:1px solid #1E4A63;padding-top:14px}
+.pains b{color:#fff;display:block;font-weight:600}
+.pains span{color:#A9BFCB;font-size:.95rem}
+
+/* how */
+.how h2,.benefits h2,.pricing h2,.faq h2{font-size:clamp(1.9rem,5vw,2.8rem);max-width:20em;margin-top:10px}
+.steps{display:grid;gap:18px;grid-template-columns:1fr;margin-top:40px;counter-reset:s}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.steps .card h3{font-size:1.35rem;margin:14px 0 8px}
+.steps .card p{color:var(--muted)}
+.num{font-family:"Bricolage Grotesque",sans-serif;font-size:2.4rem;color:var(--brass);line-height:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:"Geist Mono",monospace;font-size:.72rem;padding:4px 8px;border-radius:6px;background:var(--sea-soft);color:var(--sea)}
+
+/* benefits */
+.benefits{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bgrid{display:grid;gap:1px;background:var(--line);grid-template-columns:1fr;margin-top:40px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.bgrid > div{background:var(--paper);padding:26px}
+.big{font-family:"Bricolage Grotesque",sans-serif;font-size:2.6rem;color:var(--sea);line-height:1}
+.bgrid h3{font-size:1.15rem;margin:10px 0 6px;font-family:"Geist",sans-serif;font-weight:600;letter-spacing:0}
+.bgrid p{color:var(--muted);font-size:.95rem}
+.note{margin-top:22px;color:var(--muted);font-size:.88rem;max-width:52em}
+
+/* pricing */
+.plans{display:grid;gap:18px;grid-template-columns:1fr;margin-top:40px}
+.plan h3{font-family:"Geist",sans-serif;font-size:1rem;font-weight:600;letter-spacing:0}
+.price{font-family:"Bricolage Grotesque",sans-serif;font-size:2.8rem;margin:10px 0 2px}
+.price small{font-family:"Geist",sans-serif;font-size:.95rem;color:var(--muted);font-weight:400}
+.plan ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.plan li{padding-left:22px;position:relative;font-size:.95rem}
+.plan li:before{content:"";position:absolute;left:0;top:.55em;width:10px;height:6px;border-left:2px solid var(--sea);border-bottom:2px solid var(--sea);transform:rotate(-45deg)}
+.plan.feat{border:2px solid var(--sea);position:relative}
+.plan.feat .flag{position:absolute;top:-12px;left:22px;background:var(--sea);color:#fff;padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:20px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:"Bricolage Grotesque",sans-serif;font-size:1.5rem;line-height:1;color:var(--brass)}
+.faq details[open] summary:after{content:"-"}
+.faq details p{margin-top:10px;color:var(--muted);max-width:46em}
+.faqwrap{max-width:820px;margin-top:30px}
+
+/* cta */
+.cta{background:var(--sea);color:#fff}
+.cta .wrap{display:grid;gap:40px;grid-template-columns:1fr}
+.cta h2{font-size:clamp(2rem,5vw,3rem)}
+.cta p{color:#CFE2EE;margin-top:14px}
+form{background:var(--paper);color:var(--ink);border-radius:18px;padding:26px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-size:.88rem;font-weight:600}
+input,select{font:400 16px "Geist",sans-serif;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus{outline:none;border-color:var(--sea)}
+form .btn{justify-content:center;margin-top:4px}
+form .fine{font-size:.8rem;color:var(--muted)}
+.thanks{display:none;text-align:center;padding:30px 10px}
+.thanks h3{font-size:1.6rem;margin-bottom:10px}
+.thanks p{color:var(--muted)}
+
+/* round 2: nav links, trust strip, fit, founder, sticky cta */
+.navlinks{display:none;gap:26px;font-size:.95rem}
+.navlinks a{color:var(--ink);text-decoration:none}
+.navlinks a:hover{color:var(--sea)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line);list-style:none;font-size:.9rem;color:var(--ink)}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sea);flex:none}
+.hero .ctas .btn{min-height:50px}
+.promise{background:var(--brass-soft);border:1px solid #DCC79E;border-radius:var(--r);padding:22px 24px;margin-top:34px;display:grid;gap:8px}
+.promise b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.3rem;font-weight:600}
+.promise p{color:#5B4A2C;font-size:.97rem}
+.fit{display:grid;gap:18px;grid-template-columns:1fr;margin-top:40px}
+.fit .card h3{font-size:1.25rem;margin-bottom:12px}
+.fit ul{list-style:none;display:grid;gap:10px}
+.fit li{padding-left:24px;position:relative;font-size:.97rem}
+.fit .yes li:before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--sea);border-bottom:2px solid var(--sea);transform:rotate(-45deg)}
+.fit .no li:before{content:"";position:absolute;left:3px;top:.72em;width:11px;height:2px;background:var(--clay)}
+.fit .no{background:transparent;border-style:dashed}
+.founder{display:grid;gap:22px;grid-template-columns:1fr;align-items:start}
+.founder .mark{width:64px;height:64px;border-radius:50%;background:var(--sea);color:#fff;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-size:1.6rem}
+.founder blockquote{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.25rem,3.4vw,1.6rem);line-height:1.45;max-width:34em}
+.founder cite{display:block;margin-top:16px;font-style:normal;color:var(--muted);font-size:.95rem}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:#F4F1EA;padding:10px 10px 10px 18px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(11,42,60,.5);transform:translateY(140%);transition:transform .25s ease}
+.sticky.on{transform:none}
+.sticky span{font-size:.9rem;line-height:1.25}
+.sticky .btn{padding:11px 16px;font-size:14px;white-space:nowrap;background:var(--brass)}
+.sticky .btn:hover{background:#7E5E27}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky{transition:none}.live i{animation:none}}
+:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+.problem :focus-visible,.cta :focus-visible,.scen :focus-visible{outline-color:#EADCC0}
+
+footer{padding:34px 0 96px;font-size:.9rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+
+@media(min-width:760px){
+  .hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center}
+  .board-body{grid-template-columns:1.1fr 1fr}
+  .timeline{border-bottom:0;border-right:1px solid var(--line)}
+  .problem .grid{grid-template-columns:1.1fr 1fr}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .bgrid{grid-template-columns:repeat(2,1fr)}
+  .plans{grid-template-columns:repeat(3,1fr)}
+  .cta .wrap{grid-template-columns:1fr 1fr;align-items:center}
+  section{padding:110px 0}
+  .navlinks{display:flex}
+  .fit{grid-template-columns:1fr 1fr}
+  .founder{grid-template-columns:80px 1fr}
+  .sticky{left:auto;right:24px;bottom:24px;max-width:460px}
+}
+@media(min-width:1000px){.bgrid{grid-template-columns:repeat(4,1fr)}}
+
+/* round 3: sea + sand identity */
+h1,h2,h3{font-weight:600;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--sea);background:linear-gradient(transparent 62%,#EADCC0 62%);padding:0 .08em}
+.hero{background:linear-gradient(180deg,#EAF2F6 0%,var(--bg) 100%)}
+.live{white-space:nowrap}
+.board{border-radius:22px;border:1px solid #D3DEE4;box-shadow:0 40px 80px -40px rgba(10,92,138,.45)}
+.board-head{background:#0B2A3C;color:#fff;border-bottom:0}
+.board-head strong{color:#fff}
+.board-head .live{color:#9FD3EC}
+.board-head .live i{background:#9FD3EC}
+.window{padding:14px 18px 16px;border-bottom:1px solid var(--line);background:#F7F9FA}
+.window .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;font-size:.74rem;color:var(--muted)}
+.window .bar{position:relative;height:10px;border-radius:999px;background:#E3EAEE;margin:9px 0 7px;overflow:hidden}
+.window .bar span{position:absolute;inset:0 18% 0 0;background:repeating-linear-gradient(90deg,var(--sea) 0 14px,#2F7FAE 14px 16px);border-radius:999px;transform-origin:left;animation:fill 2.4s cubic-bezier(.16,1,.3,1) both}
+@keyframes fill{from{transform:scaleX(0)}}
+.window b{font-weight:600;color:var(--ink)}
+.ktag{display:inline-flex;align-items:center;gap:7px;background:#EADCC0;color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:4px 10px 4px 6px;border-radius:6px 999px 999px 6px;white-space:nowrap}
+.ktag:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px #9A7432}
+.trust li:before{width:10px;height:6px;border-radius:0;background:none;border-left:2px solid var(--sea);border-bottom:2px solid var(--sea);transform:rotate(-45deg) translateY(-2px)}
+.problem{background:#07324A}
+.flow{margin-top:44px;display:grid}
+.flow .it{display:grid;grid-template-columns:84px 1fr;gap:10px 22px;padding:26px 0;border-top:1px solid var(--line)}
+.flow .it:last-child{border-bottom:1px solid var(--line)}
+.flow .it p{grid-column:2}
+.flow .key{width:72px;height:40px;border-radius:8px 999px 999px 8px;background:#EADCC0;display:flex;align-items:center;gap:10px;padding-left:10px;font:600 1.05rem "Geist Mono",monospace;color:#4A3B1E;grid-row:span 2}
+.flow .key:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px #9A7432}
+.flow .it:nth-child(2) .key{background:var(--sea);color:#fff}
+.flow .it:nth-child(2) .key:before{background:#DDEBF3;box-shadow:none}
+.flow h3{font-size:1.45rem}
+.flow p{color:var(--muted);max-width:44em}
+.ledger{margin-top:40px;display:grid;gap:14px;grid-template-columns:1fr}
+.ledger > div{border-radius:18px;padding:28px;background:#fff;border:1px solid var(--line)}
+.ledger > div.sand{background:#EADCC0;border-color:#DCC79E}
+.ledger > div.sea{background:var(--sea);color:#fff;border-color:var(--sea)}
+.ledger > div.sea h3{font-size:clamp(1.5rem,3vw,2.1rem);max-width:14em}
+.ledger > div.sea p{color:#CFE2EE;margin-top:14px}
+.ledger h3{font-size:1.3rem;margin-bottom:8px}
+.ledger p{color:var(--muted);font-size:.97rem}
+.ledger > div.sand p{color:#5B4A2C}
+@media(min-width:760px){
+  .flow .it{grid-template-columns:120px 1fr 1.2fr;align-items:start}
+  .flow .it p{grid-column:3}
+  .flow .key{grid-row:auto}
+  .ledger{grid-template-columns:1.4fr 1fr}
+  .ledger > div:first-child{grid-row:span 2}
+}
+.problem .scene .clock{color:#EADCC0}
+.eyebrow{color:#7A5A22}
+@media(min-width:760px){.board-body{grid-template-columns:1.25fr 1fr}}
+@media(prefers-reduced-motion:reduce){.window .bar span{animation:none}}
+.scen{display:flex;gap:6px;padding:12px 14px;background:#0B2A3C;overflow-x:auto;scrollbar-width:none}
+.scen button{flex:none;font:500 .82rem "Geist",sans-serif;color:#CFE2EE;background:transparent;border:1px solid #2A5670;border-radius:999px;padding:9px 14px;min-height:40px;cursor:pointer;transition:background .3s cubic-bezier(.16,1,.3,1),color .3s}
+.scen button[aria-selected="true"]{background:#EADCC0;color:#0B2A3C;border-color:#EADCC0}
+.scen button:active{transform:scale(.97)}
+.board-head{padding-bottom:4px}
+.in{animation:rise .5s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+@media(prefers-reduced-motion:reduce){.in{animation:none}}
+@media(max-width:759px){
+  .trust{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;font-size:.86rem}
+  .hero .ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .ctas .btn{justify-content:center;padding:14px 12px;font-size:15px}
+  .board-head strong{font-size:.95rem}
+}
+.navr{display:flex;align-items:center;gap:14px}
+.lang{display:flex;gap:2px;font:500 .8rem "Geist Mono",monospace;border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang b,.lang a{padding:6px 9px;border-radius:999px;text-decoration:none;color:var(--muted);min-width:34px;text-align:center}
+.lang b{background:var(--ink);color:#fff;font-weight:500}
+@media(max-width:420px){.navr{gap:8px}nav .btn{padding:9px 12px;font-size:13px}.logo{font-size:1.15rem;gap:6px}.logo svg{width:24px;height:24px}.lang b,.lang a{padding:5px 7px;min-width:28px}.hero .ctas .btn{white-space:nowrap;font-size:14px}}
+@media(max-width:759px){.plans .plan.feat{order:-1;margin-top:10px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Principal"><div class="wrap">
+  <a class="logo" href="#" aria-label="Llaverio, inicio"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="11" cy="16" r="7" stroke="#0A5C8A" stroke-width="2.6"/><circle cx="11" cy="16" r="2.4" fill="#9A7432"/><path d="M18 16h11M25 16v5M29 16v3.5" stroke="#0A5C8A" stroke-width="2.6" stroke-linecap="round"/></svg>Llaverio</a>
+  <div class="navlinks"><a href="#como">Cómo funciona</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a></div>
+  <div class="navr"><span class="lang"><b aria-current="page">ES</b><a href="ca.html" hreflang="ca" lang="ca">CA</a><a href="en.html" hreflang="en" lang="en">EN</a></span><a class="btn" href="#probar">Pedir piloto</a></div>
+</div></nav>
+
+<main>
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Para gestoras de 10 a 60 pisos turísticos</span>
+    <h1>Ningún huésped entra en un piso <em>sin revisar</em>.</h1>
+    <p class="lead">Tras cada check-out, Llaverio avisa a tu limpiadora por WhatsApp, revisa sus fotos y solo te escribe si falta algo.</p>
+    <div class="ctas">
+      <a class="btn" href="#probar">Pedir piloto</a>
+      <a class="btn ghost" href="#como">Ver cómo funciona</a>
+    </div>
+    <ul class="trust" aria-label="Condiciones">
+      <li>Piloto gratis de 30 días</li>
+      <li>Tu equipo no instala nada</li>
+      <li>Datos en la UE (RGPD)</li>
+      <li>Sin permanencia</li>
+    </ul>
+  </div>
+
+  <!-- Product moment -->
+  <div class="board" aria-label="Ejemplo de un día en Llaverio">
+    <div class="board-head">
+      <strong>Sábado · Calella de Palafrugell</strong>
+      <span class="live mono"><i></i>en marcha</span>
+    </div>
+    <div class="scen" role="tablist" aria-label="Elige un sábado">
+      <button role="tab" aria-selected="true" data-s="0">Faltan toallas</button>
+      <button role="tab" aria-selected="false" data-s="1">Limpiadora de baja</button>
+      <button role="tab" aria-selected="false" data-s="2">Sin wifi</button>
+    </div>
+    <div class="window">
+      <div class="row"><span>Salida <b>11:00</b></span><span class="ktag" id="kt">Mas Llevant 2B</span><span>Entrada <b>16:00</b></span></div>
+      <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+      <div class="row"><span id="ready">Piso listo a las 14:58</span><span id="margin">61 min de margen</span></div>
+    </div>
+    <div class="board-body">
+      <div class="timeline" id="tl" aria-live="polite">
+        <div class="step done"><span class="t mono">11:02</span><span class="dot"></span><p>Check-out en Mas Llevant 2B<small>Detectado en Smoobu. Próxima entrada hoy a las 16:00.</small></p></div>
+        <div class="step done"><span class="t mono">11:03</span><span class="dot"></span><p>Limpieza asignada a <b>Rosa</b><small>Ruta: 2B → Far 4 → Canadell 1</small></p></div>
+        <div class="step warn"><span class="t mono">14:41</span><span class="dot"></span><p>Revisión de fotos: 5 de 6 bien<small>Falta el juego de toallas en el baño 2.</small></p></div>
+        <div class="step done"><span class="t mono">14:58</span><span class="dot"></span><p>Corregido y validado<small>Toallas repuestas. Fotos: 6 de 6.</small></p></div>
+        <div class="step"><span class="t mono">15:10</span><span class="dot"></span><p>Parte a <b>Jordi (fontanero)</b><small>Grifo de la cocina gotea. Cita propuesta: lunes 9:30.</small></p></div>
+      </div>
+      <div class="chat" id="chat">
+        <div class="who"><span class="av" id="av">R</span><span><b id="who">Rosa, limpieza</b><br><span class="mono" style="color:var(--muted)">WhatsApp</span></span></div>
+        <div class="bubble">Terminado el 2B. Te mando fotos.
+          <div class="photos" role="img" aria-label="Tres fotos del piso: dos correctas y una con un fallo"><div class="ph"><b>✓</b></div><div class="ph"><b>✓</b></div><div class="ph x"><b>!</b></div></div>
+          <span class="meta">14:40</span></div>
+        <div class="bubble me">Gracias, Rosa. En la foto del baño 2 no veo toallas. ¿Puedes dejar un juego antes de irte?
+          <span class="meta">14:41</span></div>
+        <div class="bubble">Uy sí, voy ahora mismo.<span class="meta">14:52</span></div>
+        <div class="check">El agente también anota: «grifo cocina gotea» y abre el parte.</div>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<section class="problem"><div class="wrap">
+  <h2>Los sábados de agosto no se gestionan. Se sobreviven.</h2>
+  <div class="grid">
+    <div class="scene">
+      Son las 11:15 en Salou. Salen nueve pisos a la vez y entran nueve familias a las 16:00. Una limpiadora está enferma, un huésped escribe que no funciona el aire y un propietario pregunta por qué su piso facturó menos que el del vecino. Tú tienes tres grupos de WhatsApp, un Excel de turnos y el móvil al 12%.
+      <span class="clock">Y el lunes toca preparar 30 informes para propietarios.</span>
+    </div>
+    <ul class="pains">
+      <li><b>Coordinar limpiezas a mano</b><span>Cada cambio de reserva obliga a reorganizar turnos y avisar uno a uno.</span></li>
+      <li><b>No ves el piso antes que el huésped</b><span>Si falta algo, te enteras por una reseña de 3 estrellas.</span></li>
+      <li><b>Las averías se pierden en el chat</b><span>El grifo que gotea se comenta, pero nadie llama al fontanero.</span></li>
+      <li><b>Informes a propietarios a final de mes</b><span>Horas de copiar datos del PMS a un PDF que nadie quiere hacer.</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="how" id="como"><div class="wrap">
+  <h2>Tres pasos. Tu equipo no cambia de app.</h2>
+  <div class="flow">
+    <div class="it"><div class="key">01</div><h3>Conectas tu PMS</h3><p>Llaverio lee entradas y salidas de Avantio, Hostaway, Smoobu o un calendario iCal. Tú le pasas la lista de pisos, limpiadoras y técnicos.</p></div>
+    <div class="it"><div class="key">02</div><h3>El agente coordina</h3><p>Tras cada salida, avisa a la limpiadora por WhatsApp, pide fotos y las compara con la lista del piso. Si ve una avería, abre el parte y propone cita al técnico.</p></div>
+    <div class="it"><div class="key">03</div><h3>Tú decides lo importante</h3><p>Solo te escribe cuando hace falta tu visto bueno: un gasto, una queja seria o un cambio de horario. A fin de mes, prepara el informe de cada propietario.</p></div>
+  </div>
+  <p style="margin-top:22px"><a href="app.html" style="font-weight:600">Prueba el panel de la gestora con datos de ejemplo →</a></p>
+  <div class="promise">
+    <b>Empieza en modo propuesta. Pasa a automático cuando tú quieras.</b>
+    <p>Las dos primeras semanas, el agente prepara cada mensaje y tú lo apruebas con un toque. Cuando confíes en él, activas el modo automático piso a piso. Los pisos delicados pueden quedarse siempre en propuesta.</p>
+  </div>
+</div></section>
+
+<section class="fitsec" style="padding-top:0"><div class="wrap">
+  <h2 style="font-size:clamp(1.9rem,5vw,2.8rem);max-width:20em;margin-top:10px">Te lo decimos antes de la llamada.</h2>
+  <div class="fit">
+    <div class="card yes"><h3>Encaja si…</h3><ul>
+      <li>Gestionas entre 10 y 60 viviendas turísticas.</li>
+      <li>Usas un PMS (Avantio, Hostaway, Smoobu) o, al menos, calendarios iCal.</li>
+      <li>Coordinas limpiezas en grupos de WhatsApp o en un Excel.</li>
+      <li>Tu equipo de limpieza es propio o subcontratado, pero fijo.</li>
+    </ul></div>
+    <div class="card no"><h3>Aún no encaja si…</h3><ul>
+      <li>Tienes 1 o 2 pisos y los limpias tú: no te compensa.</li>
+      <li>Buscas un PMS o un channel manager: no lo somos.</li>
+      <li>Buscas registro de viajeros o check-in online: para eso ya existe Chekin.</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section class="benefits"><div class="wrap">
+  <h2>Menos llamadas, pisos revisados y propietarios informados.</h2>
+  <div class="ledger">
+    <div class="sea"><h3>Ves cada piso antes que el huésped.</h3><p>Cada vivienda tiene su lista de revisión: camas, toallas, cocina, terraza. El agente no marca un piso como listo hasta que las fotos cuadran. Si algo falta, se lo pide a la limpiadora mientras aún está dentro.</p></div>
+    <div class="sand"><h3>Tu equipo sigue en WhatsApp</h3><p>Limpiadoras y técnicos no instalan nada. Reciben un mensaje con el piso y la hora, como ahora.</p></div>
+    <div><h3>El informe del propietario sale solo</h3><p>Ocupación, limpiezas y reparaciones del mes en un PDF que revisas antes de enviar.</p></div>
+  </div>
+  <p class="note">Contexto: la oferta de vivienda turística en España cayó un 10,7% interanual en mayo de 2026 según el INE (<a href="https://forbes.es/forbestravel/964774/la-vivienda-turistica-cae-un-107-y-marca-uno-de-los-mayores-retrocesos-historicos/" target="_blank" rel="noopener">Forbes España</a>). Quedan menos pisos y más exigencia. Si gestionas pisos de otros, cada reseña mala pesa más que antes.</p>
+</div></section>
+
+<section class="pricing" id="precio"><div class="wrap">
+  <span class="eyebrow">Precio de lanzamiento</span>
+  <h2>Pagas por vivienda activa. Y solo cuando funciona.</h2>
+  <p class="note" style="margin-top:14px;font-size:1rem;color:var(--ink)">El piloto de 30 días es gratis y sin tarjeta. Solo empiezas a pagar si, durante el piloto, al menos 8 de cada 10 salidas quedan revisadas sin que tengas que intervenir.</p>
+  <div class="plans">
+    <div class="card plan"><h3>Limpiezas</h3><div class="price">8 € <small>/ vivienda / mes</small></div><p style="color:var(--muted)">Para empezar por lo que más duele.</p><ul><li>Asignación tras cada salida</li><li>Revisión de fotos por piso</li><li>Panel de estado diario</li></ul></div>
+    <div class="card plan feat"><span class="flag">El que proponemos</span><h3>Operaciones</h3><div class="price">12 € <small>/ vivienda / mes</small></div><p style="color:var(--muted)">Limpiezas, averías y huéspedes.</p><ul><li>Todo lo de Limpiezas</li><li>Partes de mantenimiento y citas</li><li>Incidencias de huéspedes 24/7</li><li>Informe mensual a propietarios</li></ul></div>
+    <div class="card plan"><h3>Gestora grande</h3><div class="price">15 € <small>/ vivienda / mes</small></div><p style="color:var(--muted)">De 40 a 60 viviendas o varias zonas.</p><ul><li>Todo lo de Operaciones</li><li>Varios equipos y zonas</li><li>Informes con tu marca</li></ul></div>
+  </div>
+  <p class="note">Los precios son una hipótesis de validación. Las primeras gestoras que prueben Llaverio tendrán condiciones de piloto. <a href="precios.html">Calcula cuánto te ahorra con tus números</a>.</p>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <h2>Lo que nos preguntaría una gestora.</h2>
+  <div class="faqwrap">
+    <details><summary>¿Cuánto trabajo me da ponerlo en marcha?</summary><p>Una llamada de una hora. Nos das acceso de lectura a tu PMS y la lista de pisos, limpiadoras y técnicos. Nosotros preparamos la lista de revisión de cada piso a partir de tus fotos y lo dejamos funcionando en una semana.</p></details>
+    <details><summary>¿Mi equipo de limpieza tiene que instalar algo?</summary><p>No. Llaverio escribe por WhatsApp Business desde un número de tu empresa. Las limpiadoras responden y mandan fotos como hacen ahora.</p></details>
+    <details><summary>¿Sustituye a Chekin, Avantio o mi PMS?</summary><p>No. Tu PMS sigue siendo la fuente de reservas y Chekin (o similar) sigue con el registro de viajeros para SES.Hospedajes. Llaverio se ocupa de lo que pasa entre una salida y la siguiente entrada.</p></details>
+    <details><summary>¿Qué pasa si el agente se equivoca?</summary><p>Tú defines qué decide solo y qué necesita tu visto bueno. Gastos, quejas serias y cambios de horario siempre pasan por ti. Todo queda registrado en el panel.</p></details>
+    <details><summary>¿Y los datos de huéspedes y empleados?</summary><p>Tratamos los datos como encargado del tratamiento según el RGPD, con servidores en la UE. Solo usamos lo necesario para coordinar el trabajo.</p></details>
+    <details><summary>¿Y en invierno, cuando tengo la mitad de pisos parados?</summary><p>Solo pagas por vivienda activa: la que tiene al menos una salida ese mes. Si en enero trabajas con 12 pisos, pagas 12.</p></details>
+    <details><summary>¿Mis limpiadoras lo van a aceptar?</summary><p>Reciben lo mismo que ahora (un WhatsApp con el piso y la hora), pero sin audios a medianoche ni cambios de última hora sin avisar. Antes de empezar, les pedimos su consentimiento y les explicamos para qué se usan las fotos: solo del piso, nunca de personas.</p></details>
+    <details><summary>¿Quién está detrás?</summary><p>Joaquín Ferreiros, desarrollador en Barcelona. Llaverio está en fase de piloto: aún no tenemos clientes de pago y no te lo vamos a disfrazar. Por eso el piloto es gratis y lo montamos a mano contigo.</p></details>
+  </div>
+</div></section>
+
+<section class="founderwrap" style="padding-bottom:0"><div class="wrap founder">
+  <div class="mark" aria-hidden="true">J</div>
+  <div>
+    <blockquote style="margin-top:12px">«Llaverio nace de ver a gestoras de la costa pasar el sábado de agosto con tres grupos de WhatsApp y el móvil en la mano. Quiero una cosa: que el próximo verano comas tranquilo mientras salen nueve pisos a la vez.»</blockquote>
+    <cite>Joaquín Ferreiros · fundador, Barcelona. Monto contigo cada piloto, en persona si estás en Catalunya.</cite>
+  </div>
+</div></section>
+
+<section class="cta" id="probar" style="margin-top:84px"><div class="wrap">
+  <div>
+    <span class="eyebrow" style="color:#EADCC0">Piloto gratis · temporada 2027</span>
+    <h2>Llega al verano con los sábados resueltos.</h2>
+    <p>Buscamos 10 gestoras de la Costa Brava, Costa Daurada, Málaga y Canarias para un piloto este otoño.</p>
+    <ol style="margin:22px 0 0 20px;color:#fff;display:grid;gap:8px">
+      <li>Nos dejas tu contacto (20 segundos).</li>
+      <li>Te llamamos y vemos tu operación en 20 minutos.</li>
+      <li>Lo montamos con 5 de tus pisos y lo pruebas 30 días gratis.</li>
+    </ol>
+  </div>
+  <!-- TODO: connect form -->
+  <form id="f" novalidate aria-label="Pedir piloto gratis">
+    <div id="fields" style="display:grid;gap:14px">
+      <label>Nombre<input name="nombre" required autocomplete="name" placeholder="Tu nombre"></label>
+      <label>Gestora<input name="empresa" required autocomplete="organization" placeholder="Nombre de tu empresa"></label>
+      <label>Teléfono o email<input name="contacto" required placeholder="600 000 000 o tu@gestora.es"></label>
+      <button class="btn" type="submit">Pedir piloto</button>
+      <p class="fine">Sin tarjeta y sin compromiso. Esta página de validación no guarda tus datos.</p>
+    </div>
+    <div class="thanks" id="thanks" role="status" aria-live="polite"><h3>Gracias.</h3><p>Joaquín te escribirá esta semana para hablar de tu operación.</p></div>
+  </form>
+</div></section>
+
+<script>
+(function(){
+  var S=[
+   {k:'Mas Llevant 2B',ready:'Piso listo a las 14:58',margin:'61 min de margen',w:82,who:'Rosa, limpieza',av:'R',
+    tl:[['11:02','done','Check-out en Mas Llevant 2B','Detectado en Smoobu. Próxima entrada hoy a las 16:00.'],['11:03','done','Limpieza asignada a <b>Rosa</b>','Ruta: 2B → Far 4 → Canadell 1'],['14:41','warn','Revisión de fotos: 5 de 6 bien','Falta el juego de toallas en el baño 2.'],['14:58','done','Corregido y validado','Toallas repuestas. Fotos: 6 de 6.'],['15:10','','Parte a <b>Jordi (fontanero)</b>','Grifo de la cocina gotea. Cita propuesta: lunes 9:30.']],
+    chat:[['','Terminado el 2B. Te mando fotos.','14:40',1],['me','Gracias, Rosa. En la foto del baño 2 no veo toallas. ¿Puedes dejar un juego antes de irte?','14:41'],['','Uy sí, voy ahora mismo.','14:52']],note:'El agente también anota: «grifo cocina gotea» y abre el parte.'},
+   {k:'Far 4',ready:'Piso listo a las 15:22',margin:'38 min de margen',w:90,who:'Marta, limpieza',av:'M',
+    tl:[['08:12','warn','Rosa avisa: está enferma','Tenía 3 salidas: 2B, Far 4 y Canadell 1.'],['08:14','done','Reparto propuesto','2B y Far 4 a <b>Marta</b>, Canadell 1 a <b>Nuria</b>.'],['08:20','done','Tú apruebas con un toque','Cambio de turno: pide tu visto bueno.'],['15:22','done','Far 4 validado','Fotos: 7 de 7.']],
+    chat:[['me','Hola, Marta. Rosa está de baja hoy. ¿Puedes hacer también el Far 4 después del 2B? Salida 11:00, entrada 16:00.','08:21'],['','Sí, llego a las 13:30.','08:40'],['me','Perfecto. Te dejo la lista del Far 4 aquí mismo.','08:40']],note:'Nuria confirma Canadell 1 a las 08:52. Tú no has hecho ninguna llamada.'},
+   {k:'Canadell 1',ready:'Resuelto a las 16:31',margin:'Sin llamada a la gestora',w:100,who:'Familia Weber, huésped',av:'W',
+    tl:[['16:12','done','Entrada en Canadell 1','Familia Weber, 4 personas.'],['16:25','warn','Mensaje del huésped','«The wifi does not work.»'],['16:26','done','Respuesta en su idioma','Pasos del router de este piso.'],['16:31','done','Resuelto','Si no, habría escalado a ti y al técnico.']],
+    chat:[['','Hi! The wifi does not work.','16:25'],['me','Hi, sorry about that! The router is in the hall cupboard. Unplug it for 10 seconds and plug it back in. The network is Canadell1_5G.','16:26'],['','Works now, thanks!','16:31']],note:'El agente anota: «router Canadell 1, segundo reinicio este mes» para que lo revises.'}
+  ];
+  var tl=document.getElementById('tl'),chat=document.getElementById('chat'),tabs=document.querySelectorAll('.scen button');
+  if(!tl||!tabs.length) return;
+  var head=chat.querySelector('.who').outerHTML;
+  function render(i){
+    var d=S[i];
+    tabs.forEach(function(b,j){b.setAttribute('aria-selected',j===i?'true':'false')});
+    document.getElementById('kt').textContent=d.k;
+    document.getElementById('ready').textContent=d.ready;
+    document.getElementById('margin').textContent=d.margin;
+    var bar=document.getElementById('bar');bar.style.right=(100-d.w)+'%';bar.style.animation='none';void bar.offsetWidth;bar.style.animation='';
+    tl.innerHTML=d.tl.map(function(t,n){return '<div class="step in '+t[1]+'" style="animation-delay:'+(n*120)+'ms"><span class="t mono">'+t[0]+'</span><span class="dot"></span><p>'+t[2]+'<small>'+t[3]+'</small></p></div>'}).join('');
+    var h='';
+    d.chat.forEach(function(c,n){h+='<div class="bubble in '+c[0]+'" style="animation-delay:'+(300+n*350)+'ms">'+c[1]+(c[3]?'<div class="photos" role="img" aria-label="Tres fotos del piso: dos correctas y una con un fallo"><div class="ph"><b>✓</b></div><div class="ph"><b>✓</b></div><div class="ph x"><b>!</b></div></div>':'')+'<span class="meta">'+c[2]+'</span></div>'});
+    chat.innerHTML=head+h+'<div class="check in" style="animation-delay:'+(300+d.chat.length*350)+'ms">'+d.note+'</div>';
+    document.getElementById('who').textContent=d.who;document.getElementById('av').textContent=d.av;
+  }
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){render(i)})});
+})();
+</script>
+</main>
+<div class="sticky" id="sticky" aria-hidden="true"><span>Piloto gratis de 30 días</span><a class="btn" href="#probar" tabindex="-1">Pedir piloto</a></div>
+
+<footer><div class="wrap">
+  <span><b style="color:var(--ink)">Llaverio</b> · © 2026</span>
+  <span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="plan.html">Plan</a></span>
+</div></footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  this.querySelectorAll('input[required]').forEach(function(i){
+    var bad=!i.value.trim(); i.style.borderColor=bad?'#D08A12':''; if(bad) ok=false;
+  });
+  if(!ok) return;
+  document.getElementById('fields').style.display='none';
+  document.getElementById('thanks').style.display='block';
+});
+// Sticky CTA: show after the hero, hide while the form is on screen.
+(function(){
+  var s=document.getElementById('sticky'),hero=document.querySelector('.hero'),cta=document.getElementById('probar');
+  if(!('IntersectionObserver' in window)) return;
+  var pastHero=false,atCta=false;
+  function set(){s.classList.toggle('on',pastHero&&!atCta)}
+  new IntersectionObserver(function(e){pastHero=!e[0].isIntersecting;set()}).observe(hero);
+  new IntersectionObserver(function(e){atCta=e[0].isIntersecting;set()}).observe(cta);
+})();
+</script>
+</body>
+</html>

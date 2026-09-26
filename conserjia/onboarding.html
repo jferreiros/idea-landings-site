@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Onboarding</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">&larr; Volver al plan</a>
+  <p class="mono" style="margin-top:22px">Onboarding del piloto · uso interno · 26 sep 2026</p>
+  <h1>Los primeros 14 días de un despacho</h1>
+  <div class="summary"><p class="mono">El momento de valor</p><p style="margin:6px 0 0">La primera avería real que el despacho ve cerrada en su ficha sin haber cogido el teléfono. Todo el onboarding existe para llegar ahí antes del día 7.</p></div>
+  <nav class="toc"><a href="#mensajes">Mensajes día 0-14</a><a href="#checklist">Checklist</a><a href="#valor">Primer valor</a></nav>
+</header>
+
+<section id="mensajes">
+  <h2>Mensajes de los días 0, 1, 3, 7 y 14</h2>
+  <p>Van por WhatsApp al titular (el canal que usa), con copia por email a la dirección que nos dio. Los firma Joaquín.</p>
+  <div class="card"><p class="mono">Día 0 · al enviar el formulario</p><p>"Hola, [nombre]. Soy Joaquín, de Conserjia. Gracias por pedir el piloto. ¿Te va bien una llamada de 15 minutos mañana o el jueves? Trae tres averías del último mes y la lista de tus industriales (nombre, oficio y móvil)."</p></div>
+  <div class="card"><p class="mono">Día 1 · después de la llamada</p><p>"Resumen: piloto en [comunidad 1] y [comunidad 2]. Hoy doy de alta a [n] industriales y te mando el cartel en PDF para el portal. Tus urgencias: agua activa, ascensor con gente, sin luz en zonas comunes. Tu límite de gasto sin preguntar: [importe] €. ¿Correcto?"</p></div>
+  <div class="card"><p class="mono">Día 3 · cartel colgado</p><p>"El número ya está activo y el cartel está en los dos portales. Te llegará un resumen cada mañana a las 08:00. Si un vecino te sigue escribiendo al móvil, reenvíale el número: yo le contesto desde ahí."</p></div>
+  <div class="card"><p class="mono">Día 7 · primer balance</p><p>"Primera semana: [n] avisos, [n] cerrados, [n] pendientes. El más rápido: [avería], de [hora] a [hora]. Esta es su ficha: [enlace]. ¿Algo que Conserjia haya dicho que no te guste?"</p></div>
+  <div class="card"><p class="mono">Día 14 · mitad del piloto</p><p>"Mitad del piloto: [n] averías, [n] sin que el despacho tocara el teléfono. Si quieres, añado una tercera comunidad sin coste hasta el día 30. El día 30 te mando el informe y hablamos de seguir."</p></div>
+</section>
+
+<section id="checklist">
+  <h2>Checklist de puesta en marcha</h2>
+  <div class="tw"><table><thead><tr><th>Paso</th><th>Quién</th><th>Cuándo</th></tr></thead><tbody>
+    <tr><td>Contrato de encargado del tratamiento (RGPD) firmado</td><td>Despacho y Joaquín</td><td>Día 1</td></tr>
+    <tr><td>2 comunidades elegidas, con dirección, presidente y nº de viviendas</td><td>Despacho</td><td>Día 1</td></tr>
+    <tr><td>Industriales dados de alta (oficio, móvil, guardia sí o no)</td><td>Joaquín</td><td>Día 1</td></tr>
+    <tr><td>Reglas: urgencias, límite de gasto, horario del despacho</td><td>Despacho en la llamada</td><td>Día 1</td></tr>
+    <tr><td>Aviso a los industriales: "os escribirá Conserjia en nombre del despacho"</td><td>Despacho</td><td>Día 2</td></tr>
+    <tr><td>Cartel con QR y número colgado en los portales</td><td>Joaquín o presidente</td><td>Día 3</td></tr>
+    <tr><td>Aviso a vecinos en el grupo o tablón de la comunidad</td><td>Presidente</td><td>Día 3</td></tr>
+    <tr><td>Prueba completa con una avería falsa de Joaquín</td><td>Joaquín</td><td>Día 3</td></tr>
+    <tr><td>Resumen diario de las 08:00 llegando al despacho</td><td>Sistema</td><td>Día 4</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="valor">
+  <h2>El primer valor y cómo lo provoco</h2>
+  <ul>
+    <li><b>Qué es:</b> una avería real cerrada con foto del arreglo y confirmación del vecino, que el titular ve en su ficha sin haber hecho una llamada.</li>
+    <li><b>Métrica:</b> días desde el alta hasta la primera avería cerrada. Objetivo: 7 días o menos.</li>
+    <li><b>Si el día 5 no ha entrado ninguna avería:</b> pido al presidente que recuerde el número en el grupo de vecinos, y pregunto al despacho por averías abiertas que pueda pasar a Conserjia.</li>
+    <li><b>Cuando pasa:</b> mando esa ficha al titular con un mensaje corto. Es la captura que después pido permiso para usar en el contenido.</li>
+  </ul>
+</section>
+<footer><span>Conserjia · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Precios</title>
+<meta name="description" content="Precio de Conserjia: 12 € por comunidad y mes tras un piloto gratis de 30 días. Calculadora para ver si te sale a cuenta.">
+<link rel="canonical" href="https://conserjia.vercel.app/precios.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230D1B2E'/%3E%3Crect x='4' y='4' width='24' height='24' rx='3' fill='none' stroke='%23D4A43A' stroke-width='2.5'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='monospace' font-weight='700' font-size='14' fill='%23D4A43A'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2E; --navy-2:#13253D; --navy-3:#1B3252; --rule:#2A4265;
+  --txt:#E8ECF2; --txt-2:#A9B6C8; --txt-3:#7F8EA4;
+  --brass:#D4A43A; --brass-2:#E6BC5C; --brass-ink:#1A1405;
+  --red:#E07A5F; --ok:#7FC8A9;
+  --r:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--txt);font:400 17px/1.6 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--brass-2)}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.005em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;background:var(--brass);color:var(--brass-ink);border:0;border-radius:var(--r);padding:13px 22px;font:700 16px "Hanken Grotesk",sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .35s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)}
+.btn:hover{background:var(--brass-2)}
+.btn:active{transform:scale(.98)}
+.btn .ar{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:4px;background:rgba(26,20,5,.12);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.btn:hover .ar{transform:translateX(3px)}
+.btn.ghost{background:transparent;color:var(--txt);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--txt-2)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--brass);color:var(--brass-ink);padding:8px 12px;z-index:50}
+.skip:focus{left:8px}
+a:focus-visible,.btn:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--brass-2);outline-offset:3px}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;height:72px;border-bottom:1px solid var(--rule)}
+.logo{display:flex;align-items:center;gap:12px;font-family:"DM Serif Display",serif;font-size:1.45rem;color:var(--txt);text-decoration:none}
+.navr{display:flex;align-items:center;gap:14px}
+.lang{display:inline-flex;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;font:600 .74rem "IBM Plex Mono",monospace}
+.lang a,.lang span{display:grid;place-items:center;min-width:40px;min-height:40px;padding:0 8px;text-decoration:none;color:var(--txt-3)}
+.lang span{background:var(--navy-3);color:var(--txt)}
+.lang a:hover{color:var(--txt)}
+@media(max-width:420px){nav .navr>.btn{display:none}}
+.plate{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 6px;border:2px solid var(--brass);border-radius:4px;color:var(--brass);font:600 .8rem "IBM Plex Mono",monospace}
+nav .links{display:none;gap:28px}
+nav .links a{color:var(--txt-2);text-decoration:none;font-size:.95rem}
+nav .links a:hover{color:var(--txt)}
+nav .btn{min-height:42px;padding:9px 16px;font-size:15px}
+@media(min-width:860px){nav .links{display:flex}}
+
+/* hero */
+.hero{display:grid;gap:44px;grid-template-columns:1fr;padding:56px 0 72px}
+@media(min-width:980px){.hero{grid-template-columns:1.05fr .95fr;align-items:center;padding:72px 0 96px}}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--brass);margin-bottom:22px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--brass)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem)}
+.hero h1 em{font-style:italic;color:var(--brass-2);padding-bottom:4px}
+.hero .lead{font-size:1.18rem;color:var(--txt-2);max-width:31em;margin:24px 0 32px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* building section diagram */
+.bldg{position:relative;max-width:520px;margin:0 auto;width:100%}
+.sign{display:inline-flex;flex-direction:column;margin:0 0 14px 64px;background:#123A5A;border:2px solid var(--txt);border-radius:4px;padding:6px 14px 7px;color:var(--txt);box-shadow:0 0 0 3px #123A5A}
+.sign small{font:600 .62rem "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.sign b{font-family:"DM Serif Display",serif;font-weight:400;font-size:1.25rem;line-height:1.1}
+.facade{border:2px solid var(--txt-3);border-bottom:0;border-radius:3px 3px 0 0;background:var(--navy-2)}
+.floor{display:grid;grid-template-columns:64px 1fr 1fr 1fr;border-top:1px solid var(--rule);min-height:46px}
+.floor:first-child{border-top:0}
+.floor .lv{display:grid;place-items:center;border-right:1px solid var(--rule);font:600 .72rem "IBM Plex Mono",monospace;color:var(--txt-3)}
+.floor .u{border-right:1px dashed rgba(42,66,101,.8);position:relative}
+.floor .u:last-child{border-right:0}
+.floor .u::after{content:"";position:absolute;left:28%;right:28%;top:12px;bottom:12px;border:1px solid var(--rule);border-radius:2px}
+.floor.gar{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(42,66,101,.35) 10px 11px)}
+.floor.gar .u::after{display:none}
+.ground{height:10px;background:var(--txt-3);border-radius:0 0 3px 3px}
+.hit{position:absolute;inset:6px;border:2px solid var(--brass);border-radius:3px;background:rgba(212,164,58,.12);z-index:1}
+.hit::before{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--brass)}
+@media(prefers-reduced-motion:no-preference){.hit::before{animation:ping 2.2s cubic-bezier(.16,1,.3,1) infinite}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(212,164,58,.6)}70%,100%{box-shadow:0 0 0 14px rgba(212,164,58,0)}}
+.tkt{position:relative;margin:22px 0 0 auto;width:min(330px,92%);background:var(--txt);color:var(--navy);border-radius:4px;padding:16px 18px 14px;box-shadow:0 24px 48px -20px rgba(0,0,0,.6);z-index:2}
+.tkt::before{content:"";position:absolute;left:0;right:0;top:-6px;height:6px;background:radial-gradient(circle at 6px 0,transparent 5px,var(--txt) 5.5px) 0 0/12px 6px repeat-x}
+.tkt .no{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed #9AA6B8;padding-bottom:8px;margin-bottom:10px}
+.tkt .no b{font:600 1.5rem "IBM Plex Mono",monospace;letter-spacing:-.02em}
+.tkt .no span{font:600 .68rem "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;background:var(--red);color:#fff;padding:3px 7px;border-radius:3px}
+.tkt p{font-size:.93rem;line-height:1.45}
+.tkt ul{list-style:none;margin-top:10px;display:grid;gap:4px;font:500 .78rem "IBM Plex Mono",monospace;color:#3D4C62}
+.tkt li{display:flex;justify-content:space-between;gap:10px}
+.tkt li b{color:var(--navy)}
+.tkt li.now b{color:#9A6B06}
+.fine{margin-top:18px;font-size:.92rem;color:var(--txt-3)}
+
+/* sections */
+section{padding:96px 0;border-top:1px solid var(--rule)}
+h2{font-size:clamp(2rem,4.2vw,3rem);max-width:18em}
+.sub{color:var(--txt-2);margin-top:16px;font-size:1.1rem;max-width:36em}
+
+/* monday */
+.day{display:grid;gap:40px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:900px){.day{grid-template-columns:1.1fr .9fr;gap:64px}}
+.log{list-style:none;display:grid;gap:0}
+.log li{display:grid;grid-template-columns:78px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--rule)}
+.log li:first-child{border-top:0;padding-top:0}
+.log time{font:600 .95rem "IBM Plex Mono",monospace;color:var(--red)}
+.log p{color:var(--txt-2)}
+.cost{background:var(--navy-2);border-left:3px solid var(--brass);padding:28px 30px}
+.cost h3{font-size:1.6rem;margin-bottom:16px}
+.cost p{color:var(--txt-2);margin-top:10px}
+
+/* how: chat + steps */
+.how{display:grid;gap:48px;grid-template-columns:1fr;margin-top:48px;align-items:start}
+@media(min-width:960px){.how{grid-template-columns:380px 1fr;gap:72px}}
+.phone{background:#050C16;border-radius:30px;padding:10px;max-width:360px;margin:0 auto;width:100%;box-shadow:0 30px 60px -30px rgba(0,0,0,.8),inset 0 0 0 1px var(--rule)}
+.screen{background:#E9E4DA;border-radius:22px;overflow:hidden;color:#111B21}
+.screen .top{background:#123A5A;color:#fff;padding:12px 14px;display:flex;gap:10px;align-items:center}
+.screen .top .plate{border-color:var(--brass-2);color:var(--brass-2);min-width:30px;height:30px;font-size:.7rem}
+.screen .top b{display:block;font-size:14.5px}.screen .top small{opacity:.75;font-size:12px}
+.chat{padding:12px 10px 16px;display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.4}
+.msg{max-width:86%;padding:7px 10px;border-radius:10px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.msg.me{align-self:flex-end;background:#DCF3CF}
+.msg time{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:2px}
+.photo{height:104px;border-radius:7px;margin-bottom:6px;position:relative;overflow:hidden;background:radial-gradient(ellipse 36% 24% at 50% 72%,rgba(40,80,120,.55),transparent 70%),linear-gradient(90deg,transparent 46%,#8d8f8c 46% 54%,transparent 54%),repeating-linear-gradient(0deg,#cfc6b4 0 22px,#bdb29d 22px 24px)}
+.chip{display:inline-block;font:600 10.5px "IBM Plex Mono",monospace;text-transform:uppercase;padding:2px 6px;border-radius:3px;background:#FDE3DA;color:#A33D22;margin:0 4px 4px 0}
+.chip.c{background:#DCE7F5;color:#123A5A}
+.steps{list-style:none;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-top:1px solid var(--rule)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps .plate{width:48px;height:48px;font-size:1.05rem}
+.steps h3{font-size:1.55rem;margin-bottom:8px}
+.steps p{color:var(--txt-2)}
+
+.demo{max-width:360px;margin:0 auto;width:100%}
+.demo-l{color:var(--brass);margin-bottom:12px}
+.scn{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.scn button{min-height:44px;padding:8px 14px;border-radius:var(--r);border:1.5px solid var(--rule);background:transparent;color:var(--txt-2);font:600 .92rem "Hanken Grotesk",sans-serif;cursor:pointer;transition:border-color .3s cubic-bezier(.16,1,.3,1),color .3s cubic-bezier(.16,1,.3,1)}
+.scn button:hover{color:var(--txt);border-color:var(--txt-3)}
+.scn button[aria-pressed=true]{border-color:var(--brass);color:var(--txt);background:rgba(212,164,58,.1)}
+.scn button:focus-visible{outline:3px solid var(--brass-2);outline-offset:2px}
+.chat{min-height:392px}
+.msg.new{animation:pop .45s cubic-bezier(.16,1,.3,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.typing{align-self:flex-start;background:#fff;border-radius:10px;padding:9px 12px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#98A2AD;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,100%{opacity:.3}50%{opacity:1}}
+.demo-out{margin-top:16px;font-size:.95rem;color:var(--txt-2);min-height:3em}
+.demo-out .chip{vertical-align:1px}
+@media(prefers-reduced-motion:reduce){.msg.new,.typing i{animation:none}}
+
+/* ficha */
+.board{margin-top:48px;background:var(--navy-2);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.board .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--rule)}
+.board .bar b{font:600 .95rem "IBM Plex Mono",monospace}
+.bgrid{display:grid;grid-template-columns:1fr}
+@media(min-width:900px){.bgrid{grid-template-columns:1.2fr 1fr}}
+.ticket{padding:26px;border-bottom:1px solid var(--rule)}
+@media(min-width:900px){.ticket{border-bottom:0;border-right:1px solid var(--rule)}}
+.ticket h3{font-size:1.5rem;margin:8px 0 12px}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:8px 14px;font-size:.96rem;margin:16px 0}
+.kv dt{color:var(--txt-3)}
+.law{border-left:3px solid var(--brass);padding:10px 14px;font-size:.92rem;color:var(--txt-2);background:rgba(212,164,58,.07)}
+.track{padding:26px}
+.track ol{list-style:none;display:grid;gap:16px;margin-top:16px}
+.track li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.96rem}
+.track li i{width:12px;height:12px;border-radius:2px;margin-top:6px;background:var(--ok)}
+.track li.now i{background:var(--brass);box-shadow:0 0 0 4px rgba(212,164,58,.25)}
+.track li.next i{background:transparent;border:2px solid var(--rule)}
+.track li small{display:block;color:var(--txt-3);font:500 .8rem "IBM Plex Mono",monospace}
+.track li.next{color:var(--txt-3)}
+
+/* compare */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:40px}
+.compare{width:100%;min-width:640px;border-collapse:collapse;font-size:.96rem}
+.compare th,.compare td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+.compare thead th{font:600 .74rem "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--txt-3)}
+.compare td{color:var(--txt-2)}
+.compare td.us{color:var(--txt);background:rgba(212,164,58,.09);font-weight:600}
+.compare thead th.us{color:var(--brass)}
+.compare th[scope=row]{font-weight:600;width:26%}
+@media(max-width:640px){.compare{min-width:0;font-size:.92rem}.compare th:nth-child(3),.compare td:nth-child(3){display:none}.compare th,.compare td{padding:12px 10px}.kv{grid-template-columns:96px 1fr}}
+
+/* rules */
+.rules{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:48px;grid-template-columns:1fr}
+@media(min-width:760px){.rules{grid-template-columns:1fr 1fr}}
+.rules div{background:var(--navy);padding:28px}
+.rules b{display:block;font-family:"DM Serif Display",serif;font-weight:400;font-size:1.45rem;margin-bottom:6px}
+.rules p{color:var(--txt-2)}
+
+/* pricing */
+.plans{display:grid;gap:18px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:900px){.plans{grid-template-columns:1.2fr 1fr}}
+.plan{border:1px solid var(--rule);border-radius:8px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.plan.hl{background:var(--navy-2);border:2px solid var(--brass)}
+.plan h3{font-size:1.45rem}
+.price{font-family:"DM Serif Display",serif;font-size:2.8rem;line-height:1}
+.price small{font:400 .95rem "Hanken Grotesk",sans-serif;color:var(--txt-2)}
+.plan ul{list-style:none;display:grid;gap:8px;color:var(--txt-2)}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--brass);border-bottom:2px solid var(--brass);transform:rotate(-45deg)}
+.note{margin-top:20px;font-size:.9rem;color:var(--txt-3)}
+
+/* founder */
+.founder{display:grid;gap:24px;grid-template-columns:1fr}
+@media(min-width:860px){.founder{grid-template-columns:auto 1fr;gap:40px}}
+.founder .plate{width:64px;height:64px;font-size:1.3rem}
+.founder blockquote{font-family:"DM Serif Display",serif;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.25;max-width:24em}
+.founder p{color:var(--txt-2);margin-top:16px;max-width:44em}
+
+/* faq */
+.faq{margin-top:40px;max-width:860px}
+details{border-top:1px solid var(--rule);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:600 1.3rem "IBM Plex Mono",monospace;color:var(--brass);line-height:1}
+details[open] summary::after{content:"-"}
+details p{color:var(--txt-2);margin-top:10px;max-width:46em}
+
+/* cta */
+.cta{display:grid;gap:40px;grid-template-columns:1fr;border:2px solid var(--brass);border-radius:8px;padding:36px 22px;background:var(--navy-2)}
+@media(min-width:960px){.cta{grid-template-columns:1fr 1fr;padding:56px;gap:64px}}
+.cta h2{font-size:clamp(2rem,4vw,2.8rem)}
+.pilot{list-style:none;display:grid;gap:14px;margin-top:28px}
+.pilot li{display:grid;grid-template-columns:40px 1fr;gap:14px;color:var(--txt-2)}
+.pilot b{display:block;color:var(--txt)}
+form{display:flex;flex-direction:column;gap:14px}
+label{font-size:.92rem;font-weight:600;color:var(--txt)}
+input{width:100%;margin-top:6px;padding:14px;border-radius:var(--r);border:1px solid var(--txt-3);background:var(--navy);color:var(--txt);font:16px "Hanken Grotesk",sans-serif}
+input::placeholder{color:#8795AA}
+.form-note{font-size:.85rem;color:var(--txt-2)}
+.thanks{display:none;border:1px solid var(--rule);border-radius:var(--r);padding:28px}
+.thanks h3{font-size:1.7rem;margin-bottom:8px}
+.thanks p{color:var(--txt-2)}
+footer{padding:40px 0 110px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--txt-3);font-size:.92rem;border-top:1px solid var(--rule)}
+footer a{color:var(--txt-2)}
+@media(min-width:860px){footer{padding-bottom:50px}}
+
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--txt);color:var(--navy);border-radius:8px;padding:8px 8px 8px 16px;box-shadow:0 14px 30px -12px rgba(0,0,0,.7);transform:translateY(160%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.sticky.on{transform:none}
+.sticky span{font-size:.92rem;font-weight:600}
+.sticky .btn{min-height:44px;padding:9px 16px;font-size:15px}
+@media(min-width:860px){.sticky{left:auto;right:24px;bottom:24px;max-width:420px}}
+
+.rv{opacity:1}
+@media(prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .js .rv.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.btn,.btn .ar{transition:none}}
+</style>
+<style>
+.calc{display:grid;gap:32px;grid-template-columns:1fr;margin-top:40px;border:1px solid var(--rule);border-radius:8px;padding:28px;background:var(--navy-2)}
+@media(min-width:900px){.calc{grid-template-columns:1fr 1fr;padding:40px;gap:56px}}
+.field{margin-bottom:22px}
+.field label{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+.field output{white-space:nowrap;font:600 1rem "IBM Plex Mono",monospace;color:var(--brass-2)}
+.field input[type=range]{width:100%;margin-top:10px;accent-color:var(--brass);min-height:32px;padding:0;border:0;background:transparent}
+.field small{display:block;color:var(--txt-3);font-size:.85rem;margin-top:2px}
+.res{display:grid;gap:16px;align-content:start}
+.res div{border-top:1px solid var(--rule);padding-top:14px}
+.res b{display:block;font-family:"DM Serif Display",serif;font-weight:400;font-size:2.4rem;line-height:1.05}
+.res span{color:var(--txt-2)}
+.res .net b{color:var(--brass-2)}
+.back{display:inline-block;margin-top:28px;color:var(--txt-2)}
+@media(max-width:640px){.plansT th:nth-child(3),.plansT td:nth-child(3){display:table-cell}.plansT th:nth-child(4),.plansT td:nth-child(4){display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="wrap">
+<nav aria-label="Principal">
+  <a class="logo" href="./" aria-label="Conserjia, inicio"><span class="plate" aria-hidden="true">C</span>Conserjia</a>
+  <div class="links"><a href="./#como">Cómo funciona</a><a href="precios.html" aria-current="page">Precios</a><a href="./#faq">Preguntas</a></div>
+  <div class="navr"><a class="btn" href="./#probar">Pedir piloto</a></div>
+</nav>
+<header id="main" style="padding:64px 0 24px">
+  <span class="mono kicker">Precios</span>
+  <h1 style="font-size:clamp(2.3rem,5vw,3.8rem);max-width:15em">12 € por comunidad y mes. Primero, 30 días gratis.</h1>
+  <p class="sub">Sin alta, sin licencias aparte y sin permanencia. Precio sin IVA, en validación con los primeros despachos.</p>
+</header>
+</div>
+
+<section style="border-top:0;padding-top:24px">
+  <div class="wrap">
+    <h2>¿Te sale a cuenta? Haz tú la cuenta</h2>
+    <p class="sub">Pon tus números. La calculadora usa solo lo que tú escribes, y el piloto lo mide de verdad.</p>
+    <div class="calc">
+      <form id="roi" onsubmit="return false">
+        <div class="field"><label for="c">Comunidades que gestionas <output id="oc" for="c">60</output></label><input type="range" id="c" min="5" max="200" step="5" value="60"></div>
+        <div class="field"><label for="a">Averías al mes, en total <output id="oa" for="a">60</output></label><input type="range" id="a" min="5" max="200" step="5" value="60"><small>Cuéntalas en el WhatsApp y el correo del último mes.</small></div>
+        <div class="field"><label for="m">Minutos de teléfono por avería <output id="om" for="m">25</output></label><input type="range" id="m" min="5" max="60" step="5" value="25"><small>Llamadas y mensajes con vecino, industrial y presidente.</small></div>
+        <div class="field"><label for="h">Coste por hora de tu oficial (€) <output id="oh" for="h">18</output></label><input type="range" id="h" min="10" max="40" step="1" value="18"><small>Salario más Seguridad Social, dividido por horas.</small></div>
+        <div class="field"><label for="p">Parte de ese tiempo que quita Conserjia <output id="op" for="p">50 %</output></label><input type="range" id="p" min="10" max="90" step="10" value="50"><small>Supuesto tuyo. El informe del día 30 te da el dato real.</small></div>
+      </form>
+      <div class="res" aria-live="polite">
+        <div><span>Horas de oficial que recuperas al mes</span><b id="rh">6,3 h</b></div>
+        <div><span>Valor de esas horas</span><b id="rv">113 €</b></div>
+        <div><span>Coste de Conserjia</span><b id="rc">720 €</b></div>
+        <div class="net"><span id="rnl">Diferencia al mes</span><b id="rn">-608 €</b></div>
+        <p class="note" style="margin-top:0">Esta cuenta solo mide horas. No incluye urgencias de noche, historial para la junta ni comunidades que no cambian de administrador. Si con tus números no sale, dínoslo en la llamada: el precio aún se está validando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Lo que incluye cada fase</h2>
+    <div class="tw">
+      <table class="compare plansT">
+        <thead><tr><th scope="col"></th><th scope="col" class="us">Piloto</th><th scope="col">Por comunidad</th><th scope="col">Despacho (60+)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Precio</th><td class="us">0 € durante 30 días</td><td>12 € por comunidad y mes</td><td>Precio por tramo</td></tr>
+          <tr><th scope="row">Comunidades</th><td class="us">2, las eliges tú</td><td>Las que quieras</td><td>Todas</td></tr>
+          <tr><th scope="row">Revisión humana</th><td class="us">Joaquín revisa cada mensaje</td><td>Solo casos dudosos</td><td>Solo casos dudosos</td></tr>
+          <tr><th scope="row">Industriales y cartel</th><td class="us">Los damos de alta</td><td>Incluido</td><td>Incluido</td></tr>
+          <tr><th scope="row">Número de teléfono propio</th><td class="us">Compartido</td><td>Compartido</td><td>Propio</td></tr>
+          <tr><th scope="row">Permanencia</th><td class="us">Ninguna</td><td>Ninguna</td><td>Ninguna</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Preguntas sobre la factura</h2>
+    <div class="faq">
+      <details><summary>¿Cómo se cuenta una comunidad?</summary><p>Una comunidad es un CIF de comunidad de propietarios. Una finca con dos escaleras y un solo CIF cuenta como una.</p></details>
+      <details><summary>¿Cuándo pago?</summary><p>Al mes siguiente de acabar el piloto, por transferencia o domiciliación, con factura mensual a nombre del despacho.</p></details>
+      <details><summary>¿Lo puedo repercutir a la comunidad?</summary><p>Eso lo decides tú con cada junta. Muchos despachos lo incluyen en sus honorarios; no te pedimos nada al respecto.</p></details>
+      <details><summary>¿Y si una comunidad no tiene averías un mes?</summary><p>Pagas igual por estar activa. Si quieres pausar una comunidad, la desactivas y deja de contar desde el mes siguiente.</p></details>
+      <details><summary>¿Hay costes de WhatsApp o de IA aparte?</summary><p>No. Los mensajes y el uso del modelo de IA van incluidos en los 12 €.</p></details>
+    </div>
+    <a class="btn" href="./#probar" style="margin-top:32px">Pedir piloto <span class="ar" aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
+
+<div class="wrap"><footer><span>Conserjia · Barcelona · © 2026</span><a href="./">Inicio</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer></div>
+<script>
+(function(){
+  var ids=['c','a','m','h','p'],f=function(n){return Math.round(n).toLocaleString('es-ES')};
+  function g(i){return +document.getElementById(i).value}
+  function upd(){
+    document.getElementById('oc').textContent=g('c');document.getElementById('oa').textContent=g('a');
+    document.getElementById('om').textContent=g('m');document.getElementById('oh').textContent=g('h');document.getElementById('op').textContent=g('p')+' %';
+    var hrs=g('a')*g('m')/60*g('p')/100, val=hrs*g('h'), cost=g('c')*12, net=val-cost;
+    document.getElementById('rh').textContent=hrs.toLocaleString('es-ES',{maximumFractionDigits:1})+' h';
+    document.getElementById('rv').textContent=f(val)+' €';
+    document.getElementById('rc').textContent=f(cost)+' €';
+    document.getElementById('rn').textContent=(net>=0?'+':'')+f(net)+' €';
+  }
+  ids.forEach(function(i){document.getElementById(i).addEventListener('input',upd)});upd();
+})();
+</script>
+</body>
+</html>

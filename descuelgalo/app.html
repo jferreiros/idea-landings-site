@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Prototipo del panel</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--card:#fff;--ink:#15201B;--ink-2:#3C4843;--mute:#5E6863;--green:#0E7A3E;--green-2:#1FB95A;--soft:#D7F5E1;--coral:#C9431F;--coral-soft:#FBE3D9;--line:#DDE3DA}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.5 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fredoka,sans-serif;font-weight:600;line-height:1.1}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.demo{background:var(--ink);color:#EAF8EF;font-size:13px;text-align:center;padding:8px 16px}
+.demo a{color:#fff;font-weight:700}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;max-width:1100px;margin:0 auto}
+.brand{font:700 20px Fredoka;display:flex;align-items:center;gap:8px}
+.brand i{width:30px;height:30px;border-radius:9px;background:var(--green);display:grid;place-items:center}
+.sw{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:6px 8px 6px 14px}
+.tg{width:48px;height:28px;border-radius:999px;border:0;background:var(--green-2);position:relative;transition:background .3s cubic-bezier(.16,1,.3,1)}
+.tg:after{content:"";position:absolute;top:3px;left:23px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.tg[aria-checked=false]{background:#B8C1BB}.tg[aria-checked=false]:after{transform:translateX(-20px)}
+main{max-width:1100px;margin:0 auto;padding:0 20px 40px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:8px 0 20px}
+@media(min-width:800px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpis div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.kpis b{display:block;font:700 30px Fredoka;color:var(--green)}
+.kpis span{font-size:13.5px;color:var(--mute)}
+.grid{display:grid;gap:16px}@media(min-width:880px){.grid{grid-template-columns:1fr 1.2fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tabs button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;min-height:40px;font-weight:600;font-size:14px;color:var(--ink)}
+.tabs button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.call{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:12px 8px;border-radius:12px;color:var(--ink)}
+.call:hover,.call[aria-current=true]{background:#EEF6F0}
+.tag{font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.t-cita{background:var(--soft);color:var(--green)}.t-presupuesto{background:#FFF1C9;color:#7A5A00}.t-persona{background:var(--coral-soft);color:var(--coral)}.t-info{background:#E9ECEF;color:#3C4843}
+.call div{flex:1}.call b{display:block}.call small{color:var(--mute)}
+.call time{font-size:13px;color:var(--mute)}
+.detail h2{font-size:24px;margin-bottom:4px}
+.meta{color:var(--mute);font-size:14px;margin-bottom:14px}
+.tr p{margin:8px 0;font-size:15px}.tr b{color:var(--green)}.tr p.c b{color:var(--coral)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.actions button{border:0;border-radius:999px;padding:11px 16px;font-weight:700;min-height:44px}
+.a1{background:var(--green);color:#fff}.a2{background:#EEF6F0;color:var(--ink)}
+.done{margin-top:12px;font-size:14px;font-weight:600;color:var(--green);min-height:22px}
+.off{margin-top:10px;background:var(--coral-soft);color:var(--ink);border-radius:12px;padding:10px 12px;font-size:14px;display:none}
+.paused .off{display:block}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<p class="demo">Prototipo con <b>datos de ejemplo</b>: ningún cliente ni llamada es real. <a href="index.html">Volver a la landing</a></p>
+<header class="top">
+  <div class="brand"><i><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></i>Taller Ruiz</div>
+  <div class="sw"><span id="swl">Lucía contesta</span><button class="tg" id="tg" role="switch" aria-checked="true" aria-labelledby="swl"></button></div>
+</header>
+<main id="main">
+  <p class="off" role="status">Lucía está en pausa. Las llamadas que no coges van a tu buzón de voz, como antes.</p>
+  <h1 style="font-size:30px;margin:10px 0 4px">Hoy, martes</h1>
+  <p class="meta">Datos de ejemplo</p>
+  <div class="kpis">
+    <div><b id="k1">5</b><span>llamadas cogidas por Lucía</span></div>
+    <div><b>2</b><span>citas apuntadas</span></div>
+    <div><b>1</b><span>presupuesto pendiente</span></div>
+    <div><b>9 min</b><span>de 400 usados este mes</span></div>
+  </div>
+  <div class="grid">
+    <section class="panel" aria-label="Llamadas">
+      <div class="tabs" role="group" aria-label="Filtrar llamadas">
+        <button aria-pressed="true" data-f="all">Todas</button><button aria-pressed="false" data-f="cita">Citas</button><button aria-pressed="false" data-f="presupuesto">Presupuestos</button><button aria-pressed="false" data-f="persona">Quieren hablar contigo</button>
+      </div>
+      <div id="list"></div>
+    </section>
+    <section class="panel detail" aria-live="polite" id="detail"></section>
+  </div>
+</main>
+<script>
+var C=[
+{id:1,n:'Marta',t:'cita',h:'11:41',d:'1 min 20 s',s:'Pastillas de freno, León 2017. Jueves 9:00.',tr:[['c','Hola, ¿tenéis hueco para cambiar las pastillas de freno esta semana?'],['l','Hola, soy Lucía, la asistente virtual de Taller Ruiz. El jueves a las 9:00 hay hueco. ¿Te lo reservo?'],['c','Perfecto. Es un León de 2017.'],['l','Apuntado. Te mando la confirmación por WhatsApp.']],a:'Confirmar por WhatsApp'},
+{id:2,n:'Número acabado en 507',t:'presupuesto',h:'12:17',d:'1 min 05 s',s:'Embrague de un Golf. Quiere precio antes del viernes.',tr:[['c','¿Cuánto me cobráis por cambiar el embrague de un Golf?'],['l','Depende del modelo y de las piezas. Tomo tus datos y Paco te llama hoy con el presupuesto.'],['c','Vale, este número va bien.']],a:'Llamar ahora'},
+{id:3,n:'Jordi',t:'persona',h:'12:58',d:'40 s',s:'Pide hablar con Paco sobre una factura.',tr:[['c','Quería hablar con Paco, es por una factura.'],['l','Claro. Paco no puede ponerse ahora. Le dejo tu nombre y número y te llama en cuanto pueda.'],['c','Vale, gracias.']],a:'Llamar ahora'},
+{id:4,n:'Número oculto',t:'info',h:'13:05',d:'25 s',s:'Pregunta el horario del sábado. Resuelto.',tr:[['c','¿Abrís el sábado?'],['l','Sí, el sábado de 9:00 a 13:00.'],['c','Gracias.']],a:'Marcar como vista'},
+{id:5,n:'Laura',t:'cita',h:'13:40',d:'1 min 50 s',s:'Pre-ITV de un Ibiza 2012. Lunes 8:30.',tr:[['c','Tengo la ITV el martes, ¿me podéis revisar el coche antes?'],['l','El lunes a las 8:30 hay hueco para la pre-ITV. ¿Qué coche es?'],['c','Un Ibiza de 2012.'],['l','Apuntado: lunes 8:30, pre-ITV del Ibiza. Te llega la confirmación por WhatsApp.']],a:'Confirmar por WhatsApp'}
+];
+var L={cita:'Cita',presupuesto:'Presupuesto',persona:'Quiere hablar contigo',info:'Pregunta'};
+var f='all',sel=1;
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+function renderList(){var l=document.getElementById('list');l.innerHTML='';
+C.filter(function(c){return f=='all'||c.t==f;}).forEach(function(c){
+var b=el('button','call');b.type='button';if(c.id==sel)b.setAttribute('aria-current','true');
+b.appendChild(el('span','tag t-'+c.t,L[c.t]));var d=el('div');d.appendChild(el('b',null,c.n));d.appendChild(el('small',null,c.s));b.appendChild(d);b.appendChild(el('time',null,c.h));
+b.onclick=function(){sel=c.id;renderList();renderDetail();};l.appendChild(b);});
+if(!l.children.length)l.appendChild(el('p','meta','No hay llamadas de este tipo hoy.'));}
+function renderDetail(){var c=C.filter(function(x){return x.id==sel;})[0];var d=document.getElementById('detail');d.innerHTML='';
+d.appendChild(el('span','tag t-'+c.t,L[c.t]));var h=el('h2',null,c.n);h.style.marginTop='10px';d.appendChild(h);d.appendChild(el('p','meta',c.h+' · '+c.d+' · '+c.s));
+var tr=el('div','tr');c.tr.forEach(function(m){var p=el('p',m[0]=='c'?'c':'');p.appendChild(el('b',null,m[0]=='c'?'Cliente: ':'Lucía: '));p.appendChild(document.createTextNode(m[1]));tr.appendChild(p);});d.appendChild(tr);
+var a=el('div','actions');var b1=el('button','a1',c.a);b1.type='button';var b2=el('button','a2','Corregir respuesta');b2.type='button';a.appendChild(b1);a.appendChild(b2);d.appendChild(a);
+var ok=el('p','done');ok.setAttribute('role','status');d.appendChild(ok);
+b1.onclick=function(){ok.textContent=c.a=='Llamar ahora'?'Prototipo: aquí se abriría la llamada desde tu móvil.':c.a=='Marcar como vista'?'Marcada como vista.':'Prototipo: enviaríamos la confirmación por WhatsApp desde tu número.';};
+b2.onclick=function(){ok.textContent='Prototipo: escribes cómo lo dirías tú y Lucía lo usa a partir de la próxima llamada.';};}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');f=b.dataset.f;renderList();};});
+var tg=document.getElementById('tg');tg.onclick=function(){var on=tg.getAttribute('aria-checked')!='true';tg.setAttribute('aria-checked',on);document.getElementById('swl').textContent=on?'Lucía contesta':'Lucía en pausa';document.getElementById('main').classList.toggle('paused',!on);};
+renderList();renderDetail();
+</script>
+</body>
+</html>

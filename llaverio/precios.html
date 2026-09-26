@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: precios</title>
+<meta name="description" content="Precios de Llaverio por vivienda activa, calculadora de ahorro con tus números y preguntas sobre el cobro."><link rel="canonical" href="https://llaverio.vercel.app/precios.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+.msg{background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:16px 18px;margin:10px 0;white-space:pre-line;max-width:640px}
+.msg.sea{background:var(--sea-soft);border-color:#C4DCEA;border-radius:18px 18px 6px 18px}
+.ch{display:inline-block;background:var(--brass-soft);color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:3px 10px 3px 8px;border-radius:6px 999px 999px 6px;margin-bottom:6px}
+.obj{display:grid;gap:12px;grid-template-columns:1fr}
+.obj .box h3{margin-top:0}
+.seq{display:grid;gap:0;margin-top:12px}
+.seq > div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.seq b.d{font:600 1rem "Geist Mono",monospace;color:var(--sea)}
+ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
+@media(min-width:720px){.obj{grid-template-columns:1fr 1fr}}
+.calc{display:grid;gap:18px;grid-template-columns:1fr;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:14px}
+.calc label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
+.calc input[type=range]{width:100%;accent-color:var(--sea);height:32px}
+.calc output{font:500 .95rem "Geist Mono",monospace;color:var(--sea)}
+.res{background:var(--ink);color:#fff;border-radius:14px;padding:20px;display:grid;gap:12px}
+.res b{display:block;font:600 1.9rem "Bricolage Grotesque",sans-serif;color:#EADCC0}
+.res span{color:#CFE2EE;font-size:.9rem}
+.plans3{display:grid;gap:12px;grid-template-columns:1fr;margin-top:14px}
+.plans3 .box h3{margin-top:0}
+.plans3 .box.f{border:2px solid var(--sea)}
+.cta{display:inline-block;background:var(--sea);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px;margin-top:14px}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:600}
+@media(min-width:760px){.calc{grid-template-columns:1.2fr 1fr}.plans3{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="index.html">← Volver a la landing</a>
+  <div style="margin-top:18px" class="eyebrow">Precios de lanzamiento</div>
+  <h1>Cuánto cuesta y cuánto te ahorra</h1>
+  <p class="muted">Pagas por vivienda activa: la que tiene al menos una salida ese mes. El piloto de 30 días es gratis y sin tarjeta.</p>
+</div></header>
+<main>
+<section><div class="wrap">
+  <h2>Calcula tu caso</h2>
+  <p>Mete tus números. Todo se calcula en tu navegador; no guardamos nada.</p>
+  <div class="calc">
+    <div style="display:grid;gap:16px">
+      <label for="c-pisos">Pisos con salidas este mes <output id="o-pisos">25</output><input id="c-pisos" type="range" min="5" max="60" value="25"></label>
+      <label for="c-sal">Salidas por piso al mes <output id="o-sal">6</output><input id="c-sal" type="range" min="1" max="15" value="6"></label>
+      <label for="c-min">Minutos que dedicas a coordinar y comprobar cada salida <output id="o-min">15</output><input id="c-min" type="range" min="5" max="45" step="5" value="15"></label>
+      <label for="c-eur">Lo que vale tu hora (€) <output id="o-eur">20</output><input id="c-eur" type="range" min="10" max="60" step="5" value="20"></label>
+      <label for="c-pct">Parte de ese trabajo que crees que haría el agente <output id="o-pct">60%</output><input id="c-pct" type="range" min="20" max="90" step="10" value="60"></label>
+    </div>
+    <div class="res" aria-live="polite">
+      <div><span>Horas al mes que dedicas hoy</span><b id="r-h">38 h</b></div>
+      <div><span>Horas que recuperas (según tu estimación)</span><b id="r-hs">23 h</b></div>
+      <div><span>Coste de Llaverio (plan Operaciones, 12 €/vivienda)</span><b id="r-c">300 €</b></div>
+      <div><span>Valor de tus horas recuperadas menos el coste</span><b id="r-n">150 €</b></div>
+    </div>
+  </div>
+  <p class="muted">Es una estimación con tus datos, no una promesa. No cuenta reseñas salvadas ni averías detectadas antes, porque no sabemos cuánto valen en tu caso.</p>
+  <a class="cta" href="index.html#probar">Pedir piloto</a>
+</div></section>
+<section><div class="wrap">
+  <h2>Planes</h2>
+  <div class="plans3">
+    <div class="box"><h3>Limpiezas · 8 €</h3><p class="muted">por vivienda activa y mes</p><ul><li>Aviso a la limpiadora tras cada salida</li><li>Revisión de fotos con la lista del piso</li><li>Panel de estado diario</li></ul></div>
+    <div class="box f"><h3>Operaciones · 12 €</h3><p class="muted">el que proponemos</p><ul><li>Todo lo de Limpiezas</li><li>Partes de mantenimiento y citas</li><li>Incidencias de huéspedes</li><li>Informe mensual a propietarios</li></ul></div>
+    <div class="box"><h3>Gestora grande · 15 €</h3><p class="muted">de 40 a 60 viviendas o varias zonas</p><ul><li>Todo lo de Operaciones</li><li>Varios equipos y zonas</li><li>Informes con tu marca</li></ul></div>
+  </div>
+  <p class="muted">Precios de lanzamiento, en validación. IVA no incluido.</p>
+</div></section>
+<section><div class="wrap">
+  <h2>Preguntas sobre el cobro</h2>
+  <details><summary>¿Cuándo empiezo a pagar?</summary><p>Al acabar el piloto de 30 días, y solo si al menos 8 de cada 10 salidas quedaron revisadas sin que tuvieras que intervenir.</p></details>
+  <details><summary>¿Qué es una vivienda activa?</summary><p>La que tiene al menos una salida en el mes. Si en enero trabajas con 12 pisos, pagas 12.</p></details>
+  <details><summary>¿Hay permanencia?</summary><p>No. Pagas mes a mes y puedes darte de baja cuando quieras.</p></details>
+  <details><summary>¿Cómo pago?</summary><p>Con tarjeta o domiciliación, factura mensual con IVA a nombre de tu empresa.</p></details>
+  <details><summary>¿Los mensajes de WhatsApp van aparte?</summary><p>No. El coste de WhatsApp y de los modelos está incluido en el precio por vivienda.</p></details>
+</div></section>
+</main>
+<footer><div class="wrap">Llaverio · © 2026 · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+<script>
+(function(){
+  var ids=['pisos','sal','min','eur','pct'];
+  function v(i){return +document.getElementById('c-'+i).value}
+  function fmt(n){return Math.round(n).toLocaleString('es-ES')}
+  function run(){
+    ids.forEach(function(i){document.getElementById('o-'+i).textContent=v(i)+(i==='pct'?'%':'')});
+    var h=v('pisos')*v('sal')*v('min')/60, hs=h*v('pct')/100, c=v('pisos')*12, n=hs*v('eur')-c;
+    document.getElementById('r-h').textContent=fmt(h)+' h';
+    document.getElementById('r-hs').textContent=fmt(hs)+' h';
+    document.getElementById('r-c').textContent=fmt(c)+' €';
+    document.getElementById('r-n').textContent=(n<0?'−':'')+fmt(Math.abs(n))+' €';
+  }
+  ids.forEach(function(i){document.getElementById('c-'+i).addEventListener('input',run)});
+  run();
+})();
+</script>
+</body>
+</html>

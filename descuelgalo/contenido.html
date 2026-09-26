@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Contenido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+</style>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">← Volver al plan</a><br><br>
+  <span class="tag">Interno · contenido</span>
+  <h1>Motor de contenido para talleres</h1>
+  <p>Público: dueños de taller de 35 a 60 años que miran Instagram y TikTok a la hora de comer. Joaquín graba con el móvil. Nada de datos de clientes reales sin permiso escrito.</p>
+</header>
+<section>
+  <h2>10 reels</h2>
+  <div class="tbl"><table style="min-width:860px"><tr><th>#</th><th>Gancho (2 s)</th><th>Escena</th><th>Frase</th><th>CTA</th></tr><tr><td>1</td><td><b>Llamé a 40 talleres a las 13:30. Contestaron 11.</b></td><td>Pantalla del móvil con la lista de llamadas y un contador que sube.</td><td>Hoy he llamado a 40 talleres a la hora de comer. Esto es lo que pasó. (Usa la cifra real de la prueba.)</td><td>Link en bio: piloto gratis para talleres.</td></tr><tr><td>2</td><td><b>Paco no puede coger el teléfono. Mira sus manos.</b></td><td>Plano cenital de manos con grasa y el móvil vibrando en el banco.</td><td>Cada llamada que no coges es un cliente que llama al siguiente taller.</td><td>Comenta TALLER y te enseño cómo suena la tuya.</td></tr><tr><td>3</td><td><b>Escribo el nombre de un taller y en 25 segundos le suena el móvil.</b></td><td>Grabación de pantalla de la demo con un taller real (con permiso).</td><td>Aprende el horario y los servicios de su ficha de Google. Sin configurar nada.</td><td>Pide tu piloto en el enlace.</td></tr><tr><td>4</td><td><b>¿Tu cliente nota que es una IA? Sí. Y da igual.</b></td><td>Llamada real por altavoz: 'Soy Lucía, la asistente virtual'.</td><td>Lo dice al empezar, lo exige la ley europea. Y aun así apunta la cita.</td><td>Sígueme para la parte 2: qué pasa cuando pide hablar contigo.</td></tr><tr><td>5</td><td><b>28 de diciembre: lo que cambia para tu taller.</b></td><td>Calendario con la fecha rodeada en rojo.</td><td>La Ley 10/2025 da al cliente derecho a hablar con una persona por teléfono. Así se cumple sin contratar a nadie.</td><td>Guarda este vídeo.</td></tr><tr><td>6</td><td><b>El buzón de voz no funciona. Te lo demuestro.</b></td><td>Joaquín deja un mensaje en un buzón y luego muestra cuántos mensajes se escuchan.</td><td>Casi nadie deja mensaje. Llaman a otro.</td><td>Link en bio.</td></tr><tr><td>7</td><td><b>Código **61*: el truco que tu operador no te cuenta.</b></td><td>Primer plano del teclado marcando el código.</td><td>Con este código desvías solo las llamadas que no coges. Tu número sigue siendo el mismo.</td><td>Comenta OPERADOR y te paso el código del tuyo.</td></tr><tr><td>8</td><td><b>Lo que le llega a Paco a las 14:00.</b></td><td>Captura del resumen por WhatsApp, cita a cita.</td><td>Tres llamadas, una cita, un presupuesto. Sin apuntar nada en un papel.</td><td>Pide tu piloto gratis.</td></tr><tr><td>9</td><td><b>Una recepcionista a media jornada o 69 euros al mes.</b></td><td>Pantalla partida: nómina tapada frente a la factura.</td><td>Para las horas punta, no necesitas un sueldo entero.</td><td>Link en bio.</td></tr><tr><td>10</td><td><b>Día 1 del piloto con un taller de Sabadell.</b></td><td>Vlog corto de la instalación en el taller (con permiso).</td><td>15 minutos: revisar la ficha, elegir voz, marcar el código y llamada de prueba.</td><td>Busco 10 talleres. ¿El tuyo?</td></tr></table></div>
+</section>
+<section>
+  <h2>Calendario de 4 semanas</h2>
+  <div class="tbl"><table><tr><th>Semana</th><th>Lunes</th><th>Miércoles</th><th>Viernes</th></tr>
+  <tr><td>1</td><td>Reel 1 (40 llamadas)</td><td>Reel 2 (manos ocupadas)</td><td>Carrusel A</td></tr>
+  <tr><td>2</td><td>Reel 3 (demo 25 s)</td><td>Reel 6 (buzón de voz)</td><td>Reel 7 (código **61*)</td></tr>
+  <tr><td>3</td><td>Reel 4 (¿nota que es IA?)</td><td>Carrusel B</td><td>Reel 10 (día 1 del piloto)</td></tr>
+  <tr><td>4</td><td>Reel 5 (28 de diciembre)</td><td>Reel 8 (resumen 14:00)</td><td>Reel 9 + Carrusel C</td></tr>
+  </table></div>
+  <p>Métrica semanal: guardados y comentarios con palabra clave (TALLER, OPERADOR). Objetivo: 5 conversaciones por DM por semana a partir de la semana 3.</p>
+</section>
+<section>
+  <h2>3 carruseles</h2>
+  <div class="grid three">
+    <div class="card"><h3>A · Cuánto te cuesta no coger</h3><p>Slide a slide: llamadas perdidas al día, cuántas eran citas, ticket medio del taller (lo pone el dueño). Última slide: "Haz tu cuenta y pide el piloto".</p></div>
+    <div class="card"><h3>B · El código de cada operador</h3><p>Movistar, Vodafone, Orange, MásMóvil, Digi: cómo desviar solo las llamadas no contestadas. Útil aunque no compren nada.</p></div>
+    <div class="card"><h3>C · Ley 10/2025 en 5 slides</h3><p>Qué obliga, desde cuándo, a quién afecta y cómo cumplir sin contratar. Con enlace al BOE.</p></div>
+  </div>
+</section>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="plan.html">Plan</a> · <a href="outreach.html">Kit de contacto</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

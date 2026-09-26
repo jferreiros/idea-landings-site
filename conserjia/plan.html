@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="index.html">← Volver a la landing</a>
+  <p class="mono" style="margin-top:22px">Plan interno · 26 sep 2026</p>
+  <h1>Conserjia: el conserje con IA que cierra incidencias de comunidades</h1>
+  <div class="summary">
+    <p class="mono">Cómo lo encararía</p>
+    <p style="margin:6px 0 0">Empezaría con un agente de WhatsApp que lleva una incidencia de principio a fin (foto, triaje, aviso al industrial del despacho, seguimiento y cierre) en 2 comunidades de 3-5 despachos pequeños de Barcelona, a mano donde haga falta. Solo cuando el cierre funcione sin que el despacho toque el teléfono, añadiría voz, cobraría por comunidad y escalaría a través del Colegio de Administradores de Fincas de Barcelona-Lleida.</p>
+  </div>
+  <nav class="toc">
+    <a href="#comparativa">Comparativa</a><a href="#oferta">Oferta e ICP</a><a href="#competencia">Competencia</a><a href="#gtm">Go-to-market</a><a href="#alto">Técnico alto nivel</a><a href="#bajo">Técnico bajo nivel</a><a href="#mvp">MVP por semanas</a><a href="#90d">30/60/90</a><a href="#ue">Unit economics</a><a href="#factory">Factories</a><a href="outreach.html">Kit de captación</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha para imprimir</a><a href="pitch.html">Pitch</a><a href="precios.html">Precios</a><a href="onboarding.html">Onboarding</a><a href="anuncios.html">Anuncios</a><a href="en.html">English</a><a href="b.html">Variante B</a><a href="ca.html">Landing en catalán</a>
+  </nav>
+</header>
+
+<section id="comparativa">
+  <h2>Comparativa con la referencia</h2>
+  <p>Páginas leídas el 26 sep 2026: <a href="https://www.brickwiseai.com" target="_blank" rel="noopener">brickwiseai.com</a> (YC), <a href="https://wayline.com" target="_blank" rel="noopener">wayline.com</a> (YC) y <a href="https://iafinkas.es/" target="_blank" rel="noopener">iafinkas.es</a> (competidor español). La landing de Conserjia se compara en su versión de ronda 1.</p>
+  <div class="tw"><table style="min-width:760px">
+    <tr><th></th><th>Conserjia (ronda 1)</th><th>Brickwise (YC)</th><th>Wayline (YC)</th><th>IAFinkas (España)</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td>
+      <td>Despachos de fincas de Barcelona. Promesa: cada incidencia avisada, resuelta y cerrada. Ángulo: cierre end-to-end por WhatsApp.</td>
+      <td>Operadores de alquiler en EE. UU. "Your properties leased and maintained. 24/7." Ángulo: el gestor aprueba el trabajo en lugar de coordinarlo. Amplio: mantenimiento, leasing, cobros, compliance.</td>
+      <td>Property managers y operadores inmobiliarios. "The best phone system for real operators to convert leads &amp; resolve issues." Ángulo: voz 24/7, IA más humanos, se integra con Yardi, AppFolio, Buildium.</td>
+      <td>Administradores de fincas con 10-100 comunidades. "Dos asistentes en uno": copiloto jurídico del despacho y asistente de vecinos 24/7. Ángulo: IA generalista (GPTs personalizados).</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td>
+      <td>Cuidada y con identidad propia (serif, papel, verde). Mockups en HTML. Parece un producto, pero sin señales de empresa (sin fundador, sin garantías visibles).</td>
+      <td>Empresa seria de SaaS: menú por tamaño de operador, tipo de activo y estrategia; blog; demo con IA ("Try Alice").</td>
+      <td>La más pulida: badge de YC, feed de conversaciones con audio real, estado del ticket (prioridad, sentimiento, acción). Tiene restos de plantilla ("Lorem ipsum" en el menú).</td>
+      <td>Web de consultora en WordPress con emojis como iconos. Transmite servicio artesanal, no producto.</td></tr>
+    <tr><td><b>Estructura y funnel</b></td>
+      <td>Hero → problema → 3 pasos → ficha → beneficios → precio → FAQ → formulario de 3 campos. Un solo formulario al final; sin CTA fija; sin qué pasa después de enviar.</td>
+      <td>CTA única "Book a demo" y secundaria "Try Alice". La demo se hace "on issues from your own portfolio": reduce la duda.</td>
+      <td>Dos CTA: "Talk to a Human" y "Call AI Operator" (probar la voz en vivo). Prueba social: 4.8/5, logos de integraciones.</td>
+      <td>CTA "Hablar por WhatsApp" repetida. Sin formulario. Sin prueba ni demo.</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td>
+      <td>Piloto 0 € 30 días en 2 comunidades; 12 €/comunidad/mes; despacho a medida.</td>
+      <td>No público (demo).</td>
+      <td>No público (demo).</td>
+      <td>Público: alta 499 €; 25 €/año por comunidad; 29 €/mes + 2 €/mes por comunidad; licencia ChatGPT Business 39 €/mes (sin IVA). Para 60 comunidades ≈ 313 €/mes + 499 € de alta.</td></tr>
+    <tr><td><b>Textos</b></td>
+      <td>Claros y concretos (escena de L'Eixample, LPH). El H1 era largo y con dos ideas.</td>
+      <td>Muy cortos y de resultado: "answers every call, chases every job to completion and logs every action".</td>
+      <td>Orientados a operaciones, con ejemplos reales de conversación. Algo genéricos en las secciones de menú.</td>
+      <td>Listas largas de funciones, tono de folleto, muchas promesas ("no es un chatbot") sin mostrarlo.</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td>
+      <td colspan="4"><ol style="margin:0">
+        <li><b>Copiado de Brickwise:</b> "tu equipo aprueba en lugar de coordinar" en el hero, y la llamada "con tus propias incidencias" como paso 2 del funnel.</li>
+        <li><b>Copiado de Wayline:</b> el estado del ticket visible (ya lo teníamos en la ficha) y una tabla frente a alternativas. Pendiente: un número de demo al que el administrador pueda escribir (como "Call AI Operator").</li>
+        <li><b>Mejora frente a IAFinkas:</b> ellos "redirigen incidencias al canal adecuado"; nosotros las cerramos. Lo decimos en la tabla "Contestar no es cerrar". Sin alta ni licencias aparte.</li>
+        <li><b>Riesgo de precio:</b> a 12 € somos ≈ 2,3 veces IAFinkas para 60 comunidades (720 € frente a ≈ 313 €). Probar 8 € y 12 € en las visitas; defender el precio con horas de oficial ahorradas.</li>
+        <li><b>Confianza honesta:</b> nota del fundador, garantías RGPD/UE, "tú apruebas los gastos", qué pasa al acabar el piloto. Sin logos ni testimonios inventados.</li>
+        <li><b>Funnel:</b> H1 con una sola promesa, CTA primaria y "ver cómo funciona", CTA fija al hacer scroll, 3 pasos del piloto junto al formulario, FAQ de objeciones (equipo, industrial que no contesta, catalán, fin del piloto).</li>
+      </ol></td></tr>
+  </table></div>
+</section>
+
+<section id="oferta">
+  <h2>Oferta de valor y cliente ideal</h2>
+  <div class="card"><b>Oferta:</b> "Tus vecinos avisan por WhatsApp como siempre. Conserjia clasifica la incidencia, avisa a tu industrial, la sigue y la cierra. Tú solo miras el historial." El valor no es contestar dudas: es cerrar el ciclo aviso → industrial → cierre sin horas de oficial al teléfono.</div>
+  <h3>ICP en España</h3>
+  <ul>
+    <li><b>Quién:</b> despacho de administración de fincas con 20-150 comunidades, 1-6 personas, titular colegiado que también atiende el teléfono.</li>
+    <li><b>Dónde:</b> Barcelona ciudad y área metropolitana primero (L'Eixample, Gràcia, Sant Martí: fincas antiguas con bajantes y ascensores viejos, muchas incidencias). Después Madrid y Valencia.</li>
+    <li><b>Señales:</b> el titular da su WhatsApp personal a los vecinos; no tiene portal del vecino o no se usa; trabaja con 3-6 industriales fijos; usa Netfincas, CIAX o Excel.</li>
+    <li><b>Comprador:</b> el titular del despacho. Usuario diario: el oficial o administrativo. Beneficiario visible: el presidente de la comunidad.</li>
+    <li><b>Dolor principal:</b> interrupciones. Cada incidencia son 4-8 contactos (vecino, industrial, presidente, seguro) y ningún sitio donde quede registrado.</li>
+  </ul>
+  <h3>Base legal que el agente debe conocer</h3>
+  <p>La <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906" target="_blank" rel="noopener">Ley 49/1960 de Propiedad Horizontal</a>: art. 396 del Código Civil (elementos comunes), art. 9 (obligaciones del propietario), art. 10 (obras de conservación obligatorias a cargo de la comunidad) y art. 20 (funciones del administrador). En Cataluña aplica el <a href="https://portaljuridic.gencat.cat/eli/es-ct/l/2006/05/10/5" target="_blank" rel="noopener">Libro V del Código Civil de Cataluña</a> (propiedad horizontal, arts. 553-1 y ss.). Regla de producto: el agente sugiere "común" o "privativo", nunca decide quién paga; lo confirma el despacho.</p>
+</section>
+
+<section id="competencia">
+  <h2>Competencia y referencias</h2>
+  <div class="tw"><table>
+    <tr><th>Actor</th><th>Qué hace</th><th>Hueco</th></tr>
+    <tr><td><a href="https://iafinkas.es/" target="_blank" rel="noopener">IAFinkas</a></td><td>Dos asistentes GPT (despacho y vecinos) personalizados por comunidad; alta 499 € + cuota por comunidad + licencia ChatGPT.</td><td>Responde y "redirige" incidencias, pero no mueve al industrial ni cierra la incidencia. Montaje artesanal, no producto.</td></tr>
+    <tr><td>K4lypso (centralita)</td><td>Centralita / atención telefónica para despachos.</td><td>Recoge la llamada; el seguimiento sigue siendo manual.</td></tr>
+    <tr><td>Netfincas, CIAX y otros ERP de fincas</td><td>Contabilidad, recibos, portal del vecino con módulo de incidencias.</td><td>El vecino tiene que usar la app; el despacho gestiona a mano. Son futuros socios de integración, no rivales.</td></tr>
+    <tr><td>Agencias y call centers</td><td>Atención 24 h subcontratada.</td><td>Caro, sin contexto de la finca, sin historial útil.</td></tr>
+  </table></div>
+  <h3>Referencias YC</h3>
+  <ul>
+    <li><a href="https://www.ycombinator.com/companies/brickwise" target="_blank" rel="noopener">Brickwise (YC)</a>: IA para operadores de alquiler en EE. UU. (<a href="https://www.brickwiseai.com" target="_blank" rel="noopener">web</a>): "answers every call, chases every job to completion and logs every action". Valida que el triaje + despacho de industriales es un producto pagable.</li>
+    <li><a href="https://www.ycombinator.com/companies/wayline" target="_blank" rel="noopener">Wayline (YC)</a>: sistema telefónico con IA y humanos para property managers (<a href="https://wayline.com" target="_blank" rel="noopener">web</a>): responde, tría, despacha al proveedor y registra el ticket. Misma tesis: el valor está en ejecutar, no en conversar.</li>
+  </ul>
+  <p><b>Diferencia de Conserjia:</b> modelo español de comunidad de propietarios (LPH, presidente, junta, industriales del despacho), WhatsApp como canal por defecto, y cierre end-to-end. Nadie en España lo hace hoy de principio a fin.</p>
+</section>
+
+<section id="gtm">
+  <h2>Go-to-market sin presupuesto</h2>
+  <h3>Primeros 10 clientes</h3>
+  <ol>
+    <li>Lista de 150 despachos de Barcelona desde el buscador público del <a href="https://www.cafbl.cat" target="_blank" rel="noopener">Colegio de Administradores de Fincas de Barcelona-Lleida</a> y Google Maps. Filtrar por tamaño (web, reseñas, nº de fincas que anuncian).</li>
+    <li>Visitas a pie, 10 por tarde, por barrios (Eixample, Gràcia, Sants). Horario: 10:00-13:00, cuando el despacho está abierto al público.</li>
+    <li>Oferta: piloto gratis 30 días en 2 comunidades. Yo doy de alta a sus industriales y pongo el cartel en el portal.</li>
+    <li>Ejecutar los pilotos con "humano en el bucle" (yo reviso cada mensaje del agente la primera semana).</li>
+    <li>Al día 30: informe con incidencias cerradas, tiempo de respuesta y llamadas evitadas. Pedir que amplíe a todas sus comunidades.</li>
+    <li>Pedir 2 presentaciones a colegas por cada cliente contento. Los administradores se conocen entre ellos.</li>
+    <li>Con 5 despachos activos: proponer una charla o demo al Colegio (formación continua) y a asociaciones de presidentes de comunidad.</li>
+  </ol>
+  <h3>Semana a semana (solo Joaquín, 0 €)</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Semana</th><th>Qué hago</th><th>Número objetivo</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Lista de 150 despachos (CAFBL + Google Maps). 3 tardes de visitas en L'Eixample, 10 puertas por tarde.</td><td>30 visitas, 6 llamadas de 15 min agendadas</td></tr>
+      <tr><td>2</td><td>Llamadas con 3 incidencias reales de cada despacho. Visitas en Gràcia y Sants. LinkedIn: 20 mensajes a titulares con el vídeo de 40 s.</td><td>6 llamadas hechas, 2 pilotos firmados</td></tr>
+      <tr><td>3-4</td><td>Pilotos en marcha con yo revisando cada mensaje. 2 tardes de visitas por semana.</td><td>4 pilotos activos, 40 incidencias cerradas</td></tr>
+      <tr><td>5-6</td><td>Informes del día 30. Pedir ampliación a todas las comunidades y 2 presentaciones a colegas por despacho.</td><td>3 despachos pagando, 6 presentaciones</td></tr>
+      <tr><td>7-10</td><td>Visitas a las presentaciones. Propuesta de charla al Colegio (formación continua).</td><td>10 despachos pagando, unas 400 comunidades, unos 4.800 € de MRR a 12 €</td></tr>
+    </tbody>
+  </table></div>
+  <p>Regla de parada: si en la semana 4 no hay 2 pilotos firmados de 60 visitas, el problema es la oferta, no el volumen. Cambio el precio o el ángulo antes de seguir visitando.</p>
+  <h3>Guion de la primera visita (90 segundos)</h3>
+  <div class="quote">"Hola, soy Joaquín, vivo en Barcelona y hago software. Una pregunta rápida: ¿cuántas veces al día os llama o escribe un vecino por una avería? … Estoy montando un conserje por WhatsApp que recibe la foto, avisa a vuestro fontanero, sigue el arreglo y os deja el historial por comunidad. No cambiáis de programa. Os propongo probarlo gratis un mes en dos comunidades que elijáis vosotros. ¿Cuáles son las dos que más guerra dan?"</div>
+  <p>Mensaje de seguimiento por WhatsApp o email: una línea, un vídeo de 40 s con el flujo real y un enlace a la landing.</p>
+  <h3>Contenido (reels y posts)</h3>
+  <ul>
+    <li>"¿Esto lo paga la comunidad o el vecino?": casos reales de la LPH en 30 s (bajante, terraza, humedad, ascensor).</li>
+    <li>Pantalla partida: la foto del vecino a las 08:41 y el cierre a las 12:10.</li>
+    <li>"Un día en un despacho de fincas" contado con los mensajes reales (anonimizados, con permiso).</li>
+    <li>Canales: LinkedIn (titulares de despacho), Instagram/TikTok (reels LPH), grupos de administradores y newsletter del Colegio.</li>
+  </ul>
+  <h3>Métricas</h3>
+  <ul>
+    <li>Embudo: visitas → demos → pilotos → pagos. Objetivo: 150 → 30 → 10 → 5.</li>
+    <li>Producto: % incidencias cerradas sin intervención del despacho (objetivo &gt; 60 %), tiempo aviso → industrial avisado (&lt; 10 min), CSAT del vecino al cierre.</li>
+    <li>Negocio: comunidades activas, MRR, churn por despacho, expansión (de 2 a todas).</li>
+  </ul>
+  <h3>Con presupuesto alto</h3>
+  <ul>
+    <li>Contratar 1-2 comerciales de campo ex-sector fincas en Barcelona y Madrid.</li>
+    <li>Patrocinio de congresos del Consejo General de Colegios de Administradores de Fincas y de colegios territoriales.</li>
+    <li>Integraciones oficiales con Netfincas/CIAX y acuerdos de canal con esos proveedores.</li>
+    <li>Google Ads en búsquedas de "software administrador de fincas" y LinkedIn Ads por cargo.</li>
+    <li>Red propia de industriales verificados para despachos que no tienen proveedor (nuevo ingreso por comisión).</li>
+    <li>Número de demo público: el administrador escribe una avería de prueba y ve el flujo completo (la idea de "Call AI Operator" de Wayline).</li>
+  </ul>
+  <p><b>Orden de magnitud (presupuesto alto, 12 meses):</b> 2 comerciales ≈ 90.000 €; congresos y patrocinios ≈ 20.000 €; ads de búsqueda y LinkedIn ≈ 2.000 €/mes; objetivo ≈ 80 despachos y ≈ 5.000 comunidades (≈ 60.000 € de MRR a 12 €).</p>
+  <h3>Test A/B de la landing (sin herramientas de pago)</h3>
+  <ul>
+    <li><b>A</b> (<a href="index.html">/</a>): promesa de resultado, "cada avería cerrada sin coger el teléfono".</li>
+    <li><b>B</b> (<a href="b.html">/b.html</a>): ángulo de coste, "hasta 40 minutos al teléfono por avería", marcado como estimación.</li>
+    <li>Reparto: en el seguimiento del día 2 alterno el enlace (despachos pares a A, impares a B). El formulario lleva un campo oculto <code>variante</code> (a, b, ca) para saber de dónde viene cada envío cuando conecte el formulario.</li>
+    <li>Decisión: tras 40 visitas por variante, me quedo con la que tenga más llamadas agendadas. Con estos volúmenes es una señal, no una prueba estadística.</li>
+  </ul>
+  <h3>Métricas de la landing</h3>
+  <ul>
+    <li>Visita → envío del formulario (objetivo &gt; 4 % con tráfico de visita en persona y LinkedIn).</li>
+    <li>Envío → llamada de 15 min hecha (&gt; 60 %). Llamada → piloto (&gt; 40 %). Piloto → pago (&gt; 50 %).</li>
+    <li>Instrumentar con eventos simples: clic en CTA del hero, clic en CTA fija, envío del formulario.</li>
+  </ul>
+</section>
+
+<section id="alto">
+  <h2>Plan técnico de alto nivel</h2>
+  <h3>Arquitectura</h3>
+  <div class="arch">
+    <div class="col">
+      <span class="lbl">Canales</span>
+      <div class="box ext"><b>WhatsApp Business</b>Cloud API de Meta, número por despacho</div>
+      <div class="box ext"><b>Llamada</b>Twilio + voz en tiempo real (fase 2)</div>
+      <div class="box ext"><b>Industrial</b>WhatsApp / SMS con enlace mágico</div>
+      <div class="box ext"><b>Despacho</b>Panel web + resumen diario por email</div>
+    </div>
+    <div class="col">
+      <span class="lbl">Núcleo</span>
+      <div class="box core"><b>API + webhooks</b>Recibe mensajes, identifica finca y vecino</div>
+      <div class="box ai"><b>Agente de incidencias</b>LLM con visión + herramientas: clasificar, preguntar, avisar, cerrar</div>
+      <div class="box core"><b>Máquina de estados</b>abierta → triada → asignada → en curso → resuelta → cerrada</div>
+      <div class="box core"><b>Jobs</b>Recordatorios, escalados por SLA, resumen diario</div>
+    </div>
+    <div class="col">
+      <span class="lbl">Datos e integraciones</span>
+      <div class="box"><b>Postgres (Supabase, UE)</b>Despachos, comunidades, vecinos, incidencias, eventos</div>
+      <div class="box"><b>Almacenamiento</b>Fotos y audios cifrados, borrado a 12 meses</div>
+      <div class="box ext"><b>Netfincas / CIAX</b>Importar comunidades y vecinos; exportar incidencias (fase 3)</div>
+      <div class="box ext"><b>Base LPH</b>Reglas común/privativo + ejemplos</div>
+    </div>
+  </div>
+  <p class="flowarrow">Vecino → canal → agente → industrial → cierre → historial por comunidad → despacho</p>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li>Next.js en Vercel (panel y landing) + funciones para webhooks.</li>
+    <li>Supabase (Postgres, auth, storage) en región UE (Frankfurt).</li>
+    <li>LLM con visión vía AI Gateway (Claude o Gemini Flash para triaje barato; modelo grande solo en casos dudosos).</li>
+    <li>WhatsApp Cloud API de Meta directa (o 360dialog si Meta tarda en verificar el negocio).</li>
+    <li>Voz (fase 2): Twilio + STT/TTS en español con baja latencia.</li>
+    <li>Colas y crons: Vercel Queues o Inngest para recordatorios y escalados.</li>
+  </ul>
+  <h3>Riesgos legales</h3>
+  <ul>
+    <li><b>RGPD:</b> Conserjia es encargado del tratamiento del despacho (art. 28 RGPD). Contrato de encargo, registro de actividades, datos en la UE, subencargados listados (Meta, proveedor LLM, Twilio).</li>
+    <li><b>Fotos:</b> pueden mostrar interiores de viviendas y personas. Minimizar: guardar solo la necesaria, avisar al vecino, borrar al cerrar + plazo.</li>
+    <li><b>Llamadas grabadas:</b> informar al inicio de la llamada; transcribir y borrar el audio.</li>
+    <li><b>Responsabilidad:</b> el agente no decide quién paga ni aprueba gastos por encima del umbral del despacho. Mensajes con "pendiente de confirmar por el administrador".</li>
+    <li><b>WhatsApp:</b> políticas de Meta sobre plantillas y opt-in. El vecino inicia la conversación; las notificaciones salientes van con plantilla aprobada.</li>
+    <li><b>AI Act:</b> informar de que el vecino habla con una IA (obligación de transparencia).</li>
+  </ul>
+</section>
+
+<section id="bajo">
+  <h2>Plan técnico de bajo nivel</h2>
+  <h3>Modelo de datos</h3>
+  <div class="tw"><table>
+    <tr><th>Tabla</th><th>Campos clave</th></tr>
+    <tr><td>despachos</td><td>id, nombre, cif, telefono_wa, reglas_json (umbral_importe, horario, urgencias), plan, created_at</td></tr>
+    <tr><td>comunidades</td><td>id, despacho_id, nombre, direccion, codigo_portal, presidente_id, notas_tecnicas (ascensor, caldera, año), external_id (ERP)</td></tr>
+    <tr><td>vecinos</td><td>id, comunidad_id, nombre, piso_puerta, telefono, rol (propietario/inquilino/presidente), consentimiento_at</td></tr>
+    <tr><td>industriales</td><td>id, despacho_id, nombre, oficio, telefono, zonas, guardia (bool), tarifa_nota</td></tr>
+    <tr><td>incidencias</td><td>id, comunidad_id, vecino_id, estado, categoria, urgencia, elemento (comun/privativo/dudoso), ubicacion, resumen, industrial_id, cita_desde, cita_hasta, coste, cerrada_at, csat</td></tr>
+    <tr><td>mensajes</td><td>id, incidencia_id, canal, direccion (in/out), autor (vecino/agente/industrial/despacho), texto, media_url, created_at</td></tr>
+    <tr><td>eventos</td><td>id, incidencia_id, tipo (estado, aviso, recordatorio, escalado), payload_json, created_at</td></tr>
+  </table></div>
+  <h3>Endpoints y jobs</h3>
+  <ul>
+    <li><code>POST /api/wa/webhook</code>: entrada de WhatsApp; resuelve vecino por teléfono y comunidad por número o código del cartel.</li>
+    <li><code>POST /api/voice/webhook</code>: entrada de llamadas (fase 2).</li>
+    <li><code>GET /i/:token</code>: página del industrial: aceptar, proponer cita, subir foto del arreglo, marcar resuelto.</li>
+    <li><code>GET/PATCH /api/incidencias</code>: panel del despacho: listar, filtrar, reasignar, cerrar.</li>
+    <li><code>POST /api/import</code>: CSV de comunidades, vecinos e industriales (antes de integrar ERP).</li>
+    <li>Job <code>sla-check</code> cada 10 min: sin respuesta del industrial en X min → recordatorio → siguiente industrial → avisar al despacho.</li>
+    <li>Job <code>cierre</code>: 24 h después de "resuelto", pregunta al vecino si está bien; si responde sí o no responde en 48 h, cierra.</li>
+    <li>Job <code>resumen-diario</code> 08:00: email al despacho con abiertas, urgentes y cerradas.</li>
+  </ul>
+  <h3>Agente y prompts</h3>
+  <p>Un único agente con herramientas y una máquina de estados que limita qué herramientas se pueden usar en cada estado.</p>
+  <pre>SYSTEM: Eres Conserjia, el conserje digital de la comunidad {comunidad.nombre},
+gestionada por {despacho.nombre}. Hablas en español (o catalán si el vecino escribe en catalán),
+frases cortas, tono amable. Dices que eres una IA si te lo preguntan o en el primer mensaje.
+Objetivo: entender la incidencia, clasificarla y moverla al industrial correcto.
+Reglas:
+- Urgente siempre: agua activa, gas, ascensor con personas, sin luz en zonas comunes, riesgo de caída.
+- Elemento común vs privativo: usa la guía LPH. Si dudas, marca "dudoso" y consulta al despacho.
+- Nunca prometas quién paga. Nunca apruebes gastos > {reglas.umbral_importe} €.
+- Pide como máximo 2 preguntas de seguimiento antes de actuar.
+Herramientas: clasificar_incidencia, preguntar_vecino, asignar_industrial,
+proponer_cita, notificar_presidente, escalar_despacho, cerrar_incidencia.</pre>
+  <p>Prompt de visión (triaje): devuelve JSON <code>{categoria, urgencia, elemento, ubicacion, confianza, preguntas[]}</code>. Si <code>confianza &lt; 0.7</code>, el agente pregunta en vez de actuar. Conjunto de evaluación: 100 fotos reales etiquetadas por un administrador.</p>
+  <h3>Flujo paso a paso</h3>
+  <ol>
+    <li>El vecino escribe al número de la comunidad (cartel en el portal con código QR).</li>
+    <li>El webhook guarda el mensaje y crea o recupera la incidencia abierta de ese vecino.</li>
+    <li>El agente clasifica la foto y el texto; hace 0-2 preguntas.</li>
+    <li>Si hay otra incidencia igual abierta en la finca (p. ej. ascensor), la agrupa y responde "ya está avisado".</li>
+    <li>El agente elige industrial según oficio, guardia y reglas; le envía plantilla WhatsApp con enlace <code>/i/:token</code>.</li>
+    <li>El industrial acepta y propone cita; el agente la confirma al vecino.</li>
+    <li>El industrial sube foto del arreglo y marca resuelto; el agente pregunta al vecino.</li>
+    <li>Cierre: CSAT, entrada en el historial de la comunidad, aviso al presidente si es elemento común.</li>
+  </ol>
+</section>
+
+<section id="mvp">
+  <h2>MVP en 4 semanas</h2>
+  <div class="grid2">
+    <div class="card"><p class="mono">Semana 1</p><b>Canal y datos</b><ul><li>Número de WhatsApp Business verificado y webhook.</li><li>Tablas + import CSV de comunidades, vecinos, industriales.</li><li>Agente de triaje con foto y texto, sin acciones (solo resume).</li><li>3 despachos visitados, 1 piloto firmado.</li></ul></div>
+    <div class="card"><p class="mono">Semana 2</p><b>Despacho del industrial</b><ul><li>Herramientas: asignar industrial, página <code>/i/:token</code>, confirmar cita.</li><li>Humano en el bucle: yo apruebo cada mensaje saliente desde un panel mínimo.</li><li>Arranca el piloto 1 en 2 comunidades.</li></ul></div>
+    <div class="card"><p class="mono">Semana 3</p><b>Seguimiento y cierre</b><ul><li>Jobs de SLA, recordatorios y cierre con CSAT.</li><li>Historial por comunidad y resumen diario por email.</li><li>Guía LPH común/privativo + set de evaluación.</li><li>Pilotos 2 y 3.</li></ul></div>
+    <div class="card"><p class="mono">Semana 4</p><b>Autonomía y cobro</b><ul><li>Quitar la aprobación manual en incidencias de alta confianza.</li><li>Panel del despacho: reglas, industriales, filtros.</li><li>Contrato de encargo RGPD y Stripe para el plan por comunidad.</li><li>Informe de piloto y conversión del primer despacho.</li></ul></div>
+  </div>
+  <p>Fuera del MVP: voz, integraciones ERP, facturación de industriales, app móvil.</p>
+</section>
+
+<section id="90d">
+  <h2>Plan 30/60/90 días</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Semana</th><th>Foco</th><th>Objetivo numérico</th></tr></thead>
+    <tbody>
+      <tr><td colspan="3"><b>Días 1-30: vender el piloto y hacerlo a mano</b></td></tr>
+      <tr><td>1</td><td>Lista de 150 despachos, 30 visitas, agente de WhatsApp con humano en el bucle</td><td>30 visitas, 6 llamadas agendadas</td></tr>
+      <tr><td>2</td><td>Llamadas con incidencias reales; alta del número y de los industriales</td><td>6 llamadas, 2 pilotos firmados</td></tr>
+      <tr><td>3</td><td>Pilotos en marcha, reviso cada mensaje; 20 visitas más</td><td>3 pilotos, 15 incidencias gestionadas</td></tr>
+      <tr><td>4</td><td>Página del industrial y ficha para el despacho</td><td>4 pilotos, 30 incidencias, 0 urgencias perdidas</td></tr>
+      <tr><td colspan="3"><b>Días 31-60: primer cobro</b></td></tr>
+      <tr><td>5</td><td>Informes del día 30, propuesta de pago</td><td>2 despachos pagando</td></tr>
+      <tr><td>6</td><td>Ampliar a todas sus comunidades; pedir presentaciones</td><td>80 comunidades activas, 4 presentaciones</td></tr>
+      <tr><td>7</td><td>Menos revisión humana: solo casos dudosos</td><td>60 % de incidencias cerradas sin tocar el despacho</td></tr>
+      <tr><td>8</td><td>Visitas a presentaciones, 2 pilotos nuevos</td><td>4 despachos pagando, unos 1.900 € MRR</td></tr>
+      <tr><td colspan="3"><b>Días 61-90: repetir sin Joaquín en cada paso</b></td></tr>
+      <tr><td>9-10</td><td>Alta de despacho en 1 hora con importación CSV</td><td>6 despachos pagando</td></tr>
+      <tr><td>11-12</td><td>Propuesta de charla al Colegio; contenido semanal</td><td>8 despachos, 1 lead del Colegio</td></tr>
+      <tr><td>13</td><td>Revisión de precio (8 € frente a 12 €) con datos</td><td>10 despachos pagando, unos 4.800 € MRR</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>La suposición más arriesgada</h3>
+  <div class="card"><p><b>Los vecinos escriben al número de la comunidad en lugar de al móvil personal del administrador.</b> Si siguen escribiendo al móvil del titular, Conserjia no recibe nada y el despacho no ahorra llamadas.</p>
+  <p><b>Prueba más barata, esta semana:</b> pedir a 1 despacho que cuelgue un cartel con un número de WhatsApp Business (un móvil de prepago, 10 €) en 2 portales. Contesto yo a mano, sin IA. Mido en 7 días cuántas averías llegan al número frente a las que siguen llegando al titular. Umbral: al menos la mitad por el número nuevo.</p></div>
+
+  <div class="card" style="border:2px solid var(--terra)">
+    <p class="mono" style="color:var(--terra)">Criterios para parar</p>
+    <ul>
+      <li>Semana 4: menos de 2 pilotos firmados después de 60 visitas.</li>
+      <li>Día 30 del primer piloto: menos de la mitad de las averías llega por el número de la comunidad.</li>
+      <li>Día 60: ningún despacho paga después del piloto, ni a 8 €.</li>
+      <li>Día 90: menos de 5 despachos pagando o más de 1 urgencia perdida por culpa del agente.</li>
+    </ul>
+    <p>Si se cumple uno, paro de visitar y reviso la oferta. Si se cumplen dos, cierro la idea y paso la factory a la siguiente.</p>
+  </div>
+</section>
+
+<section id="ue">
+  <h2>Unit economics (estimación)</h2>
+  <p>Supuestos: 1,5 incidencias por comunidad al mes, unos 15 mensajes por incidencia, 2-3 llamadas al LLM con visión por incidencia.</p>
+  <div class="tw"><table>
+    <tr><th>Concepto</th><th>Por comunidad / mes</th></tr>
+    <tr><td>Precio</td><td>12,00 €</td></tr>
+    <tr><td>LLM (triaje con visión + conversación)</td><td>≈ 0,15 €</td></tr>
+    <tr><td>WhatsApp (plantillas salientes a industrial y cierre)</td><td>≈ 0,20 €</td></tr>
+    <tr><td>Infra (Vercel, Supabase, storage), prorrateada</td><td>≈ 0,15 €</td></tr>
+    <tr><td>Voz (fase 2, si ~30 % de avisos llegan por llamada)</td><td>≈ 0,40 €</td></tr>
+    <tr><td><b>Coste variable total</b></td><td><b>≈ 0,50-0,90 €</b></td></tr>
+    <tr><td><b>Margen bruto</b></td><td><b>≈ 92-95 %</b></td></tr>
+  </table></div>
+  <ul>
+    <li>Despacho medio de 60 comunidades → 720 €/mes, 8.640 €/año.</li>
+    <li>Costes fijos del fundador (herramientas, dominio, cuentas): ≈ 300 €/mes → break-even de caja con ≈ 27 comunidades (medio despacho).</li>
+    <li>Break-even con sueldo de 4.000 €/mes: ≈ 380 comunidades ≈ 6-7 despachos medianos.</li>
+    <li>CAC real: horas de visitas y onboarding (≈ 10-15 h por despacho). Aceptable mientras el payback sea &lt; 2 meses.</li>
+    <li>Riesgo: el coste real es el onboarding (alta de industriales y vecinos). Automatizarlo con import CSV/ERP es clave para el margen.</li>
+  </ul>
+</section>
+
+<section id="factory">
+  <h2>Qué automatizan las factories</h2>
+  <div class="grid2">
+    <div class="card"><b>Software factory (agentes de código)</b><ul>
+      <li>Generar el esquema, migraciones y CRUD del panel a partir de este plan.</li>
+      <li>Webhooks de WhatsApp y la página del industrial, con tests.</li>
+      <li>Set de evaluación del triaje: correr cada cambio de prompt contra 100 fotos etiquetadas y bloquear regresiones.</li>
+      <li>Conectores con Netfincas/CIAX cuando haya acceso (lectura de comunidades, escritura de incidencias).</li>
+      <li>Validación de comportamiento con browser-harness: simular un vecino, un industrial y un cierre.</li>
+    </ul></div>
+    <div class="card"><b>Marketing factory (agentes de contenido y ventas)</b><ul>
+      <li>Scraping y enriquecimiento de la lista de despachos (tamaño, barrio, web, teléfono) desde fuentes públicas.</li>
+      <li>Rutas de visitas por barrio y fichas previas de cada despacho.</li>
+      <li>Guiones de reels "¿quién paga?" basados en artículos de la LPH, con revisión humana.</li>
+      <li>Emails y WhatsApp de seguimiento personalizados tras cada visita (enviados por mí).</li>
+      <li>Informe automático de piloto a los 30 días con métricas reales del despacho.</li>
+    </ul></div>
+  </div>
+</section>
+
+<footer><span>Conserjia · © 2026</span><a href="index.html">Landing</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revisita | Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--enamel:#FFFFFF;--paper:#fff;--ink:#0D1B1A;--ink-2:#4B5B59;--line:#DDE7E3;--teal:#137A6E;--teal-soft:#EEF8F4;--coral:#137A6E;--coral-soft:#EEF8F4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Geist",system-ui,sans-serif;background:var(--enamel);color:var(--ink);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+.logo{font-family:"Geist",sans-serif;font-size:1.5rem;text-decoration:none;color:var(--ink)}
+h1{font-family:"Geist",sans-serif;font-weight:600;letter-spacing:-.035em;font-size:clamp(2.4rem,7vw,3.6rem);line-height:1.05;margin:18px 0 12px}
+h1 em,h2 em{font-style:normal;color:var(--teal)}
+h2{font-family:"Geist",sans-serif;font-weight:600;letter-spacing:-.03em;font-size:clamp(1.9rem,5vw,2.5rem);line-height:1.1;margin-bottom:16px}
+h3{font-size:1.05rem;font-weight:800;margin:24px 0 8px}
+p{margin-bottom:12px}
+ul,ol{margin:0 0 14px 22px}
+li{margin-bottom:6px}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:10px}
+.summary{background:#0A4A44;color:#EDE8DE;border-radius:18px;padding:24px;margin-top:22px;font-size:1.08rem}
+.summary b{color:#8FD3C6}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:.82rem;font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 12px;color:var(--ink)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:12px}
+.grid2{display:grid;gap:12px}
+.grid2>*,.arch>*,.weeks>*{min-width:0}
+html,body{overflow-x:hidden}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--paper);border-radius:12px;overflow:hidden;margin-bottom:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--teal-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.84em;background:#EEF8F4;padding:1px 5px;border-radius:4px}
+pre{font-family:"Geist Mono",monospace;font-size:.8rem;background:var(--ink);color:#E9E4D9;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin-bottom:14px;line-height:1.5}
+.warn{background:var(--coral-soft);border-left:3px solid var(--coral);padding:14px 16px;border-radius:0 12px 12px 0;margin:14px 0}
+/* architecture diagram */
+.arch{display:grid;gap:10px;margin:18px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:.88rem}
+.box b{display:block;font-size:.95rem}
+.box span{color:var(--ink-2);font-size:.8rem}
+.box.core{border-color:var(--teal);background:var(--teal-soft)}
+.box.ext{border-style:dashed}
+.arrow{text-align:center;color:var(--teal);font-weight:800;font-size:1.1rem;line-height:1}
+.lane-title{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.weeks{display:grid;gap:12px}
+.week{border-left:3px solid var(--teal);padding:4px 0 4px 16px}
+.week b{display:block}
+.num{font-family:"Geist",sans-serif;font-size:2.2rem;color:var(--teal);line-height:1}
+footer{padding:28px 0;font-size:.88rem;color:var(--ink-2);display:flex;justify-content:space-between}
+@media(min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .arch{grid-template-columns:1fr auto 1.2fr auto 1fr;align-items:center}
+  .arrow{transform:none}
+  .weeks{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:759px){.arrow::before{content:"↓"}.arrow span{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="index.html">Revisita</a>
+  <span class="eyebrow" style="margin-top:18px">Plan interno · septiembre 2026</span>
+  <h1>Recall dental que <em>cobra por resultado</em></h1>
+  <div class="summary">
+    <b>Cómo lo encararía:</b> Entraría en clínicas dentales independientes de Barcelona con una auditoría gratuita que convierte su exportación de pacientes en «euros dormidos», y cobraría solo por visita recuperada para quitar el riesgo de la compra. El producto empieza como un pipeline de CSV → segmentación → WhatsApp con reserva, operado casi a mano en las primeras 10 clínicas, y solo después se integra con Gesden, Clinic Cloud y Dentalink.
+  </div>
+  <nav class="toc">
+    <a href="#comparativa">Comparativa</a><a href="#oferta">Oferta e ICP</a><a href="#competencia">Competencia</a><a href="#gtm">Go-to-market</a><a href="#ruta">30/60/90</a><a href="#alto">Técnico alto nivel</a><a href="#rgpd">RGPD</a><a href="#bajo">Técnico bajo nivel</a><a href="#mvp">MVP</a><a href="#unit">Unit economics</a><a href="#fabricas">Fábricas</a><a href="outreach.html">Kit de prospección</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha de venta</a><a href="b.html">Variante B</a><a href="ca.html">Landing en catalán</a>
+  </nav>
+</header>
+
+<section id="comparativa">
+  <span class="eyebrow">Ronda 2 · 26 sep 2026</span>
+  <h2>Comparativa con la referencia</h2>
+  <p>Páginas leídas: <a href="https://www.10xdental.com" target="_blank" rel="noopener">10x Dental (home y precios)</a> (YC), <a href="https://patientdesk.ai" target="_blank" rel="noopener">Patientdesk (home)</a> y <a href="https://patientdesk.ai/pricing" target="_blank" rel="noopener">Patientdesk (precios)</a> (YC), <a href="https://botmize.es/" target="_blank" rel="noopener">Botmize (home)</a>, <a href="https://botmize.es/servicios/agentes-ia-clinicas-dentales" target="_blank" rel="noopener">Botmize (clínicas dentales)</a> y <a href="https://botmize.es/precios" target="_blank" rel="noopener">Botmize (precios)</a>. También nuestra <a href="index.html">landing</a> y este plan.</p>
+  <div class="scroll"><table style="min-width:760px">
+    <tr><th></th><th>Revisita (nosotros)</th><th>10x Dental (YC)</th><th>Patientdesk (YC)</th><th>Botmize (España)</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td>
+      <td>Clínica dental independiente en Barcelona. Promesa: recuperar pacientes dormidos. Ángulo: pago por visita recuperada.</td>
+      <td>Un solo trabajo: recall de higiene por llamada y SMS con reserva en el PMS. «AI revenue recovery team». Es el más parecido a nosotros.</td>
+      <td>Plataforma completa: recepcionista IA, PMS propio, captación, reseñas y SEO. «One AI team for your whole dental practice».</td>
+      <td>Agencia generalista (web, SEO, redes, agentes). Página dental con agente web/WhatsApp para agenda, recordatorios y reactivación.</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td>
+      <td>Ronda 3: estética clínica (blanco, menta, verde azulado, filetes finos), panel con «euros dormidos» como cifra principal y demo interactiva de la conversación.</td>
+      <td>Muy seria: audio de llamada real, panel con métricas, 9 casos con clínica y ciudad, respaldo YC.</td>
+      <td>Pulida, tipo SaaS grande: vídeo, tarjetas por producto, reseñas de Google, ronda de 3,8 M$.</td>
+      <td>Aspecto de plantilla «IA futurista»: emojis como iconos, cifras genéricas (+97%, ×3). Parece agencia, no producto.</td></tr>
+    <tr><td><b>Estructura y funnel</b></td>
+      <td>Hero con 2 CTA, problema, 3 pasos, precio, FAQ, formulario de 3 campos al final. Sin CTA fija en móvil ni cálculo de valor.</td>
+      <td>Un CTA repetido («Request a Free Demo»). Prueba: audio, «3% vs 16%», casos, testimonios. Cierre: «No commitment · 15-minute setup call».</td>
+      <td>Demo con formulario de 10 pasos de cualificación. Mucha fricción, pero filtra bien.</td>
+      <td>CTA «diagnóstico gratuito». Estructura problema-agitación-solución, 4 pasos, precios, FAQ. Prueba basada en «datos del sector» sin fuente.</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td>
+      <td>25 € por visita recuperada (o 10% del tratamiento, tope 150 €), o 249 €/mes plano.</td>
+      <td>970 $/mes por recall de higiene. Descuentos para grupos.</td>
+      <td>Por producto; seguimiento saliente = paquete + tarifa por resultado (A$1 por cita iniciada + A$2 por resultado verificado).</td>
+      <td>79 / 149 / 249 €/mes (web, WhatsApp, voz), sin permanencia.</td></tr>
+    <tr><td><b>Textos</b></td>
+      <td>Claros y concretos (escena de l'Eixample). Hero algo largo; mezclábamos «auditoría» y «probarlo».</td>
+      <td>Cortos, con números y contraste «A reminder pings. 10x recovers the patient.»</td>
+      <td>Frases cortas por producto; tono de plataforma.</td>
+      <td>Inflados («dominar el mercado», «mientras duermes»). Cifras sin fuente propia.</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td>
+      <td colspan="4">
+        <ol style="margin-bottom:0">
+          <li><b>Copiamos de 10x:</b> un solo CTA repetido, el contraste «recordatorio frente a conversación» y la frase de baja fricción bajo el botón.</li>
+          <li><b>Copiamos de Patientdesk:</b> la tarifa por resultado verificado valida nuestro precio; lo decimos más alto en el hero.</li>
+          <li><b>Mejoramos frente a Botmize:</b> nada de cifras sin fuente. Añadimos una calculadora donde la clínica pone sus datos y ve la hipótesis.</li>
+          <li><b>Hecho en la landing:</b> hero con una promesa y un CTA («Pedir mi auditoría gratis») más «Ver cómo funciona»; CTA fija en móvil; nota del fundador; bloque de confianza (RGPD, UE, piloto gratis); FAQ de objeciones.</li>
+          <li><b>Pendiente (cuando haya datos):</b> un audio o chat real del piloto y un caso con permiso de la clínica, como hace 10x.</li>
+        </ol></td></tr>
+  </table></div>
+</section>
+
+<section id="oferta">
+  <span class="eyebrow">Oferta de valor</span>
+  <h2>Qué vendemos y a quién</h2>
+  <p><b>Oferta:</b> «Recuperamos a los pacientes que ya tienes y solo pagas por los que vuelven». No vendemos un chatbot ni una recepcionista IA. Vendemos citas atendidas, medidas contra la agenda de la clínica.</p>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">ICP principal</h3>
+      <ul>
+        <li>Clínica dental independiente (no franquicia), 1-4 gabinetes.</li>
+        <li>Barcelona y área metropolitana para empezar.</li>
+        <li>1.000-5.000 pacientes en ficha, más de 3 años abierta.</li>
+        <li>Usa Gesden, Clinic Cloud, Dentalink o Excel.</li>
+        <li>Recepción de 1-2 personas, sin nadie dedicado al recall.</li>
+        <li>Decide el dueño o la dueña (odontólogo/a) o la gerente.</li>
+      </ul></div>
+    <div class="card"><h3 style="margin-top:0">Señales de compra</h3>
+      <ul>
+        <li>Agenda con huecos entre semana por la mañana.</li>
+        <li>Dicen «tenemos una lista para llamar pero nunca llegamos».</li>
+        <li>Muchos presupuestos de implantes u ortodoncia sin aceptar.</li>
+        <li>Clínica nueva cerca que les quita pacientes.</li>
+        <li>Ya usan WhatsApp desde el móvil de recepción, sin API.</li>
+      </ul></div>
+  </div>
+  <p><b>Tres casos de uso</b>, en orden de valor:</p>
+  <ol>
+    <li><b>Tratamientos abiertos:</b> presupuestos aceptados o fases pendientes (corona tras endodoncia, 2ª fase de implante). Ticket alto.</li>
+    <li><b>Revisiones y limpiezas atrasadas:</b> volumen alto, ticket bajo (50-80 €), pero la visita suele generar tratamiento.</li>
+    <li><b>Cancelaciones de última hora:</b> se ofrece el hueco a una lista de espera y a pacientes atrasados.</li>
+  </ol>
+</section>
+
+<section id="competencia">
+  <span class="eyebrow">Competencia</span>
+  <h2>El hueco es pequeño: <em>diferencia en precio y medida</em></h2>
+  <div class="scroll"><table>
+    <tr><th>Quién</th><th>Qué hace</th><th>Cómo cobra</th><th>Nuestra diferencia</th></tr>
+    <tr><td><a href="https://botmize.es/servicios/agentes-ia-clinicas-dentales" target="_blank" rel="noopener">Botmize</a></td><td>Agentes IA en web y WhatsApp, reactivación, integra con Gesden y Dentalink.</td><td>Cuota: 79 / 149 / 249 € al mes (según su web).</td><td>Nosotros cobramos por visita recuperada, no por cuota.</td></tr>
+    <tr><td><a href="https://engrana.es/sectores/clinicas-dentales" target="_blank" rel="noopener">Engrana</a></td><td>Automatización de WhatsApp: confirmaciones, lista de espera, recall.</td><td>Cuota SaaS.</td><td>Foco en reactivar la base dormida, con informe de ROI.</td></tr>
+    <tr><td><a href="https://clinicsmart.es/clinica-dental" target="_blank" rel="noopener">ClinicSmart</a></td><td>Recepcionista IA por WhatsApp y voz 24/7.</td><td>Cuota SaaS.</td><td>No competimos en atención entrante; hacemos salida proactiva.</td></tr>
+    <tr><td><a href="https://dentia.tech/" target="_blank" rel="noopener">DentIA</a></td><td>CRM dental con IA, recordatorios y detección de pacientes que no vuelven.</td><td>Software de gestión.</td><td>No pedimos cambiar de software; trabajamos sobre el que ya usan.</td></tr>
+    <tr><td><a href="https://tools.kandent.es/herramientas/campanas-recall" target="_blank" rel="noopener">Kandent Tools</a>, <a href="https://www.recall.dental/en" target="_blank" rel="noopener">RECALL Dental</a></td><td>Campañas de recall con guiones y envío masivo.</td><td>Cuota o por envío.</td><td>Conversación con reserva directa, no solo envío.</td></tr>
+  </table></div>
+  <h3>Referencias YC</h3>
+  <ul>
+    <li><a href="https://www.ycombinator.com/companies/10x" target="_blank" rel="noopener">10x (YC)</a>: IA para operaciones de clínicas dentales en EE. UU. Valida que el dental independiente paga por automatización de front-desk.</li>
+    <li><a href="https://www.ycombinator.com/companies/patientdeskai" target="_blank" rel="noopener">Patientdesk.ai (YC)</a>: agente de voz y mensajes para clínicas. Valida el patrón agente + agenda + integración con el PMS.</li>
+  </ul>
+  <p><b>Tesis:</b> el mercado ya compra «IA en WhatsApp para dentistas». Nadie en España empaqueta el resultado (citas atendidas) como unidad de precio. Eso rompe la objeción «ya he probado un bot y no sé si sirve».</p>
+</section>
+
+<section id="gtm">
+  <span class="eyebrow">Go-to-market sin presupuesto</span>
+  <h2>Los 10 primeros clientes, <em>a pie</em></h2>
+  <h3>Canales, por orden</h3>
+  <ol>
+    <li><b>Puerta a puerta en Barcelona:</b> Gràcia, Eixample, Sant Andreu, Sants. Visita a media mañana del martes al jueves, con una hoja impresa de «auditoría gratuita».</li>
+    <li><b>Lista de Google Maps:</b> clínicas con 4,5+ estrellas y menos de 300 reseñas (independientes, no cadenas). Scrapeo con Firecrawl, llamada o WhatsApp al fijo.</li>
+    <li><b>Red personal:</b> un dentista conocido como cliente cero, a cambio de 3 meses sin coste.</li>
+    <li><b>Colegio de Dentistas de Cataluña (COEC) y congresos locales:</b> asistir y hablar con gerentes, no con proveedores.</li>
+    <li><b>Técnicos de Gesden y distribuidores de material:</b> acuerdo de referidos (10% del primer año).</li>
+  </ol>
+  <h3>Semana a semana (Joaquín solo, sin presupuesto)</h3>
+  <div class="scroll"><table>
+    <tr><th>Semana</th><th>Qué hace Joaquín</th><th>Números objetivo</th></tr>
+    <tr><td>1</td><td>Lista de 120 clínicas en Google Maps (Gràcia, Eixample, Sant Andreu, Sants). Cliente cero de la red personal. Informe de auditoría de ejemplo.</td><td>120 en la lista · 1 cliente cero</td></tr>
+    <tr><td>2</td><td>4 mañanas de puerta a puerta (martes a viernes, 10:00 a 13:00) + WhatsApp al fijo de las que no abren.</td><td>30 visitas · 5 auditorías aceptadas</td></tr>
+    <tr><td>3</td><td>Entrega de auditorías en persona. Segunda ronda de visitas.</td><td>25 visitas · 4 auditorías · 2 pilotos firmados</td></tr>
+    <tr><td>4</td><td>Primeros envíos reales en 2 clínicas, con aprobación diaria del lote.</td><td>2 pilotos activos · primera cita recuperada</td></tr>
+    <tr><td>5-6</td><td>Seguimiento de auditorías pendientes. Primer caso con cifras reales (con permiso) como material de venta.</td><td>6 pilotos · 15 visitas recuperadas por clínica</td></tr>
+    <tr><td>7-8</td><td>Fin de los primeros pilotos: conversión a pago. Referidos de las clínicas contentas.</td><td>10 clínicas en piloto o pago · 4 pagando</td></tr>
+  </table></div>
+  <p>Embudo supuesto: 10 visitas → 2 auditorías → 1 piloto. Para 10 clientes hacen falta unas 100 visitas en 8 semanas, 12 por semana, que caben en dos mañanas.</p>
+  <h3>Prueba A/B sin tráfico de pago</h3>
+  <p>Sin anuncios no hay volumen para una A/B estadística. Joaquín alterna el enlace en los seguimientos del día 2: clínicas pares reciben la landing (euros dormidos), impares <a href="b.html">la variante B</a> (la recepción no llega a la lista). Mide qué versión consigue más formularios y más respuestas «sí, quiero la auditoría». Con 60 envíos por variante, una diferencia de 3 o más auditorías decide el titular.</p>
+  <h3>Guion del primer mensaje (WhatsApp o en mostrador)</h3>
+  <pre>Hola, soy Joaquín, de Revisita, aquí en Barcelona.
+Hacemos una auditoría gratuita: con la exportación de pacientes de vuestro
+programa (Gesden, Clinic Cloud...) calculamos cuántos pacientes llevan más de
+un año sin revisión y cuántos presupuestos quedaron abiertos, y os lo damos en euros.
+Si luego queréis que los recuperemos, solo cobramos por cada paciente que vuelve.
+¿Os va bien que pase el jueves 10 minutos a explicarlo?</pre>
+  <h3>Guion de la visita (10 minutos)</h3>
+  <ol>
+    <li>Pregunta: «¿Cuántos pacientes creéis que no vuelven desde hace más de un año?»</li>
+    <li>Enseña el informe de ejemplo con datos ficticios, marcado como ejemplo.</li>
+    <li>Explica el DPA y el alojamiento en la UE antes de pedir datos.</li>
+    <li>Pide la exportación anonimizada (sin teléfonos) para la auditoría.</li>
+    <li>Cierra fecha para entregar el informe en persona.</li>
+  </ol>
+  <h3>Contenido (reels y posts)</h3>
+  <ul>
+    <li>«Cuánto dinero pierde una clínica con 2.000 pacientes que no vuelven» (cálculo en pizarra).</li>
+    <li>Antes/después de un mensaje de recall: plantilla genérica frente a mensaje personal.</li>
+    <li>RGPD explicado a dentistas en 45 segundos: qué puedes y qué no puedes enviar.</li>
+    <li>Serie «la silla vacía»: el coste de un hueco de lunes a las 9:00.</li>
+  </ul>
+  <h3>Métricas</h3>
+  <div class="scroll"><table>
+    <tr><th>Etapa</th><th>Métrica</th><th>Objetivo 8 semanas</th></tr>
+    <tr><td>Captación</td><td>Clínicas contactadas → auditoría aceptada</td><td>80 → 15</td></tr>
+    <tr><td>Activación</td><td>Auditoría → piloto firmado (DPA)</td><td>15 → 6</td></tr>
+    <tr><td>Producto</td><td>Tasa de respuesta a WhatsApp</td><td>&gt; 30%</td></tr>
+    <tr><td>Producto</td><td>Contactos → cita atendida</td><td>&gt; 8%</td></tr>
+    <tr><td>Negocio</td><td>Visitas recuperadas por clínica y mes</td><td>&gt; 25</td></tr>
+    <tr><td>Retención</td><td>Clínicas activas en el mes 3</td><td>&gt; 80%</td></tr>
+  </table></div>
+  <h3>Con presupuesto alto</h3>
+  <ul>
+    <li>2 comerciales de campo en Madrid y Barcelona, con comisión sobre el primer año.</li>
+    <li>Stand en Expodental y patrocinio de cursos del COEC y del COEM.</li>
+    <li>Acuerdo de integración oficial con Gesden y Clinic Cloud (marketplace).</li>
+    <li>Meta y Google Ads hacia gerentes de clínica con la auditoría como gancho.</li>
+    <li>Expansión vertical: fisioterapia, veterinaria y oftalmología (mismo patrón de recall).</li>
+  </ul>
+</section>
+
+<section id="ruta">
+  <span class="eyebrow">30 / 60 / 90 días</span>
+  <h2>Ruta con números <em>semana a semana</em></h2>
+  <div class="scroll"><table>
+    <tr><th>Semana</th><th>Foco</th><th>Objetivo numérico</th></tr>
+    <tr><td>1</td><td>Lista de 120 clínicas, informe de ejemplo, plantilla de DPA con abogado</td><td>120 clínicas en CRM · 1 cliente cero</td></tr>
+    <tr><td>2</td><td>Visitas y llamadas (kit de prospección)</td><td>30 contactos · 5 auditorías aceptadas</td></tr>
+    <tr><td>3</td><td>Importador CSV + cálculo de euros dormidos; entrega de auditorías</td><td>25 contactos · 4 auditorías entregadas</td></tr>
+    <tr><td>4</td><td>Alta de WhatsApp Cloud API y plantillas; firma de pilotos</td><td>2 DPA firmados · <b>día 30: 2 pilotos listos</b></td></tr>
+    <tr><td>5</td><td>Primeros envíos con aprobación manual del lote</td><td>300 mensajes · 25% de respuesta</td></tr>
+    <tr><td>6</td><td>Agente conversacional con reserva; más visitas</td><td>20 contactos · 4 pilotos activos</td></tr>
+    <tr><td>7</td><td>Marca de «atendida» y atribución</td><td>30 visitas recuperadas acumuladas</td></tr>
+    <tr><td>8</td><td>Informe mensual; relleno de cancelaciones</td><td><b>día 60: 6 pilotos · 60 visitas recuperadas</b></td></tr>
+    <tr><td>9</td><td>Fin de los primeros pilotos: conversión a pago</td><td>2 clínicas pagando</td></tr>
+    <tr><td>10</td><td>Caso real con permiso como material de venta</td><td>1 caso publicado · 20 contactos nuevos</td></tr>
+    <tr><td>11</td><td>Referidos de clínicas contentas; técnico de Gesden</td><td>2 referidos · 3 pilotos nuevos</td></tr>
+    <tr><td>12-13</td><td>Conversión de la segunda tanda</td><td><b>día 90: 10 clínicas en piloto o pago · 5 pagando · 1.500 €/mes</b></td></tr>
+  </table></div>
+
+  <h3>La hipótesis que más riesgo tiene</h3>
+  <div class="card"><b>Una clínica independiente entrega su exportación de pacientes a un desconocido.</b> Si no la entrega, no hay auditoría, ni piloto, ni negocio. Todo lo demás (tasa de respuesta, reservas) va después.</div>
+  <h3>La prueba más barata, esta semana</h3>
+  <ol>
+    <li>Imprime la hoja de auditoría de ejemplo y el borrador de DPA.</li>
+    <li>Visita 15 clínicas de Gràcia y Eixample en dos mañanas.</li>
+    <li>Pide solo una cosa: la exportación sin teléfonos para la auditoría.</li>
+    <li>Cuenta cuántas dicen que sí con fecha concreta.</li>
+  </ol>
+  <p>Coste: 0 € y unas 8 horas. Resultado útil: 3 o más «sí» de 15 sigue adelante. 1 o 2 obliga a cambiar la oferta (auditoría con la clínica delante, sin sacar datos). Cero obliga a replantear.</p>
+
+  <div class="warn"><b>Criterios para matar la idea.</b> Joaquín para Revisita si se cumple cualquiera de estos:
+    <ul style="margin-top:8px">
+      <li>Día 21: menos de 3 auditorías aceptadas tras 50 contactos.</li>
+      <li>Día 45: tasa de respuesta a WhatsApp por debajo del 10% en 2 pilotos.</li>
+      <li>Día 60: menos de 2 visitas recuperadas por cada 100 mensajes.</li>
+      <li>Día 90: ninguna clínica dispuesta a pagar tras su piloto.</li>
+      <li>En cualquier momento: el abogado concluye que el recall por WhatsApp sin consentimiento expreso no es viable.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="alto">
+  <span class="eyebrow">Plan técnico · alto nivel</span>
+  <h2>Arquitectura</h2>
+  <div class="arch">
+    <div class="lane">
+      <div class="lane-title">Entrada</div>
+      <div class="box ext"><b>Exportación del PMS</b><span>Gesden, Clinic Cloud, Dentalink, CSV/Excel</span></div>
+      <div class="box ext"><b>Agenda</b><span>API del PMS o Google Calendar</span></div>
+    </div>
+    <div class="arrow"><span>→</span></div>
+    <div class="lane">
+      <div class="lane-title">Núcleo (UE)</div>
+      <div class="box core"><b>Importador + normalizador</b><span>mapea columnas con LLM, deduplica, valida teléfonos</span></div>
+      <div class="box core"><b>Motor de segmentos</b><span>reglas: revisión atrasada, tratamiento abierto, lista de espera</span></div>
+      <div class="box core"><b>Agente conversacional</b><span>redacta, responde, ofrece huecos, escala a humano</span></div>
+      <div class="box core"><b>Atribución + informes</b><span>cita → atendida → euros → factura</span></div>
+    </div>
+    <div class="arrow"><span>→</span></div>
+    <div class="lane">
+      <div class="lane-title">Salida</div>
+      <div class="box ext"><b>WhatsApp Cloud API</b><span>plantillas aprobadas por Meta</span></div>
+      <div class="box ext"><b>Voz saliente</b><span>para tratamientos de ticket alto</span></div>
+      <div class="box"><b>Panel de clínica</b><span>bandeja, aprobaciones, informe mensual</span></div>
+    </div>
+  </div>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li><b>App y panel:</b> Next.js en Vercel (región <code>fra1</code>) o Hono en el VPS Hetzner (Alemania). Recomiendo el VPS para mantener todo el dato de salud en un solo proveedor UE.</li>
+    <li><b>Base de datos:</b> Postgres gestionado en la UE (Supabase región Frankfurt), con Row Level Security por clínica.</li>
+    <li><b>Jobs:</b> cola sobre Postgres (pg-boss) para envíos, reintentos y ventanas horarias.</li>
+    <li><b>LLM:</b> Claude o Mistral vía endpoint con residencia UE y sin retención de datos. Nunca se envían notas clínicas, solo segmento y nombre de pila.</li>
+    <li><b>WhatsApp:</b> WhatsApp Business Cloud API directa, o un BSP europeo (360dialog) para el alta rápida.</li>
+    <li><b>Voz:</b> proveedor SIP con número español + TTS/STT con opción UE.</li>
+  </ul>
+  <h3>Integraciones</h3>
+  <ul>
+    <li><b>Fase 1:</b> CSV/Excel exportado por la clínica. Confirmación de cita con un clic en el panel.</li>
+    <li><b>Fase 2:</b> lectura de agenda y escritura de citas por API donde exista (Dentalink tiene API pública; Gesden y Clinic Cloud requieren acuerdo o conector).</li>
+    <li><b>Fase 3:</b> sincronización diaria automática y marca de «atendida» desde el PMS para facturar.</li>
+  </ul>
+</section>
+
+<section id="rgpd">
+  <span class="eyebrow">Riesgos legales</span>
+  <h2>RGPD y datos de salud: <em>lo que decide la venta</em></h2>
+  <div class="warn"><b>Bloquea cualquier piloto sin DPA firmado.</b> Revisita trata datos de categoría especial (salud) del artículo 9 del RGPD. Un fallo aquí cierra el negocio.</div>
+  <h3>Roles</h3>
+  <ul>
+    <li>La clínica es <b>responsable del tratamiento</b>. Revisita es <b>encargado</b> (art. 28 <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener">RGPD</a>).</li>
+    <li>Firmamos un contrato de encargado (DPA) con instrucciones, confidencialidad, subencargados listados y devolución o borrado al terminar.</li>
+    <li>Subencargados: hosting UE, proveedor LLM, Meta (WhatsApp) y proveedor de voz. Cada uno con su DPA y cláusulas tipo cuando haya transferencia internacional.</li>
+  </ul>
+  <h3>Base legal y consentimiento</h3>
+  <ul>
+    <li><b>Recall de revisión o tratamiento pendiente:</b> se apoya en la asistencia sanitaria (art. 9.2.h RGPD) y en la relación con el paciente. Hay que validarlo con un abogado especialista antes del lanzamiento.</li>
+    <li><b>Mensajes comerciales</b> (ofertas, blanqueamiento, promociones): requieren consentimiento expreso según la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758" target="_blank" rel="noopener">LSSI</a>. Revisita no envía promociones en el MVP.</li>
+    <li>Importamos el campo de consentimiento del PMS si existe. Sin dato de consentimiento, la clínica decide por segmento y lo deja registrado.</li>
+    <li>Cada mensaje identifica a la clínica y ofrece la baja («responde BAJA»). La baja se aplica en todas las campañas al instante.</li>
+  </ul>
+  <h3>Medidas técnicas</h3>
+  <ul>
+    <li>Minimización: solo nombre, teléfono, fecha de última visita, tipo de tratamiento y estado. Sin historia clínica, sin radiografías, sin diagnósticos en texto libre.</li>
+    <li>Cifrado en reposo y en tránsito. Teléfonos cifrados a nivel de columna.</li>
+    <li>Aislamiento por clínica con RLS y registro de auditoría de accesos.</li>
+    <li>Prompts sin datos identificativos más allá del nombre de pila. LLM sin retención ni entrenamiento con los datos.</li>
+    <li>Retención: los ficheros importados se borran tras 30 días; los datos de campaña, al terminar el contrato.</li>
+    <li>Evaluación de impacto (EIPD) propia antes del primer piloto, porque tratamos datos de salud a escala.</li>
+    <li>Registro de actividades de tratamiento como encargado y procedimiento de brechas (72 horas).</li>
+  </ul>
+  <h3>Otros riesgos</h3>
+  <ul>
+    <li><b>Publicidad sanitaria:</b> los mensajes no prometen resultados clínicos ni precios engañosos. Plantillas revisadas con la clínica.</li>
+    <li><b>Meta:</b> las plantillas de recall pueden clasificarse como marketing y costar más. Riesgo de bloqueo del número si hay muchas quejas: volumen gradual y buena segmentación.</li>
+    <li><b>Atribución disputada:</b> regla escrita en contrato (reserva desde mensaje + atendida en 60 días).</li>
+  </ul>
+</section>
+
+<section id="bajo">
+  <span class="eyebrow">Plan técnico · bajo nivel</span>
+  <h2>Modelo de datos</h2>
+  <div class="scroll"><table>
+    <tr><th>Tabla</th><th>Campos clave</th></tr>
+    <tr><td><code>clinic</code></td><td>id, name, city, pms_type, whatsapp_number_id, timezone, send_window, pricing_plan, dpa_signed_at</td></tr>
+    <tr><td><code>staff</code></td><td>id, clinic_id, name, role (dentist|reception|owner), display_name_in_messages</td></tr>
+    <tr><td><code>patient</code></td><td>id, clinic_id, external_id, first_name, phone_enc, lang (es|ca), last_visit_at, recall_interval_months, consent_status, opted_out_at</td></tr>
+    <tr><td><code>treatment_plan</code></td><td>id, patient_id, kind (implant|crown|ortho|...), status (proposed|accepted|in_progress|done), next_phase, amount_eur, updated_at</td></tr>
+    <tr><td><code>import_batch</code></td><td>id, clinic_id, source, file_hash, column_map (json), rows_ok, rows_error, created_at, purge_at</td></tr>
+    <tr><td><code>segment_rule</code></td><td>id, clinic_id, kind (overdue_checkup|open_treatment|waitlist), params (json), active</td></tr>
+    <tr><td><code>campaign</code></td><td>id, clinic_id, segment_rule_id, template_id, status, daily_cap, started_at</td></tr>
+    <tr><td><code>outreach</code></td><td>id, campaign_id, patient_id, channel (wa|voice), state (queued|sent|replied|booked|declined|escalated|opted_out), attempts, last_event_at</td></tr>
+    <tr><td><code>message</code></td><td>id, outreach_id, direction, body, wa_message_id, created_at</td></tr>
+    <tr><td><code>slot</code></td><td>id, clinic_id, staff_id, starts_at, duration_min, source (agenda|cancellation), status (free|offered|taken)</td></tr>
+    <tr><td><code>waitlist_entry</code></td><td>id, clinic_id, patient_id, preferred_days, preferred_times, created_at</td></tr>
+    <tr><td><code>appointment</code></td><td>id, clinic_id, patient_id, slot_id, outreach_id, booked_at, attended (null|true|false), revenue_eur</td></tr>
+    <tr><td><code>invoice_line</code></td><td>id, clinic_id, appointment_id, month, amount_eur, disputed</td></tr>
+    <tr><td><code>audit_log</code></td><td>id, clinic_id, actor, action, target, created_at</td></tr>
+  </table></div>
+
+  <h3>Endpoints</h3>
+  <pre>POST /api/clinics/:id/imports          subir CSV/XLSX → import_batch
+POST /api/imports/:id/map              confirmar mapeo de columnas (propuesto por LLM)
+GET  /api/clinics/:id/audit            informe "euros dormidos" (auditoría gratuita)
+POST /api/clinics/:id/campaigns        crear campaña desde segment_rule
+POST /api/campaigns/:id/approve        recepción aprueba el lote del día
+POST /api/slots/:id/cancel             registra cancelación → dispara relleno
+POST /api/appointments/:id/attended    marca atendida (manual o sync PMS)
+GET  /api/clinics/:id/report?month=    informe mensual de ROI
+POST /webhooks/whatsapp                mensajes entrantes y estados
+POST /webhooks/voice                   eventos de llamada</pre>
+
+  <h3>Jobs</h3>
+  <ul>
+    <li><code>segment.nightly</code> (02:00): recalcula segmentos por clínica y prepara el lote del día.</li>
+    <li><code>outreach.send</code> (cada 5 min dentro de la ventana 10:00-20:00): envía hasta el tope diario.</li>
+    <li><code>outreach.followup</code>: segundo mensaje a las 72 h si no hay respuesta; voz solo en tratamientos &gt; 500 €.</li>
+    <li><code>waitlist.fill</code>: al cancelar un slot, ofrece el hueco a 3 candidatos en paralelo; el primero que acepta se lo queda.</li>
+    <li><code>attribution.daily</code>: cruza citas con asistencia y genera <code>invoice_line</code>.</li>
+    <li><code>imports.purge</code>: borra ficheros importados cuando llega <code>purge_at</code>.</li>
+  </ul>
+
+  <h3>Agentes y prompts</h3>
+  <div class="grid2">
+    <div class="card"><b>Mapeador de columnas</b><p style="margin:6px 0 0">Recibe cabeceras y 5 filas con datos enmascarados. Devuelve JSON con el mapeo a nuestro esquema y una confianza. Si la confianza es baja, pide confirmación humana.</p></div>
+    <div class="card"><b>Redactor</b><p style="margin:6px 0 0">Recibe clínica, profesional, nombre de pila, segmento, meses desde la última visita y 3 huecos. Escribe un mensaje de 2-3 frases en el idioma del paciente, sin datos clínicos sensibles.</p></div>
+    <div class="card"><b>Conversador</b><p style="margin:6px 0 0">Herramientas: <code>offer_slots</code>, <code>book_slot</code>, <code>opt_out</code>, <code>escalate</code>. Regla dura: dolor, urgencia, precio de tratamiento o duda clínica → <code>escalate</code>.</p></div>
+    <div class="card"><b>Analista mensual</b><p style="margin:6px 0 0">Resume el informe de ROI en 5 frases para la gerente, con los números del sistema. No inventa cifras: solo lee la tabla <code>appointment</code>.</p></div>
+  </div>
+  <pre>SYSTEM (redactor): Eres la recepción de {clinic}. Escribe a {first_name},
+paciente de {dentist}. Motivo: {segment_human} (hace {months} meses).
+Reglas: máx. 3 frases, tono cercano y profesional, idioma {lang}.
+No menciones diagnósticos ni importes. Ofrece estos huecos: {slots}.
+Termina con "Si prefieres no recibir estos avisos, responde BAJA."</pre>
+
+  <h3>Flujo paso a paso</h3>
+  <ol>
+    <li>La clínica firma el DPA y sube su exportación.</li>
+    <li>El mapeador propone columnas; Joaquín (luego la clínica) confirma.</li>
+    <li>El sistema normaliza, deduplica y excluye bajas y teléfonos no válidos.</li>
+    <li><code>segment.nightly</code> calcula revisiones atrasadas y tratamientos abiertos.</li>
+    <li>Recepción aprueba el lote del día con un clic (en el MVP, siempre).</li>
+    <li><code>outreach.send</code> envía la plantilla aprobada por Meta.</li>
+    <li>El paciente responde; el conversador ofrece huecos o escala.</li>
+    <li>El paciente elige un hueco; se crea <code>appointment</code> y se escribe en la agenda.</li>
+    <li>El día de la cita, la clínica marca «atendida» (o llega por sync).</li>
+    <li><code>attribution.daily</code> genera la línea de factura y el informe mensual.</li>
+  </ol>
+</section>
+
+<section id="mvp">
+  <span class="eyebrow">MVP</span>
+  <h2>Cuatro semanas</h2>
+  <div class="weeks">
+    <div class="week"><b>Semana 1 · Auditoría</b>Importador CSV con mapeo LLM, cálculo de «euros dormidos» y PDF de auditoría. Plantilla de DPA revisada por abogado. 20 visitas a clínicas.</div>
+    <div class="week"><b>Semana 2 · Envío</b>Alta de WhatsApp Cloud API por clínica, plantillas aprobadas, motor de segmentos, cola de envío con ventana horaria y bajas.</div>
+    <div class="week"><b>Semana 3 · Conversación y reserva</b>Agente conversacional con herramientas, huecos cargados a mano o desde Google Calendar, escalado a recepción por WhatsApp.</div>
+    <div class="week"><b>Semana 4 · Medida</b>Marcado de «atendida», atribución, informe mensual y factura. Relleno de cancelaciones con lista de espera. 2-3 pilotos en marcha.</div>
+  </div>
+  <p style="margin-top:16px"><b>Fuera del MVP:</b> voz saliente, integración escrita con Gesden, multi-idioma más allá de es/ca, campañas comerciales.</p>
+</section>
+
+<section id="unit">
+  <span class="eyebrow">Unit economics</span>
+  <h2>Números de una clínica tipo</h2>
+  <p>Supuestos (hipótesis, sin validar): clínica con 2.500 pacientes en ficha, 400 contactos al mes, 8% acaba en cita atendida.</p>
+  <div class="scroll"><table>
+    <tr><th>Concepto</th><th>Al mes</th></tr>
+    <tr><td>Visitas recuperadas (400 × 8%)</td><td>32</td></tr>
+    <tr><td><b>Ingreso Revisita</b> (32 × 25 €)</td><td><b>800 €</b></td></tr>
+    <tr><td>WhatsApp: ~800 mensajes de plantilla (~0,06 € cada uno en tarifa marketing para España, a revisar)</td><td>~50 €</td></tr>
+    <tr><td>LLM (redacción y conversación)</td><td>~15 €</td></tr>
+    <tr><td>Voz (fase 2, ~100 min)</td><td>~15 €</td></tr>
+    <tr><td>Hosting y base de datos, parte proporcional</td><td>~10 €</td></tr>
+    <tr><td><b>Coste variable por clínica</b></td><td><b>~90 €</b></td></tr>
+    <tr><td><b>Margen bruto</b></td><td><b>~710 € (≈ 89%)</b></td></tr>
+  </table></div>
+  <div class="grid2">
+    <div class="card"><div class="num">~5</div><p style="margin:6px 0 0">clínicas para cubrir 3.500 € al mes de coste fijo (sueldo mínimo de Joaquín, abogado, herramientas).</p></div>
+    <div class="card"><div class="num">~15×</div><p style="margin:6px 0 0">retorno para la clínica si cada visita recuperada factura 60-80 € en limpieza más tratamientos derivados.</p></div>
+  </div>
+  <p><b>Riesgo del modelo por resultado:</b> clínicas con base pequeña generan poco ingreso y mucho soporte. Mínimo de 1.000 pacientes en ficha para entrar, y cuota plana como alternativa.</p>
+  <p><b>CAC sin anuncios:</b> ~6 h de visitas y auditoría por cliente. Con 800 € al mes, se recupera en el primer mes.</p>
+</section>
+
+<section id="fabricas">
+  <span class="eyebrow">Automatización</span>
+  <h2>Qué hacen las fábricas de agentes</h2>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">Software factory</h3>
+      <ul>
+        <li>Un conector por PMS: agente que lee exportaciones reales y genera parser + tests.</li>
+        <li>Plantillas de WhatsApp por segmento y su envío a aprobación de Meta.</li>
+        <li>Suite de evals del conversador: 50 conversaciones guionizadas (dolor, precio, baja, catalán).</li>
+        <li>Informe mensual y PDF de auditoría generados desde datos.</li>
+        <li>Validador holdout con browser-harness sobre el panel antes de cada deploy.</li>
+        <li>Revisión automática de cambios que tocan datos personales (checklist RGPD en CI).</li>
+      </ul></div>
+    <div class="card"><h3 style="margin-top:0">Marketing factory</h3>
+      <ul>
+        <li>Lista de clínicas independientes desde Google Maps, filtrada y enriquecida.</li>
+        <li>Primer mensaje personalizado por clínica (barrio, reseñas, especialidad).</li>
+        <li>Guiones y subtítulos de reels a partir de la lista de temas.</li>
+        <li>Posts de LinkedIn para gerentes de clínica y artículos SEO («recall dental RGPD»).</li>
+        <li>Seguimiento del embudo (contactada → auditoría → piloto) en una hoja o CRM.</li>
+        <li>Casos reales con números, solo con permiso escrito de la clínica.</li>
+      </ul></div>
+  </div>
+  <p><b>Lo que no se automatiza:</b> la primera visita presencial, la firma del DPA y la revisión legal de plantillas.</p>
+</section>
+
+<footer><span><b>Revisita</b> · © 2026</span><a href="index.html">Volver a la landing</a></footer>
+</div>
+</body>
+</html>

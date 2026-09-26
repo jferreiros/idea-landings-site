@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Building repairs, closed</title>
+<meta name="description" content="Conserjia is an AI concierge for Spanish property managers: it takes the repair request on WhatsApp, dispatches the contractor, follows the job and closes it with the resident.">
+<meta name="theme-color" content="#0D1B2E">
+<link rel="canonical" href="https://conserjia.vercel.app/en.html">
+<link rel="alternate" hreflang="es" href="https://conserjia.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://conserjia.vercel.app/ca.html">
+<link rel="alternate" hreflang="en" href="https://conserjia.vercel.app/en.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230D1B2E'/%3E%3Crect x='4' y='4' width='24' height='24' rx='3' fill='none' stroke='%23D4A43A' stroke-width='2.5'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='monospace' font-weight='700' font-size='14' fill='%23D4A43A'%3EC%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Conserjia">
+<meta property="og:url" content="https://conserjia.vercel.app/en.html">
+<meta property="og:title" content="Conserjia | Every building repair, closed">
+<meta property="og:description" content="Residents message on WhatsApp. Conserjia dispatches the contractor, follows the repair and files the ticket. Free 30-day pilot for Barcelona property managers.">
+<meta property="og:image" content="https://conserjia.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Conserjia: ticket de incidencia Nº 0417, fuga en la bajante comunitaria">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conserjia | Every building repair, closed">
+<meta name="twitter:description" content="The AI concierge for property managers: from WhatsApp report to closed repair.">
+<meta name="twitter:image" content="https://conserjia.vercel.app/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://conserjia.vercel.app/#org","name":"Conserjia","url":"https://conserjia.vercel.app/","logo":"https://conserjia.vercel.app/og.png","founder":{"@type":"Person","name":"Joaquín"},"areaServed":"Barcelona"},
+ {"@type":"Service","name":"Conserjia","serviceType":"Gestión de incidencias de comunidades de propietarios con IA","provider":{"@id":"https://conserjia.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"audience":{"@type":"BusinessAudience","audienceType":"Despachos de administración de fincas"},"availableLanguage":["es","ca"],
+  "offers":[{"@type":"Offer","name":"Piloto","price":"0","priceCurrency":"EUR","description":"30 días en 2 comunidades"},{"@type":"Offer","name":"Por comunidad","price":"12","priceCurrency":"EUR","description":"Por comunidad y mes, sin IVA, precio en validación"}]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2E; --navy-2:#13253D; --navy-3:#1B3252; --rule:#2A4265;
+  --txt:#E8ECF2; --txt-2:#A9B6C8; --txt-3:#7F8EA4;
+  --brass:#D4A43A; --brass-2:#E6BC5C; --brass-ink:#1A1405;
+  --red:#E07A5F; --ok:#7FC8A9;
+  --r:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--txt);font:400 17px/1.6 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--brass-2)}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.005em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;background:var(--brass);color:var(--brass-ink);border:0;border-radius:var(--r);padding:13px 22px;font:700 16px "Hanken Grotesk",sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .35s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)}
+.btn:hover{background:var(--brass-2)}
+.btn:active{transform:scale(.98)}
+.btn .ar{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:4px;background:rgba(26,20,5,.12);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.btn:hover .ar{transform:translateX(3px)}
+.btn.ghost{background:transparent;color:var(--txt);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--txt-2)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--brass);color:var(--brass-ink);padding:8px 12px;z-index:50}
+.skip:focus{left:8px}
+a:focus-visible,.btn:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--brass-2);outline-offset:3px}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;height:72px;border-bottom:1px solid var(--rule)}
+.logo{display:flex;align-items:center;gap:12px;font-family:"DM Serif Display",serif;font-size:1.45rem;color:var(--txt);text-decoration:none}
+.navr{display:flex;align-items:center;gap:14px}
+.lang{display:inline-flex;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;font:600 .74rem "IBM Plex Mono",monospace}
+.lang a,.lang span{display:grid;place-items:center;min-width:40px;min-height:40px;padding:0 8px;text-decoration:none;color:var(--txt-3)}
+.lang span{background:var(--navy-3);color:var(--txt)}
+.lang a:hover{color:var(--txt)}
+@media(max-width:420px){nav .navr>.btn{display:none}}
+.plate{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 6px;border:2px solid var(--brass);border-radius:4px;color:var(--brass);font:600 .8rem "IBM Plex Mono",monospace}
+nav .links{display:none;gap:28px}
+nav .links a{color:var(--txt-2);text-decoration:none;font-size:.95rem}
+nav .links a:hover{color:var(--txt)}
+nav .btn{min-height:42px;padding:9px 16px;font-size:15px}
+@media(min-width:860px){nav .links{display:flex}}
+
+/* hero */
+.hero{display:grid;gap:44px;grid-template-columns:1fr;padding:56px 0 72px}
+@media(min-width:980px){.hero{grid-template-columns:1.05fr .95fr;align-items:center;padding:72px 0 96px}}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--brass);margin-bottom:22px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--brass)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem)}
+.hero h1 em{font-style:italic;color:var(--brass-2);padding-bottom:4px}
+.hero .lead{font-size:1.18rem;color:var(--txt-2);max-width:31em;margin:24px 0 32px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* building section diagram */
+.bldg{position:relative;max-width:520px;margin:0 auto;width:100%}
+.sign{display:inline-flex;flex-direction:column;margin:0 0 14px 64px;background:#123A5A;border:2px solid var(--txt);border-radius:4px;padding:6px 14px 7px;color:var(--txt);box-shadow:0 0 0 3px #123A5A}
+.sign small{font:600 .62rem "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.sign b{font-family:"DM Serif Display",serif;font-weight:400;font-size:1.25rem;line-height:1.1}
+.facade{border:2px solid var(--txt-3);border-bottom:0;border-radius:3px 3px 0 0;background:var(--navy-2)}
+.floor{display:grid;grid-template-columns:64px 1fr 1fr 1fr;border-top:1px solid var(--rule);min-height:46px}
+.floor:first-child{border-top:0}
+.floor .lv{display:grid;place-items:center;border-right:1px solid var(--rule);font:600 .72rem "IBM Plex Mono",monospace;color:var(--txt-3)}
+.floor .u{border-right:1px dashed rgba(42,66,101,.8);position:relative}
+.floor .u:last-child{border-right:0}
+.floor .u::after{content:"";position:absolute;left:28%;right:28%;top:12px;bottom:12px;border:1px solid var(--rule);border-radius:2px}
+.floor.gar{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(42,66,101,.35) 10px 11px)}
+.floor.gar .u::after{display:none}
+.ground{height:10px;background:var(--txt-3);border-radius:0 0 3px 3px}
+.hit{position:absolute;inset:6px;border:2px solid var(--brass);border-radius:3px;background:rgba(212,164,58,.12);z-index:1}
+.hit::before{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--brass)}
+@media(prefers-reduced-motion:no-preference){.hit::before{animation:ping 2.2s cubic-bezier(.16,1,.3,1) infinite}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(212,164,58,.6)}70%,100%{box-shadow:0 0 0 14px rgba(212,164,58,0)}}
+.tkt{position:relative;margin:22px 0 0 auto;width:min(330px,92%);background:var(--txt);color:var(--navy);border-radius:4px;padding:16px 18px 14px;box-shadow:0 24px 48px -20px rgba(0,0,0,.6);z-index:2}
+.tkt::before{content:"";position:absolute;left:0;right:0;top:-6px;height:6px;background:radial-gradient(circle at 6px 0,transparent 5px,var(--txt) 5.5px) 0 0/12px 6px repeat-x}
+.tkt .no{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed #9AA6B8;padding-bottom:8px;margin-bottom:10px}
+.tkt .no b{font:600 1.5rem "IBM Plex Mono",monospace;letter-spacing:-.02em}
+.tkt .no span{font:600 .68rem "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;background:var(--red);color:#fff;padding:3px 7px;border-radius:3px}
+.tkt p{font-size:.93rem;line-height:1.45}
+.tkt ul{list-style:none;margin-top:10px;display:grid;gap:4px;font:500 .78rem "IBM Plex Mono",monospace;color:#3D4C62}
+.tkt li{display:flex;justify-content:space-between;gap:10px}
+.tkt li b{color:var(--navy)}
+.tkt li.now b{color:#9A6B06}
+.fine{margin-top:18px;font-size:.92rem;color:var(--txt-3)}
+
+/* sections */
+section{padding:96px 0;border-top:1px solid var(--rule)}
+h2{font-size:clamp(2rem,4.2vw,3rem);max-width:18em}
+.sub{color:var(--txt-2);margin-top:16px;font-size:1.1rem;max-width:36em}
+
+/* monday */
+.day{display:grid;gap:40px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:900px){.day{grid-template-columns:1.1fr .9fr;gap:64px}}
+.log{list-style:none;display:grid;gap:0}
+.log li{display:grid;grid-template-columns:78px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--rule)}
+.log li:first-child{border-top:0;padding-top:0}
+.log time{font:600 .95rem "IBM Plex Mono",monospace;color:var(--red)}
+.log p{color:var(--txt-2)}
+.cost{background:var(--navy-2);border-left:3px solid var(--brass);padding:28px 30px}
+.cost h3{font-size:1.6rem;margin-bottom:16px}
+.cost p{color:var(--txt-2);margin-top:10px}
+
+/* how: chat + steps */
+.how{display:grid;gap:48px;grid-template-columns:1fr;margin-top:48px;align-items:start}
+@media(min-width:960px){.how{grid-template-columns:380px 1fr;gap:72px}}
+.phone{background:#050C16;border-radius:30px;padding:10px;max-width:360px;margin:0 auto;width:100%;box-shadow:0 30px 60px -30px rgba(0,0,0,.8),inset 0 0 0 1px var(--rule)}
+.screen{background:#E9E4DA;border-radius:22px;overflow:hidden;color:#111B21}
+.screen .top{background:#123A5A;color:#fff;padding:12px 14px;display:flex;gap:10px;align-items:center}
+.screen .top .plate{border-color:var(--brass-2);color:var(--brass-2);min-width:30px;height:30px;font-size:.7rem}
+.screen .top b{display:block;font-size:14.5px}.screen .top small{opacity:.75;font-size:12px}
+.chat{padding:12px 10px 16px;display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.4}
+.msg{max-width:86%;padding:7px 10px;border-radius:10px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.msg.me{align-self:flex-end;background:#DCF3CF}
+.msg time{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:2px}
+.photo{height:104px;border-radius:7px;margin-bottom:6px;position:relative;overflow:hidden;background:radial-gradient(ellipse 36% 24% at 50% 72%,rgba(40,80,120,.55),transparent 70%),linear-gradient(90deg,transparent 46%,#8d8f8c 46% 54%,transparent 54%),repeating-linear-gradient(0deg,#cfc6b4 0 22px,#bdb29d 22px 24px)}
+.chip{display:inline-block;font:600 10.5px "IBM Plex Mono",monospace;text-transform:uppercase;padding:2px 6px;border-radius:3px;background:#FDE3DA;color:#A33D22;margin:0 4px 4px 0}
+.chip.c{background:#DCE7F5;color:#123A5A}
+.steps{list-style:none;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-top:1px solid var(--rule)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps .plate{width:48px;height:48px;font-size:1.05rem}
+.steps h3{font-size:1.55rem;margin-bottom:8px}
+.steps p{color:var(--txt-2)}
+
+.demo{max-width:360px;margin:0 auto;width:100%}
+.demo-l{color:var(--brass);margin-bottom:12px}
+.scn{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.scn button{min-height:44px;padding:8px 14px;border-radius:var(--r);border:1.5px solid var(--rule);background:transparent;color:var(--txt-2);font:600 .92rem "Hanken Grotesk",sans-serif;cursor:pointer;transition:border-color .3s cubic-bezier(.16,1,.3,1),color .3s cubic-bezier(.16,1,.3,1)}
+.scn button:hover{color:var(--txt);border-color:var(--txt-3)}
+.scn button[aria-pressed=true]{border-color:var(--brass);color:var(--txt);background:rgba(212,164,58,.1)}
+.scn button:focus-visible{outline:3px solid var(--brass-2);outline-offset:2px}
+.chat{min-height:392px}
+.msg.new{animation:pop .45s cubic-bezier(.16,1,.3,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.typing{align-self:flex-start;background:#fff;border-radius:10px;padding:9px 12px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#98A2AD;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,100%{opacity:.3}50%{opacity:1}}
+.demo-out{margin-top:16px;font-size:.95rem;color:var(--txt-2);min-height:3em}
+.demo-out .chip{vertical-align:1px}
+@media(prefers-reduced-motion:reduce){.msg.new,.typing i{animation:none}}
+
+/* ficha */
+.board{margin-top:48px;background:var(--navy-2);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.board .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--rule)}
+.board .bar b{font:600 .95rem "IBM Plex Mono",monospace}
+.bgrid{display:grid;grid-template-columns:1fr}
+@media(min-width:900px){.bgrid{grid-template-columns:1.2fr 1fr}}
+.ticket{padding:26px;border-bottom:1px solid var(--rule)}
+@media(min-width:900px){.ticket{border-bottom:0;border-right:1px solid var(--rule)}}
+.ticket h3{font-size:1.5rem;margin:8px 0 12px}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:8px 14px;font-size:.96rem;margin:16px 0}
+.kv dt{color:var(--txt-3)}
+.law{border-left:3px solid var(--brass);padding:10px 14px;font-size:.92rem;color:var(--txt-2);background:rgba(212,164,58,.07)}
+.track{padding:26px}
+.track ol{list-style:none;display:grid;gap:16px;margin-top:16px}
+.track li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.96rem}
+.track li i{width:12px;height:12px;border-radius:2px;margin-top:6px;background:var(--ok)}
+.track li.now i{background:var(--brass);box-shadow:0 0 0 4px rgba(212,164,58,.25)}
+.track li.next i{background:transparent;border:2px solid var(--rule)}
+.track li small{display:block;color:var(--txt-3);font:500 .8rem "IBM Plex Mono",monospace}
+.track li.next{color:var(--txt-3)}
+
+/* compare */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:40px}
+.compare{width:100%;min-width:640px;border-collapse:collapse;font-size:.96rem}
+.compare th,.compare td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+.compare thead th{font:600 .74rem "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--txt-3)}
+.compare td{color:var(--txt-2)}
+.compare td.us{color:var(--txt);background:rgba(212,164,58,.09);font-weight:600}
+.compare thead th.us{color:var(--brass)}
+.compare th[scope=row]{font-weight:600;width:26%}
+@media(max-width:640px){.compare{min-width:0;font-size:.92rem}.compare th:nth-child(3),.compare td:nth-child(3){display:none}.compare th,.compare td{padding:12px 10px}.kv{grid-template-columns:96px 1fr}}
+
+/* rules */
+.rules{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:48px;grid-template-columns:1fr}
+@media(min-width:760px){.rules{grid-template-columns:1fr 1fr}}
+.rules div{background:var(--navy);padding:28px}
+.rules b{display:block;font-family:"DM Serif Display",serif;font-weight:400;font-size:1.45rem;margin-bottom:6px}
+.rules p{color:var(--txt-2)}
+
+/* pricing */
+.plans{display:grid;gap:18px;grid-template-columns:1fr;margin-top:48px}
+@media(min-width:900px){.plans{grid-template-columns:1.2fr 1fr}}
+.plan{border:1px solid var(--rule);border-radius:8px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.plan.hl{background:var(--navy-2);border:2px solid var(--brass)}
+.plan h3{font-size:1.45rem}
+.price{font-family:"DM Serif Display",serif;font-size:2.8rem;line-height:1}
+.price small{font:400 .95rem "Hanken Grotesk",sans-serif;color:var(--txt-2)}
+.plan ul{list-style:none;display:grid;gap:8px;color:var(--txt-2)}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--brass);border-bottom:2px solid var(--brass);transform:rotate(-45deg)}
+.note{margin-top:20px;font-size:.9rem;color:var(--txt-3)}
+
+/* founder */
+.founder{display:grid;gap:24px;grid-template-columns:1fr}
+@media(min-width:860px){.founder{grid-template-columns:auto 1fr;gap:40px}}
+.founder .plate{width:64px;height:64px;font-size:1.3rem}
+.founder blockquote{font-family:"DM Serif Display",serif;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.25;max-width:24em}
+.founder p{color:var(--txt-2);margin-top:16px;max-width:44em}
+
+/* faq */
+.faq{margin-top:40px;max-width:860px}
+details{border-top:1px solid var(--rule);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:600 1.3rem "IBM Plex Mono",monospace;color:var(--brass);line-height:1}
+details[open] summary::after{content:"-"}
+details p{color:var(--txt-2);margin-top:10px;max-width:46em}
+
+/* cta */
+.cta{display:grid;gap:40px;grid-template-columns:1fr;border:2px solid var(--brass);border-radius:8px;padding:36px 22px;background:var(--navy-2)}
+@media(min-width:960px){.cta{grid-template-columns:1fr 1fr;padding:56px;gap:64px}}
+.cta h2{font-size:clamp(2rem,4vw,2.8rem)}
+.pilot{list-style:none;display:grid;gap:14px;margin-top:28px}
+.pilot li{display:grid;grid-template-columns:40px 1fr;gap:14px;color:var(--txt-2)}
+.pilot b{display:block;color:var(--txt)}
+form{display:flex;flex-direction:column;gap:14px}
+label{font-size:.92rem;font-weight:600;color:var(--txt)}
+input{width:100%;margin-top:6px;padding:14px;border-radius:var(--r);border:1px solid var(--txt-3);background:var(--navy);color:var(--txt);font:16px "Hanken Grotesk",sans-serif}
+input::placeholder{color:#8795AA}
+.form-note{font-size:.85rem;color:var(--txt-2)}
+.thanks{display:none;border:1px solid var(--rule);border-radius:var(--r);padding:28px}
+.thanks h3{font-size:1.7rem;margin-bottom:8px}
+.thanks p{color:var(--txt-2)}
+footer{padding:40px 0 110px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--txt-3);font-size:.92rem;border-top:1px solid var(--rule)}
+footer a{color:var(--txt-2)}
+@media(min-width:860px){footer{padding-bottom:50px}}
+
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--txt);color:var(--navy);border-radius:8px;padding:8px 8px 8px 16px;box-shadow:0 14px 30px -12px rgba(0,0,0,.7);transform:translateY(160%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.sticky.on{transform:none}
+.sticky span{font-size:.92rem;font-weight:600}
+.sticky .btn{min-height:44px;padding:9px 16px;font-size:15px}
+@media(min-width:860px){.sticky{left:auto;right:24px;bottom:24px;max-width:420px}}
+
+.rv{opacity:1}
+@media(prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .js .rv.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.btn,.btn .ar{transition:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<nav aria-label="Principal">
+  <a class="logo" href="#" aria-label="Conserjia, home"><span class="plate" aria-hidden="true">C</span>Conserjia</a>
+  <div class="links"><a href="#como">How it works</a><a href="#precio">Pricing</a><a href="#faq">FAQ</a></div>
+  <div class="navr"><div class="lang" aria-label="Language"><a href="./" hreflang="es" lang="es">ES</a><a href="ca.html" hreflang="ca" lang="ca">CA</a><span aria-current="true">EN</span></div><a class="btn" href="#probar">Request a pilot</a></div>
+</nav>
+
+<header class="hero" id="main">
+  <div>
+    <span class="mono kicker">For Spanish property managers</span>
+    <h1>Every building repair, <em>closed</em> without picking up the phone.</h1>
+    <p class="lead">Residents report on WhatsApp. Conserjia dispatches the manager's own contractor, chases the job and files the ticket. The manager approves spend.</p>
+    <div class="ctas">
+      <a class="btn" href="#probar">Request a pilot <span class="ar" aria-hidden="true">&rarr;</span></a>
+      <a class="btn ghost" href="#como">See a real case</a>
+    </div>
+    <p class="fine">Free for 30 days in 2 buildings. No card, no change of management software.</p>
+  </div>
+
+  <figure class="bldg" aria-label="Cross-section of a building at C/ Provença 214 with an open ticket in the basement garage">
+    <div class="sign" aria-hidden="true"><small>Eixample</small><b>C/ de Provença, 214</b></div>
+    <div class="facade">
+      <div class="floor"><span class="lv">ÀT</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">3º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">2º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">1º</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor"><span class="lv">BJ</span><span class="u"></span><span class="u"></span><span class="u"></span></div>
+      <div class="floor gar"><span class="lv">-1</span><span class="u"></span><span class="u"><span class="hit"></span></span><span class="u"></span></div>
+    </div>
+    <div class="ground"></div>
+    <div class="tkt">
+      <div class="no"><b>Nº 0417</b><span>Urgent</span></div>
+      <p>Leak in the shared downpipe next to parking space 12. Reported by Marta P. (flat 2-1) with a photo.</p>
+      <ul>
+        <li><span>08:41 report received</span><b>OK</b></li>
+        <li><span>08:44 Fontanería Ribas</span><b>Dispatched</b></li>
+        <li class="now"><span>10:22 on site</span><b>In progress</b></li>
+      </ul>
+    </div>
+  </figure>
+</header>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">A Monday at a property management office in L'Eixample</h2>
+    <div class="day">
+      <ol class="log rv">
+        <li><time>08:05</time><p>Three voice notes from the same stairwell: "the lift is stuck again".</p></li>
+        <li><time>09:30</time><p>A resident calls about a damp ceiling. Shared pipe, or the neighbour's shower upstairs?</p></li>
+        <li><time>11:15</time><p>The plumber asks for the address again. Nobody has told the building president.</p></li>
+        <li><time>17:40</time><p>The resident calls back: "Is anyone coming?". Nobody in the office knows the status.</p></li>
+      </ol>
+      <div class="cost rv">
+        <h3>The office clerk becomes a switchboard</h3>
+        <p>Each repair takes four to eight contacts between resident, contractor, president and insurer. None of it is written down in one place.</p>
+        <p>At the owners' meeting, residents remember the repair that took a week. And the building considers changing manager.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <h2 class="rv">From report to closed, the same morning</h2>
+    <div class="how">
+      <div class="demo rv">
+      <p class="mono demo-l" id="demo-l">Pick a repair and watch it play out</p>
+      <div class="scn" role="group" aria-labelledby="demo-l">
+        <button type="button" data-s="0" aria-pressed="true">Leak</button>
+        <button type="button" data-s="1" aria-pressed="false">Lift</button>
+        <button type="button" data-s="2" aria-pressed="false">Damp</button>
+      </div>
+      <div class="phone" aria-label="Example WhatsApp conversation with Conserjia (in Spanish, as residents see it)">
+        <div class="screen">
+          <div class="top"><span class="plate" aria-hidden="true">C</span><div><b>Conserjia · C/ Provença 214</b><small>asistente con IA de la comunidad</small></div></div>
+          <div class="chat" id="chat" aria-live="polite">
+            <div class="msg me"><div class="photo" role="img" aria-label="Foto de una bajante con una mancha de agua"></div>Hola, sale agua de la tubería del garaje, plaza 12<time>08:41</time></div>
+            <div class="msg">Gracias, Marta. Veo una fuga en la bajante comunitaria, junto a la plaza 12. ¿Gotea ahora o solo hay mancha?<time>08:41</time></div>
+            <div class="msg me">Gotea bastante<time>08:42</time></div>
+            <div class="msg"><span class="chip">Urgent</span><span class="chip c">Elemento común</span><br>He avisado a Fontanería Ribas. Llega hoy entre 10:00 y 12:00. Te escribo cuando esté arreglado.<time>08:44</time></div>
+          </div>
+        </div>
+      </div>
+      <p class="demo-out" id="demo-out"><span class="chip">Urgent</span><span class="chip c">Elemento común</span> Fontanería Ribas dispatched in 3 minutes.</p>
+      </div>
+      <ol class="steps">
+        <li class="rv"><span class="plate">1</span><div><h3>Residents report as they already do</h3><p>They message the building's WhatsApp with a photo or voice note. Conserjia identifies the building and flat and asks two questions at most.</p></div></li>
+        <li class="rv"><span class="plate">2</span><div><h3>It triages and dispatches the contractor</h3><p>It sets urgency and decides whether the fault is shared or private under Spanish law, then alerts the manager's plumber, electrician or lift company by their rules.</p></div></li>
+        <li class="rv"><span class="plate">3</span><div><h3>It chases the job and closes it</h3><p>It confirms the slot, asks for a photo of the fix, checks with the resident and files the ticket in the building's history.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">The office sees one ticket, not forty messages</h2>
+    <div class="board rv" aria-label="Example ticket in the Conserjia dashboard">
+      <div class="bar"><b>Nº 0417 · C/ Provença 214</b><span class="chip">Urgent</span></div>
+      <div class="bgrid">
+        <div class="ticket">
+          <span class="mono" style="color:var(--txt-3)">Summary</span>
+          <h3>Leak in shared downpipe, basement</h3>
+          <dl class="kv">
+            <dt>Reported by</dt><dd>Marta P. (flat 2-1), WhatsApp with photo</dd>
+            <dt>Category</dt><dd>Plumbing, active leak</dd>
+            <dt>Element</dt><dd>Shared: main downpipe</dd>
+            <dt>Contractor</dt><dd>Fontanería Ribas (manager's supplier)</dd>
+            <dt>Charged to</dt><dd>Building, pending manager approval</dd>
+          </dl>
+          <p class="law">The main downpipe is a shared element, repaired by the owners' association (art. 10, Spanish Horizontal Property Act). The manager confirms before invoicing.</p>
+        </div>
+        <div class="track">
+          <span class="mono" style="color:var(--txt-3)">Tracking</span>
+          <ol>
+            <li><i></i><div>Report received and triaged<small>08:41 · photo + 2 questions</small></div></li>
+            <li><i></i><div>Plumber dispatched, slot confirmed<small>08:44 · today 10:00-12:00</small></div></li>
+            <li class="now"><i></i><div>Repair in progress<small>10:22 · plumber on site</small></div></li>
+            <li class="next"><i></i><div>Photo of the fix and sign-off by resident<small>pending</small></div></li>
+            <li class="next"><i></i><div>Building history and note to president<small>pending</small></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">The manager's contractors, the manager's rules</h2>
+    <div class="rules rv">
+      <div><b>Urgency rules set by the office</b><p>Active leaks, people stuck in a lift, no light in common areas. These go straight to the on-call contractor, at night or on Sundays.</p></div>
+      <div><b>Spend the office approves</b><p>Above a set amount, Conserjia requests a quote and asks. It never promises a resident who will pay.</p></div>
+      <div><b>Shared or private, by the law</b><p>It knows the basics of the <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906" target="_blank" rel="noopener">Spanish Horizontal Property Act</a>. Doubtful cases go to the manager.</p></div>
+      <div><b>Residents install nothing</b><p>They message a WhatsApp number on a sign in the entrance hall, in Spanish or Catalan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">Answering is not closing</h2>
+    <p class="sub rv">A chatbot that answers questions helps. A repair is done when the contractor has been and the resident confirms.</p>
+    <div class="tw rv">
+      <table class="compare">
+        <thead><tr><th scope="col"></th><th scope="col">Personal WhatsApp and phone</th><th scope="col">Call centre or Q&amp;A chatbot</th><th scope="col" class="us">Conserjia</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Out-of-hours reports</th><td>If someone picks up</td><td>Yes</td><td class="us">Yes, and acts on urgent ones</td></tr>
+          <tr><th scope="row">Dispatches the contractor</th><td>Manually</td><td>No</td><td class="us">Yes, by office rules</td></tr>
+          <tr><th scope="row">Follows the visit and fix</th><td>Manually</td><td>No</td><td class="us">Yes, with a photo of the fix</td></tr>
+          <tr><th scope="row">Closes with the resident</th><td>Rarely</td><td>No</td><td class="us">Yes, with a record</td></tr>
+          <tr><th scope="row">History for the owners' meeting</th><td>Scattered</td><td>Loose chats</td><td class="us">One ticket per repair</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="precio">
+  <div class="wrap">
+    <h2 class="rv">Priced per building, not per seat</h2>
+    <p class="sub rv">We are validating the price with the first offices. This is the starting point, excluding VAT.</p>
+    <div class="plans">
+      <div class="plan hl rv"><h3>Pilot</h3><div class="price">€0 <small>for 30 days</small></div><ul><li>2 buildings chosen by the office</li><li>We onboard their contractors</li><li>QR sign for the entrance hall</li><li>Results report on day 30</li></ul><a class="btn" href="#probar" style="margin-top:auto">Request a pilot <span class="ar" aria-hidden="true">&rarr;</span></a></div>
+      <div class="plan rv"><h3>After the pilot</h3><div class="price">€12 <small>per building per month</small></div><ul><li>Unlimited repairs</li><li>History and monthly report for the owners' meeting</li><li>No setup fee or extra licences</li><li>No lock-in</li><li>Tiered price from 60 buildings</li></ul></div>
+    </div>
+    <p class="note">If the office stops on day 30, we switch off the number and delete the pilot data. <a href="precios.html">ROI calculator (Spanish)</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="founder rv">
+      <span class="plate" aria-hidden="true">J</span>
+      <div>
+        <blockquote>"I am looking for five Barcelona offices to build this with me."</blockquote>
+        <p>I am Joaquín, a technical founder in Barcelona building software with AI. Conserjia is in pilot: there are no customers to show yet, and I will not invent them. In the first month I review every agent message before it goes out. If it does not save the office calls in 30 days, we switch it off at no cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="rv">Questions partners ask</h2>
+    <div class="faq">
+    <details><summary>Does it replace the office team?</summary><p>No. It removes the errands: asking for the address, calling the plumber, chasing the visit, updating the resident. The team decides doubtful cases and approves spend.</p></details>
+    <details><summary>What if the contractor does not answer?</summary><p>Conserjia sends a reminder. After the office's deadline, it moves to the next contractor on the list or alerts the office.</p></details>
+    <details><summary>What if the AI gets urgency wrong?</summary><p>Urgency follows rules the office sets. In doubtful cases Conserjia asks before dispatching.</p></details>
+    <details><summary>Does the office change software?</summary><p>No. Conserjia runs alongside from day one. Integration with Netfincas and CIAX, the common Spanish tools, is on the roadmap.</p></details>
+    <details><summary>What about residents' data?</summary><p>Conserjia acts as data processor for the office under a GDPR contract, keeps only what it needs and stores it in the EU.</p></details>
+    <details><summary>What if the fault is private?</summary><p>Conserjia explains it to the resident, suggests their home insurer and logs it. It does not send a contractor at the building's cost.</p></details>
+    <details><summary>Do residents know it is an AI?</summary><p>Yes. It says so in the first message, as the EU AI Act requires.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="probar">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Talk to us about a pilot or a partnership</h2>
+        <p class="sub">For Barcelona offices with 20 to 150 buildings, and for partners and accelerators.</p>
+        <ol class="pilot">
+          <li><span class="plate">1</span><div><b>Leave your details</b>Three fields, under a minute.</div></li>
+          <li><span class="plate">2</span><div><b>A 15-minute call</b>We walk through three real repairs and how Conserjia would have handled them.</div></li>
+          <li><span class="plate">3</span><div><b>Go live</b>We onboard the contractors and put the sign up in the entrance hall.</div></li>
+        </ol>
+      </div>
+      <div>
+        <!-- TODO: connect form -->
+        <form id="f" novalidate aria-describedby="fnote">
+          <input type="hidden" name="variante" value="en">
+          <label>Name<input name="nombre" required placeholder="Your name" autocomplete="name"></label>
+          <label>Company<input name="despacho" required placeholder="Office, fund or accelerator" autocomplete="organization"></label>
+          <label>Phone or email<input name="contacto" required placeholder="+34 600 000 000 or you@company.com" autocomplete="email"></label>
+          <button class="btn" type="submit">Request a pilot <span class="ar" aria-hidden="true">&rarr;</span></button>
+          <p class="form-note" id="fnote">We only use this to contact you. No newsletter. <a href="privacidad.html">Privacy (Spanish)</a>.</p>
+          <p class="form-note" id="ferr" role="alert" style="color:var(--brass-2)"></p>
+        </form>
+        <div class="thanks" id="t" role="status" tabindex="-1"><h3>Thanks. I will be in touch this week.</h3><p>Joaquín, Conserjia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sticky" id="sticky" aria-hidden="true"><span>Free 30-day pilot</span><a class="btn" href="#probar" tabindex="-1">Request a pilot</a></div>
+
+<div class="wrap">
+<footer>
+  <span>Conserjia · Barcelona · © 2026</span>
+  <a href="plan.html">Plan</a>
+ <span class="legal"><a href="aviso-legal.html">Legal notice</a> · <a href="privacidad.html">Privacy</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true, err=document.getElementById('ferr');
+  this.querySelectorAll('input').forEach(function(i){ var bad=!i.value.trim(); if(bad){ok=false;} i.style.borderColor=bad?'#E6BC5C':''; i.setAttribute('aria-invalid',bad?'true':'false'); });
+  var c=this.contacto.value.trim();
+  if(ok && !/@/.test(c) && c.replace(/\D/g,'').length<9){ok=false;this.contacto.style.borderColor='#E6BC5C';err.textContent='Enter a phone number or an email.';}
+  else if(!ok){err.textContent='Please fill in all three fields.';}
+  if(!ok) return;
+  this.style.display='none';
+  var t=document.getElementById('t'); t.style.display='block'; t.focus();
+  document.getElementById('sticky').classList.remove('on');
+});
+(function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var s=document.getElementById('sticky'), hero=document.getElementById('main'), cta=document.getElementById('probar');
+  var heroOut=false, ctaIn=false;
+  function upd(){ var on=heroOut&&!ctaIn&&document.getElementById('f').style.display!=='none'; s.classList.toggle('on',on); s.setAttribute('aria-hidden',on?'false':'true'); s.querySelector('a').tabIndex=on?0:-1; }
+  new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;upd();}).observe(hero);
+  new IntersectionObserver(function(e){ctaIn=e[0].isIntersecting;upd();},{threshold:.15}).observe(cta);
+})();
+
+(function(){
+  var S=[
+   {m:[['me','<div class="photo" role="img" aria-label="Foto de una bajante con una mancha de agua"></div>Hola, sale agua de la tubería del garaje, plaza 12','08:41'],['ai','Gracias, Marta. Veo una fuga en la bajante comunitaria, junto a la plaza 12. ¿Gotea ahora o solo hay mancha?','08:41'],['me','Gotea bastante','08:42'],['ai','<span class="chip">Urgent</span><span class="chip c">Elemento común</span><br>He avisado a Fontanería Ribas. Llega hoy entre 10:00 y 12:00. Te escribo cuando esté arreglado.','08:44']],
+    o:'<span class="chip">Urgent</span><span class="chip c">Elemento común</span> Fontanería Ribas dispatched in 3 minutes.'},
+   {m:[['me','El ascensor de la escalera B está parado en el 3º otra vez','21:12'],['ai','Gracias, Jordi. ¿Hay alguien dentro del ascensor ahora mismo?','21:12'],['me','No, está vacío. Pero mi madre no puede bajar','21:13'],['ai','<span class="chip">Urgent</span><span class="chip c">Elemento común</span><br>He avisado al servicio de guardia de Ascensores Mir. Llegan antes de las 23:00. He dejado nota al presidente.','21:15']],
+    o:'<span class="chip">Urgent</span><span class="chip c">Elemento común</span> On-call lift engineer alerted at 21:15 on a Friday night.'},
+   {m:[['me','Tengo una mancha de humedad en el techo del baño','10:03'],['ai','Gracias, Núria. ¿La mancha está debajo del baño del piso de arriba? ¿Me mandas una foto?','10:03'],['me','<div class="photo" role="img" aria-label="Foto de una mancha de humedad en un techo"></div>Sí, justo debajo de su ducha','10:05'],['ai','<span class="chip c">Probable privativo</span><br>Parece una fuga de la ducha del 3º 2ª, no de la comunidad. Te recomiendo avisar a tu seguro de hogar. He pasado el caso al despacho para que lo confirme.','10:06']],
+    o:'<span class="chip c">Doubtful</span> No contractor sent. The office confirms the case in one click.'}
+  ];
+  var chat=document.getElementById('chat'), out=document.getElementById('demo-out'), btns=document.querySelectorAll('.scn button'), timers=[];
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function bubble(x,anim){var d=document.createElement('div');d.className='msg'+(x[0]==='me'?' me':'')+(anim?' new':'');d.innerHTML=x[1]+'<time>'+x[2]+'</time>';chat.appendChild(d);}
+  function play(i){
+    timers.forEach(clearTimeout);timers=[];chat.innerHTML='';out.innerHTML='';
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.s==i?'true':'false')});
+    var sc=S[i];
+    if(reduce){sc.m.forEach(function(x){bubble(x,false)});out.innerHTML=sc.o;return;}
+    var t=0;
+    sc.m.forEach(function(x,k){
+      if(x[0]==='ai'){timers.push(setTimeout(function(){var ty=document.createElement('div');ty.className='typing';ty.id='ty';ty.innerHTML='<i></i><i></i><i></i>';chat.appendChild(ty);},t));t+=900;}
+      timers.push(setTimeout(function(){var ty=document.getElementById('ty');if(ty)ty.remove();bubble(x,true);},t));t+=x[0]==='me'?700:1100;
+    });
+    timers.push(setTimeout(function(){out.innerHTML=sc.o;},t));
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){play(+b.dataset.s)})});
+})();
+</script>
+</body>
+</html>

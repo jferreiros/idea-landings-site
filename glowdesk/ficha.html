@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Ficha para la clínica</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#FCF8F7;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--rose:#A65468;--rose-soft:#F3DEE1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:24px 16px}
+.sheet{max-width:794px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px}
+h1,h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);margin:18px 0 10px}
+h2{font-size:1.3rem;margin-bottom:8px}
+em{color:var(--rose)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.logo{font-family:"Bodoni Moda",serif;font-size:1.5rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.logo i{width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F2D2D8,var(--rose))}
+.lead{color:var(--muted);font-size:1.02rem;max-width:58ch}
+.grid{display:grid;gap:18px;margin-top:26px}
+.blk{border-top:1px solid var(--ink);padding-top:12px}
+.blk p,.blk li{color:var(--muted);font-size:.93rem}
+ul,ol{padding-left:1.1rem;display:grid;gap:4px}
+.calc{margin-top:26px;background:var(--rose-soft);border-radius:14px;padding:18px}
+.calc table{width:100%;border-collapse:collapse;font-size:.93rem;margin-top:8px}
+.calc td{padding:9px 0;border-bottom:1px dashed #D9B9C0}
+.calc td:last-child{text-align:right;width:40%;color:var(--muted)}
+.foot{margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem;color:var(--muted)}
+.foot b{color:var(--ink)}
+.print{display:inline-block;margin:0 auto 16px;font:600 .9rem Manrope,sans-serif;background:var(--sage);color:#fff;border:0;border-radius:999px;padding:12px 20px;cursor:pointer;min-height:44px}
+.bar{max-width:794px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bar a{font-size:.9rem;color:var(--sage)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sheet{padding:24px 18px}}
+@media print{body{background:#fff;padding:0;font-size:12.5px}.sheet{border:0;border-radius:0;padding:14mm;max-width:none}.bar{display:none}.grid{grid-template-columns:1fr 1fr}@page{size:A4;margin:0}}
+</style>
+</head>
+<body>
+<div class="bar"><a href="plan.html">Volver al plan</a><button class="print" type="button" onclick="window.print()">Imprimir o guardar PDF</button></div>
+<main class="sheet">
+  <div class="top"><span class="logo"><i></i>Glowdesk</span><span>Ficha para [nombre de la clínica] · [fecha de la visita]</span></div>
+  <h1>Cada DM de Instagram, <em>una valoración</em> con señal pagada.</h1>
+  <p class="lead">Una recepción con IA que contesta los DMs de vuestra clínica al momento, también de noche y en fin de semana. Reserva la valoración en vuestra agenda y cobra una señal reembolsable.</p>
+
+  <div class="grid">
+    <div class="blk"><h2>Qué hace</h2><ul><li>Contesta con vuestra carta y vuestros precios «desde».</li><li>Ofrece 3 huecos de valoración y bloquea el elegido.</li><li>Envía el enlace de señal. Sin pago en 30 min, libera el hueco.</li><li>Os deja cada paciente ordenada en una bandeja a las 9:00.</li></ul></div>
+    <div class="blk"><h2>Qué no hace</h2><ul><li>No diagnostica ni opina sobre salud.</li><li>No promete resultados ni nombra medicamentos.</li><li>Ante embarazo, lactancia, alergias o medicación, deja un aviso para la doctora.</li><li>Si la paciente pide una persona, pasa la conversación a recepción.</li></ul></div>
+    <div class="blk"><h2>El piloto</h2><ol><li>Nos pasáis la carta y la política de señal.</li><li>La doctora aprueba los textos sensibles.</li><li>Conectamos Instagram en 30 minutos.</li><li>30 días gratis. Medimos respuesta, reservas y ausencias.</li></ol></div>
+    <div class="blk"><h2>Después del piloto</h2><p>Precio en validación: de 149 a 299 € al mes sin IVA según canales. Sin permanencia. Las clínicas del piloto tienen precio de fundador.</p><p style="margin-top:6px">Datos en servidores de la UE y contrato de encargado de tratamiento (art. 28 RGPD).</p></div>
+  </div>
+
+  <div class="calc">
+    <h2>Vuestros números (rellenamos juntos)</h2>
+    <table>
+      <tr><td>DMs de pacientes a la semana</td><td>_______</td></tr>
+      <tr><td>De ellos, fuera de horario</td><td>_______</td></tr>
+      <tr><td>Valoraciones a la semana</td><td>_______</td></tr>
+      <tr><td>Valoraciones que no vienen</td><td>_______</td></tr>
+      <tr><td>Ticket medio del tratamiento</td><td>_______ €</td></tr>
+      <tr><td>Valoraciones extra al mes que cubren el plan</td><td>_______</td></tr>
+    </table>
+  </div>
+
+  <div class="foot"><span><b>Joaquín</b>, fundador · Barcelona · [teléfono] · [email]</span><span>glowdesk-liard-eta.vercel.app</span></div>
+<p class="lead" style="margin-top:20px;font-size:.85rem"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></p>
+</main>
+</body>
+</html>

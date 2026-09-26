@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnicall | Tú reparas. Nosotros cogemos el teléfono.</title>
+<meta name="description" content="Tecnicall contesta las llamadas y WhatsApp de tu empresa de reparaciones, apunta la avería con foto y modelo, y la agenda con el técnico que toca.">
+<meta name="theme-color" content="#0F0F0D">
+<link rel="canonical" href="https://tecnicall.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://tecnicall.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://tecnicall.vercel.app/ca.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Tecnicall">
+<meta property="og:url" content="https://tecnicall.vercel.app/">
+<meta property="og:title" content="Tecnicall | Tú reparas. Nosotros cogemos el teléfono.">
+<meta property="og:description" content="Contesta llamadas y WhatsApp con el nombre de tu empresa y deja el aviso agendado con foto, modelo y técnico. Piloto gratis de 30 días en Barcelona.">
+<meta property="og:image" content="https://tecnicall.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tecnicall | Tú reparas. Nosotros cogemos el teléfono.">
+<meta name="twitter:description" content="Recepción con IA para talleres y empresas de reparación. Piloto gratis de 30 días.">
+<meta name="twitter:image" content="https://tecnicall.vercel.app/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFD000'/%3E%3Cpath d='M8 9h16v4h-6v12h-4V13H8z' fill='%23141208'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://tecnicall.vercel.app/#org","name":"Tecnicall","url":"https://tecnicall.vercel.app/","founder":{"@type":"Person","name":"Joaquín"},"areaServed":"Barcelona","address":{"@type":"PostalAddress","addressLocality":"Barcelona","addressCountry":"ES"}},
+{"@type":"Service","name":"Tecnicall","serviceType":"Recepción de llamadas y WhatsApp con IA para empresas de reparación","provider":{"@id":"https://tecnicall.vercel.app/#org"},"areaServed":"Barcelona","availableLanguage":["es","ca"],
+"offers":[{"@type":"Offer","name":"Autónomo","price":"79","priceCurrency":"EUR"},{"@type":"Offer","name":"Taller","price":"129","priceCurrency":"EUR"},{"@type":"Offer","name":"Empresa","price":"199","priceCurrency":"EUR"}]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bk:#0F0F0D; --bk-2:#171714; --bk-3:#211F1B; --line:#34322C;
+  --tx:#F3F1EA; --tx-2:#B4B0A4; --tx-3:#8A8678;
+  --hz:#FFD000; --hz-2:#E6BB00; --hz-ink:#141208;
+  --ok:#7BD88F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bk);color:var(--tx);font-family:"Barlow",system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.cd{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.005em;line-height:.92}
+.mono{font-family:"JetBrains Mono",monospace}
+.hz{color:var(--hz)}
+.tape{height:14px;background:repeating-linear-gradient(-45deg,var(--hz) 0 18px,var(--bk) 18px 36px)}
+
+/* buttons: all sharp, one rule */
+.btn{display:inline-flex;align-items:center;gap:12px;font-family:"Barlow Condensed";font-weight:800;text-transform:uppercase;font-size:21px;letter-spacing:.02em;padding:15px 22px;background:var(--hz);color:var(--hz-ink);text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s}
+.btn:hover{background:#FFDA33}
+.btn:active{transform:translateY(1px)}
+.btn .ar{display:inline-grid;place-items:center;width:28px;height:28px;background:var(--hz-ink);color:var(--hz);font-size:16px;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.btn:hover .ar{transform:translateX(3px)}
+.link{font-weight:600;color:var(--tx-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)}
+.link:hover{color:var(--tx)}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Barlow Condensed";font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.01em}
+.logo i{width:26px;height:26px;background:var(--hz);display:grid;place-items:center;font-style:normal;color:var(--hz-ink);font-size:17px;font-weight:900}
+.nl{display:flex;align-items:center;gap:26px}
+.nl a.lang{display:inline;font-family:"JetBrains Mono";font-size:13px;border:1px solid var(--line);padding:4px 8px;text-decoration:none;color:var(--tx-2)}
+.nl a.l:not(.lang){display:none;text-decoration:none;font-weight:600;font-size:16px;color:var(--tx-2)}
+.nl a.l:hover{color:var(--tx)}
+nav .btn{font-size:17px;padding:10px 14px}
+@media(max-width:480px){.nl{gap:12px}nav .btn{font-size:16px;padding:9px 11px}.logo{font-size:24px}}
+@media(min-width:860px){.nl a.l:not(.lang){display:inline}}
+
+/* hero */
+.hero{display:grid;gap:36px;padding:28px 0 56px}
+.hero h1{font-size:clamp(54px,7.4vw,86px);font-weight:900}
+.hero h1 span{display:block}
+.hero h1 .br{display:inline}
+.hero .lead{margin-top:22px;font-size:20px;color:var(--tx-2);max-width:470px}
+.hero .lead b{color:var(--tx);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:30px}
+@media(min-width:980px){.hero{grid-template-columns:1.2fr 1fr;align-items:center;padding:40px 0 80px}}
+
+/* route map + work order */
+.map{position:relative;background:var(--bk-2);border:1px solid var(--line);aspect-ratio:1.08/1;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .hdr{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:12px 14px;font-family:"JetBrains Mono";font-size:12px;color:var(--tx-3);border-bottom:1px solid var(--line);background:rgba(15,15,13,.85);z-index:2}
+.map .hdr b{color:var(--tx);font-weight:700}
+.van{offset-path:path("M40 330 L110 330 L110 250 L160 250 L160 150 L330 150 L330 80 L440 80");offset-rotate:0deg;animation:drive 9s cubic-bezier(.45,.05,.35,1) infinite}
+@keyframes drive{0%{offset-distance:0%}40%,55%{offset-distance:58%}90%,100%{offset-distance:100%}}
+.wo{position:absolute;right:14px;bottom:14px;width:min(262px,58%);background:var(--tx);color:var(--hz-ink);font-size:13px;z-index:3;box-shadow:0 24px 40px -18px rgba(0,0,0,.7)}
+@media(max-width:620px){.map{aspect-ratio:auto;overflow:visible;padding-top:250px}.map svg{height:300px}.wo{position:relative;right:auto;bottom:auto;width:auto;margin:0 12px 12px}}
+.wo .top{background:var(--hz);padding:9px 12px;display:flex;justify-content:space-between;align-items:baseline;font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-transform:uppercase}
+.wo .top small{font-family:"JetBrains Mono";font-size:11px;font-weight:700}
+.wo dl{display:grid;grid-template-columns:auto 1fr;padding:6px 12px 10px;font-family:"JetBrains Mono"}
+.wo dt,.wo dd{padding:5px 0;border-bottom:1px dashed #C9C4B4}
+.wo dt{color:#5E5A4E;padding-right:12px}
+.wo dd{text-align:right;font-weight:700}
+.wo dt:last-of-type,.wo dd:last-of-type{border-bottom:0}
+.wo .src{border-top:2px solid var(--hz-ink);padding:8px 12px;font-size:12px;line-height:1.35}
+.wo .src b{font-family:"JetBrains Mono";font-size:11px;display:block;color:#5E5A4E;font-weight:700}
+
+/* conditions strip */
+.cond{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cond .wrap{display:grid;grid-template-columns:1fr 1fr}
+.cond .wrap>div{padding:18px 14px 18px 0;border-bottom:1px solid var(--line)}
+.cond b{display:block;font-family:"Barlow Condensed";font-weight:800;font-size:22px;text-transform:uppercase}
+.cond span{font-size:15px;color:var(--tx-2);line-height:1.4;display:block}
+@media(min-width:860px){.cond .wrap{grid-template-columns:repeat(4,1fr)}.cond .wrap>div{border-bottom:0;border-right:1px solid var(--line);padding:22px 20px}.cond .wrap>div:first-child{padding-left:0}.cond .wrap>div:last-child{border-right:0}}
+
+section{padding:88px 0}
+h2{font-family:"Barlow Condensed";font-weight:900;text-transform:uppercase;font-size:clamp(44px,7vw,80px);line-height:.92;max-width:900px}
+.sub{margin-top:18px;font-size:19px;color:var(--tx-2);max-width:620px}
+
+/* day log */
+.log{margin-top:44px;display:grid;gap:0;border-top:1px solid var(--line)}
+.log div{display:grid;grid-template-columns:86px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.log time{font-family:"JetBrains Mono";font-weight:700;color:var(--hz);font-size:16px}
+.log p{color:var(--tx-2)}
+.log p b{color:var(--tx);font-weight:600}
+@media(min-width:860px){.log div{grid-template-columns:140px 1fr 1fr}.log p.x{color:var(--tx)}}
+.log .x{font-weight:600;grid-column:2}
+@media(min-width:860px){.log .x{grid-column:auto}}
+.log .x::before{content:"Con Tecnicall: ";color:var(--hz);font-family:"JetBrains Mono";font-size:13px;font-weight:700;text-transform:uppercase;display:block}
+@media(min-width:860px){.log .x::before{display:none}.log .head{padding:0 0 12px;border-bottom:1px solid var(--line)}.log .head span{font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase;color:var(--tx-3)}}
+.log .head{display:none}
+@media(min-width:860px){.log .head{display:grid}}
+
+/* work order sheet (how it works) */
+.sheet{margin-top:44px;background:var(--tx);color:var(--hz-ink);position:relative}
+.sheet .sh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 22px;background:var(--hz);font-family:"JetBrains Mono";font-size:13px;font-weight:700}
+.sheet .sh b{font-family:"Barlow Condensed";font-size:28px;font-weight:900;text-transform:uppercase}
+.row3{display:grid}
+.row3 > div{padding:26px 22px;border-bottom:2px solid var(--hz-ink)}
+.row3 > div:last-child{border-bottom:0}
+.row3 h3{font-family:"Barlow Condensed";font-weight:900;font-size:40px;text-transform:uppercase;line-height:.95}
+.row3 .k{font-family:"JetBrains Mono";font-size:12px;font-weight:700;color:#5E5A4E;text-transform:uppercase}
+.row3 p{margin-top:10px;font-size:17px;color:#2E2B22}
+.row3 ul{list-style:none;margin-top:16px;display:grid;gap:0;font-family:"JetBrains Mono";font-size:13px}
+.row3 li{display:flex;gap:10px;align-items:center;padding:6px 0;border-top:1px dashed #C9C4B4}
+.row3 li::before{content:"";width:13px;height:13px;border:2px solid var(--hz-ink);flex:none;background:linear-gradient(var(--hz-ink),var(--hz-ink)) center/5px 5px no-repeat}
+@media(min-width:860px){.row3{grid-template-columns:1fr 1.15fr 1fr}.row3 > div{border-bottom:0;border-right:2px solid var(--hz-ink);padding:32px 28px}.row3 > div:last-child{border-right:0}}
+
+/* morning board */
+.board{margin-top:44px;border:1px solid var(--line);background:var(--bk-2)}
+.board .bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:"JetBrains Mono";font-size:13px;color:var(--tx-2)}
+.board .bar b{color:var(--tx)}
+.lanes{display:grid}
+.lane{padding:16px 18px;border-bottom:1px solid var(--line)}
+.lane h4{display:flex;justify-content:space-between;align-items:baseline;font-family:"Barlow Condensed";font-weight:800;font-size:26px;text-transform:uppercase;margin-bottom:10px}
+.lane h4 small{font-family:"JetBrains Mono";font-size:12px;color:var(--tx-3);font-weight:500;text-transform:none}
+.job{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:16px}
+.job time{font-family:"JetBrains Mono";font-size:13px;color:var(--tx-3);padding-top:2px}
+.job.new{color:var(--hz)}
+.job.new time{color:var(--hz)}
+.job em{font-style:normal;font-family:"JetBrains Mono";font-size:11px;background:var(--hz);color:var(--hz-ink);padding:1px 5px;margin-left:6px;font-weight:700;vertical-align:2px}
+.job.done{color:var(--tx-3)}
+@media(min-width:860px){.lanes{grid-template-columns:repeat(3,1fr)}.lane{border-bottom:0;border-right:1px solid var(--line)}.lane:last-child{border-right:0}}
+.caption{margin-top:14px;font-size:14px;color:var(--tx-3)}
+
+/* pricing: price list */
+.prices{margin-top:44px;border-top:3px solid var(--hz)}
+.pr{display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.pr h3{font-family:"Barlow Condensed";font-weight:900;font-size:40px;text-transform:uppercase;line-height:1}
+.pr .p{font-family:"Barlow Condensed";font-weight:900;font-size:52px;line-height:1;text-align:right}
+.pr .p small{font-size:20px;color:var(--tx-2);font-weight:700}
+.pr .who{grid-column:1/-1;color:var(--tx-2);font-size:16px}
+.pr .p{grid-column:2;grid-row:1}
+.pr .who b{color:var(--tx);font-weight:600}
+.pr.hi h3,.pr.hi .p{color:var(--hz)}
+@media(min-width:860px){.pr{grid-template-columns:220px 1fr 200px;align-items:center}.pr .who{grid-column:auto}.pr .p{grid-column:auto;grid-row:auto}}
+.note{margin-top:18px;font-size:15px;color:var(--tx-3);max-width:760px}
+
+/* faq */
+.faq{margin-top:36px;display:grid}
+@media(min-width:860px){.faq{grid-template-columns:1fr 1fr;column-gap:48px}}
+details{border-top:1px solid var(--line);padding:18px 0}
+summary{font-weight:700;font-size:19px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--hz);font-family:"JetBrains Mono";font-size:22px;line-height:1}
+details[open] summary::after{content:"-"}
+details p{margin-top:10px;color:var(--tx-2);font-size:17px}
+
+/* founder */
+.founder{display:grid;gap:24px;border:1px solid var(--line);padding:28px}
+.founder .av{width:64px;height:64px;background:var(--hz);color:var(--hz-ink);display:grid;place-items:center;font-family:"Barlow Condensed";font-weight:900;font-size:36px}
+.founder p{font-size:20px;max-width:720px}
+.founder p+p{margin-top:12px;color:var(--tx-2);font-size:18px}
+.founder cite{display:block;margin-top:16px;font-style:normal;font-family:"JetBrains Mono";font-size:13px;color:var(--tx-3)}
+@media(min-width:860px){.founder{grid-template-columns:80px 1fr;padding:40px}}
+
+/* final */
+.final{border-top:1px solid var(--line)}
+.final .grid{display:grid;gap:40px}
+@media(min-width:980px){.final .grid{grid-template-columns:1fr 1fr;align-items:start}}
+.next{list-style:none;margin-top:28px;display:grid;gap:0;counter-reset:n}
+.next li{counter-increment:n;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line);color:var(--tx-2)}
+.next li::before{content:counter(n);width:32px;height:32px;background:var(--hz);color:var(--hz-ink);display:grid;place-items:center;font-family:"Barlow Condensed";font-weight:900;font-size:20px}
+.next b{color:var(--tx);font-weight:600}
+form{background:var(--tx);color:var(--hz-ink);padding:26px;display:grid;gap:16px}
+form h3{font-family:"Barlow Condensed";font-weight:900;font-size:34px;text-transform:uppercase;line-height:1}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input{font:inherit;font-size:17px;padding:13px 14px;border:2px solid #9A9585;background:#fff;color:var(--hz-ink);width:100%;border-radius:0}
+input::placeholder{color:#76715F}
+input:focus{outline:3px solid var(--hz);outline-offset:0;border-color:var(--hz-ink)}
+form .btn{justify-content:space-between;width:100%;background:var(--hz-ink);color:var(--hz)}
+form .btn .ar{background:var(--hz);color:var(--hz-ink)}
+form .btn:hover{background:#2A271C}
+.fine{font-size:13px;color:#4F4B40}
+.err{color:#8A1F00;font-size:14px;font-weight:600;display:none}
+.thanks{display:none}
+.thanks p{margin-top:10px;color:#2E2B22}
+footer{padding:28px 0 32px;border-top:1px solid var(--line);font-size:15px;color:var(--tx-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--tx-2)}
+
+/* sticky mobile CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bk);border-top:2px solid var(--hz);padding:10px 12px calc(10px + env(safe-area-inset-bottom));transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.sticky span{font-size:14px;line-height:1.25;color:var(--tx-2)}
+.sticky span b{color:var(--tx)}
+.sticky .btn{font-size:18px;padding:11px 14px}
+.sticky.hide{transform:translateY(110%)}
+@media(min-width:760px){.sticky{display:none}}
+@media(max-width:759px){footer{padding-bottom:100px}section{padding:64px 0}}
+
+
+/* interactive demo */
+.demo{margin-top:40px;display:grid;gap:20px}
+@media(min-width:980px){.demo{grid-template-columns:.9fr 1.1fr;gap:28px}}
+.ctrl{display:grid;gap:18px;align-content:start}
+.ctrl label{color:var(--tx)}
+.ctrl input{background:var(--bk);color:var(--tx);border:2px solid var(--line)}
+.ctrl input::placeholder{color:var(--tx-3)}
+.ctrl input:focus{border-color:var(--hz);outline:0}
+.sc{display:grid;gap:8px}
+.sc button{font:inherit;text-align:left;background:var(--bk);color:var(--tx);border:2px solid var(--line);padding:12px 14px;cursor:pointer;display:grid;gap:2px;min-height:48px}
+.sc button small{font-family:"JetBrains Mono";font-size:12px;color:var(--tx-3)}
+.sc button[aria-pressed="true"]{border-color:var(--hz);background:var(--bk-3)}
+.sc button:hover{border-color:var(--tx-3)}
+.chat{background:var(--bk);border:1px solid var(--line);display:flex;flex-direction:column;min-height:380px}
+@media(min-width:980px){.chat{min-height:460px}}
+.btn.ol{background:transparent;color:var(--hz);border:2px solid var(--hz)}
+.btn.ol .ar{background:var(--hz);color:var(--hz-ink)}
+.btn.ol:hover{background:var(--bk-3)}
+.chat .ch{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);font-family:"JetBrains Mono";font-size:12px;color:var(--tx-3)}
+.chat .ch b{color:var(--tx);font-weight:700}
+.msgs{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.bub{max-width:86%;padding:9px 12px;font-size:16px;line-height:1.4;animation:in .35s cubic-bezier(.2,.8,.2,1)}
+.bub.c{align-self:flex-end;background:var(--bk-3);color:var(--tx)}
+.bub.a{align-self:flex-start;background:var(--tx);color:var(--hz-ink)}
+.bub.sys{align-self:stretch;max-width:none;background:var(--hz);color:var(--hz-ink);font-family:"JetBrains Mono";font-size:13px;font-weight:700}
+.typing{align-self:flex-start;font-family:"JetBrains Mono";font-size:13px;color:var(--tx-3)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.bub{animation:none}}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.van{animation:none;offset-distance:58%}html{scroll-behavior:auto}}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--hz);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav>
+    <a class="logo" href="#"><i>T</i>Tecnicall</a>
+    <div class="nl">
+      <a class="l" href="#demo">Pruébalo</a><a class="l" href="#como">Cómo funciona</a>
+      <a class="l" href="#precios">Precios</a>
+      <a class="l" href="#preguntas">Preguntas</a><a class="l lang" href="ca.html" hreflang="ca" lang="ca">CA</a>
+      <a class="btn" href="#probar">Oír mi demo</a>
+    </div>
+  </nav>
+  <div class="hero">
+    <div>
+      <h1 class="cd"><span>Tú reparas.</span><span class="hz">Nosotros cogemos el teléfono.</span></h1>
+      <p class="lead">Contestamos llamadas y WhatsApp con el nombre de tu empresa. <b>El aviso llega a tu técnico con foto, modelo y hora.</b></p>
+      <div class="cta-row">
+        <a class="btn" href="#probar">Oír mi demo <span class="ar" aria-hidden="true">→</span></a>
+        <a class="link" href="#como">Cómo funciona</a>
+      </div>
+    </div>
+
+    <div class="map" role="img" aria-label="Mapa de ruta de una furgoneta en Barcelona con un aviso nuevo agendado a las 9:30 en Gràcia">
+      <div class="hdr"><span><b>RUTA · MARC</b> · martes</span><span>4 avisos · 0 perdidos</span></div>
+      <svg viewBox="0 0 500 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="#26241F" stroke-width="10" fill="none">
+          <path d="M0 80 H500 M0 150 H500 M0 250 H500 M0 330 H500 M0 400 H500"/>
+          <path d="M40 0 V460 M110 0 V460 M160 0 V460 M330 0 V460 M440 0 V460"/>
+          <path d="M0 460 L500 40" stroke-width="16" stroke="#2C2A24"/>
+        </g>
+        <path d="M40 330 L110 330 L110 250 L160 250 L160 150 L330 150 L330 80 L440 80" fill="none" stroke="#FFD000" stroke-width="4" stroke-dasharray="10 8"/>
+        <g font-family="JetBrains Mono" font-size="12" font-weight="700">
+          <rect x="30" y="320" width="20" height="20" fill="#F3F1EA"/><text x="35" y="335" fill="#141208">1</text>
+          <text x="30" y="360" fill="#8A8678">08:30 Sants · hecho</text>
+          <rect x="150" y="240" width="20" height="20" fill="#FFD000"/><text x="155" y="255" fill="#141208">2</text>
+          <text x="30" y="290" fill="#FFD000">09:30 Gràcia · NUEVO</text>
+          <rect x="320" y="70" width="20" height="20" fill="#F3F1EA"/><text x="325" y="85" fill="#141208">3</text>
+          <text x="345" y="112" fill="#8A8678">11:00 Horta</text>
+        </g>
+        <g class="van"><rect x="-13" y="-8" width="26" height="16" fill="#FFD000"/><rect x="5" y="-5" width="6" height="10" fill="#141208"/></g>
+      </svg>
+      <div class="wo">
+        <div class="top">Aviso 0418 <small>21:49 · WhatsApp</small></div>
+        <dl>
+          <dt>Equipo</dt><dd>Lavadora Bosch WAT28</dd>
+          <dt>Fallo</dt><dd>E18 · no desagua</dd>
+          <dt>Pieza</dt><dd>Bomba desagüe</dd>
+          <dt>Zona</dt><dd>Gràcia</dd>
+          <dt>Técnico</dt><dd>Marc · 09:30</dd>
+        </dl>
+        <div class="src"><b>LO QUE ESCRIBIÓ EL CLIENTE</b>“La lavadora no centrifuga y pita. Es una Bosch.” + foto de la pantalla</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="tape" aria-hidden="true"></div>
+<div class="cond" aria-label="Condiciones del piloto">
+  <div class="wrap">
+    <div><b>30 días gratis</b><span>Sin tarjeta. Al día 30 decides.</span></div>
+    <div><b>Tu mismo número</b><span>Desvías las llamadas que no coges.</span></div>
+    <div><b>Lo montamos nosotros</b><span>Servicios, zonas y precio de salida.</span></div>
+    <div><b>Castellano y catalán</b><span>Contesta en el idioma del cliente.</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="rv">Con las manos en una caldera, <span class="hz">no coges el móvil.</span></h2>
+    <p class="sub rv">Y el cliente llama al siguiente de Google Maps. Un martes de Jordi, dueño de un taller con cuatro técnicos:</p>
+    <div class="log rv">
+      <div class="head"><span></span><span>Hoy</span><span>Con Tecnicall</span></div>
+      <div><time>08:10</time><p>Debajo de un fregadero en Sant Andreu. <b>Suena el móvil tres veces.</b> No lo coge.</p><p class="x">Las tres llamadas quedan atendidas y dos se agendan.</p></div>
+      <div><time>11:30</time><p>Devuelve llamadas desde la furgoneta. <b>Dos ya han llamado a otro.</b></p><p class="x">No hay nada que devolver. Tiene el resumen en el móvil.</p></div>
+      <div><time>14:00</time><p>Reparte el día siguiente en una libreta. <b>Manda a Marc a Badalona y a Pau a Sants</b>, al revés.</p><p class="x">Cada aviso cae en la ruta del técnico de esa zona.</p></div>
+      <div><time>21:40</time><p>11 WhatsApps sin contestar y dos facturas del mes pasado sin cobrar.</p><p class="x">El cliente recibe el enlace de pago al acabar el trabajo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" style="background:var(--bk-2)">
+  <div class="wrap">
+    <h2 class="rv">Pruébalo <span class="hz">con tu nombre.</span></h2>
+    <p class="sub rv">Escribe el nombre de tu negocio, elige un cliente y mira cómo acaba el aviso.</p>
+    <div class="demo">
+      <div class="ctrl">
+        <label for="biz">Tu negocio<input id="biz" maxlength="40" placeholder="Reparaciones Bonet" autocomplete="organization"></label>
+        <div class="sc" role="group" aria-label="Elige un cliente">
+          <button type="button" data-s="0" aria-pressed="true"><span>Lavadora que no desagua</span><small>WhatsApp · 21:47</small></button>
+          <button type="button" data-s="1" aria-pressed="false"><span>Fuga bajo el fregadero</span><small>Llamada · 23:10 · urgente</small></button>
+          <button type="button" data-s="2" aria-pressed="false"><span>Nevera, clienta en catalán</span><small>Llamada · 08:05</small></button>
+        </div>
+        <button type="button" class="btn ol" id="play" style="justify-content:space-between">Ver la conversación <span class="ar" aria-hidden="true">→</span></button>
+      </div>
+      <div class="chat" aria-live="polite">
+        <div class="ch"><b id="chn">Reparaciones Bonet</b><span id="chc">WhatsApp</span></div>
+        <div class="msgs" id="msgs"><p class="typing">Escribiendo…</p></div>
+      </div>
+    </div>
+    <p class="caption">Simulación con respuestas de ejemplo. La demo real la montamos con tus servicios y precios.</p>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <h2 class="rv">Un aviso completo. <span class="hz">Sin que toques el teléfono.</span></h2>
+    <div class="sheet rv">
+      <div class="sh"><b>Parte de trabajo</b><span>Del primer tono al cobro</span></div>
+      <div class="row3">
+        <div>
+          <span class="k">Atiende</span>
+          <h3>Contesta y entiende la avería</h3>
+          <p>Coge la llamada o el WhatsApp con el nombre de tu empresa. Pide lo que tu técnico necesita antes de salir.</p>
+          <ul><li>Marca y modelo</li><li>Foto del error</li><li>Dirección y urgencia</li></ul>
+        </div>
+        <div>
+          <span class="k">Agenda</span>
+          <h3>Reserva al técnico que toca</h3>
+          <p>Mira quién está cerca y quién conoce esa marca. Ofrece dos huecos libres y confirma con el precio de salida que tú fijas.</p>
+          <ul><li>Tu Google Calendar</li><li>Ruta por barrios</li><li>Nunca inventa precios</li></ul>
+        </div>
+        <div>
+          <span class="k">Cierra</span>
+          <h3>Cobra y pide la reseña</h3>
+          <p>Tu técnico marca “hecho”. El cliente recibe el enlace de pago y, después, el de tu ficha de Google.</p>
+          <ul><li>Enlace de pago</li><li>Recordatorio a 24 h</li><li>Reseña en Google</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bk-2)">
+  <div class="wrap">
+    <h2 class="rv">A las 7:00, <span class="hz">el día ya está repartido.</span></h2>
+    <p class="sub rv">Cada técnico ve su ruta en el móvil. Tú ves qué entró de noche y quién ha pagado.</p>
+    <div class="board rv">
+      <div class="bar"><b>Martes 29 · Agenda</b><span>9 avisos · 2 entraron de noche</span></div>
+      <div class="lanes">
+        <div class="lane"><h4>Marc <small>Gràcia · Eixample</small></h4>
+          <div class="job new"><time>09:30</time><span>Lavadora Bosch E18<em>NUEVO</em></span></div>
+          <div class="job"><time>11:00</time><span>Termo Junkers no calienta</span></div>
+          <div class="job"><time>13:00</time><span>Nevera LG hace ruido</span></div>
+        </div>
+        <div class="lane"><h4>Pau <small>Sants · Les Corts</small></h4>
+          <div class="job done"><time>08:30</time><span>Horno Balay F11 · cobrado</span></div>
+          <div class="job"><time>10:30</time><span>Lavavajillas no desagua</span></div>
+          <div class="job"><time>12:30</time><span>Split Daikin pierde agua</span></div>
+        </div>
+        <div class="lane"><h4>Laia <small>Sant Andreu · Nou Barris</small></h4>
+          <div class="job"><time>09:00</time><span>Secadora Samsung</span></div>
+          <div class="job new"><time>10:45</time><span>Fuga bajo fregadero<em>URGENTE</em></span></div>
+          <div class="job"><time>13:15</time><span>Vitro Teka no enciende</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Ejemplo de agenda con datos de muestra.</p>
+  </div>
+</section>
+
+<section id="precios" style="background:var(--bk-2)">
+  <div class="wrap">
+    <h2 class="rv">Menos que una tarde <span class="hz">de un técnico al mes.</span></h2>
+    <p class="sub rv">Primer mes gratis. Montaje incluido. Sin permanencia ni alta.</p>
+    <div class="prices rv">
+      <div class="pr"><h3>Autónomo</h3><p class="who"><b>1 a 2 técnicos.</b> WhatsApp 24 h, hasta 150 llamadas al mes, agenda y reseñas.</p><p class="p">79 €<small>/mes</small></p></div>
+      <div class="pr hi"><h3>Taller</h3><p class="who"><b>3 a 6 técnicos.</b> Hasta 400 llamadas, reparto por zona y especialidad, enlaces de pago.</p><p class="p">129 €<small>/mes</small></p></div>
+      <div class="pr"><h3>Empresa</h3><p class="who"><b>7 a 15 técnicos.</b> Hasta 1.000 llamadas, varias líneas y horarios, informe semanal.</p><p class="p">199 €<small>/mes</small></p></div>
+    </div>
+    <p class="note">Sin IVA. Precios de lanzamiento: pueden cambiar antes de abrir al público. Si pasas del límite de llamadas no cortamos la línea; te avisamos.</p>
+  </div>
+</section>
+
+<section id="preguntas">
+  <div class="wrap">
+    <h2 class="rv">Lo que pregunta <span class="hz">un técnico.</span></h2>
+    <div class="faq">
+      <div>
+        <details><summary>¿Suena a robot?</summary><p>Habla con frases cortas y sin menús de “pulse 1”. Antes de activar nada, te montamos la demo con el nombre de tu empresa y la escuchas tú. Si no te convence, no la ponemos.</p></details>
+        <details><summary>¿El cliente sabe que es una IA?</summary><p>Sí. Se presenta como el asistente de tu empresa, como pide la ley europea de IA. Si el cliente quiere hablar contigo, te pasa la llamada o te deja el aviso apuntado.</p></details>
+        <details><summary>¿Y si se equivoca con un precio?</summary><p>Solo da los precios que tú le das, como el desplazamiento. Nunca presupuesta una reparación. Solo ofrece huecos libres en tu agenda.</p></details>
+        <details><summary>¿Tengo que cambiar de número?</summary><p>No. Desvías a Tecnicall las llamadas que no coges y conectamos tu WhatsApp Business.</p></details>
+      </div>
+      <div>
+        <details><summary>Ya uso un programa SAT. ¿Lo dejo?</summary><p>No. En el piloto trabajamos con tu Google Calendar o te mandamos los avisos listos para pasar a tu programa. Las integraciones las haremos según lo que usen los pilotos.</p></details>
+        <details><summary>¿Qué pasa con los datos de mis clientes?</summary><p>Se guardan en servidores de la UE, solo para tus avisos. Firmamos un contrato de encargado del tratamiento (RGPD) y te los llevas cuando quieras.</p></details>
+        <details><summary>¿Cuánto me cuesta si no me sirve?</summary><p>Nada. El piloto de 30 días es gratis y sin tarjeta. Al final te enseñamos cuántas llamadas y avisos atendió, y decides.</p></details>
+        <details><summary>¿Atiende urgencias de noche?</summary><p>Sí. Tú decides qué es urgente (fuga activa, puerta cerrada). Esas te las pasa al móvil; el resto quedan agendadas para la mañana.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="founder rv">
+      <div class="av" aria-hidden="true">J</div>
+      <div>
+        <p>Soy Joaquín y construyo Tecnicall en Barcelona. Todavía no tenemos clientes. Busco los primeros diez talleres para montar el piloto con ellos.</p>
+        <p>Si te apuntas, te llamo yo, configuro el asistente con tus servicios y lo escuchas antes de decidir. Si no te ahorra trabajo, no te lo cobro.</p>
+        <cite>Joaquín · fundador</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tape" aria-hidden="true"></div>
+<section class="final" id="probar">
+  <div class="wrap grid">
+    <div>
+      <h2>Escucha cómo contestaría <span class="hz">tu empresa.</span></h2>
+      <ol class="next">
+        <li><span><b>Te llamamos en 24 h laborables</b> para conocer tus servicios, zonas y precio de salida.</span></li>
+        <li><span><b>Te damos un número de prueba</b> que ya contesta como tu empresa. Llamas y escuchas.</span></li>
+        <li><span><b>Si te convence, 30 días gratis</b> en tu número real. Al final decides.</span></li>
+      </ol>
+    </div>
+    <form id="f" novalidate>
+      <div class="form-body" style="display:grid;gap:16px">
+        <h3>Pide tu demo</h3>
+        <label for="nombre">Tu nombre<input id="nombre" name="nombre" autocomplete="name" required></label>
+        <label for="negocio">Nombre del negocio<input id="negocio" name="negocio" autocomplete="organization" placeholder="Como sale en Google Maps" required></label>
+        <label for="contacto">Teléfono<input id="contacto" name="contacto" type="tel" autocomplete="tel" inputmode="tel" placeholder="612 345 678" required></label>
+        <p class="err" id="err" role="alert">Rellena tu nombre, el del negocio y un teléfono.</p>
+        <button class="btn" type="submit">Oír mi demo <span class="ar" aria-hidden="true">→</span></button>
+        <p class="fine">Solo usamos estos datos para llamarte por el piloto. No los compartimos.</p>
+      </div>
+      <div class="thanks" id="thanks" role="status">
+        <h3>Apuntado.</h3>
+        <p>Te llamamos en 24 h laborables, a mediodía, que por la mañana estás en faena. Ten a mano tu precio de desplazamiento y las zonas que cubres.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Tecnicall · Barcelona · 2026</span>
+    <span style="display:flex;gap:18px"><a href="#probar">Oír mi demo</a><a href="plan.html">Plan</a></span>
+  </div>
+</footer>
+
+<div class="sticky hide" id="sticky"><span><b>30 días gratis.</b><br>Tu mismo número.</span><a class="btn" href="#probar">Oír mi demo</a></div>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+  var st=document.getElementById('sticky'),hv=true,fv=false;
+  function u(){st.classList.toggle('hide',hv||fv)}
+  new IntersectionObserver(function(e){hv=e[0].isIntersecting;u()}).observe(document.querySelector('.cta-row'));
+  new IntersectionObserver(function(e){fv=e[0].isIntersecting;u()},{threshold:.1}).observe(document.getElementById('probar'));
+})();
+
+(function(){
+  var S=[
+   {c:'WhatsApp',m:[['c','Hola, la lavadora no centrifuga y pita. Es una Bosch'],['a','Hola, soy el asistente de {N}. ¿Me mandas una foto de la pantalla y de la etiqueta de la puerta?'],['c','[foto] E18 · WAT28'],['a','E18 suele ser la bomba de desagüe. La salida son 35 €, el resto se presupuesta en casa. Tengo mañana a las 9:30 o a las 16:00.'],['c','9:30 perfecto'],['sys','AVISO CREADO · Bosch WAT28 · E18 · Marc 09:30 · lleva bomba']]},
+   {c:'Llamada',m:[['c','Tengo agua saliendo debajo del fregadero, no para'],['a','Soy el asistente de {N}. Cierra la llave de paso de debajo del fregadero, girando a la derecha. ¿Ya?'],['c','Sí, ya no sale'],['a','Bien. Es urgente, así que aviso ahora al técnico de guardia y te llama en unos minutos. ¿La dirección es la de este número?'],['sys','URGENCIA PASADA AL MÓVIL DEL DUEÑO · 23:11 · resumen enviado']]},
+   {c:'Llamada',m:[['c','Bon dia, la nevera fa un soroll molt fort'],['a','Bon dia, sóc l’assistent de {N}. Quina marca és i des de quan fa el soroll?'],['c','Una LG, des d’ahir'],['a','D’acord. Tinc dimecres a les 13:00 al vostre barri. La sortida són 35 €. Us va bé?'],['c','Sí, perfecte'],['sys','AVISO CREADO · Nevera LG ruido · Marc mié 13:00 · catalán']]}
+  ];
+  var cur=0,tm=[],box=document.getElementById('msgs'),biz=document.getElementById('biz'),chn=document.getElementById('chn'),chc=document.getElementById('chc');
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function name(){var v=biz.value.trim();return v||'Reparaciones Bonet'}
+  biz.addEventListener('input',function(){chn.textContent=name()});
+  document.querySelectorAll('.sc button').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.sc button').forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');cur=+b.dataset.s;chc.textContent=S[cur].c;play();});});
+  function play(){
+    tm.forEach(clearTimeout);tm=[];box.innerHTML='';
+    var n=name();
+    S[cur].m.forEach(function(m,i){tm.push(setTimeout(function(){
+      var d=document.createElement('div');d.className='bub '+m[0];d.textContent=m[1].replace('{N}',n);box.appendChild(d);
+    },rm?0:i*900));});
+  }
+  document.getElementById('play').addEventListener('click',play);
+  if('IntersectionObserver' in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){play();o.disconnect();}},{threshold:.4});o.observe(document.querySelector('.chat'));}
+})();
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target,ok=['nombre','negocio'].every(function(n){return f[n].value.trim().length>1})&&f.contacto.value.replace(/\D/g,'').length>=9;
+  document.getElementById('err').style.display=ok?'none':'block';
+  if(!ok)return;
+  f.querySelector('.form-body').style.display='none';
+  document.getElementById('thanks').style.display='block';
+});
+</script>
+</body>
+</html>

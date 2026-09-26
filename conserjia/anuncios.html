@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Kit de anuncios</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">&larr; Volver al plan</a>
+  <p class="mono" style="margin-top:22px">Kit de anuncios · para más adelante · 26 sep 2026</p>
+  <h1>Test de anuncios de pago: 5 € al día, dos semanas</h1>
+  <div class="summary"><p class="mono">Cuándo usarlo</p><p style="margin:6px 0 0">Solo después de tener 3 despachos pagando. Antes, las visitas a pie convierten más y cuestan 0 €. El objetivo del test es saber si un despacho pide piloto desde un anuncio a menos de 150 € por llamada agendada.</p></div>
+  <nav class="toc"><a href="#google">Google Ads</a><a href="#copys">Anuncios de búsqueda</a><a href="#meta">Meta</a><a href="#test">Plan de test</a><a href="#decision">Decisión</a></nav>
+</header>
+<section id="google"><h2>Palabras clave de Google Ads</h2>
+  <div class="grid2">
+    <div class="card"><p class="mono">Concordancia exacta</p><ul><li>[software administrador de fincas]</li><li>[programa gestión incidencias comunidad]</li><li>[whatsapp comunidad de propietarios]</li><li>[gestión averías comunidad de vecinos]</li><li>[asistente ia administrador de fincas]</li></ul></div>
+    <div class="card"><p class="mono">Concordancia de frase</p><ul><li>"incidencias comunidad de propietarios"</li><li>"administrador de fincas whatsapp"</li><li>"software para administradores de fincas"</li><li>"gestionar averías comunidad"</li><li>"conserje virtual comunidad"</li></ul></div>
+  </div>
+  <div class="card"><p class="mono">Negativas</p><p>-curso -oposiciones -empleo -trabajo -gratis -plantilla -excel -modelo -ley (solo) -vecino molesto -denuncia -abogado -"cómo ser administrador" -colegiarse</p></div>
+  <p>Ubicación: Barcelona y área metropolitana (radio 25 km). Horario: lunes a viernes, 9:00 a 19:00. Idioma: español y catalán.</p></section>
+<section id="copys"><h2>5 anuncios de búsqueda</h2>
+  <div class="tw"><table><thead><tr><th>Título 1 (30)</th><th>Título 2 (30)</th><th>Descripción (90)</th></tr></thead><tbody>
+    <tr><td>Averías de tus comunidades</td><td>Cerradas por WhatsApp</td><td>Conserjia avisa a tu industrial, sigue el arreglo y te deja la ficha. Piloto gratis 30 días.</td></tr>
+    <tr><td>Deja de hacer de centralita</td><td>Conserje con IA para fincas</td><td>El vecino escribe por WhatsApp. Tú solo apruebas gastos. Sin cambiar de programa de gestión.</td></tr>
+    <tr><td>Software para administradores</td><td>Incidencias de principio a fin</td><td>Una ficha por avería y un historial por comunidad para la junta. 12 € por comunidad y mes.</td></tr>
+    <tr><td>Urgencias de noche, cubiertas</td><td>Tu industrial de guardia</td><td>Agua activa o ascensor parado: Conserjia avisa a tu guardia y te deja la ficha por la mañana.</td></tr>
+    <tr><td>Pruébalo en 2 comunidades</td><td>30 días gratis, sin tarjeta</td><td>Para despachos de Barcelona con 20 a 150 comunidades. Llamada de 15 min con tus averías.</td></tr>
+  </tbody></table></div></section>
+<section id="meta"><h2>3 conceptos para Meta (Instagram y Facebook)</h2>
+  <div class="grid2">
+    <div class="card"><p class="mono">Concepto 1 · el lunes</p><p><b>Gancho:</b> "08:05. Tres audios del mismo ascensor."</p><p>Vídeo vertical de 15 s: notificaciones que se acumulan y, al final, una sola ficha cerrada.</p></div>
+    <div class="card"><p class="mono">Concepto 2 · quién paga</p><p><b>Gancho:</b> "¿Esta humedad la paga la comunidad o el vecino?"</p><p>Carrusel LPH (bajante, terraza, ducha). Última lámina: "Conserjia te lo clasifica y te pregunta en los dudosos".</p></div>
+    <div class="card"><p class="mono">Concepto 3 · la demo</p><p><b>Gancho:</b> "Pulsa 'Humedad' y mira qué contesta."</p><p>Grabación de la demo de la landing en el móvil. CTA a la landing con el escenario ya elegido.</p></div>
+  </div>
+  <p><b>Audiencias:</b> Barcelona provincia, 30 a 65 años, intereses "administración de fincas", "propiedad horizontal", "gestión inmobiliaria"; audiencia similar al 1 % de los visitantes de la landing cuando haya 300; retargeting de visitantes de 30 días.</p></section>
+<section id="test"><h2>Plan de test: 5 € al día durante 14 días (70 €)</h2>
+  <div class="tw"><table><thead><tr><th>Días</th><th>Qué corre</th><th>Presupuesto</th></tr></thead><tbody>
+    <tr><td>1-7</td><td>Google Ads: exacta y frase, anuncios 1, 2 y 5, a la landing A</td><td>5 €/día, 35 €</td></tr>
+    <tr><td>8-14</td><td>Mitad Google (el mejor anuncio, landing A frente a B) y mitad Meta retargeting con el concepto 3</td><td>5 €/día, 35 €</td></tr>
+  </tbody></table></div>
+  <p>Antes de empezar: conectar el formulario, añadir analítica con consentimiento (ver <a href="cookies.html">cookies</a>) y medir la conversión "envío del formulario".</p></section>
+<section id="decision"><h2>Métricas que deciden</h2>
+  <ul><li><b>Sigo y subo a 15 €/día</b> si: CTR de búsqueda por encima del 4 %, al menos 2 envíos del formulario y 1 llamada agendada en 14 días.</li><li><b>Cambio anuncio o landing</b> si: CTR por encima del 4 % pero 0 envíos. El problema está en la página, no en la palabra clave.</li><li><b>Paro</b> si: CPC medio por encima de 3 € o CTR por debajo del 2 %. En ese caso el canal es visitas y Colegio, no anuncios.</li></ul></section>
+<footer><span>Conserjia · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

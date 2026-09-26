@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo gestionar las incidencias de una comunidad por WhatsApp sin volverte loco | Conserjia</title>
+<meta name="description" content="Guía para administradores de fincas: cómo usar WhatsApp para recibir averías de las comunidades sin dar el móvil personal, con orden y con cumplimiento del RGPD.">
+<link rel="canonical" href="https://conserjia.vercel.app/blog/gestionar-incidencias-comunidad-whatsapp.html">
+<meta property="og:title" content="Cómo gestionar las incidencias de una comunidad por WhatsApp sin volverte loco">
+<meta property="og:description" content="Guía para administradores de fincas: cómo usar WhatsApp para recibir averías de las comunidades sin dar el móvil personal, con orden y con cumplimiento del RGPD.">
+<meta property="og:image" content="https://conserjia.vercel.app/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cómo gestionar las incidencias de una comunidad por WhatsApp sin volverte loco","inLanguage":"es","datePublished":"2026-09-26","author":{"@type":"Person","name":"Joaquín Ferreiros"},"publisher":{"@type":"Organization","name":"Conserjia"}}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="../">&larr; Conserjia</a>
+  <p class="mono" style="margin-top:22px">Blog · 26 sep 2026</p>
+  <h1>Cómo gestionar las incidencias de una comunidad por WhatsApp sin volverte loco</h1>
+</header>
+<article>
+<p>Casi todos los vecinos ya usan WhatsApp. Muchos administradores de fincas también, pero con su número personal, mezclando familia, industriales y veinte comunidades. Esta guía explica cómo ordenar el canal sin renunciar a él.</p>
+<h2>Por qué WhatsApp gana al portal del vecino</h2>
+<p>Los portales del vecino son útiles para consultar documentos, pero pocos vecinos los usan para avisar de una avería. Cuando sale agua del techo, el vecino hace lo más rápido: una foto y un mensaje. Si el canal oficial exige usuario y contraseña, el aviso acaba en tu móvil igualmente.</p>
+<h2>Los cuatro problemas del WhatsApp personal</h2>
+<ol><li><b>No hay horario:</b> los avisos llegan a cualquier hora, y el vecino espera respuesta inmediata.</li><li><b>No hay registro:</b> la información queda repartida entre chats, audios y llamadas. En la junta nadie recuerda qué pasó.</li><li><b>No escala:</b> con 60 comunidades, el titular se convierte en centralita.</li><li><b>Riesgo de datos:</b> fotos del interior de viviendas y datos de vecinos en un móvil personal, sin control de acceso ni borrado.</li></ol>
+<h2>Cómo montarlo bien</h2>
+<h3>1. Un número de empresa, no personal</h3>
+<p>Usa WhatsApp Business con un número del despacho. Mejor aún, un número por comunidad o un número con un código por comunidad en el cartel del portal, para saber de qué finca viene cada aviso.</p>
+<h3>2. Mensaje de bienvenida con lo que necesitas</h3>
+<p>Pide siempre lo mismo: dirección y piso, qué pasa, una foto y si es urgente. Un mensaje automático de bienvenida ahorra la mitad de las preguntas.</p>
+<h3>3. Reglas de urgencia por escrito</h3>
+<p>Define qué es urgente (agua activa, ascensor con personas, gas, sin luz en zonas comunes) y qué puede esperar. Compártelo con tu equipo y con tus industriales.</p>
+<h3>4. Una ficha por incidencia</h3>
+<p>Cada aviso debe acabar en un registro con fecha, fotos, industrial avisado, fecha de reparación y cierre con el vecino. Una hoja de cálculo sirve para empezar; lo importante es que exista.</p>
+<h3>5. Cierre explícito con el vecino</h3>
+<p>Una incidencia no termina cuando el industrial se va. Termina cuando el vecino confirma que está arreglado. Ese mensaje final evita la segunda llamada y te da la prueba para la junta.</p>
+<h2>Protección de datos</h2>
+<p>Cuando recibes fotos y datos de vecinos, tratas datos personales por cuenta de la comunidad. Informa en el mensaje de bienvenida de quién trata los datos y para qué, guarda solo lo necesario y borra las fotos cuando ya no hagan falta. Si usas un proveedor externo para gestionar los mensajes, necesitas un contrato de encargado del tratamiento (artículo 28 del RGPD) y, mejor, servidores en la UE. La <a href="https://www.aepd.es" target="_blank" rel="noopener">AEPD</a> publica guías útiles.</p>
+<h2>Si usas un asistente con IA</h2>
+<p>El Reglamento europeo de IA exige informar a la persona de que habla con una IA. Dilo en el primer mensaje. Y deja que la IA haga el trabajo repetitivo (preguntar, clasificar, avisar, perseguir) pero que las decisiones de gasto y los casos dudosos pasen por una persona del despacho.</p>
+<h2>Cómo lo hace Conserjia</h2>
+<p>Conserjia pone un número de WhatsApp en el portal de cada comunidad, recibe la avería con foto, hace como mucho dos preguntas, avisa a tu industrial según tus reglas, persigue la cita y cierra con el vecino. Tú ves una ficha por incidencia y un historial por comunidad, y apruebas los gastos.</p>
+<div class="summary" style="margin:30px 0"><p class="mono">Conserjia</p><p style="margin:6px 0 10px">El conserje con IA que cierra las averías de tus comunidades por WhatsApp. Piloto gratis de 30 días en 2 comunidades.</p><p><a href="../#probar" style="color:#E6BC5C;font-weight:700">Pedir piloto</a></p></div>
+</article>
+<footer><span>Conserjia · © 2026</span><span class="legal"><a href="../aviso-legal.html">Aviso legal</a> · <a href="../privacidad.html">Privacidad</a> · <a href="../cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

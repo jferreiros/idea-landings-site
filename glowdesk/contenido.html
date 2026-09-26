@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Motor de contenido</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#fff;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--sage-soft:#DFE8E1;--rose:#A65468;--rose-soft:#F3DEE1;--gold:#A65468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+a{color:var(--sage)}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);margin:.3rem 0 1rem}
+h2{font-size:clamp(1.8rem,4.5vw,2.4rem);margin-bottom:1rem;padding-top:8px}
+h3{font-size:1.35rem;margin:1.4rem 0 .5rem}
+em{color:var(--rose)}
+p,ul,ol{margin-bottom:.9rem}
+ul,ol{padding-left:1.3rem}
+li{margin-bottom:.35rem}
+header{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.back{font-size:.9rem;text-decoration:none}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.82rem;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;color:var(--muted)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.summary{background:var(--sage);color:#FBF4F2;border-radius:20px;padding:26px;font-size:1.08rem;margin-top:24px}
+.summary b{color:#F3C7B5}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}
+.note{background:var(--rose-soft);border-radius:14px;padding:16px 18px;font-size:.95rem}
+.grid2{display:grid;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:12px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sage-soft);font-weight:700;color:var(--sage)}
+.tw{overflow-x:auto}
+code{font-size:.85em;background:var(--sage-soft);padding:1px 6px;border-radius:6px}
+pre{background:#1F2A26;color:#E9E3DC;border-radius:14px;padding:16px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:18px 0}
+.lane{display:grid;gap:10px}
+.lane-t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.nodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.88rem}
+.node b{display:block;font-size:.95rem}
+.node.core{background:var(--sage);color:#fff;border-color:var(--sage)}
+.node.warn{background:var(--rose-soft);border-color:#E9C7CD}
+.arrow{text-align:center;color:var(--rose);font-size:1.3rem;line-height:1}
+.weeks{display:grid;gap:12px}
+.wk{background:#fff;border:1px solid var(--line);border-left:4px solid var(--rose);border-radius:12px;padding:16px}
+.wk b{font-family:"Bodoni Moda",serif;font-size:1.3rem;font-weight:400}
+footer{padding:32px 0;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.weeks{grid-template-columns:1fr 1fr}}
+.msg{background:#fff;border:1px solid var(--line);border-left:4px solid var(--sage);border-radius:12px;padding:16px 18px;margin:12px 0;white-space:pre-line;font-size:.95rem}
+.msg small{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px;white-space:normal}
+.obj{display:grid;gap:12px}
+.obj div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.obj b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:1.2rem;margin-bottom:4px}
+.q{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));list-style:none;padding:0}
+.q li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;margin:0}
+.q code{background:none;padding:0;font-size:.88rem;color:var(--ink)}
+@media(min-width:760px){.obj{grid-template-columns:1fr 1fr}}
+.reels{display:grid;gap:12px}
+.reel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.reel b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:1.2rem;margin-bottom:8px}
+.reel dl{display:grid;grid-template-columns:110px 1fr;gap:4px 12px;font-size:.9rem}
+.reel dt{font-weight:700;color:var(--sage)}
+.reel dd{color:var(--ink)}
+@media(max-width:480px){.reel dl{grid-template-columns:1fr}.reel dt{margin-top:6px}}
+@media(min-width:760px){.reels{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">Volver al plan</a>
+  <h1>Motor de <em>contenido</em></h1>
+  <p>Para dueñas y coordinadoras de clínicas estéticas en España. Lo publica Joaquín en su Instagram y LinkedIn. La marketing factory prepara borradores; Joaquín aprueba cada pieza.</p>
+  <nav class="toc"><a href="#reels">10 reels</a><a href="#calendario">Calendario</a><a href="#carruseles">Carruseles</a></nav>
+</div></header>
+<main class="wrap">
+<section id="reels">
+  <h2>10 guiones de reel</h2>
+  <p class="note">Ninguna cifra se inventa. Donde pone «rellenar», va el dato real del mystery shopping o de las visitas. Nada de antes/después ni nombres de medicamentos.</p>
+  <div class="reels"><div class="reel"><b>1. El test del domingo</b><dl><dt>Gancho (2 s)</dt><dd>Escribí a 20 clínicas un domingo a las 23:40.</dd><dt>Escena</dt><dd>Pantalla dividida: móvil con 20 DMs enviados, reloj que avanza hasta el lunes.</dd><dt>Texto</dt><dd>[N] contestaron antes de las 10:00. La media: [X] horas. Rellenar con los datos reales del test.</dd><dt>CTA</dt><dd>¿Cuánto tarda la tuya? Comenta «test» y te lo mido.</dd></dl></div><div class="reel"><b>2. Lo que vale un DM</b><dl><dt>Gancho (2 s)</dt><dd>Este DM vale 400 €.</dd><dt>Escena</dt><dd>Primer plano de un DM «¿precio labios?» sin leer.</dd><dt>Texto</dt><dd>Ejemplo con números redondos: ticket medio 400 € y 4 de cada 10 valoraciones cierran. Cada DM sin contestar es dinero que se va al feed de al lado.</dd><dt>CTA</dt><dd>Link en bio: calcula lo que pierde tu clínica.</dd></dl></div><div class="reel"><b>3. Señal contra ausencias</b><dl><dt>Gancho (2 s)</dt><dd>La valoración gratis tiene un problema.</dd><dt>Escena</dt><dd>Agenda de papel con huecos tachados de «no vino».</dd><dt>Texto</dt><dd>Reservar gratis no compromete. Una señal de 20 € reembolsable sí. Te enseño cómo se lo explicamos a la paciente sin que suene a cobro.</dd><dt>CTA</dt><dd>Guarda este vídeo para tu próxima reunión de equipo.</dd></dl></div><div class="reel"><b>4. Embarazo y lactancia</b><dl><dt>Gancho (2 s)</dt><dd>Así contesta una IA a «estoy embarazada».</dd><dt>Escena</dt><dd>Grabación de pantalla del simulador con ese mensaje.</dd><dt>Texto</dt><dd>No opina, no diagnostica. Deja un aviso para la doctora y pide la hora a la que llamar. Así tiene que ser.</dd><dt>CTA</dt><dd>¿Te preocupa la IA en tu clínica? Pregúntame en comentarios.</dd></dl></div><div class="reel"><b>5. El lunes a las 9:00</b><dl><dt>Gancho (2 s)</dt><dd>Lunes 9:00. Esto es lo que ve tu recepción.</dd><dt>Escena</dt><dd>Bandeja de Glowdesk con leads del fin de semana, datos de ejemplo.</dd><dt>Texto</dt><dd>Tres valoraciones reservadas, dos señales pagadas, un aviso de lactancia para la doctora. Cero DMs sin leer.</dd><dt>CTA</dt><dd>Pide la demo con tu carta: link en bio.</dd></dl></div><div class="reel"><b>6. Publicidad sanitaria</b><dl><dt>Gancho (2 s)</dt><dd>3 frases que no puedes poner en un anuncio de medicina estética.</dd><dt>Escena</dt><dd>Texto sobre fondo rosa, una frase por corte.</dd><dt>Texto</dt><dd>«Resultados garantizados», «sin riesgos», el nombre comercial de un medicamento de prescripción. Te cuento por qué, con la ley en pantalla.</dd><dt>CTA</dt><dd>Síguenos para más publicidad sanitaria sin multas.</dd></dl></div><div class="reel"><b>7. La pregunta repetida</b><dl><dt>Gancho (2 s)</dt><dd>Tu recepcionista contesta «¿cuánto cuesta?» [N] veces al día.</dd><dt>Escena</dt><dd>Contador que sube sobre una recepción real (con permiso) o un escritorio vacío.</dd><dt>Texto</dt><dd>Todas con la misma respuesta. [N] sale de las visitas. Eso lo puede hacer un agente con tu carta, y ella se queda con lo que sí necesita a una persona.</dd><dt>CTA</dt><dd>Comenta cuántas veces al día te lo preguntan.</dd></dl></div><div class="reel"><b>8. Puesta en marcha</b><dl><dt>Gancho (2 s)</dt><dd>Monté la recepción de una clínica en 30 minutos.</dd><dt>Escena</dt><dd>Timelapse: carta en PDF, importador, aprobación de la doctora, Instagram conectado.</dd><dt>Texto</dt><dd>Carta, horarios, política de señal. La doctora aprueba los textos. Y listo para el domingo por la noche.</dd><dt>CTA</dt><dd>¿Quieres ver la tuya? Link en bio.</dd></dl></div><div class="reel"><b>9. Pasar a una persona</b><dl><dt>Gancho (2 s)</dt><dd>Lo que pasa cuando una paciente pide hablar con una persona.</dd><dt>Escena</dt><dd>Simulador: «prefiero hablar con alguien».</dd><dt>Texto</dt><dd>El agente no insiste. Pasa la conversación a recepción con todo el contexto y le dice a qué hora le escriben.</dd><dt>CTA</dt><dd>Guarda esto si te da miedo automatizar.</dd></dl></div><div class="reel"><b>10. Lo que aprendí en las visitas</b><dl><dt>Gancho (2 s)</dt><dd>Qué aprendí visitando 10 clínicas estéticas en Barcelona.</dd><dt>Escena</dt><dd>Joaquín hablando a cámara en la calle, en Eixample.</dd><dt>Texto</dt><dd>Tres cosas que se repiten (rellenar tras las visitas reales): quién contesta los DMs, qué pasa el fin de semana, cuántas no vienen.</dd><dt>CTA</dt><dd>Sígueme: publico lo que aprendo cada semana.</dd></dl></div></div>
+</section>
+<section id="calendario">
+  <h2>Calendario de 4 semanas</h2>
+  <div class="tw"><table>
+    <tr><th>Semana</th><th>Lunes</th><th>Miércoles</th><th>Viernes</th></tr>
+    <tr><td>1</td><td>Reel 1 (20 clínicas un domingo)</td><td>Carrusel A (calculadora)</td><td>Reel 2 (este DM vale 400 €)</td></tr>
+    <tr><td>2</td><td>Reel 4 (embarazo)</td><td>Reel 6 (3 frases prohibidas)</td><td>Carrusel B (publicidad sanitaria)</td></tr>
+    <tr><td>3</td><td>Reel 3 (valoración gratis)</td><td>Reel 7 (60 veces al día)</td><td>Reel 9 (hablar con una persona)</td></tr>
+    <tr><td>4</td><td>Reel 5 (lunes 9:00)</td><td>Carrusel C (checklist fin de semana)</td><td>Reel 8 y Reel 10 (visitas)</td></tr>
+  </table></div>
+  <p>Ritmo: 3 piezas por semana, unas 3 horas en total. Cada lunes, Joaquín revisa qué pieza trajo más DMs de clínicas y repite ese formato.</p>
+</section>
+<section id="carruseles">
+  <h2>3 carruseles</h2>
+  <div class="grid2">
+    <div class="box"><b>A. Cuánto te cuesta un DM sin contestar</b><p>Seis láminas: DMs al día, % fuera de horario, % que reserva si contestas rápido, ticket medio, tasa de cierre, resultado en €/mes. Última lámina: «Pide la cuenta con tus números».</p></div>
+    <div class="box"><b>B. Publicidad sanitaria en Instagram: lo que sí y lo que no</b><p>Cinco reglas con su norma (Ley General de Sanidad, RD 1907/1996, ley del medicamento) y un ejemplo de mensaje correcto para cada una. Revisar con un abogado sanitario antes de publicar.</p></div>
+    <div class="box"><b>C. Checklist del fin de semana de tu clínica</b><p>¿Quién contesta los DMs el sábado? ¿Hay respuesta con precios «desde»? ¿Se cobra señal? ¿Quién ve los avisos clínicos el lunes? Siete preguntas, una por lámina.</p></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Glowdesk · © 2026 · <a href="plan.html">Plan</a> · <a href="outreach.html">Outreach</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

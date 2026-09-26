@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1ea;--card:#fffdf8;--ink:#17181a;--muted:#5d5f63;--line:#d9d3c6;--orange:#e2531a;--orange-dk:#b83f0f;--orange-bg:#fbe5da;--green:#1f7a4d;--green-bg:#dcefe3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.6 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--orange-dk)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:3px solid var(--ink)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;font-weight:850;line-height:1.05}
+h1{font-size:clamp(38px,8vw,64px);text-transform:uppercase}
+h2{font-size:clamp(26px,5vw,36px);text-transform:uppercase;margin:0 0 14px}
+h3{font-size:20px;font-stretch:85%;margin:22px 0 8px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--orange-dk)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}li{margin:4px 0}
+.summary{background:var(--ink);color:#f4f1ea;border-radius:16px;padding:24px;margin-top:22px;font-size:18px}
+.summary b{color:#f0a37f}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;text-decoration:none;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:12px 0}
+.grid2{display:grid;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tbl{width:100%;overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6da;font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase}
+code,.code{font-family:"JetBrains Mono",monospace;font-size:13px}
+pre{background:#1f2023;color:#e9e4d8;padding:16px;border-radius:12px;overflow-x:auto;font:500 13px/1.5 "JetBrains Mono",monospace;margin:10px 0}
+.arch{display:grid;gap:10px;margin:14px 0}
+.row{display:grid;gap:10px}
+@media(min-width:760px){.row{grid-template-columns:repeat(3,1fr)}}
+.box{border:2px solid var(--ink);border-radius:10px;padding:12px;background:var(--card);font-size:14px}
+.box b{display:block;font-family:"Archivo";font-stretch:80%;font-size:17px}
+.box.core{background:var(--orange-bg);border-color:var(--orange)}
+.box.dark{background:var(--ink);color:#f4f1ea}
+.arrow{text-align:center;font:700 13px "JetBrains Mono";color:var(--muted)}
+.warn{border-left:4px solid var(--orange);padding:8px 0 8px 14px;margin:10px 0}
+.pill{display:inline-block;font:700 11px "JetBrains Mono";padding:2px 7px;border-radius:5px;background:var(--green-bg);color:var(--green);text-transform:uppercase}
+footer{padding:28px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <p class="mono">Documento interno · 26 sep 2026</p>
+  <h1>Motaller · plan</h1>
+  <div class="summary"><b>Cómo lo encararía:</b> Empezaría como un «mostrador con IA» sobre el WhatsApp del taller de motos: responder, agendar por matrícula, enviar fotos y presupuesto para aprobar y avisar de «moto lista», vendido puerta a puerta a 10 talleres de Barcelona con alto volumen de scooters y riders. Solo cuando esos talleres lo usen a diario añadiría voz, recordatorios de ITV masivos, flotas de reparto y, más tarde, recambios y facturación VeriFactu.</div>
+  <nav class="toc"><a href="#comparativa">Comparativa</a><a href="#valor">Oferta e ICP</a><a href="#comp">Competencia</a><a href="#gtm">Go-to-market</a><a href="#alto">Técnico alto nivel</a><a href="#bajo">Técnico bajo nivel</a><a href="#mvp">MVP</a><a href="#eco">Unit economics</a><a href="#plan90">30/60/90</a><a href="outreach.html">Kit de captación</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha de venta</a><a href="b.html">Variante B</a><a href="ca.html">Landing CA</a><a href="#fact">Factorías</a></nav>
+</div></header>
+
+<section id="comparativa"><div class="wrap">
+  <h2>Comparativa con la referencia</h2>
+  <p>Ronda 2 (26 sep 2026, 21:10). Páginas leídas: <a href="https://www.trycarsignal.com" target="_blank" rel="noopener">CarSignal · home</a> (YC), <a href="https://www.carsu.com/es/software-para/talleres-moto" target="_blank" rel="noopener">Carsu · talleres de moto</a>, <a href="https://www.carsu.com/es/precios" target="_blank" rel="noopener">Carsu · precios</a>. <a href="https://flujotaller.es/" target="_blank" rel="noopener">FlujoTaller</a> no cargó: HTTPS rechaza la conexión y HTTP sirve otra app. Uso su <a href="https://flujotaller.es/blog/software-gestion-taller.html" target="_blank" rel="noopener">comparativa de blog</a> vía el índice de búsqueda (Premium 149 €, CRM + WhatsApp automático + citas + IA, sin tarjeta).</p>
+  <div class="tbl"><table>
+    <tr><th></th><th>Motaller (nuestra landing)</th><th>CarSignal (YC, EE. UU.)</th><th>Carsu (ES, página moto)</th><th>FlujoTaller (ES)</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td>
+      <td>Taller de motos y scooters de Barcelona. Promesa: el asistente contesta el WhatsApp, da cita y consigue el «sí» al presupuesto. Ángulo: agente, no programa; local y en persona.</td>
+      <td>«The AI operating system for auto shops». Sustituye todo el software del taller: recepción, diagnóstico, presupuesto, pagos. Ataca a Tekmetric y Shopmonkey de frente.</td>
+      <td>Programa de gestión horizontal (coche, moto, neumáticos) con una landing por vertical. Promesa genérica: «optimiza trabajos, clientes y productividad».</td>
+      <td>Gestión + marketing para taller de coche, con WhatsApp automático e IA como extra.</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td>
+      <td>R3: asfalto oscuro, naranja de carreras, matrículas y dorsal «07» como tipografía. Héroe con el WhatsApp que acaba en «Tu moto está lista» y una demo interactiva con el nombre del taller. Versión en catalán. Aún sin logos ni testimonios reales: no los inventamos.</td>
+      <td>Muy alta. Demo interactiva en el hero con un coche real, tablero de flujo, cifras de plataforma y el sello YC.</td>
+      <td>Correcta pero de plantilla: bloques de texto largo, capturas de producto, testimonios con nombre de pila.</td>
+      <td>No evaluable hoy: la web no responde. Mala señal de fiabilidad.</td></tr>
+    <tr><td><b>Estructura y funnel</b></td>
+      <td>R3: un solo CTA («Pedir piloto gratis») + «Probar la demo». Formulario de 3 campos con pasos tras el envío y CTA fijo en móvil. Pendiente: el formulario aún no envía a ningún sitio (falta backend).</td>
+      <td>Un solo CTA («Book a demo») repetido en cada bloque + «See how it works». Prueba: métricas agregadas, estados donde operan, garantía de 30 días, programa de referidos de 500 $.</td>
+      <td>Dos CTA: «Prueba gratis» y «Solicitar demo». Autoservicio con alta propia. Prueba: testimonios.</td>
+      <td>Prueba sin compromiso y sin tarjeta (según su blog).</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td>
+      <td>Hipótesis: 59 € y 129 €/mes + IVA, piloto de 30 días gratis.</td>
+      <td>Un único precio plano: 200 $/mes, todo incluido, migración gratis, garantía de reembolso de 30 días.</td>
+      <td>29,90 € Básico (2 usuarios, 500 clientes) y 59,90 € Avanzado (5 usuarios), sin IVA; anual −17 %.</td>
+      <td>Hasta 149 € (Premium) según su blog.</td></tr>
+    <tr><td><b>Textos</b></td>
+      <td>Claro y concreto (escena de Sants, matrículas, riders). El hero intentaba decir cuatro cosas a la vez.</td>
+      <td>Muy específico: cada bloque es un momento del taller (8:42 check-in, 9:17 aprobado). Tono directo, frases cortas.</td>
+      <td>Genérico y largo, con traducción visible («Includes:»). Pocas cifras.</td>
+      <td>—</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td>
+      <td colspan="4"><ol style="margin-left:18px">
+        <li><b>Copiado de CarSignal:</b> una sola acción repetida (ahora «Pedir piloto gratis»), la línea de tiempo de una moto de mensaje a lista, la tabla «frente a otras opciones» y la garantía de 30 días (en nuestro caso, piloto gratis sin tarjeta).</li>
+        <li><b>Mejorado frente a Carsu:</b> no competimos en precio de programa (29,90 € es su suelo). Nos posicionamos como el que contesta, y convivimos con su programa en vez de sustituirlo.</li>
+        <li><b>Hero:</b> una promesa (contestar + cita + «sí» al presupuesto), CTA principal y «Ver cómo funciona», y tres garantías honestas debajo.</li>
+        <li><b>Confianza honesta:</b> nota del fundador en Barcelona, bloque de garantías (tú apruebas cada precio, se presenta como asistente, datos en la UE). Sin logos ni testimonios inventados.</li>
+        <li><b>Funnel:</b> CTA fijo en móvil, pasos tras el envío (te llamamos → montamos en una tarde → 30 días gratis), FAQ de objeciones (tiempo de montaje, salida).</li>
+        <li><b>Pendiente:</b> cuando haya pilotos, publicar métricas reales como CarSignal («minutos hasta aprobar») y un programa de referidos entre talleres.</li>
+      </ol></td></tr>
+  </table></div>
+  <p class="warn"><b>Lectura:</b> CarSignal valida el agente como puerta de entrada y el precio plano alto (200 $). Carsu fija el suelo del «programa» en España en ~30–60 €. Motaller vende el trabajo hecho (contestar y cerrar), no el programa. Eso justifica 59–129 €.</p>
+</div></section>
+
+<section id="valor"><div class="wrap">
+  <h2>Oferta de valor e ICP</h2>
+  <p><b>Oferta:</b> el taller de motos no pierde ni una llamada ni un WhatsApp, cierra presupuestos sin perseguir al cliente y llena la agenda con recordatorios de revisión e ITV. Todo desde el WhatsApp que ya usa.</p>
+  <div class="grid2">
+    <div class="card"><h3>ICP principal</h3><ul>
+      <li>Taller independiente de motos y scooters en Barcelona ciudad y área metropolitana.</li>
+      <li>1–4 mecánicos. El dueño trabaja en el banco y contesta el móvil.</li>
+      <li>Mucho scooter urbano (125–400 cc) y clientes riders de reparto.</li>
+      <li>Ya usa WhatsApp Business. Factura con un programa genérico o en papel.</li>
+      <li>Barrios semilla: Eixample, Sants, Poblenou, Gràcia, Hospitalet.</li>
+    </ul></div>
+    <div class="card"><h3>ICP secundario</h3><ul>
+      <li>Flotas de reparto y alquiler de motos (Cooltra, Acciona, flotas de riders) que necesitan la moto de vuelta en horas.</li>
+      <li>Concesionarios pequeños multimarca con taller.</li>
+      <li>Después: Madrid, Valencia, Málaga, Palma.</li>
+    </ul></div>
+  </div>
+  <p><b>Por qué Barcelona:</b> la provincia de Barcelona tiene unas 592.000 motos, scooters y ciclomotores, la cifra más alta de España (2024), y la ciudad tiene la mayor ratio de motos por habitante de las ciudades europeas comparables (<a href="https://movilidad.racc.es/informes-y-estudios/seguridad-vial/vehiculos/estudio-racc-del-uso-de-la-motocicleta-en-barcelona/" target="_blank" rel="noopener">RACC</a>, <a href="https://www.motor16.com/las-ultimas-noticias/parque-motos-espana-cuatro-millones/" target="_blank" rel="noopener">Motor16</a>). Joaquín tiene una Burgman: conoce el cliente final y el lenguaje del taller.</p>
+</div></section>
+
+<section id="comp"><div class="wrap">
+  <h2>Competencia y referencia</h2>
+  <p>Comprobación rápida (26 sep 2026). El software de taller de coches está saturado. Hay software que <i>cubre</i> motos, pero casi todo es un ERP con un módulo de moto, no un asistente con IA que contesta por el taller.</p>
+  <div class="tbl"><table>
+    <tr><th>Actor</th><th>Qué hace</th><th>Moto</th><th>Lectura</th></tr>
+    <tr><td><a href="https://www.carsu.com/es/software-para/talleres-moto" target="_blank" rel="noopener">Carsu</a></td><td>Gestión de taller con citas, WhatsApp e historial</td><td>Página específica de motos</td><td>El rival más cercano. ERP, no agente conversacional.</td></tr>
+    <tr><td><a href="https://flujotaller.es/blog/software-gestion-taller.html" target="_blank" rel="noopener">FlujoTaller</a></td><td>CRM, citas, WhatsApp automatizado, IA. 49–149 €/mes</td><td>Genérico</td><td>Valida el precio. Enfocado en coches.</td></tr>
+    <tr><td><a href="https://www.compugestion.es/programa-taller-motos.html" target="_blank" rel="noopener">RMS Compugestión</a>, <a href="https://www.futuroinformatica.com/programa-gestion-taller-mecanico.html" target="_blank" rel="noopener">GestFuturo</a>, <a href="https://www.talleralpha.com/sistema-para-taller-de-motos/" target="_blank" rel="noopener">TallerAlpha</a></td><td>Programas clásicos de gestión y facturación</td><td>Versión moto</td><td>Posibles integraciones, no el mismo trabajo.</td></tr>
+    <tr><td><a href="https://frai.es/es/servicios/chatbot-whatsapp-citas-taller-mecanico" target="_blank" rel="noopener">FRAI</a>, <a href="https://www.xoraagencia.com/blog/chatbot-whatsapp-talleres-mecanicos-2026.html" target="_blank" rel="noopener">Xora AI</a>, Nolam, Tubot y otros</td><td>Chatbots de WhatsApp y voz para talleres</td><td>No</td><td>Agencias y bots genéricos para coche. 8+ jugadores.</td></tr>
+    <tr><td><a href="https://www.ycombinator.com/companies/carsignal" target="_blank" rel="noopener">CarSignal (YC)</a></td><td>IA que contesta llamadas y mensajes de concesionarios y talleres de coche</td><td>No</td><td>Referencia de producto: el agente como puerta de entrada.</td></tr>
+  </table></div>
+  <p class="warn"><b>Conclusión:</b> el hueco no es «software para motos», que existe. El hueco es el agente que contesta, cierra presupuestos y prioriza riders, hecho para el ritmo del scooter urbano. La defensa es la densidad local y el trato en persona, no la tecnología.</p>
+</div></section>
+
+<section id="gtm"><div class="wrap">
+  <h2>Go-to-market de bajo presupuesto</h2>
+  <h3>Primeros 10 clientes, sin anuncios</h3>
+  <ol>
+    <li>Mapear 80–100 talleres de motos en Eixample, Sants, Poblenou y Gràcia con Google Maps. Anotar reseñas que digan «no cogen el teléfono».</li>
+    <li>Visitar 10 talleres por tarde, en hora valle (16:00–18:00). Ir en la Burgman.</li>
+    <li>Llevar la demo en el móvil: un WhatsApp de prueba que ya contesta con los precios de ese taller.</li>
+    <li>Ofrecer piloto de 30 días gratis a cambio de feedback semanal y permiso para medir.</li>
+    <li>Llevar mi propia Burgman a los talleres piloto como cliente real y medir el flujo.</li>
+    <li>Tras 3 talleres activos, pedir una presentación a otros talleres (el gremio se conoce) y al distribuidor de recambios de la zona.</li>
+  </ol>
+  <h3>Canales</h3>
+  <ul>
+    <li>Visita en persona (canal principal).</li>
+    <li>Distribuidores de recambios y neumáticos: visitan todos los talleres cada semana.</li>
+    <li>Comunidades de riders: grupos de Telegram/WhatsApp de repartidores, foros de Burgman, Tmax y Vespa.</li>
+    <li>Flotas de reparto y alquiler: contacto directo con el responsable de flota.</li>
+    <li>Gremi del Motor / asociaciones de talleres de Cataluña.</li>
+  </ul>
+  <h3>Guion de primera visita (60 segundos)</h3>
+  <pre>«Hola, soy Joaquín. Tengo una Burgman y vivo aquí al lado.
+Estoy montando un asistente que contesta el WhatsApp del taller
+mientras tú estás con una moto: da cita, manda el presupuesto
+con fotos para que el cliente lo apruebe y avisa cuando está lista.
+Mira, esto es lo que contestaría a un cliente tuyo ahora mismo. [demo]
+Busco 10 talleres del barrio para probarlo un mes gratis.
+¿Cuántos WhatsApp te entran al día?»</pre>
+  <h3>Contenido (reels)</h3>
+  <ul>
+    <li>«Un día en el taller en 30 segundos»: el móvil vibrando contra el reloj.</li>
+    <li>Antes y después: el cliente aprueba un presupuesto con fotos en 1 toque.</li>
+    <li>Consejos de mantenimiento de scooter urbano (pastillas, correa, ITV) en voz del mecánico piloto.</li>
+    <li>Rider de reparto: «tuve la moto de vuelta antes de la cena».</li>
+  </ul>
+  <h3>Métricas</h3>
+  <ul>
+    <li>Visitas → demos → pilotos → pago (meta: 100 → 30 → 10 → 5).</li>
+    <li>Por taller: % de mensajes contestados sin humano, tiempo de respuesta, presupuestos aprobados y horas hasta aprobación, citas desde recordatorios.</li>
+    <li>Retención a 60 días y NPS del mecánico.</li>
+  </ul>
+  <h3>Con presupuesto alto</h3>
+  <ul>
+    <li>Un comercial en campo por ciudad (Barcelona, Madrid, Valencia) con comisión.</li>
+    <li>Acuerdos con distribuidores de recambios y marcas de neumáticos para co-venta.</li>
+    <li>Presencia en Vive la Moto y ferias del sector.</li>
+    <li>Ads locales en Meta dirigidos a dueños de talleres, y contenido pagado con mecánicos influyentes.</li>
+    <li>Programa de referidos entre talleres (idea de CarSignal): un mes gratis o 100 € por taller que pague su primer mes.</li>
+    <li>Demo pública con un número de WhatsApp de prueba, enlazado desde la landing, para convertir sin visita.</li>
+  </ul>
+  <h3>Métricas con presupuesto alto</h3>
+  <ul>
+    <li>CAC objetivo &lt; 300 € (≈ 3 meses del plan medio); payback &lt; 4 meses.</li>
+    <li>Coste por demo reservada en Meta y conversión demo → pago por comercial.</li>
+    <li>Churn mensual &lt; 3 %; expansión Taller → Pro.</li>
+  </ul>
+</div></section>
+
+<section id="alto"><div class="wrap">
+  <h2>Plan técnico · alto nivel</h2>
+  <div class="arch">
+    <div class="row">
+      <div class="box"><b>Cliente final</b>WhatsApp, llamada de voz</div>
+      <div class="box"><b>Taller</b>Panel web / PWA en la tablet, WhatsApp del dueño</div>
+      <div class="box"><b>Flota de reparto</b>Cuenta de flota, panel de motos</div>
+    </div>
+    <div class="arrow">↓ WhatsApp Cloud API · Twilio/Telnyx voz ↓</div>
+    <div class="row">
+      <div class="box core"><b>Gateway de mensajes</b>Webhooks, colas, idempotencia</div>
+      <div class="box core"><b>Agente de mostrador</b>LLM con herramientas: agenda, ficha, presupuesto, estado</div>
+      <div class="box core"><b>Jobs</b>Recordatorios de ITV y revisión, seguimiento de presupuestos</div>
+    </div>
+    <div class="arrow">↓</div>
+    <div class="row">
+      <div class="box dark"><b>Postgres (Supabase, UE)</b>Talleres, motos, citas, órdenes, mensajes</div>
+      <div class="box dark"><b>Storage</b>Fotos de la moto</div>
+      <div class="box dark"><b>Observabilidad</b>Trazas del LLM, evals, alertas</div>
+    </div>
+  </div>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li>Next.js (panel del taller) en Vercel. API y jobs en el mismo repo o en un worker en el VPS con Coolify.</li>
+    <li>Supabase (Postgres, Auth, Storage) en región UE.</li>
+    <li>WhatsApp Cloud API directa (o 360dialog como BSP) con plantillas aprobadas.</li>
+    <li>Voz (fase 2): Twilio o Telnyx + STT/TTS en streaming. Reusar lo aprendido en Vortex.</li>
+    <li>LLM con tool calling (Claude/ modelo barato para clasificar). Langfuse para trazas.</li>
+    <li>Colas: Postgres + pg_cron o Inngest.</li>
+  </ul>
+  <h3>Integraciones</h3>
+  <ul>
+    <li>WhatsApp Business del taller (coexistence con la app para no perder el número).</li>
+    <li>Google Calendar del taller (opcional).</li>
+    <li>Más adelante: catálogos de recambios, programa de facturación con VeriFactu, pasarela de pago (Bizum/Stripe).</li>
+  </ul>
+  <h3>Datos</h3>
+  <p>Matrícula como clave práctica de la moto. Datos de la ITV: el cliente o el taller introduce la fecha. No dependemos de APIs de la DGT en el MVP.</p>
+  <h3>Riesgos legales</h3>
+  <ul>
+    <li><b>RGPD:</b> el taller es responsable; Motaller es encargado del tratamiento. Contrato de encargo, datos en la UE, retención definida, derecho de supresión.</li>
+    <li><b>Transparencia de la IA (AI Act, art. 50):</b> el asistente se identifica como asistente automático.</li>
+    <li><b>Políticas de WhatsApp Business:</b> opt-in para recordatorios, plantillas aprobadas, ventana de 24 h.</li>
+    <li><b>Grabación de llamadas:</b> aviso al inicio de la llamada si se graba o transcribe.</li>
+    <li><b>Consumo y presupuestos:</b> la normativa de talleres exige presupuesto previo aceptado por el cliente; guardar la aprobación con fecha como prueba.</li>
+    <li><b>Facturación:</b> no emitir facturas hasta integrar VeriFactu.</li>
+  </ul>
+</div></section>
+
+<section id="bajo"><div class="wrap">
+  <h2>Plan técnico · bajo nivel</h2>
+  <h3>Modelo de datos</h3>
+  <div class="tbl"><table>
+    <tr><th>Tabla</th><th>Campos</th></tr>
+    <tr><td>workshops</td><td>id, name, address, phone, wa_phone_id, hours (jsonb), languages, base_prices (jsonb), plan, created_at</td></tr>
+    <tr><td>users</td><td>id, workshop_id, name, role (owner|mechanic), phone</td></tr>
+    <tr><td>customers</td><td>id, workshop_id, name, phone, lang, is_rider, fleet_id, consent_reminders, created_at</td></tr>
+    <tr><td>fleets</td><td>id, workshop_id, name, contact_phone, sla_hours</td></tr>
+    <tr><td>vehicles</td><td>id, customer_id, plate, make, model, cc, year, km_last, itv_due, next_service_km, next_service_date</td></tr>
+    <tr><td>appointments</td><td>id, workshop_id, vehicle_id, service_type, starts_at, duration_min, status, source (wa|call|panel)</td></tr>
+    <tr><td>work_orders</td><td>id, appointment_id, vehicle_id, status (booked|in_bay|awaiting_ok|approved|ready|delivered), priority, promised_at, notes</td></tr>
+    <tr><td>quotes</td><td>id, work_order_id, lines (jsonb), total_cents, status (draft|sent|approved|rejected), sent_at, decided_at, decision_msg_id</td></tr>
+    <tr><td>photos</td><td>id, work_order_id, storage_path, caption</td></tr>
+    <tr><td>conversations / messages</td><td>id, workshop_id, customer_id, channel, direction, body, media, llm_trace_id, handed_off, created_at</td></tr>
+    <tr><td>reminders</td><td>id, vehicle_id, kind (itv|service), due_at, sent_at, result</td></tr>
+  </table></div>
+  <h3>Endpoints y jobs</h3>
+  <ul class="code">
+    <li>POST /webhooks/whatsapp — mensajes y estados entrantes</li>
+    <li>POST /webhooks/voice — fase 2</li>
+    <li>GET/POST /api/work-orders, PATCH /api/work-orders/:id/status</li>
+    <li>POST /api/work-orders/:id/quote — crea y envía presupuesto con fotos</li>
+    <li>POST /api/quotes/:id/decision — botón «Aprobar» del mensaje interactivo</li>
+    <li>GET /api/slots?service=&amp;date= — huecos libres</li>
+    <li>job reminders.daily — ITV a 30 y 7 días, revisiones por fecha/km</li>
+    <li>job quotes.nudge — recordatorio si no hay respuesta en 2 h</li>
+    <li>job digest.morning — resumen del día al dueño a las 8:00</li>
+  </ul>
+  <h3>Agentes y prompts</h3>
+  <ul>
+    <li><b>Mostrador:</b> contesta en es/ca, identifica la moto por matrícula, ofrece huecos reales. Herramientas: <code>find_vehicle</code>, <code>get_slots</code>, <code>book</code>, <code>get_status</code>, <code>handoff_to_human</code>. Nunca inventa precios fuera de <code>base_prices</code>.</li>
+    <li><b>Presupuestador:</b> convierte la nota de voz del mecánico («pastillas delanteras y media hora») en líneas de presupuesto; el mecánico confirma antes del envío.</li>
+    <li><b>Clasificador:</b> modelo barato que etiqueta intención (cita, estado, precio, queja, urgencia rider).</li>
+    <li>Evals: 50 conversaciones reales anonimizadas por taller; pasar antes de cada cambio de prompt.</li>
+  </ul>
+  <h3>Flujo paso a paso</h3>
+  <ol>
+    <li>El cliente escribe al WhatsApp del taller.</li>
+    <li>El webhook guarda el mensaje y lanza el clasificador.</li>
+    <li>El agente de mostrador busca la moto por teléfono o matrícula.</li>
+    <li>El agente ofrece huecos y crea la cita al confirmar.</li>
+    <li>El mecánico mueve la orden a «en el elevador» desde el panel.</li>
+    <li>El mecánico hace fotos y dicta el arreglo. El presupuestador crea el borrador.</li>
+    <li>El mecánico confirma. El cliente recibe fotos y botón «Aprobar».</li>
+    <li>La aprobación queda guardada con fecha. La orden pasa a «aprobada».</li>
+    <li>Al marcar «lista», el cliente recibe el aviso y el importe.</li>
+    <li>Al entregar, el sistema calcula la próxima revisión y la fecha de ITV.</li>
+  </ol>
+</div></section>
+
+<section id="mvp"><div class="wrap">
+  <h2>MVP en 4 semanas</h2>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Entrega</th><th>Criterio de hecho</th></tr>
+    <tr><td>1</td><td>WhatsApp Cloud API conectada, modelo de datos, panel mínimo de órdenes por columnas</td><td>Un mensaje de prueba crea cliente y moto</td></tr>
+    <tr><td>2</td><td>Agente de mostrador con agenda y estado; traspaso a humano</td><td>20 conversaciones de prueba sin errores de cita</td></tr>
+    <tr><td>3</td><td>Fotos + presupuesto con botón «Aprobar»; aviso «moto lista»</td><td>Ciclo completo con mi Burgman en un taller piloto</td></tr>
+    <tr><td>4</td><td>Recordatorios de ITV/revisión, prioridad rider, digest de la mañana; onboarding en 1 tarde</td><td>3 talleres piloto usándolo a diario</td></tr>
+  </table></div>
+  <p>Fuera del MVP: voz, recambios, facturación, pagos, app nativa.</p>
+</div></section>
+
+<section id="eco"><div class="wrap">
+  <h2>Unit economics</h2>
+  <div class="tbl"><table>
+    <tr><th>Concepto</th><th>Taller (59 €)</th><th>Pro (129 €)</th></tr>
+    <tr><td>Conversaciones WhatsApp/mes (estimado)</td><td>~400</td><td>~900 + 300 llamadas</td></tr>
+    <tr><td>Coste WhatsApp (mayoría de servicio, gratuitas; plantillas de utilidad)</td><td>~4 €</td><td>~10 €</td></tr>
+    <tr><td>LLM</td><td>~5 €</td><td>~12 €</td></tr>
+    <tr><td>Voz (telefonía + STT/TTS, ~3 min/llamada)</td><td>—</td><td>~25 €</td></tr>
+    <tr><td>Infra + storage prorrateado</td><td>~3 €</td><td>~4 €</td></tr>
+    <tr><td><b>Coste variable</b></td><td><b>~12 €</b></td><td><b>~51 €</b></td></tr>
+    <tr><td><b>Margen bruto</b></td><td><b>~80 %</b></td><td><b>~60 %</b></td></tr>
+  </table></div>
+  <p><b>Break-even:</b> costes fijos de ~600 €/mes (herramientas, dominio, cuota de autónomo parcial, gasolina) → unos 13 talleres en plan Taller o 8 en Pro. Para un sueldo de 3.000 €/mes hacen falta ~60–70 talleres a precio medio de 90 €. El CAC en calle es tiempo: ~1 cliente por cada 10 visitas.</p>
+  <p class="warn">Riesgo clave: el taller de motos es sensible al precio. Si el piloto muestra que 59 € cuesta, probar 39 € con límite de conversaciones, o un precio por presupuesto aprobado.</p>
+</div></section>
+
+<section id="plan90"><div class="wrap">
+  <h2>30/60/90 días, con números por semana</h2>
+  <p>Una persona, sin presupuesto. Mañanas para construir, tardes (16:00 a 18:00, hora valle del taller) para vender. Cada semana tiene un número que se cumple o no.</p>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Construir (mañanas)</th><th>Vender (tardes)</th><th>Número de la semana</th></tr>
+    <tr><td>1</td><td>Demo por WhatsApp de prueba con precios de un taller real (sacados de su web o Google Maps)</td><td>Lista de 100 talleres por barrio. 20 visitas</td><td>20 visitas · 6 demos vistas · 2 «sí» al piloto</td></tr>
+    <tr><td>2</td><td>Semana 1 del MVP: Cloud API + ficha por matrícula + panel</td><td>20 visitas más. Montar el primer piloto en una tarde</td><td>1 taller conectado · 30 conversaciones reales</td></tr>
+    <tr><td>3</td><td>Agente de agenda con traspaso a humano</td><td>Visitar 15. Volver a los que dijeron «más adelante»</td><td>3 pilotos · &lt;5 % citas erróneas</td></tr>
+    <tr><td>4</td><td>Fotos + presupuesto con «Aprobar»</td><td>Pedir a cada piloto un taller conocido (el gremio se conoce)</td><td>5 pilotos · 10 presupuestos aprobados por WhatsApp</td></tr>
+    <tr><td>5–8</td><td>Aviso «lista», recordatorios de ITV, digest diario</td><td>10 visitas/semana + 1 distribuidor de recambios</td><td>Día 60: 8 pilotos · 3 ya pagan 59 €</td></tr>
+    <tr><td>9–13</td><td>Voz (solo si 3 talleres la piden) y cuentas de flota</td><td>1 flota de reparto. Conversión de pilotos a pago</td><td>Día 90: 10 talleres de pago · 590–900 € MRR · churn 0</td></tr>
+  </table></div>
+  <div class="grid2">
+    <div class="card"><h3>La hipótesis más arriesgada</h3><p>Que el mecánico deje que una IA conteste a sus clientes por WhatsApp. Si no suelta el móvil, no hay producto: solo un chatbot que nadie activa.</p></div>
+    <div class="card"><h3>La prueba más barata, esta semana</h3><p>Sin código. Conectar un número de prueba y, con 5 talleres, reenviar 10 WhatsApp reales suyos (con permiso) y enseñar lo que contestaría. Éxito: 3 de 5 dicen «ponlo en mi número» y dan fecha para montarlo.</p></div>
+  </div>
+  <div class="warn"><b>Criterios para matar la idea.</b> Paro, o giro a otro vertical, si pasa cualquiera de estas:
+    <ul>
+      <li>Tras 60 visitas, menos de 3 talleres aceptan el piloto gratis.</li>
+      <li>En el día 30, menos de la mitad de los pilotos dejan el asistente activo en su número.</li>
+      <li>En el día 90, menos de 5 talleres pagan 59 € o más.</li>
+      <li>Meta no permite usar el mismo número del taller (coexistence) y más de la mitad rechaza un número nuevo.</li>
+    </ul></div>
+</div></section>
+
+<section id="fact"><div class="wrap">
+  <h2>Qué automatizan las factorías</h2>
+  <div class="grid2">
+    <div class="card"><h3>Software factory</h3><ul>
+      <li>Generar y mantener el esquema, los endpoints y el panel desde el plan.</li>
+      <li>Onboarding de cada taller: leer su web y Google Maps y proponer horarios, servicios y precios base.</li>
+      <li>Evals de prompts en cada PR con conversaciones anonimizadas; bloquear si bajan.</li>
+      <li>Integraciones nuevas (recambios, facturación) por adaptador, una PR por proveedor.</li>
+      <li>Monitor de conversaciones fallidas → issue automático con la traza.</li>
+    </ul></div>
+    <div class="card"><h3>Marketing factory</h3><ul>
+      <li>Scraping de talleres de motos por barrio y ciudad → lista de visitas ordenada por reseñas.</li>
+      <li>Demo personalizada por taller (su nombre y precios) antes de la visita.</li>
+      <li>Guiones y subtítulos de reels a partir de conversaciones reales (anonimizadas).</li>
+      <li>Landings por ciudad y por nicho (flotas de reparto, maxiscooter).</li>
+      <li>Seguimiento de pilotos: informe semanal automático por taller con sus métricas.</li>
+    </ul></div>
+  </div>
+  <p><span class="pill">Humano</span> La venta en calle y la relación con el mecánico siguen siendo de Joaquín. Es la ventaja frente a los bots genéricos.</p>
+</div></section>
+
+<footer><div class="wrap"><span><b>Motaller</b> · © 2026</span><a href="index.html">Landing</a></div></footer>
+</body>
+</html>

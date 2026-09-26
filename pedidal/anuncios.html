@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Kit de anuncios</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="plan.html">&larr; Plan</a></div>
+  <span class="eyebrow">Uso interno · para más adelante</span>
+  <h1>Kit de anuncios de prueba</h1>
+  <div class="summary"><b>Cuándo usarlo.</b> Solo después de tener 3 clientes de pago y una tasa de conversión piloto → pago conocida. Antes, el canal es la visita en persona. Presupuesto de prueba: 5 € al día durante 14 días (70 € por canal).</div>
+  <nav class="toc"><a href="#google">Google Ads</a><a href="#meta">Meta</a><a href="#test">Plan de test</a><a href="#decision">Go / no-go</a></nav>
+</header>
+
+<section id="google">
+  <h2>Google Ads (búsqueda)</h2>
+  <h3>Palabras clave</h3>
+  <div class="tbl"><table>
+    <tr><th>Concordancia</th><th>Palabra clave</th></tr>
+    <tr><td>Exacta</td><td>[automatizar pedidos whatsapp]</td></tr>
+    <tr><td>Exacta</td><td>[pedidos whatsapp erp]</td></tr>
+    <tr><td>Exacta</td><td>[software pedidos distribuidores]</td></tr>
+    <tr><td>Frase</td><td>"pedidos por whatsapp" almacén</td></tr>
+    <tr><td>Frase</td><td>"importar pedidos" a3</td></tr>
+    <tr><td>Frase</td><td>"toma de pedidos" distribuidora</td></tr>
+    <tr><td>Frase</td><td>"pedidos de clientes" sage 200</td></tr>
+  </table></div>
+  <p><b>Negativas:</b> gratis crack, curso, plantilla excel, empleo, trabajo, oferta de empleo, restaurante pedidos online, glovo, just eat, tienda online, shopify, bot whatsapp gratis, descargar.</p>
+  <h3>5 anuncios de búsqueda</h3>
+  <ol>
+    <li><b>Pedidos de WhatsApp a tu ERP</b> · Audios y fotos de listas convertidos en pedidos con tus referencias. Piloto gratis con 20 pedidos.</li>
+    <li><b>Deja de teclear pedidos</b> · Tu cliente sigue con WhatsApp. Tú recibes el pedido dentro de A3, Sage u Odoo.</li>
+    <li><b>Para almacenes de materiales</b> · Entiende "lo de siempre" de cada cliente. Precio público desde 190 €/mes.</li>
+    <li><b>¿Tu ERP importa CSV? Vale</b> · Te devolvemos 20 pedidos reales en tu formato en 48 h. Sin compromiso.</li>
+    <li><b>Menos portes de vuelta</b> · Cada línea se cruza con tu catálogo y el historial del cliente antes de entrar.</li>
+  </ol>
+  <p>Destino: <a href="precios.html">precios.html</a> (calculadora) para búsquedas de "software"; la landing para el resto.</p>
+</section>
+
+<section id="meta">
+  <h2>Meta (Instagram y Facebook)</h2>
+  <div class="tbl"><table>
+    <tr><th>Concepto</th><th>Gancho (primeros 2 s)</th><th>Formato</th></tr>
+    <tr><td>El audio con hormigonera</td><td>"¿Tu almacén entiende esto?" + audio real con ruido</td><td>Reel 15 s, pantalla partida audio / ERP</td></tr>
+    <tr><td>La lista del cartón</td><td>Foto de una lista a mano sobre el mostrador</td><td>Carrusel: foto → líneas → "en tu ERP"</td></tr>
+    <tr><td>Las 7:40</td><td>Móvil con 38 chats sin leer y un reloj</td><td>Reel 20 s con Joaquín hablando a cámara</td></tr>
+  </table></div>
+  <h3>Audiencias</h3>
+  <ul>
+    <li>Ubicación: provincia de Barcelona, radio 40 km. Edad 30-60.</li>
+    <li>Intereses: comercio al por mayor, materiales de construcción, distribución, A3 Software, Sage, ERP.</li>
+    <li>Cargos (si se usa LinkedIn más adelante): gerente, director comercial, responsable de administración en empresas de 5-60 empleados, sector mayorista.</li>
+    <li>Retargeting: visitantes de la landing de los últimos 30 días (requiere píxel y banner de cookies: actualizar <a href="cookies.html">cookies</a> antes).</li>
+  </ul>
+</section>
+
+<section id="test">
+  <h2>Plan de test: 5 € al día, 2 semanas</h2>
+  <ol>
+    <li>Semana 1: Google Ads con las 3 exactas y 2 anuncios. Meta con el concepto "audio con hormigonera".</li>
+    <li>Semana 2: pausar el peor anuncio de cada canal. Probar la variante <a href="b.html">b.html</a> como destino en la mitad del tráfico.</li>
+    <li>Cada lunes: apuntar impresiones, clics, CPC, envíos del formulario y pilotos aceptados en ITERATIONS.md.</li>
+  </ol>
+</section>
+
+<section id="decision">
+  <h2>Métricas que deciden</h2>
+  <div class="tbl"><table>
+    <tr><th>Métrica</th><th>Go</th><th>No-go</th></tr>
+    <tr><td>CPC medio (Google)</td><td>≤ 2,50 €</td><td>&gt; 5 €</td></tr>
+    <tr><td>CTR búsqueda</td><td>≥ 4 %</td><td>&lt; 2 %</td></tr>
+    <tr><td>Conversión landing → formulario</td><td>≥ 4 %</td><td>&lt; 1,5 %</td></tr>
+    <tr><td>Formulario → piloto aceptado</td><td>≥ 30 %</td><td>&lt; 10 %</td></tr>
+    <tr><td>Coste por piloto aceptado</td><td>≤ 150 €</td><td>&gt; 400 €</td></tr>
+  </table></div>
+  <p>Regla: con CAC ≤ 1.500 € y 320 €/mes, el payback es ≤ 5 meses. Si el coste por piloto supera 400 €, los anuncios no compensan frente a la visita en persona.</p>
+</section>
+
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="index.html">Landing</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

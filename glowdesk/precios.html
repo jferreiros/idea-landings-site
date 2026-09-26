@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Precios</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#FCF8F7;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--rose:#A65468;--rose-soft:#F3DEE1}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:24px 16px}
+.sheet{max-width:794px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px}
+h1,h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);margin:18px 0 10px}
+h2{font-size:1.3rem;margin-bottom:8px}
+em{color:var(--rose)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.logo{font-family:"Bodoni Moda",serif;font-size:1.5rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.logo i{width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F2D2D8,var(--rose))}
+.lead{color:var(--muted);font-size:1.02rem;max-width:58ch}
+.grid{display:grid;gap:18px;margin-top:26px}
+.blk{border-top:1px solid var(--ink);padding-top:12px}
+.blk p,.blk li{color:var(--muted);font-size:.93rem}
+ul,ol{padding-left:1.1rem;display:grid;gap:4px}
+.calc{margin-top:26px;background:var(--rose-soft);border-radius:14px;padding:18px}
+.calc table{width:100%;border-collapse:collapse;font-size:.93rem;margin-top:8px}
+.calc td{padding:9px 0;border-bottom:1px dashed #D9B9C0}
+.calc td:last-child{text-align:right;width:40%;color:var(--muted)}
+.foot{margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem;color:var(--muted)}
+.foot b{color:var(--ink)}
+.print{display:inline-block;margin:0 auto 16px;font:600 .9rem Manrope,sans-serif;background:var(--sage);color:#fff;border:0;border-radius:999px;padding:12px 20px;cursor:pointer;min-height:44px}
+.bar{max-width:794px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bar a{font-size:.9rem;color:var(--sage)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sheet{padding:24px 18px}}
+@media print{body{background:#fff;padding:0;font-size:12.5px}.sheet{border:0;border-radius:0;padding:14mm;max-width:none}.bar{display:none}.grid{grid-template-columns:1fr 1fr}@page{size:A4;margin:0}}
+.calc2{display:grid;gap:18px;margin-top:22px}
+.calc2 label{display:grid;gap:6px;font-size:.88rem;font-weight:600}
+.calc2 input{font:inherit;font-size:1rem;padding:12px;border-radius:12px;border:1px solid #D9CEC3;background:#fff;color:var(--ink);width:100%}
+.out{background:var(--sage);color:#FBF4F2;border-radius:16px;padding:20px;display:grid;gap:10px}
+.out b{font-family:"Bodoni Moda",serif;font-weight:400;font-size:2rem;display:block;line-height:1.1}
+.out small{color:#C9D5CF;font-size:.82rem}
+.plans{display:grid;gap:14px;margin-top:20px}
+.plan{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+.plan h3{font-family:"Bodoni Moda",serif;font-weight:400;font-size:1.3rem}
+.plan .p{font-family:"Bodoni Moda",serif;font-size:2rem}
+.plan ul{margin-top:8px;font-size:.9rem;color:var(--muted)}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:600}details p{color:var(--muted);margin-top:6px}
+section{margin-top:34px}
+@media(min-width:640px){.calc2{grid-template-columns:1fr 1fr}.plans{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="bar"><a href="index.html">Volver a Glowdesk</a><a class="print" href="index.html#probar" style="text-decoration:none;color:#fff">Pedir mi demo</a></div>
+<main class="sheet">
+  <span class="logo"><i></i>Glowdesk</span>
+  <h1>Precios. <em>Haz la cuenta</em> con tus números.</h1>
+  <p class="lead">Pon lo que ya sabes de tu clínica. La cuenta es tuya: no guardamos nada.</p>
+  <section>
+    <h2>Calculadora</h2>
+    <form class="calc2" id="roi" onsubmit="return false">
+      <label>DMs y mensajes de pacientes a la semana<input type="number" min="0" inputmode="numeric" id="dms" value="40"></label>
+      <label>De ellos, fuera de horario (%)<input type="number" min="0" max="100" inputmode="numeric" id="fh" value="40"></label>
+      <label>De los que se contestan tarde, cuántos se pierden (%)<input type="number" min="0" max="100" inputmode="numeric" id="lost" value="20"></label>
+      <label>De las valoraciones, cuántas cierran tratamiento (%)<input type="number" min="0" max="100" inputmode="numeric" id="close" value="40"></label>
+      <label>Ticket medio del tratamiento (€)<input type="number" min="0" inputmode="numeric" id="ticket" value="400"></label>
+      <label>Minutos que tarda recepción en contestar un DM<input type="number" min="0" inputmode="numeric" id="mins" value="4"></label>
+    </form>
+    <div class="out" aria-live="polite" style="margin-top:18px">
+      <div><small>Valoraciones que hoy se pierden al mes</small><b id="o1">-</b></div>
+      <div><small>Facturación que podrías recuperar al mes</small><b id="o2">-</b></div>
+      <div><small>Horas de recepción liberadas al mes</small><b id="o3">-</b></div>
+      <small>Supuestos: 4,3 semanas al mes y que una respuesta inmediata recupera los pacientes que hoy se pierden por tardar. Los valores por defecto son un ejemplo, no datos de clínicas reales. Cambia cada número por el tuyo.</small>
+    </div>
+  </section>
+  <section>
+    <h2>Planes (hipótesis de precio)</h2>
+    <div class="plans">
+      <div class="plan"><h3>Instagram</h3><div class="p">149 €<small style="font:400 .85rem Manrope">/mes</small></div><ul><li>Instagram DM y comentarios</li><li>Reserva de valoración</li><li>Señal con tarjeta</li><li>1 sede</li></ul></div>
+      <div class="plan" style="border:2px solid var(--sage)"><h3>Recepción completa</h3><div class="p">229 €<small style="font:400 .85rem Manrope">/mes</small></div><ul><li>Todo lo de Instagram</li><li>WhatsApp Business</li><li>Seguimiento de leads de anuncios</li><li>Avisos clínicos para la doctora</li></ul></div>
+      <div class="plan"><h3>Con llamadas</h3><div class="p">299 €<small style="font:400 .85rem Manrope">/mes</small></div><ul><li>Todo lo anterior</li><li>Agente de voz en tu número</li><li>Recordatorios de cita</li><li>Hasta 3 sedes</li></ul></div>
+    </div>
+    <p class="lead" style="margin-top:12px;font-size:.9rem">Precios sin IVA. Son una hipótesis de validación. El piloto de 30 días es gratis y sin tarjeta.</p>
+  </section>
+  <section>
+    <h2>Facturación</h2>
+    <details><summary>¿Cuándo empiezo a pagar?</summary><p>Después de los 30 días de piloto, y solo si decides seguir. Te avisamos 7 días antes.</p></details>
+    <details><summary>¿Hay permanencia?</summary><p>No. Pagas mes a mes y lo cancelas cuando quieras. El mes en curso no se devuelve.</p></details>
+    <details><summary>¿Cómo se paga?</summary><p>Con tarjeta o domiciliación SEPA, con factura mensual a nombre de la clínica.</p></details>
+    <details><summary>¿Las señales de las pacientes pasan por Glowdesk?</summary><p>No. Se cobran en la cuenta de la clínica a través de su propio proveedor de pagos. Glowdesk no cobra comisión sobre las señales.</p></details>
+    <details><summary>¿Qué es el precio de fundador?</summary><p>Las clínicas del piloto que compartan métricas pagan un 30 % menos mientras sigan de alta.</p></details>
+  </section>
+<p class="lead" style="margin-top:20px;font-size:.85rem"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></p>
+</main>
+<script>
+(function(){
+  var ids=['dms','fh','lost','close','ticket','mins'];
+  function v(i){var x=parseFloat(document.getElementById(i).value);return isNaN(x)||x<0?0:x;}
+  function eur(n){return Math.round(n).toLocaleString('es-ES')+' €';}
+  function upd(){
+    var wk=4.3, off=v('dms')*Math.min(v('fh'),100)/100*wk, lostv=off*Math.min(v('lost'),100)/100;
+    var rev=lostv*Math.min(v('close'),100)/100*v('ticket');
+    var hrs=v('dms')*wk*v('mins')/60*0.7;
+    document.getElementById('o1').textContent=Math.round(lostv);
+    document.getElementById('o2').textContent=eur(rev);
+    document.getElementById('o3').textContent=Math.round(hrs)+' h';
+  }
+  ids.forEach(function(i){document.getElementById(i).addEventListener('input',upd);});
+  upd();
+})();
+</script>
+</body>
+</html>

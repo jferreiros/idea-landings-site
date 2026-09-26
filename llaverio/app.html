@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: panel de la gestora (prototipo)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#fff;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--sand:#EADCC0;--warn:#D08A12;--warn-soft:#FBF1DC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
+.demo{background:var(--sand);color:#4A3B1E;text-align:center;font:500 .8rem "Geist Mono",monospace;padding:8px 12px}
+.demo a{color:#4A3B1E}
+.top{background:var(--ink);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.top .logo{font:700 1.2rem "Bricolage Grotesque",sans-serif;display:flex;gap:8px;align-items:center}
+.top .date{color:#CFE2EE;font-size:.9rem}
+.mode{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#CFE2EE}
+.switch{width:44px;height:26px;border-radius:999px;background:#2A5670;border:0;position:relative;transition:background .3s cubic-bezier(.16,1,.3,1)}
+.switch:after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.switch[aria-checked="true"]{background:#2F7FAE}.switch[aria-checked="true"]:after{transform:translateX(18px)}
+.wrap{max-width:1200px;margin:0 auto;padding:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font:600 1.6rem "Bricolage Grotesque",sans-serif}
+.stat span{font-size:.8rem;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;min-height:38px;font-size:.88rem;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+.list{display:grid;gap:8px;align-content:start}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-align:left;width:100%;transition:border-color .2s,transform .2s cubic-bezier(.16,1,.3,1)}
+.row:hover{border-color:#B9CCD7}.row:active{transform:scale(.99)}
+.row[aria-current="true"]{border:2px solid var(--sea);padding:11px 13px}
+.kt{display:inline-flex;align-items:center;gap:7px;background:var(--sand);color:#4A3B1E;font:500 .8rem "Geist Mono",monospace;padding:5px 12px 5px 8px;border-radius:6px 999px 999px 6px;white-space:nowrap}
+.kt:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px #9A7432}
+.row small{display:block;color:var(--muted);font-size:.8rem}
+.st{font:500 .75rem "Geist Mono",monospace;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.st.ok{background:var(--sea-soft);color:var(--sea)}
+.st.rev{background:var(--warn-soft);color:#8A5A00}
+.st.go{background:#EEF2F4;color:var(--muted)}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;align-self:start}
+.panel h2{font:600 1.4rem "Bricolage Grotesque",sans-serif;margin-bottom:4px}
+.panel .sub{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.bar{height:10px;border-radius:999px;background:#E3EAEE;overflow:hidden;margin:6px 0 16px}
+.bar i{display:block;height:100%;background:var(--sea);border-radius:999px;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 16px}
+.ph{border-radius:10px;aspect-ratio:4/3;background:linear-gradient(160deg,#D8E3E9,#B7CAD5);position:relative;display:flex;align-items:flex-end;padding:6px;font-size:.72rem;color:var(--ink)}
+.ph span{background:rgba(255,255,255,.85);border-radius:6px;padding:2px 6px}
+.ph.bad{outline:3px solid var(--warn)}
+.ph.none{background:repeating-linear-gradient(45deg,#F2F4F5 0 8px,#E6EBEE 8px 16px)}
+.tl{list-style:none;display:grid;gap:8px;margin-bottom:16px}
+.tl li{display:grid;grid-template-columns:48px 1fr;gap:10px;font-size:.9rem}
+.tl b{font:500 .8rem "Geist Mono",monospace;color:var(--muted);font-weight:500}
+.prop{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:10px;padding:14px}
+.prop p{margin:6px 0 12px;font-size:.92rem}
+.btn{background:var(--sea);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:600;min-height:44px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);margin-left:6px}
+.btn:active{transform:scale(.97)}
+.sent{background:var(--sea-soft);border-left:4px solid var(--sea);border-radius:10px;padding:14px;font-size:.92rem}
+.empty{color:var(--muted);font-size:.9rem;padding:20px;text-align:center;border:1px dashed var(--line);border-radius:14px}
+.foot{color:var(--muted);font-size:.85rem;padding:10px 20px 30px;max-width:1200px;margin:0 auto}
+@media(min-width:900px){.grid{grid-template-columns:1fr 1.1fr}}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.checks{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="demo" role="note">Prototipo con datos de ejemplo. Pisos, personas y horas son ficticios. <a href="index.html">Volver a la landing</a></div>
+<header class="top">
+  <div class="logo"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="11" cy="16" r="7" stroke="#EADCC0" stroke-width="2.6"/><path d="M18 16h11M25 16v5M29 16v3.5" stroke="#EADCC0" stroke-width="2.6" stroke-linecap="round"/></svg>Llaverio</div>
+  <span class="date">Sábado 15 de agosto · Costa Brava · datos de ejemplo</span>
+  <div class="mode"><span id="modelabel">Modo propuesta</span><button class="switch" id="mode" role="switch" aria-checked="false" aria-label="Modo automático"></button></div>
+</header>
+<main class="wrap">
+  <div class="stats" aria-live="polite">
+    <div class="stat"><b id="s-total">6</b><span>salidas hoy</span></div>
+    <div class="stat"><b id="s-ok">2</b><span>pisos listos</span></div>
+    <div class="stat"><b id="s-rev">1</b><span>esperan tu decisión</span></div>
+    <div class="stat"><b id="s-go">3</b><span>en limpieza</span></div>
+  </div>
+  <div class="chips" role="group" aria-label="Filtrar pisos">
+    <button class="chip" aria-pressed="true" data-f="all">Todos</button>
+    <button class="chip" aria-pressed="false" data-f="rev">Revisar</button>
+    <button class="chip" aria-pressed="false" data-f="go">En limpieza</button>
+    <button class="chip" aria-pressed="false" data-f="ok">Listos</button>
+  </div>
+  <div class="grid">
+    <div class="list" id="list"></div>
+    <section class="panel" id="panel" aria-live="polite"></section>
+  </div>
+</main>
+<p class="foot">Qué probar: toca un piso para ver su revisión, filtra por estado y aprueba el mensaje propuesto. Con el modo automático activado, el agente envía solo los mensajes rutinarios.</p>
+<script>
+(function(){
+  var F=[
+    {id:'2B',n:'Mas Llevant 2B',z:'Calella',out:'11:00',inn:'16:00',who:'Rosa',st:'rev',p:83,
+     photos:[['Cama',0],['Baño 1',0],['Baño 2','bad'],['Cocina',0],['Terraza',0],['Salón',0]],
+     tl:[['11:02','Check-out detectado en Smoobu'],['11:03','Aviso a Rosa por WhatsApp'],['14:40','Rosa envía 6 fotos'],['14:41','Falta el juego de toallas en el baño 2']],
+     prop:'Gracias, Rosa. En la foto del baño 2 no veo toallas. ¿Puedes dejar un juego antes de irte?'},
+    {id:'F4',n:'Far 4',z:'Calella',out:'11:00',inn:'17:00',who:'Marta',st:'go',p:40,
+     photos:[['Cama',0],['Baño',0],['Cocina','none'],['Terraza','none']],
+     tl:[['11:01','Check-out detectado'],['11:02','Aviso a Marta'],['13:30','Marta llega al piso']]},
+    {id:'C1',n:'Canadell 1',z:'Calella',out:'10:00',inn:'16:00',who:'Nuria',st:'ok',p:100,
+     photos:[['Cama',0],['Baño',0],['Cocina',0],['Terraza',0]],
+     tl:[['10:03','Aviso a Nuria'],['13:12','4 fotos recibidas'],['13:13','Piso validado: 4 de 4']]},
+    {id:'SR',n:'Sa Riera 3',z:'Begur',out:'11:00',inn:'18:00',who:'Rosa',st:'go',p:10,
+     photos:[['Cama','none'],['Baño','none'],['Cocina','none']],
+     tl:[['11:04','Check-out detectado'],['11:05','Aviso a Rosa: después del 2B']]},
+    {id:'PM',n:'Port Marina 12',z:'L’Escala',out:'10:00',inn:'15:00',who:'Imma',st:'ok',p:100,
+     photos:[['Cama',0],['Baño',0],['Cocina',0]],
+     tl:[['10:02','Aviso a Imma'],['12:48','Piso validado: 3 de 3']]},
+    {id:'AG',n:'Aiguablava 7',z:'Begur',out:'12:00',inn:'19:00',who:'Marta',st:'go',p:0,
+     photos:[['Cama','none'],['Baño','none'],['Cocina','none'],['Terraza','none']],
+     tl:[['12:01','Check-out previsto; esperando confirmación del PMS']]}
+  ];
+  var LBL={ok:'Listo',rev:'Revisar',go:'En limpieza'};
+  var cur='2B', filt='all', auto=false;
+  var list=document.getElementById('list'), panel=document.getElementById('panel');
+  function stats(){
+    ['ok','rev','go'].forEach(function(k){document.getElementById('s-'+k).textContent=F.filter(function(f){return f.st===k}).length});
+  }
+  function renderList(){
+    var rows=F.filter(function(f){return filt==='all'||f.st===filt});
+    if(!rows.length){list.innerHTML='<p class="empty">Ningún piso en este estado ahora mismo.</p>';return}
+    list.innerHTML=rows.map(function(f){
+      return '<button class="row" data-id="'+f.id+'"'+(f.id===cur?' aria-current="true"':'')+'><span class="kt">'+f.n+'</span><span>'+f.who+' · '+f.z+'<small>Salida '+f.out+' · Entrada '+f.inn+'</small></span><span class="st '+f.st+'">'+LBL[f.st]+'</span></button>';
+    }).join('');
+    list.querySelectorAll('.row').forEach(function(b){b.addEventListener('click',function(){cur=b.dataset.id;renderList();renderPanel()})});
+  }
+  function renderPanel(){
+    var f=F.filter(function(x){return x.id===cur})[0];
+    var h='<h2>'+f.n+'</h2><p class="sub">'+f.z+' · limpieza: '+f.who+' · salida '+f.out+', entrada '+f.inn+'</p>';
+    h+='<div style="font-size:.85rem;color:var(--muted)">Revisión: '+f.p+'%</div><div class="bar"><i style="width:'+f.p+'%"></i></div>';
+    h+='<div class="checks">'+f.photos.map(function(p){return '<div class="ph '+(p[1]||'')+'"><span>'+p[0]+(p[1]==='bad'?': falta algo':p[1]==='none'?': pendiente':'')+'</span></div>'}).join('')+'</div>';
+    h+='<ul class="tl">'+f.tl.map(function(t){return '<li><b>'+t[0]+'</b><span>'+t[1]+'</span></li>'}).join('')+'</ul>';
+    if(f.prop&&!f.sent){
+      h+='<div class="prop"><b>Mensaje propuesto a '+f.who+'</b><p>«'+f.prop+'»</p><button class="btn" id="approve">Aprobar y enviar</button><button class="btn ghost" id="edit">Lo llamo yo</button></div>';
+    } else if(f.sent){
+      h+='<div class="sent">'+f.sent+'</div>';
+    }
+    panel.innerHTML=h;
+    var a=document.getElementById('approve');
+    if(a){a.addEventListener('click',function(){
+      f.sent='Enviado a '+f.who+' a las 14:42. Esperando la foto nueva del baño 2.';
+      setTimeout(function(){f.st='ok';f.p=100;f.photos[2][1]=0;f.tl.push(['14:52','Foto nueva: toallas repuestas. Piso validado.']);f.sent='Corregido a las 14:52. Piso listo 68 min antes de la entrada.';stats();renderList();renderPanel()},1600);
+      renderPanel();
+    });
+    document.getElementById('edit').addEventListener('click',function(){f.sent='Anotado: llamas tú a '+f.who+'. El agente no enviará nada sobre este piso.';f.st='go';stats();renderList();renderPanel()})}
+  }
+  document.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+    filt=c.dataset.f;document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});renderList();
+  })});
+  var m=document.getElementById('mode');
+  m.addEventListener('click',function(){auto=!auto;m.setAttribute('aria-checked',auto?'true':'false');document.getElementById('modelabel').textContent=auto?'Modo automático':'Modo propuesta'});
+  stats();renderList();renderPanel();
+})();
+</script>
+</body>
+</html>

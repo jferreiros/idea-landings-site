@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /plan.html
+Disallow: /outreach.html
+Disallow: /contenido.html
+Disallow: /ficha.html
+Disallow: /b.html
+
+Sitemap: https://glowdesk-liard-eta.vercel.app/sitemap.xml

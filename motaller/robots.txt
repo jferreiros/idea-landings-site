@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /plan.html
+Disallow: /b.html
+Disallow: /ficha.html
+Disallow: /outreach.html
+Disallow: /contenido.html
+Sitemap: https://motaller-topaz.vercel.app/sitemap.xml

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Pitch</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">&larr; Volver al plan</a>
+  <p class="mono" style="margin-top:22px">Pitch para socios e inversores · 26 sep 2026</p>
+  <h1>Conserjia: el conserje con IA que cierra las averías de las comunidades</h1>
+  <div class="summary"><p class="mono">En una frase</p><p style="margin:6px 0 0">El vecino avisa por WhatsApp; Conserjia avisa al industrial del administrador de fincas, persigue la cita y cierra la avería con historial para la junta. Cobramos 12 € por comunidad y mes.</p></div>
+</header>
+<section><h2>Problema</h2>
+  <p>Un despacho de administración de fincas de 1 a 6 personas lleva de 20 a 150 comunidades. Cada avería pide de 4 a 8 contactos entre vecino, industrial, presidente y seguro, casi siempre por el WhatsApp personal del titular. Nada queda escrito y la queja llega a la junta.</p>
+  <p class="mono" style="color:var(--ink-2)">Estado: hipótesis de entrevistas y visitas; se valida en los pilotos.</p></section>
+<section><h2>Solución</h2>
+  <ul><li>Un número de WhatsApp por comunidad, en un cartel del portal.</li><li>Un agente con visión que clasifica urgencia y elemento común o privativo con reglas del despacho y la LPH.</li><li>Aviso y seguimiento del industrial del propio despacho por WhatsApp, con foto del arreglo.</li><li>Una ficha por incidencia y un historial por comunidad. El despacho aprueba gastos y casos dudosos.</li></ul></section>
+<section><h2>Por qué ahora</h2>
+  <ul><li>Los modelos con visión ya leen una foto de una bajante o una humedad y hacen la pregunta correcta, a un coste de céntimos por incidencia.</li><li>La WhatsApp Business Cloud API permite a un equipo de una persona montar el canal sin operador.</li><li>El Reglamento europeo de IA fija reglas de transparencia claras: el vecino sabe que habla con una IA.</li><li>Los competidores españoles (IAFinkas y similares) venden asistentes que contestan; nadie cierra la incidencia de principio a fin.</li></ul></section>
+<section><h2>Mercado en España</h2>
+  <div class="tw"><table><thead><tr><th>Dato</th><th>Cifra</th><th>Fuente</th></tr></thead><tbody>
+    <tr><td>Comunidades de propietarios</td><td>Más de 1,4 millones</td><td><a href="https://www.franquiciasaldia.es/noticias/2025-01-01/14-millones-de-comunidades-de-propietarios-en-espana/" target="_blank" rel="noopener">Franquicias al día, 2025</a></td></tr>
+    <tr><td>Administradores de fincas colegiados</td><td>Unos 16.000 (más de 20.000 en total)</td><td><a href="https://www.fincasoft.es/blog/posts/miles-de-comunidades-de-propietarios-en-espaa-continuan-sin-administrador-de-fincas" target="_blank" rel="noopener">Fincasoft</a></td></tr>
+    <tr><td>Techo teórico a 12 €</td><td>1,1 millones de comunidades administradas x 144 €/año, unos 160 M€/año</td><td>Cálculo propio sobre las cifras anteriores</td></tr>
+    <tr><td>Mercado inicial: Barcelona</td><td>Despachos del Col·legi de Barcelona-Lleida, a pie de calle</td><td><a href="https://www.cafbl.cat" target="_blank" rel="noopener">CAFBL</a></td></tr>
+  </tbody></table></div>
+  <p>Las cifras de sector vienen de medios del sector, no de estadística oficial. Antes de una ronda las contrastaría con el Consejo General de Colegios de Administradores de Fincas.</p></section>
+<section><h2>Modelo de negocio</h2>
+  <ul><li>12 € por comunidad y mes, sin alta ni permanencia. Piloto gratis de 30 días en 2 comunidades.</li><li>Coste variable estimado por comunidad: mensajes de WhatsApp, modelo de IA e infraestructura, unos pocos euros al mes (detalle en <a href="plan.html#ue">unit economics</a>).</li><li>Expansión dentro del despacho: de 2 comunidades a todas. Un despacho de 60 comunidades son 720 € al mes.</li><li>Riesgo abierto: el precio. La <a href="precios.html">calculadora de precios</a> muestra que con solo horas ahorradas no siempre sale a cuenta; el valor fuerte está en urgencias de noche y en retener comunidades.</li></ul></section>
+<section><h2>Plan de 90 días</h2>
+  <ol><li>Días 1-30: 60 visitas a despachos de Barcelona, 4 pilotos con revisión humana de cada mensaje.</li><li>Días 31-60: 4 despachos pagando, unos 1.900 € de MRR, 60 % de averías cerradas sin tocar el despacho.</li><li>Días 61-90: 10 despachos pagando, unos 4.800 € de MRR, charla en el Colegio.</li></ol>
+  <p>Criterios para parar y detalle semanal en el <a href="plan.html#90d">plan 30/60/90</a>.</p></section>
+<section><h2>Qué pido</h2>
+  <ul><li><b>A un socio del sector:</b> un administrador de fincas de Barcelona que abra la puerta a 10 colegas y dé 2 horas a la semana, a cambio de participación.</li><li><b>A un inversor ángel:</b> nada hasta el día 90. Con 10 despachos pagando, una ronda pequeña para un comercial de campo y la integración con Netfincas/CIAX.</li></ul>
+  <p>Joaquín · fundador técnico, Barcelona · <a href="./">conserjia.vercel.app</a></p></section>
+<footer><span>Conserjia · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

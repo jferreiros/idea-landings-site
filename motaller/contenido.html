@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · Motor de contenido</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1ea;--card:#fffdf8;--ink:#17181a;--muted:#5d5f63;--line:#d9d3c6;--orange:#e2531a;--orange-dk:#b83f0f;--orange-bg:#fbe5da;--green:#1f7a4d;--green-bg:#dcefe3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.6 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--orange-dk)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:3px solid var(--ink)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;font-weight:850;line-height:1.05}
+h1{font-size:clamp(38px,8vw,64px);text-transform:uppercase}
+h2{font-size:clamp(26px,5vw,36px);text-transform:uppercase;margin:0 0 14px}
+h3{font-size:20px;font-stretch:85%;margin:22px 0 8px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--orange-dk)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}li{margin:4px 0}
+.summary{background:var(--ink);color:#f4f1ea;border-radius:16px;padding:24px;margin-top:22px;font-size:18px}
+.summary b{color:#f0a37f}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;text-decoration:none;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:12px 0}
+.grid2{display:grid;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tbl{width:100%;overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6da;font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase}
+code,.code{font-family:"JetBrains Mono",monospace;font-size:13px}
+pre{background:#1f2023;color:#e9e4d8;padding:16px;border-radius:12px;overflow-x:auto;font:500 13px/1.5 "JetBrains Mono",monospace;margin:10px 0}
+.arch{display:grid;gap:10px;margin:14px 0}
+.row{display:grid;gap:10px}
+@media(min-width:760px){.row{grid-template-columns:repeat(3,1fr)}}
+.box{border:2px solid var(--ink);border-radius:10px;padding:12px;background:var(--card);font-size:14px}
+.box b{display:block;font-family:"Archivo";font-stretch:80%;font-size:17px}
+.box.core{background:var(--orange-bg);border-color:var(--orange)}
+.box.dark{background:var(--ink);color:#f4f1ea}
+.arrow{text-align:center;font:700 13px "JetBrains Mono";color:var(--muted)}
+.warn{border-left:4px solid var(--orange);padding:8px 0 8px 14px;margin:10px 0}
+.pill{display:inline-block;font:700 11px "JetBrains Mono";padding:2px 7px;border-radius:5px;background:var(--green-bg);color:var(--green);text-transform:uppercase}
+footer{padding:28px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <p class="mono">Documento interno · 26 sep 2026</p>
+  <h1>Motaller · motor de contenido</h1>
+  <div class="summary"><b>Para quién:</b> dueños y mecánicos de talleres de motos de Barcelona. Los clientes de moto también miran, y eso ayuda al taller piloto. Todo se graba con el móvil en un taller piloto, con su permiso y sin caras ni matrículas reales de clientes.</div>
+  <nav class="toc"><a href="#reels">10 reels</a><a href="#cal">Calendario</a><a href="#car">Carruseles</a></nav>
+</div></header>
+
+<section id="reels"><div class="wrap">
+  <h2>10 guiones de reel</h2>
+  <p>Formato: 15 a 30 s, vertical, subtítulos grandes. El gancho cabe en los 2 primeros segundos como texto en pantalla.</p>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>Gancho (0 a 2 s)</th><th>Escena</th><th>Frase</th><th>CTA</th></tr>
+    <tr><td>1</td><td><b>El móvil vibra 11 veces mientras cambio una cubierta.</b></td><td>Plano fijo del móvil sobre el banco, vibrando. Contador en pantalla. Manos con grasa al fondo.</td><td>«Esto es un martes a las 10. Cada vibración es un cliente que espera.»</td><td>«¿Cuántos te entran a ti? Dímelo en comentarios.»</td></tr><tr><td>2</td><td><b>Este cliente aprobó 186 € sin que yo cogiera el teléfono.</b></td><td>Pantalla del WhatsApp: fotos del disco, precio, botón «Aprobar». Corte al mecánico que sigue trabajando.</td><td>«Foto, precio, un toque. Y yo sin soltar la llave.»</td><td>«Piloto gratis en Barcelona: enlace en la bio.»</td></tr><tr><td>3</td><td><b>¿Cuándo cambiar las pastillas de tu scooter?</b></td><td>Mecánico piloto enseña pastilla nueva vs gastada al 10 %.</td><td>«Si ves menos de 2 mm, ya toca. Aquí hay 1.»</td><td>«Guárdalo para la próxima revisión.»</td></tr><tr><td>4</td><td><b>Un rider sin moto no cobra.</b></td><td>Rider de reparto llega con la trasera pinchada. Reloj en pantalla.</td><td>«Entró a las 11:30, salió a las 13:40. Prioridad rider.»</td><td>«¿Tu taller da prioridad a riders?»</td></tr><tr><td>5</td><td><b>La llamada perdida más cara del día.</b></td><td>Móvil boca abajo, llamada perdida. Texto: «cliente nuevo, Vespa».</td><td>«Esa revisión se fue al taller de al lado.»</td><td>«Por eso contesta el asistente. Enlace en la bio.»</td></tr><tr><td>6</td><td><b>Pre-ITV de una moto en 30 segundos.</b></td><td>Checklist rápido: luces, frenos, neumáticos, ruido. Planos cortos.</td><td>«Esto es lo que mira la ITV. Mejor verlo antes.»</td><td>«Pide cita de pre-ITV a tu taller.»</td></tr><tr><td>7</td><td><b>«¿Está ya mi moto?» x 3</b></td><td>Tres notificaciones iguales. Corte a: el asistente contesta las tres con el estado real.</td><td>«Tres preguntas, cero manos lavadas.»</td><td>«Así funciona Motaller. Link en la bio.»</td></tr><tr><td>8</td><td><b>Llevé mi Burgman a 3 talleres. Esto pasó.</b></td><td>Joaquín en su moto, en la puerta de un taller (con permiso). Voz en off.</td><td>«Mismo problema en los tres: el móvil no para.»</td><td>«Busco 10 talleres para el piloto.»</td></tr><tr><td>9</td><td><b>Correa y rodillos: el ruido que no debes ignorar.</b></td><td>Sonido de variador gastado vs nuevo. Mecánico piloto explica.</td><td>«Si suena así al arrancar, tráela esta semana.»</td><td>«Comenta tu moto y te digo cada cuánto.»</td></tr><tr><td>10</td><td><b>Monté el asistente de este taller en una tarde.</b></td><td>Timelapse: tablet, móvil del taller, lista de precios en papel, primera respuesta a las 19:02.</td><td>«A las 16:30 empezamos. A las 19:02 contestó al primer cliente.»</td><td>«¿Lo quieres en tu taller? Piloto gratis.»</td></tr>
+  </table></div>
+</div></section>
+
+<section id="cal"><div class="wrap">
+  <h2>Calendario de 4 semanas</h2>
+  <p>3 piezas por semana. Grabo todo el lunes por la tarde en el taller piloto (1 hora) y publico martes, jueves y sábado a las 20:00.</p>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Martes</th><th>Jueves</th><th>Sábado</th><th>Número a mirar</th></tr>
+    <tr><td>1</td><td>Reel 1 (móvil vibrando)</td><td>Reel 3 (pastillas)</td><td>Carrusel A</td><td>Seguidores de talleres, no de clientes</td></tr>
+    <tr><td>2</td><td>Reel 5 (llamada perdida)</td><td>Reel 6 (pre-ITV)</td><td>Reel 8 (mi Burgman)</td><td>Mensajes de talleres: meta 2</td></tr>
+    <tr><td>3</td><td>Reel 2 (186 € aprobados)</td><td>Reel 9 (variador)</td><td>Carrusel B</td><td>Visitas a /#demo desde la bio</td></tr>
+    <tr><td>4</td><td>Reel 4 (rider)</td><td>Reel 7 («¿está mi moto?»)</td><td>Reel 10 (montaje en una tarde) + Carrusel C</td><td>Pilotos que vienen del contenido: meta 1</td></tr>
+  </table></div>
+  <p class="warn">El contenido apoya las visitas, no las sustituye. Si en la semana 4 ningún taller escribe por Instagram, bajo a 1 pieza por semana y dedico ese tiempo a visitar.</p>
+</div></section>
+
+<section id="car"><div class="wrap">
+  <h2>3 ideas de carrusel</h2>
+  <div class="grid2">
+    <div class="card"><h3>A. Un martes en el taller, hora a hora</h3><p>6 diapositivas: 09:40, 10:15, 11:30, 12:50, 17:05 y el resumen «4 interrupciones, 1 cliente perdido». Última: «¿Te suena?».</p></div>
+    <div class="card"><h3>B. Presupuesto por WhatsApp: cómo lo hace un taller que cobra antes</h3><p>5 diapositivas: foto de la pieza, precio con IVA, un botón, fecha guardada, «moto lista». Plantilla que el taller puede copiar aunque no use Motaller.</p></div>
+    <div class="card"><h3>C. Calendario de mantenimiento de un scooter 125</h3><p>7 diapositivas: aceite, pastillas, correa, neumáticos, batería, ITV. Lo comparte el cliente y lo guarda el taller para enviarlo.</p></div>
+  </div>
+</div></section>
+<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><a href="plan.html">Volver al plan</a></div></footer>
+</body>
+</html>

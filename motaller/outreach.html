@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · Kit de captación</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1ea;--card:#fffdf8;--ink:#17181a;--muted:#5d5f63;--line:#d9d3c6;--orange:#e2531a;--orange-dk:#b83f0f;--orange-bg:#fbe5da;--green:#1f7a4d;--green-bg:#dcefe3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.6 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--orange-dk)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:3px solid var(--ink)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;font-weight:850;line-height:1.05}
+h1{font-size:clamp(38px,8vw,64px);text-transform:uppercase}
+h2{font-size:clamp(26px,5vw,36px);text-transform:uppercase;margin:0 0 14px}
+h3{font-size:20px;font-stretch:85%;margin:22px 0 8px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--orange-dk)}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}li{margin:4px 0}
+.summary{background:var(--ink);color:#f4f1ea;border-radius:16px;padding:24px;margin-top:22px;font-size:18px}
+.summary b{color:#f0a37f}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;text-decoration:none;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:12px 0}
+.grid2{display:grid;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tbl{width:100%;overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6da;font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase}
+code,.code{font-family:"JetBrains Mono",monospace;font-size:13px}
+pre{background:#1f2023;color:#e9e4d8;padding:16px;border-radius:12px;overflow-x:auto;font:500 13px/1.5 "JetBrains Mono",monospace;margin:10px 0}
+.arch{display:grid;gap:10px;margin:14px 0}
+.row{display:grid;gap:10px}
+@media(min-width:760px){.row{grid-template-columns:repeat(3,1fr)}}
+.box{border:2px solid var(--ink);border-radius:10px;padding:12px;background:var(--card);font-size:14px}
+.box b{display:block;font-family:"Archivo";font-stretch:80%;font-size:17px}
+.box.core{background:var(--orange-bg);border-color:var(--orange)}
+.box.dark{background:var(--ink);color:#f4f1ea}
+.arrow{text-align:center;font:700 13px "JetBrains Mono";color:var(--muted)}
+.warn{border-left:4px solid var(--orange);padding:8px 0 8px 14px;margin:10px 0}
+.pill{display:inline-block;font:700 11px "JetBrains Mono";padding:2px 7px;border-radius:5px;background:var(--green-bg);color:var(--green);text-transform:uppercase}
+footer{padding:28px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <p class="mono">Documento interno · 26 sep 2026</p>
+  <h1>Motaller · kit de captación</h1>
+  <div class="summary"><b>Regla:</b> el primer contacto es en persona o por teléfono al fijo público del taller. Solo mando WhatsApp o email cuando el taller me dice «mándamelo». Así cumplo la LSSI (art. 21 prohíbe comunicaciones comerciales por email o medio equivalente sin permiso previo, también a empresas).</div>
+  <nav class="toc"><a href="#lista">Lista de talleres</a><a href="#visita">Guion de visita</a><a href="#tel">Llamada</a><a href="#msg">Primer mensaje</a><a href="#obj">Objeciones</a><a href="#seg">Seguimiento</a></nav>
+</div></header>
+
+<section id="lista"><div class="wrap">
+  <h2>Cómo construir la lista de 100 talleres</h2>
+  <p>No guardo datos de personas: solo nombre comercial, dirección, teléfono público y web del taller, como aparecen en su ficha de Google Maps.</p>
+  <h3>Búsquedas exactas en Google Maps</h3>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>Búsqueda</th><th>Por qué</th></tr>
+    <tr><td>1</td><td><code>taller de motos Eixample Barcelona</code></td><td>Mayor densidad de scooters y oficinas</td></tr>
+    <tr><td>2</td><td><code>taller de motos Sants Barcelona</code></td><td>Barrio de la escena del landing</td></tr>
+    <tr><td>3</td><td><code>taller de motos Poblenou</code></td><td>Riders y flotas de reparto</td></tr>
+    <tr><td>4</td><td><code>taller de motos Gràcia</code></td><td>Talleres pequeños, 1 o 2 mecánicos</td></tr>
+    <tr><td>5</td><td><code>taller scooter Sant Martí Barcelona</code></td><td>Maxiscooter y Vespa</td></tr>
+    <tr><td>6</td><td><code>taller motos Les Corts</code></td><td>Cerca de oficinas, trabajo de mañana</td></tr>
+    <tr><td>7</td><td><code>taller motos Horta-Guinardó</code></td><td>Barrio residencial, clientela fija</td></tr>
+    <tr><td>8</td><td><code>taller de motos Sant Andreu</code></td><td>Talleres familiares</td></tr>
+    <tr><td>9</td><td><code>taller motos L'Hospitalet de Llobregat</code></td><td>Naves grandes y flotas</td></tr>
+    <tr><td>10</td><td><code>reparación scooter eléctrico Barcelona</code></td><td>Nuevo nicho con mucho WhatsApp</td></tr>
+    <tr><td>11</td><td><code>cambio neumáticos moto Barcelona</code></td><td>Servicio urgente de riders</td></tr>
+    <tr><td>12</td><td><code>pre ITV moto Barcelona</code></td><td>Encaja con los recordatorios de ITV</td></tr>
+    <tr><td>13</td><td><code>taller Vespa Barcelona</code></td><td>Especialistas con cola de espera</td></tr>
+    <tr><td>14</td><td><code>taller Yamaha Tmax Barcelona</code></td><td>Maxiscooter, tíquet alto</td></tr>
+    <tr><td>15</td><td><code>taller Honda PCX Barcelona</code></td><td>La moto de reparto más común</td></tr>
+    <tr><td>16</td><td><code>taller motos Badalona</code></td><td>Segunda ola, fuera de Barcelona</td></tr>
+    <tr><td>17</td><td><code>taller motos Sant Cugat</code></td><td>Segunda ola</td></tr>
+    <tr><td>18</td><td><code>taller motos Nou Barris</code></td><td>Precio sensible: probar el plan de 59 €</td></tr>
+    <tr><td>19</td><td><code>taller motos Sarrià</code></td><td>Clientela premium</td></tr>
+    <tr><td>20</td><td><code>recambios moto Barcelona</code></td><td>Distribuidores: canal de presentaciones</td></tr>
+  </table></div>
+  <h3>Cómo puntuar cada taller (0 a 3)</h3>
+  <ul>
+    <li>+1 si una reseña dice «no cogen el teléfono», «no contestan» o «tardan en responder».</li>
+    <li>+1 si tiene más de 80 reseñas (volumen suficiente).</li>
+    <li>+1 si publica un WhatsApp en la ficha o en la web.</li>
+  </ul>
+  <p>Visito primero los de 3 puntos. Ruta: un barrio por tarde, 10 talleres en 2 horas, en la Burgman.</p>
+</div></section>
+
+<section id="visita"><div class="wrap">
+  <h2>Guion de visita (60 segundos)</h2>
+  <p>Hora: 16:00 a 18:00, martes a jueves. Nunca a primera hora ni el lunes.</p>
+<pre>«Hola, soy Joaquín. Tengo una Burgman y vivo aquí al lado.
+¿Tienes un minuto o vuelvo en otro momento?
+[si sí]
+Estoy montando un asistente que contesta el WhatsApp del taller
+mientras tú estás con una moto: da cita, manda el presupuesto
+con fotos para que el cliente lo apruebe y avisa cuando está lista.
+Mira, así contestaría a un cliente tuyo. [demo en el móvil con su nombre]
+Busco 10 talleres del barrio para probarlo un mes gratis.
+¿Cuántos WhatsApp te entran al día?»</pre>
+  <h3>Qué apunto al salir</h3>
+  <ul><li>WhatsApp al día (su número), quién contesta, si usa programa de gestión.</li><li>Resultado: piloto / «vuelve en X» / no.</li><li>Si dice «mándamelo»: pido su permiso para escribirle por WhatsApp y lo apunto con fecha.</li></ul>
+</div></section>
+
+<section id="tel"><div class="wrap">
+  <h2>Llamada al fijo del taller</h2>
+  <p>Solo para talleres lejos de la ruta. Llamo al teléfono público de la empresa, nunca a móviles personales sacados de otras fuentes.</p>
+<pre>«Hola, ¿hablo con el taller? Soy Joaquín, de Motaller, aquí en Barcelona.
+Os llamo 30 segundos: estoy probando con talleres de motos
+un asistente que contesta el WhatsApp mientras estáis con las motos.
+¿Os puedo pasar a enseñarlo 5 minutos esta semana?
+¿O preferís que os mande un vídeo de 40 segundos por WhatsApp?»</pre>
+</div></section>
+
+<section id="msg"><div class="wrap">
+  <h2>Primer mensaje (solo con permiso)</h2>
+  <div class="grid2">
+    <div class="card"><h3>WhatsApp, tras la visita o la llamada</h3>
+<pre>Hola, soy Joaquín (Motaller). Como hablamos hoy,
+te mando la demo con el nombre de {taller}:
+https://motaller-topaz.vercel.app/#demo
+Si te encaja, lo montamos el {día} por la tarde.
+Si prefieres que no te escriba más, dímelo y listo.</pre></div>
+    <div class="card"><h3>Email, si el taller lo pide</h3>
+<pre>Asunto: La demo de Motaller para {taller}
+
+Hola:
+Como me pediste por teléfono, aquí va la demo:
+https://motaller-topaz.vercel.app/#demo
+El piloto son 30 días gratis, sin tarjeta.
+Lo montamos en una tarde en el taller.
+¿Te va bien el {día} a las 16:30?
+
+Joaquín · Motaller
+Si no quieres recibir más emails, responde «baja».</pre></div>
+  </div>
+  <p class="warn">Instagram: solo respondo a talleres que me escriben o comentan. No mando DM en frío con oferta comercial.</p>
+</div></section>
+
+<section id="obj"><div class="wrap">
+  <h2>5 objeciones y qué respondo</h2>
+  <div class="tbl"><table>
+    <tr><th>Dicen</th><th>Respondo</th></tr>
+    <tr><td>«Mis clientes quieren hablar conmigo, no con una máquina.»</td><td>«Si lo piden, les pasa contigo al momento. El asistente se ocupa de lo repetido: citas, "¿está mi moto?", recordatorios.»</td></tr>
+    <tr><td>«Ya tengo programa de taller.»</td><td>«Sigue con él. Motaller no factura ni lleva el stock. Contesta el WhatsApp, que tu programa no hace.»</td></tr>
+    <tr><td>«¿Y si dice un precio que no es?»</td><td>«Solo da los precios base que tú marcas. Todo presupuesto con diagnóstico lo confirmas tú antes de que salga.»</td></tr>
+    <tr><td>«No tengo tiempo para montar nada.»</td><td>«Lo monto yo, aquí, una tarde. Tú me dices horarios y precios mientras trabajas.»</td></tr>
+    <tr><td>«¿Cuánto cuesta?»</td><td>«Un mes gratis. Luego 59 € al mes, menos que una revisión. Sin permanencia: si no te sirve, lo desconecto.»</td></tr>
+  </table></div>
+</div></section>
+
+<section id="seg"><div class="wrap">
+  <h2>Seguimiento: día 0, 2 y 7</h2>
+  <div class="tbl"><table>
+    <tr><th>Día</th><th>Canal</th><th>Qué hago</th></tr>
+    <tr><td>0</td><td>En persona</td><td>Visita + demo con su nombre. Si dice «mándamelo», le envío el enlace de la demo por WhatsApp esa tarde.</td></tr>
+    <tr><td>2</td><td>WhatsApp (con permiso)</td><td>«¿Pudiste ver la demo? Tengo hueco para montarlo el jueves o el viernes por la tarde.» Una sola línea.</td></tr>
+    <tr><td>7</td><td>En persona</td><td>Paso por delante con la Burgman. Si sigue en «más adelante», le pregunto cuándo vuelvo y lo apunto. Después de esto, no insisto más.</td></tr>
+  </table></div>
+  <p>Meta semanal: 20 visitas → 6 demos vistas → 2 pilotos. Si en 3 semanas no llego a 2 pilotos, cambio el barrio o el guion, no el volumen.</p>
+</div></section>
+<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><a href="plan.html">Volver al plan</a></div></footer>
+</body>
+</html>

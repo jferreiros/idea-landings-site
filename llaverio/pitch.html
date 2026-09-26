@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: pitch</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+.msg{background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:16px 18px;margin:10px 0;white-space:pre-line;max-width:640px}
+.msg.sea{background:var(--sea-soft);border-color:#C4DCEA;border-radius:18px 18px 6px 18px}
+.ch{display:inline-block;background:var(--brass-soft);color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:3px 10px 3px 8px;border-radius:6px 999px 999px 6px;margin-bottom:6px}
+.obj{display:grid;gap:12px;grid-template-columns:1fr}
+.obj .box h3{margin-top:0}
+.seq{display:grid;gap:0;margin-top:12px}
+.seq > div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.seq b.d{font:600 1rem "Geist Mono",monospace;color:var(--sea)}
+ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
+@media(min-width:720px){.obj{grid-template-columns:1fr 1fr}}
+.kpi{display:grid;gap:12px;grid-template-columns:1fr}
+.kpi .box b{display:block;font:600 1.5rem "Bricolage Grotesque",sans-serif;color:var(--sea)}
+.ask{background:var(--ink);color:#fff;border-radius:18px;padding:24px}
+.ask h2{color:#fff}.ask li{color:#E6EEF2}
+@media(min-width:720px){.kpi{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">← Volver al plan</a>
+  <div style="margin-top:18px" class="eyebrow">Pitch para socios · 26 sep 2026</div>
+  <h1>Llaverio: el piso revisado antes de cada entrada</h1>
+  <p class="muted">Una página para un socio, un inversor ángel o un partner (PMS, empresa de limpieza). Sin clientes de pago todavía, y lo decimos.</p>
+</div></header>
+<section><div class="wrap">
+  <h2>Problema</h2>
+  <p>Una gestora de costa con 10 a 60 pisos vive los sábados de verano con varias salidas y entradas a la vez. Coordina limpiadoras por grupos de WhatsApp y nadie revisa el piso antes de que llegue el huésped. Los fallos aparecen en la reseña.</p>
+  <h2 style="margin-top:26px">Solución</h2>
+  <p>Un agente que, tras cada check-out del PMS, avisa a la limpiadora por WhatsApp, revisa sus fotos contra la lista del piso y solo escribe a la gestora si algo falla. Averías, incidencias de huéspedes e informes a propietarios llegan después. El equipo no instala nada.</p>
+</div></section>
+<section><div class="wrap">
+  <h2>Por qué ahora</h2>
+  <ul>
+    <li><b>El mercado se profesionaliza.</b> La oferta de vivienda turística cayó un 10,7% interanual en mayo de 2026 según el INE (<a href="https://forbes.es/forbestravel/964774/la-vivienda-turistica-cae-un-107-y-marca-uno-de-los-mayores-retrocesos-historicos/" target="_blank" rel="noopener">Forbes España</a>). Salen particulares; quedan gestoras con menos margen de error.</li>
+    <li><b>Los modelos de visión ya revisan fotos</b> a un coste de céntimos por salida (estimación del plan: 15-25 € al mes para una gestora de 25 pisos).</li>
+    <li><b>El modelo funciona fuera:</b> Trellis (YC) dice en su web tener más de 50 gestoras y más de 6.500 anuncios, con planes desde 749,99 $/mes (<a href="https://trellistech.com" target="_blank" rel="noopener">trellistech.com</a>, consultado el 24 ago 2026). No habla español ni usa WhatsApp como canal del equipo.</li>
+  </ul>
+</div></section>
+<section><div class="wrap">
+  <h2>Mercado en España</h2>
+  <div class="kpi">
+    <div class="box"><b>-10,7%</b>Oferta de vivienda turística, mayo 2026 frente a mayo 2025 (INE, vía Forbes España).</div>
+    <div class="box"><b>+200.000</b>Propiedades que Chekin dice gestionar: el cliente existe y paga software por propiedad (<a href="https://chekin.com/es/precios/" target="_blank" rel="noopener">chekin.com</a>).</div>
+    <div class="box"><b>3,95-7,95 €</b>Precio por propiedad y mes de Chekin: referencia de lo que ya paga una gestora española.</div>
+  </div>
+  <p class="muted">Pendiente de medir: número de gestoras con 10 a 60 pisos en Costa Brava, Costa Daurada, Málaga y Canarias. Método: estadística experimental de vivienda turística del INE por municipio + recuento manual de anfitriones con más de 10 anuncios. No damos una cifra hasta tenerla.</p>
+</div></section>
+<section><div class="wrap">
+  <h2>Modelo de negocio</h2>
+  <p>12 € por vivienda activa y mes (plan Operaciones; 8 € solo limpiezas, 15 € gestora grande). Solo cuenta la vivienda con al menos una salida en el mes. Estimación del plan para una gestora de 25 pisos en temporada: 300 €/mes de ingreso y 55-65 € de coste variable (WhatsApp, modelos, infraestructura), un margen bruto cercano al 80%.</p>
+  <p>Venta en persona, sin anuncios. Estimación: 6 a 8 horas de Joaquín por cliente ganado.</p>
+</div></section>
+<section><div class="wrap">
+  <h2>Los próximos 90 días</h2>
+  <ol>
+    <li><b>Días 1-30:</b> 25 gestoras en lista, 80 llamadas, 10 visitas, 2 pilotos firmados. Demo funcionando con Smoobu y WhatsApp.</li>
+    <li><b>Días 31-60:</b> 5 pilotos activos y 70% de salidas revisadas sin intervención.</li>
+    <li><b>Días 61-90:</b> 5 gestoras pagando, unos 500 €/mes de MRR en temporada baja y un caso con nombre, con permiso escrito.</li>
+  </ol>
+  <p>Paramos si en la semana 4 no hay 2 pilotos o si el día 90 hay menos de 3 gestoras pagando (criterios completos en el <a href="plan.html">plan</a>).</p>
+</div></section>
+<section><div class="wrap">
+  <div class="ask">
+    <h2>Qué pedimos</h2>
+    <ul>
+      <li><b>A un PMS (Smoobu, Hostaway, Avantio):</b> acceso de partner a la API y una presentación a 5 gestoras de costa.</li>
+      <li><b>A una empresa de limpieza que trabaje para varias gestoras:</b> un piloto con 10 pisos este otoño.</li>
+      <li><b>A un ángel:</b> nada de dinero hasta tener 5 gestoras pagando. Hoy, 30 minutos de consejo y dos presentaciones.</li>
+    </ul>
+  </div>
+</div></section>
+<footer><div class="wrap">Llaverio · © 2026 · <a href="plan.html">Plan</a> · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

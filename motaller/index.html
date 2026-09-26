@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motaller · El WhatsApp de tu taller de motos, contestado</title>
+<meta name="description" content="Motaller contesta el WhatsApp de tu taller de motos, da cita por matrícula, manda el presupuesto con fotos para aprobar y avisa cuando la moto está lista. Piloto gratis en Barcelona.">
+<meta name="theme-color" content="#121315">
+<link rel="canonical" href="https://motaller-topaz.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://motaller-topaz.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://motaller-topaz.vercel.app/ca.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Crect width='40' height='32' rx='9' fill='%23ff5b1f'/%3E%3Ctext x='20' y='22' font-family='monospace' font-weight='800' font-size='16' text-anchor='middle' fill='%231a0d06'%3E07%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Motaller">
+<meta property="og:url" content="https://motaller-topaz.vercel.app/">
+<meta property="og:title" content="Motaller · El WhatsApp de tu taller de motos, contestado">
+<meta property="og:description" content="Contesta a tus clientes, da cita por matrícula y consigue el «sí» al presupuesto con fotos. Piloto gratis para 10 talleres de Barcelona.">
+<meta property="og:image" content="https://motaller-topaz.vercel.app/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Motaller · El WhatsApp de tu taller de motos, contestado">
+<meta name="twitter:description" content="Piloto gratis para 10 talleres de motos de Barcelona.">
+<meta name="twitter:image" content="https://motaller-topaz.vercel.app/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://motaller-topaz.vercel.app/#org","name":"Motaller","url":"https://motaller-topaz.vercel.app/","founder":{"@type":"Person","name":"Joaquín"},"areaServed":{"@type":"City","name":"Barcelona"}},
+{"@type":"Service","name":"Motaller","serviceType":"Asistente de WhatsApp para talleres de motos","provider":{"@id":"https://motaller-topaz.vercel.app/#org"},"areaServed":{"@type":"City","name":"Barcelona"},"audience":{"@type":"BusinessAudience","audienceType":"Talleres de motos y scooters"},
+ "offers":[{"@type":"Offer","name":"Taller","price":"59","priceCurrency":"EUR","description":"Precio de lanzamiento por mes, IVA no incluido"},{"@type":"Offer","name":"Taller Pro","price":"129","priceCurrency":"EUR","description":"Precio de lanzamiento por mes, IVA no incluido"}]}
+]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121315; --bg2:#17181b; --surface:#1d1e22; --surface2:#26282d; --line:#2e3036;
+  --text:#eeece6; --muted:#a3a098; --dim:#908d85;
+  --orange:#ff5b1f; --orange-soft:#ff8a5c; --orange-ink:#1a0d06;
+  --green:#25a366; --green-soft:#8fe0b4;
+  --plate:#f3f2ee; --eu:#1f4fa8;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 17px/1.55 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* asphalt grain, fixed so it never repaints on scroll */
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px),radial-gradient(rgba(0,0,0,.35) 1px,transparent 1px);
+  background-size:3px 3px,5px 5px;background-position:0 0,1px 2px}
+main,nav,footer{position:relative;z-index:1}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.disp{font-family:"Archivo",sans-serif;font-stretch:72%;font-weight:900;letter-spacing:-.005em;line-height:.98;text-transform:uppercase}
+h1{font-size:clamp(46px,6.6vw,92px)}
+h2{font-size:clamp(36px,6vw,68px);margin-bottom:20px}
+h3{font-size:26px;font-stretch:80%;font-weight:850;line-height:1.05}
+.mono{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+.lead{font-size:clamp(18px,2.2vw,21px);color:#cfccc4;max-width:600px}
+section{padding:104px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--orange);color:var(--orange-ink);font:800 17px "Public Sans";padding:15px 16px 15px 26px;border-radius:10px;border:0;cursor:pointer;text-decoration:none;white-space:nowrap;min-height:52px;transition:transform .25s cubic-bezier(.32,.72,0,1),background .25s cubic-bezier(.32,.72,0,1)}
+.btn .ar{width:28px;height:28px;border-radius:7px;background:rgba(0,0,0,.14);display:grid;place-items:center;transition:transform .3s cubic-bezier(.32,.72,0,1)}
+.btn .ar:after{content:"";width:8px;height:8px;border-top:2.5px solid currentColor;border-right:2.5px solid currentColor;transform:translateX(-1px) rotate(45deg)}
+.btn:hover{background:#ff6d36}.btn:hover .ar{transform:translateX(3px)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--text);border:1.5px solid #4a4c52;padding:15px 24px}
+.btn.ghost:hover{border-color:var(--text)}
+.stripe{height:10px;background:repeating-linear-gradient(-45deg,var(--orange) 0 14px,var(--bg) 14px 28px);opacity:.9}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(18,19,21,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Archivo";font-stretch:70%;font-weight:900;font-size:27px;text-transform:uppercase;text-decoration:none;letter-spacing:.01em}
+.race{display:inline-grid;place-items:center;width:40px;height:32px;border-radius:9px 9px 14px 14px;background:var(--orange);color:var(--orange-ink);font:800 16px "JetBrains Mono";letter-spacing:-.04em}
+.navlinks{display:none;gap:26px;font-size:15px;font-weight:600}
+.navlinks a{text-decoration:none;color:var(--muted)}.navlinks a:hover{color:var(--text)}
+nav .btn{padding:10px 18px;min-height:44px;font-size:15px}
+
+.lang{font:700 13px "JetBrains Mono";color:var(--muted);text-decoration:none;border:1.5px solid #41444b;border-radius:8px;padding:9px 10px;min-height:40px;display:inline-flex;align-items:center}.lang:hover{color:var(--text);border-color:var(--text)}
+.navr{display:flex;gap:10px;align-items:center}
+@media(max-width:560px){nav .btn{font-size:14px;padding:10px 12px}}
+@media(max-width:440px){nav .navr .btn{display:none}}
+/* hero */
+.hero{padding:64px 0 88px}
+.hero-grid{display:grid;gap:56px;align-items:center}
+.hero h1 em{font-style:normal;color:var(--orange);display:block}
+.hero .lead{margin:26px 0 32px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.fine{margin-top:22px;font-size:14px;color:var(--muted)}
+.fine b{color:var(--text);font-weight:600}
+
+/* phone */
+.stage{position:relative;max-width:400px;margin:0 auto;width:100%}
+.bignum{position:absolute;left:-120px;top:-70px;font:900 220px/1 "Archivo";font-stretch:62%;color:transparent;-webkit-text-stroke:2px #2f3136;z-index:0;user-select:none}
+.phone{position:relative;z-index:1;background:#0b0b0c;border-radius:40px;padding:11px;border:1px solid #34363c;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.08)}
+.screen{background:#0b141a;border-radius:30px;overflow:hidden}
+.wa-head{background:#1f2c33;color:#e9edef;padding:14px 16px;display:flex;gap:10px;align-items:center}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--orange);color:var(--orange-ink);display:grid;place-items:center;font:800 13px "JetBrains Mono"}
+.wa-head b{display:block;font-size:15px}.wa-head small{color:#8696a0;font-size:12px}
+.chat{padding:14px 12px 18px;display:flex;flex-direction:column;gap:8px;font-size:14.5px;line-height:1.4;color:#e9edef}
+.msg{max-width:86%;padding:8px 11px;border-radius:10px;background:#202c33;opacity:0;transform:translateY(10px);animation:in .6s cubic-bezier(.32,.72,0,1) forwards}
+.msg.me{align-self:flex-end;background:#005c4b}
+.msg time{display:block;text-align:right;font-size:11px;color:#8696a0;margin-top:2px}
+.hero .msg:nth-child(1){animation-delay:.2s}.hero .msg:nth-child(2){animation-delay:.7s}.hero .msg:nth-child(3){animation-delay:1.2s}.hero .msg:nth-child(4){animation-delay:1.9s}
+@keyframes in{to{opacity:1;transform:none}}
+.quote{background:#111b21;border-radius:8px;padding:9px 10px;margin:6px 0;font-size:13.5px}
+.quote div{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
+.quote .tot{border-top:1px dashed #3b4a54;margin-top:4px;padding-top:6px;font-weight:700}
+.approved{display:inline-block;margin-top:4px;font:700 11px "JetBrains Mono";color:var(--green-soft);text-transform:uppercase}
+.ready{background:#202c33;border-left:4px solid var(--orange)}
+.ready .rt{display:block;font:900 26px/1 "Archivo";font-stretch:70%;text-transform:uppercase;color:#fff;margin:4px 0 8px}
+.plate{display:inline-flex;align-items:stretch;border:2px solid #111;border-radius:5px;overflow:hidden;font:800 15px "JetBrains Mono";background:var(--plate);color:#111;letter-spacing:.04em;vertical-align:middle}
+.plate i{background:var(--eu);color:#fff;font-style:normal;font-size:9px;padding:3px 4px;display:flex;align-items:flex-end}
+.plate span{padding:3px 8px}
+.plate.xl{font-size:clamp(26px,4vw,38px);border-width:3px;border-radius:8px}
+.plate.xl i{font-size:13px;padding:6px 7px}.plate.xl span{padding:6px 16px}
+
+/* problem */
+.problem{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.scene{display:grid;gap:44px;margin-top:40px}
+.clock{font:800 clamp(56px,9vw,96px)/1 "JetBrains Mono";color:var(--orange);letter-spacing:-.04em}
+.scene-intro{color:#cfccc4;margin-top:14px;max-width:460px}
+.timeline{list-style:none;display:grid;gap:0;border-left:2px solid var(--line)}
+.timeline li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:16px 0 16px 20px;position:relative}
+.timeline li:before{content:"";position:absolute;left:-7px;top:22px;width:12px;height:12px;border-radius:3px;background:var(--bg2);border:2px solid var(--orange)}
+.timeline b{font:700 14px "JetBrains Mono";color:var(--orange-soft);padding-top:2px}
+.facts{display:grid;gap:28px;margin-top:64px;padding-top:36px;border-top:1px solid var(--line)}
+.facts strong{font:900 clamp(36px,5vw,56px)/1 "Archivo";font-stretch:70%;display:block;text-transform:uppercase;margin-bottom:8px}
+.facts p{color:var(--muted);font-size:15.5px;max-width:340px}
+.src{font-size:13px;color:var(--dim)}
+
+/* how: vertical track */
+.track{margin-top:48px;display:grid;gap:0}
+.leg{display:grid;gap:18px;padding:34px 0;border-top:1px solid var(--line)}
+.leg:last-child{border-bottom:1px solid var(--line)}
+.leg .when{font:700 13px "JetBrains Mono";text-transform:uppercase;color:var(--orange-soft);letter-spacing:.05em}
+.leg p{color:var(--muted);max-width:520px;margin-top:10px}
+.leg .ex{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;font-size:15px;color:#d7d4cc;align-self:start}
+.leg .ex .mono{color:var(--dim);font-size:11.5px;display:block;margin-bottom:6px}
+
+
+/* demo */
+.demo{display:grid;gap:32px;margin-top:40px;align-items:start}
+.demo-ctrl{display:grid;gap:18px}
+.scen{display:flex;flex-wrap:wrap;gap:8px}
+.scen button{font:600 15px "Public Sans";color:var(--text);background:var(--surface);border:1.5px solid #41444b;border-radius:10px;padding:12px 14px;min-height:46px;cursor:pointer;transition:border-color .2s cubic-bezier(.32,.72,0,1)}
+.scen button[aria-pressed="true"]{border-color:var(--orange);background:rgba(255,91,31,.12)}
+.demo .phone{max-width:380px;width:100%;margin:0 auto}
+.demo .chat{min-height:360px}
+.demo .msg{animation:in .45s cubic-bezier(.32,.72,0,1) forwards}
+.typing{align-self:flex-start;background:#202c33;border-radius:10px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#8696a0;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@media(min-width:820px){.demo{grid-template-columns:1fr 1fr;gap:64px}}
+
+/* board */
+.board{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:40px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.board-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:18px}
+.board-top .mono{color:var(--muted);font-size:12px}
+.cols{display:grid;gap:14px}
+.col h4{font:700 12px "JetBrains Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between}
+.job{background:var(--surface2);border:1px solid #363940;border-radius:12px;padding:12px;margin-bottom:10px}
+.job b{display:block;margin:9px 0 2px;font-size:15px}
+.job small{color:var(--muted);font-size:13px}
+.tag{display:inline-block;margin-top:8px;font:700 11px "JetBrains Mono";padding:3px 7px;border-radius:5px;text-transform:uppercase}
+.t-or{background:var(--orange);color:var(--orange-ink)}.t-gr{background:#1c4a33;color:var(--green-soft)}.t-am{background:#4a3a14;color:#ffd27a}.t-gy{background:#33363c;color:#cfcfcf}
+.ai-line{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;font-size:14.5px;color:#cfccc4}
+.ai-line b{color:var(--orange-soft);font-family:"JetBrains Mono";font-size:12px;text-transform:uppercase;margin-right:6px}
+.caption{color:var(--dim);font-size:13px;margin-top:12px}
+
+/* compare */
+.vs-wrap{overflow-x:auto;margin-top:36px;border:1px solid var(--line);border-radius:var(--r)}
+.vs{width:100%;border-collapse:collapse;font-size:15px;min-width:660px}
+.vs th,.vs td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.vs tr:last-child th,.vs tr:last-child td{border-bottom:0}
+.vs thead th{font:700 12px "JetBrains Mono";text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--bg2)}
+.vs tbody th{font-weight:600;color:#d7d4cc}
+.vs td{color:var(--muted)}
+.vs td:nth-child(2){background:rgba(255,91,31,.1);color:var(--text);font-weight:600}
+.vs thead th:nth-child(2){color:var(--orange)}
+
+/* pricing */
+.prices{display:grid;gap:18px;margin-top:40px}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:flex;flex-direction:column}
+.price.hot{border:2px solid var(--orange)}
+.price .who{color:var(--muted);font-size:15px;margin-top:6px}
+.amt{font:900 64px/1 "Archivo";font-stretch:70%;margin:18px 0 4px}
+.amt small{font:600 17px "Public Sans";color:var(--muted)}
+.price ul{list-style:none;margin:20px 0 26px;display:grid;gap:10px;flex:1;color:#d7d4cc}
+.price li{padding-left:26px;position:relative}
+.price li:before{content:"";position:absolute;left:2px;top:7px;width:12px;height:7px;border-left:2.5px solid var(--orange);border-bottom:2.5px solid var(--orange);transform:rotate(-45deg)}
+.pilot{margin-top:18px;display:grid;gap:16px;align-items:center;background:var(--orange);color:var(--orange-ink);border-radius:var(--r);padding:24px 26px}
+.pilot b{font:900 30px/1 "Archivo";font-stretch:70%;text-transform:uppercase;display:block;margin-bottom:6px}
+.pilot .btn{background:var(--orange-ink);color:#fff}
+.note{font-size:14px;color:var(--dim);margin-top:16px}
+
+/* faq */
+.faq-grid{display:grid;gap:40px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{font-weight:700;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:700 24px/1 "JetBrains Mono";color:var(--orange)}
+details[open] summary:after{content:"-"}
+details p{margin-top:12px;color:var(--muted);max-width:640px}
+
+/* founder */
+.founder{display:grid;gap:26px;align-items:start;max-width:880px}
+.founder blockquote{font:500 clamp(21px,2.6vw,27px)/1.4 "Public Sans";color:var(--text)}
+.founder cite{display:block;margin-top:18px;font-style:normal;font-size:15px;color:var(--muted)}
+.guar{display:grid;gap:0;margin-top:48px;border-top:1px solid var(--line)}
+.guar div{padding:22px 0;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.guar b{font:850 21px "Archivo";font-stretch:78%;text-transform:uppercase}
+.guar p{color:var(--muted);font-size:15.5px}
+
+/* final */
+.final{background:var(--bg2);border-top:1px solid var(--line)}
+.final-grid{display:grid;gap:40px}
+.next{margin:26px 0 0;list-style:none;display:grid;gap:12px;color:#cfccc4;counter-reset:n}
+.next li{display:grid;grid-template-columns:34px 1fr;gap:10px;counter-increment:n}
+.next li:before{content:counter(n);font:800 14px "JetBrains Mono";color:var(--orange-ink);background:var(--orange);border-radius:6px;width:26px;height:26px;display:grid;place-items:center}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:16px}
+label{font-weight:600;font-size:14px;display:grid;gap:7px;color:#e2dfd8}
+input{font:inherit;color:var(--text);padding:14px;border:1.5px solid #41444b;border-radius:10px;background:var(--bg);width:100%;min-height:50px}
+input::placeholder{color:#8b8981}
+input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,91,31,.25)}
+.form small{color:var(--muted);font-size:13.5px}
+.form .btn{width:100%}
+.thanks{display:none;padding:18px 4px}
+.thanks p{color:var(--muted);margin-top:10px}
+.err{color:var(--orange-soft);font-size:14px;min-height:1em}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.32,.72,0,1),transform .8s cubic-bezier(.32,.72,0,1)}
+.reveal.on{opacity:1;transform:none}
+
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;gap:10px;align-items:center;justify-content:space-between;background:#0b0b0c;border:1px solid #3a3c42;color:var(--text);border-radius:14px;padding:10px 10px 10px 16px;box-shadow:0 12px 30px -10px rgba(0,0,0,.7);transform:translateY(140%);transition:transform .35s cubic-bezier(.32,.72,0,1)}
+.sticky.on{transform:none}
+.sticky span{font-size:14px;line-height:1.25;color:var(--muted)}.sticky span b{color:var(--text)}
+.sticky .btn{padding:11px 16px;min-height:46px;font-size:15px;flex:none}
+
+footer{padding:30px 0 104px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+@media(min-width:820px){
+  .navlinks{display:flex}
+  .hero-grid{grid-template-columns:1.25fr .75fr}
+  .scene{grid-template-columns:.9fr 1.1fr}
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .leg{grid-template-columns:1.1fr .9fr;gap:48px}
+  .cols{grid-template-columns:repeat(4,1fr)}
+  .prices{grid-template-columns:1fr 1fr;max-width:900px}
+  .pilot{grid-template-columns:1fr auto;max-width:900px}
+  .faq-grid{grid-template-columns:.8fr 1.2fr}
+  .founder{grid-template-columns:1fr}
+  .guar{grid-template-columns:repeat(3,1fr);gap:32px;border-top:0}
+  .guar div{border-top:1px solid var(--line)}
+  .final-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .sticky{display:none}
+  footer{padding-bottom:30px}
+}
+@media(max-width:819px){
+  .cols{grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+  .col{scroll-snap-align:start}
+}
+@media(max-width:560px){
+  section{padding:76px 0}
+  .bignum{font-size:140px;left:-8px;top:-64px}.stage{margin-top:48px}
+  .cta-row .btn{width:100%}
+  nav .btn .ar{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .msg{opacity:1;transform:none}.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#" aria-label="Motaller, inicio"><span class="race" aria-hidden="true">07</span>Motaller</a>
+  <div class="navlinks"><a href="#como">Cómo funciona</a><a href="#demo">Demo</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a></div>
+  <div class="navr"><a class="lang" href="ca.html" hreflang="ca" lang="ca" aria-label="Català">CA</a><a class="btn" href="#probar">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></a></div>
+</div></nav>
+<div class="stripe" aria-hidden="true"></div>
+
+<main>
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1>Tú con la llave. <em>Motaller con el WhatsApp.</em></h1>
+    <p class="lead">Para talleres de motos: contesta a tus clientes, da cita por matrícula y te consigue el «sí» al presupuesto con fotos.</p>
+    <div class="cta-row">
+      <a class="btn" href="#probar">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></a>
+      <a class="btn ghost" href="#demo">Probar la demo</a>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="bignum" aria-hidden="true">07</div>
+    <div class="phone" role="img" aria-label="Ejemplo de WhatsApp: el asistente del taller da cita, manda un presupuesto de 63 euros que el cliente aprueba y avisa de que la moto está lista">
+      <div class="screen">
+        <div class="wa-head"><div class="avatar">MT</div><div><b>Motos Eixample</b><small>asistente del taller</small></div></div>
+        <div class="chat">
+          <div class="msg me">La Burgman frena raro y tiene la ITV en noviembre. ¿Me la miráis?<time>09:12</time></div>
+          <div class="msg">Hola, Marc. Tengo tu moto, <span class="plate"><i>E</i><span>4821 KLM</span></span>. Mañana a las 8:30 hay hueco para frenos y pre-ITV. ¿Te va bien?<time>09:12</time></div>
+          <div class="msg">Pastillas delanteras al 10 %. El neumático aguanta la ITV.
+            <div class="quote"><div><span>Pastillas + 0,5 h</span><span>63 €</span></div><div class="tot"><span>Total IVA incl.</span><span>63 €</span></div></div>
+            <span class="approved">Aprobado por Marc · 11:41</span><time>11:40</time></div>
+          <div class="msg ready"><span class="rt">Tu moto está lista</span>Puedes pasar a recogerla hasta las 20:00. Total 63 €.<time>17:05</time></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<section class="problem" id="problema"><div class="wrap">
+  <h2>Un martes en un taller de Sants</h2>
+  <div class="scene">
+    <div class="reveal">
+      <div class="clock">09:40</div>
+      <p class="scene-intro">Jordi está debajo de un Tmax con las manos llenas de grasa. El móvil del taller vibra otra vez.</p>
+    </div>
+    <ul class="timeline reveal">
+      <li><b>09:40</b><span>Una rider de Glovo pregunta si le cambiáis la cubierta hoy. Sin moto no cobra.</span></li>
+      <li><b>10:15</b><span>Una llamada perdida. Era un cliente nuevo con una Vespa. Llama al taller de al lado.</span></li>
+      <li><b>11:30</b><span>Tres WhatsApp: «¿está ya mi moto?». Jordi para, se lava las manos y contesta uno a uno.</span></li>
+      <li><b>12:50</b><span>Encuentra un disco gastado y llama al cliente. No lo coge. La moto ocupa el elevador hasta la tarde.</span></li>
+    </ul>
+  </div>
+  <div class="facts reveal">
+    <div><strong>1 de cada 3</strong><p>vehículos de Barcelona es una moto o un ciclomotor (271.090 en 2020).</p><a class="src" href="https://movilidad.racc.es/informes-y-estudios/seguridad-vial/vehiculos/estudio-racc-del-uso-de-la-motocicleta-en-barcelona/" target="_blank" rel="noopener">Fuente: estudio RACC</a></div>
+    <div><strong>0,17 motos</strong><p>por habitante. Barcelona supera a Roma y Milán.</p><span class="src">Misma fuente</span></div>
+    <div><strong>1 llamada perdida</strong><p>es una revisión para el taller de al lado. Un presupuesto sin respuesta es un elevador parado.</p></div>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <h2>Tus clientes no instalan nada</h2>
+  <p class="lead">Escriben al WhatsApp de siempre. Motaller contesta en nombre del taller y te pasa solo lo que necesita a un mecánico.</p>
+  <div class="track">
+    <div class="leg reveal">
+      <div><span class="when">Una tarde, en tu taller</span><h3 style="margin-top:10px">Lo montamos contigo</h3><p>Cargamos tus horarios, servicios y precios base. Contesta en castellano y en catalán.</p></div>
+      <div class="ex"><span class="mono">Tú decides</span>Cambio de aceite scooter 125: desde 45 €. Pre-ITV: 25 €. Lunes a viernes, 8:30 a 19:30.</div>
+    </div>
+    <div class="leg reveal">
+      <div><span class="when">Cada día, a cualquier hora</span><h3 style="margin-top:10px">Contesta, da cita y ficha la moto</h3><p>Cada moto queda guardada por matrícula, con sus kilómetros y su fecha de ITV.</p></div>
+      <div class="ex"><span class="mono">22:10 · cliente nuevo</span>«¿Tenéis hueco para una revisión de la Vespa?» Motaller le da hueco el jueves a las 9:00 y te lo deja en la agenda.</div>
+    </div>
+    <div class="leg reveal">
+      <div><span class="when">Con la moto en el elevador</span><h3 style="margin-top:10px">Dos fotos, un «sí» y «tu moto está lista»</h3><p>Haces las fotos y dictas el arreglo. Tú confirmas el importe. El cliente aprueba con un toque y recibe el aviso al terminar.</p></div>
+      <div class="ex"><span class="mono">Tú confirmas antes del envío</span>Disco trasero + pastillas: 186 €. Marc lo aprueba a las 11:41 sin que sueltes la llave.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="demo" class="problem"><div class="wrap">
+  <h2>Pruébalo con tu taller</h2>
+  <div class="demo">
+    <div class="demo-ctrl">
+      <p class="lead" style="margin:0">Escribe el nombre de tu taller y elige qué pregunta el cliente. Así contestaría Motaller.</p>
+      <label for="d-name">Nombre de tu taller<input id="d-name" value="Motos Poblenou" maxlength="32" autocomplete="off"></label>
+      <div><p style="font-weight:600;font-size:14px;margin-bottom:8px;color:#e2dfd8" id="d-lbl">El cliente escribe…</p>
+      <div class="scen" role="group" aria-labelledby="d-lbl">
+        <button type="button" data-s="cita" aria-pressed="true">Pide cita</button>
+        <button type="button" data-s="lista" aria-pressed="false">¿Está mi moto?</button>
+        <button type="button" data-s="rider" aria-pressed="false">Rider con prisa</button>
+        <button type="button" data-s="precio" aria-pressed="false">Pregunta un precio</button>
+      </div></div>
+      <p class="caption" style="margin:0">Simulación en tu navegador con precios de ejemplo. En el piloto usa tus precios y tu agenda.</p>
+    </div>
+    <div class="phone" aria-live="polite">
+      <div class="screen">
+        <div class="wa-head"><div class="avatar" id="d-av">MP</div><div><b id="d-head">Motos Poblenou</b><small>asistente del taller</small></div></div>
+        <div class="chat" id="d-chat"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="panel"><div class="wrap">
+  <h2>Cada moto, por su matrícula</h2>
+  <p class="lead">El panel del taller en la tablet del banco. Motaller mueve cada moto de columna y avisa al cliente en cada cambio.</p>
+  <div class="board reveal" role="img" aria-label="Panel del taller con siete motos repartidas en cuatro estados">
+    <div class="board-top"><span class="disp" style="font-size:28px">Hoy, martes</span><span class="mono">7 motos · 2 riders con prioridad</span></div>
+    <div class="cols">
+      <div class="col"><h4>Citadas <span>2</span></h4>
+        <div class="job"><span class="plate"><i>E</i><span>4821 KLM</span></span><b>Burgman 400</b><small>Pre-ITV + frenos · 08:30</small></div>
+        <div class="job"><span class="plate"><i>E</i><span>1190 MHD</span></span><b>Vespa GTS 300</b><small>Revisión 10.000 km · 12:00</small></div>
+      </div>
+      <div class="col"><h4>Esperando OK <span>1</span></h4>
+        <div class="job"><span class="plate"><i>E</i><span>7702 LBC</span></span><b>Yamaha Tmax</b><small>Disco trasero · 186 €</small><br><span class="tag t-am">Enviado 11:40</span></div>
+      </div>
+      <div class="col"><h4>En el elevador <span>2</span></h4>
+        <div class="job"><span class="plate"><i>E</i><span>3345 MFR</span></span><b>Honda PCX 125</b><small>Cubierta trasera</small><br><span class="tag t-or">Rider · antes de 14:00</span></div>
+        <div class="job"><span class="plate"><i>E</i><span>5518 LXS</span></span><b>Kymco Agility</b><small>Correa y rodillos</small><br><span class="tag t-or">Rider · antes de 18:00</span></div>
+      </div>
+      <div class="col"><h4>Lista <span>2</span></h4>
+        <div class="job"><span class="plate"><i>E</i><span>9021 KZT</span></span><b>Piaggio Beverly</b><small>Aceite + filtros</small><br><span class="tag t-gr">Cliente avisado</span></div>
+        <div class="job"><span class="plate"><i>E</i><span>2276 LPR</span></span><b>Sym Symphony</b><small>Batería</small><br><span class="tag t-gr">Recogida 19:00</span></div>
+      </div>
+    </div>
+    <p class="ai-line"><b>Motaller</b>He recordado la ITV de noviembre a 14 clientes. 5 han pedido cita para la pre-ITV.</p>
+  </div>
+  <p class="caption">Ejemplo ilustrativo. Taller y matrículas ficticios.</p>
+</div></section>
+
+<section id="diferencia" style="padding-top:0"><div class="wrap">
+  <h2>¿Por qué no un programa de taller?</h2>
+  <p class="lead">Un programa te da una agenda. Alguien tiene que seguir cogiendo el teléfono. Motaller coge el teléfono.</p>
+  <div class="vs-wrap"><table class="vs">
+    <thead><tr><th scope="col"><span class="sr" style="position:absolute;left:-9999px">Criterio</span></th><th scope="col">Motaller</th><th scope="col">Programa de gestión</th><th scope="col">Chatbot genérico</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Contesta al cliente por ti</th><td>Sí, con tus huecos y tus precios base</td><td>No. Manda recordatorios</td><td>Sí, con respuestas fijas</td></tr>
+      <tr><th scope="row">Presupuesto con fotos para aprobar</th><td>Sí, lo confirmas tú antes</td><td>Depende del programa</td><td>No</td></tr>
+      <tr><th scope="row">Hecho para motos</th><td>Matrícula, ITV, riders con prioridad</td><td>A menudo, un módulo de coche</td><td>No</td></tr>
+      <tr><th scope="row">Montaje</th><td>Una tarde, en tu taller, con nosotros</td><td>Tú, con tutoriales</td><td>Tú, o una agencia</td></tr>
+      <tr><th scope="row">Tu programa de facturación</th><td>Lo mantienes</td><td>Normalmente lo sustituye</td><td>Lo mantienes</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="precio" class="problem"><div class="wrap">
+  <h2>Menos que una revisión al mes</h2>
+  <div class="prices">
+    <div class="price reveal"><h3>Taller</h3><p class="who">1 o 2 mecánicos</p><div class="amt">59 € <small>/mes + IVA</small></div>
+      <ul><li>Asistente de WhatsApp 24/7</li><li>Agenda y ficha por matrícula</li><li>Fotos y presupuesto para aprobar</li><li>Aviso «tu moto está lista»</li></ul></div>
+    <div class="price hot reveal"><h3>Taller Pro</h3><p class="who">Mucho volumen o flotas de riders</p><div class="amt">129 € <small>/mes + IVA</small></div>
+      <ul><li>Todo lo de Taller</li><li>Contesta también las llamadas</li><li>Recordatorios de ITV y revisiones</li><li>Cuentas para flotas de reparto</li></ul></div>
+  </div>
+  <div class="pilot reveal"><div><b>Piloto: 30 días a 0 €</b>Para 10 talleres de Barcelona. Sin tarjeta. Si no te sirve, lo desconectamos y te llevas tus datos.</div><a class="btn" href="#probar">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></a></div>
+  <p class="note">Son precios de lanzamiento: los cerraremos con los talleres del piloto. Sin permanencia y sin alta.</p>
+</div></section>
+
+<section id="faq"><div class="wrap faq-grid">
+  <h2>Lo que nos preguntan en el taller</h2>
+  <div>
+    <details><summary>¿Mis clientes van a notar que hablan con una IA?</summary><p>Sí, y es mejor así. Motaller se presenta como el asistente del taller. Si el cliente pide hablar contigo, te pasa la conversación al momento.</p></details>
+    <details><summary>¿Tengo que cambiar de número?</summary><p>No. Conectamos tu número de WhatsApp Business. Puedes seguir escribiendo desde el móvil del taller como hasta ahora.</p></details>
+    <details><summary>¿Y si da un precio equivocado?</summary><p>Motaller solo da los precios base que tú marcas. Cualquier presupuesto con diagnóstico sale de ti: haces las fotos y confirmas el importe antes del envío.</p></details>
+    <details><summary>¿Funciona con flotas de riders?</summary><p>Sí. Marcas una moto como «rider» y pasa a prioridad, con hora de entrega. Una flota puede tener cuenta propia con todas sus motos.</p></details>
+    <details><summary>¿Qué pasa con los datos de mis clientes?</summary><p>Son del taller. Los guardamos en servidores de la UE, firmamos contigo el contrato de encargado del tratamiento del RGPD y puedes exportarlos cuando quieras.</p></details>
+    <details><summary>No tengo tiempo para montar nada.</summary><p>Lo montamos nosotros en una tarde, en tu taller. No tienes que ver tutoriales ni cambiar tu programa de facturación.</p></details>
+  </div>
+</div></section>
+
+<section id="quien" style="padding-top:0"><div class="wrap">
+  <div class="founder reveal">
+    <blockquote>«Tengo una Burgman y la llevo a un taller del barrio. Siempre veo lo mismo: el mecánico con las manos llenas de grasa y el móvil vibrando. Busco 10 talleres de Barcelona para construir Motaller con ellos. Paso a verte en persona.»</blockquote>
+    <cite><b style="color:var(--text)">Joaquín</b>, fundador de Motaller, Barcelona</cite>
+  </div>
+  <div class="guar">
+    <div><b>Tú apruebas cada precio</b><p>Ningún presupuesto con diagnóstico sale sin tu OK.</p></div>
+    <div><b>Se presenta como asistente</b><p>Tus clientes saben con quién hablan y pueden pedir hablar contigo.</p></div>
+    <div><b>Datos en la UE</b><p>Contrato RGPD y exportación de tus datos cuando quieras.</p></div>
+  </div>
+</div></section>
+
+<section class="final" id="probar"><div class="wrap final-grid">
+  <div>
+    <span class="plate xl" aria-hidden="true"><i>E</i><span>10 TALLERES</span></span>
+    <h2 style="margin-top:28px">Buscamos 10 talleres para el piloto</h2>
+    <p class="lead">Eixample, Sants, Poblenou o donde tengas el taller. Déjanos tres datos.</p>
+    <ol class="next"><li>Te llamamos esta semana. Son 5 minutos.</li><li>Pasamos por el taller y lo montamos contigo en una tarde.</li><li>30 días gratis. Luego decides.</li></ol>
+  </div>
+  <!-- TODO: connect form to a real endpoint (no backend yet) -->
+  <form class="form" id="wl" novalidate>
+    <div id="fields" style="display:grid;gap:16px">
+      <label for="f-name">Tu nombre<input id="f-name" name="name" autocomplete="name" required></label>
+      <label for="f-biz">Nombre del taller<input id="f-biz" name="business" placeholder="Ej.: Motos Poblenou" required></label>
+      <label for="f-contact">Teléfono o email<input id="f-contact" name="contact" autocomplete="tel" placeholder="600 000 000 o tu@email.com" required></label>
+      <p class="err" id="err" aria-live="polite"></p>
+      <button class="btn" type="submit">Pedir piloto gratis<span class="ar" aria-hidden="true"></span></button>
+      <small>Solo te contactamos para el piloto. Sin tarjeta, sin compromiso.</small>
+    </div>
+    <div class="thanks" id="thanks" aria-live="polite">
+      <span class="plate xl"><i>E</i><span>APUNTADO</span></span>
+      <p>Joaquín te llama esta semana para quedar en el taller.</p>
+    </div>
+  </form>
+</div></section>
+</main>
+
+<div class="sticky" id="sticky"><span><b>Piloto gratis</b><br>10 talleres en Barcelona</span><a class="btn" href="#probar">Pedir piloto gratis</a></div>
+
+<footer><div class="wrap"><span><b>Motaller</b> · 2026</span><a href="plan.html">Plan interno</a></div></footer>
+
+<script>
+document.getElementById('wl').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, err=document.getElementById('err');
+  var ok=['name','business','contact'].every(function(n){return f[n].value.trim().length>1});
+  if(!ok){err.textContent='Rellena los tres campos, por favor.';return;}
+  err.textContent='';
+  document.getElementById('fields').style.display='none';
+  document.getElementById('thanks').style.display='block';
+  f.reset();
+});
+(function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('on')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  var st=document.getElementById('sticky'),hero=document.querySelector('.hero'),fin=document.getElementById('probar'),h=true,fi=false;
+  function u(){st.classList.toggle('on',!h&&!fi)}
+  new IntersectionObserver(function(e){h=e[0].isIntersecting;u()}).observe(hero);
+  new IntersectionObserver(function(e){fi=e[0].isIntersecting;u()}).observe(fin);
+})();
+(function(){
+  var name=document.getElementById('d-name'),chat=document.getElementById('d-chat'),head=document.getElementById('d-head'),av=document.getElementById('d-av'),cur='cita',timers=[];
+  var S={
+    cita:[['me','Hola, ¿tenéis hueco esta semana para cambiar el aceite de la PCX?'],['bot','Hola, soy el asistente de {T}. Tengo hueco el jueves a las 9:00 o el viernes a las 16:30. El cambio de aceite de una 125 sale desde 45 €. ¿Cuál te va mejor?'],['me','El jueves'],['bot','Hecho: jueves a las 9:00 en {T}. ¿Me dices la matrícula para dejar la ficha preparada?']],
+    lista:[['me','¿Está ya mi moto? La Vespa, 1190 MHD'],['bot','Hola, Laura. Tu Vespa está en el elevador: revisión de 10.000 km. Te aviso aquí en cuanto esté lista. {T} cierra hoy a las 19:30.'],['bot','Tu moto está lista. Puedes pasar por {T} hasta las 19:30. Total 118 €.']],
+    rider:[['me','Reparto con Glovo y se me ha pinchado la trasera. ¿Me la cambiáis hoy?'],['bot','Sí. En {T} damos prioridad a riders. Si la traes antes de las 12:00, la tienes antes de las 14:00. ¿Sabes la medida de la cubierta?'],['me','No sé, es una Honda PCX'],['bot','Sin problema, la miramos al llegar. Te guardo el hueco de las 11:30.']],
+    precio:[['me','¿Cuánto cuesta cambiar las pastillas de freno?'],['bot','Depende de la moto y de cómo esté el disco. En {T} te lo miramos y te mando fotos y el precio exacto por aquí antes de tocar nada. ¿Qué moto tienes?'],['me','Un Tmax'],['bot','Perfecto. ¿Te va bien pasar mañana a las 8:30 para mirarlo? Son 10 minutos.']]
+  };
+  function T(){var v=name.value.trim();return v||'tu taller'}
+  function esc(t){return t.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function play(){
+    timers.forEach(clearTimeout);timers=[];chat.innerHTML='';
+    var t=T();head.textContent=t;av.textContent=(t.replace(/[^A-Za-zÀ-ÿ ]/g,'').split(' ').filter(Boolean).map(function(w){return w[0]}).join('').slice(0,2)||'MT').toUpperCase();
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,d=0;
+    S[cur].forEach(function(m){
+      var isBot=m[0]==='bot';
+      if(isBot&&!reduce){timers.push(setTimeout(function(){var ty=document.createElement('div');ty.className='typing';ty.innerHTML='<i></i><i></i><i></i>';chat.appendChild(ty)},d));d+=900}
+      timers.push(setTimeout(function(){var ty=chat.querySelector('.typing');if(ty)ty.remove();var el=document.createElement('div');el.className='msg'+(isBot?'':' me');el.innerHTML=esc(m[1].replace(/\{T\}/g,t));chat.appendChild(el)},d));
+      d+=reduce?0:700;
+    });
+  }
+  document.querySelectorAll('.scen button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.scen button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');cur=b.dataset.s;play()})});
+  var tm;name.addEventListener('input',function(){clearTimeout(tm);tm=setTimeout(play,450)});
+  var started=false;if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting&&!started){started=true;play();o.disconnect()}}).observe(chat)}else play();
+})();
+</script>
+</body>
+</html>

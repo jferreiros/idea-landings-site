@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EDEB;--paper:#fff;--ink:#1B2621;--muted:#5E6A64;--line:#EAD9D7;--sage:#34503F;--sage-soft:#DFE8E1;--rose:#A65468;--rose-soft:#F3DEE1;--gold:#A65468}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+a{color:var(--sage)}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);margin:.3rem 0 1rem}
+h2{font-size:clamp(1.8rem,4.5vw,2.4rem);margin-bottom:1rem;padding-top:8px}
+h3{font-size:1.35rem;margin:1.4rem 0 .5rem}
+em{color:var(--rose)}
+p,ul,ol{margin-bottom:.9rem}
+ul,ol{padding-left:1.3rem}
+li{margin-bottom:.35rem}
+header{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.back{font-size:.9rem;text-decoration:none}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.toc a{font-size:.82rem;text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;color:var(--muted)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.summary{background:var(--sage);color:#FBF4F2;border-radius:20px;padding:26px;font-size:1.08rem;margin-top:24px}
+.summary b{color:#F3C7B5}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}
+.note{background:var(--rose-soft);border-radius:14px;padding:16px 18px;font-size:.95rem}
+.grid2{display:grid;gap:14px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:12px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sage-soft);font-weight:700;color:var(--sage)}
+.tw{overflow-x:auto}
+code{font-size:.85em;background:var(--sage-soft);padding:1px 6px;border-radius:6px}
+pre{background:#1F2A26;color:#E9E3DC;border-radius:14px;padding:16px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:18px 0}
+.lane{display:grid;gap:10px}
+.lane-t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.nodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.88rem}
+.node b{display:block;font-size:.95rem}
+.node.core{background:var(--sage);color:#fff;border-color:var(--sage)}
+.node.warn{background:var(--rose-soft);border-color:#E9C7CD}
+.arrow{text-align:center;color:var(--rose);font-size:1.3rem;line-height:1}
+.weeks{display:grid;gap:12px}
+.wk{background:#fff;border:1px solid var(--line);border-left:4px solid var(--rose);border-radius:12px;padding:16px}
+.wk b{font-family:"Bodoni Moda",serif;font-size:1.3rem;font-weight:400}
+footer{padding:32px 0;font-size:.88rem;color:var(--muted)}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.weeks{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="index.html">← Volver a la landing</a>
+  <p class="eyebrow" style="margin-top:20px">Plan interno · 26 sep 2026</p>
+  <h1>Glowdesk: recepción con IA para <em>clínicas estéticas</em></h1>
+  <div class="toc">
+    <a href="#resumen">Resumen</a><a href="#compara">Comparativa</a><a href="#oferta">Oferta e ICP</a><a href="#comp">Competencia</a><a href="#gtm">Go-to-market</a><a href="#90">30/60/90</a><a href="#legal">Legal</a><a href="#alto">Técnico alto nivel</a><a href="#bajo">Técnico bajo nivel</a><a href="#mvp">MVP</a><a href="#eco">Unit economics</a><a href="#fabricas">Fábricas</a><a href="outreach.html">Kit de outreach</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha</a><a href="b.html">Hero B</a><a href="ca.html">Landing CA</a>
+  </div>
+  <div class="summary" id="resumen">
+    <b>Cómo lo encararía.</b> Empezaría solo con Instagram DM + señal de reserva para clínicas de Barcelona que ya pagan anuncios, porque ahí el dolor (leads que se enfrían) y el retorno (valoraciones con señal) se miden en una semana. Vendería con una demo hecha sobre el Instagram real de cada clínica, y añadiría WhatsApp y voz solo cuando 5 clínicas paguen.
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<section id="compara">
+  <p class="eyebrow">Ronda 2 · 26 sep 2026</p>
+  <h2>Comparativa con la referencia</h2>
+  <p>Páginas leídas: <a href="https://tepali.com" target="_blank" rel="noopener">tepali.com</a> (referencia YC, EE. UU.) y <a href="https://koibox.cloud/recepcionista-virtual-peluquerias-centro-estetica/" target="_blank" rel="noopener">Koibox · Recepcionista virtual IA</a> (competidor español). También nuestra <a href="index.html">landing</a> y este plan.</p>
+  <div class="tw"><table>
+    <tr><th></th><th>Glowdesk (nuestra landing)</th><th>Tepali (YC)</th><th>Koibox (España)</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td><td>Clínicas de medicina estética en España. Promesa estrecha: cada DM de Instagram se convierte en valoración con señal. Ángulo: complemento a su software, sin migrar.</td><td>Medspas en EE. UU. «AI EMR»: suite completa (front desk, historia clínica, TPV, marketing) con un «empleado IA». Ángulo: sustituir el software actual.</td><td>Peluquerías y centros de estética que ya usan Koibox. Recepcionista de voz 24/7 en 30 idiomas, hecha con un partner (Digalook). Ángulo: «tu teléfono no para de sonar».</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td><td>Cuidada, editorial, coherente con el sector. Faltaba señal de empresa real: sin fundador, sin datos de contacto, sin garantías.</td><td>Muy alta: métricas grandes, mockups de producto, tabla comparativa contra 10 rivales, soporte «de los fundadores» con teléfono y email.</td><td>Media: plantilla WordPress, emojis en el título, menú enorme. Parece seria por marca y teléfono visible, no por diseño.</td></tr>
+    <tr><td><b>Estructura y funnel</b></td><td>Hero → problema → 3 pasos → mockup → beneficios → precios → FAQ → formulario de 3 campos. Un solo CTA al final. Sin CTA fijo en móvil ni «qué pasa después».</td><td>CTA «Book a demo» repetido en cada bloque, calendario de demo embebido, teléfono en el hero, oferta de migración gratis. Prueba: 4,8 y testimonios reales.</td><td>CTA «Pruébala gratis» y un número para <i>hablar con la IA</i> ya mismo. Precios en la página. Sin prueba social en esta página.</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td><td>149 / 229 / 299 € por canal (Instagram, +WhatsApp, +voz). Hipótesis, primer mes gratis.</td><td>No publica precios. «Sin add-ons»: todo incluido y ataca las tasas de los rivales.</td><td>99 / 169 / 279 € por minutos (500 / 900 / 1.500) y tamaño de centro. WhatsApp y minutos extra se pagan aparte.</td></tr>
+    <tr><td><b>Textos</b></td><td>Claros y específicos (escena «domingo 23:47», señal, lactancia). Algo largos en el hero.</td><td>Cortos y orientados a dinero: «Leads go cold», «the first to reply wins». Cifras propias de clientes.</td><td>Genéricos y en primera persona de la IA («Atiendo tus llamadas»). Poca concreción sobre clínicas.</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td><td colspan="3">
+      <ol style="margin:0">
+        <li><b>Copiamos de Tepali</b> el CTA repetido y fijo, el bloque «soporte de los fundadores» (nota de Joaquín) y el «te lo montamos gratis» (demo con tu carta en 48 h).</li>
+        <li><b>Copiamos de Koibox</b> la transparencia de precios y el «pruébalo gratis» sin fricción. Más adelante: un número o DM de demo para hablar con el agente en directo.</li>
+        <li><b>Mejoramos</b> el foco: Instagram + señal para clínicas médicas, que ninguno de los dos cubre en español, y el cumplimiento sanitario explícito.</li>
+        <li><b>Mejoramos</b> la confianza sin inventar: RGPD, servidores en la UE, sin permanencia, piloto gratis, y FAQ de objeciones (precio, errores de la IA, tiempo de puesta en marcha).</li>
+        <li><b>Pendiente:</b> cuando haya piloto, sustituir hipótesis por métricas reales y añadir una tabla «Glowdesk vs. software de gestión» como la de Tepali.</li>
+      </ol>
+    </td></tr>
+  </table></div>
+</section>
+
+<section id="oferta">
+  <p class="eyebrow">Oferta de valor</p>
+  <h2>Qué vendemos y a quién</h2>
+  <p><b>Promesa:</b> «Cada DM de Instagram, convertido en una valoración con señal pagada». No vendemos un chatbot. Vendemos valoraciones reservadas y menos ausencias.</p>
+  <div class="grid2">
+    <div class="box">
+      <h3 style="margin-top:0">ICP (España)</h3>
+      <ul>
+        <li>Clínica de medicina estética o centro de estética avanzada con médico, 1-3 sedes.</li>
+        <li>Barcelona primero, luego Madrid, Valencia y Málaga.</li>
+        <li>Invierte en anuncios de Instagram/Meta (visible en la Biblioteca de anuncios de Meta).</li>
+        <li>Más de 5.000 seguidores y actividad diaria en reels.</li>
+        <li>Usa un software que <b>no</b> es Koibox, o solo Google Calendar / agenda en papel.</li>
+        <li>Ticket medio de tratamiento 250-600 €: un lead recuperado paga el mes.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3 style="margin-top:0">Quién decide y qué le duele</h3>
+      <ul>
+        <li><b>Decisora:</b> directora o dueña (a menudo la propia doctora) o gerente.</li>
+        <li><b>Usuaria:</b> recepcionista / coordinadora de pacientes.</li>
+        <li><b>Dolor 1:</b> DMs fuera de horario sin contestar, anuncio pagado desperdiciado.</li>
+        <li><b>Dolor 2:</b> valoraciones gratuitas con alta tasa de no presentación.</li>
+        <li><b>Dolor 3:</b> recepción saturada con preguntas repetidas de precio.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="comp">
+  <p class="eyebrow">Competencia</p>
+  <h2>Quién más está aquí</h2>
+  <div class="tw"><table>
+    <tr><th>Actor</th><th>Qué hace</th><th>Nuestra posición</th></tr>
+    <tr><td><a href="https://koibox.cloud/recepcionista-virtual-peluquerias-centro-estetica/" target="_blank" rel="noopener">Koibox</a> (España)</td><td>Software de gestión para peluquerías y centros de estética con recepcionista virtual IA dentro.</td><td>No competimos por sus clientes. Vamos a clínicas en otro software o sin software. Diferencia: conversión de DMs de Instagram + señal.</td></tr>
+    <tr><td>Software de gestión de clínicas estéticas (Flowww y similares)</td><td>Agenda, historia clínica, facturación. Algunos añaden recordatorios y WhatsApp.</td><td>Complemento, no sustituto. Integración con su agenda cuando haya API; si no, cita en Google Calendar + aviso a recepción.</td></tr>
+    <tr><td>Doctoralia / Treatwell</td><td>Marketplaces con reserva online.</td><td>Traen demanda de búsqueda; nosotros convertimos la demanda que la clínica ya paga en Instagram.</td></tr>
+    <tr><td>Agencias de marketing estético</td><td>Crean anuncios y a veces gestionan DMs a mano.</td><td>Canal de partners: les damos respuesta 24/7 y reporte de conversión para sus clientes.</td></tr>
+    <tr><td>Chatbots genéricos (ManyChat, etc.)</td><td>Flujos de botones en Instagram.</td><td>Glowdesk conversa, conoce la carta, marca contraindicaciones y cobra señal.</td></tr>
+  </table></div>
+  <p><b>Referencia YC:</b> <a href="https://www.ycombinator.com/companies/tepali" target="_blank" rel="noopener">Tepali</a>: IA de front desk para medspas en EE. UU. Valida que el vertical paga por una recepción con IA. Nuestra ventaja local: español, Bizum, normativa sanitaria española y venta cara a cara en Barcelona.</p>
+</section>
+
+<section id="gtm">
+  <p class="eyebrow">Go-to-market</p>
+  <h2>Primeros 10 clientes sin anuncios</h2>
+  <ol>
+    <li>Lista de 150 clínicas estéticas de Barcelona con la Biblioteca de anuncios de Meta (filtro: España, «medicina estética», «ácido hialurónico», «láser»).</li>
+    <li>Priorizamos las que tienen anuncios activos y tardan más de 1 hora en responder un DM de prueba (lo mandamos un domingo por la noche). Esperamos que sean unas 80.</li>
+    <li>Para cada una, montamos su agente con la carta pública de su web y grabamos un vídeo de 60 segundos: el agente contesta un DM real de su anuncio.</li>
+    <li>Enviamos el vídeo por DM de Instagram y por email. Joaquín visita en persona a las que respondan.</li>
+    <li>Oferta de piloto: 30 días gratis, luego precio de fundador (-30 % de por vida) a cambio de compartir métricas.</li>
+  </ol>
+  <h3>Camino a 10 clínicas de pago, semana a semana</h3>
+  <p>La software factory genera cada demo (carta + agente + vídeo del simulador). Joaquín revisa cada una en unos 10 minutos. Con eso, 20 demos por semana caben en 4 horas.</p>
+  <div class="tw"><table>
+    <tr><th>Semanas</th><th>Joaquín hace</th><th>Demos enviadas</th><th>Respuestas (25 %)</th><th>Visitas</th><th>Pilotos</th><th>Pagando</th></tr>
+    <tr><td>1-2</td><td>Lista de 150 clínicas, 60 DMs de prueba, primeras 20 demos</td><td>20</td><td>5</td><td>3</td><td>1</td><td>0</td></tr>
+    <tr><td>3-4</td><td>20 demos/semana, 3 visitas/semana, primer piloto en marcha</td><td>40</td><td>10</td><td>6</td><td>3 (acum. 4)</td><td>0</td></tr>
+    <tr><td>5-8</td><td>20 demos/semana, 2 agencias de marketing estético como partner</td><td>80</td><td>20</td><td>12</td><td>6 (acum. 10)</td><td>2</td></tr>
+    <tr><td>9-12</td><td>Madrid y Valencia por videollamada, referidos de los pilotos</td><td>60</td><td>15</td><td>9</td><td>6 (acum. 16)</td><td>10</td></tr>
+  </table></div>
+  <p class="note">Regla de corte: si en la semana 4 hay menos de 5 respuestas de 60 demos, el problema es el mensaje o el ICP, no el volumen. Cambiamos el guion antes de mandar más.</p>
+  <p class="note"><b>Kit completo:</b> mensajes por canal, visita, objeciones, seguimiento y búsquedas para la lista en <a href="outreach.html">outreach.html</a>. Ficha para dejar tras la visita: <a href="ficha.html">ficha.html</a>. Variante A/B del hero (ángulo ausencias): <a href="b.html">b.html</a>.</p>
+  <h3>Guion del primer DM</h3>
+  <pre>Hola [nombre], soy Joaquín, de Barcelona.
+El domingo a las 23:40 os escribí por el anuncio de [tratamiento]
+y la respuesta llegó el lunes a las 11:00.
+
+He montado una demo con vuestra carta: así habría contestado
+vuestra recepción con IA en 20 segundos, con la valoración
+reservada y la señal cobrada → [vídeo 60 s]
+
+¿Os lo enseño 15 minutos en la clínica esta semana?</pre>
+  <h3>Guion de la visita (15 minutos)</h3>
+  <ol>
+    <li>Mostrar su agente con su carta y su Instagram.</li>
+    <li>Preguntar: cuántos DMs al día, cuántas valoraciones, cuántas no vienen.</li>
+    <li>Calcular en vivo: valoraciones perdidas × ticket medio × tasa de cierre.</li>
+    <li>Explicar límites: la IA no diagnostica y usa textos aprobados por la doctora.</li>
+    <li>Cerrar el piloto con fecha de alta del Instagram.</li>
+  </ol>
+  <h3>Canales</h3>
+  <ul>
+    <li>DM + visita en persona (Eixample, Sant Gervasi, Les Corts, Sarrià).</li>
+    <li>Agencias de marketing estético como partners (comisión 20 % recurrente).</li>
+    <li>Distribuidores de material estético y formaciones/congresos de medicina estética.</li>
+    <li>LinkedIn e Instagram del fundador con casos del piloto (con permiso).</li>
+  </ul>
+  <h3>Contenido (reels)</h3>
+  <p><a href="contenido.html">Guiones completos, calendario y carruseles en contenido.html</a>.</p>
+  <ul>
+    <li>«Escribí a 20 clínicas un domingo a medianoche: esto tardaron en contestar».</li>
+    <li>«Cuánto dinero pierde una clínica por cada DM sin contestar» (cálculo en pantalla).</li>
+    <li>«Señal de 20 € vs. consulta gratis: qué pasa con las ausencias».</li>
+    <li>Demo en pantalla dividida: paciente en Instagram / agenda que se rellena sola.</li>
+  </ul>
+  <h3>Métricas</h3>
+  <div class="tw"><table>
+    <tr><th>Embudo de venta</th><th>Objetivo</th><th>Producto</th><th>Objetivo</th></tr>
+    <tr><td>Demos enviadas</td><td>20/semana</td><td>Tiempo a primera respuesta</td><td>&lt; 30 s</td></tr>
+    <tr><td>Respuesta</td><td>≥ 25 %</td><td>DM → valoración reservada</td><td>≥ 15 %</td></tr>
+    <tr><td>Visita → piloto</td><td>≥ 40 %</td><td>Reservas con señal pagada</td><td>≥ 60 %</td></tr>
+    <tr><td>Piloto → pago</td><td>≥ 50 %</td><td>No-show en valoraciones</td><td>-50 % vs. antes</td></tr>
+  </table></div>
+  <h3>Test A/B del hero</h3>
+  <p>Dos ángulos: <a href="index.html">A, respuesta a medianoche</a> y <a href="b.html">B, valoraciones que no vienen</a>. En los DMs de outreach, las demos con número par enlazan a A y las impares a B. Antes de empezar hay que conectar el formulario a un sitio que guarde las peticiones (Formspree, Tally o una tabla en Supabase) y activar Vercel Web Analytics. Hoy el formulario no guarda nada, así que no se puede medir.</p>
+  <p>Regla de decisión: con 40 visitas por variante, gana la que consiga más peticiones de demo. Si la diferencia es de 1 o 2 peticiones, es ruido: nos quedamos con A.</p>
+  <h3>Qué cambia con presupuesto alto</h3>
+  <ul>
+    <li>Anuncios en Meta dirigidos a dueñas de clínica con el caso «DM a medianoche».</li>
+    <li>Stand en congresos de medicina estética y patrocinio de formaciones.</li>
+    <li>Equipo de 2 SDRs + 1 persona de onboarding que monta la carta en 48 h.</li>
+    <li>Integraciones oficiales con los 3 principales softwares de clínicas estéticas.</li>
+    <li>Expansión a Portugal y México con la misma base en español/portugués.</li>
+  </ul>
+</section>
+
+<section id="90">
+  <p class="eyebrow">Ejecución</p>
+  <h2>30/60/90 días, con números por semana</h2>
+  <div class="tw"><table>
+    <tr><th>Tramo</th><th>Objetivo del tramo</th><th>Números por semana</th><th>Al final del tramo</th></tr>
+    <tr><td style="white-space:nowrap">Días 1-30</td><td>Demo que vende + Instagram real</td><td>20 demos enviadas · 5 respuestas · 3 visitas · 10 h de código</td><td>60 demos, 4 pilotos activos, revisión de Meta pedida, 30 evals en verde</td></tr>
+    <tr><td style="white-space:nowrap">Días 31-60</td><td>Pilotos que funcionan</td><td>20 demos · 3 visitas · revisión diaria de 30 conversaciones · 1 reel + 1 carrusel</td><td>10 pilotos, 2 pagando, tiempo de respuesta &lt; 30 s medido, no-show antes/después en 3 clínicas</td></tr>
+    <tr><td style="white-space:nowrap">Días 61-90</td><td>Cobrar y repetir</td><td>15 demos · 2 visitas · 2 pilotos → pago · 1 referido pedido a cada clínica activa</td><td>10 clínicas pagando (≈ 2.300 €/mes MRR), 2 agencias partner, decisión WhatsApp o voz</td></tr>
+  </table></div>
+
+  <h3>La hipótesis con más riesgo</h3>
+  <div class="box">
+    <p><b>Las clínicas dejarán que una IA conteste su Instagram.</b> Si la dueña no confía en eso, nada más importa: ni la señal ni el precio.</p>
+    <p><b>Test más barato, esta semana:</b> 10 visitas en persona en Eixample y Sant Gervasi con el vídeo de su propia demo, sin producto real detrás. Al final de cada visita, una sola pregunta: «¿Me dejas conectarlo a vuestro Instagram el lunes, gratis, 30 días?». Coste: 2 tardes y 0 €.</p>
+    <p><b>Resultado que lo valida:</b> 3 o más «sí» con fecha. Con 0 o 1, cambiar el ángulo (solo WhatsApp, o solo recordatorios de cita) antes de escribir más código.</p>
+  </div>
+
+  <div class="note" style="border:2px solid var(--rose);background:var(--paper)">
+    <h3 style="margin-top:0">Criterios para matar la idea</h3>
+    <ul>
+      <li><b>Día 30:</b> menos de 2 pilotos activos después de 60 demos enviadas y 10 visitas.</li>
+      <li><b>Día 60:</b> ninguna clínica del piloto dice que pagaría 149 € o más, o el tiempo de respuesta no cambia su número de valoraciones.</li>
+      <li><b>Día 90:</b> menos de 5 clínicas pagando, o churn de 2 o más en el primer mes de pago.</li>
+      <li><b>En cualquier momento:</b> un abogado sanitario confirma que el agente no puede contestar precios de tratamientos médicos por DM, o Meta rechaza dos veces el permiso de mensajes.</li>
+    </ul>
+    <p style="margin:0">Si se cumple uno, Joaquín para, escribe qué aprendió en una página y pasa la software factory a la siguiente idea del portfolio.</p>
+  </div>
+</section>
+
+<section id="legal">
+  <p class="eyebrow">Riesgos legales</p>
+  <h2>Publicidad sanitaria, datos de salud e IA</h2>
+  <div class="note"><b>Regla de diseño:</b> la IA solo dice lo que la clínica ha aprobado por escrito. Todo lo demás se deriva a una persona.</div>
+  <h3>Publicidad sanitaria</h3>
+  <ul>
+    <li>La medicina estética es actividad sanitaria. Su publicidad está regulada por la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1986-10499" target="_blank" rel="noopener">Ley 14/1986 General de Sanidad (art. 27)</a> y el <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1996-18605" target="_blank" rel="noopener">Real Decreto 1907/1996</a> sobre publicidad con pretendida finalidad sanitaria.</li>
+    <li>Los medicamentos de prescripción (por ejemplo, la toxina botulínica) no se pueden anunciar al público: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-8343" target="_blank" rel="noopener">RDL 1/2015, Ley de garantías de medicamentos (art. 80)</a>. El agente no usa marcas comerciales de medicamentos y no hace mensajes promocionales sobre ellos; responde a preguntas con textos aprobados y remite a la valoración médica.</li>
+    <li>Las comunidades autónomas controlan la publicidad sanitaria. En Cataluña, el centro debe estar autorizado y registrado; el agente muestra el número de registro sanitario. Validar con un abogado sanitario antes del piloto.</li>
+    <li>Prohibido en el prompt: prometer resultados, fotos de antes/después, «sin riesgos», «el mejor», descuentos agresivos con presión de tiempo sobre actos médicos.</li>
+  </ul>
+  <h3>RGPD y datos de salud</h3>
+  <ul>
+    <li>Contraindicaciones (embarazo, lactancia, alergias, medicación) son datos de categoría especial (art. 9 RGPD). La clínica es responsable; Glowdesk es encargado del tratamiento (contrato art. 28).</li>
+    <li>Minimizar: guardar solo el aviso («revisar lactancia»), no la conversación clínica completa más tiempo del necesario. Retención configurable (por defecto 90 días para leads no convertidos).</li>
+    <li>Alojamiento y proveedores de LLM con procesamiento en la UE y contrato de no entrenamiento con los datos.</li>
+    <li>EIPD (evaluación de impacto) antes de escalar.</li>
+  </ul>
+  <h3>IA y canales</h3>
+  <ul>
+    <li>Transparencia del AI Act (art. 50): el agente dice que es un asistente virtual en el primer mensaje.</li>
+    <li>Políticas de Meta: Instagram Messaging API y WhatsApp Business Platform tienen ventana de 24 h y plantillas aprobadas para mensajes fuera de ella.</li>
+    <li>Llamadas: aviso de grabación y opción de hablar con una persona.</li>
+    <li>Señales: cobro con proveedor regulado. En el MVP, Stripe Payment Links con tarjeta. Bizum llega por el TPV Redsys del banco de la clínica, solo cuando un piloto lo pida. Política de reembolso visible antes de pagar.</li>
+  </ul>
+</section>
+
+<section id="alto">
+  <p class="eyebrow">Plan técnico · alto nivel</p>
+  <h2>Arquitectura</h2>
+  <div class="arch">
+    <div class="lane"><span class="lane-t">Canales</span>
+      <div class="nodes">
+        <div class="node"><b>Instagram DM</b>Meta Messaging API (webhook)</div>
+        <div class="node"><b>WhatsApp</b>WhatsApp Cloud API</div>
+        <div class="node"><b>Llamadas</b>Twilio / Telnyx + voz en tiempo real</div>
+        <div class="node"><b>Anuncios</b>Meta Lead Ads (webhook)</div>
+      </div></div>
+    <div class="arrow">↓</div>
+    <div class="lane"><span class="lane-t">Núcleo</span>
+      <div class="nodes">
+        <div class="node core"><b>Gateway de mensajes</b>Normaliza eventos a una conversación única por paciente</div>
+        <div class="node core"><b>Agente de recepción</b>LLM + herramientas: carta, agenda, señal, derivar</div>
+        <div class="node warn"><b>Guardarraíl sanitario</b>Filtro de salida: textos aprobados, sin promesas, sin marcas de medicamentos</div>
+      </div></div>
+    <div class="arrow">↓</div>
+    <div class="lane"><span class="lane-t">Integraciones y datos</span>
+      <div class="nodes">
+        <div class="node"><b>Agenda</b>Google Calendar · APIs de software de clínica</div>
+        <div class="node"><b>Pagos</b>Stripe Payment Links (tarjeta), Bizum vía Redsys</div>
+        <div class="node"><b>Base de datos</b>Postgres (Supabase UE)</div>
+        <div class="node"><b>Panel web</b>Bandeja, carta, avisos, métricas</div>
+      </div></div>
+  </div>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li><b>Backend:</b> TypeScript + Hono en Vercel Functions o Cloudflare Workers; colas para reintentos de webhooks.</li>
+    <li><b>Datos:</b> Supabase Postgres (región UE) con RLS por clínica.</li>
+    <li><b>LLM:</b> modelo con buena calidad en español y function calling, con acuerdo de proceso en la UE; modelo pequeño para clasificar y guardarraíl.</li>
+    <li><b>Voz (fase 2):</b> STT/TTS en streaming en español con Twilio o Telnyx.</li>
+    <li><b>Panel:</b> Next.js + Tailwind, móvil primero (la recepción vive en el móvil).</li>
+    <li><b>Observabilidad:</b> trazas de cada conversación (Langfuse) para revisar respuestas y evals.</li>
+  </ul>
+</section>
+
+<section id="bajo">
+  <p class="eyebrow">Plan técnico · bajo nivel</p>
+  <h2>Modelo de datos</h2>
+  <div class="tw"><table>
+    <tr><th>Tabla</th><th>Campos principales</th></tr>
+    <tr><td><code>clinics</code></td><td>id, name, legal_name, health_registry_no, timezone, deposit_policy (json), handoff_rules (json), plan, created_at</td></tr>
+    <tr><td><code>staff</code></td><td>id, clinic_id, name, role (doctor|reception|admin), email, phone, calendar_id</td></tr>
+    <tr><td><code>channels</code></td><td>id, clinic_id, type (instagram|whatsapp|phone|lead_ads), external_id, access_token_ref, status</td></tr>
+    <tr><td><code>treatments</code></td><td>id, clinic_id, name, category, price_from, duration_min, needs_valuation, approved_copy, contraindication_keys[], is_prescription_drug, approved_by, approved_at</td></tr>
+    <tr><td><code>patients</code></td><td>id, clinic_id, name, phone, ig_handle, email, consent_at, source_campaign, retention_until</td></tr>
+    <tr><td><code>conversations</code></td><td>id, clinic_id, patient_id, channel_id, status (bot|human|closed), last_message_at, window_expires_at</td></tr>
+    <tr><td><code>messages</code></td><td>id, conversation_id, direction, body, tool_calls (json), guardrail_result, created_at</td></tr>
+    <tr><td><code>leads</code></td><td>id, clinic_id, patient_id, treatment_id, budget_range, stage (new|qualified|booked|deposit_paid|attended|no_show|lost), score</td></tr>
+    <tr><td><code>clinical_flags</code></td><td>id, lead_id, key (pregnancy|breastfeeding|allergy|medication|other), note, reviewed_by, reviewed_at</td></tr>
+    <tr><td><code>appointments</code></td><td>id, clinic_id, lead_id, staff_id, starts_at, type (valuation|treatment), external_event_id, status</td></tr>
+    <tr><td><code>deposits</code></td><td>id, appointment_id, amount, provider, provider_ref, status (pending|paid|refunded|kept), paid_at</td></tr>
+    <tr><td><code>followups</code></td><td>id, lead_id, run_at, template, status</td></tr>
+  </table></div>
+
+  <h3>Endpoints y jobs</h3>
+  <div class="tw"><table>
+    <tr><th>Ruta / job</th><th>Qué hace</th></tr>
+    <tr><td><code>POST /webhooks/meta</code></td><td>Recibe DMs de Instagram, WhatsApp y Lead Ads. Verifica firma y encola.</td></tr>
+    <tr><td><code>POST /webhooks/voice</code></td><td>Arranca la sesión de voz y la conecta al mismo agente.</td></tr>
+    <tr><td><code>POST /webhooks/stripe</code></td><td>Marca la señal como pagada y confirma la cita.</td></tr>
+    <tr><td><code>job: handle_message</code></td><td>Carga contexto, ejecuta el agente, pasa el guardarraíl, envía la respuesta.</td></tr>
+    <tr><td><code>job: expire_holds</code></td><td>Cada 5 min libera huecos reservados sin señal tras 30 min.</td></tr>
+    <tr><td><code>job: nurture</code></td><td>Seguimiento a leads sin reserva (24 h, 3 días, 7 días) con plantillas aprobadas.</td></tr>
+    <tr><td><code>job: reminders</code></td><td>Recordatorio 24 h antes de la cita con enlace para cambiar hora.</td></tr>
+    <tr><td><code>job: daily_digest</code></td><td>Resumen a las 9:00 para recepción y doctora (avisos clínicos pendientes).</td></tr>
+    <tr><td><code>GET/POST /api/treatments</code></td><td>Carta de la clínica; publicar exige aprobación de un usuario con rol doctor.</td></tr>
+    <tr><td><code>POST /api/conversations/:id/handoff</code></td><td>Pasa la conversación a una persona y pausa el agente.</td></tr>
+  </table></div>
+
+  <h3>Agentes y prompts</h3>
+  <ul>
+    <li><b>Recepcionista</b> (LLM principal). Herramientas: <code>search_treatments</code>, <code>get_slots</code>, <code>hold_slot</code>, <code>create_deposit_link</code>, <code>add_clinical_flag</code>, <code>handoff_to_human</code>. Tono cálido y breve, tuteo, máximo 3 frases por mensaje.</li>
+    <li><b>Detector clínico</b> (modelo pequeño). Clasifica cada mensaje: embarazo, lactancia, alergias, medicación, enfermedad, menor de edad, urgencia. Si hay urgencia o menor: derivar siempre.</li>
+    <li><b>Guardarraíl sanitario</b> (reglas + modelo pequeño). Bloquea promesas de resultado, marcas de medicamentos, precios no aprobados y consejo médico. Si bloquea, reescribe con plantilla segura.</li>
+    <li><b>Importador de carta</b>. Lee la web o el PDF de precios y propone <code>treatments</code> para que la doctora los apruebe.</li>
+  </ul>
+  <pre>SYSTEM (resumen)
+Eres el asistente virtual de {clinic.name}. Dilo en tu primer mensaje.
+Solo hablas de tratamientos de la carta con su approved_copy y price_from.
+Nunca diagnosticas, nunca prometes resultados, nunca nombras marcas de medicamentos.
+Si la persona menciona salud, embarazo, lactancia, alergias o medicación:
+  llama add_clinical_flag y di que la doctora lo valorará.
+Objetivo: reservar la valoración y enviar el enlace de señal ({deposit_policy}).
+Si pide una persona o dudas: handoff_to_human.</pre>
+
+  <h3>Flujo paso a paso (DM de Instagram)</h3>
+  <ol>
+    <li>Llega el webhook de Meta; se crea o recupera el paciente por <code>ig_handle</code>.</li>
+    <li>El detector clínico etiqueta el mensaje.</li>
+    <li>El agente responde con la carta y pregunta tratamiento de interés y presupuesto.</li>
+    <li>El agente ofrece 3 huecos de valoración con <code>get_slots</code>.</li>
+    <li>La paciente elige; <code>hold_slot</code> bloquea el hueco 30 minutos.</li>
+    <li><code>create_deposit_link</code> envía el enlace de señal.</li>
+    <li>El webhook de pago confirma la cita en la agenda y avisa a recepción.</li>
+    <li>Si hay aviso clínico, la doctora lo ve en el resumen diario.</li>
+    <li>Sin pago en 30 minutos: se libera el hueco y entra en el job de seguimiento.</li>
+  </ol>
+</section>
+
+<section id="mvp">
+  <p class="eyebrow">MVP</p>
+  <h2>Plan de 4 semanas</h2>
+  <div class="weeks">
+    <div class="wk"><b>Semana 1 · Demo que vende</b><ul><li>Importador de carta desde web.</li><li>Agente en un simulador de DM (web) con la carta de cada clínica.</li><li>Guardarraíl sanitario v1 y 30 evals de casos difíciles.</li><li>Mystery shopping a 40 clínicas y primeros DMs con vídeo.</li></ul></div>
+    <div class="wk"><b>Semana 2 · Instagram real</b><ul><li>App de Meta, webhook de Instagram y envío de respuestas. Las clínicas del piloto entran como testers de la app en modo desarrollo, porque la revisión de Meta (permiso de mensajes de Instagram y verificación del negocio) puede tardar semanas. Pedimos la revisión el día 1.</li><li>Google Calendar: huecos y reservas.</li><li>Stripe Payment Links para la señal.</li><li>Panel mínimo: bandeja y botón «pasar a persona».</li></ul></div>
+    <div class="wk"><b>Semana 3 · Piloto con 3 clínicas</b><ul><li>Onboarding asistido y aprobación de carta por la doctora.</li><li>Avisos clínicos y resumen diario por email/WhatsApp.</li><li>Revisión diaria de conversaciones y ajuste de prompts.</li></ul></div>
+    <div class="wk"><b>Semana 4 · Medir y cobrar</b><ul><li>Métricas: tiempo de respuesta, DM → reserva, señales, ausencias.</li><li>Seguimiento de leads (nurture) con plantillas.</li><li>Convertir pilotos a pago y decidir WhatsApp vs. voz como siguiente canal.</li></ul></div>
+  </div>
+</section>
+
+<section id="eco">
+  <p class="eyebrow">Unit economics</p>
+  <h2>Números simples (plan de 229 €/mes)</h2>
+  <div class="tw"><table>
+    <tr><th>Concepto</th><th>€/mes por clínica</th><th>Supuesto</th></tr>
+    <tr><td>Precio</td><td>229</td><td>Plan medio, sin IVA</td></tr>
+    <tr><td>LLM + guardarraíl</td><td>15</td><td>~1.500 conversaciones/mes, modelo medio + modelo pequeño</td></tr>
+    <tr><td>WhatsApp (mensajes de plantilla)</td><td>8</td><td>Recordatorios y seguimientos fuera de la ventana de 24 h</td></tr>
+    <tr><td>Infra y base de datos</td><td>5</td><td>Prorrateado</td></tr>
+    <tr><td>Soporte y onboarding</td><td>20</td><td>~1 h/mes del fundador, amortizado</td></tr>
+    <tr><td><b>Coste total</b></td><td><b>48</b></td><td></td></tr>
+    <tr><td><b>Margen bruto</b></td><td><b>181 (≈ 79 %)</b></td><td>Plan de 299 con voz: +40 € de minutos, margen ≈ 70 %</td></tr>
+  </table></div>
+  <ul>
+    <li><b>Valor para la clínica:</b> 2 valoraciones extra al mes × 40 % de cierre × 400 € = 320 € de facturación. El producto se paga con menos de una paciente al mes.</li>
+    <li><b>Break-even personal:</b> con ~2.500 €/mes de costes fijos (herramientas + sueldo mínimo), hacen falta ~14 clínicas en el plan medio.</li>
+    <li><b>CAC sin anuncios:</b> ~4 h de venta por clínica. Con 40 clínicas objetivo: ~7.200 €/mes de MRR.</li>
+    <li><b>Riesgo de churn:</b> si la señal no reduce ausencias, la clínica se va. Por eso medimos no-show desde el día 1.</li>
+  </ul>
+</section>
+
+<section id="fabricas">
+  <p class="eyebrow">Automatización</p>
+  <h2>Qué hacen la software factory y la marketing factory</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3 style="margin-top:0">Software factory (agentes)</h3>
+      <ul>
+        <li>Generar el agente de demo por clínica: scrape de web + carta + vídeo del simulador.</li>
+        <li>Mantener conectores (Meta, Calendar, Stripe) con tests y evals en CI.</li>
+        <li>Ampliar la suite de evals con cada conversación marcada como mala por una clínica.</li>
+        <li>Revisión nocturna de conversaciones: detectar respuestas fuera de carta y proponer arreglos de prompt en un PR.</li>
+        <li>Nuevas integraciones de agenda a partir de la documentación de cada software.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3 style="margin-top:0">Marketing factory (agentes)</h3>
+      <ul>
+        <li>Prospección: leer la Biblioteca de anuncios de Meta y puntuar clínicas por inversión y tiempo de respuesta.</li>
+        <li>Mystery shopping automatizado (DM de prueba y medición del tiempo de respuesta), con revisión humana.</li>
+        <li>Redactar DMs y emails personalizados con su vídeo de demo; Joaquín aprueba el envío.</li>
+        <li>Guiones de reels a partir de datos agregados del piloto.</li>
+        <li>Informe mensual de ROI para cada clínica (argumento de renovación).</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note" style="margin-top:14px">Límite: ningún agente envía mensajes a clínicas ni publica contenido sanitario sin aprobación humana.</p>
+</section>
+
+</main>
+<footer><div class="wrap">Glowdesk · © 2026 · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

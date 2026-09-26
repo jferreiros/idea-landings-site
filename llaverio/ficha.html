@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: ficha del piloto</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sand:#EADCC0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#DDE6EA;color:var(--ink);font:400 14px/1.5 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:24px 12px}
+.sheet{max-width:794px;margin:0 auto;background:#fff;border-radius:6px;box-shadow:0 30px 60px -30px rgba(11,42,60,.4);overflow:hidden}
+.top{background:var(--ink);color:#fff;padding:28px 36px 24px;display:grid;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font:700 22px "Bricolage Grotesque",sans-serif}
+h1{font:700 clamp(26px,5vw,34px)/1.08 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;max-width:18em}
+h1 em{font-style:normal;color:#EADCC0}
+.top p{color:#CFE2EE;max-width:40em}
+.win{padding:16px 36px;background:#F7F9FA;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.win b{color:var(--ink)}
+.k{background:var(--sand);color:#4A3B1E;font:500 12px "Geist Mono",monospace;padding:4px 12px 4px 8px;border-radius:6px 999px 999px 6px}
+.body{padding:26px 36px 30px;display:grid;gap:22px;grid-template-columns:1fr}
+h2{font:600 18px "Bricolage Grotesque",sans-serif;margin-bottom:8px}
+ol,ul{margin-left:18px;display:grid;gap:5px}
+.cols{display:grid;gap:18px;grid-template-columns:1fr}
+.box{border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.box.sea{background:var(--sea);color:#fff;border-color:var(--sea)}
+.box.sea li,.box.sea p{color:#E6EEF2}
+.box.sand{background:var(--sand);border-color:#DCC79E}
+.price{font:700 30px "Bricolage Grotesque",sans-serif}
+.price small{font:400 13px "Geist",sans-serif;color:var(--muted)}
+.foot{border-top:1px solid var(--line);padding:16px 36px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.foot a{color:var(--sea)}
+.print{display:block;max-width:794px;margin:14px auto 0;text-align:right}
+.print button{font:600 14px "Geist",sans-serif;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:11px 18px;cursor:pointer}
+.print button:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+@media(min-width:640px){.cols{grid-template-columns:1fr 1fr}}
+@page{size:A4;margin:0}
+@media print{body{background:#fff;padding:0}.sheet{box-shadow:none;border-radius:0;max-width:none}.print{display:none}.cols{grid-template-columns:1fr 1fr}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="top">
+    <div class="logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="11" cy="16" r="7" stroke="#EADCC0" stroke-width="2.6"/><path d="M18 16h11M25 16v5M29 16v3.5" stroke="#EADCC0" stroke-width="2.6" stroke-linecap="round"/></svg>Llaverio</div>
+    <h1>Ningún huésped entra en un piso <em>sin revisar</em>.</h1>
+    <p>Tras cada check-out, Llaverio avisa a tu limpiadora por WhatsApp, revisa sus fotos con la lista del piso y solo te escribe si falta algo.</p>
+  </header>
+  <div class="win"><span>Salida <b>11:00</b></span><span class="k">Tu piso</span><span>Entrada <b>16:00</b></span><span>Tú solo decides si algo falla</span></div>
+  <div class="body">
+    <section>
+      <h2>Cómo funciona</h2>
+      <ol>
+        <li><b>Conectamos tu PMS</b> (Avantio, Hostaway, Smoobu o iCal) y cargamos pisos, limpiadoras y técnicos.</li>
+        <li><b>Tras cada salida</b>, el agente avisa a la limpiadora por WhatsApp, pide fotos y las compara con la lista del piso.</li>
+        <li><b>Si falta algo</b>, se lo pide a la limpiadora mientras está dentro. Si ve una avería, abre el parte y propone cita al técnico.</li>
+        <li><b>Tú apruebas</b> gastos, quejas serias y cambios de horario. Las dos primeras semanas, cada mensaje pasa por ti.</li>
+      </ol>
+    </section>
+    <div class="cols">
+      <div class="box sea">
+        <h2>El piloto</h2>
+        <ul>
+          <li>30 días gratis, sin tarjeta.</li>
+          <li>5 de tus pisos, montado por Joaquín.</li>
+          <li>Solo pagas si 8 de cada 10 salidas quedan revisadas sin que intervengas.</li>
+          <li>Sin permanencia. Datos en la UE (RGPD).</li>
+        </ul>
+      </div>
+      <div class="box sand">
+        <h2>Después del piloto</h2>
+        <div class="price">12 € <small>/ vivienda activa / mes</small></div>
+        <p>Plan Operaciones: limpiezas, partes, incidencias de huéspedes e informe mensual al propietario. Solo cuentan los pisos con al menos una salida ese mes. Precio de lanzamiento para las primeras gestoras.</p>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="box">
+        <h2>Qué necesito de ti</h2>
+        <ul>
+          <li>Una hora para la puesta en marcha.</li>
+          <li>Acceso de lectura a tu PMS.</li>
+          <li>Lista de pisos, limpiadoras y técnicos.</li>
+          <li>Consentimiento de tu equipo para usar las fotos (solo del piso).</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h2>Lo que no hace</h2>
+        <ul>
+          <li>No sustituye tu PMS ni tu channel manager.</li>
+          <li>No hace registro de viajeros (para eso, Chekin o similar).</li>
+          <li>Tu equipo no instala ninguna app.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer class="foot">
+    <span><b style="color:var(--ink)">Joaquín Ferreiros</b>, fundador. Barcelona. Llaverio está en fase de piloto, sin clientes de pago todavía.</span>
+    <span><a href="https://llaverio.vercel.app">llaverio.vercel.app</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a></span>
+  </footer>
+</main>
+<div class="print"><button type="button" onclick="window.print()">Imprimir o guardar en PDF</button></div>
+</body>
+</html>

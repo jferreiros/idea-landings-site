@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: kit de anuncios</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+.msg{background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:16px 18px;margin:10px 0;white-space:pre-line;max-width:640px}
+.msg.sea{background:var(--sea-soft);border-color:#C4DCEA;border-radius:18px 18px 6px 18px}
+.ch{display:inline-block;background:var(--brass-soft);color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:3px 10px 3px 8px;border-radius:6px 999px 999px 6px;margin-bottom:6px}
+.obj{display:grid;gap:12px;grid-template-columns:1fr}
+.obj .box h3{margin-top:0}
+.seq{display:grid;gap:0;margin-top:12px}
+.seq > div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.seq b.d{font:600 1rem "Geist Mono",monospace;color:var(--sea)}
+ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
+@media(min-width:720px){.obj{grid-template-columns:1fr 1fr}}
+.obj2{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:720px){.obj2{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">← Volver al plan</a>
+  <div style="margin-top:18px" class="eyebrow">Kit de anuncios · para más adelante</div>
+  <h1>Test de anuncios con 5 € al día</h1>
+  <p class="muted">Documento interno. No se activa hasta tener 3 pilotos y la landing midiendo conversiones. El canal principal sigue siendo la visita en persona.</p>
+  <div class="summary"><b>Antes de gastar un euro:</b> conectar el formulario, añadir analítica con banner de consentimiento (hoy la web no usa cookies) y actualizar la <a href="cookies.html" style="color:#EADCC0">política de cookies</a>.</div>
+</div></header>
+<main>
+<section><div class="wrap">
+  <h2>Google Ads: palabras clave</h2>
+  <div class="grid2">
+    <div class="box"><h3 style="margin-top:0">Exacta</h3><ul>
+      <li>[software limpieza apartamentos turísticos]</li>
+      <li>[gestión limpiezas pisos turísticos]</li>
+      <li>[app limpieza alquiler vacacional]</li>
+      <li>[checklist limpieza apartamento turístico]</li>
+      <li>[software gestora alquiler vacacional]</li>
+    </ul></div>
+    <div class="box"><h3 style="margin-top:0">Frase</h3><ul>
+      <li>"coordinar limpiezas airbnb"</li>
+      <li>"gestión de limpiezas alquiler turístico"</li>
+      <li>"programa para gestionar apartamentos turísticos"</li>
+      <li>"automatizar limpiezas smoobu"</li>
+      <li>"automatizar limpiezas hostaway"</li>
+    </ul></div>
+  </div>
+  <div class="box warn"><h3 style="margin-top:0">Negativas</h3><p>empleo, trabajo, oferta, curso, gratis plantilla, limpiadora busco, precio limpieza, empresa de limpieza, particular, alquilar piso, comprar, hotel, barcelona licencia, pdf</p></div>
+  <p class="muted">Zona: Girona, Tarragona, Málaga, Santa Cruz de Tenerife y Las Palmas. Idioma: español y catalán. Solo de lunes a viernes, de 9:00 a 19:00.</p>
+</div></section>
+<section><div class="wrap">
+  <h2>5 anuncios de búsqueda</h2>
+  <p>Formato: título 1 | título 2 | título 3, y descripción. Todos llevan a la landing con <code>?utm_source=google&amp;utm_campaign=test1</code>.</p>
+  <div class="obj2"><div class="box"><span class="ch">Anuncio 1</span><p><b>Revisa cada piso tras el check-out | Fotos revisadas antes de cada entrada | Tu limpiadora sigue en WhatsApp</b></p><p class="muted">Llaverio avisa a tu limpiadora tras cada salida y revisa sus fotos. Piloto gratis de 30 días.</p></div><div class="box"><span class="ch">Anuncio 2</span><p><b>Limpiezas de pisos turísticos | Coordinadas por WhatsApp | Para gestoras de 10 a 60 pisos</b></p><p class="muted">Deja los grupos de WhatsApp. El agente asigna, pide fotos y solo te avisa si falta algo.</p></div><div class="box"><span class="ch">Anuncio 3</span><p><b>Software para tu equipo de limpieza | Sin apps nuevas para tu equipo | Conecta Smoobu, Hostaway o Avantio</b></p><p class="muted">Lee tus salidas del PMS y coordina la limpieza. Tú apruebas lo importante. Sin permanencia.</p></div><div class="box"><span class="ch">Anuncio 4</span><p><b>¿Quién revisa el piso a las 15:00? | Llaverio, antes que tu huésped | Piloto gratis, sin tarjeta</b></p><p class="muted">Cada piso con su lista de revisión. Si falta algo, se lo pide a la limpiadora mientras sigue dentro.</p></div><div class="box"><span class="ch">Anuncio 5</span><p><b>Sábados de agosto sin llamadas | Limpiezas y averías, en orden | 12 € por vivienda activa</b></p><p class="muted">Solo pagas si 8 de cada 10 salidas quedan revisadas sin que intervengas. Pruébalo 30 días.</p></div></div>
+</div></section>
+<section><div class="wrap">
+  <h2>3 conceptos para Meta (Instagram y Facebook)</h2>
+  <div class="obj2">
+    <div class="box"><span class="ch">Concepto A · Reel</span><h3>La toalla que falta</h3><p><b>Gancho (2 s):</b> «14:41. El huésped entra a las 16:00. Falta una toalla.»</p><p>Pantalla del WhatsApp con la foto marcada y la respuesta de la limpiadora. Cierre: «Piloto gratis para gestoras de costa».</p></div>
+    <div class="box"><span class="ch">Concepto B · Carrusel</span><h3>Un sábado de agosto, hora a hora</h3><p><b>Gancho:</b> «9 salidas. 9 entradas. 1 limpiadora de baja.»</p><p>Cinco láminas con la cronología y la última con «Así lo resuelve Llaverio».</p></div>
+    <div class="box"><span class="ch">Concepto C · Imagen fija</span><h3>El llavero</h3><p><b>Gancho:</b> «¿Cuántos grupos de WhatsApp tienes para limpiezas?»</p><p>Foto de un manojo de llaves con etiquetas de pisos sobre fondo azul mar. Texto: «Uno menos a partir de hoy».</p></div>
+  </div>
+  <h3>Audiencias</h3>
+  <ul>
+    <li>Intereses: Airbnb para anfitriones, gestión de propiedades, Booking.com para partners, Smoobu, Hostaway.</li>
+    <li>Cargo o sector: administración de propiedades, hostelería, inmobiliaria. Edad 28 a 60.</li>
+    <li>Zonas: Costa Brava, Costa Daurada, Costa del Sol, Tenerife y Gran Canaria (radio de 20 km sobre los municipios costeros).</li>
+    <li>Excluir: Barcelona ciudad (el plan no la ataca) y personas que ya visitaron la landing en los últimos 30 días.</li>
+  </ul>
+</div></section>
+<section><div class="wrap">
+  <h2>Plan de 2 semanas a 5 € al día</h2>
+  <div class="tw"><table>
+    <tr><th>Días</th><th>Qué</th><th>Presupuesto</th></tr>
+    <tr><td>1-7</td><td>Google: anuncios 1 a 5 en rotación, solo palabras exactas.</td><td>35 €</td></tr>
+    <tr><td>8-14</td><td>Meta: conceptos A, B y C a partes iguales; se apaga el peor el día 11.</td><td>35 €</td></tr>
+    <tr><td>Total</td><td>Revisión los días 4, 7, 11 y 14. Negativas nuevas cada revisión.</td><td>70 €</td></tr>
+  </table></div>
+</div></section>
+<section><div class="wrap">
+  <h2>Métricas que deciden</h2>
+  <ul>
+    <li><b>Seguir</b> si al día 14 hay 2 o más formularios de gestoras con 10 a 60 pisos (coste por lead de 35 € o menos) y al menos 1 llamada hecha.</li>
+    <li><b>Ajustar</b> si el CTR de búsqueda supera el 3% pero nadie rellena el formulario: el problema es la landing, no el anuncio.</li>
+    <li><b>Parar</b> si el CTR es menor del 1% o todos los leads son particulares o limpiadoras buscando trabajo.</li>
+  </ul>
+  <p class="muted">Referencia: con visitas en persona el plan estima 6 a 8 horas por cliente. Un anuncio solo compensa si el lead cualificado sale por menos que esas horas.</p>
+</div></section>
+</main>
+<footer><div class="wrap">Llaverio · © 2026 · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

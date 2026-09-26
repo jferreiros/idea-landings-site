@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Crect x='9' y='5' width='14' height='22' fill='%23FF2E7E'/%3E%3Cpath d='M14 12l6 4-6 4z' fill='%23141414'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3F1EC;--white:#FCFBF8;--ink:#141414;--grey:#5B5955;--pop:#FF2E7E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;font-size:16.5px;line-height:1.6}
+a{color:var(--ink);text-decoration-thickness:2px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:2px solid var(--ink);padding:18px 0}
+header .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-weight:700}
+.logo{font-family:"Anton",Impact,sans-serif;font-size:1.4rem;text-decoration:none}.logo b{font-weight:400;background:var(--ink);color:var(--pop);padding:0 5px}
+h1,h2,h3{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:1}
+h1{font-size:clamp(2.6rem,8vw,4.6rem);margin:40px 0 14px}
+h2{font-size:2.1rem;margin-bottom:14px}
+h3{font-size:1.3rem;margin:22px 0 8px}
+section{padding:40px 0;border-bottom:2px solid var(--ink)}
+.lead{font-size:1.15rem;max-width:40em;margin-bottom:30px}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;text-transform:uppercase;background:var(--pop);border:2px solid var(--ink);padding:3px 8px;transform:rotate(-2deg);margin-bottom:12px}
+.msg{background:var(--white);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:18px;margin:12px 0 20px}
+.msg p+p{margin-top:8px}
+ul,ol{padding-left:22px;display:grid;gap:8px;margin:10px 0}
+.grid{display:grid;gap:14px}@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.card{border:2px solid var(--ink);background:var(--white);padding:18px}
+.card b{display:block;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;border:2px solid var(--ink);background:var(--white);font-size:.93rem}
+th,td{padding:10px 12px;border-bottom:2px solid var(--ink);text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--white)}
+.scroll{overflow-x:auto}
+code{font-family:"JetBrains Mono",monospace;font-size:.85em;background:var(--white);border:1.5px solid var(--ink);padding:1px 5px}
+footer{padding:30px 0;font-size:.9rem}
+:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+</style>
+<title>Barrio Reel | Onboarding de los primeros 14 días</title>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="index.html">BARRIO<b>REEL</b></a><span><a href="plan.html">Plan</a> &nbsp; <a href="outreach.html">Outreach</a></span></div></header>
+<main class="wrap">
+<h1>Onboarding: 14 días</h1>
+<p class="lead">Qué recibe un restaurante después de pedir el piloto. Canal principal: WhatsApp, porque el dueño no lee el email. Uso interno.</p>
+
+<section>
+<span class="tag">Primer valor</span>
+<h2>El momento "ya funciona"</h2>
+<p>El dueño recibe por WhatsApp el enlace al primer reel publicado con su ubicación, antes del día 10. Todo el onboarding empuja hacia ese mensaje. Medimos días desde el alta hasta el primer reel (meta: 10 días o menos).</p>
+</section>
+
+<section>
+<h2>Mensajes</h2>
+<h3>Día 0 (WhatsApp, a los 10 minutos del formulario)</h3>
+<div class="msg"><p>Hola [nombre], soy Joaquín de Barrio Reel. Gracias por pedir el piloto para [local]. ¿Te va bien que pase mañana o pasado entre las 16:00 y las 18:00? Son 15 minutos.</p></div>
+<h3>Día 1 (WhatsApp, tras la visita)</h3>
+<div class="msg"><p>Gracias por el rato, [nombre]. Apunto: días flojos [días], plato a destacar [plato], límite por comida [importe]. El jueves te propongo 4 creadores. Si algo no cuadra, dímelo aquí.</p></div>
+<h3>Día 3 (WhatsApp, propuesta)</h3>
+<div class="msg"><p>Estos son tus 4 creadores del piloto: [@1], [@2], [@3], [@4]. Todos tienen la mayor parte de su público en Barcelona. Primera visita: [día] a las [hora] con [@1]. ¿Te va bien? Responde "sí" o dime otra hora.</p></div>
+<h3>Día 7 (WhatsApp, tras la primera visita)</h3>
+<div class="msg"><p>[@1] ya ha publicado: [enlace]. Lleva la ubicación de [local] y la etiqueta #publi. Puedes compartirlo en tu cuenta. La siguiente visita es el [día].</p></div>
+<h3>Día 14 (WhatsApp + email a la dirección de empresa, resumen)</h3>
+<div class="msg"><p>Mitad del piloto: 2 reels publicados, [N] reproducciones hasta hoy (dato de los creadores). Quedan 2 visitas: [fechas]. Si quieres destacar algo distinto, dímelo ahora.</p></div>
+</section>
+
+<section>
+<h2>Checklist de alta</h2>
+<ol>
+<li>Datos del local: nombre, dirección, perfil de Instagram, horario.</li>
+<li>Días y horas flojas (2 franjas como mínimo).</li>
+<li>Plato o novedad a destacar.</li>
+<li>Límite de gasto por comida y si el creador puede ir con acompañante.</li>
+<li>Persona de contacto y WhatsApp.</li>
+<li>Aceptación de las condiciones: #publi obligatorio, sin reseñas pactadas, uso de los reels.</li>
+<li>Consentimiento RGPD para guardar estos datos (servidores en la UE).</li>
+<li>Día 25: pregunta si sigue el mes 2 y datos de cobro SEPA.</li>
+</ol>
+</section>
+</main>
+<footer><div class="wrap">Barrio Reel, uso interno. © 2026. <a href="plan.html">Plan</a> &nbsp; <a href="aviso-legal.html">Aviso legal</a> &nbsp; <a href="privacidad.html">Privacidad</a> &nbsp; <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

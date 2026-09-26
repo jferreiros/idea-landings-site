@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Plan interno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="index.html">← Volver a la landing</a><br><br>
+  <span class="tag">Plan interno · 26 sep 2026</span>
+  <h1>Descuélgalo: el plan</h1>
+  <p>Recepcionista de voz con IA, self-serve, para pymes españolas. Reutiliza los números del análisis de <i>Descuelga</i> (HackSpain 2026). "Sin verificar" marca lo que sale de una sola fuente o de un supuesto.</p>
+  <nav class="toc">
+    <a href="#resumen">Resumen</a><a href="#comparativa">Comparativa</a><a href="#oferta">Oferta e ICP</a><a href="#competencia">Competencia</a><a href="#gtm">Go-to-market</a><a href="#alto">Técnico alto</a><a href="#bajo">Técnico bajo</a><a href="#mvp">MVP</a><a href="#90dias">30/60/90</a><a href="#riesgo">Riesgo y corte</a><a href="#economics">Unit economics</a><a href="#fabricas">Fábricas</a><a href="outreach.html">Kit de contacto</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha</a><a href="pitch.html">Pitch</a><a href="precios.html">Precios</a><a href="onboarding.html">Onboarding</a><a href="anuncios.html">Anuncios</a><a href="b.html">Variante B</a>
+  </nav>
+</header>
+
+<section id="resumen">
+  <h2>Resumen</h2>
+  <div class="summary">Lo encararía como <b>el único recepcionista con IA de España que te llama con tu propio agente antes de pagar</b>: nombre del negocio, ficha de Google, llamada al móvil del dueño en menos de 60 s, y tarjeta después. Empezaría en <b>una sola vertical (talleres)</b> con voz + WhatsApp de seguimiento, vendiendo en persona y con la Ley 10/2025 como gancho con fecha, hasta 20 clientes de pago antes de Navidad.</div>
+</section>
+
+<section id="comparativa">
+  <h2>Comparativa con la referencia</h2>
+  <p>Leído el 26 sep 2026: <a href="https://heyrosie.com" target="_blank" rel="noopener">heyrosie.com</a>, <a href="https://newo.ai" target="_blank" rel="noopener">newo.ai</a>, <a href="https://www.fonio.ai" target="_blank" rel="noopener">fonio.ai</a> y el competidor español <a href="https://myhabla.com/" target="_blank" rel="noopener">myhabla.com</a>. La columna "Nosotros" describe la landing de la ronda 1, antes de los cambios.</p>
+  <div class="tbl"><table style="min-width:980px">
+    <tr><th></th><th>Nosotros (ronda 1)</th><th>Rosie (EE. UU.)</th><th>Newo (EE. UU.)</th><th>fonio (Viena)</th><th>Habla (España)</th></tr>
+    <tr><td><b>Estrategia y posicionamiento</b></td><td>Pymes españolas, sobre todo talleres. Promesa: "escribe tu negocio y te llama tu recepcionista en un minuto". Ángulo: probar antes de pagar.</td><td>"The easiest AI answering service for small business". Negocio local, entrenado desde Google y la web. Precio en el titular: desde $49.</td><td>"Voice AI that doesn't just talk. It gets the work done". Va a por medianas y contact centers, con verticales (dental, restaurantes).</td><td>"The AI receptionist that never misses a call". Pymes europeas, muchas industrias, incluidos talleres. Producto multicanal (voz, WhatsApp, chat).</td><td>"Deja el teléfono, lo cogemos por ti". Autónomos y pymes, 10+ sectores. Persona con nombre: Carla. Desde 49 €/mes.</td></tr>
+    <tr><td><b>Calidad percibida y diseño</b></td><td>Cuidada y cálida, pero con tono de prototipo: sin franja de confianza, sin quién está detrás.</td><td>Empresa asentada: teléfono visible, cifras de uso, logos de clientes y testimonios.</td><td>La más corporativa: ISO 27001, SOC 2, HIPAA, GDPR, DPA y Trust Center en la home.</td><td>Seria y europea: sello GDPR y EU AI Act, Trustpilot, vídeo de 100 s, casos de clientes.</td><td>Correcta pero ruidosa. Menús largos, apariciones en prensa y TV, alguna errata en el hero.</td></tr>
+    <tr><td><b>Estructura y funnel</b></td><td>Hero con campo "nombre del negocio" que solo rellena el formulario final. Formulario de 3 campos. Sin CTA fija. Sin prueba social.</td><td>Un CTA repetido ("Start My Free Trial"), 7 días gratis, "tres malas opciones", prueba social y cifras.</td><td>Campo "tu web" en el hero y "Create your AI" (autoservicio) junto a "Get a live demo" (ventas).</td><td>"Test AI call now" en el hero con consentimiento, más "Book a demo" y "Sign up". Tres CTA compiten.</td><td>Demo en vivo: nombre + teléfono + código por WhatsApp y Carla te llama. Después, formulario de 5 campos y "te llamamos en 24 h".</td></tr>
+    <tr><td><b>Precios y empaquetado</b></td><td>€39 / €69 / €149 al mes por 150 / 400 / 1.000 minutos. 7 días gratis.</td><td>Desde $49/mes en el titular. Prueba de 7 días con todo incluido.</td><td>Página de precios aparte. En la home, demo y autoservicio.</td><td>Precios en página aparte. La home vende "listo para probar en 30 s".</td><td>49 € (100 min), 239 € (500), 449 € (1.000), 799 € (2.000). Sin permanencia.</td></tr>
+    <tr><td><b>Textos</b></td><td>Claros y concretos (escena del taller de Sabadell). El hero promete una llamada en 60 s que la landing aún no hace.</td><td>Muy claros y orientados al dolor. Mucha repetición.</td><td>Abstractos ("Human signal in. Intelligent action out"). Poco concretos para un dueño.</td><td>Sencillos y genéricos. Testimonios con nombres en inglés.</td><td>Cercanos y en español, con cifras propias sin fuente ("-70 % llamadas perdidas").</td></tr>
+    <tr><td><b>Qué copiamos / qué mejoramos</b></td><td colspan="5">
+      <ol>
+        <li><b>Copiamos de Rosie</b> el bloque "tres malas opciones" (cogerlo tú, buzón, contratar) y un solo CTA repetido. <b>Hecho.</b></li>
+        <li><b>Copiamos de fonio y Newo</b> una franja de confianza en la home. Nosotros solo ponemos lo verdadero: RGPD, datos en la UE, aviso de IA y piloto gratis. <b>Hecho.</b></li>
+        <li><b>Mejoramos a Habla</b>: tres campos en vez de cinco, y "te escribimos en 24 h" dicho claro. <b>Hecho.</b></li>
+        <li><b>Mejoramos nuestro hero</b>: una sola promesa (ninguna llamada sin contestar) y la llamada de 60 s pasa a ser una función, no la promesa. Así el hero no promete algo que la landing no hace hoy. <b>Hecho.</b></li>
+        <li><b>Sustituto honesto de la prueba social</b>: nota del fundador desde Barcelona y un piloto gratis de 30 días sin tarjeta. <b>Hecho.</b></li>
+        <li><b>Pendiente (MVP semana 2)</b>: la demo "te llama" de verdad, con OTP por WhatsApp como Habla, pero con el agente del propio negocio como Newo.</li>
+      </ol>
+    </td></tr>
+  </table></div>
+</section>
+
+<section id="oferta">
+  <h2>Oferta de valor y cliente ideal</h2>
+  <div class="grid two">
+    <div class="card"><h3>Oferta</h3>
+      <p><b>"Escribe el nombre de tu negocio y en un minuto te llama tu propia recepcionista. Si te gusta, la activas."</b></p>
+      <ul><li>Contesta las llamadas que el dueño no coge (desvío condicional, conserva su número).</li><li>Después de la llamada, escribe al cliente por WhatsApp desde el número del negocio (coexistencia de Meta).</li><li>Resumen diario para el dueño por WhatsApp.</li><li>Cumple Ley 10/2025 (paso a humano) y AI Act art. 50 (aviso de IA).</li></ul>
+    </div>
+    <div class="card"><h3>ICP en España</h3>
+      <ul><li><b>Primario:</b> talleres mecánicos independientes de 1-6 personas en áreas metropolitanas (Barcelona, Madrid, Valencia). El dueño trabaja con las manos y el teléfono es su agenda.</li><li><b>Secundario:</b> fisioterapia y estética fuera de Doctoralia.</li><li><b>Señales:</b> ficha de Google con 30+ reseñas, reseñas tipo "no cogen el teléfono", horario partido, sin recepcionista.</li><li><b>Fuera:</b> restaurantes (Bookline) y clínicas en Doctoralia (Noa).</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="competencia">
+  <h2>Competencia y referencia YC</h2>
+  <p>En España todos venden con demo y comercial, y activan en 24 h a 7 días. Nadie junta "agente construido desde tu negocio" con "te llama en 60 s".</p>
+  <div class="tbl"><table>
+    <tr><th>Empresa</th><th>Dónde</th><th>Modelo</th><th>Precio</th><th>Lección</th></tr>
+    <tr><td><a href="https://www.recepcionista.com/precios" target="_blank" rel="noopener">Recepcionista.com</a></td><td>España</td><td>Demo 20 min + presupuesto 24 h</td><td>€99-699/mes</td><td>Precio de referencia en España</td></tr>
+    <tr><td><a href="https://myhabla.com/" target="_blank" rel="noopener">Habla</a></td><td>Las Palmas</td><td>"Carla" te llama en &lt;1 min, pero genérica. Tu agente, en 48 h</td><td>€49/mes</td><td>OTP por WhatsApp antes de la llamada demo</td></tr>
+    <tr><td><a href="https://nolam.ai/" target="_blank" rel="noopener">Nolam</a></td><td>España</td><td>Centralita IA, demo + presupuesto</td><td>~€0,30/min</td><td>Pago por minuto para negocios de temporada</td></tr>
+    <tr><td><a href="https://agentiaia.com/" target="_blank" rel="noopener">AgentIA</a></td><td>Madrid</td><td>Agencia, activación &lt;7 días</td><td>€149-199 + €299 alta</td><td>Muestras de voz por acento</td></tr>
+    <tr><td><a href="https://heyrosie.com/" target="_blank" rel="noopener">Rosie</a></td><td>EE. UU.</td><td>Ficha de Google como paso 1; llamas tú</td><td>$49/250 min</td><td>Tarjeta "¿Es este tu negocio?"</td></tr>
+    <tr><td><a href="https://newo.ai/" target="_blank" rel="noopener">Newo.ai</a></td><td>San Francisco, $32M</td><td>Agente desde URL/Maps en 3 min, cuenta después</td><td>-</td><td>La cuenta es el premio, no la barrera</td></tr>
+    <tr><td><a href="https://www.fonio.ai/" target="_blank" rel="noopener">fonio.ai</a></td><td>Viena, ~€7M ARR</td><td>"Listo en 30 s", líder UE en pymes</td><td>-</td><td>Amenaza principal; aún no está en España</td></tr>
+  </table></div>
+  <p><b>Referencia YC:</b> <a href="https://www.ycombinator.com/companies/retell-ai" target="_blank" rel="noopener">Retell AI (YC S24)</a>. Su home tiene el formulario "te llamamos" con un agente genérico y llegó a unos $60M de ARR en abril de 2026 (<a href="https://sacra.com/research/retell-ai-60m-yr-up-650-yoy/" target="_blank" rel="noopener">Sacra</a>). Descuélgalo es esa demo, pero con el agente del propio negocio. Retell es un proveedor posible, no un rival. No lo revendemos: a €69 el margen cae al 33 %.</p>
+</section>
+
+<section id="gtm">
+  <h2>Go-to-market de bajo presupuesto</h2>
+  <h3>Primeros 10 clientes, sin anuncios</h3>
+  <ol>
+    <li><b>Lista:</b> saca 200 talleres de Google Maps en Barcelona y Vallès con 30+ reseñas.</li>
+    <li><b>Prueba de dolor:</b> llama a 40 a las 13:30. Apunta cuántos no contestan. Ese dato es el titular del primer reel.</li>
+    <li><b>Visita:</b> ve en persona a 30, con la demo en el móvil. Construye su agente delante de ellos y deja que les llame.</li>
+    <li><b>Canal:</b> ofrece un 20 % recurrente a 2 gestorías y a 1 proveedor de recambios que visita talleres cada semana.</li>
+    <li><b>Oferta fundador:</b> 30 días gratis y precio Pro congelado un año a los 10 primeros, a cambio de feedback semanal.</li>
+  </ol>
+  <div class="warn"><b>No llames en frío a móviles para vender.</b> La Orden TDF/149/2025 prevé multas de hasta €600.000. Vende en persona, por email y por socios.</div>
+  <h3>Guion de la primera visita (60 segundos)</h3>
+  <pre>"Hola, soy Joaquín. Os he llamado hoy a la 13:30 y no lo cogió nadie. Normal, estabais trabajando.
+He hecho una recepcionista que contesta cuando no podéis. Mira: escribo 'Taller Ruiz'...
+[25 s] Ya sabe vuestro horario y lo que hacéis. ¿Me dejas tu móvil?
+[suena] Cógelo. Es tu recepcionista, contestando como si fueras un cliente.
+Si te gusta, la dejas puesta 30 días gratis. Solo tienes que marcar un código en tu móvil."</pre>
+  <h3>Contenido (reels)</h3>
+  <ul>
+    <li>"Llamé a 40 talleres a la hora de comer. Esto pasó." Contador de llamadas sin contestar.</li>
+    <li>Pantalla partida: dueño debajo de un coche y el móvil sonando. La IA contesta.</li>
+    <li>"Tu negocio, en 60 segundos": grabación de pantalla del funnel completo con un negocio real (con permiso).</li>
+    <li>"Qué cambia el 28 de diciembre": la Ley 10/2025 explicada en 30 s.</li>
+  </ul>
+  <h3>Métricas</h3>
+  <div class="kpi">
+    <div><b>10</b><span>en lista de espera en la semana 1</span></div>
+    <div><b>&gt;40 %</b><span>de visitas a la landing que prueban la llamada</span></div>
+    <div><b>&gt;25 %</b><span>de prueba a pago</span></div>
+    <div><b>&lt;5 min</b><span>de landing a línea desviada, sin ayuda</span></div>
+  </div>
+  <h3>Qué cambia con presupuesto alto</h3>
+  <ul>
+    <li>Meta Ads y Google Ads por vertical y ciudad, con la demo "te llama" como anuncio. CAC estimado ~€267, recuperado en 5,2 meses (supuesto).</li>
+    <li>Números +34 propios y un número de demo memorable en todas las piezas.</li>
+    <li>Acuerdos con operadores o con software de citas (white-label), como hace Newo.</li>
+    <li>Segunda y tercera vertical a la vez, cada una con su landing sobre el mismo motor.</li>
+    <li>Equipo de campo: 2 comerciales por comisión que visitan talleres con la demo en el móvil (Barcelona y Madrid).</li>
+    <li>Presupuesto orientativo de €5.000/mes: 60 % anuncios, 25 % creadores de contenido de motor y reformas, 15 % ferias del sector (p. ej. Motortec en Madrid).</li>
+    <li>Regla de corte: si el CAC pasa de €300 o el churn mensual de 6 %, se para el gasto y se vuelve a venta en persona.</li>
+  </ul>
+</section>
+
+<section id="alto">
+  <h2>Plan técnico de alto nivel</h2>
+  <div class="arch">
+    <div class="box g"><b>Web (Next.js, Vercel)</b>Landing, funnel de 5 pantallas, panel del dueño, Stripe Checkout + Billing con minutos medidos.</div>
+    <div class="box"><b>API + jobs</b>Places → web scrape → config del agente. Cola de llamadas demo. Webhooks de Stripe, SIP y WhatsApp.</div>
+    <div class="box g"><b>Worker de voz</b>LiveKit Agents (o Pipecat) con SIP. Una imagen; carga la config del cliente según el número marcado.</div>
+    <div class="box c"><b>WhatsApp</b>BSP (360dialog) con Embedded Signup y coexistencia. El mismo cerebro responde en voz y en texto.</div>
+  </div>
+  <div class="flowrow"><span>Cliente llama al negocio</span><i>→</i><span>No contesta: desvío **61*</span><i>→</i><span>Número SIP (Twilio/Telnyx)</span><i>→</i><span>LiveKit: Deepgram STT → Gemini Flash → ElevenLabs TTS</span><i>→</i><span>Postgres (UE)</span><i>→</i><span>WhatsApp al cliente + resumen al dueño</span></div>
+  <div class="grid two">
+    <div class="card"><h3>Stack recomendado</h3><ul><li>Next.js + Vercel · Supabase Postgres (región UE).</li><li>LiveKit Agents + SIP · Deepgram Nova-3 · Gemini Flash (proceso en la UE) · ElevenLabs Flash.</li><li>Twilio o Telnyx para números +34 · 360dialog para WhatsApp · Stripe Billing.</li><li>Google Places API (Autocomplete + Details) · un scraper ligero para la web.</li></ul></div>
+    <div class="card"><h3>Integraciones</h3><ul><li>Google Business Profile / Places (paso 1).</li><li>Google Calendar para citas (Pro).</li><li>Después: software de gestión de talleres; webhook genérico para el resto.</li><li>Tabla de códigos de desvío por operador (Movistar, Vodafone, Orange, Digi, MásMóvil).</li></ul></div>
+  </div>
+  <h3>Riesgos legales</h3>
+  <div class="tbl"><table>
+    <tr><th>Riesgo</th><th>Mitigación</th></tr>
+    <tr><td>RGPD: grabación y transcripción de llamadas de terceros</td><td>Aviso al inicio de la llamada, contrato de encargado del tratamiento con cada negocio, datos en la UE, retención de 90 días por defecto.</td></tr>
+    <tr><td>Datos personales en logs</td><td>Enmascarar nombre, DNI, teléfono y fecha de nacimiento antes de escribir logs, desde el día 1.</td></tr>
+    <tr><td>AI Act art. 50 (transparencia)</td><td>El saludo siempre dice "asistente virtual". No se puede desactivar.</td></tr>
+    <tr><td>Ley 10/2025 (desde 28 dic 2026)</td><td>Paso a humano siempre disponible: transferencia o aviso con devolución de llamada. <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">BOE</a></td></tr>
+    <tr><td>Fraude con la demo "te llamo"</td><td>OTP por WhatsApp, una demo por número, máximo 2 minutos, bloquear 80x/90x y numeración internacional.</td></tr>
+    <tr><td>Orden TDF/149/2025 (llamadas comerciales)</td><td>El producto solo contesta llamadas entrantes. La venta no usa llamadas en frío.</td></tr>
+    <tr><td>Políticas de Meta (coexistencia, precios)</td><td>WhatsApp como coste repercutido. La voz es el producto principal.</td></tr>
+  </table></div>
+</section>
+
+<section id="bajo">
+  <h2>Plan técnico de bajo nivel</h2>
+  <h3>Modelo de datos</h3>
+  <div class="tbl"><table>
+    <tr><th>Tabla</th><th>Campos clave</th></tr>
+    <tr><td><code>businesses</code></td><td>id, place_id, name, phone, address, website, vertical, hours_json, services_json, owner_mobile, status (draft|trial|active|paused), created_at</td></tr>
+    <tr><td><code>agents</code></td><td>id, business_id, persona_name, voice_id, tone (tu|usted), greeting, prompt_version, knowledge_md, handoff_mode (transfer|message), handoff_number</td></tr>
+    <tr><td><code>phone_numbers</code></td><td>id, business_id, e164, provider, sip_trunk_id, forwarding_code, forwarding_verified_at</td></tr>
+    <tr><td><code>calls</code></td><td>id, business_id, direction, kind (demo|live), caller_e164_hash, started_at, duration_s, outcome (booked|quote|info|handoff|spam), summary, transcript_redacted, cost_eur</td></tr>
+    <tr><td><code>messages</code></td><td>id, business_id, call_id, channel (whatsapp), to_hash, template, body, status, sent_at</td></tr>
+    <tr><td><code>appointments</code></td><td>id, business_id, call_id, starts_at, service, customer_name, calendar_event_id</td></tr>
+    <tr><td><code>subscriptions</code></td><td>id, business_id, stripe_customer_id, plan (basico|pro|negocio), included_min, trial_ends_at, status</td></tr>
+    <tr><td><code>usage</code></td><td>business_id, period, minutes_used, overage_min, reported_to_stripe_at</td></tr>
+    <tr><td><code>demo_requests</code></td><td>id, mobile_hash, otp_verified_at, ip, business_id, call_id (una por número)</td></tr>
+  </table></div>
+  <h3>Endpoints y jobs</h3>
+  <div class="tbl"><table>
+    <tr><th>Ruta / job</th><th>Qué hace</th></tr>
+    <tr><td><code>GET /api/places?q=</code></td><td>Proxy de Places Autocomplete (sesión con token para abaratar).</td></tr>
+    <tr><td><code>POST /api/businesses</code></td><td>Crea el borrador desde place_id. Encola <code>job:learn</code>.</td></tr>
+    <tr><td><code>job:learn</code></td><td>Places Details + scrape de la web → LLM extrae horario, servicios, precios, FAQ → <code>agents.knowledge_md</code>. Emite progreso por SSE.</td></tr>
+    <tr><td><code>POST /api/demo/otp</code> · <code>/verify</code></td><td>OTP por WhatsApp al móvil del dueño.</td></tr>
+    <tr><td><code>POST /api/demo/call</code></td><td>Crea llamada saliente SIP vía LiveKit al móvil verificado, límite 2 min.</td></tr>
+    <tr><td><code>POST /api/sip/inbound</code></td><td>Webhook: resuelve número marcado → business → despacha el worker con su config.</td></tr>
+    <tr><td><code>job:after_call</code></td><td>Resumen, clasificación de outcome, cita en Calendar, WhatsApp al cliente y al dueño, uso de minutos.</td></tr>
+    <tr><td><code>POST /api/stripe/webhook</code></td><td>Alta de prueba, pago, cancelación. Reporta el uso medido cada noche (<code>job:usage_sync</code>).</td></tr>
+    <tr><td><code>POST /api/forwarding/verify</code></td><td>Llama al número del negocio sin contestar y comprueba que entra por el desvío.</td></tr>
+  </table></div>
+  <h3>Prompts y agentes</h3>
+  <ul>
+    <li><b>Extractor</b> (job:learn): de Places + HTML a JSON con esquema fijo (hours, services[], prices[], faq[], address). Temperatura 0 y validación con zod.</li>
+    <li><b>Recepcionista</b> (voz): prompt versionado con placeholders <code>{persona}</code>, <code>{business}</code>, <code>{knowledge}</code>, <code>{handoff}</code>. Reglas: decir que es IA en la primera frase, frases de menos de 20 palabras, nunca inventar precios, ofrecer humano si lo pide. Herramientas: <code>check_slots</code>, <code>book</code>, <code>take_message</code>, <code>transfer</code>.</li>
+    <li><b>Resumidor</b> (after_call): transcripción → outcome + 1 línea para el dueño + texto del WhatsApp al cliente.</li>
+    <li><b>Evals:</b> 20 llamadas guionizadas por vertical con un cliente simulado y un juez LLM. Bloquean el deploy si baja la tasa de éxito.</li>
+  </ul>
+  <h3>Flujo paso a paso (funnel)</h3>
+  <ol>
+    <li>El dueño escribe el nombre; Places Autocomplete sugiere la ficha (10 s).</li>
+    <li>Pantalla "Aprendiendo": ve cómo aparecen horario y servicios en vivo. Un toque para confirmar (15 s).</li>
+    <li>Personalidad preseleccionada: Lucía, voz cálida, tuteo. Puede escuchar el saludo (10 s).</li>
+    <li>Pone su móvil, recibe OTP por WhatsApp, y su agente le llama en menos de 60 s. Al colgar, recibe el resumen por WhatsApp.</li>
+    <li>"¿La activas?": Stripe Checkout con 7 días gratis → código de desvío según su operador (<code>**61*NUM#</code>) → llamada de verificación.</li>
+  </ol>
+</section>
+
+<section id="mvp">
+  <h2>MVP por semanas</h2>
+  <div class="weeks">
+    <div class="wk"><div class="h">Semana 0 (3 días)</div><ul><li>Esta landing viva.</li><li>40 llamadas a talleres a la hora de comer.</li><li>5 conversaciones con dueños.</li><li>Pedir números +34 (papeleo lento).</li></ul><div class="gate">Puerta: 10 en lista o 3 "pagaría €69".</div></div>
+    <div class="wk"><div class="h">Semana 1</div><ul><li>Repo nuevo, tablas, Places + job:learn.</li><li>Worker LiveKit con config por cliente y aviso de IA.</li><li>Demo "te llamo" con OTP.</li></ul><div class="gate">Puerta: su agente llama a 5 dueños reales.</div></div>
+    <div class="wk"><div class="h">Semana 2</div><ul><li>Stripe con prueba de 7 días.</li><li>Desvío guiado + verificación.</li><li>Resumen por WhatsApp. Panel simple de llamadas.</li><li>20 evals guionizadas.</li></ul><div class="gate">Puerta: un desconocido llega a línea desviada en &lt;5 min.</div></div>
+    <div class="wk"><div class="h">Semanas 3-4</div><ul><li>WhatsApp de seguimiento con coexistencia.</li><li>Google Calendar.</li><li>Visitas a 30 talleres y 2 socios de canal.</li></ul><div class="gate">Puerta: 5 de pago y &gt;25 % prueba→pago.</div></div>
+  </div>
+</section>
+
+<section id="90dias">
+  <h2>Plan 30/60/90 días con objetivos por semana</h2>
+  <p>Todo lo hace Joaquín solo, sin anuncios. Una tarde a la semana de visitas (15:30-19:00, cuando el taller no está a tope) y el resto construyendo.</p>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Foco</th><th>Visitas o contactos</th><th>Pilotos activos</th><th>Clientes de pago</th></tr>
+    <tr><td>1</td><td>Prueba de dolor: 40 llamadas a talleres a las 13:30, landing viva</td><td>40 llamadas, 10 visitas</td><td>0</td><td>0</td></tr>
+    <tr><td>2</td><td>Agente de voz con ficha de Google, desvío probado en Movistar, Vodafone y Orange</td><td>10 visitas</td><td>2</td><td>0</td></tr>
+    <tr><td>3</td><td>Resumen por WhatsApp, reel 1 y 2</td><td>10 visitas + 1 gestoría</td><td>5</td><td>0</td></tr>
+    <tr><td>4</td><td>Stripe, panel mínimo de llamadas</td><td>10 visitas</td><td>8</td><td>1</td></tr>
+    <tr><td>5-8 (día 60)</td><td>Pilotos a pago, reels semanales, 1 proveedor de recambios como canal</td><td>10 visitas/semana</td><td>10</td><td>5</td></tr>
+    <tr><td>9-13 (día 90)</td><td>Autoservicio completo desde la landing, segunda ciudad (Valencia) por videollamada</td><td>8 visitas + 20 demos online/semana</td><td>12</td><td>12</td></tr>
+  </table></div>
+</section>
+
+<section id="riesgo">
+  <h2>Supuesto más arriesgado y corte</h2>
+  <div class="grid two">
+    <div class="card"><h3>Supuesto más arriesgado</h3><p>Que el dueño de un taller active el desvío de llamadas y lo deje puesto. Si le da miedo que "una máquina" hable con sus clientes, no hay producto.</p></div>
+    <div class="card"><h3>Prueba más barata, esta semana</h3><p>Sin IA: en 10 visitas, pide que desvíen las llamadas perdidas de un día a un número de Joaquín, que contesta en persona como "la recepcionista". Cuenta cuántos aceptan (objetivo 4 de 10) y cuántas llamadas llegan (objetivo 3 o más al día por taller).</p></div>
+  </div>
+  <div class="warn" style="margin-top:16px"><b>Criterios de corte.</b> Joaquín para esta idea si pasa una de estas cosas:
+    <ul>
+      <li>Semana 3: menos de 3 de 20 talleres visitados aceptan un piloto gratis.</li>
+      <li>Semana 6: los pilotos reciben menos de 2 llamadas perdidas al día (no hay dolor que cobrar).</li>
+      <li>Día 60: menos de 3 pilotos pasan a pago a €69, o más de la mitad desactiva el desvío.</li>
+      <li>Día 90: menos de 8 clientes de pago o churn mensual por encima del 8 %.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="economics">
+  <h2>Unit economics</h2>
+  <div class="tbl"><table>
+    <tr><th>Plan</th><th>Precio</th><th>Minutos</th><th>€/min</th><th>Coste peor caso (stack B, €0,053/min)</th><th>Margen bruto</th></tr>
+    <tr><td>Básico</td><td>€39</td><td>150</td><td>0,26</td><td>~€10</td><td>74 %</td></tr>
+    <tr><td>Pro</td><td>€69</td><td>400</td><td>0,17</td><td>~€24</td><td>65 %</td></tr>
+    <tr><td>Negocio</td><td>€149</td><td>1.000</td><td>0,149</td><td>~€58</td><td>61 %</td></tr>
+  </table></div>
+  <p>Peor caso = el cliente gasta todos los minutos. Incluye Stripe (1,5 % + €0,25 + 0,7 % Billing) y €1/mes de número. Sin IVA. Con TTS barato (stack autoalojado, €0,015/min) el margen sube a 87-89 %.</p>
+  <div class="kpi">
+    <div><b>€0,053</b><span>coste por minuto (stack B)</span></div>
+    <div><b>€0,17-0,40</b><span>precio por minuto de la competencia</span></div>
+    <div><b>11</b><span>clientes Pro cubren €543/mes de fijos</span></div>
+    <div><b>~€1.030</b><span>LTV con 5 % de churn mensual (supuesto)</span></div>
+  </div>
+  <p><b>Break-even:</b> ~11 clientes Pro sin CAC; ~18 si repartes el CAC de anuncios en 12 meses. <b>CAC estimado:</b> outbound ~€150 (recupera en 2,9 meses), SEO ~€60, anuncios ~€267. Todos sin verificar.</p>
+  <p><b>Postura de precio:</b> €69 queda un 30 % por debajo de Recepcionista.com y empata con Rosie por minuto. No bajar más: el margen no es el problema, y el precio no es un foso.</p>
+</section>
+
+<section id="fabricas">
+  <h2>Qué pueden automatizar las fábricas</h2>
+  <div class="grid two">
+    <div class="card"><h3>Software factory</h3><ul>
+      <li>Generar y mantener el esquema, los endpoints y los jobs a partir de este plan.</li>
+      <li>Una vertical nueva = un agente que escribe prompt, extractor, 20 evals y landing de la vertical.</li>
+      <li>Regresión nocturna: llamadas simuladas + juez; abre issue si baja la tasa de éxito o sube la latencia.</li>
+      <li>Mantener la tabla de códigos de desvío por operador y verificarla con llamadas de prueba.</li>
+      <li>Revisar transcripciones fallidas y proponer cambios de prompt como PR.</li>
+    </ul></div>
+    <div class="card"><h3>Marketing factory</h3><ul>
+      <li>Scraper de Google Maps por vertical y ciudad que puntúa leads (reseñas "no cogen el teléfono").</li>
+      <li>Pre-construir el agente de cada lead y llevar la demo lista a la visita o al email.</li>
+      <li>Guiones de reels a partir de datos reales (llamadas sin contestar a la hora de comer).</li>
+      <li>Landings por vertical y ciudad para SEO local ("recepcionista IA taller Sabadell").</li>
+      <li>Seguimiento de la lista de espera y del panel de conversión del funnel, con informe semanal.</li>
+    </ul></div>
+  </div>
+</section>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Kit de outreach</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+<style>.msg{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--stamp);border-radius:0 12px 12px 0;padding:16px 18px;margin:12px 0;white-space:pre-line;font-size:15.5px}.msg small{display:block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);margin-bottom:6px;white-space:normal}.q{font:500 13px "IBM Plex Mono";background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 10px;display:block}.qs{display:grid;gap:8px;margin:12px 0}@media(min-width:760px){.qs{grid-template-columns:1fr 1fr}}</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="plan.html">&larr; Plan</a></div>
+  <span class="eyebrow">Uso interno · 26 sep 2026</span>
+  <h1>Kit de outreach</h1>
+  <div class="summary"><b>Regla.</b> El primer contacto es en persona o por teléfono al fijo del almacén. Email y WhatsApp solo después de que te digan "sí, mándamelo" (LSSI art. 21: nada de comunicaciones comerciales electrónicas sin consentimiento previo, tampoco a empresas).</div>
+  <nav class="toc"><a href="#visita">Visita</a><a href="#mensajes">Mensajes</a><a href="#objeciones">Objeciones</a><a href="#seguimiento">Seguimiento</a><a href="#lista">Lista de objetivos</a></nav>
+</header>
+
+<section id="visita">
+  <h2>Guion de visita (5 minutos, en el mostrador)</h2>
+  <p><b>Cuándo:</b> martes a jueves, 11:00 a 13:30. A las 7:30 están cargando camiones y no te atienden.</p>
+  <ol>
+    <li><b>Entrada (15 s).</b> "Hola, soy Joaquín, de Barcelona. No vengo a vender material. ¿Quién se encarga de meter los pedidos en el ordenador?"</li>
+    <li><b>Pregunta de dolor.</b> "¿Cuántos pedidos os entran por WhatsApp un día normal? ¿Me enseñas el móvil de hoy?" Cuenta los chats. Si hay menos de 15, agradece y vete.</li>
+    <li><b>Detalle.</b> "¿Os mandan audios o fotos de listas? ¿Quién sabe qué es 'lo de siempre' de cada cliente?"</li>
+    <li><b>Oferta.</b> "Hago un programa que coge esos WhatsApp y los deja en vuestro ERP con vuestras referencias. Si me pasáis 20 pedidos de esta semana y el catálogo en Excel, el jueves os los traigo pasados. Gratis. Si no acierta, no os cuesta nada."</li>
+    <li><b>Cierre.</b> "¿A quién le mando el ejemplo, a ti por WhatsApp o por email?" Así consigues el consentimiento y el canal.</li>
+    <li><b>Apunta:</b> ERP que usan, nº de pedidos/día, quién teclea, decisor, fecha de vuelta.</li>
+  </ol>
+</section>
+
+<section id="mensajes">
+  <h2>Primer mensaje (solo tras el "sí, mándamelo")</h2>
+  <div class="msg"><small>WhatsApp · el mismo día de la visita</small>Hola Marta, soy Joaquín, el de esta mañana en el mostrador. Como quedamos: pásame por aquí 20 pedidos de WhatsApp de esta semana (capturas o reenviados) y el catálogo en Excel. El jueves te los devuelvo en el formato de vuestro A3. Si algo no te cuadra, me lo dices y lo dejamos.</div>
+  <div class="msg"><small>Email · si prefieren email · asunto: Los 20 pedidos de [Almacén]</small>Hola Jordi:
+
+Gracias por atenderme hoy. Como te comenté, si me mandas 20 pedidos de WhatsApp de esta semana y el catálogo en Excel, te los devuelvo en 48 horas en el formato que importa vuestro ERP, con las líneas dudosas marcadas.
+
+No tiene coste ni compromiso. Tus datos solo los uso para esta prueba y los borro después si no seguimos.
+
+Joaquín · Pedidal · [teléfono]
+Si no quieres recibir más correos míos, contesta "baja" y no te escribo más.</div>
+  <div class="msg"><small>LinkedIn · solo a un gerente con el que ya has hablado</small>Jordi, encantado de conocerte hoy en el almacén. Te dejo aquí mi contacto por si Marta prefiere pasarme los pedidos por email. Un saludo.</div>
+</section>
+
+<section id="objeciones">
+  <h2>5 objeciones y respuesta</h2>
+  <div class="tbl"><table>
+    <tr><th>Objeción</th><th>Respuesta</th></tr>
+    <tr><td>"Ya tenemos a Marta para eso."</td><td>"Perfecto, no vengo a quitarle el puesto. Si deja de teclear 2 horas cada mañana, ¿qué haría con ellas? ¿Llamar a clientes que hace tiempo que no piden?"</td></tr>
+    <tr><td>"Nuestros clientes piden raro, no lo va a entender."</td><td>"Por eso la prueba es con tus pedidos reales, no con una demo. Lo que no entienda te lo marco para que lo revise una persona."</td></tr>
+    <tr><td>"Nuestro ERP es antiguo / está hecho a medida."</td><td>"Si tu ERP importa un Excel o un CSV, empezamos por ahí. La integración la hago yo."</td></tr>
+    <tr><td>"¿Y los datos de mis clientes?"</td><td>"Firmamos un contrato de encargo del tratamiento, servidores en la UE, y no uso tus pedidos para entrenar modelos de terceros."</td></tr>
+    <tr><td>"Ya nos ofrecieron algo así (PideFácil u otro)."</td><td>"¿Qué os pidieron para arrancar? Yo te enseño tus 20 pedidos resueltos antes de hablar de precio, y el precio está publicado: desde 190 € al mes."</td></tr>
+  </table></div>
+</section>
+
+<section id="seguimiento">
+  <h2>Secuencia de seguimiento</h2>
+  <div class="tbl"><table>
+    <tr><th>Día</th><th>Canal</th><th>Qué haces</th></tr>
+    <tr><td>0</td><td>En persona + WhatsApp/email acordado</td><td>Visita y primer mensaje de arriba. Ficha en el CRM.</td></tr>
+    <tr><td>2</td><td>El mismo canal</td><td>"¿Has podido juntar los 20 pedidos? Si te va mejor, paso el jueves y los saco yo del móvil contigo en 10 minutos."</td></tr>
+    <tr><td>7</td><td>Teléfono o visita</td><td>Si no hay pedidos: última llamada, sin presión. Si hay piloto entregado: "¿Lo activamos con tu número una semana?"</td></tr>
+  </table></div>
+  <p>Tras el día 7 sin respuesta: no insistir más por escrito. Volver a pasar en 2 meses si estás por la zona.</p>
+</section>
+
+<section id="lista">
+  <h2>Cómo construir la lista de 20 objetivos</h2>
+  <p>No hay nombres aquí a propósito: la lista se saca de Google Maps con estas búsquedas y se filtra a mano. Solo datos de empresa (nombre, dirección, teléfono fijo, web). Nada de datos personales.</p>
+  <div class="qs">
+    <span class="q">almacén materiales construcción Sabadell</span>
+    <span class="q">almacén materiales construcción Terrassa</span>
+    <span class="q">materiales de construcción Rubí</span>
+    <span class="q">materiales de construcción Sant Cugat del Vallès</span>
+    <span class="q">materiales construcción L'Hospitalet de Llobregat</span>
+    <span class="q">materiales construcción Cornellà de Llobregat</span>
+    <span class="q">materiales construcción Badalona</span>
+    <span class="q">materiales construcción Mataró</span>
+    <span class="q">distribuidor productos de limpieza industrial Barcelona</span>
+    <span class="q">suministros de limpieza profesional Granollers</span>
+  </div>
+  <h3>Filtro (quedarse con 20)</h3>
+  <ul>
+    <li>Tiene mostrador para profesionales, no solo tienda al público.</li>
+    <li>La ficha o la web da un móvil o dice "pedidos por WhatsApp".</li>
+    <li>Más de 20 reseñas que mencionan "reparto", "obra" o "entrega".</li>
+    <li>No es una gran cadena nacional (esas deciden en central).</li>
+    <li>Agrupa 5 por zona para visitarlos en la misma mañana.</li>
+  </ul>
+</section>
+
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

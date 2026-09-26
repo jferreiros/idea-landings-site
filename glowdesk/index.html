@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glowdesk · Recepción con IA para clínicas estéticas</title>
+<meta name="description" content="Glowdesk responde los DMs de Instagram, WhatsApp y llamadas de tu clínica estética 24/7, reserva la valoración gratuita y cobra una señal para reducir ausencias.">
+<link rel="canonical" href="https://glowdesk-liard-eta.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://glowdesk-liard-eta.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://glowdesk-liard-eta.vercel.app/ca.html">
+<meta name="theme-color" content="#F7EDEB">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7EDEB'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23A65468'/%3E%3Ccircle cx='13.5' cy='13.5' r='3' fill='%23F2D2D8'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Glowdesk">
+<meta property="og:url" content="https://glowdesk-liard-eta.vercel.app/">
+<meta property="og:title" content="Glowdesk · Cada DM de Instagram, una valoración con señal pagada">
+<meta property="og:description" content="Recepción con IA para clínicas de medicina estética: contesta DMs a medianoche, reserva la valoración y cobra la señal. Piloto gratis en Barcelona.">
+<meta property="og:image" content="https://glowdesk-liard-eta.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Conversación de Instagram que termina en una valoración reservada con señal de 20 € pagada">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glowdesk · Recepción con IA para clínicas estéticas">
+<meta name="twitter:description" content="Contesta los DMs de tu clínica a medianoche, reserva la valoración y cobra la señal.">
+<meta name="twitter:image" content="https://glowdesk-liard-eta.vercel.app/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://glowdesk-liard-eta.vercel.app/#org","name":"Glowdesk","url":"https://glowdesk-liard-eta.vercel.app/","logo":"https://glowdesk-liard-eta.vercel.app/og.png","founder":{"@type":"Person","name":"Joaquín"},"areaServed":"ES"},
+{"@type":"Service","name":"Glowdesk","serviceType":"Recepcionista con IA para clínicas de medicina estética","provider":{"@id":"https://glowdesk-liard-eta.vercel.app/#org"},"areaServed":{"@type":"Country","name":"España"},"availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://glowdesk-liard-eta.vercel.app/#probar"},"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Piloto gratis de 30 días. Precio posterior en validación."}}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7EDEB; --paper:#FFFFFF; --ink:#1B2621; --muted:#5E6A64; --line:#EAD9D7;
+  --sage:#34503F; --sage-soft:#DFE8E1; --rose:#A65468; --rose-soft:#F3DEE1; --gold:#A65468;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.015em;font-optical-sizing:auto}
+em{padding-bottom:.04em}
+h1{font-size:clamp(2.4rem,5.6vw,4.1rem);letter-spacing:-.02em;line-height:1.06}
+h2{font-size:clamp(2rem,5vw,3.1rem);margin-bottom:.6rem}
+h3{font-size:1.55rem;margin-bottom:.35rem}
+em{font-style:italic;color:var(--rose)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:40ch}
+section{padding:84px 0}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--sage);color:#fff;text-decoration:none;border:0;border-radius:999px;padding:15px 26px;font:600 1rem Manrope,sans-serif;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{background:#284032;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--sage);border:1.5px solid var(--sage)}
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(247,237,235,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-family:"Bodoni Moda",serif;font-size:1.7rem;text-decoration:none;display:flex;align-items:center;gap:.45rem}
+.logo i{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F3C7B5,var(--rose));box-shadow:0 0 0 5px var(--rose-soft)}
+nav .btn{padding:10px 18px;font-size:.92rem}
+.lang{display:flex;gap:2px;margin-left:auto;margin-right:12px;font-size:.8rem;font-weight:700}.lang a{text-decoration:none;color:var(--muted);padding:10px 8px;min-height:44px;display:inline-flex;align-items:center}.lang a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--rose)}
+@media(max-width:420px){.logo{font-size:1.4rem}nav .btn{padding:9px 14px;font-size:.85rem}.lang{margin-right:4px}.lang a{padding:10px 6px}}
+nav .btn{white-space:nowrap}
+/* hero */
+.hero{padding:64px 0 72px}
+.hero .wrap{display:grid;gap:48px;align-items:center}
+.hero p.lead{margin:1.3rem 0 1.8rem}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.6rem}
+.chip{font-size:.82rem;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 12px;color:var(--muted)}
+/* phone mock */
+.phone{width:100%;max-width:370px;margin:0 auto;background:var(--paper);border-radius:34px;padding:14px;box-shadow:0 30px 60px -30px rgba(47,74,64,.35),0 0 0 1px var(--line)}
+.ph-top{display:flex;align-items:center;gap:10px;padding:8px 8px 14px;border-bottom:1px solid var(--line)}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#F2D2D8,#A65468);flex:none}
+.ph-top b{font-size:.92rem;display:block;line-height:1.2}
+.ph-top small{font-size:.74rem;color:var(--muted)}
+.thread{display:flex;flex-direction:column;gap:9px;padding:16px 4px 8px;font-size:.88rem;line-height:1.4}
+.msg{max-width:84%;padding:9px 13px;border-radius:18px}
+.in{background:#F3E9E8;align-self:flex-start;border-bottom-left-radius:6px}
+.out{background:var(--sage);color:#fff;align-self:flex-end;border-bottom-right-radius:6px}
+.card{align-self:flex-end;width:84%;background:var(--rose-soft);border:1px solid #E9C7CD;border-radius:16px;padding:12px;font-size:.82rem}
+.card b{font-size:.92rem}
+.slots{display:flex;gap:6px;margin:8px 0}
+.slot{flex:1;text-align:center;background:#fff;border-radius:10px;padding:6px 0;border:1px solid #E9C7CD;font-weight:600}
+.slot.on{background:var(--sage);color:#fff;border-color:var(--sage)}
+.pay{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:10px;padding:8px 10px;font-weight:600}
+.pay span{color:var(--sage)}
+.flag{font-size:.74rem;color:var(--muted);text-align:center;padding:4px 0 2px}
+.flag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:6px;vertical-align:middle}
+/* problem */
+.problem{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.problem .wrap{display:grid;gap:40px}
+.scene{background:var(--bg);border-radius:var(--r);padding:28px;border:1px solid var(--line)}
+.scene p{margin-bottom:.9rem}
+.scene .time{font-family:"Bodoni Moda",serif;font-size:2.4rem;color:var(--rose);line-height:1}
+.pains{list-style:none;display:grid;gap:14px}
+.pains li{padding-left:28px;position:relative;color:var(--muted)}
+.pains li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:2px;background:var(--rose)}
+.pains b{color:var(--ink)}
+/* steps */
+.flow{list-style:none;margin-top:44px;display:grid;gap:0;border-top:1px solid var(--ink)}
+.flow li{display:grid;grid-template-columns:64px 1fr;gap:12px;align-content:start;padding:26px 0;border-bottom:1px solid var(--line)}
+.flow .num{font-family:"Bodoni Moda",serif;font-style:italic;font-size:2.6rem;line-height:1;color:var(--rose)}
+.flow p{color:var(--muted);max-width:52ch}
+/* try */
+.try{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.try .wrap{display:grid;gap:40px;align-items:start}
+.try-name{margin-top:1.6rem;max-width:360px}
+.scen{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem}
+.sc{font:500 .92rem Manrope,sans-serif;min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;transition:background .2s cubic-bezier(.16,1,.3,1),transform .15s}
+.sc:hover{border-color:var(--rose)}
+.sc:active{transform:scale(.98)}
+.sc.on{background:var(--sage);color:#fff;border-color:var(--sage)}
+.demo-hint{font-size:.82rem;color:var(--muted);margin-top:1rem;max-width:44ch}
+.try-phone .thread{min-height:360px}
+.try-phone .msg,.try-phone .card,.try-phone .flag{animation:pop .45s cubic-bezier(.16,1,.3,1) both}
+.typing{align-self:flex-start;background:#F3E9E8;border-radius:18px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);opacity:.5;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes blink{50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.try-phone .msg,.try-phone .card,.try-phone .flag,.typing i{animation:none}}
+@media(min-width:860px){.try .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+/* moment */
+.moment{background:var(--sage);color:#FBF4F2}
+.moment .eyebrow{color:#F2C4CD}
+.moment .lead{color:#C9D5CF}
+.dash{margin-top:36px;background:#F7EDEB;color:var(--ink);border-radius:24px;padding:18px;display:grid;gap:14px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.dash-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:4px 6px 10px;border-bottom:1px solid var(--line)}
+.dash-h b{font-family:"Bodoni Moda",serif;font-size:1.4rem;font-weight:400}
+.tabs{display:flex;gap:6px;font-size:.78rem}
+.tabs span{padding:5px 10px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.tabs span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.leads{display:grid;gap:10px}
+.lead-row{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:8px;font-size:.88rem}
+.lr-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.lr-top b{font-size:.98rem}
+.src{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.75rem;padding:3px 9px;border-radius:999px;background:var(--sage-soft);color:var(--sage);font-weight:600}
+.tag.warn{background:#F7EBD8;color:#8A6428}
+.tag.ok{background:var(--rose-soft);color:#8A3F52}
+.lr-note{color:var(--muted);font-size:.82rem}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+.kpi small{display:block;font-size:.72rem;color:var(--muted)}
+.kpi b{font-family:"Bodoni Moda",serif;font-size:1.8rem;font-weight:400;line-height:1.1}
+.kpi b{white-space:nowrap}@media(max-width:420px){.kpi b{font-size:1.4rem}.kpi{padding:10px}}
+.demo-note{font-size:.8rem;color:#C9D5CF;margin-top:12px}
+/* benefits */
+.bens{display:grid;gap:16px;margin-top:36px}
+.ben{border-top:2px solid var(--ink);padding-top:16px}
+.ben .big{font-family:"Bodoni Moda",serif;font-size:2.6rem;line-height:1;color:var(--sage)}
+.ben p{color:var(--muted);font-size:.95rem;margin-top:.4rem}
+.ben a{font-size:.8rem;color:var(--muted)}
+.legal{margin-top:40px;background:var(--rose-soft);border-radius:var(--r);padding:24px;font-size:.95rem}
+.legal b{display:block;margin-bottom:.3rem}
+/* pricing */
+.plans{display:grid;gap:18px;margin-top:36px}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.plan.hi{border:2px solid var(--sage);position:relative}
+.plan.hi::after{content:"El más pedido en la hipótesis";position:absolute;top:-13px;left:24px;background:var(--sage);color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px}
+.price{font-family:"Bodoni Moda",serif;font-size:3rem;line-height:1}
+.price small{font-family:Manrope,sans-serif;font-size:.9rem;color:var(--muted)}
+.plan ul{list-style:none;display:grid;gap:8px;font-size:.93rem;color:var(--muted)}
+.plan li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--rose);margin-right:10px;vertical-align:middle}
+.fine{font-size:.85rem;color:var(--muted);margin-top:18px}
+/* faq */
+.faq{max-width:780px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font:500 1.5rem/1 Manrope,sans-serif;color:var(--rose);flex:none}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);margin-top:10px}
+/* cta */
+.final{background:var(--paper);border-top:1px solid var(--line)}
+.final .wrap{display:grid;gap:36px;align-items:start}
+form{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:14px}
+label{font-size:.85rem;font-weight:600;display:grid;gap:6px}
+input,select{font:inherit;font-size:1rem;padding:13px 14px;border-radius:12px;border:1px solid #D9CEC3;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus{outline:2px solid var(--rose);outline-offset:1px;border-color:transparent}
+form .btn{justify-content:center;width:100%}
+.priv{font-size:.78rem;color:var(--muted)}
+.thanks{display:none;background:var(--sage-soft);border-radius:22px;padding:32px}
+.thanks h3{color:var(--sage)}
+footer{padding:36px 0 96px;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.trustline{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:1.3rem;font-size:.86rem;color:var(--muted)}
+.trustline span{white-space:nowrap}@media(min-width:600px){.trustline span+span{border-left:1px solid var(--line);padding-left:16px}}
+.link{color:var(--sage);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--rose);padding-bottom:2px;align-self:center}
+.midcta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.moment .midcta .btn{background:#FBF4F2;color:var(--sage)}
+.moment .midcta small{color:#C9D5CF}
+.trust{display:grid;gap:14px;margin-top:32px}
+.tr{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.tr b{display:block;font-size:1.02rem;margin-bottom:.25rem}
+.tr p{color:var(--muted);font-size:.93rem}
+.founder{display:grid;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px;margin-top:8px}
+.founder .mono{width:64px;height:64px;border-radius:50%;background:var(--sage);color:#FBF4F2;display:grid;place-items:center;font-family:"Bodoni Moda",serif;font-size:1.9rem}
+.founder p{margin-bottom:.8rem}
+.founder .sig{font-family:"Bodoni Moda",serif;font-size:1.4rem;color:var(--sage)}
+.next{list-style:none;counter-reset:n;display:grid;gap:14px;margin-top:1.6rem}
+.next li{counter-increment:n;position:relative;padding-left:46px;color:var(--muted);font-size:.97rem}
+.next li b{color:var(--ink);display:block}
+.next li::before{content:counter(n);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--rose-soft);color:#8A3F52;font-weight:700;display:grid;place-items:center;font-size:.9rem}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ink);color:#FBF4F2;border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 14px 30px -12px rgba(0,0,0,.45);font-size:.9rem;transform:translateY(140%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky .btn{background:var(--rose);padding:11px 18px;font-size:.92rem;white-space:nowrap}
+.sticky .btn:hover{background:#8E4557}
+.navlinks{display:none;gap:22px;font-size:.92rem;font-weight:600}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.sticky{transition:none}}
+@media(min-width:860px){footer{padding-bottom:36px}.sticky{display:none}.navlinks{display:flex}.trust{grid-template-columns:repeat(4,1fr)}.founder{grid-template-columns:auto 1fr;padding:40px}}
+@media(min-width:860px){
+  .hero .wrap{grid-template-columns:1.15fr .85fr}
+  .problem .wrap,.final .wrap{grid-template-columns:1fr 1fr}
+  .plans{grid-template-columns:repeat(3,1fr)}
+  .flow{grid-template-columns:repeat(3,1fr);gap:0 40px;border-top:0}
+  .flow li{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--ink);padding-top:22px}
+  .flow li:nth-child(2){margin-top:48px}.flow li:nth-child(3){margin-top:96px}
+  .bens{grid-template-columns:repeat(4,1fr)}
+  .dash{grid-template-columns:1.6fr 1fr;padding:22px}
+  .dash-h{grid-column:1/-1}
+  .kpis{grid-template-columns:1fr;align-content:start}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#"><i></i>Glowdesk</a>
+  <div class="navlinks"><a href="#como">Cómo funciona</a><a href="#prueba">Pruébalo</a><a href="#precio">Precio</a><a href="#faq">Preguntas</a></div>
+  <div class="lang"><a href="index.html" aria-current="true">ES</a><a href="ca.html" hreflang="ca" lang="ca">CA</a></div><a class="btn" href="#probar">Pedir mi demo</a>
+</div></nav>
+
+<main>
+<header class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Para clínicas de medicina estética</p>
+    <h1>Cada DM de Instagram, <em>convertido en una valoración</em> con señal pagada.</h1>
+    <p class="lead">Glowdesk contesta a tus pacientes en segundos, también a medianoche. Reserva la valoración en tu agenda y cobra una señal para que vengan.</p>
+    <div class="ctas">
+      <a class="btn" href="#probar">Pedir mi demo</a>
+      <a class="link" href="#como">Cómo funciona</a>
+    </div>
+    <div class="trustline"><span>Piloto gratis 30 días</span><span>Sin permanencia</span><span>Datos en la UE · RGPD</span></div>
+  </div>
+
+  <div class="phone" role="img" aria-label="Ejemplo: una paciente pregunta por Instagram a las 23:47, Glowdesk contesta con el precio, anota la lactancia para la doctora y reserva la valoración con señal de 20 euros">
+    <div class="ph-top"><span class="av"></span><div><b>clinica.aura.bcn</b><small>Responde Glowdesk · 23:47</small></div></div>
+    <div class="thread">
+      <div class="msg in">Holaa, vi vuestro anuncio del rinomodelado. ¿Cuánto cuesta?</div>
+      <div class="msg out">¡Hola Laura! En la clínica el rinomodelado con ácido hialurónico parte de 350 €. El precio final lo fija la doctora en la valoración, que es gratuita.</div>
+      <div class="msg in">¿Y duele? Estoy dando el pecho, no sé si importa</div>
+      <div class="msg out">Buena pregunta. La lactancia es algo que la doctora tiene que valorar antes de cualquier tratamiento, así que se lo dejo anotado. ¿Te busco hueco para la valoración?</div>
+      <div class="card">
+        <b>Valoración gratuita · Dra. Soler</b>
+        <div class="slots"><span class="slot">Mar 17:00</span><span class="slot on">Mié 18:30</span><span class="slot">Jue 12:00</span></div>
+        <div class="pay">Señal reembolsable <span>20 € · Bizum</span></div>
+      </div>
+      <div class="flag">Aviso a la doctora: lactancia</div>
+    </div>
+  </div>
+</div></header>
+
+<section class="problem"><div class="wrap">
+  <div>
+    <h2>Pagas el anuncio. <em>El lead se enfría</em> en la bandeja de entrada.</h2>
+    <p class="lead">Las pacientes preguntan por Instagram, casi siempre fuera de horario. Si nadie responde en minutos, escriben a la siguiente clínica del feed.</p>
+  </div>
+  <div class="scene">
+    <p class="time">Domingo, 23:47</p>
+    <p>Laura, de Sant Gervasi, ve un reel de tu clínica sobre rinomodelado. Escribe «¿precio?». El lunes a las 10:30 tu recepcionista abre Instagram: 38 mensajes sin leer, dos llamadas perdidas y una paciente que no ha venido a su cita de las 9:00.</p>
+    <p>Laura ya ha reservado en otra clínica. Le contestó en tres minutos.</p>
+    <ul class="pains">
+      <li><b>DMs sin responder</b> de noche y en fin de semana, justo cuando la gente mira Instagram.</li>
+      <li><b>Consultas gratuitas que no vienen</b> porque reservar no cuesta nada.</li>
+      <li><b>Recepción saturada</b> contestando «¿cuánto cuesta?» cien veces al día.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <h2>Tres pasos. <em>Nada que migrar.</em></h2>
+  <ol class="flow">
+    <li><span class="num">1</span><div><h3>Nos pasas tu carta</h3><p>Tratamientos, precios «desde», horarios y política de señal. La doctora aprueba cada respuesta sensible antes de activarla.</p></div></li>
+    <li><span class="num">2</span><div><h3>Conectamos tus canales</h3><p>Instagram DM primero. WhatsApp Business y teléfono cuando los quieras. Reserva en Google Calendar o en tu agenda actual.</p></div></li>
+    <li><span class="num">3</span><div><h3>Llegan valoraciones con señal</h3><p>Cada paciente entra con tratamiento, presupuesto, avisos para la doctora y señal pagada. Tu equipo entra cuando hace falta una persona.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="try" id="prueba"><div class="wrap">
+  <div class="try-copy">
+    <h2>Escribe como <em>tu paciente.</em></h2>
+    <p class="lead">Pon el nombre de tu clínica y elige un mensaje. Mira qué contestaría Glowdesk a las 23:47.</p>
+    <label class="try-name">Nombre de tu clínica<input id="tn" maxlength="32" placeholder="Clínica Aura" autocomplete="organization"></label>
+    <div class="scen" role="group" aria-label="Mensajes de ejemplo">
+      <button type="button" class="sc on" aria-pressed="true" data-k="precio">¿Cuánto cuesta el rinomodelado?</button>
+      <button type="button" class="sc" aria-pressed="false" data-k="laser">¿Tenéis láser para piernas?</button>
+      <button type="button" class="sc" aria-pressed="false" data-k="embarazo">Estoy embarazada, ¿puedo hacerme labios?</button>
+      <button type="button" class="sc" aria-pressed="false" data-k="persona">Prefiero hablar con alguien</button>
+    </div>
+    <p class="demo-hint">Simulación con respuestas de ejemplo. Tu agente usa solo los textos que aprueba tu doctora.</p>
+  </div>
+  <div class="phone try-phone" aria-live="polite">
+    <div class="ph-top"><span class="av"></span><div><b id="th">clinica.aura</b><small>Responde Glowdesk · 23:47</small></div></div>
+    <div class="thread" id="tt"></div>
+  </div>
+</div></section>
+
+<section class="moment"><div class="wrap">
+  <p class="eyebrow">El lunes a las 9:00</p>
+  <h2>Lo que ve tu recepción al abrir Glowdesk</h2>
+  <p class="lead">Leads del fin de semana, ya ordenados. Los avisos clínicos van a la doctora; nunca los decide la IA.</p>
+  <div class="dash">
+    <div class="dash-h"><b>Bandeja · fin de semana</b><div class="tabs"><span class="on">Todos</span><span>Con señal</span><span>Para la doctora</span></div></div>
+    <div class="leads">
+      <div class="lead-row">
+        <div class="lr-top"><b>Laura M.</b><span class="src">Instagram · anuncio</span></div>
+        <div class="tags"><span class="tag">Rinomodelado</span><span class="tag ok">Señal 20 € pagada</span><span class="tag warn">Lactancia: revisar</span></div>
+        <div class="lr-note">Valoración miércoles 18:30 con Dra. Soler. Presupuesto indicado: hasta 400 €.</div>
+      </div>
+      <div class="lead-row">
+        <div class="lr-top"><b>Marta G.</b><span class="src">WhatsApp</span></div>
+        <div class="tags"><span class="tag">Láser depilación</span><span class="tag ok">Señal 15 € pagada</span></div>
+        <div class="lr-note">Bono de 6 sesiones piernas. Primera sesión jueves 12:00.</div>
+      </div>
+      <div class="lead-row">
+        <div class="lr-top"><b>Número +34 6•• ••• 412</b><span class="src">Llamada · 21:10</span></div>
+        <div class="tags"><span class="tag">Peeling químico</span><span class="tag warn">Pide hablar con persona</span></div>
+        <div class="lr-note">Pregunta por cicatrices de acné. Devolver llamada hoy antes de las 13:00.</div>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><small>Conversaciones</small><b>47</b></div>
+      <div class="kpi"><small>Valoraciones reservadas</small><b>11</b></div>
+      <div class="kpi"><small>Señales cobradas</small><b>190 €</b></div>
+    </div>
+  </div>
+  <p class="demo-note">Datos de ejemplo para ilustrar el producto. No son de una clínica real.</p>
+  <div class="midcta"><a class="btn" href="#probar">Pedir mi demo</a><small>Esta bandeja, con tu carta, en 48 h. Gratis.</small></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Velocidad y compromiso. <em>Eso es lo que convierte.</em></h2>
+  <div class="bens">
+    <div class="ben"><div class="big">24/7</div><p>Respuesta en segundos, también a medianoche y en domingo, en Instagram, WhatsApp y teléfono.</p></div>
+    <div class="ben"><div class="big">×7</div><p>Las empresas que contestan un lead en la primera hora tienen casi 7 veces más opciones de cualificarlo que las que tardan más.<br><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Fuente: Harvard Business Review, 2011</a></p></div>
+    <div class="ben"><div class="big">Señal</div><p>Una reserva con señal reembolsable es un compromiso. Nuestro objetivo en el piloto: medir cuánto bajan las ausencias en tu clínica.</p></div>
+    <div class="ben"><div class="big">0</div><p>Diagnósticos hechos por la IA. Informa con tu carta y deriva cualquier duda clínica a tu equipo médico.</p></div>
+  </div>
+  <div class="legal">
+    <b>Pensado para la publicidad sanitaria en España.</b>
+    La medicina estética es actividad sanitaria. Glowdesk solo usa textos que tu clínica aprueba, no promete resultados, no promociona medicamentos de prescripción y muestra tu número de registro sanitario. La responsabilidad final del mensaje sigue siendo de la clínica.
+  </div>
+</div></section>
+
+<section id="precio" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <p class="eyebrow">Precio (hipótesis)</p>
+  <h2>Menos que una recepcionista <em>de fin de semana.</em></h2>
+  <div class="plans">
+    <div class="plan"><h3>Instagram</h3><div class="price">149 € <small>/mes</small></div>
+      <ul><li>Instagram DM y comentarios</li><li>Reserva de valoración</li><li>Señal con Bizum o tarjeta</li><li>1 sede</li></ul></div>
+    <div class="plan hi"><h3>Recepción completa</h3><div class="price">229 € <small>/mes</small></div>
+      <ul><li>Todo lo de Instagram</li><li>WhatsApp Business</li><li>Seguimiento de leads de anuncios</li><li>Avisos clínicos para la doctora</li></ul></div>
+    <div class="plan"><h3>Con llamadas</h3><div class="price">299 € <small>/mes</small></div>
+      <ul><li>Todo lo anterior</li><li>Agente de voz en tu número</li><li>Recordatorios de cita</li><li>Hasta 3 sedes</li></ul></div>
+  </div>
+  <p class="fine">Precios sin IVA. Son una hipótesis de validación, no una tarifa cerrada. Las clínicas del piloto no pagan el primer mes y se van cuando quieran: sin permanencia.</p>
+  <div class="midcta"><a class="btn" href="#probar">Pedir mi demo</a><small>Primero ves la demo. Después decides si hacer el piloto. <a href="precios.html">Haz la cuenta con tus números</a>.</small></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Serio con los datos. <em>Serio con la medicina.</em></h2>
+  <div class="trust">
+    <div class="tr"><b>Datos en la UE</b><p>Servidores en la Unión Europea y contrato de encargado de tratamiento (art. 28 RGPD) firmado con tu clínica.</p></div>
+    <div class="tr"><b>La doctora aprueba</b><p>Solo usamos respuestas que tu equipo médico revisa. Cualquier duda clínica va a una persona.</p></div>
+    <div class="tr"><b>Sin migrar</b><p>Funciona junto a tu programa de gestión y tu agenda actual. No cambias nada de lo que ya usas.</p></div>
+    <div class="tr"><b>Sin permanencia</b><p>30 días de piloto gratis. Después, mes a mes. Si no te trae valoraciones, lo apagas.</p></div>
+  </div>
+  <div class="founder" style="margin-top:28px">
+    <div class="mono" aria-hidden="true">J</div>
+    <div>
+      <p class="eyebrow">Una nota del fundador</p>
+      <p>Soy Joaquín y construyo Glowdesk desde Barcelona. La idea es simple: una paciente que pregunta un domingo por la noche merece respuesta en ese momento, no el lunes a media mañana.</p>
+      <p>Glowdesk está en fase piloto. Trabajo con pocas clínicas, en persona, y monto cada agente con vuestra carta. Si algo no funciona, me lo dices a mí y lo arreglo yo.</p>
+      <p class="sig">Joaquín · fundador</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap faq">
+  <h2>Lo que nos preguntaría una directora de clínica</h2>
+  <details><summary>¿Tengo que cambiar mi programa de gestión?</summary><p>No. Glowdesk está pensado para clínicas que no quieren migrar. Reserva en Google Calendar o en tu agenda actual, y si tu software no tiene conexión, crea la cita y avisa a recepción para confirmarla.</p></details>
+  <details><summary>¿La IA puede dar consejo médico?</summary><p>No. Explica tratamientos y precios «desde» con los textos que tu clínica aprueba. Si la paciente menciona embarazo, lactancia, alergias, medicación u otra condición, Glowdesk lo anota como aviso para la doctora y no opina.</p></details>
+  <details><summary>¿Cumple con la normativa de publicidad sanitaria?</summary><p>El sistema está diseñado para respetarla: sin promesas de resultados, sin promocionar medicamentos de prescripción y con tu número de registro sanitario visible. Aun así, revisa con tu asesor los textos que apruebas: la responsabilidad del mensaje es de la clínica.</p></details>
+  <details><summary>¿Qué pasa con los datos de salud de las pacientes?</summary><p>Son datos de categoría especial según el RGPD. Glowdesk guarda solo lo necesario para la cita, en servidores de la UE, con contrato de encargado de tratamiento firmado con la clínica.</p></details>
+  <details><summary>¿Cuánto tardo en tenerlo funcionando?</summary><p>Unos 30 minutos de tu tiempo. Nosotros preparamos el agente con tu carta pública y tus horarios. Tú revisas las respuestas, conectas Instagram y queda activo en 48 horas.</p></details>
+  <details><summary>¿Y si la IA se equivoca con un precio o una cita?</summary><p>Solo responde con los precios «desde» que tú apruebas y no inventa tratamientos. Si no sabe algo, lo dice y pasa la conversación a tu equipo. Ves cada conversación en la bandeja y puedes corregirla.</p></details>
+  <details><summary>¿Cuánto cuesta y hay permanencia?</summary><p>El piloto es gratis durante 30 días. Después, la hipótesis es de 149 a 299 € al mes según los canales, sin permanencia. Haz la cuenta con tu ticket medio: ¿cuántas valoraciones extra al mes necesitas para cubrirlo?</p></details>
+  <details><summary>¿Y si la paciente quiere hablar con una persona?</summary><p>Glowdesk lo detecta, se lo dice a la paciente y pasa la conversación a tu equipo con todo el contexto. Tú decides en qué casos entra siempre una persona.</p></details>
+</div></section>
+
+<section class="final" id="probar"><div class="wrap">
+  <div>
+    <h2>Te enseñamos <em>tu propio agente</em> contestando tus DMs.</h2>
+    <p class="lead">Buscamos pocas clínicas estéticas para el piloto. Con tu Instagram preparamos una demo con tu carta real, y la ves antes de decidir nada.</p>
+    <ol class="next">
+      <li><b>Nos dejas 3 datos</b>Menos de 30 segundos.</li>
+      <li><b>Te enviamos tu demo en 48 h</b>Un vídeo corto: tu agente contestando un DM de tu anuncio.</li>
+      <li><b>Piloto gratis 30 días</b>Solo si te convence. Sin tarjeta y sin permanencia.</li>
+    </ol>
+  </div>
+  <div>
+    <!-- TODO: connect form -->
+    <form id="wl" novalidate aria-label="Pedir demo">
+      <label>Tu nombre<input name="nombre" required autocomplete="name" placeholder="Ana Puig"></label>
+      <label>Clínica o centro<input name="negocio" required placeholder="Clínica Aura · @clinica.aura.bcn"></label>
+      <label>Teléfono o email<input name="contacto" required placeholder="600 000 000 o ana@clinica.es"></label>
+      <button class="btn" type="submit">Pedir mi demo</button>
+      <p class="priv">Solo usamos estos datos para contactarte sobre el piloto. Ahora mismo esta página no guarda nada: es una prueba de interés. <a href="privacidad.html">Privacidad</a>.</p>
+    </form>
+    <div class="thanks" id="thanks" role="status" tabindex="-1">
+      <h3>Gracias, te escribimos pronto.</h3>
+      <p>Prepararemos una demo con los tratamientos de tu clínica. Si quieres adelantarla, ten a mano tu carta de precios.</p>
+    </div>
+  </div>
+</div></section>
+
+</main>
+<div class="sticky" id="sticky"><span>Demo con tu carta, gratis</span><a class="btn" href="#probar">Pedir mi demo</a></div>
+
+<footer><div class="wrap">
+  <span><b style="font-family:'Bodoni Moda',serif;font-size:1.2rem;font-weight:400;color:var(--ink)">Glowdesk</b> · Barcelona · © 2026</span>
+  <a href="precios.html">Precios y calculadora</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a>
+</div></footer>
+
+<script>
+document.getElementById('wl').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, ok=true;
+  f.querySelectorAll('input').forEach(function(i){
+    var bad=!i.value.trim(); i.style.borderColor=bad?'#A65468':''; if(bad) ok=false;
+  });
+  if(!ok) return;
+  f.reset(); f.style.display='none';
+  var t=document.getElementById('thanks'); t.style.display='block'; t.focus();
+});
+(function(){
+  var st=document.getElementById('sticky'), hero=document.querySelector('.hero'), fin=document.getElementById('probar');
+  if(!('IntersectionObserver' in window)) return;
+  var heroVis=true, finVis=false;
+  function upd(){ st.classList.toggle('show', !heroVis && !finVis); }
+  new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd();}).observe(hero);
+  new IntersectionObserver(function(e){finVis=e[0].isIntersecting;upd();}).observe(fin);
+})();
+(function(){
+  var tt=document.getElementById('tt'), th=document.getElementById('th'), tn=document.getElementById('tn');
+  var btns=document.querySelectorAll('.sc'), timers=[], cur='precio';
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function name(){ return tn.value.trim()||'Clínica Aura'; }
+  function handle(){ return name().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'.').replace(/^\.|\.$/g,'')||'clinica.aura'; }
+  var S={
+    precio:function(n){return [['in','Holaa, ¿cuánto cuesta el rinomodelado?'],['out','¡Hola! Soy el asistente virtual de '+n+'. El rinomodelado con ácido hialurónico parte de 350 €. El precio final lo fija la doctora en la valoración, que es gratuita.'],['out','¿Te busco hueco esta semana?'],['card']];},
+    laser:function(n){return [['in','¿Tenéis láser para piernas? ¿Precio?'],['out','¡Hola! Soy el asistente virtual de '+n+'. Sí: la sesión de piernas completas parte de 60 € y el bono de 6 sesiones, de 300 €.'],['out','La primera sesión incluye una prueba de piel. ¿Te va bien el jueves?'],['card']];},
+    embarazo:function(n){return [['in','Estoy embarazada de 4 meses, ¿puedo hacerme labios?'],['out','Gracias por contármelo. Soy el asistente virtual de '+n+' y no puedo valorar eso: lo decide la doctora.'],['out','Le dejo el aviso y te llama ella mañana. ¿A qué hora te va mejor?'],['flag','Aviso a la doctora: embarazo. Sin reserva hasta que llame.']];},
+    persona:function(n){return [['in','Prefiero hablar con alguien de la clínica'],['out','Claro. Soy el asistente virtual de '+n+'. Paso tu mensaje a recepción ahora mismo.'],['out','Mañana a partir de las 10:00 te escriben por aquí. ¿Te dejo apuntado un tema?'],['flag','Pasado a recepción con todo el contexto.']];}
+  };
+  function el(t){
+    var d=document.createElement('div');
+    if(t[0]==='card'){d.className='card';d.innerHTML='<b>Valoración gratuita</b><div class="slots"><span class="slot">Mar 17:00</span><span class="slot on">Mié 18:30</span><span class="slot">Jue 12:00</span></div><div class="pay">Señal reembolsable <span>20 €</span></div>';}
+    else if(t[0]==='flag'){d.className='flag';d.textContent=t[1];}
+    else{d.className='msg '+t[0];d.textContent=t[1];}
+    return d;
+  }
+  function play(k){
+    cur=k; timers.forEach(clearTimeout); timers=[]; tt.innerHTML=''; th.textContent=handle();
+    var steps=S[k](name());
+    if(reduce){steps.forEach(function(t){tt.appendChild(el(t));});return;}
+    var t=0;
+    steps.forEach(function(st,i){
+      var wait=i===0?150:(st[0]==='out'?900:600);
+      t+=wait;
+      if(st[0]==='out'){
+        timers.push(setTimeout(function(){var ty=document.createElement('div');ty.className='typing';ty.innerHTML='<i></i><i></i><i></i>';tt.appendChild(ty);},t-700));
+      }
+      timers.push(setTimeout(function(){var ty=tt.querySelector('.typing');if(ty)ty.remove();tt.appendChild(el(st));},t));
+    });
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});b.classList.add('on');b.setAttribute('aria-pressed','true');play(b.dataset.k);});});
+  var deb; tn.addEventListener('input',function(){clearTimeout(deb);deb=setTimeout(function(){play(cur);},400);});
+  play('precio');
+})();
+</script>
+</body>
+</html>

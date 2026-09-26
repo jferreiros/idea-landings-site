@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barrio Reel: Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F3F1EC;--paper:#FCFBF8;--ink:#141414;--muted:#5B5955;--tomato:#141414;--mustard:#FF2E7E;--tile:#141414;--olive:#141414;--line:#141414}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--tile)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-bottom:30px;font-weight:700}.top span a{margin-right:10px}
+.top a{color:var(--ink);text-decoration:none}
+h1,h2,h3{font-family:"Anton",Impact,sans-serif;font-weight:400;line-height:1;text-transform:uppercase}
+h3{font-size:1.35rem!important}
+.eyebrow{background:#FF2E7E;color:#141414!important;padding:3px 8px;font-family:"JetBrains Mono",monospace;display:inline-block;margin-bottom:10px}
+.tbl{border:2px solid #141414}.tbl th{background:#141414!important;color:#FCFBF8}.tbl th a{color:#FF2E7E!important}
+.card,.kpi,.box{border-radius:0!important;border:2px solid #141414!important}.summary{border-radius:0!important;box-shadow:6px 6px 0 #FF2E7E}
+.kill{border:3px solid #141414;background:#FF2E7E;padding:20px;margin-top:16px}
+.kpi b{color:#141414!important}
+h1{font-size:clamp(2rem,6vw,3.2rem)}
+h2{font-size:1.8rem;margin-bottom:16px}
+h3{font-size:1.2rem;margin:26px 0 10px}
+.eyebrow{font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tomato)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--cream);border-radius:0;padding:26px;margin-top:22px;font-size:1.08rem}
+.summary b{color:var(--mustard)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:0;padding:20px;margin-top:14px}
+.two{display:grid;gap:14px}
+@media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:.93rem;background:var(--paper);border-radius:0;overflow:hidden}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:#F3E9D8;font-weight:700}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:#F3E9D8;padding:1px 5px;border-radius:0}
+pre{background:var(--ink);color:#F5EDE0;padding:16px;border-radius:0;overflow-x:auto;font-size:.84rem;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+.script{background:var(--paper);border-left:4px solid var(--tomato);padding:16px 18px;border-radius:0 12px 12px 0;margin-top:10px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:16px}
+.row{display:grid;gap:10px}
+@media(min-width:720px){.row.c3{grid-template-columns:repeat(3,1fr)}.row.c4{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--paper);border:1.5px solid var(--ink);border-radius:0;padding:12px;font-size:.88rem}
+.box b{display:block;font-size:.95rem}
+.box.core{background:var(--ink);color:var(--cream)}
+.box.core b{color:var(--mustard)}
+.box.ext{border-style:dashed;background:transparent}
+.arrow{text-align:center;color:var(--tomato);font-weight:800;font-size:.85rem;letter-spacing:.08em}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+@media(min-width:720px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:0;padding:14px}
+.kpi b{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:1.6rem;display:block;color:var(--tomato)}
+.kpi span{font-size:.82rem;color:var(--muted)}
+.cmpt td:first-child{font-weight:700;min-width:130px}.cmpt td{min-width:200px}.cmpt th a{color:var(--ink)}
+.week{border-left:3px solid var(--mustard);padding-left:14px;margin-top:14px}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top"><a href="index.html">Barrio Reel</a><span><a href="outreach.html">Outreach</a> &nbsp; <a href="contenido.html">Contenido</a> &nbsp; <a href="ficha.html">Ficha</a> &nbsp; <a href="pitch.html">Pitch</a> &nbsp; <a href="precios.html">Precios</a> &nbsp; <a href="onboarding.html">Onboarding</a> &nbsp; <a href="anuncios.html">Anuncios</a> &nbsp; <a href="b.html">Variante B</a> &nbsp; <a href="index.html">Landing</a></span></div>
+    <span class="eyebrow">Plan interno · 26 sep 2026</span>
+    <h1>Barrio Reel: creadores locales en piloto automático para restaurantes de Barcelona</h1>
+    <div class="summary">
+      <p><b>Cómo lo encararía:</b> empezaría como un servicio manual en 2-3 barrios de Barcelona: recluto 30 micro-creadores por DM, visito 10 restaurantes en persona y les doy un piloto gratis el primer mes para producir reels reales que sirvan de prueba. La IA entra primero donde ahorra horas (emparejar creador y local, agendar por WhatsApp, verificar publicaciones y generar el informe) y solo después se convierte en producto.</p>
+    </div>
+  </div>
+</header>
+
+<section id="comparativa">
+  <div class="wrap">
+    <span class="eyebrow">0 · Ronda 2 · 26 sep 2026</span>
+    <h2>Comparativa con la referencia</h2>
+    <p>Páginas leídas: <a href="https://trynearby.com" target="_blank" rel="noopener">trynearby.com</a> (referencia YC, renderizada con Chrome porque es una SPA) y <a href="https://solofoodies.com/" target="_blank" rel="noopener">solofoodies.com</a> (competidor español). Nuestra landing: <a href="https://barrioreel.vercel.app" target="_blank" rel="noopener">barrioreel.vercel.app</a>.</p>
+    <div class="scroll"><table class="tbl cmpt">
+      <tr><th></th><th>Barrio Reel (antes de la ronda 2)</th><th><a href="https://trynearby.com" target="_blank" rel="noopener">TryNearby</a> (YC)</th><th><a href="https://solofoodies.com/" target="_blank" rel="noopener">Solofoodies</a></th></tr>
+      <tr><td>Estrategia y posicionamiento</td><td>Restaurantes independientes de Barcelona. Promesa: 4 creadores del barrio al mes, hecho por nosotros. Ángulo: público local verificado.</td><td>"Word of mouth for local businesses". Servicio gestionado: 5 creadores nuevos al mes, "fully hands off". Solo Southern California para restaurantes; red de creadores en 17 ciudades de EE. UU.</td><td>Marketplace self-serve para restaurantes, creadores y agencias, local e internacional. Ángulo: comunidad y "colaboraciones auténticas". Gratis para el restaurante; paga el creador.</td></tr>
+      <tr><td>Calidad percibida y diseño</td><td>Cuidado y cálido (serif + crema + tomate), mockup propio. Faltaba cara humana y señales de confianza.</td><td>Muy pulida: feed de notificaciones animado, chats de iMessage de restaurante y creador, fondo crema, mucho aire. Parece una empresa seria.</td><td>Correcta pero genérica: emojis como iconos, contadores que se ven a 0 sin JS, selector de idioma con banderas. Parece una plataforma en crecimiento.</td></tr>
+      <tr><td>Estructura y funnel</td><td>Hero con 2 CTA, problema, 3 pasos, panel, beneficios, precio, creadores, FAQ, formulario de 4 campos con desplegable. Sin CTA fijo en móvil.</td><td>CTA "Get Started" arriba, prueba de resultados, bloque "assistant over text", precio único, FAQ de objeciones, formulario de contacto, segundo embudo de creadores y de referidos ("Refer a restaurant & get paid").</td><td>Elige perfil (foodie / restaurante / agencia) desde el hero, luego registro con cuenta. Tres embudos en una página, más app móvil.</td></tr>
+      <tr><td>Prueba social</td><td>Ninguna (honesto: no hay clientes).</td><td>"120+ restaurants", dos casos con cifras de ventas (autodeclarados), logo YC.</td><td>Cuatro testimonios con nombre y local, contadores de colaboraciones.</td></tr>
+      <tr><td>Precios y empaquetado</td><td>Primer mes "a coste" (vago), 199 €/mes + IVA por 4 creadores, plan multi-local a medida.</td><td>399 $/mes, mes a mes, "No contracts". Incluye 5 creadores, flujo gestionado, analítica y soporte 24/7. Creadores gratis.</td><td>0 € para restaurantes para siempre. Creadores pagan 10 €/mes, 30 €/año o 100 € de por vida (gratis desde 20k seguidores).</td></tr>
+      <tr><td>Textos</td><td>Claros y en español real, escena de Poble-sec. Hero largo y con dos ideas.</td><td>Cortos y concretos ("You show up, eat, and post. We handle the rest"). Mezcla promesa y ejemplos de chat.</td><td>Genéricos ("Calidad por encima de todo", "Conexiones auténticas"). FAQ larga y útil para SEO.</td></tr>
+      <tr><td>Qué copiamos / qué mejoramos</td><td colspan="3"><ol>
+        <li><b>Copiado de TryNearby:</b> el asistente por mensajes. Añadido un chat de WhatsApp en el panel ("dime qué plato destacar") y en el precio.</li>
+        <li><b>Copiado de TryNearby:</b> "sin permanencia" repetido junto a cada CTA, y FAQ de objeciones ("¿y si no funciona?", "¿cuánto tiempo me quita?").</li>
+        <li><b>Mejorado frente a los dos:</b> piloto gratis de verdad (0 € el primer mes) en lugar de "a coste"; nota del fundador y bloque de confianza (#publi, sin reseñas falsas, RGPD y UE) en lugar de logos o testimonios que no tenemos.</li>
+        <li><b>Respuesta a Solofoodies:</b> nueva sección "tres formas de tener reels" y una pregunta frecuente que explica por qué pagar si hay apps gratis: pagas por no gestionar.</li>
+        <li><b>Funnel:</b> formulario de 3 campos, selector local/creador como botón (no desplegable), CTA fijo en móvil, hero con una sola promesa.</li>
+        <li><b>Pendiente:</b> programa de referidos (TryNearby lo tiene) y un caso real con cifras cuando exista el primer piloto.</li>
+      </ol></td></tr>
+    </table></div>
+    <p style="margin-top:12px"><b>Lectura estratégica:</b> Solofoodies ya ocupa el hueco "barato y self-serve" en España con precio 0 para el local. No competimos ahí. Competimos en "hecho para ti" con verificación, como TryNearby, a la mitad de su precio y con foco de barrio.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">1 · Oferta y cliente</span>
+    <h2>Oferta de valor e ICP</h2>
+    <p><b>Oferta:</b> por 199 €/mes + IVA, 4 micro-creadores con público local visitan tu local, publican un reel cada uno y tú recibes un informe de alcance. Todo hecho por nosotros: selección, agenda, recordatorios, verificación y sustitución si alguien no publica.</p>
+    <div class="two">
+      <div class="card">
+        <h3 style="margin-top:0">Cliente ideal (restaurante)</h3>
+        <ul>
+          <li>Restaurante, bar o café independiente en Barcelona, 1-3 locales.</li>
+          <li>Ticket medio 12-35 €; menú del día, brunch, tapas, cocina de autor asequible.</li>
+          <li>Barrios con tráfico local y turismo interno: Gràcia, Sant Antoni, Poble-sec, Sants, Poblenou, Eixample.</li>
+          <li>Dueño que trabaja en sala o cocina; Instagram abandonado o gestionado por un familiar.</li>
+          <li>Recién abierto (0-18 meses) o con días flojos (lunes a miércoles).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Lado creador</h3>
+        <ul>
+          <li>Micro-creadores de comida o estilo de vida en BCN, 2k-30k seguidores.</li>
+          <li>Más del 40 % del público en Barcelona (lo vemos en sus insights).</li>
+          <li>Reciben: comida + 15-20 € por reel publicado.</li>
+          <li>Motivación: contenido gratis, ingresos pequeños pero fáciles, sin negociar.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Competencia y referencias</h3>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Quién</th><th>Qué hace</th><th>Precio</th><th>Hueco</th></tr>
+      <tr><td><a href="https://www.ycombinator.com/companies/trynearby" target="_blank" rel="noopener">TryNearby (YC)</a></td><td>Creadores locales para restaurantes, gestionado. Referencia de modelo.</td><td>399 $/mes, 5 creadores/mes; "120+ restaurants" según su web</td><td>Solo Southern California; no está en España</td></tr>
+      <tr><td><a href="https://solofoodies.com/" target="_blank" rel="noopener">Solofoodies</a></td><td>Marketplace self-serve: el restaurante publica colaboraciones y los foodies se apuntan. Web + app.</td><td>0 € para restaurantes; creadores 10 €/mes (revisado 26 sep 2026)</td><td>El restaurante hace el trabajo: elegir, chatear, comprobar</td></tr>
+      <tr><td>Nomade Revolution</td><td>Plataforma de colaboraciones con influencers para hostelería y turismo.</td><td>Variable</td><td>Orientado a campañas, no a una suscripción de barrio</td></tr>
+      <tr><td>Agencias de marketing locales</td><td>Gestión de redes, sesiones de foto.</td><td>300-800 €/mes</td><td>Caro; contenido propio, no alcance de creadores</td></tr>
+    </table></div>
+    <p style="margin-top:14px"><b>Hueco:</b> nadie en España ofrece creadores locales "hecho para ti" con verificación y precio fijo por debajo de 200 €.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">2 · Go-to-market</span>
+    <h2>Primeros 10 clientes sin anuncios</h2>
+    <ol>
+      <li><b>Semana 1: oferta de creadores primero.</b> Busco en Instagram por hashtags y ubicaciones (#gracia, #santantoni, #brunchbarcelona) y guardo 100 cuentas de 2k-30k. Envío DM a 60. Objetivo: 30 creadores apuntados.</li>
+      <li><b>Semana 1-2: lista de 60 restaurantes</b> en 3 barrios, filtrados en Google Maps por 4,3+ estrellas, menos de 500 reseñas y un Instagram débil.</li>
+      <li><b>Semana 2-3: visitas en persona</b> entre 16:00 y 18:00, cuando la cocina está parada. 10 visitas al día, objetivo 1 de cada 6 dice que sí.</li>
+      <li><b>Piloto gratis el primer mes</b> (nos cuesta ~75 € en fees de creador: es nuestro CAC). A cambio: permiso para usar sus reels y resultados como caso.</li>
+      <li><b>Referidos:</b> un mes gratis al restaurante que traiga a otro del barrio (idea copiada de TryNearby).</li>
+      <li><b>Prueba social:</b> a partir del cliente 3, enseño en el móvil los reels reales de los otros locales del barrio.</li>
+    </ol>
+    <h3>Guion de DM a creador</h3>
+    <div class="script">Hola [nombre], me encantan tus vídeos de [local que ha grabado]. Estoy montando Barrio Reel: te propongo restaurantes buenos cerca de ti en Gràcia, vas cuando quieras, comes gratis y te pagamos 15 € por reel publicado. Sin negociar nada. ¿Te apunto a la lista de los primeros 30?</div>
+    <h3>Guion de visita al restaurante</h3>
+    <div class="script">Hola, soy Joaquín, vivo aquí al lado. Trabajo con creadores del barrio que tienen su público en Barcelona. Cada mes mandamos a 4 a comer aquí; ellos publican un reel y yo compruebo que sale y te digo cuánta gente lo ha visto. El primer mes es gratis: tú solo pones la comida. ¿Te enseño lo que hicieron en [local vecino]?</div>
+    <h3>Contenido (reels propios)</h3>
+    <ul>
+      <li>Serie "Un local, un creador": 30 segundos del detrás de cámaras de cada visita (con permiso).</li>
+      <li>"Lo que pasa cuando 4 creadores del barrio vienen a tu bar": resultados reales de un cliente.</li>
+      <li>Mapa de barrio: reels recopilados por zona, útiles para creadores y para vecinos.</li>
+    </ul>
+    <h3>Métricas</h3>
+    <div class="kpis">
+      <div class="kpi"><b>30</b><span>creadores activos (semana 2)</span></div>
+      <div class="kpi"><b>1/6</b><span>visitas que cierran</span></div>
+      <div class="kpi"><b>≥ 90 %</b><span>reels publicados a tiempo</span></div>
+      <div class="kpi"><b>≥ 70 %</b><span>restaurantes que pagan el mes 2</span></div>
+    </div>
+    <h3>Con presupuesto alto (~5.000 €/mes)</h3>
+    <ul>
+      <li>Presupuesto orientativo: 2.500 € comercial a comisión, 1.200 € Meta Ads, 800 € producción de reels propios, 500 € eventos de creadores.</li>
+      <li>Objetivo: 30 restaurantes nuevos al mes con CAC ≤ 190 €, recuperado con 2 meses de margen.</li>
+      <li>Un comercial a comisión por barrio y un community manager para creadores.</li>
+      <li>Anuncios en Meta dirigidos a dueños de hostelería en Barcelona con los reels de clientes.</li>
+      <li>Alianzas con gremios (Gremi de Restauració de Barcelona) y proveedores de TPV o cerveceras.</li>
+      <li>Replicar en Madrid y Valencia con el mismo manual de barrio.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">3 · Técnico, alto nivel</span>
+    <h2>Arquitectura</h2>
+    <div class="arch">
+      <div class="row c3">
+        <div class="box"><b>Panel restaurante</b>Next.js: alta, agenda, reels, informe</div>
+        <div class="box"><b>App creador</b>Web móvil: ofertas cerca, reservar, subir enlace</div>
+        <div class="box"><b>Back-office</b>Operación: cola de matches, incidencias</div>
+      </div>
+      <div class="arrow">↓ API ↓</div>
+      <div class="row c3">
+        <div class="box core"><b>API + jobs</b>Next.js route handlers + cron (Vercel)</div>
+        <div class="box core"><b>Motor de matching</b>Score: distancia público-local, estilo, tamaño, historial</div>
+        <div class="box core"><b>Verificador</b>Comprueba publicación, etiqueta, #publi y métricas</div>
+      </div>
+      <div class="arrow">↓ datos ↓</div>
+      <div class="row c3">
+        <div class="box"><b>Supabase Postgres</b>Datos + auth + storage de reels</div>
+        <div class="box"><b>LLM (Claude)</b>Clasificar estilo, redactar mensajes, informe</div>
+        <div class="box"><b>Colas</b>Recordatorios y reintentos</div>
+      </div>
+      <div class="arrow">↔ integraciones ↔</div>
+      <div class="row c4">
+        <div class="box ext"><b>Instagram Graph API</b>Login del creador, insights, media</div>
+        <div class="box ext"><b>WhatsApp Business</b>Agenda y recordatorios</div>
+        <div class="box ext"><b>Stripe</b>Cobro SEPA/tarjeta + Connect para pagos</div>
+        <div class="box ext"><b>Google Places</b>Datos del local y ubicación</div>
+      </div>
+    </div>
+    <h3>Stack recomendado</h3>
+    <ul>
+      <li>Next.js en Vercel, Supabase (Postgres, auth, storage), Tailwind.</li>
+      <li>Claude para clasificación de estilo, redacción de mensajes y resumen del informe.</li>
+      <li>Instagram Login con cuentas profesionales para leer insights de los creadores con su permiso.</li>
+      <li>WhatsApp Business Cloud API para agendar; al principio, WhatsApp manual con plantillas.</li>
+      <li>Stripe Billing (SEPA) para restaurantes y Stripe Connect Express para pagar a creadores.</li>
+    </ul>
+    <h3>Datos</h3>
+    <p>Locales (ubicación, cocina, horas flojas), creadores (seguidores, % de público por ciudad, estilo, fiabilidad), visitas, publicaciones y métricas. Los insights de audiencia son agregados; no guardamos datos de seguidores individuales.</p>
+    <h3>Riesgos legales</h3>
+    <ul>
+      <li><b>Publicidad con influencers:</b> cada reel se marca como publicidad o colaboración. Aplica la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-11311" target="_blank" rel="noopener">Ley 13/2022 General de Comunicación Audiovisual</a>, el Real Decreto 444/2024 para usuarios de especial relevancia y el código de conducta de Autocontrol sobre influencers.</li>
+      <li><b>Reseñas falsas:</b> prohibido pedir valoraciones en Google o comentarios pactados. Solo experiencias reales.</li>
+      <li><b>RGPD:</b> consentimiento explícito del creador para leer sus insights; contrato de encargado con restaurantes; datos en la UE (Supabase región Frankfurt).</li>
+      <li><b>Pagos a creadores:</b> muchos no son autónomos. Hay que resolver facturación, IRPF y límites; Stripe Connect ayuda con KYC, pero no con la fiscalidad española. Consultar con gestor antes del mes 2.</li>
+      <li><b>Derechos de imagen y uso:</b> contrato tipo que cede al restaurante el uso del reel en sus redes.</li>
+      <li><b>Dependencia de Meta:</b> cambios en la API o en el alcance orgánico. Mitigar con verificación por enlace + captura.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">4 · Técnico, bajo nivel</span>
+    <h2>Modelo de datos</h2>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Tabla</th><th>Campos clave</th></tr>
+      <tr><td><code>restaurants</code></td><td>id, name, address, lat, lng, neighbourhood, cuisine_tags[], avg_ticket, slow_slots (jsonb), ig_handle, meal_budget_eur, owner_contact, stripe_customer_id, status</td></tr>
+      <tr><td><code>creators</code></td><td>id, handle, ig_user_id, ig_token_enc, followers, audience_city_share (jsonb), home_lat, home_lng, style_tags[], avg_views, reliability_score, fee_eur, stripe_account_id, status</td></tr>
+      <tr><td><code>subscriptions</code></td><td>id, restaurant_id, plan, price_eur, visits_per_month, started_at, status</td></tr>
+      <tr><td><code>matches</code></td><td>id, restaurant_id, creator_id, month, score, reasons (jsonb), state (proposed / accepted / declined)</td></tr>
+      <tr><td><code>visits</code></td><td>id, match_id, scheduled_at, confirmed_at, attended (bool), post_deadline</td></tr>
+      <tr><td><code>posts</code></td><td>id, visit_id, ig_media_id, permalink, published_at, has_location, has_tag, has_ad_label, views, reach, saves, last_checked_at, verified</td></tr>
+      <tr><td><code>payouts</code></td><td>id, creator_id, post_id, amount_eur, stripe_transfer_id, status</td></tr>
+      <tr><td><code>reports</code></td><td>id, restaurant_id, month, totals (jsonb), summary_md, sent_at</td></tr>
+    </table></div>
+    <h3>Endpoints y jobs</h3>
+    <ul>
+      <li><code>POST /api/restaurants</code>: alta desde el formulario y Google Places.</li>
+      <li><code>GET /api/auth/instagram/callback</code>: conecta la cuenta del creador y lee insights.</li>
+      <li><code>POST /api/matches/run?month=</code>: genera 6 candidatos por local y propone 4.</li>
+      <li><code>POST /api/visits/:id/confirm</code> y webhook de WhatsApp para respuestas.</li>
+      <li><code>POST /api/posts</code>: el creador pega el enlace del reel.</li>
+      <li>Cron diario <code>verify-posts</code>: busca el reel, comprueba ubicación, etiqueta y #publi, guarda métricas a 24 h, 72 h y 7 días.</li>
+      <li>Cron diario <code>chase-deadlines</code>: recordatorios y sustitución si pasa el plazo.</li>
+      <li>Cron mensual <code>monthly-report</code> y <code>payouts</code> tras verificar.</li>
+      <li>Webhook <code>/api/stripe</code>: estado de cobro y bloqueo si hay impago.</li>
+    </ul>
+    <h3>Agentes y prompts</h3>
+    <ul>
+      <li><b>Clasificador de estilo:</b> lee los 12 últimos captions y portadas y devuelve etiquetas (brunch, tapas, low-cost, gourmet, humor, ASMR) y tono.</li>
+      <li><b>Explicador de match:</b> redacta en una frase por qué este creador encaja con este local.</li>
+      <li><b>Agendador:</b> propone 3 huecos en las horas flojas del local y confirma por WhatsApp.</li>
+      <li><b>Redactor de informe:</b> convierte las métricas del mes en 5 frases claras para el dueño.</li>
+    </ul>
+<pre>Score de match (v1, reglas + pesos, sin ML):
+score = 0.40 * local_audience   # % público en BCN, penaliza si &lt; 40 %
+      + 0.25 * proximity        # distancia casa creador → local (≤ 3 km = 1)
+      + 0.20 * style_fit        # solape de etiquetas cocina/estilo
+      + 0.15 * reliability      # % publicados a tiempo
+reglas: no repetir creador en el mismo local en 6 meses;
+        máx. 3 visitas/mes por creador; seguidores 2k-30k.</pre>
+    <h3>Flujo paso a paso</h3>
+    <ol>
+      <li>El restaurante se da de alta y paga por SEPA.</li>
+      <li>El día 1 del mes, el job de matching propone 4 creadores (+2 de reserva).</li>
+      <li>Cada creador acepta en la web móvil y elige hueco; el local confirma por WhatsApp.</li>
+      <li>Recordatorio 24 h antes a ambos.</li>
+      <li>Tras la visita, el creador tiene 7 días para publicar y pegar el enlace.</li>
+      <li>El verificador valida y guarda métricas; si falla, entra un creador de reserva.</li>
+      <li>A fin de mes: informe al dueño y pago a creadores verificados.</li>
+    </ol>
+    <h3>MVP por semanas</h3>
+    <div class="week"><b>Semana 1: concierge.</b> Airtable/Supabase a mano, reclutar creadores, landing con formulario conectado, WhatsApp manual.</div>
+    <div class="week"><b>Semana 2: datos y matching.</b> Instagram Login para creadores, tablas base, score v1 en un script, visitas a restaurantes.</div>
+    <div class="week"><b>Semana 3: verificación.</b> Cron de verificación de posts, recordatorios automáticos, app móvil del creador para aceptar y pegar enlaces.</div>
+    <div class="week"><b>Semana 4: cobro e informe.</b> Stripe Billing + Connect, informe mensual con Claude, panel del restaurante de solo lectura.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">5 · Unit economics</span>
+    <h2>Números simples</h2>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Concepto</th><th>€ / restaurante / mes</th></tr>
+      <tr><td>Precio (sin IVA)</td><td><b>199</b></td></tr>
+      <tr><td>Fees de creador (4 × 17 €)</td><td>−68</td></tr>
+      <tr><td>Creador de reserva (10 % de visitas)</td><td>−7</td></tr>
+      <tr><td>Stripe + WhatsApp + LLM + APIs</td><td>−8</td></tr>
+      <tr><td>Operación humana (~45 min a 30 €/h)</td><td>−22</td></tr>
+      <tr><td><b>Margen de contribución</b></td><td><b>≈ 94 (47 %)</b></td></tr>
+    </table></div>
+    <p style="margin-top:12px">La comida la pone el restaurante y no entra en nuestro coste. Costes fijos al inicio: ~150 €/mes (hosting, dominio, herramientas). <b>Break-even de herramientas: 2 clientes.</b> Para un sueldo de 3.000 €/mes: ~34 clientes. Con 30 creadores a 3 visitas/mes caben ~22 restaurantes, así que la oferta de creadores es el cuello de botella: hay que llegar a ~50 creadores activos.</p>
+    <p>Comparativa: TryNearby cobra 399 $/mes. A 199 € dejamos margen para subir precio o añadir un plan de 8 visitas a ~349 €.</p>
+  </div>
+</section>
+
+<section id="90dias">
+  <div class="wrap">
+    <span class="eyebrow">5b · Ejecución</span>
+    <h2>Plan de 30/60/90 días</h2>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Tramo</th><th>Objetivo semanal</th><th>Meta al final</th></tr>
+      <tr><td><b>Días 1-30</b><br>Concierge</td><td>60 DMs a creadores/semana (sem. 1-2); 30 visitas a locales/semana (sem. 2-4); 2 pilotos gratis cerrados/semana</td><td>30 creadores apuntados, 6 pilotos gratis en marcha, 20 reels publicados</td></tr>
+      <tr><td><b>Días 31-60</b><br>Primeros cobros</td><td>20 visitas/semana; 2 pilotos nuevos/semana; seguimiento de conversión piloto a pago</td><td>4 restaurantes pagando 199 €, 45 creadores, verificación semiautomática</td></tr>
+      <tr><td><b>Días 61-90</b><br>Densidad de barrio</td><td>2 barrios nuevos al mes; 3 clientes nuevos/semana (referidos + visitas)</td><td>10 clientes de pago (≈ 2.000 € MRR), 60 creadores, informe mensual automático</td></tr>
+    </table></div>
+    <h3>Supuesto más arriesgado y test de esta semana</h3>
+    <p><b>Supuesto:</b> un restaurante que ya tuvo 4 reels gratis paga 199 €/mes el segundo mes. Solofoodies le ofrece acceso a creadores por 0 €.</p>
+    <p><b>Test más barato (7 días, 0 €):</b> visitar 20 locales de Poble-sec y Sant Antoni con la landing en el móvil. Pedir un "sí" condicionado: "si los 4 reels salen, ¿pagarías 199 € el mes 2?". Apuntar respuestas literales. Éxito: 5 de 20 dicen que sí y 2 aceptan piloto con fecha.</p>
+    <div class="kill">
+      <h3 style="margin-top:0">Criterios para parar (kill)</h3>
+      <ul>
+        <li>Día 21: menos de 15 creadores apuntados tras 120 DMs. Sin oferta no hay producto.</li>
+        <li>Día 30: menos de 3 pilotos aceptados tras 60 visitas.</li>
+        <li>Día 60: menos del 40 % de pilotos pasan a pago, o menos del 80 % de reels se publican a tiempo.</li>
+        <li>Día 90: menos de 6 clientes de pago o margen de contribución por debajo de 70 € por cliente.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">6 · Factorías</span>
+    <h2>Qué automatizan los agentes</h2>
+    <div class="two">
+      <div class="card">
+        <h3 style="margin-top:0">Software factory</h3>
+        <ul>
+          <li>Construir el MVP por semanas desde este plan (worktree por feature, validación con browser-harness).</li>
+          <li>Jobs de verificación de posts y sus tests con fixtures de la API de Instagram.</li>
+          <li>Ajustar el score de matching con los datos de publicación reales.</li>
+          <li>Panel e informe mensual, plantillas de WhatsApp, integración Stripe.</li>
+          <li>Monitor de fallos: si la API de Meta cambia, abrir issue y parche.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Marketing factory</h3>
+        <ul>
+          <li>Encontrar creadores por hashtag y ubicación y preparar DMs personalizados (envío humano).</li>
+          <li>Lista de restaurantes por barrio desde Google Maps con puntuación de encaje.</li>
+          <li>Rutas de visita diarias y fichas de cada local antes de entrar.</li>
+          <li>Montar reels propios con los resultados de clientes (con permiso).</li>
+          <li>Casos de éxito por barrio y seguimiento de leads del formulario.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Barrio Reel · © 2026 · <a href="index.html">Landing</a> &nbsp; <a href="aviso-legal.html">Aviso legal</a> &nbsp; <a href="privacidad.html">Privacidad</a> &nbsp; <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

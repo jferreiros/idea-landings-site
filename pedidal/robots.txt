@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /plan.html
+Disallow: /outreach.html
+Disallow: /contenido.html
+Disallow: /ficha.html
+Disallow: /pitch.html
+Disallow: /onboarding.html
+Disallow: /b.html
+Disallow: /anuncios.html
+
+Sitemap: https://pedidal.vercel.app/sitemap.xml

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Precios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F8F7F2;--paper-2:#EEF3EC;--card:#FFFFFF;--ink:#15201B;--ink-2:#3C4843;--mute:#6B746F;--green:#0E7A3E;--green-2:#1FB95A;--green-soft:#D7F5E1;--coral:#E4572E;--coral-soft:#FBE3D9;--line:#D9D0BF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:16.5px/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green);font-weight:600}
+h1,h2,h3{font-family:Fredoka,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 30px}
+.back{font-size:14px;color:var(--mute);text-decoration:none;font-weight:600}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.toc a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-2);font-weight:500;background:var(--card)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:16px}
+h3{font-size:20px;margin:22px 0 8px}
+p{margin:8px 0;color:var(--ink-2)}
+ul,ol{margin:8px 0 8px 22px;color:var(--ink-2)}
+li{margin:5px 0}
+b,strong{color:var(--ink)}
+.summary{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px;font-size:19px;line-height:1.55}
+.summary b{color:#7FD3A2}
+.grid{display:grid;gap:16px}
+@media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-2);padding:1px 5px;border-radius:5px}
+pre{background:#1B2621;color:#E3EAE5;border-radius:14px;padding:18px;overflow-x:auto;font:13.5px/1.55 ui-monospace,Menlo,monospace;margin:12px 0;white-space:pre-wrap}
+.warn{background:var(--coral-soft);border-radius:14px;padding:16px 18px;margin:12px 0}
+/* architecture */
+.arch{display:grid;gap:12px;margin:16px 0}
+@media(min-width:760px){.arch{grid-template-columns:repeat(4,1fr)}}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:14px;font-size:14px}
+.box b{display:block;font-family:Fredoka;font-size:16px;margin-bottom:4px}
+.box.g{border-color:var(--green);background:var(--green-soft)}
+.box.c{border-color:var(--coral);background:var(--coral-soft)}
+.flowrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.flowrow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.flowrow i{font-style:normal;color:var(--green);font-weight:800}
+.weeks{display:grid;gap:12px}
+@media(min-width:760px){.weeks{grid-template-columns:repeat(4,1fr)}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px}
+.wk .h{font:800 15px Fredoka;color:var(--green)}
+.wk .gate{margin-top:10px;font-size:13px;background:var(--green-soft);border-radius:8px;padding:6px 8px;color:var(--ink)}
+.kpi{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:14px 0}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:800 30px Fredoka;color:var(--green)}
+.kpi span{font-size:13.5px;color:var(--mute)}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+.calc{display:grid;gap:16px}@media(min-width:760px){.calc{grid-template-columns:1fr 1fr}}
+.calc label{display:block;font-weight:600;margin:12px 0 4px;color:var(--ink)}
+.calc input[type=range]{width:100%;accent-color:var(--green);min-height:32px}
+.calc output{font-weight:700;color:var(--green)}
+.res{background:var(--ink);color:var(--paper);border-radius:18px;padding:22px}
+.res b{display:block;font:700 40px Fredoka;color:#7FE0A4}
+.res p{color:#D7E0DA}
+.btnp{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:13px 22px;text-decoration:none;font-weight:700;margin-top:10px}
+:focus-visible{outline:3px solid #E4572E;outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<a class="back" href="index.html">← Volver a la landing</a><br><br>
+<span class="tag">Precios</span>
+<h1>Precios claros y una cuenta que puedes hacer tú</h1>
+<p>Piloto gratis de 30 días en todos los planes. Sin tarjeta y sin permanencia. Precios en validación, IVA no incluido.</p>
+</header>
+<section><h2>¿Cuánto te cuestan las llamadas que no coges?</h2>
+<p>Pon tus números. No inventamos nada: el cálculo usa solo lo que tú sabes de tu negocio.</p>
+<div class="calc">
+<div>
+<label for="c1">Llamadas que no coges al día: <output id="o1">3</output></label><input id="c1" type="range" min="1" max="15" value="3">
+<label for="c2">De cada 10, cuántas serían un trabajo: <output id="o2">3</output></label><input id="c2" type="range" min="1" max="10" value="3">
+<label for="c3">Ticket medio de un trabajo (€): <output id="o3">180</output></label><input id="c3" type="range" min="30" max="800" step="10" value="180">
+<label for="c4">Días que abres al mes: <output id="o4">22</output></label><input id="c4" type="range" min="10" max="30" value="22">
+</div>
+<div class="res" aria-live="polite">
+<p>Trabajos que pueden escaparse al mes</p><b id="r1">20</b>
+<p>Facturación en juego al mes</p><b id="r2">€3.564</b>
+<p>Horas que no pasas devolviendo llamadas (a 3 min cada una)</p><b id="r3">3,3 h</b>
+<p id="r4" style="margin-top:10px">El plan Pro cuesta €69 al mes.</p>
+<a class="btnp" href="index.html#probar">Quiero probarla</a>
+</div></div>
+<p style="font-size:14px">Es una estimación: no todas las llamadas perdidas se recuperan. Durante el piloto verás en tu resumen de WhatsApp cuántas coge de verdad.</p>
+</section>
+<section><h2>Planes</h2><div class="tbl"><table>
+<tr><th></th><th>Básico</th><th>Pro</th><th>Negocio</th></tr>
+<tr><td>Precio al mes</td><td>€39</td><td>€69</td><td>€149</td></tr>
+<tr><td>Minutos incluidos</td><td>150</td><td>400</td><td>1.000</td></tr>
+<tr><td>Minuto extra</td><td>€0,20</td><td>€0,16</td><td>€0,14</td></tr>
+<tr><td>Contesta las llamadas que no coges</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+<tr><td>Resumen por WhatsApp al dueño</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
+<tr><td>WhatsApp al cliente desde tu número</td><td>No</td><td>Sí</td><td>Sí</td></tr>
+<tr><td>Citas en Google Calendar</td><td>No</td><td>Sí</td><td>Sí</td></tr>
+<tr><td>Varias sedes o líneas</td><td>No</td><td>No</td><td>Sí</td></tr>
+</table></div></section>
+<section><h2>Preguntas sobre la factura</h2>
+<h3>¿Cuándo empiezo a pagar?</h3><p>Al día 31, solo si decides seguir. Durante el piloto no pedimos tarjeta.</p>
+<h3>¿Qué es un minuto?</h3><p>El tiempo que Lucía habla con tus clientes, redondeado al minuto por llamada. Las llamadas que coges tú no cuentan.</p>
+<h3>¿Y si me paso de minutos?</h3><p>Te avisamos por WhatsApp al 80 %. Si te pasas, pagas el minuto extra de tu plan, o subes de plan ese mes.</p>
+<h3>¿Hay permanencia?</h3><p>No. Pagas mes a mes y cancelas cuando quieras desde el mismo WhatsApp.</p>
+<h3>¿Hacéis factura con IVA?</h3><p>Sí, factura mensual a nombre de tu empresa o como autónomo, con IVA.</p>
+</section>
+<script>
+function eur(n){return '€'+String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function upd(){var a=+c1.value,b=+c2.value,t=+c3.value,d=+c4.value;o1.value=a;o2.value=b;o3.value=t;o4.value=d;
+var jobs=a*d*b/10,money=jobs*t,h=a*d*3/60;
+r1.textContent=Math.round(jobs);r2.textContent=eur(money);r3.textContent=h.toFixed(1).replace('.',',')+' h';
+var n=Math.max(1,Math.ceil(69/t));r4.textContent=jobs>=1?'El plan Pro cuesta €69 al mes: se paga si recupera '+n+(n==1?' trabajo':' trabajos')+' al mes.':'Con tan pocas llamadas quizá no te compensa. Pruébalo gratis y lo ves.';}
+['c1','c2','c3','c4'].forEach(function(i){document.getElementById(i).addEventListener('input',upd);});upd();
+</script>
+</div>
+<footer><div class="wrap">Descuélgalo · © 2026 · <a href="index.html">Landing</a> · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

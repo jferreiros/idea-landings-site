@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#E6D8BF"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#FF5A1F"/>
+  <rect x="70" y="70" width="44" height="44" rx="4" fill="#FF5A1F"/>
+  <rect x="80" y="82" width="24" height="3" fill="#1D2125"/><rect x="80" y="90" width="24" height="3" fill="#1D2125"/><rect x="80" y="98" width="24" height="3" fill="#1D2125"/>
+  <text x="130" y="106" font-family="Arial Narrow, Arial, sans-serif" font-weight="700" font-size="38" fill="#1D2125">Pedidal</text>
+  <text x="70" y="260" font-family="Arial Narrow, Arial, sans-serif" font-weight="800" font-size="92" fill="#1D2125">Del WhatsApp a tu ERP,</text>
+  <rect x="64" y="292" width="470" height="104" fill="#FF5A1F"/>
+  <text x="76" y="374" font-family="Arial Narrow, Arial, sans-serif" font-weight="800" font-size="92" fill="#1D2125">sin teclear.</text>
+  <text x="70" y="470" font-family="Courier New, monospace" font-size="28" fill="#4B4F53">Audios, fotos y mensajes de tus clientes</text>
+  <text x="70" y="510" font-family="Courier New, monospace" font-size="28" fill="#4B4F53">convertidos en pedidos con tus referencias.</text>
+  <g transform="translate(820,150)">
+    <rect width="310" height="330" rx="6" fill="#FBF6EC" stroke="#1D2125" stroke-width="3"/>
+    <text x="20" y="40" font-family="Courier New, monospace" font-size="16" fill="#4B4F53">PEDIDO</text>
+    <text x="20" y="78" font-family="Arial Narrow, Arial, sans-serif" font-weight="800" font-size="36" fill="#1D2125">PV-24817</text>
+    <rect x="20" y="94" width="270" height="4" fill="#1D2125"/>
+    <g fill="#1D2125"><rect x="20" y="108" width="3" height="30"/><rect x="26" y="108" width="2" height="30"/><rect x="32" y="108" width="4" height="30"/><rect x="40" y="108" width="2" height="30"/><rect x="46" y="108" width="3" height="30"/><rect x="54" y="108" width="2" height="30"/><rect x="60" y="108" width="5" height="30"/><rect x="69" y="108" width="2" height="30"/><rect x="75" y="108" width="3" height="30"/><rect x="82" y="108" width="2" height="30"/><rect x="88" y="108" width="4" height="30"/><rect x="96" y="108" width="2" height="30"/><rect x="102" y="108" width="3" height="30"/><rect x="110" y="108" width="2" height="30"/><rect x="116" y="108" width="5" height="30"/><rect x="125" y="108" width="2" height="30"/><rect x="131" y="108" width="3" height="30"/><rect x="138" y="108" width="2" height="30"/></g>
+    <text x="20" y="180" font-family="Courier New, monospace" font-size="18" fill="#1D2125">20 ud  CC1-G25</text>
+    <text x="20" y="215" font-family="Courier New, monospace" font-size="18" fill="#1D2125">3 pal  LHD-07</text>
+    <text x="20" y="250" font-family="Courier New, monospace" font-size="18" fill="#1D2125">40 ud  YG-20</text>
+    <rect x="12" y="266" width="286" height="32" fill="#FFE1CF"/>
+    <text x="20" y="288" font-family="Courier New, monospace" font-size="18" fill="#A8360A">1 cj   GN-09  revisar</text>
+  </g>
+  <text x="70" y="580" font-family="Courier New, monospace" font-size="22" fill="#A8360A">pedidal.vercel.app · piloto gratis con 20 pedidos reales</text>
+</svg>

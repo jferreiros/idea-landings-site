@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conserjia | Motor de contenido</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--paper-2:#E4E9F0;--card:#FFFFFF;--ink:#0D1B2E;--ink-2:#44536A;--line:#CDD5E0;--green:#13253D;--brass:#855C00;--terra:#B4573A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 Hanken Grotesk,system-ui,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.15}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin:10px 0 16px}
+h2{font-size:1.7rem;margin:0 0 16px;padding-top:8px}
+h3{font-size:1.15rem;margin:22px 0 8px}
+p,ul,ol{margin-bottom:12px}
+ul,ol{padding-left:22px}
+li{margin-bottom:5px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+header{padding:28px 0 20px}
+header a.back{font-size:.92rem}
+.summary{background:var(--green);color:var(--paper);border-radius:16px;padding:24px 26px;font-size:1.08rem}
+.summary .mono{color:#E6BC5C}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+nav.toc a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink-2);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper-2);font-weight:600}
+code,pre{font-family:"JetBrains Mono",monospace;font-size:.84rem}
+pre{background:var(--ink);color:#E9E3D3;padding:16px;border-radius:12px;overflow-x:auto;white-space:pre-wrap;margin:10px 0 16px;line-height:1.5}
+.quote{border-left:3px solid var(--brass);padding:10px 16px;background:#F6F0E0;border-radius:0 10px 10px 0;margin:10px 0 16px;font-style:italic}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:14px 0}
+@media(min-width:760px){.arch{grid-template-columns:1fr 1.3fr 1fr;align-items:stretch}}
+.col{display:flex;flex-direction:column;gap:10px}
+.col .lbl{font-family:"JetBrains Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-2);letter-spacing:.05em}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.box b{display:block;font-size:.95rem}
+.box.core{border-color:var(--green);background:#E6ECF5}
+.box.ai{border-color:var(--brass);background:#F8F0DC}
+.box.ext{border-style:dashed}
+.flowarrow{text-align:center;color:var(--ink-2);font-size:.85rem}
+footer{padding:30px 0 50px;color:var(--ink-2);font-size:.9rem;display:flex;justify-content:space-between}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="plan.html">&larr; Volver al plan</a>
+  <p class="mono" style="margin-top:22px">Motor de contenido · uso interno · 26 sep 2026</p>
+  <h1>Contenido para administradores de fincas</h1>
+  <div class="summary">
+    <p class="mono">Para quién</p>
+    <p style="margin:6px 0 0">Titulares y oficiales de despachos de 20 a 150 comunidades en Barcelona. Canales: LinkedIn (titulares), Instagram y TikTok (reels sobre la LPH, que también ven presidentes de comunidad). Grabo con el móvil; la marketing factory corta, subtitula y programa.</p>
+  </div>
+  <nav class="toc"><a href="#reels">10 reels</a><a href="#calendario">Calendario</a><a href="#carruseles">Carruseles</a></nav>
+</header>
+<section id="reels">
+  <h2>10 guiones de reel (20 a 35 segundos)</h2>
+  <div class="grid2"><div class="card"><p class="mono">Reel 1</p><p><b>Gancho (2 s):</b> ¿Esto lo paga la comunidad o el vecino?</p><p><b>Escena:</b> Plano cenital de un techo con mancha de humedad. Texto en pantalla con la pregunta.</p><p><b>Frase:</b> Si viene de la bajante general, es elemento común y paga la comunidad (art. 10 LPH). Si viene de la ducha del vecino de arriba, paga él o su seguro.</p><p><b>CTA:</b> Guarda este vídeo para la próxima junta.</p></div><div class="card"><p class="mono">Reel 2</p><p><b>Gancho (2 s):</b> Una fuga a las 08:41. Cerrada a las 12:10.</p><p><b>Escena:</b> Pantalla partida: a la izquierda la foto del vecino, a la derecha el WhatsApp de Conserjia avanzando en tiempo real.</p><p><b>Frase:</b> Así se ve una avería cuando nadie del despacho tiene que coger el teléfono.</p><p><b>CTA:</b> Administradores: piloto gratis en el enlace del perfil.</p></div><div class="card"><p class="mono">Reel 3</p><p><b>Gancho (2 s):</b> El ascensor parado un viernes a las 21:12.</p><p><b>Escena:</b> Grabación de pantalla del chat del escenario Ascensor de la landing.</p><p><b>Frase:</b> Pregunta si hay alguien dentro. Avisa a la guardia. Deja nota al presidente. Y tú sigues cenando.</p><p><b>CTA:</b> ¿Tu despacho qué hace un viernes por la noche? Cuéntamelo en comentarios.</p></div><div class="card"><p class="mono">Reel 4</p><p><b>Gancho (2 s):</b> Tu oficial hace de centralita.</p><p><b>Escena:</b> Contador en pantalla: 1, 2, 3... 8 contactos (vecino, industrial, presidente, seguro) mientras suenan notificaciones.</p><p><b>Frase:</b> Cada avería son de cuatro a ocho contactos. Ninguno queda escrito en un sitio.</p><p><b>CTA:</b> Sígueme si llevas comunidades en Barcelona.</p></div><div class="card"><p class="mono">Reel 5</p><p><b>Gancho (2 s):</b> Tres audios de la misma escalera.</p><p><b>Escena:</b> Joaquín en plano medio, mirando a cámara, con el móvil mostrando tres audios.</p><p><b>Frase:</b> El lunes a las 08:05 tres vecinos te avisan del mismo ascensor. Conserjia los junta en una sola incidencia.</p><p><b>CTA:</b> Escríbeme 'ascensor' y te enseño cómo.</p></div><div class="card"><p class="mono">Reel 6</p><p><b>Gancho (2 s):</b> Humedad en el techo: ¿común o privativa?</p><p><b>Escena:</b> Carrusel de tres fotos reales anonimizadas (con permiso): terraza, bajante, ducha.</p><p><b>Frase:</b> Terraza comunitaria: comunidad. Bajante general: comunidad. Ducha del vecino: privativo. En caso de duda, lo decide el administrador.</p><p><b>CTA:</b> Guarda y compártelo con tu presidente.</p></div><div class="card"><p class="mono">Reel 7</p><p><b>Gancho (2 s):</b> Qué pasa cuando el fontanero no contesta.</p><p><b>Escena:</b> Chat en pantalla con el recordatorio automático y el paso al segundo industrial de la lista.</p><p><b>Frase:</b> A los 30 minutos le recuerda. A la hora, pasa al siguiente de tu lista y te avisa.</p><p><b>CTA:</b> Piloto gratis en el enlace del perfil.</p></div><div class="card"><p class="mono">Reel 8</p><p><b>Gancho (2 s):</b> Construyo un conserje con IA en público, día 1.</p><p><b>Escena:</b> Joaquín en el escritorio, código y WhatsApp en pantalla.</p><p><b>Frase:</b> Busco cinco despachos de Barcelona para probar esto gratis. Os cuento cada semana qué funciona y qué no.</p><p><b>CTA:</b> Sígueme para ver el día 30.</p></div><div class="card"><p class="mono">Reel 9</p><p><b>Gancho (2 s):</b> La junta de propietarios, versión 2026.</p><p><b>Escena:</b> Plano de una sala de junta; en la pantalla del portátil, la ficha de incidencias del trimestre.</p><p><b>Frase:</b> Qué pasó, quién vino y cuánto costó. Una ficha por avería, lista para la junta.</p><p><b>CTA:</b> Administradores: comenta 'junta' y te enseño la ficha.</p></div><div class="card"><p class="mono">Reel 10</p><p><b>Gancho (2 s):</b> No es un chatbot que contesta dudas.</p><p><b>Escena:</b> Dos móviles: a la izquierda un bot que responde 'hemos recibido su consulta'; a la derecha Conserjia con la cita confirmada.</p><p><b>Frase:</b> Uno contesta. El otro avisa al industrial, persigue la cita y cierra con el vecino.</p><p><b>CTA:</b> ¿Cuál quieres en tus comunidades? Enlace en el perfil.</p></div></div>
+  <p>Regla de honestidad: las conversaciones son de la demo o de pilotos reales anonimizados con permiso escrito del despacho. Nunca muestro nombres, pisos ni teléfonos reales.</p>
+</section>
+<section id="calendario">
+  <h2>Calendario de 4 semanas</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Semana</th><th>Lunes</th><th>Miércoles</th><th>Viernes</th><th>Objetivo</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Reel 8 (día 1 en público) + post LinkedIn</td><td>Reel 1 (quién paga)</td><td>Carrusel 1</td><td>200 seguidores del sector, 3 mensajes directos</td></tr>
+      <tr><td>2</td><td>Reel 4 (centralita)</td><td>Reel 2 (08:41 a 12:10)</td><td>Reel 6 (humedad)</td><td>2 llamadas agendadas desde contenido</td></tr>
+      <tr><td>3</td><td>Reel 5 (tres audios) + post LinkedIn con aprendizaje del piloto</td><td>Reel 3 (ascensor)</td><td>Carrusel 2</td><td>5 comentarios de administradores</td></tr>
+      <tr><td>4</td><td>Reel 7 (fontanero no contesta)</td><td>Reel 9 (junta)</td><td>Reel 10 + Carrusel 3</td><td>1 piloto que llega por contenido</td></tr>
+    </tbody>
+  </table></div>
+  <p>Tiempo de Joaquín: 2 horas el domingo para grabar los 3 vídeos de la semana. Lo demás lo hace la marketing factory.</p>
+</section>
+<section id="carruseles">
+  <h2>3 ideas de carrusel (LinkedIn e Instagram)</h2>
+  <div class="grid2">
+    <div class="card"><p class="mono">Carrusel 1</p><b>"7 averías y quién las paga según la LPH"</b><p>Bajante, terraza, fachada, ascensor, humedad de la ducha, portero automático, garaje. Una lámina por caso, con el artículo de la ley enlazado. Última lámina: "Conserjia hace esta primera clasificación y te pregunta en los dudosos".</p></div>
+    <div class="card"><p class="mono">Carrusel 2</p><b>"Anatomía de una avería: 8 contactos"</b><p>Una lámina por contacto (vecino, oficial, fontanero, presidente, seguro...), con la hora. Última lámina: la misma avería con Conserjia, en 2 contactos humanos.</p></div>
+    <div class="card"><p class="mono">Carrusel 3</p><b>"Qué aprendí en 30 días de piloto"</b><p>Datos reales del piloto (incidencias, tiempo hasta avisar al industrial, errores del agente y cómo los corregimos). Solo se publica con datos reales y permiso del despacho.</p></div>
+  </div>
+</section>
+<footer><span>Conserjia · © 2026</span><a href="plan.html">Plan</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+</body>
+</html>

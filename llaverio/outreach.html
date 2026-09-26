@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: kit de captación</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+.msg{background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:16px 18px;margin:10px 0;white-space:pre-line;max-width:640px}
+.msg.sea{background:var(--sea-soft);border-color:#C4DCEA;border-radius:18px 18px 6px 18px}
+.ch{display:inline-block;background:var(--brass-soft);color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:3px 10px 3px 8px;border-radius:6px 999px 999px 6px;margin-bottom:6px}
+.obj{display:grid;gap:12px;grid-template-columns:1fr}
+.obj .box h3{margin-top:0}
+.seq{display:grid;gap:0;margin-top:12px}
+.seq > div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.seq b.d{font:600 1rem "Geist Mono",monospace;color:var(--sea)}
+ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
+@media(min-width:720px){.obj{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">← Volver al plan</a>
+  <div style="margin-top:18px" class="eyebrow">Kit de captación · 26 sep 2026</div>
+  <h1>Cómo conseguir las 10 primeras gestoras</h1>
+  <p class="muted">Documento interno. Mensajes, guion de visita, objeciones, seguimiento y cómo montar la lista. Sin datos de personas: solo empresas.</p>
+  <div class="summary"><b>Regla de canal:</b> el primer contacto es una llamada al teléfono público de la gestora, una visita a su oficina o el formulario de contacto de su web. Nada de emails comerciales en frío: la LSSI (art. 21) exige consentimiento previo. El email llega solo después de un «sí, mándamelo».</div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>1. El primer mensaje</h2>
+  <p>Un solo objetivo: conseguir 15 minutos para enseñar la demo con un piso suyo. No vendas precio en el primer mensaje.</p>
+  <span class="ch">Formulario web o WhatsApp de atención de la gestora</span>
+  <div class="msg">Hola, soy Joaquín, desarrollador en Barcelona.
+Estoy montando Llaverio para gestoras de pisos turísticos de costa: tras cada check-out avisa a la limpiadora por WhatsApp, revisa sus fotos y solo te escribe si falta algo.
+Busco 10 gestoras para un piloto gratis de 30 días este otoño.
+¿Te parece bien que te llame 15 minutos esta semana? Si me dices que no, no vuelvo a escribir.</div>
+  <span class="ch">Llamada al teléfono de la oficina (30 segundos)</span>
+  <div class="msg">Hola, ¿hablo con la persona que organiza las limpiezas? Soy Joaquín, de Barcelona. Os llamo porque estoy probando una herramienta para los sábados de salidas y entradas: la limpiadora recibe el aviso por WhatsApp y el sistema revisa sus fotos antes de que llegue el huésped. ¿Os viene bien que pase por la oficina un día de la semana que viene, 20 minutos?</div>
+  <span class="ch">Email, solo si te han dicho «mándamelo»</span>
+  <div class="msg">Asunto: Lo que te comenté por teléfono (Llaverio)
+
+Hola, [nombre]:
+Gracias por atenderme hoy. Como te dije, Llaverio avisa a tu equipo tras cada salida, revisa las fotos con la lista de cada piso y solo te escribe si algo falla.
+Aquí tienes cómo funciona en 1 minuto: https://llaverio.vercel.app
+Te propongo [día] a las [hora] en vuestra oficina. Si prefieres otro momento, dime cuál.
+Joaquín
+Si no quieres recibir más mensajes, responde «baja» y no te escribo más.</div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>2. Guion de la visita (20 minutos)</h2>
+  <ol>
+    <li><b>Minuto 0-5. Pregunta y escucha.</b> «¿Qué pasó el último sábado de agosto?». No interrumpas. Apunta nombres de pisos y problemas.</li>
+    <li><b>Minuto 5-8. Números.</b> «¿Cuántas salidas tenéis un sábado de agosto? ¿Cuántas limpiadoras? ¿Quién revisa el piso antes de la entrada?»</li>
+    <li><b>Minuto 8-15. Demo con su piso.</b> Usa las fotos de su anuncio público. Pide que alguien de su equipo te mande una foto por WhatsApp y enseña cómo la revisa el agente.</li>
+    <li><b>Minuto 15-18. Propuesta.</b> «30 días gratis con 5 de tus pisos. Lo monto yo. Solo pagas si 8 de cada 10 salidas quedan revisadas sin que intervengas.»</li>
+    <li><b>Minuto 18-20. Cierre con fecha.</b> Fija el día de alta antes de irte. Si dice «me lo pienso», fija el día de la llamada de seguimiento.</li>
+  </ol>
+  <p>Al salir, envía la <a href="ficha.html">ficha del piloto</a> (una página, se imprime o se guarda en PDF) solo si te han dicho que sí a recibirla.</p>
+  <p class="muted">Lleva el portátil, el móvil con el número de pruebas de WhatsApp y una lista de revisión impresa de un piso tipo.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>3. Cinco objeciones y qué responder</h2>
+  <div class="obj">
+    <div class="box"><h3>«Ya tengo Avantio (o Smoobu), tiene tareas.»</h3><p>Llaverio lee de tu PMS, no lo sustituye. Tu PMS crea la tarea; Llaverio persigue a la limpiadora, revisa las fotos y te avisa si falta algo.</p></div>
+    <div class="box"><h3>«Mis limpiadoras no van a usar nada nuevo.»</h3><p>No usan nada nuevo. Siguen en WhatsApp, con el mismo tipo de mensaje que hoy les mandas tú.</p></div>
+    <div class="box"><h3>«¿Y si la IA se equivoca con un huésped?»</h3><p>Las dos primeras semanas el agente solo propone y tú apruebas cada mensaje. Gastos, quejas serias y cambios de horario siempre pasan por ti.</p></div>
+    <div class="box"><h3>«Ahora en otoño no tengo tiempo para esto.»</h3><p>El otoño es el único momento con tiempo. La configuración es una hora contigo; el resto lo hago yo. En abril ya no podrás.</p></div>
+    <div class="box"><h3>«¿Quién eres? No conozco la empresa.»</h3><p>Soy un desarrollador solo, sin clientes de pago todavía. Por eso el piloto es gratis y lo monto yo en persona. Si no funciona, no pagas nada.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>4. Seguimiento: día 0, 2 y 7</h2>
+  <div class="seq">
+    <div><b class="d">Día 0</b><p>Tras la llamada o la visita: mensaje con el enlace a la landing y la fecha propuesta. Solo si te han dado permiso para escribir.</p></div>
+    <div><b class="d">Día 2</b><p>«Te he preparado la lista de revisión de [piso de su anuncio] para que veas cómo quedaría. ¿La repasamos el jueves?» Adjunta una captura, no un PDF largo.</p></div>
+    <div><b class="d">Día 7</b><p>Último mensaje: «Cierro los pilotos de otoño el día [fecha]. Si ahora no encaja, te escribo en febrero antes de la temporada. ¿Te parece?». Después, a la lista de febrero. No hay día 14.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>5. Cómo montar la lista (20 gestoras en una tarde)</h2>
+  <p>No apuntamos a Barcelona ciudad: el plan municipal de no renovar licencias en 2028 hace que las gestoras de allí compren menos. Empezamos por la costa a 1-2 horas en coche. Busca en Google Maps con estas consultas exactas y apunta solo datos de empresa (nombre, web, teléfono público, nº de pisos visibles en su web):</p>
+  <ol class="q">
+    <li>gestión apartamentos turísticos Palafrugell</li>
+    <li>gestión alquiler vacacional Calella de Palafrugell</li>
+    <li>agencia alquiler vacacional L'Escala</li>
+    <li>gestión viviendas turísticas Begur</li>
+    <li>apartamentos turísticos gestión Roses</li>
+    <li>gestión alquiler turístico Platja d'Aro</li>
+    <li>gestión apartamentos turísticos Lloret de Mar</li>
+    <li>gestión alquiler vacacional Tossa de Mar</li>
+    <li>gestión apartamentos turísticos Sitges</li>
+    <li>gestión alquiler vacacional Salou</li>
+    <li>gestión apartamentos turísticos Cambrils</li>
+    <li>gestión alquiler vacacional L'Ametlla de Mar</li>
+  </ol>
+  <p><b>Filtro:</b> quédate con las que muestran entre 10 y 60 viviendas en su web o en su perfil de Airbnb/Booking. Descarta inmobiliarias con 2 o 3 pisos y cadenas con más de 100. Con 12 consultas y 2 o 3 gestoras válidas por pueblo salen 20 a 30 empresas.</p>
+  <p><b>Ruta de visitas:</b> martes Palafrugell, Begur y L'Escala; jueves Salou y Cambrils. Octubre y noviembre, de 10:00 a 13:00, cuando las oficinas tienen tiempo.</p>
+  <p class="muted">Esto no es asesoramiento legal. Antes de escalar, revisa la LSSI y el RGPD con un abogado.</p>
+</div></section>
+
+<footer><div class="wrap">Llaverio · © 2026 · <a href="plan.html">Plan</a> · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

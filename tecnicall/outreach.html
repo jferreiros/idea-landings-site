@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnicall | Kit de contacto</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F1ED;--paper-2:#E4E2DB;--card:#fff;--ink:#0F0F0D;--ink-2:#4A473E;--line:#CFCCC2;--vis:#FFD000;--vis-soft:#FFF3B8;--ok:#2E7A57;--ok-soft:#DCEFE4;--steel:#211F1B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px}
+.logo{font-family:"Barlow Condensed";font-weight:900;font-size:20px;text-decoration:none;color:var(--ink)}
+.logo span{background:var(--vis);padding:0 4px}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.02em;margin:22px 0 10px}
+h2{font-family:"Barlow Condensed";font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 14px;padding-top:10px}
+h3{font-family:"Barlow Condensed";font-weight:800;font-size:19px;margin:22px 0 8px}
+section{padding:34px 0;border-top:1px solid var(--line)}
+p,li{color:#2b3541}
+p+p{margin-top:10px}
+ul,ol{padding-left:22px;display:grid;gap:5px}
+a{color:var(--ink);text-decoration-color:var(--vis);text-decoration-thickness:3px;text-underline-offset:3px}
+h1,h2{text-transform:uppercase}
+h2{font-size:36px!important;font-weight:900!important}
+h1{font-size:clamp(44px,7vw,68px)!important;line-height:.95!important}
+header{border-bottom:14px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--vis) 0 16px,var(--ink) 16px 32px) 14}
+.box,.card,.tbl,.flow li,.warn,pre,.summary,.toc a,code{border-radius:0!important}
+code,.mono{font-family:"JetBrains Mono",monospace;font-size:14px}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.toc a{font-family:"JetBrains Mono";font-size:13px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;font-size:19px}
+.summary p{color:#E6E1D6}
+.summary b{color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px;background:var(--card)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Barlow Condensed";font-size:14px;background:var(--paper-2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{margin:0}
+/* architecture */
+.arch{display:grid;gap:10px;margin-top:14px}
+.layer{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.box b{font-family:"Barlow Condensed";display:block;font-size:15px}
+.box.in{border-color:var(--vis);background:var(--vis-soft)}
+.box.core{border-color:var(--steel);background:#E4E9EE}
+.box.out{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;font-family:"JetBrains Mono";color:var(--ink-2);font-size:13px}
+@media(min-width:720px){.layer.l3{grid-template-columns:repeat(3,1fr)}.layer.l4{grid-template-columns:repeat(4,1fr)}}
+.flow{counter-reset:s;list-style:none;padding:0}
+.flow li{counter-increment:s;padding:10px 12px 10px 48px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.flow li::before{content:counter(s);position:absolute;left:12px;top:10px;width:24px;height:24px;background:var(--vis);color:var(--ink);font-family:"Barlow Condensed";font-size:13px;display:grid;place-items:center}
+.warn{border-left:4px solid var(--vis);background:var(--vis-soft);padding:12px 14px;border-radius:8px;margin-top:12px}
+pre{background:var(--ink);color:#E6E1D6;padding:14px;border-radius:10px;overflow-x:auto;font-family:"JetBrains Mono";font-size:13px;line-height:1.5;margin-top:10px;white-space:pre-wrap}
+footer{padding:28px 0;font-size:15px;color:var(--ink-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="index.html">Tecni<span>call</span></a>
+  <h1>Kit de contacto</h1>
+  <p>Para conseguir los 10 primeros talleres sin anuncios. Todo lo escribe y lo envía Joaquín, a negocios, nunca a particulares.</p>
+  <nav class="toc"><a href="#msg">Primer mensaje</a><a href="#visita">Visita</a><a href="#obj">Objeciones</a><a href="#seg">Seguimiento</a><a href="#lista">Lista</a><a href="plan.html">Plan</a></nav>
+</header>
+<main class="wrap">
+<section id="reglas" style="border-top:0">
+  <h2>Reglas antes de escribir</h2>
+  <ul>
+    <li>Email solo a direcciones genéricas de empresa publicadas en su web (info@, taller@). La LSSI (art. 21) prohíbe el email comercial no pedido a personas físicas, y un autónomo lo es: si la dirección es personal, no hay email.</li>
+    <li>El canal principal es la llamada al teléfono público del negocio y la visita. WhatsApp solo si el negocio lo publica para atender clientes, un único mensaje y sin reenviar si no contesta.</li>
+    <li>Cada mensaje dice quién eres y ofrece darse de baja: “si no te interesa, dímelo y no vuelvo a escribir”.</li>
+    <li>No guardes datos de personas. La lista guarda nombre comercial, teléfono público, nota y reseñas.</li>
+  </ul>
+</section>
+<section id="msg">
+  <h2>Primer mensaje</h2>
+  <h3>Llamada (13:30 a 15:00)</h3>
+  <pre>Hola, ¿hablo con Reparaciones [Nombre]? Soy Joaquín, de Barcelona. Te robo un minuto.
+He visto en vuestra ficha de Google que algún cliente dice que no le cogéis el teléfono.
+Me imagino que es porque estáis en faena.
+He montado un asistente que contesta con el nombre de vuestra empresa y os deja el aviso apuntado.
+Ya lo tengo preparado con vuestro nombre. ¿Te paso el número y lo escuchas ahora?</pre>
+  <h3>WhatsApp del negocio (solo si lo publican para clientes)</h3>
+  <pre>Hola, soy Joaquín, de Barcelona. No soy cliente, te escribo por trabajo.
+He preparado una demo de un asistente que contesta llamadas y WhatsApp con el nombre de [Nombre] y deja el aviso con foto, modelo y hora.
+Si quieres oírlo, llama al [número de prueba]: contesta como tu empresa. Son 2 minutos.
+Si no te interesa, dímelo y no vuelvo a escribir.</pre>
+  <h3>Email (solo a info@ o dirección genérica de empresa)</h3>
+  <pre>Asunto: Demo con el nombre de [Nombre] (2 minutos)
+
+Hola,
+Soy Joaquín, fundador de Tecnicall, en Barcelona. He preparado un asistente que atiende llamadas y WhatsApp de empresas de reparación y deja cada aviso agendado con foto y modelo.
+Ya contesta como [Nombre]. Puedes oírlo llamando al [número de prueba].
+Si os encaja, lo ponemos 30 días gratis en vuestro número. Si no, no pasa nada.
+
+Joaquín · Tecnicall · tecnicall.vercel.app
+Si no quieres recibir más correos, responde “baja” y no volveré a escribir.</pre>
+</section>
+<section id="visita">
+  <h2>Visita en persona</h2>
+  <ol>
+    <li>Entra entre 13:30 y 15:00 o a primera hora, antes de que salgan las furgonetas.</li>
+    <li>Pregunta por el dueño: “¿Quién decide cómo se cogen las llamadas aquí?”</li>
+    <li>Enseña el móvil con la demo ya montada con su nombre. Pide que llame él desde su móvil.</li>
+    <li>Mientras habla con el asistente, calla. Deja que pregunte por su propia avería.</li>
+    <li>Pregunta: “¿Cuántas llamadas crees que pierdes a la semana cuando estás en un trabajo?” Apunta la cifra.</li>
+    <li>Cierra: “Lo pongo 30 días en tu número, gratis, y al final te enseño cuántas llamadas cogió. ¿Te va el jueves para montarlo?”</li>
+    <li>Deja una tarjeta con el número de prueba y el QR a la landing.</li>
+  </ol>
+</section>
+<section id="obj">
+  <h2>5 objeciones y respuestas</h2>
+  <div class="tbl"><table>
+    <tr><th>Dicen</th><th>Respondes</th></tr>
+    <tr><td>“Mis clientes quieren hablar con una persona.”</td><td>“Por eso solo coge las que tú no coges. Si el cliente pide hablar contigo, te pasa la llamada o te deja el aviso con todo apuntado.”</td></tr>
+    <tr><td>“Ya tengo a mi mujer / a alguien en la oficina.”</td><td>“¿Y a las 21:00 o un sábado? Pon el asistente solo fuera de horario. Ella sigue igual.”</td></tr>
+    <tr><td>“Va a quedar mal si se equivoca.”</td><td>“Solo da tus precios de salida y tus huecos libres. No presupuesta reparaciones. Lo escuchas antes de activarlo.”</td></tr>
+    <tr><td>“Ya uso [FIXARR / otro SAT].”</td><td>“Tecnicall no sustituye tu programa. Coge la llamada de voz hoy y te pasa el aviso. Si ya te va bien, no te hace falta.”</td></tr>
+    <tr><td>“No tengo tiempo para montar nada.”</td><td>“Lo monto yo en 30 minutos contigo delante. Tú solo me dices zonas y precio de salida.”</td></tr>
+  </table></div>
+</section>
+<section id="seg">
+  <h2>Seguimiento</h2>
+  <div class="tbl"><table>
+    <tr><th>Día</th><th>Acción</th><th>Mensaje</th></tr>
+    <tr><td>0</td><td>Llamada o visita + demo</td><td>El guion de arriba. Apunta la cifra de llamadas perdidas que te den.</td></tr>
+    <tr><td>2</td><td>Una llamada a mediodía (o un WhatsApp si lo pidió él)</td><td>“¿Pudiste llamar al número de prueba? Si quieres, te lo cambio para que diga tus zonas y tu precio de salida.”</td></tr>
+    <tr><td>7</td><td>Último contacto</td><td>“Cierro esta semana los pilotos de octubre. Si te interesa, te lo monto el jueves. Si no, no te molesto más.”</td></tr>
+  </table></div>
+  <p>Sin respuesta al día 7: marcar como “no” y no volver a contactar en 3 meses.</p>
+</section>
+<section id="lista">
+  <h2>Cómo construir la lista (Barcelona)</h2>
+  <p>No listamos negocios concretos aquí: la lista vive en la hoja de trabajo, con datos públicos de empresa. Estas son las búsquedas exactas en Google Maps.</p>
+  <div class="tbl"><table>
+    <tr><th>Búsqueda en Google Maps</th><th>Por qué</th></tr>
+    <tr><td>reparación electrodomésticos Barcelona</td><td>ICP principal</td></tr>
+    <tr><td>servicio técnico lavadoras Gràcia</td><td>Barrio denso, muchos talleres pequeños</td></tr>
+    <tr><td>reparación electrodomésticos L'Hospitalet de Llobregat</td><td>Talleres de 2 a 8 técnicos</td></tr>
+    <tr><td>servicio técnico electrodomésticos Badalona</td><td>Poco digitalizados</td></tr>
+    <tr><td>reparación aire acondicionado Barcelona</td><td>Pico de llamadas en verano</td></tr>
+    <tr><td>instalador calderas Sant Andreu</td><td>Urgencias en invierno</td></tr>
+    <tr><td>fontanero urgente Barcelona 24 horas</td><td>Valor alto de coger de noche</td></tr>
+    <tr><td>cerrajero urgente Sabadell</td><td>ICP secundario</td></tr>
+    <tr><td>servicio técnico oficial [Balay | Bosch | Fagor] Barcelona</td><td>SAT autorizados con volumen alto</td></tr>
+    <tr><td>reparación electrodomésticos Terrassa</td><td>Segunda corona, menos competencia</td></tr>
+  </table></div>
+  <h3>Filtro para quedarte con 20</h3>
+  <ol>
+    <li>Entre 20 y 300 reseñas, nota entre 3,8 y 4,7.</li>
+    <li>Al menos una reseña con “no cogen”, “no contestan” o “nadie responde”.</li>
+    <li>Tiene web o WhatsApp de empresa publicado.</li>
+    <li>No es franquicia con centralita propia.</li>
+  </ol>
+</section>
+</main>
+<footer><div class="wrap"><span>Tecnicall · uso interno</span><a href="plan.html">Volver al plan</a></div></footer>
+</body></html>

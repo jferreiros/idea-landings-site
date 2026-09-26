@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedidal · Plan interno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E6D8BF;--paper-2:#D9C7A7;--card:#F6F0E4;--ink:#1D2125;--ink-2:#4B4F53;--line:#BFA982;--carbon:#A8360A;--carbon-soft:#FFE1CF;--stamp:#A8360A;--stamp-soft:#FFE1CF;--ok:#23703F;--ok-soft:#D8EDDD;--orange:#FF5A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--carbon)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;font-size:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px "Archivo";text-decoration:none;color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:3px;background:var(--orange);position:relative}
+.logo-mark:before{content:"";position:absolute;left:7px;right:7px;top:7px;height:2px;background:var(--ink);box-shadow:0 5px 0 var(--ink),0 10px 0 var(--ink)}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon)}
+h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:78%;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:14px 0 18px}
+h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px}
+h3{font-size:20px;margin:26px 0 10px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+p+p{margin-top:12px}
+ul,ol{padding-left:22px;display:grid;gap:6px;margin:10px 0}
+.summary{background:var(--ink);color:var(--paper);border-radius:16px;padding:26px;font-size:18px;line-height:1.55}
+.summary b{color:var(--orange)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{font:500 12.5px "IBM Plex Mono";text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+.grid2{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2);vertical-align:top}
+th{font:600 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);background:var(--paper-2)}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.88em}
+code{background:var(--paper-2);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EAF0;border-radius:12px;padding:16px;overflow-x:auto;font:400 13px/1.55 "IBM Plex Mono";margin:12px 0}
+.quote{border-left:3px solid var(--stamp);background:var(--card);padding:14px 18px;border-radius:0 12px 12px 0;margin:12px 0;font-style:italic}
+.tag{display:inline-block;font:600 11px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:5px;background:var(--carbon-soft);color:var(--carbon)}
+.tag.r{background:var(--stamp-soft);color:var(--stamp)}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+/* architecture boxes */
+.arch{display:grid;gap:10px;margin:16px 0}
+.lane{display:grid;gap:10px}
+.box{background:var(--card);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+.box b{font-family:"Archivo";font-size:16px;display:block}
+.box span{color:var(--ink-2);font-size:13px}
+.box.core{background:var(--ink);color:var(--paper)}
+.box.core span{color:#B9C1CC}
+.box.ext{border-style:dashed}
+.down{text-align:center;font:600 12px "IBM Plex Mono";color:var(--ink-2)}
+.mermaid{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0;overflow-x:auto}
+.cmp table{min-width:760px}.cmp td:first-child{font-weight:600;width:150px}.cmp td{font-size:14px}
+.kill{border:2px solid var(--stamp);background:var(--stamp-soft);border-radius:12px;padding:20px;margin-top:16px}.kill h3{margin-top:0;color:var(--stamp)}
+.weeks{display:grid;gap:12px}
+.week{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.week .mono{color:var(--carbon);font-weight:600}
+footer{padding:30px 0 50px;font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between}
+@media (min-width:760px){
+  .grid2{grid-template-columns:1fr 1fr}
+  .lane{grid-template-columns:repeat(3,1fr)}
+  .weeks{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top"><a class="logo" href="index.html"><span class="logo-mark"></span>Pedidal</a><a href="index.html">← Landing</a></div>
+  <span class="eyebrow">Plan interno · 26 sep 2026 · borrador</span>
+  <h1>Plan de Pedidal</h1>
+  <div class="summary">
+    <b>Cómo lo encararía.</b> Entraría por un nicho que PideFácil no cubre: almacenes de materiales de construcción en Barcelona y alrededores, con visitas en persona y un piloto "mándame 20 pedidos reales y te los devuelvo en formato ERP" que primero sale por CSV/email. Solo cuando 3-5 distribuidores paguen, construiría los conectores nativos (A3 y Sage primero) y abriría limpieza y horeca con el mismo motor.
+  </div>
+  <nav class="toc">
+    <a href="#comparativa">Comparativa</a><a href="#oferta">Oferta e ICP</a><a href="#competencia">Competencia</a><a href="#gtm">Go-to-market</a><a href="#alto">Técnico alto nivel</a><a href="#bajo">Técnico bajo nivel</a><a href="#mvp">MVP por semanas</a><a href="#unit">Unit economics</a><a href="#306090">30/60/90</a><a href="#kill">Riesgo y kill</a><a href="#factory">Factories</a><a href="outreach.html">Kit de outreach</a><a href="contenido.html">Contenido</a><a href="ficha.html">Ficha de venta</a><a href="b.html">Variante B</a><a href="pitch.html">Pitch</a><a href="precios.html">Precios</a><a href="onboarding.html">Onboarding</a><a href="anuncios.html">Anuncios</a>
+  </nav>
+</header>
+
+<section id="comparativa">
+  <h2>Comparativa con la referencia</h2>
+  <p>Páginas leídas el 26 sep 2026: <a href="https://stockline.ai" target="_blank" rel="noopener">stockline.ai</a> (referencia YC), <a href="https://pidefacil.es/" target="_blank" rel="noopener">pidefacil.es</a> y <a href="https://pidefacil.es/planes" target="_blank" rel="noopener">pidefacil.es/planes</a> (competidor español). "Nuestra landing" es la versión de la ronda 1.</p>
+  <div class="tbl cmp"><table>
+    <tr><th></th><th>Pedidal (ronda 1)</th><th>Stockline (YC)</th><th>PideFácil</th></tr>
+    <tr><td>Estrategia y posicionamiento</td>
+      <td>Distribuidores B2B en España, empezando por materiales de construcción. Una promesa: WhatsApp → ERP sin teclear. Ángulo: el cliente no cambia de hábito.</td>
+      <td>"The AI ERP for food wholesalers" (EE. UU.). Empieza por la entrada de pedidos y se expande a facturas de proveedor, documentos, CRM, BI y prospección. Se vende como plataforma, no como herramienta.</td>
+      <td>"Herramienta comercial completa para distribuidoras HORECA". Tres agentes: Pedidos, Ventas (clientes en riesgo) y Cobros. Promete integrar cualquier ERP.</td></tr>
+    <tr><td>Calidad percibida y diseño</td>
+      <td>Cuidada y con carácter (papel, albarán, bandeja). Mockups de producto muy concretos. Falta señal de empresa: sin garantías, sin fundador, sin legal.</td>
+      <td>Sencilla, casi de plantilla, con emoji y copy genérico. La seriedad la aporta "Backed by Y Combinator" y un vídeo de lanzamiento.</td>
+      <td>La más "empresa": menú con producto, recursos, casos, partners, legal. Mockups animados de los 3 agentes. Parece una compañía asentada.</td></tr>
+    <tr><td>Estructura y funnel</td>
+      <td>Hero con 2 CTA → problema → 3 pasos → bandeja → objetivos → precio → FAQ → formulario de 4 campos al final. Sin CTA intermedio ni prueba social.</td>
+      <td>Hero → vídeo → funcionalidades → problemas → beneficios. CTA = "Contact" y un email. Sin formulario visible ni precio. Fricción alta.</td>
+      <td>Hero → agentes → cifras → testimonio → integraciones → FAQ → "Quiero saber más". Mucha prueba social (+75K restaurantes, +120 M€, caso Rodrigo e Hijos). CTA a demo/propuesta.</td></tr>
+    <tr><td>Precios y empaquetado</td>
+      <td>3 planes públicos por volumen (190/320/490 €), primer mes gratis.</td>
+      <td>Sin precios públicos.</td>
+      <td>Sin precios: "depende del alcance". Empaqueta por agentes (Pedidos base + Ventas + Cobros). Integración incluida en el servicio.</td></tr>
+    <tr><td>Textos</td>
+      <td>Muy específicos (audio con hormigonera, "lo de siempre", ladrillo H7). Tono directo. Buenos, pero la promesa del hero era larga.</td>
+      <td>Genéricos ("Boost margins", "Cut errors by 99 %") y sin fuente. Poco concretos.</td>
+      <td>Claros y orientados a beneficio. Cifras fuertes. FAQ que ataca objeciones reales (ERP, cambio de hábito, validación del cliente).</td></tr>
+    <tr><td>Qué copiamos / qué mejoramos</td>
+      <td colspan="3"><ul style="margin:0">
+        <li><b>Copiamos de PideFácil:</b> "la integración con tu ERP la hacemos nosotros"; FAQ de objeciones; mensaje "no sustituimos tu ERP, lo completamos".</li>
+        <li><b>Copiamos de Stockline:</b> la visión de plataforma para el plan (pedidos → facturas de proveedor → CRM de caída de ventas) como roadmap, no en la landing.</li>
+        <li><b>Mejoramos:</b> precio público (ellos lo esconden); piloto gratis con 20 pedidos reales en 48 h como prueba en lugar de testimonios que no tenemos; nota honesta del fundador; banda de garantías (API oficial, confirmación del cliente, UE/RGPD, sin permanencia).</li>
+        <li><b>Funnel:</b> un CTA único ("Probar gratis con 20 pedidos"), bloque de piloto en 3 pasos con CTA propio, CTA fijo en móvil y formulario de 3 campos.</li>
+        <li><b>Posicionamiento:</b> no pelear horeca de frente con PideFácil, que ya tiene prueba social ahí. Construcción y limpieza primero.</li>
+      </ul></td></tr>
+  </table></div>
+  <p><span class="tag r">Riesgo</span> PideFácil ya hace pedidos por WhatsApp, audio, foto y email con más de 50 ERP integrados, según su web. Nuestra diferencia no puede ser la tecnología: tiene que ser el vertical (construcción), el precio público y la velocidad del piloto.</p>
+</section>
+
+<section id="oferta">
+  <h2>Oferta de valor y cliente ideal</h2>
+  <p><b>Oferta:</b> "Tus clientes siguen pidiendo por WhatsApp como siempre. Tú recibes el pedido ya metido en el ERP, confirmado por el cliente, y solo revisas lo dudoso."</p>
+  <p>El valor real no es "IA". Es quitar a la persona que teclea pedidos en la hora punta de la mañana, y evitar portes de vuelta por referencias equivocadas.</p>
+  <h3>ICP inicial (España)</h3>
+  <div class="grid2">
+    <div class="card"><h3>Quién</h3><ul>
+      <li>Almacén de materiales de construcción o distribuidor de limpieza industrial.</li>
+      <li>5-60 empleados, 1-8 M€ de facturación.</li>
+      <li>Catálogo de 1.000-15.000 referencias.</li>
+      <li>200-3.000 pedidos al mes, más del 40 % por WhatsApp.</li>
+      <li>ERP de escritorio o nube pequeña: A3ERP, Sage 50/200, Holded, Odoo, a veces un ERP sectorial.</li>
+    </ul></div>
+    <div class="card"><h3>Señales para encontrarlos</h3><ul>
+      <li>Ficha de Google Maps con "pedidos por WhatsApp" o un número de móvil como contacto principal.</li>
+      <li>Oferta de empleo de "administrativo/a de pedidos" o "atención al cliente de mostrador".</li>
+      <li>Miembro de grupos de compra (p. ej. cooperativas de almacenes) o asociaciones de distribuidores.</li>
+      <li>Nombre que dan los reformistas y los bares cuando preguntas "¿quién te sirve?".</li>
+    </ul></div>
+  </div>
+  <p style="margin-top:14px"><b>Comprador:</b> el gerente o el hijo/a del fundador que ha entrado en la empresa. <b>Usuario:</b> la persona de pedidos y los comerciales. <b>Champion:</b> quien teclea hoy los pedidos.</p>
+</section>
+
+<section id="competencia">
+  <h2>Competencia y referencia YC</h2>
+  <div class="tbl"><table>
+    <tr><th>Actor</th><th>Qué hace</th><th>Cómo nos diferenciamos</th></tr>
+    <tr><td><a href="https://www.ycombinator.com/companies/stockline" target="_blank" rel="noopener">Stockline (YC)</a></td><td>Referencia: "The AI ERP for food wholesalers". Pedidos de email, SMS, WhatsApp y llamadas al ERP; luego facturas, CRM y BI. Según el brief, llegó a unos 220 K$ de ingresos con 2 personas y levantó una seed de 500 K$.</td><td>Valida que el problema paga. Nosotros: España, WhatsApp (no email), audio y fotos, ERPs españoles.</td></tr>
+    <tr><td><a href="https://pidefacil.es/" target="_blank" rel="noopener">PideFácil</a></td><td>Herramienta para distribuidoras horeca con tres agentes (pedidos, ventas, cobros). Su web dice +50 ERP integrados y cita +75K restaurantes pidiendo. Precio a medida.</td><td>No competimos de frente en horeca al inicio. Entramos por construcción y limpieza, con precio público y piloto gratis en 48 h.</td></tr>
+    <tr><td>Darwin AI</td><td>Agentes de IA para atención y ventas por WhatsApp, horizontal.</td><td>Es un chatbot generalista. Nosotros hacemos una cosa: pedido → referencia → ERP, con histórico por cliente.</td></tr>
+    <tr><td>Portales B2B / apps de pedidos del ERP</td><td>El distribuidor da un portal al cliente.</td><td>El cliente no los usa. Pedidal no cambia el hábito del cliente.</td></tr>
+    <tr><td>Status quo</td><td>Una administrativa teclea desde el móvil.</td><td>El rival real. Vendemos contra su coste (≈ 1.800-2.300 €/mes con cargas) y contra los errores.</td></tr>
+  </table></div>
+  <p><span class="tag r">Por verificar</span> Las cifras de Stockline vienen del brief interno. Confirmar en la ficha de YC y en fuentes públicas antes de usarlas en un pitch.</p>
+</section>
+
+<section id="gtm">
+  <h2>Go-to-market de bajo presupuesto</h2>
+  <h3>Primeros 10 clientes sin anuncios</h3>
+  <ol>
+    <li>Pregunta a 30 reformistas, bares y empresas de limpieza de tu zona: "¿quién te sirve y cómo le pides?". Apunta nombres que se repiten.</li>
+    <li>Haz una lista de 60 almacenes y distribuidores en Barcelona, Vallès y Baix Llobregat con Google Maps.</li>
+    <li>Visita 5 al día en persona, entre 11:00 y 13:00, cuando ha pasado la hora punta.</li>
+    <li>Pide ver el móvil de pedidos. Si hay más de 20 chats al día, propón el piloto.</li>
+    <li>Piloto: te mandan 20 pedidos reales (capturas o exportación del chat) y su catálogo en Excel. En 48 h devuelves los pedidos en CSV con el formato de su ERP.</li>
+    <li>Si la precisión convence, activa su número en la API de WhatsApp y cobra desde el segundo mes.</li>
+    <li>Pide a cada cliente 2 presentaciones a otros distribuidores (no compiten si están en otra zona).</li>
+  </ol>
+  <h3>Canales</h3>
+  <ul>
+    <li>Puerta a puerta y mostrador (principal).</li>
+    <li>Integradores y partners de A3 / Sage / Odoo: ellos ya visitan a estos clientes. Ofrece 20 % recurrente.</li>
+    <li>Ferias del sector (p. ej. Construmat en Barcelona, Hostelco para horeca) como visitante, no como expositor.</li>
+    <li>LinkedIn del gerente con un vídeo de 40 s de su propio pedido convertido.</li>
+  </ul>
+  <h3>Guion de la primera visita</h3>
+  <div class="quote">"Hola, soy Joaquín, de Barcelona. Hago un programa que coge los pedidos que os llegan por WhatsApp, los audios y las fotos de listas, y los mete en el ERP con vuestras referencias. No os cambia nada a los clientes. ¿Quién teclea ahora los pedidos? ¿Cuántos os llegan por la mañana? Si me dejáis 20 pedidos de esta semana y el catálogo en Excel, el jueves os los traigo ya pasados a vuestro formato. Si no acierta, no os cuesta nada."</div>
+  <h3>Contenido (reels)</h3>
+  <ul>
+    <li>"Un audio de obra con hormigonera de fondo → pedido en A3 en 40 segundos" (pantalla dividida).</li>
+    <li>"¿Qué significa 'lo de siempre'?" Pedidal lo resuelve con el histórico.</li>
+    <li>Serie "La lista del cartón": fotos de listas a mano reales (con permiso) y su resultado.</li>
+    <li>Entrevista corta a la persona de pedidos: "qué hacía antes a las 7:30".</li>
+  </ul>
+  <h3>Métricas</h3>
+  <div class="tbl"><table>
+    <tr><th>Etapa</th><th>Métrica</th><th>Objetivo 8 semanas</th></tr>
+    <tr><td>Captación</td><td>Visitas hechas / pilotos aceptados</td><td>60 / 12</td></tr>
+    <tr><td>Activación</td><td>% líneas mapeadas bien sin tocar en el piloto</td><td>≥ 85 %</td></tr>
+    <tr><td>Uso</td><td>% pedidos que llegan al ERP sin intervención</td><td>≥ 70 %</td></tr>
+    <tr><td>Ingresos</td><td>Distribuidores pagando / MRR</td><td>5 / 1.500 €</td></tr>
+    <tr><td>Retención</td><td>Cancelaciones en 90 días</td><td>0</td></tr>
+  </table></div>
+  <h3>Qué cambia con presupuesto alto</h3>
+  <ul>
+    <li>Contratar 1-2 comerciales de campo con experiencia en el sector y comisión.</li>
+    <li>Stand en Construmat e Hostelco, y patrocinio de asociaciones de distribuidores.</li>
+    <li>Equipo de integraciones: conectores certificados con A3, Sage y ERPs sectoriales.</li>
+    <li>Ads en LinkedIn a gerentes de distribución y retargeting con casos reales.</li>
+    <li>Expansión a Portugal y LatAm, donde WhatsApp domina aún más el pedido B2B.</li>
+  <li>Producto: ampliar a lo que Stockline y PideFácil ya venden (facturas de proveedor → stock, alertas de clientes que dejan de comprar, recordatorios de cobro) para subir el ticket a 600-900 €/mes.</li>
+  </ul>
+  <p><b>Orden de magnitud:</b> con ≈ 200 K€/año (2 comerciales, ferias, ads, 1 ingeniero de integraciones) el objetivo es un CAC ≤ 1.500 € y payback ≤ 6 meses a 320 €/mes. Si el CAC sale mayor, volver a canal de partners de ERP antes de gastar más.</p>
+</section>
+
+<section id="alto">
+  <h2>Plan técnico de alto nivel</h2>
+  <div class="arch">
+    <div class="lane">
+      <div class="box ext"><b>WhatsApp Cloud API</b><span>Texto, audio, imagen · webhooks</span></div>
+      <div class="box ext"><b>Email entrante</b><span>Fase 2 · pedidos por email/PDF</span></div>
+      <div class="box ext"><b>Catálogo y clientes</b><span>Excel/CSV o sync desde ERP</span></div>
+    </div>
+    <div class="down">↓</div>
+    <div class="lane">
+      <div class="box core"><b>Ingesta</b><span>Webhook → cola → transcripción (audio) y OCR/visión (foto)</span></div>
+      <div class="box core"><b>Motor de pedido</b><span>LLM extrae líneas · búsqueda híbrida en catálogo · histórico por cliente</span></div>
+      <div class="box core"><b>Confirmación</b><span>Resumen al cliente por WhatsApp · reglas de confianza</span></div>
+    </div>
+    <div class="down">↓</div>
+    <div class="lane">
+      <div class="box"><b>Bandeja de excepciones</b><span>Web para comerciales · aprobar / corregir / preguntar</span></div>
+      <div class="box"><b>Conectores ERP</b><span>CSV/email → Holded, Odoo (API) → A3, Sage (import/SDK)</span></div>
+      <div class="box"><b>Aprendizaje</b><span>Alias por cliente a partir de cada corrección</span></div>
+    </div>
+  </div>
+  <h3>Stack recomendado</h3>
+  <ul>
+    <li><b>Backend:</b> TypeScript + Hono en un VPS (Coolify, Hetzner UE) o Cloudflare Workers + Queues.</li>
+    <li><b>Base de datos:</b> Postgres (Supabase UE) con <code>pgvector</code> y <code>pg_trgm</code> para búsqueda de productos.</li>
+    <li><b>IA:</b> un LLM con visión para extraer líneas de texto y fotos. Whisper o similar para audio. Embeddings multilingües para el catálogo.</li>
+    <li><b>Bandeja:</b> React + Vite, mobile-first (los comerciales la usan en el móvil).</li>
+    <li><b>Observabilidad:</b> Langfuse para trazas de prompts, PostHog para producto.</li>
+  </ul>
+  <h3>Integraciones</h3>
+  <ul>
+    <li>WhatsApp Business Platform (Cloud API) vía Meta directo o un BSP (360dialog) para acelerar el alta.</li>
+    <li>ERP: fase 1 export CSV/Excel y email; fase 2 APIs de Holded y Odoo (XML-RPC/JSON-RPC); fase 3 A3ERP y Sage mediante importación de ficheros o conector local (agente Windows) porque suelen estar on-premise.</li>
+  </ul>
+  <h3>Datos</h3>
+  <p>Catálogo (referencias, descripciones, unidades, formatos), clientes, histórico de pedidos (para "lo de siempre"), mensajes y adjuntos, alias aprendidos y trazas de extracción con su confianza.</p>
+  <h3>Riesgos legales y de plataforma</h3>
+  <ul>
+    <li><b>RGPD:</b> Pedidal es encargado del tratamiento. Contrato de encargo (art. 28), datos en la UE, registro de actividades, retención limitada de audios y fotos (p. ej. 90 días).</li>
+    <li><b>Proveedores de IA:</b> usar endpoints con residencia UE o sin retención y sin entrenamiento. Incluirlos como subencargados.</li>
+    <li><b>Políticas de WhatsApp:</b> usar solo la API oficial. Nada de automatizar WhatsApp Web (riesgo de baneo del número). Plantillas aprobadas para mensajes fuera de la ventana de 24 h.</li>
+    <li><b>Responsabilidad por errores:</b> el cliente confirma siempre antes de ir al ERP. Límite de responsabilidad en el contrato.</li>
+    <li><b>AI Act:</b> uso de riesgo limitado. Informar de que las respuestas son automáticas.</li>
+  </ul>
+</section>
+
+<section id="bajo">
+  <h2>Plan técnico de bajo nivel</h2>
+  <h3>Modelo de datos</h3>
+  <div class="tbl"><table>
+    <tr><th>Tabla</th><th>Campos clave</th></tr>
+    <tr><td><code>distributors</code></td><td>id, name, cif, wa_phone_number_id, erp_type, erp_config (json cifrado), plan, created_at</td></tr>
+    <tr><td><code>users</code></td><td>id, distributor_id, name, email, role (admin, sales)</td></tr>
+    <tr><td><code>customers</code></td><td>id, distributor_id, erp_code, name, phones[], default_address, delivery_notes</td></tr>
+    <tr><td><code>products</code></td><td>id, distributor_id, sku, name, description, unit, pack_size, pack_unit, active, embedding vector, search_text</td></tr>
+    <tr><td><code>customer_aliases</code></td><td>id, customer_id (nullable = global), phrase, product_id, unit_hint, hits, last_used_at</td></tr>
+    <tr><td><code>messages</code></td><td>id, distributor_id, customer_id, wa_message_id, type (text, audio, image), body, media_url, transcript, received_at</td></tr>
+    <tr><td><code>orders</code></td><td>id, distributor_id, customer_id, status (draft, awaiting_customer, needs_review, confirmed, pushed, failed), delivery_date, address, source_message_ids[], erp_ref, pushed_at</td></tr>
+    <tr><td><code>order_lines</code></td><td>id, order_id, raw_text, product_id, qty, unit, confidence, reason, candidates (json), resolved_by (auto, customer, user)</td></tr>
+    <tr><td><code>exceptions</code></td><td>id, order_id, line_id, kind (product, unit, qty_outlier, unknown_customer), suggestion, status, assigned_to</td></tr>
+    <tr><td><code>erp_exports</code></td><td>id, order_id, format, payload, status, error, attempts</td></tr>
+  </table></div>
+
+  <h3>Endpoints y jobs</h3>
+  <div class="tbl"><table>
+    <tr><th>Tipo</th><th>Nombre</th><th>Qué hace</th></tr>
+    <tr><td>POST</td><td><code>/webhooks/whatsapp</code></td><td>Verifica firma, guarda el mensaje, encola <code>ingest</code>.</td></tr>
+    <tr><td>Job</td><td><code>ingest</code></td><td>Descarga media. Audio → transcripción. Imagen → visión. Agrupa mensajes del mismo cliente en una ventana de 3 min.</td></tr>
+    <tr><td>Job</td><td><code>extract_order</code></td><td>LLM devuelve líneas estructuradas (JSON schema).</td></tr>
+    <tr><td>Job</td><td><code>match_lines</code></td><td>Alias del cliente → búsqueda híbrida (trigram + vector) → re-rank LLM con top 8 candidatos. Calcula confianza.</td></tr>
+    <tr><td>Job</td><td><code>confirm_with_customer</code></td><td>Envía resumen con botones "Confirmar" / "Cambiar".</td></tr>
+    <tr><td>Job</td><td><code>push_to_erp</code></td><td>Genera CSV/email o llama a la API del ERP. Reintentos con backoff.</td></tr>
+    <tr><td>GET/POST</td><td><code>/api/inbox</code>, <code>/api/exceptions/:id/resolve</code></td><td>Bandeja: lista y resolución. Cada resolución crea o refuerza un alias.</td></tr>
+    <tr><td>POST</td><td><code>/api/catalog/import</code></td><td>Sube Excel/CSV, normaliza unidades, calcula embeddings.</td></tr>
+    <tr><td>Cron</td><td><code>daily_report</code></td><td>Email diario al gerente: pedidos, % automático, excepciones.</td></tr>
+  </table></div>
+
+  <h3>Prompts y agentes</h3>
+  <p><b>1. Extractor</b> (entrada: texto, transcripción u OCR + nombre del cliente + fecha):</p>
+<pre>Eres el asistente de pedidos de un distribuidor de {sector} en España.
+Extrae las líneas de pedido del mensaje. No inventes productos.
+Devuelve JSON: {lines:[{raw_text, qty, unit, product_hint,
+  is_usual_order:boolean}], delivery_date, address_hint, notes}.
+Si una cantidad falta, qty=null. Si dice "lo de siempre",
+is_usual_order=true y product_hint con lo que acote (p. ej. "yeso").
+Idiomas: castellano y catalán. Ignora saludos.</pre>
+  <p><b>2. Matcher</b> (entrada: una línea + top 8 candidatos + últimos 10 pedidos del cliente):</p>
+<pre>Elige el SKU que mejor encaja o "none". Devuelve {sku, unit,
+qty_in_sku_units, confidence 0-1, reason}. Prioriza lo que este
+cliente ha pedido antes. Convierte unidades (palé, caja, saco)
+con pack_size. Si dos SKU son plausibles, confidence &lt;= 0.6.</pre>
+  <p><b>3. Confirmador:</b> plantilla fija, sin LLM, para que el resumen al cliente sea predecible.</p>
+  <p><b>Reglas de confianza:</b> línea auto si confidence ≥ 0,85 y alias o histórico coinciden. Cantidad &gt; 3× la media del cliente → excepción. Cliente desconocido → excepción.</p>
+
+  <h3>Flujo paso a paso</h3>
+  <ol>
+    <li>El cliente manda texto, audio o foto al número del distribuidor.</li>
+    <li>El webhook guarda el mensaje y lo agrupa con los de los próximos 3 minutos.</li>
+    <li>La ingesta transcribe el audio o lee la foto.</li>
+    <li>El extractor saca las líneas. "Lo de siempre" se resuelve con la media del histórico.</li>
+    <li>El matcher asigna SKU, unidad y confianza a cada línea.</li>
+    <li>Si todo es seguro, Pedidal manda el resumen al cliente. Si no, la línea va a la bandeja primero.</li>
+    <li>El cliente confirma con un botón. Si pide cambios, el ciclo vuelve al paso 4.</li>
+    <li>El job de ERP crea el pedido y guarda la referencia del ERP.</li>
+    <li>Cada corrección de un comercial crea un alias para ese cliente.</li>
+  </ol>
+  <pre class="mermaid">
+flowchart LR
+  A[WhatsApp] --> B[Webhook]
+  B --> C[Ingesta: audio/foto]
+  C --> D[Extractor LLM]
+  D --> E[Matcher + histórico]
+  E -->|seguro| F[Confirmación al cliente]
+  E -->|dudoso| G[Bandeja comercial]
+  G --> F
+  F -->|ok| H[Push ERP / CSV]
+  G -.corrección.-> I[(Alias)]
+  I -.-> E
+  </pre>
+</section>
+
+<section id="mvp">
+  <h2>MVP por semanas</h2>
+  <div class="weeks">
+    <div class="week"><span class="mono">Semana 1 · piloto manual</span><ul><li>Importador de catálogo Excel.</li><li>Script: pegar pedido (texto/foto/audio) → CSV de líneas con SKU.</li><li>Probar con 20 pedidos reales de 2 distribuidores. Medir precisión.</li></ul></div>
+    <div class="week"><span class="mono">Semana 2 · WhatsApp</span><ul><li>Alta en Cloud API con un número de prueba.</li><li>Webhook, ingesta, agrupado de mensajes.</li><li>Confirmación al cliente con botones.</li></ul></div>
+    <div class="week"><span class="mono">Semana 3 · bandeja y salida</span><ul><li>Bandeja web mobile-first con aprobar/corregir.</li><li>Alias aprendidos por cliente.</li><li>Export CSV + email al ERP. Holded por API.</li></ul></div>
+    <div class="week"><span class="mono">Semana 4 · primer cliente de pago</span><ul><li>Migrar el número real del primer distribuidor.</li><li>Informe diario al gerente.</li><li>Contrato de encargo RGPD y facturación (Stripe o transferencia).</li></ul></div>
+  </div>
+</section>
+
+<section id="unit">
+  <h2>Unit economics</h2>
+  <p>Caso tipo: plan Almacén, 320 €/mes, 1.000 pedidos al mes, 30 % con audio o foto.</p>
+  <div class="tbl"><table>
+    <tr><th>Concepto</th><th>Supuesto</th><th>€ / mes</th></tr>
+    <tr><td>LLM extracción + matching</td><td>≈ 0,01-0,02 € por pedido</td><td>10-20</td></tr>
+    <tr><td>Transcripción y visión</td><td>300 pedidos con media</td><td>3-6</td></tr>
+    <tr><td>WhatsApp API</td><td>Respuestas dentro de la ventana de 24 h abierta por el cliente. Plantillas fuera de ventana, pocas.</td><td>0-15</td></tr>
+    <tr><td>Infra (DB, colas, hosting)</td><td>Prorrateado</td><td>10</td></tr>
+    <tr><td>Soporte y onboarding</td><td>≈ 1 h/mes tras el arranque</td><td>30</td></tr>
+    <tr><td><b>Coste total</b></td><td></td><td><b>≈ 55-80</b></td></tr>
+    <tr><td><b>Margen bruto</b></td><td></td><td><b>≈ 75-83 %</b></td></tr>
+  </table></div>
+  <p><span class="tag r">Por verificar</span> Precios de la API de WhatsApp en España y de los modelos de IA en el momento de lanzar. Cambian a menudo.</p>
+  <ul>
+    <li><b>Onboarding:</b> 4-6 h por cliente (catálogo, número, formato ERP). Cobrar 300 € de alta o regalarlo a los 10 primeros.</li>
+    <li><b>Break-even:</b> con 2.500 €/mes de costes fijos (herramientas + sueldo mínimo del fundador), hacen falta ≈ 10 clientes a 320 €.</li>
+    <li><b>Argumento de venta:</b> 320 €/mes frente a ≈ 2.000 €/mes de una persona tecleando. Ni siquiera hay que quitar el puesto: se libera para vender.</li>
+    <li><b>Payback de CAC:</b> CAC ≈ 10 h de visitas y piloto por cliente. Se recupera en 2-3 meses.</li>
+  </ul>
+</section>
+
+<section id="306090">
+  <h2>Plan 30/60/90 días</h2>
+  <p>Supuesto: Joaquín solo, 3 mañanas a la semana en la calle (11:00 a 13:30) y las tardes construyendo. Sin presupuesto de anuncios.</p>
+  <div class="tbl"><table>
+    <tr><th>Semana</th><th>Foco</th><th>Objetivo numérico</th></tr>
+    <tr><td>1</td><td>Lista de 60 almacenes (Vallès, Baix Llobregat, Barcelonès) y script de pedido → CSV</td><td>60 fichas · 15 visitas · 3 pilotos aceptados</td></tr>
+    <tr><td>2</td><td>Pilotos manuales: 20 pedidos reales cada uno, devueltos en 48 h</td><td>15 visitas · 3 pilotos entregados · precisión de línea ≥ 80 %</td></tr>
+    <tr><td>3</td><td>WhatsApp Cloud API con número de prueba, confirmación con botones</td><td>15 visitas · 2 pilotos más · 1 "sí, lo quiero" verbal</td></tr>
+    <tr><td>4</td><td>Bandeja de excepciones y export CSV/email</td><td>1 cliente activado con su número real</td></tr>
+    <tr><td colspan="3"><b>Día 30:</b> 60 visitas, 8 pilotos, 1 cliente usándolo cada día (aún gratis).</td></tr>
+    <tr><td>5-6</td><td>Cobrar al primero. Conector Holded u Odoo si algún piloto lo usa</td><td>1 cliente de pago · 3 pilotos nuevos · ≥ 70 % de pedidos sin tocar</td></tr>
+    <tr><td>7-8</td><td>Partners: 5 integradores de A3/Sage en Barcelona, 20 % recurrente</td><td>3 clientes de pago · 5 partners contactados · 1 lead por partner</td></tr>
+    <tr><td colspan="3"><b>Día 60:</b> 3 clientes de pago (≈ 900 € MRR), 0 bajas.</td></tr>
+    <tr><td>9-10</td><td>Reels con pedidos reales (con permiso) y landing "pedidos de WhatsApp a A3"</td><td>2 reels/semana · 10 leads inbound</td></tr>
+    <tr><td>11-12</td><td>Segundo vertical (limpieza) con el mismo motor</td><td>6 clientes de pago · 1 de limpieza</td></tr>
+    <tr><td colspan="3"><b>Día 90:</b> 6 clientes de pago (≈ 1.800 € MRR), precisión ≥ 90 %, 2 referidos.</td></tr>
+  </table></div>
+</section>
+
+<section id="kill">
+  <h2>La hipótesis más arriesgada</h2>
+  <p><b>Hipótesis:</b> los almacenes de construcción reciben suficientes pedidos por WhatsApp (≥ 20 al día) y el dueño paga por no teclearlos, aunque tenga a una persona ya contratada.</p>
+  <p><b>Test más barato esta semana:</b> 10 visitas en persona con una sola pregunta: "¿me enseñas cuántos pedidos te han llegado hoy por WhatsApp?". Contar los chats, apuntar quién los teclea y ofrecer el piloto. Coste: 3 mañanas y gasolina. Éxito si 4 de 10 tienen ≥ 20 pedidos al día y 2 aceptan mandar 20 pedidos.</p>
+  <div class="kill">
+    <h3>Kill criteria: cuándo parar</h3>
+    <ul>
+      <li>Día 30: menos de 3 pilotos aceptados en 60 visitas. El dolor no es lo bastante fuerte.</li>
+      <li>Día 30: precisión de línea &lt; 70 % en los pilotos tras 2 rondas de ajuste. El catálogo es demasiado ambiguo.</li>
+      <li>Día 60: 0 clientes de pago tras 8 pilotos. Gustan pero no pagan.</li>
+      <li>Día 90: menos de 4 clientes de pago, o PideFácil entra en construcción con precio más bajo. Pivotar a limpieza o parar.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="factory">
+  <h2>Qué automatizan las factories</h2>
+  <div class="grid2">
+    <div class="card"><h3>Software factory (agentes de código)</h3><ul>
+      <li>Generar y mantener conectores ERP a partir de la documentación y ejemplos de import.</li>
+      <li>Evals: dataset de pedidos reales anonimizados con la respuesta correcta. Cada cambio de prompt pasa el eval antes de desplegar.</li>
+      <li>Importadores de catálogo nuevos por cliente (cada Excel es distinto).</li>
+      <li>Tests de regresión de la bandeja con browser-harness.</li>
+      <li>Triage de errores de producción: un agente abre issue con traza y propone fix.</li>
+    </ul></div>
+    <div class="card"><h3>Marketing factory (agentes de marketing)</h3><ul>
+      <li>Construir la lista de distribuidores por zona y sector desde Google Maps y webs.</li>
+      <li>Preparar la ficha de cada visita: qué venden, ERP probable, señales de pedidos por WhatsApp.</li>
+      <li>Guiones y subtítulos de reels a partir de pedidos reales (con permiso).</li>
+      <li>Landings por vertical (construcción, limpieza, horeca) y por ERP ("pedidos de WhatsApp a A3").</li>
+      <li>Seguimiento post-visita por email y recordatorios del piloto.</li>
+    </ul></div>
+  </div>
+  <p style="margin-top:16px">Lo que no se automatiza: la visita en persona y la primera conversación con el gerente. En este mercado, la confianza se gana en el mostrador.</p>
+</section>
+
+<footer><span><b style="color:var(--ink)">Pedidal</b> · © 2026</span><a href="index.html">Landing</a> <span class="legal"><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span></footer>
+</div>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+mermaid.initialize({startOnLoad:true,theme:"base",themeVariables:{primaryColor:"#FFFDF8",primaryBorderColor:"#18212B",primaryTextColor:"#18212B",lineColor:"#4A5563",fontFamily:"IBM Plex Sans"}});
+</script>
+</body>
+</html>

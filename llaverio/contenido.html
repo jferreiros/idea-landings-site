@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: motor de contenido</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+.msg{background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:16px 18px;margin:10px 0;white-space:pre-line;max-width:640px}
+.msg.sea{background:var(--sea-soft);border-color:#C4DCEA;border-radius:18px 18px 6px 18px}
+.ch{display:inline-block;background:var(--brass-soft);color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:3px 10px 3px 8px;border-radius:6px 999px 999px 6px;margin-bottom:6px}
+.obj{display:grid;gap:12px;grid-template-columns:1fr}
+.obj .box h3{margin-top:0}
+.seq{display:grid;gap:0;margin-top:12px}
+.seq > div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.seq b.d{font:600 1rem "Geist Mono",monospace;color:var(--sea)}
+ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
+@media(min-width:720px){.obj{grid-template-columns:1fr 1fr}}
+.reels{display:grid;gap:12px;grid-template-columns:1fr}
+.reel h3{margin:6px 0 8px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem}
+@media(min-width:720px){.reels{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">← Volver al plan</a>
+  <div style="margin-top:18px" class="eyebrow">Motor de contenido · 26 sep 2026</div>
+  <h1>Contenido para gestoras de costa</h1>
+  <p class="muted">Documento interno. 10 guiones de reel, calendario de 4 semanas y 3 carruseles. Público: la persona que coordina las limpiezas en una gestora de 10 a 60 pisos.</p>
+  <div class="summary"><b>Regla:</b> cada pieza enseña un sábado real (toallas, bajas, averías, informes). Nada de cifras inventadas ni testimonios falsos. Grabado con el móvil, de 20 a 35 segundos, con subtítulos en español.</div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>10 guiones de reel</h2>
+  <p>Estructura fija: gancho en los 2 primeros segundos (el texto en pantalla), escena, frase y llamada a la acción.</p>
+  <div class="reels"><div class="box reel"><span class="ch">Reel 01</span><h3>«Son las 11:00 y salen nueve pisos a la vez.»</h3><p><b>Escena:</b> Pantalla dividida: a la izquierda, tres grupos de WhatsApp sonando; a la derecha, el panel de Llaverio con nueve llaveros pasando de gris a azul.</p><p><b>Frase:</b> «Esto es un sábado de agosto con y sin Llaverio.»</p><p><b>Llamada a la acción:</b> Piloto gratis de 30 días. Enlace en el perfil.</p></div><div class="box reel"><span class="ch">Reel 02</span><h3>«Esta foto te acaba de ahorrar una reseña de 3 estrellas.»</h3><p><b>Escena:</b> Foto de un baño sin toallas (piso de prueba). El agente la marca en naranja y escribe a la limpiadora.</p><p><b>Frase:</b> «La limpiadora aún estaba dentro. Lo arregló antes de irse.»</p><p><b>Llamada a la acción:</b> Comenta TOALLAS y te enseño la demo.</p></div><div class="box reel"><span class="ch">Reel 03</span><h3>«Tu limpiadora se pone enferma a las 8 de la mañana. ¿Y ahora?»</h3><p><b>Escena:</b> Móvil con el mensaje de baja. El agente propone el nuevo reparto y la gestora lo aprueba con un toque.</p><p><b>Frase:</b> «Tú no has hecho ni una llamada.»</p><p><b>Llamada a la acción:</b> Piloto gratis para 10 gestoras de costa.</p></div><div class="box reel"><span class="ch">Reel 04</span><h3>«¿Cuánto tardas en hacer 30 informes a propietarios?»</h3><p><b>Escena:</b> Cronómetro sobre un Excel y un PDF copiado a mano. Corte al informe mensual generado.</p><p><b>Frase:</b> «Tú lo revisas. No lo escribes.»</p><p><b>Llamada a la acción:</b> Enlace en el perfil.</p></div><div class="box reel"><span class="ch">Reel 05</span><h3>«Muchas reseñas malas empiezan antes de que llegue el huésped.»</h3><p><b>Escena:</b> Recorrido rápido por un piso: cama, toallas, cocina, terraza. Cada punto se marca con un check.</p><p><b>Frase:</b> «Cada piso tiene su lista. El agente no marca el piso como listo hasta que las fotos cuadran.»</p><p><b>Llamada a la acción:</b> Pide tu lista de revisión gratis.</p></div><div class="box reel"><span class="ch">Reel 06</span><h3>«Wifi que no funciona a las 22:00. Huésped alemán.»</h3><p><b>Escena:</b> Chat en inglés o alemán; el agente responde con los pasos del router de ese piso.</p><p><b>Frase:</b> «Resuelto sin llamarte. Tú estabas cenando.»</p><p><b>Llamada a la acción:</b> Comenta WIFI.</p></div><div class="box reel"><span class="ch">Reel 07</span><h3>«La vivienda turística cayó un 10,7% en un año. Esto te afecta así.»</h3><p><b>Escena:</b> Gráfico del INE a pantalla completa, luego Joaquín a cámara en la playa en octubre.</p><p><b>Frase:</b> «Hay menos pisos y más exigencia. Un error pesa el doble.»</p><p><b>Llamada a la acción:</b> Sígueme para datos del sector cada semana.</p></div><div class="box reel"><span class="ch">Reel 08</span><h3>«Tu equipo no quiere otra app. Lo entiendo.»</h3><p><b>Escena:</b> Mano de una limpiadora con el móvil: solo WhatsApp, el mismo de siempre.</p><p><b>Frase:</b> «Llaverio escribe por WhatsApp. No instalan nada.»</p><p><b>Llamada a la acción:</b> Piloto gratis de 30 días.</p></div><div class="box reel"><span class="ch">Reel 09</span><h3>«3 preguntas antes de automatizar tus limpiezas.»</h3><p><b>Escena:</b> Texto grande: ¿Quién revisa el piso? ¿Dónde se pierden las averías? ¿Quién avisa al propietario?</p><p><b>Frase:</b> «Si alguna respuesta es: yo, con el móvil, esto es para ti.»</p><p><b>Llamada a la acción:</b> Guarda este vídeo.</p></div><div class="box reel"><span class="ch">Reel 10</span><h3>«Lo construyo solo, desde Barcelona. Esto es lo que llevo.»</h3><p><b>Escena:</b> Joaquín enseña el panel real y un fallo que ha corregido esta semana.</p><p><b>Frase:</b> «Sin clientes de pago todavía. Busco 10 gestoras para el piloto.»</p><p><b>Llamada a la acción:</b> Escríbeme si gestionas de 10 a 60 pisos.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Calendario de 4 semanas</h2>
+  <div class="tw"><table>
+    <tr><th>Semana</th><th>Martes</th><th>Jueves</th><th>Domingo</th><th>Objetivo</th></tr>
+    <tr><td>1</td><td>Reel 01 (sábado de agosto)</td><td>Carrusel A</td><td>Reel 10 (quién soy)</td><td>Perfil con 3 piezas</td></tr>
+    <tr><td>2</td><td>Reel 02 (toallas)</td><td>Reel 07 (dato INE)</td><td>Carrusel B</td><td>5 comentarios de gestoras</td></tr>
+    <tr><td>3</td><td>Reel 03 (limpiadora de baja)</td><td>Reel 08 (sin app nueva)</td><td>Reel 05 (lista de revisión)</td><td>2 mensajes directos que piden demo</td></tr>
+    <tr><td>4</td><td>Reel 06 (wifi)</td><td>Reel 04 (informes)</td><td>Carrusel C + Reel 09</td><td>1 piloto que llega por contenido</td></tr>
+  </table></div>
+  <p>Tiempo de Joaquín: 2 horas el lunes para grabar las 3 piezas de la semana. La marketing factory prepara subtítulos, texto del post y variantes para LinkedIn. Publica en Instagram y LinkedIn; TikTok solo si Instagram funciona.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>3 carruseles</h2>
+  <div class="obj">
+    <div class="box"><span class="ch">Carrusel A</span><h3>La lista de revisión de un piso de playa</h3><p>8 láminas: cama, baño, toallas, cocina, terraza, llaves, aire, wifi. Cada una dice qué foto pedir a la limpiadora. Última lámina: «Te preparo la de tus pisos en el piloto».</p></div>
+    <div class="box"><span class="ch">Carrusel B</span><h3>Un sábado de agosto, hora a hora</h3><p>De 08:00 a 16:30: qué pasa en una gestora de 20 pisos y dónde se pierde el tiempo. Sale de las visitas del kit de captación, sin nombres.</p></div>
+    <div class="box"><span class="ch">Carrusel C</span><h3>Qué debe llevar el informe mensual al propietario</h3><p>6 láminas: ocupación, ingresos, limpiezas, reparaciones, reseñas y próximos pasos. Plantilla gratis a cambio de un mensaje directo.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Llaverio · © 2026 · <a href="plan.html">Plan</a> · <a href="outreach.html">Kit de captación</a> · <a href="index.html">Landing</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Llaverio: onboarding del piloto</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--paper:#FFFFFF;--ink:#0B2A3C;--muted:#4E6472;--line:#DCE3E6;--sea:#0A5C8A;--sea-soft:#DDEBF3;--brass:#9A7432;--brass-soft:#EADCC0;--clay:#D08A12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--sea)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+header a.back{font-size:.9rem;text-decoration:none}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.08;margin:14px 0 10px;letter-spacing:-.015em}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:22px 0 8px}
+.eyebrow{font-family:"Geist Mono",monospace;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brass)}
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.muted{color:var(--muted)}
+.summary{background:var(--sea);color:#fff;border-radius:16px;padding:24px;margin-top:22px;font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;line-height:1.5}
+.summary b{color:var(--brass-soft)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.warn{border-left:4px solid var(--clay);background:#FBF1DC}
+.grid2{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){.grid2{grid-template-columns:1fr 1fr}}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:10px 0;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#F7F9FA;font-weight:600}
+.tw{overflow-x:auto}
+.cmp{min-width:760px}.cmp td:first-child{background:#F7F9FA}
+code,.mono{font-family:"Geist Mono",monospace;font-size:.82rem}
+code{background:var(--sea-soft);color:var(--sea);padding:1px 5px;border-radius:4px}
+pre{background:var(--ink);color:#E6EEF2;padding:16px;border-radius:12px;overflow-x:auto;font:400 .8rem/1.55 "Geist Mono",monospace;margin:10px 0}
+/* architecture */
+.arch{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0}
+.lane{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
+.lane h4{font-family:"Geist Mono",monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brass);margin-bottom:8px}
+.nodes{display:flex;flex-wrap:wrap;gap:8px}
+.node{border:1.5px solid var(--sea);border-radius:10px;padding:7px 10px;font-size:.88rem;background:#fff}
+.node.core{background:var(--sea);color:#fff}
+.arrow{text-align:center;color:var(--brass);font-family:"Geist Mono",monospace;font-size:.8rem}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+.msg{background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 6px;padding:16px 18px;margin:10px 0;white-space:pre-line;max-width:640px}
+.msg.sea{background:var(--sea-soft);border-color:#C4DCEA;border-radius:18px 18px 6px 18px}
+.ch{display:inline-block;background:var(--brass-soft);color:#4A3B1E;font:500 .74rem "Geist Mono",monospace;padding:3px 10px 3px 8px;border-radius:6px 999px 999px 6px;margin-bottom:6px}
+.obj{display:grid;gap:12px;grid-template-columns:1fr}
+.obj .box h3{margin-top:0}
+.seq{display:grid;gap:0;margin-top:12px}
+.seq > div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.seq b.d{font:600 1rem "Geist Mono",monospace;color:var(--sea)}
+ol.q li{font-family:"Geist Mono",monospace;font-size:.86rem;margin:7px 0}
+@media(min-width:720px){.obj{grid-template-columns:1fr 1fr}}
+.step{display:grid;gap:10px;grid-template-columns:1fr;padding:18px 0;border-top:1px solid var(--line)}
+.step b.d{display:block;font:600 1.1rem "Geist Mono",monospace;color:var(--sea);margin-bottom:6px}
+.check li{list-style:none;position:relative;padding-left:28px}
+.check li:before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--sea);border-radius:4px}
+.check{margin-left:0}
+.moment{background:var(--sea);color:#fff;border-radius:18px;padding:24px}
+.moment h2{color:#fff}.moment p{color:#E6EEF2}
+@media(min-width:720px){.step{grid-template-columns:220px 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="plan.html">← Volver al plan</a>
+  <div style="margin-top:18px" class="eyebrow">Onboarding · primeros 14 días</div>
+  <h1>Del formulario al primer sábado resuelto</h1>
+  <p class="muted">Documento interno. Qué recibe la gestora después de pedir el piloto, qué montamos y cuándo ve el valor. Los datos entre corchetes salen del panel; nunca se inventan.</p>
+</div></header>
+<main>
+<section><div class="wrap">
+  <div class="moment">
+    <h2>El momento de primer valor</h2>
+    <p>El primer sábado, a media mañana, la gestora recibe un solo WhatsApp: «Fotos del [piso]: falta [cosa]. Ya se lo he pedido a [limpiadora]». Antes de la entrada llega el segundo: «Corregido». Ese día no ha llamado a nadie. Todo el onboarding existe para llegar ahí en 7 días o menos.</p>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <h2>Los 5 mensajes de los primeros 14 días</h2>
+  <p>El primer contacto va por WhatsApp porque la gestora lo ha pedido en el formulario. El email solo se usa después de la llamada, con su permiso.</p>
+  <div class="step"><div><b class="d">Día 0</b><span class="ch">WhatsApp, a los 5 minutos del formulario</span></div><div class="msg">Hola, [nombre], soy Joaquín, de Llaverio. Gracias por pedir el piloto.
+¿Te llamo mañana 20 minutos para ver tu operación? Dime una hora que te vaya bien.
+Si prefieres email, dímelo y seguimos por ahí.</div></div><div class="step"><div><b class="d">Día 1</b><span class="ch">Email, tras la llamada (ya hay permiso)</span></div><div class="msg">Asunto: Tu piloto de Llaverio: lo que necesito
+
+Hola, [nombre]:
+Para montarlo con 5 de tus pisos necesito tres cosas:
+1. Acceso de lectura a tu PMS (te mando el paso a paso de [Smoobu/Hostaway/Avantio]).
+2. La lista de limpiadoras y técnicos con su WhatsApp.
+3. Qué 5 pisos quieres probar.
+Con eso, en 3 días lo tienes funcionando en modo propuesta.
+Joaquín</div></div><div class="step"><div><b class="d">Día 3</b><span class="ch">WhatsApp</span></div><div class="msg">Ya está: los 5 pisos están conectados y cada uno tiene su lista de revisión.
+Este sábado verás cada mensaje antes de que salga. Solo tienes que aprobarlo con un toque.
+¿Quieres que avise yo a tus limpiadoras o prefieres hacerlo tú? Te paso el texto.</div></div><div class="step"><div><b class="d">Día 7</b><span class="ch">WhatsApp, lunes tras el primer sábado</span></div><div class="msg">Resumen de tu primer sábado: [N] salidas, [N] revisadas sin tocar nada, [N] fallos detectados antes de la entrada ([detalle]).
+¿Hubo algo que te molestara? Lo cambio esta semana.</div></div><div class="step"><div><b class="d">Día 14</b><span class="ch">Llamada de 15 minutos + email de resumen</span></div><div class="msg">Dos semanas: [N] salidas, [X] de cada 10 revisadas sin intervenir.
+Propuesta: pasar a automático los pisos que han ido bien y dejar [piso] en modo propuesta.
+Si al día 30 seguimos por encima de 8 de cada 10, empezamos a cobrar. Si no, no pagas nada.</div></div>
+</div></section>
+<section><div class="wrap">
+  <h2>Checklist de puesta en marcha</h2>
+  <ul class="check">
+    <li>Contrato de encargo del tratamiento (RGPD, art. 28) firmado.</li>
+    <li>Acceso de lectura al PMS o URL iCal de los 5 pisos.</li>
+    <li>Número de WhatsApp Business de la gestora conectado a la Cloud API.</li>
+    <li>Limpiadoras y técnicos dados de alta, con su consentimiento para recibir mensajes y enviar fotos del piso.</li>
+    <li>Lista de revisión de cada piso (6 a 10 fotos) hecha con fotos del anuncio y validada por la gestora.</li>
+    <li>Reglas de aprobación: qué decide el agente y qué pasa siempre por la gestora.</li>
+    <li>Modo propuesta activado en los 5 pisos.</li>
+    <li>Prueba en seco: un check-out simulado dispara el WhatsApp de prueba y la revisión de una foto.</li>
+  </ul>
+</div></section>
+<section><div class="wrap">
+  <h2>Qué medimos</h2>
+  <ul>
+    <li>Horas desde el formulario hasta la llamada (objetivo: menos de 24 h).</li>
+    <li>Días hasta el primer sábado con el agente (objetivo: 7 o menos).</li>
+    <li>Salidas revisadas sin intervención, de cada 10 (umbral de cobro: 8).</li>
+    <li>Mensajes que la gestora corrige antes de aprobar (debe bajar cada semana).</li>
+  </ul>
+</div></section>
+</main>
+<footer><div class="wrap">Llaverio · © 2026 · <a href="plan.html">Plan</a> · <a href="outreach.html">Kit de captación</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></div></footer>
+</body>
+</html>

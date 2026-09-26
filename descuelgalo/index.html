@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descuélgalo · Recepcionista con IA para talleres y pymes</title>
+<meta name="description" content="Recepcionista con IA que coge las llamadas que no puedes, apunta la cita y te lo resume por WhatsApp. Conservas tu número. Piloto gratis de 30 días para talleres y pymes en España.">
+<link rel="canonical" href="https://descuelgalo.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://descuelgalo.vercel.app/">
+<link rel="alternate" hreflang="ca" href="https://descuelgalo.vercel.app/ca.html">
+<meta name="theme-color" content="#0E7A3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230E7A3E'/%3E%3Cpath transform='translate(3.5 3.5) scale(.7)' fill='%23fff' d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Descuélgalo">
+<meta property="og:title" content="Descuélgalo · Ninguna llamada sin contestar">
+<meta property="og:description" content="Recepcionista con IA que coge las llamadas que no puedes, apunta la cita y te lo resume por WhatsApp. Piloto gratis de 30 días.">
+<meta property="og:url" content="https://descuelgalo.vercel.app/">
+<meta property="og:image" content="https://descuelgalo.vercel.app/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Descuélgalo · Ninguna llamada sin contestar">
+<meta name="twitter:description" content="Recepcionista con IA para talleres y pymes. Conservas tu número. Piloto gratis de 30 días.">
+<meta name="twitter:image" content="https://descuelgalo.vercel.app/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Descuélgalo","url":"https://descuelgalo.vercel.app/","logo":"https://descuelgalo.vercel.app/og.png","founder":{"@type":"Person","name":"Joaquín"},"address":{"@type":"PostalAddress","addressLocality":"Barcelona","addressCountry":"ES"}},{"@type":"Service","name":"Descuélgalo, recepcionista con IA","serviceType":"Atención telefónica con IA","areaServed":"ES","provider":{"@type":"Organization","name":"Descuélgalo"},"offers":{"@type":"Offer","price":"69","priceCurrency":"EUR","description":"Plan Pro en validación: 400 minutos al mes. Piloto gratis de 30 días."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F8F7F2; --paper-2:#EEF3EC; --card:#FFFFFF;
+  --ink:#15201B; --ink-2:#3C4843; --mute:#6B746F;
+  --green:#0E7A3E; --green-2:#1FB95A; --green-soft:#D7F5E1;
+  --coral:#E4572E; --coral-soft:#FBE3D9;
+  --line:#DDE3DA; --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;background:var(--paper);color:var(--ink);font-family:Figtree,system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:Fredoka,sans-serif;font-weight:600!important;letter-spacing:-.01em;line-height:1.08}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:15px 24px;font:600 16px Figtree,sans-serif;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px);background:var(--green)}
+.btn{transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s cubic-bezier(.16,1,.3,1)}.btn:active{transform:scale(.98)}
+.btn.green{background:var(--green)}
+.btn.green:hover{background:var(--ink)}
+.btn svg{width:18px;height:18px}
+
+/* nav */
+nav{padding:18px 0}
+nav .wrap{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;font:800 22px Fredoka,sans-serif;text-decoration:none;letter-spacing:-.03em}
+.logo i{width:32px;height:32px;border-radius:10px;background:var(--green);display:grid;place-items:center}
+.logo i svg{width:18px;height:18px;color:#fff}
+nav .btn{padding:10px 18px;font-size:15px}
+
+/* hero */
+.hero{padding:28px 0 72px}
+.hero .wrap{display:grid;gap:48px;align-items:center}.hero .wrap>*{min-width:0}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:800;margin:14px 0 20px}
+.hero h1 em{font-style:normal;color:var(--green);position:relative;white-space:nowrap}
+.hero h1 em:after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.14em;background:var(--green-soft);z-index:-1;border-radius:4px}
+.hero p.lead{font-size:clamp(18px,2.3vw,21px);color:var(--ink-2);max-width:34em}
+.try{margin-top:28px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;display:flex;align-items:center;padding:6px 6px 6px 20px;max-width:520px;box-shadow:0 10px 30px -18px rgba(21,32,27,.35)}
+.try svg{width:20px;height:20px;color:var(--mute);flex:none}
+.try input{flex:1;border:0;background:transparent;font:500 16px Figtree,sans-serif;padding:12px 10px;min-width:0;color:var(--ink)}
+.try input:focus{outline:none}
+.try .btn{padding:13px 18px;white-space:nowrap}.try .btn svg{color:#fff}
+.hint{font-size:14px;color:var(--mute);margin-top:12px}
+.hint b{color:var(--ink-2);font-weight:600}
+@media(max-width:480px){
+  .try{flex-wrap:wrap;border-radius:20px;padding:8px}
+  .try input{width:100%;flex-basis:80%}
+  .try .btn{width:100%;justify-content:center}
+}
+
+/* phone mock */
+.stage{position:relative;display:flex;justify-content:center;padding:10px 0}
+.stage:before{content:"";position:absolute;inset:6% 4%;background:radial-gradient(circle at 50% 45%,var(--green-soft),transparent 65%);z-index:0}
+.phone{position:relative;z-index:1;width:290px;max-width:88vw;aspect-ratio:9/18.5;background:#0F1613;border-radius:46px;padding:12px;box-shadow:0 40px 80px -30px rgba(21,32,27,.55),inset 0 0 0 2px #2b3530}
+.screen{height:100%;border-radius:36px;background:linear-gradient(180deg,#1E3A2D 0%,#12231B 55%,#0C1612 100%);color:#fff;display:flex;flex-direction:column;align-items:center;padding:44px 20px 30px;position:relative;overflow:hidden}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:24px;background:#0F1613;border-radius:20px}
+.incoming{font-size:13px;opacity:.7;letter-spacing:.02em}
+.avatar{margin:26px 0 16px;width:92px;height:92px;border-radius:50%;background:var(--green-2);display:grid;place-items:center;font:800 40px Fredoka,sans-serif;position:relative}
+.avatar:before,.avatar:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(40,162,99,.6);animation:ring 1.8s ease-out infinite}
+.avatar:after{animation-delay:.9s}
+@keyframes ring{from{transform:scale(1);opacity:1}to{transform:scale(1.55);opacity:0}}
+.caller{font:700 24px Fredoka,sans-serif;text-align:center}
+.biz{font-size:14px;opacity:.75;text-align:center;margin-top:4px}
+.bubble{margin-top:26px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:12px 14px;font-size:14px;line-height:1.4;min-height:78px;width:100%}
+.bubble small{display:block;font-size:11px;opacity:.6;margin-bottom:4px;letter-spacing:.06em;text-transform:uppercase}
+.actions{margin-top:auto;display:flex;justify-content:space-between;width:100%;padding:0 12px}
+.act{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;opacity:.85}
+.act span{width:62px;height:62px;border-radius:50%;display:grid;place-items:center}
+.act.no span{background:#D8412A}
+.act.yes span{background:var(--green-2);animation:wiggle 1.2s ease-in-out infinite}
+.act svg{width:26px;height:26px}
+@keyframes wiggle{0%,100%{transform:rotate(0)}20%{transform:rotate(-12deg)}40%{transform:rotate(12deg)}60%{transform:rotate(-6deg)}80%{transform:rotate(0)}}
+.chip{position:absolute;z-index:2;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;box-shadow:0 14px 30px -16px rgba(21,32,27,.4);max-width:190px}
+.chip b{display:block;font-size:14px}
+.chip.c1{left:0;top:18%}
+.chip.c2{right:-24px;bottom:-46px}
+.chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green-2);margin-right:6px}
+@media(max-width:560px){.chip{display:none}}
+
+/* sections */
+section{padding:84px 0}
+.sec-h{max-width:720px;margin-bottom:44px}
+.sec-h h2{font-size:clamp(32px,5vw,50px);font-weight:800;margin-top:10px}
+.sec-h p{color:var(--ink-2);margin-top:14px;font-size:19px}
+
+/* problem */
+.problem{background:var(--ink);color:var(--paper)}
+.problem .eyebrow{color:#7FD3A2}
+.problem .sec-h p{color:#C9D0CB}
+.scene{display:grid;gap:24px}
+@media(min-width:860px){.scene{grid-template-columns:1.2fr 1fr}}
+.story{background:#1D2A24;border-radius:var(--radius);padding:30px;font-size:18px;line-height:1.65;color:#E4E9E5}
+.story p+p{margin-top:14px}
+.story .time{font:700 14px Figtree;color:#7FD3A2;letter-spacing:.06em}
+.missed{background:#1D2A24;border-radius:var(--radius);padding:24px}
+.missed h3{font-size:18px;font-family:Figtree;font-weight:600;letter-spacing:0;margin-bottom:14px;color:#C9D0CB}
+.mc{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #2E3D36}
+.mc svg{width:18px;height:18px;color:var(--coral);flex:none}
+.mc div{flex:1}
+.mc b{display:block;color:#fff;font-weight:600}
+.mc small{color:#95A19A;font-size:13px}
+.mc time{font-size:13px;color:#95A19A}
+
+/* steps */
+.steps{display:grid;gap:0;counter-reset:s;border-left:3px solid var(--green-soft);padding-left:26px;max-width:760px}
+
+.step{position:relative;padding:4px 0 34px}
+.step .n{position:absolute;left:-46px;top:0;font:700 17px Fredoka;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 6px var(--paper)}
+.step h3{font-size:26px;margin:0 0 6px}
+.step p{color:var(--ink-2)}
+.step .t{display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--green);background:var(--green-soft);border-radius:999px;padding:4px 10px}
+
+/* product moment */
+.moment{background:var(--paper-2)}
+.mgrid{display:grid;gap:22px}
+@media(min-width:900px){.mgrid{grid-template-columns:1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;overflow:hidden}
+.panel h3{font:600 14px Figtree;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.learn .row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px dashed var(--line);font-size:15px}
+.learn .row span:first-child{color:var(--mute)}
+.learn .row span:last-child{font-weight:600;text-align:right}
+.learn .src{font-size:12px;color:var(--green);font-weight:600}
+.persona{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.persona span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px}
+.persona span.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.wa{background:#E4EFE6;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;background:#fff;border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:14.5px;line-height:1.45;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.msg.me{align-self:flex-end;background:#D3F2C7;border-radius:12px 12px 4px 12px}
+.msg small{display:block;text-align:right;font-size:11px;color:var(--mute);margin-top:4px}
+.scen{display:flex;flex-wrap:wrap;gap:8px}.scen button{font:600 14px Figtree,sans-serif;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:10px 14px;min-height:44px;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1)}.scen button.on{background:var(--green);border-color:var(--green);color:#fff}.scen button:active{transform:scale(.97)}
+.transcript p{opacity:0;transform:translateY(8px);transition:opacity .45s cubic-bezier(.16,1,.3,1),transform .45s cubic-bezier(.16,1,.3,1)}.transcript p.in{opacity:1;transform:none}
+.transcript{margin-top:14px;min-height:170px;font-size:14.5px;display:flex;flex-direction:column;gap:8px}
+.transcript p b{color:var(--green)}
+.transcript p.c b{color:var(--coral)}
+.disclose{margin-top:14px;font-size:13px;color:var(--mute);border-left:3px solid var(--green);padding-left:10px}
+
+/* benefits */
+.bens{display:grid;gap:18px}
+@media(min-width:760px){.bens{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.bens{grid-template-columns:repeat(4,1fr)}}
+.ben{border-top:3px solid var(--ink);padding-top:18px}
+.ben .big{font:800 46px Fredoka;letter-spacing:-.03em;color:var(--green)}
+.ben h3{font-size:20px;margin:6px 0 8px}
+.ben p{color:var(--ink-2);font-size:16px}
+.law{margin-top:44px;background:var(--coral-soft);border-radius:var(--radius);padding:24px 26px;display:flex;gap:16px;align-items:flex-start}
+.law svg{width:26px;height:26px;color:var(--coral);flex:none;margin-top:2px}
+.law p{font-size:16.5px;color:var(--ink)}
+.law a{font-weight:600}
+
+/* pricing */
+.plans{display:grid;gap:18px}
+@media(min-width:860px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
+.plan.hot{border:2px solid var(--green);position:relative}
+.plan.hot:before{content:"Recomendado";position:absolute;top:-13px;left:24px;background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.plan h3{font-size:22px}
+.plan .price{font:800 52px Fredoka;letter-spacing:-.03em;margin:10px 0 2px}
+.plan .price small{font:500 16px Figtree;color:var(--mute)}
+.plan .mins{color:var(--green);font-weight:700}
+.plan ul{list-style:none;margin:18px 0 24px;display:flex;flex-direction:column;gap:9px;font-size:15.5px;color:var(--ink-2)}
+.plan li{padding-left:24px;position:relative}
+.plan li:before{content:"";position:absolute;left:2px;top:7px;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+.plan .btn{margin-top:auto;justify-content:center}
+.note{margin-top:18px;font-size:14px;color:var(--mute)}
+
+/* faq */
+.faq{max-width:780px}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{font:700 19px Fredoka;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:26px;line-height:1;color:var(--green);transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--ink-2)}
+code{background:var(--paper-2);padding:2px 6px;border-radius:6px;font-size:.92em}
+
+/* cta */
+.cta{background:var(--green);color:#fff;border-radius:28px;padding:48px 28px;display:grid;gap:32px}
+@media(min-width:900px){.cta{grid-template-columns:1fr 1fr;padding:60px}}
+.cta h2{font-size:clamp(32px,5vw,48px);font-weight:800}
+.cta p{color:#EEF9F2;margin-top:14px;font-size:18px}
+#wait{display:flex;flex-direction:column;gap:12px}
+#wait label{font-size:14px;font-weight:600;color:#fff}
+#wait input{width:100%;border:0;border-radius:12px;padding:14px 16px;font:500 16px Figtree;margin-top:6px;color:var(--ink)}
+#wait .btn{background:var(--ink);justify-content:center;margin-top:6px}
+#wait .btn:hover{background:#000}
+.legal{font-size:13px;color:#EAF8EF}
+.thanks{display:none;background:rgba(255,255,255,.12);border-radius:18px;padding:28px}
+.thanks h3{font-size:28px;margin-bottom:10px}
+.done #wait{display:none}.done .thanks{display:block}
+
+/* round 2 */
+.navr{display:flex;align-items:center;gap:12px}.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;padding:3px}.lang a{font-size:13px;font-weight:700;text-decoration:none;padding:7px 10px;border-radius:999px;color:var(--mute);min-width:40px;text-align:center}.lang a[aria-current]{background:var(--ink);color:var(--paper)}
+@media(max-width:420px){nav .btn{display:none}}
+.navlinks{display:none;gap:26px;font-size:15px;font-weight:600;color:var(--ink-2)}
+.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--green)}
+@media(min-width:860px){.navlinks{display:flex}}
+.hero-ctas{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px}
+.ghost{font-weight:600;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--green-soft);padding-bottom:2px}
+.ghost:hover{border-color:var(--green)}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
+.trust ul{list-style:none;display:grid;gap:14px 24px;padding:20px 0;grid-template-columns:1fr}
+@media(min-width:560px){.trust ul{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.trust ul{grid-template-columns:repeat(4,1fr)}}
+.trust li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink-2)}
+.trust li b{display:block;color:var(--ink);font-weight:700}
+.trust svg{width:20px;height:20px;color:var(--green);flex:none;margin-top:2px}
+.options{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.options{grid-template-columns:repeat(3,1fr)}}
+.opt{border:1px solid #2E3D36;border-radius:14px;padding:18px;font-size:15.5px;color:#C9D0CB}
+.opt b{display:block;color:#fff;font-size:17px;margin-bottom:4px}
+.founder{display:grid;gap:22px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+@media(min-width:800px){.founder{grid-template-columns:auto 1fr;padding:40px}}
+.founder .mono{width:72px;height:72px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:800 28px Fredoka,sans-serif}
+.founder blockquote{font-size:19px;line-height:1.6;color:var(--ink)}
+.founder blockquote p+p{margin-top:12px}
+.founder cite{display:block;margin-top:16px;font-style:normal;font-size:15px;color:var(--mute)}
+.founder cite b{color:var(--ink)}
+.formsteps{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.formsteps span{font-size:13px;font-weight:600;background:rgba(255,255,255,.14);border-radius:999px;padding:5px 11px}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:var(--paper);border-radius:18px;padding:10px 10px 10px 18px;box-shadow:0 18px 40px -16px rgba(21,32,27,.6);transform:translateY(140%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky p{font-size:14px;line-height:1.3}.sticky p b{display:block;font-size:15px}
+.sticky .btn{background:var(--green-2);padding:12px 16px;font-size:15px;white-space:nowrap}
+@media(min-width:900px){.sticky{left:auto;right:24px;bottom:24px;max-width:420px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+footer{padding:40px 0 110px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .logo{font-size:18px;color:var(--ink)}
+footer .logo i{width:26px;height:26px;border-radius:8px}
+footer .logo i svg{width:14px;height:14px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-hang" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .4-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85a1 1 0 0 1-1.41-.02L.29 13.08a1 1 0 0 1 0-1.41C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67a1 1 0 0 1 0 1.41l-2.48 2.48a1 1 0 0 1-1.41.02 11.3 11.3 0 0 0-2.66-1.85 1 1 0 0 1-.56-.9v-3.1A15 15 0 0 0 12 9z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-missed" viewBox="0 0 24 24"><path d="M4 6l7 7 5-5M16 8h-4M16 8v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0zM8 21h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><i><svg><use href="#i-phone"/></svg></i>Descuélgalo</a>
+  <div class="navlinks"><a href="#como">Cómo funciona</a><a href="#precios">Precios</a><a href="#faq">Preguntas</a></div>
+  <div class="navr"><div class="lang" aria-label="Idioma"><a href="index.html" hreflang="es" aria-current="page">ES</a><a href="ca.html" hreflang="ca" lang="ca">CA</a><a href="en.html" hreflang="en" lang="en">EN</a></div><a class="btn" href="#probar">Quiero probarla</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Recepcionista con IA para talleres y pymes</span>
+    <h1>Ninguna llamada <em>sin contestar</em>. Ni con las manos ocupadas.</h1>
+    <p class="lead">Tu recepcionista con IA coge las llamadas que tú no puedes, apunta la cita y te lo resume por WhatsApp. Aprende tu negocio de tu ficha de Google. Conservas tu número.</p>
+    <form class="try" id="tryform" onsubmit="event.preventDefault();tryIt()">
+      <svg><use href="#i-search"/></svg>
+      <input id="bizname" placeholder="Escribe tu negocio: p. ej. Taller Ruiz" aria-label="Nombre de tu negocio" autocomplete="organization" maxlength="40">
+      <button class="btn green" type="submit"><svg><use href="#i-phone"/></svg>Quiero probarla</button>
+    </form>
+    <div class="hero-ctas">
+      <a class="ghost" href="#como">Ver cómo funciona</a>
+      <p class="hint" style="margin:0"><b>Piloto gratis de 30 días.</b> Sin tarjeta y sin permanencia.</p>
+    </div>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <div class="chip c1"><b><span class="dot"></span>Aprendido de Google</b>L-V 8:30-19:00 · Cambio de aceite, ITV, frenos</div>
+    <div class="phone" role="img" aria-label="Móvil recibiendo una llamada de Lucía, la recepcionista con IA"><div class="screen">
+      <div class="notch"></div>
+      <div class="incoming">Llamada entrante</div>
+      <div class="avatar">L</div>
+      <div class="caller">Lucía</div>
+      <div class="biz" id="phone-biz">Recepcionista de Taller Ruiz</div>
+      <div class="bubble"><small>Lucía dirá</small><span id="phone-line">"Taller Ruiz, buenas. Soy Lucía, la asistente virtual. ¿Te busco hueco para el lunes?"</span></div>
+      <div class="actions">
+        <div class="act no"><span><svg><use href="#i-hang"/></svg></span>Rechazar</div>
+        <div class="act yes"><span><svg><use href="#i-phone"/></svg></span>Descolgar</div>
+      </div>
+    </div></div>
+    <div class="chip c2"><b>Tras colgar</b>Te llega el resumen por WhatsApp</div>
+  </div>
+</div></header>
+
+<div class="trust"><div class="wrap"><ul>
+  <li><svg><use href="#i-check"/></svg><span><b>Piloto gratis de 30 días</b>Sin tarjeta. Si no te sirve, lo quitas.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Conservas tu número</b>Solo desvías las llamadas que no coges.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Datos en la UE, RGPD</b>Contrato de encargado del tratamiento.</span></li>
+  <li><svg><use href="#i-check"/></svg><span><b>Dice que es una IA</b>Y pasa con una persona si el cliente lo pide.</span></li>
+</ul></div></div>
+
+<section class="problem"><div class="wrap">
+  <div class="sec-h">
+    <span class="eyebrow">El problema</span>
+    <h2>El teléfono suena cuando tienes las manos ocupadas.</h2>
+    <p>No es falta de clientes. Es que nadie coge el teléfono a tiempo, y quien llama prueba con el siguiente de Google.</p>
+  </div>
+  <div class="scene">
+    <div class="story">
+      <p class="time">MARTES · 11:40 · UN TALLER DE SABADELL</p>
+      <p>Paco está debajo de un Seat León con las manos negras de grasa. El móvil del taller vibra en el banco. Luego otra vez. Y otra.</p>
+      <p>A las 14:00 se lava las manos y ve tres llamadas perdidas. Devuelve dos. Una ya pidió cita en otro taller. La otra no contesta. La tercera era un número oculto.</p>
+      <p>Nadie le avisa de lo que ha perdido. Solo lo nota a fin de mes.</p>
+    </div>
+    <div class="missed">
+      <h3>Lo que ve Paco a la hora de comer</h3>
+      <div class="mc"><svg><use href="#i-missed"/></svg><div><b>+34 6•• ••• 218</b><small>Llamada perdida · 42 s sonando</small></div><time>11:41</time></div>
+      <div class="mc"><svg><use href="#i-missed"/></svg><div><b>+34 6•• ••• 507</b><small>Llamada perdida · colgó a los 20 s</small></div><time>12:17</time></div>
+      <div class="mc"><svg><use href="#i-missed"/></svg><div><b>Número oculto</b><small>Llamada perdida</small></div><time>13:05</time></div>
+    </div>
+  </div>
+  <div class="options">
+    <div class="opt"><b>Cogerlo todo tú</b>Paras el trabajo cada diez minutos. Y a la hora de comer no hay nadie.</div>
+    <div class="opt"><b>El buzón de voz</b>Casi nadie deja mensaje. Llaman al siguiente taller de la lista.</div>
+    <div class="opt"><b>Contratar a alguien</b>Una recepcionista cuesta un sueldo entero para cubrir unas pocas horas punta.</div>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <div class="sec-h">
+    
+    <h2>De la llamada perdida a la cita, en tres pasos.</h2>
+    <p>Sin instalar nada y sin cambiar de operador. Lo dejamos funcionando contigo en una visita o una videollamada de 15 minutos.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Dinos tu negocio</h3><p>Buscamos tu ficha de Google. Tu recepcionista aprende el horario, los servicios, la dirección y lo que dice tu web. Tú solo revisas.</p><span class="t">~ 25 segundos</span></div>
+    <div class="step"><div class="n">2</div><h3>Te llama a ti</h3><p>Ya viene con nombre, voz y tono elegidos. Pon tu móvil y te llama como si fueras un cliente. Después, te manda el resumen por WhatsApp.</p><span class="t">en menos de 60 segundos</span></div>
+    <div class="step"><div class="n">3</div><h3>La activas</h3><p>Si te convence, la activas con el piloto gratis de 30 días. Te guiamos para desviar las llamadas que no coges con el código de tu operador. Conservas tu número.</p><span class="t">~ 1 minuto</span></div>
+  </div>
+</div></section>
+
+<section class="moment"><div class="wrap">
+  <div class="sec-h">
+    
+    <h2>Una llamada perdida que se convierte en cita.</h2>
+    <p>Lucía contesta, apunta lo que necesita el cliente y le escribe por WhatsApp desde el número de tu negocio.</p>
+  </div>
+  <div class="mgrid">
+    <div class="panel learn">
+      <h3>1 · Lo que ha aprendido de Taller Ruiz</h3>
+      <div class="row"><span>Horario</span><span>L-V 8:30-14:00 y 15:30-19:00 <br><span class="src">Google</span></span></div>
+      <div class="row"><span>Servicios</span><span>Pre-ITV, frenos, cambio de aceite, neumáticos <br><span class="src">Web</span></span></div>
+      <div class="row"><span>Dirección</span><span>C/ de la Indústria 12, Sabadell <br><span class="src">Google</span></span></div>
+      <div class="row"><span>Si piden presupuesto</span><span>Tomar datos y avisar a Paco <br><span class="src">Por defecto</span></span></div>
+      <div class="persona"><span class="on">Lucía</span><span class="on">Voz cálida</span><span class="on">Tuteo</span><span>Usted</span><span>Voz grave</span></div>
+      <h3 style="margin-top:22px">Prueba una llamada</h3>
+      <div class="scen" role="group" aria-label="Elige qué quiere el cliente">
+        <button type="button" class="on" data-s="cita">Pide cita</button><button type="button" data-s="precio">Pide precio</button><button type="button" data-s="humano">Quiere hablar con Paco</button>
+      </div>
+      <div class="transcript" id="transcript" aria-live="polite"></div>
+      <p class="disclose">Siempre dice que es una IA y ofrece pasar con una persona.</p>
+      <p class="disclose" style="border-color:var(--ink)"><a href="app.html">Abre el prototipo del panel del dueño</a> (datos de ejemplo).</p>
+    </div>
+    <div class="panel">
+      <h3>2 · WhatsApp, desde tu número</h3>
+      <div class="wa">
+        <div class="msg">Hola, soy Lucía de Taller Ruiz. Te confirmo cita el <b>jueves a las 9:00</b> para cambiar las pastillas de freno del León. C/ de la Indústria 12.<small>11:43</small></div>
+        <div class="msg me">Genial, allí estaré<small>11:44</small></div>
+        <div class="msg">Anotado. Si no puedes venir, responde a este mensaje y lo cambiamos.<small>11:44</small></div>
+      </div>
+      <h3 style="margin-top:22px">3 · Resumen para Paco</h3>
+      <div class="wa">
+        <div class="msg"><b>3 llamadas atendidas hoy</b><br>1 cita: jueves 9:00, frenos, León 2017<br>1 presupuesto: embrague Golf, quiere precio antes del viernes<br>1 pregunta resuelta: horario del sábado<small>14:00</small></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-h">
+    
+    <h2>Números concretos, sin promesas infladas.</h2>
+  </div>
+  <div class="bens">
+    <div class="ben"><div class="big">&lt;60 s</div><h3>Para oírla</h3><p>Desde que escribes el nombre hasta que suena tu móvil. Sin demo con un comercial.</p></div>
+    <div class="ben"><div class="big">24/7</div><h3>Contesta siempre</h3><p>A la hora de comer, con las manos ocupadas o un domingo. Tú decides cuándo entra.</p></div>
+    <div class="ben"><div class="big">€69</div><h3>Al mes, 400 minutos</h3><p>Una recepcionista a media jornada cuesta mucho más. Aquí pagas por lo que se habla.</p></div>
+    <div class="ben"><div class="big">0</div><h3>Números nuevos</h3><p>Sigues con tu número de siempre. Solo desvías las llamadas que no coges.</p></div>
+  </div>
+  <div class="law">
+    <svg><use href="#i-scale"/></svg>
+    <p><b>Preparada para la ley.</b> Desde el 28 de diciembre de 2026, la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698" target="_blank" rel="noopener">Ley 10/2025</a> da al cliente derecho a hablar con una persona por teléfono. Descuélgalo te pasa la llamada o te deja el aviso. Además, cumple el <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">AI Act (art. 50)</a>: la recepcionista siempre dice que es una IA.</p>
+  </div>
+</div></section>
+
+<section class="moment" id="precios"><div class="wrap">
+  <div class="sec-h">
+    <span class="eyebrow">Precios</span>
+    <h2>Pagas por minutos, no por comerciales.</h2>
+    <p>Piloto gratis de 30 días en todos los planes. Sin permanencia. IVA no incluido.</p>
+  </div>
+  <div class="plans">
+    <div class="plan"><h3>Básico</h3><div class="price">€39 <small>/mes</small></div><div class="mins">150 minutos</div>
+      <ul><li>Contesta las llamadas que no coges</li><li>Resumen por WhatsApp</li><li>Tu nombre, voz y tono</li><li>Minuto extra: €0,20</li></ul>
+      <a class="btn" href="#probar">Quiero probarla</a></div>
+    <div class="plan hot"><h3>Pro</h3><div class="price">€69 <small>/mes</small></div><div class="mins">400 minutos</div>
+      <ul><li>Todo lo del Básico</li><li>Seguimiento por WhatsApp desde tu número</li><li>Citas en Google Calendar</li><li>Minuto extra: €0,16</li></ul>
+      <a class="btn green" href="#probar">Quiero probarla</a></div>
+    <div class="plan"><h3>Negocio</h3><div class="price">€149 <small>/mes</small></div><div class="mins">1.000 minutos</div>
+      <ul><li>Todo lo del Pro</li><li>Varias sedes o varias líneas</li><li>Pasar llamadas a distintas personas</li><li>Minuto extra: €0,14</li></ul>
+      <a class="btn" href="#probar">Quiero probarla</a></div>
+  </div>
+  <p class="note">Precios en validación. Si entras en el piloto, mantienes el precio un año. <a href="precios.html">Calcula cuánto te cuestan las llamadas perdidas</a>.</p>
+</div></section>
+
+<section style="padding-bottom:0"><div class="wrap">
+  <div class="founder">
+    <div class="mono" aria-hidden="true">J</div>
+    <div>
+      
+      <blockquote>
+        <p>Soy Joaquín, ingeniero de software en Barcelona. Descuélgalo es un proyecto nuevo: aún no tenemos clientes y no te vamos a enseñar logos inventados.</p>
+        <p>Buscamos los primeros talleres y negocios pequeños para un piloto gratis. Lo instalo contigo, escucho cada llamada que se tuerza y la corrijo esa misma semana. Si al mes no te ha contestado llamadas que habrías perdido, lo quitas y no pagas nada.</p>
+      </blockquote>
+      <cite><b>Joaquín</b> · Fundador · Barcelona</cite>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="sec-h"><h2>Lo que nos preguntan los dueños.</h2></div>
+  <div class="faq">
+    <details><summary>¿Tengo que cambiar de número o de operador?</summary><p>No. Mantienes tu número y tu operador. Activas el desvío de llamadas no contestadas con un código en tu móvil, por ejemplo <code>**61*número#</code>. Te enseñamos el código exacto de Movistar, Vodafone, Orange y los demás, y lo comprobamos con una llamada.</p></details>
+    <details><summary>¿Se nota que es una IA?</summary><p>Sí, porque lo dice al empezar. Lo exige el AI Act europeo y creemos que es lo honesto. La voz es natural y entiende acentos, pero no finge ser una persona.</p></details>
+    <details><summary>¿Y si el cliente quiere hablar conmigo?</summary><p>Lucía te pasa la llamada o te deja el aviso con el nombre, el teléfono y el motivo. Así cumples el derecho a hablar con una persona que exige la Ley 10/2025.</p></details>
+    <details><summary>¿Cómo sabe mi horario y mis precios?</summary><p>Lee tu ficha de Google y tu web. Tú revisas lo que ha aprendido y corriges lo que haga falta, también en cualquier momento después.</p></details>
+    <details><summary>¿Y si se equivoca o no sabe contestar?</summary><p>No se inventa precios ni diagnósticos. Si no sabe algo, toma nombre, teléfono y motivo, y te avisa por WhatsApp para que llames tú. Durante el piloto revisamos las llamadas contigo y corregimos lo que falle.</p></details>
+    <details><summary>¿Cuánto tardo en ponerla en marcha?</summary><p>Unos 15 minutos. Revisas lo que ha aprendido de tu ficha de Google, eliges nombre y voz, y marcas un código de desvío en tu móvil. Lo comprobamos juntos con una llamada de prueba.</p></details>
+    <details><summary>¿Tengo permanencia o letra pequeña?</summary><p>No. El piloto es gratis 30 días y sin tarjeta. Después pagas mes a mes y lo cancelas cuando quieras. Para quitarla, desactivas el desvío con otro código.</p></details>
+    <details><summary>¿Qué pasa con los datos de mis clientes?</summary><p>Los datos se guardan en servidores de la Unión Europea y cumplimos el RGPD. Firmamos contigo un contrato de encargado del tratamiento. No usamos tus llamadas para vender nada a nadie.</p></details>
+  </div>
+</div></section>
+
+<section id="probar" style="padding-top:20px"><div class="wrap">
+  <div class="cta" id="cta">
+    <div>
+      <h2>Pide tu piloto gratis de 30 días.</h2>
+      <p>Abrimos el piloto por tandas, empezando por talleres del área de Barcelona. Déjanos tres datos y te escribimos en 24 horas laborables para preparar tu recepcionista.</p>
+      <div class="formsteps"><span>1 · Nos dejas 3 datos</span><span>2 · La configuramos contigo</span><span>3 · Contesta tus llamadas</span></div>
+    </div>
+    <div>
+      <!-- TODO: connect form -->
+      <form id="wait" onsubmit="event.preventDefault();joined()">
+        <label>Tu nombre<input name="name" required autocomplete="name" placeholder="Paco Ruiz"></label>
+        <label>Tu negocio<input name="business" id="bizfield" required autocomplete="organization" placeholder="Taller Ruiz, Sabadell"></label>
+        <label>Móvil o email<input name="contact" required autocomplete="tel" placeholder="600 000 000 o tu@email.com"></label>
+        <button class="btn" type="submit">Quiero probarla</button>
+        <p class="legal">Sin tarjeta. Solo usamos estos datos para contactarte sobre el piloto. Puedes pedir que los borremos cuando quieras (RGPD).</p>
+      </form>
+      <div class="thanks" role="status">
+        <h3>Apuntado, gracias.</h3>
+        <p id="thanksline">Te escribiremos en 24 horas laborables para preparar tu recepcionista.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="sticky" id="sticky" aria-hidden="true"><p><b>Piloto gratis de 30 días</b>Sin tarjeta · conservas tu número</p><a class="btn" href="#probar" tabindex="-1">Quiero probarla</a></div>
+
+<footer><div class="wrap">
+  <a class="logo" href="#"><i><svg><use href="#i-phone"/></svg></i>Descuélgalo</a>
+  <span>© 2026 Descuélgalo · <a href="plan.html">Plan</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+</div></footer>
+
+<script>
+var DEF='Taller Ruiz';
+function biz(){var v=(document.getElementById('bizname').value||'').trim();return v||DEF;}
+document.getElementById('bizname').addEventListener('input',function(){
+  var b=biz();
+  document.getElementById('phone-biz').textContent='Recepcionista de '+b;
+  document.getElementById('phone-line').textContent='"'+b+', buenas. Soy Lucía, la asistente virtual. ¿En qué te ayudo?"';
+});
+var SC={
+ cita:[['c','Hola, ¿tenéis hueco para cambiar las pastillas de freno esta semana?'],['l','Hola, soy Lucía, la asistente virtual de {b}. El jueves a las 9:00 hay hueco. ¿Te lo reservo?'],['c','Perfecto. Es un León de 2017.'],['l','Apuntado. Te mando la confirmación por WhatsApp.']],
+ precio:[['c','¿Cuánto me cobráis por cambiar el embrague de un Golf?'],['l','Depende del modelo y de las piezas, así que no te doy un precio a ciegas. Tomo tus datos y Paco te llama hoy con el presupuesto.'],['c','Vale. Soy Marta, apunta mi móvil.'],['l','Gracias, Marta. Paco tiene tu aviso por WhatsApp ahora mismo.']],
+ humano:[['c','Prefiero hablar con alguien de ahí, por favor.'],['l','Claro. Te paso con Paco ahora mismo.'],['l','Si no lo coge, le dejo tu nombre y tu número y te llama en cuanto pueda.'],['c','Perfecto, gracias.']]
+};
+var tmr=[];
+function play(k){
+  tmr.forEach(clearTimeout);tmr=[];
+  var t=document.getElementById('transcript');t.innerHTML='';
+  var red=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  SC[k].forEach(function(m,i){
+    var p=document.createElement('p');if(m[0]=='c')p.className='c';
+    var b=document.createElement('b');b.textContent=m[0]=='c'?'Cliente: ':'Lucía: ';
+    p.appendChild(b);p.appendChild(document.createTextNode(m[1].replace('{b}',biz())));t.appendChild(p);
+    tmr.push(setTimeout(function(){p.classList.add('in');},red?0:250+i*900));
+  });
+}
+document.querySelectorAll('.scen button').forEach(function(bt){bt.addEventListener('click',function(){
+  document.querySelectorAll('.scen button').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+  bt.classList.add('on');bt.setAttribute('aria-pressed','true');play(bt.dataset.s);});});
+if('IntersectionObserver' in window){var seen=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!seen){seen=true;play('cita');}}).observe(document.getElementById('transcript'));}else play('cita');
+function tryIt(){
+  var v=(document.getElementById('bizname').value||'').trim();
+  if(v){
+    document.getElementById('phone-biz').textContent='Recepcionista de '+v;
+    document.getElementById('phone-line').textContent='"'+v+', buenas. Soy Lucía, la asistente virtual. ¿En qué te ayudo?"';
+    document.getElementById('bizfield').value=v;
+  }
+  document.getElementById('probar').scrollIntoView({behavior:'smooth'});
+}
+function joined(){
+  // No backend: nothing is stored.
+  var f=document.getElementById('wait');
+  var n=(f.elements['name'].value||'').trim().split(' ')[0];
+  if(n) document.getElementById('thanksline').textContent='Gracias, '+n+'. Te escribiremos en 24 horas laborables para preparar tu recepcionista.';
+  f.reset();
+  document.getElementById('cta').classList.add('done');
+}
+(function(){
+  var st=document.getElementById('sticky'),hero=document.querySelector('.hero'),cta=document.getElementById('probar');
+  if(!('IntersectionObserver' in window))return;
+  var heroVis=true,ctaVis=false;
+  function upd(){var on=!heroVis&&!ctaVis;st.classList.toggle('show',on);st.setAttribute('aria-hidden',on?'false':'true');st.querySelector('a').tabIndex=on?0:-1;}
+  new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd();}).observe(hero);
+  new IntersectionObserver(function(e){ctaVis=e[0].isIntersecting;upd();}).observe(cta);
+})();
+</script>
+</body>
+</html>
